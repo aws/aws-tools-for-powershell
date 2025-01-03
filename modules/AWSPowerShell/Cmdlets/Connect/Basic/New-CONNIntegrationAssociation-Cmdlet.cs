@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter IntegrationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the integration.</para><note><para>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint instances
-        /// must be in the same account.</para></note>
+        /// <para>The Amazon Resource Name (ARN) of the integration.</para><note><para>When integrating with Amazon Web Services End User Messaging, the Amazon Connect and
+        /// Amazon Web Services End User Messaging instances must be in the same account.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

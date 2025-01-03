@@ -135,7 +135,7 @@ $KNDR_Completers = {
         # Amazon.Kendra.IndexEdition
         "New-KNDRIndex/Edition"
         {
-            $v = "DEVELOPER_EDITION","ENTERPRISE_EDITION"
+            $v = "DEVELOPER_EDITION","ENTERPRISE_EDITION","GEN_AI_ENTERPRISE_EDITION"
             break
         }
 

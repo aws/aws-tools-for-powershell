@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Int32? ScalingConfig_DesiredSize { get; set; }
         #endregion
         
+        #region Parameter NodeRepairConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable node auto repair for the node group. Node auto repair
+        /// is disabled by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NodeRepairConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfig_MaxSize
         /// <summary>
         /// <para>
@@ -272,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter NodegroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NodeRepairConfig_Enabled = this.NodeRepairConfig_Enabled;
             context.ScalingConfig_DesiredSize = this.ScalingConfig_DesiredSize;
             context.ScalingConfig_MaxSize = this.ScalingConfig_MaxSize;
             context.ScalingConfig_MinSize = this.ScalingConfig_MinSize;
@@ -341,6 +353,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.NodegroupName != null)
             {
                 request.NodegroupName = cmdletContext.NodegroupName;
+            }
+            
+             // populate NodeRepairConfig
+            var requestNodeRepairConfigIsNull = true;
+            request.NodeRepairConfig = new Amazon.EKS.Model.NodeRepairConfig();
+            System.Boolean? requestNodeRepairConfig_nodeRepairConfig_Enabled = null;
+            if (cmdletContext.NodeRepairConfig_Enabled != null)
+            {
+                requestNodeRepairConfig_nodeRepairConfig_Enabled = cmdletContext.NodeRepairConfig_Enabled.Value;
+            }
+            if (requestNodeRepairConfig_nodeRepairConfig_Enabled != null)
+            {
+                request.NodeRepairConfig.Enabled = requestNodeRepairConfig_nodeRepairConfig_Enabled.Value;
+                requestNodeRepairConfigIsNull = false;
+            }
+             // determine if request.NodeRepairConfig should be set to null
+            if (requestNodeRepairConfigIsNull)
+            {
+                request.NodeRepairConfig = null;
             }
             
              // populate ScalingConfig
@@ -505,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public Dictionary<System.String, System.String> Labels_AddOrUpdateLabel { get; set; }
             public List<System.String> Labels_RemoveLabel { get; set; }
             public System.String NodegroupName { get; set; }
+            public System.Boolean? NodeRepairConfig_Enabled { get; set; }
             public System.Int32? ScalingConfig_DesiredSize { get; set; }
             public System.Int32? ScalingConfig_MaxSize { get; set; }
             public System.Int32? ScalingConfig_MinSize { get; set; }

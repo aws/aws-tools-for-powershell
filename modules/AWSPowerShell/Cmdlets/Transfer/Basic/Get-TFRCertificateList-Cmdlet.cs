@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of certificates to return.</para>
+        /// <para>The maximum number of items to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

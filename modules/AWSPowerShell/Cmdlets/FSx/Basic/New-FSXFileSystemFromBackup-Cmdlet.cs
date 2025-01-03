@@ -368,6 +368,32 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter ReadCacheConfiguration_SizeGiB
+        /// <summary>
+        /// <para>
+        /// <para> Required if <c>SizingMode</c> is set to <c>USER_PROVISIONED</c>. Specifies the size
+        /// of the file system's SSD read cache, in gibibytes (GiB). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_ReadCacheConfiguration_SizeGiB")]
+        public System.Int32? ReadCacheConfiguration_SizeGiB { get; set; }
+        #endregion
+        
+        #region Parameter ReadCacheConfiguration_SizingMode
+        /// <summary>
+        /// <para>
+        /// <para> Specifies how the provisioned SSD read cache is sized, as follows: </para><ul><li><para>Set to <c>NO_CACHE</c> if you do not want to use an SSD read cache with your Intelligent-Tiering
+        /// file system.</para></li><li><para>Set to <c>USER_PROVISIONED</c> to specify the exact size of your SSD read cache.</para></li><li><para>Set to <c>PROPORTIONAL_TO_THROUGHPUT_CAPACITY</c> to have your SSD read cache automatically
+        /// sized based on your throughput capacity.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenZFSConfiguration_ReadCacheConfiguration_SizingMode")]
+        [AWSConstantClassSource("Amazon.FSx.OpenZFSReadCacheSizingMode")]
+        public Amazon.FSx.OpenZFSReadCacheSizingMode ReadCacheConfiguration_SizingMode { get; set; }
+        #endregion
+        
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
@@ -544,6 +570,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.DiskIopsConfiguration_Mode = this.DiskIopsConfiguration_Mode;
             context.OpenZFSConfiguration_EndpointIpAddressRange = this.OpenZFSConfiguration_EndpointIpAddressRange;
             context.OpenZFSConfiguration_PreferredSubnetId = this.OpenZFSConfiguration_PreferredSubnetId;
+            context.ReadCacheConfiguration_SizeGiB = this.ReadCacheConfiguration_SizeGiB;
+            context.ReadCacheConfiguration_SizingMode = this.ReadCacheConfiguration_SizingMode;
             context.RootVolumeConfiguration_CopyTagsToSnapshot = this.RootVolumeConfiguration_CopyTagsToSnapshot;
             context.RootVolumeConfiguration_DataCompressionType = this.RootVolumeConfiguration_DataCompressionType;
             if (this.RootVolumeConfiguration_NfsExport != null)
@@ -758,6 +786,41 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 request.OpenZFSConfiguration.DiskIopsConfiguration = requestOpenZFSConfiguration_openZFSConfiguration_DiskIopsConfiguration;
                 requestOpenZFSConfigurationIsNull = false;
             }
+            Amazon.FSx.Model.OpenZFSReadCacheConfiguration requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration = null;
+            
+             // populate ReadCacheConfiguration
+            var requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull = true;
+            requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration = new Amazon.FSx.Model.OpenZFSReadCacheConfiguration();
+            System.Int32? requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB = null;
+            if (cmdletContext.ReadCacheConfiguration_SizeGiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB = cmdletContext.ReadCacheConfiguration_SizeGiB.Value;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration.SizeGiB = requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizeGiB.Value;
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull = false;
+            }
+            Amazon.FSx.OpenZFSReadCacheSizingMode requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode = null;
+            if (cmdletContext.ReadCacheConfiguration_SizingMode != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode = cmdletContext.ReadCacheConfiguration_SizingMode;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode != null)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration.SizingMode = requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration_readCacheConfiguration_SizingMode;
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull = false;
+            }
+             // determine if requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration should be set to null
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfigurationIsNull)
+            {
+                requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration = null;
+            }
+            if (requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration != null)
+            {
+                request.OpenZFSConfiguration.ReadCacheConfiguration = requestOpenZFSConfiguration_openZFSConfiguration_ReadCacheConfiguration;
+                requestOpenZFSConfigurationIsNull = false;
+            }
             Amazon.FSx.Model.OpenZFSCreateRootVolumeConfiguration requestOpenZFSConfiguration_openZFSConfiguration_RootVolumeConfiguration = null;
             
              // populate RootVolumeConfiguration
@@ -937,6 +1000,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.DiskIopsConfigurationMode DiskIopsConfiguration_Mode { get; set; }
             public System.String OpenZFSConfiguration_EndpointIpAddressRange { get; set; }
             public System.String OpenZFSConfiguration_PreferredSubnetId { get; set; }
+            public System.Int32? ReadCacheConfiguration_SizeGiB { get; set; }
+            public Amazon.FSx.OpenZFSReadCacheSizingMode ReadCacheConfiguration_SizingMode { get; set; }
             public System.Boolean? RootVolumeConfiguration_CopyTagsToSnapshot { get; set; }
             public Amazon.FSx.OpenZFSDataCompressionType RootVolumeConfiguration_DataCompressionType { get; set; }
             public List<Amazon.FSx.Model.OpenZFSNfsExport> RootVolumeConfiguration_NfsExport { get; set; }

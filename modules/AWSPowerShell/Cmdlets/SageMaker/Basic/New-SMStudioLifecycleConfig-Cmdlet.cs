@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a new Amazon SageMaker Studio Lifecycle Configuration.
+    /// Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.
     /// </summary>
     [Cmdlet("New", "SMStudioLifecycleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StudioLifecycleConfigContent
         /// <summary>
         /// <para>
-        /// <para>The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content
-        /// must be base64 encoded.</para>
+        /// <para>The content of your Amazon SageMaker AI Studio Lifecycle Configuration script. This
+        /// content must be base64 encoded.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StudioLifecycleConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker Studio Lifecycle Configuration to create.</para>
+        /// <para>The name of the Amazon SageMaker AI Studio Lifecycle Configuration to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

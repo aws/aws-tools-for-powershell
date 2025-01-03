@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// The blackhole state indicates that the route's target isn't available (for example,
         /// the specified gateway isn't attached to the VPC, the specified NAT instance has been
         /// terminated, and so on).</para></li><li><para><c>route.vpc-peering-connection-id</c> - The ID of a VPC peering connection specified
-        /// in a route in the table.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// in a route in the table.</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC for the route table.</para></li></ul>
         /// </para>

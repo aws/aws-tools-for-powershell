@@ -1,0 +1,3 @@
+﻿# SecurityIR
+
+Export-ModuleMember -Alias *

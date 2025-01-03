@@ -10,7 +10,10 @@
     <ServiceClient>AmazonQBusinessClient</ServiceClient>
     <ServiceModuleGuid>a9f5c6f6-8f98-4312-a388-1750725f0f4b</ServiceModuleGuid>
     <PipelineParameter />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Associate" To="Add" />
+        <Map From="Disassociate" To="Remove" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -18,6 +21,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociatePermission" OutputProperty="Statement" Verb="Add" Noun="Permission" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteDocument" OutputProperty="FailedDocuments" Verb="Remove" Noun="BatchDeleteDocument" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +38,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataAccessor" OutputProperty="*" Verb="New" Noun="DataAccessor" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataAccessor" Verb="Remove" Noun="DataAccessor" ShouldProcessTarget="DataAccessorId" PipelineParameter="DataAccessorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -111,11 +126,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="StatementId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetChatControlsConfiguration" OutputProperty="*" Verb="Get" Noun="ChatControlsConfiguration" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataAccessor" OutputProperty="*" Verb="Get" Noun="DataAccessor" PipelineParameter="DataAccessorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,7 +154,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMedia" OutputProperty="*" Verb="Get" Noun="Media" PipelineParameter="MediaId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPlugin" OutputProperty="*" Verb="Get" Noun="Plugin" PipelineParameter="PluginId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,7 +182,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachments" OutputProperty="Attachments" Verb="Get" Noun="AttachmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConversations" OutputProperty="Conversations" Verb="Get" Noun="ConversationList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataAccessors" OutputProperty="DataAccessors" Verb="Get" Noun="DataAccessorList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,7 +218,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPluginActions" OutputProperty="Items" Verb="Get" Noun="PluginActionList" PipelineParameter="PluginId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPlugins" OutputProperty="Plugins" Verb="Get" Noun="PluginList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPluginTypeActions" OutputProperty="Items" Verb="Get" Noun="PluginTypeActionList" PipelineParameter="PluginType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPluginTypeMetadata" OutputProperty="Items" Verb="Get" Noun="PluginTypeMetadataList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -200,6 +251,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutGroup" Verb="Write" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchRelevantContent" OutputProperty="RelevantContent" Verb="Search" Noun="RelevantContent" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,6 +279,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChatControlsConfiguration" Verb="Update" Noun="ChatControlsConfiguration" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataAccessor" Verb="Update" Noun="DataAccessor" ShouldProcessTarget="DataAccessorId" PipelineParameter="DataAccessorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

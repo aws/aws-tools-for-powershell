@@ -87,7 +87,7 @@ $QC_Completers = {
             ($_ -eq "New-QCAIAgent/Type")
         }
         {
-            $v = "ANSWER_RECOMMENDATION","MANUAL_SEARCH"
+            $v = "ANSWER_RECOMMENDATION","MANUAL_SEARCH","SELF_SERVICE"
             break
         }
 
@@ -108,7 +108,7 @@ $QC_Completers = {
         # Amazon.QConnect.AIPromptType
         "New-QCAIPrompt/Type"
         {
-            $v = "ANSWER_GENERATION","INTENT_LABELING_GENERATION","QUERY_REFORMULATION"
+            $v = "ANSWER_GENERATION","INTENT_LABELING_GENERATION","QUERY_REFORMULATION","SELF_SERVICE_ANSWER_GENERATION","SELF_SERVICE_PRE_PROCESSING"
             break
         }
 
@@ -126,6 +126,13 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.ChannelSubtype
+        "New-QCMessageTemplate/ChannelSubtype"
+        {
+            $v = "EMAIL","SMS"
+            break
+        }
+
         # Amazon.QConnect.ChunkingStrategy
         "New-QCKnowledgeBase/ChunkingConfiguration_ChunkingStrategy"
         {
@@ -137,6 +144,13 @@ $QC_Completers = {
         "New-QCContentAssociation/AssociationType"
         {
             $v = "AMAZON_CONNECT_GUIDE"
+            break
+        }
+
+        # Amazon.QConnect.ContentDisposition
+        "New-QCMessageTemplateAttachment/ContentDisposition"
+        {
+            $v = "ATTACHMENT"
             break
         }
 
@@ -168,8 +182,18 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.MessageType
+        "Send-QCMessage/Type"
+        {
+            $v = "TEXT"
+            break
+        }
+
         # Amazon.QConnect.Order
-        "Search-QCQuickResponse/OrderOnField_Order"
+        {
+            ($_ -eq "Search-QCMessageTemplate/OrderOnField_Order") -Or
+            ($_ -eq "Search-QCQuickResponse/OrderOnField_Order")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -218,8 +242,10 @@ $QC_Completers = {
         # Amazon.QConnect.VisibilityStatus
         {
             ($_ -eq "New-QCAIAgent/VisibilityStatus") -Or
+            ($_ -eq "New-QCAIGuardrail/VisibilityStatus") -Or
             ($_ -eq "New-QCAIPrompt/VisibilityStatus") -Or
             ($_ -eq "Update-QCAIAgent/VisibilityStatus") -Or
+            ($_ -eq "Update-QCAIGuardrail/VisibilityStatus") -Or
             ($_ -eq "Update-QCAIPrompt/VisibilityStatus")
         }
         {
@@ -246,20 +272,22 @@ $QC_map = @{
     "AiAgentType"=@("Remove-QCAssistantAIAgent","Update-QCAssistantAIAgent")
     "ApiFormat"=@("New-QCAIPrompt")
     "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
+    "ChannelSubtype"=@("New-QCMessageTemplate")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-QCKnowledgeBase")
+    "ContentDisposition"=@("New-QCMessageTemplateAttachment")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
     "Namespace"=@("Update-QCSessionData")
-    "OrderOnField_Order"=@("Search-QCQuickResponse")
+    "OrderOnField_Order"=@("Search-QCMessageTemplate","Search-QCQuickResponse")
     "Origin"=@("Get-QCAIAgentList","Get-QCAIAgentVersionList","Get-QCAIPromptList","Get-QCAIPromptVersionList")
     "OverrideKnowledgeBaseSearchType"=@("Search-QCAssistant")
     "ParsingConfiguration_ParsingStrategy"=@("New-QCKnowledgeBase")
     "TargetType"=@("Write-QCFeedback")
     "TemplateType"=@("New-QCAIPrompt")
-    "Type"=@("New-QCAIAgent","New-QCAIPrompt","New-QCAssistant")
-    "VisibilityStatus"=@("New-QCAIAgent","New-QCAIPrompt","Update-QCAIAgent","Update-QCAIPrompt")
+    "Type"=@("New-QCAIAgent","New-QCAIPrompt","New-QCAssistant","Send-QCMessage")
+    "VisibilityStatus"=@("New-QCAIAgent","New-QCAIGuardrail","New-QCAIPrompt","Update-QCAIAgent","Update-QCAIGuardrail","Update-QCAIPrompt")
     "WebCrawlerConfiguration_Scope"=@("New-QCKnowledgeBase")
 }
 
@@ -313,8 +341,11 @@ $QC_SelectCompleters = {
 }
 
 $QC_SelectMap = @{
-    "Select"=@("New-QCAIAgent",
+    "Select"=@("Enable-QCMessageTemplate",
+               "New-QCAIAgent",
                "New-QCAIAgentVersion",
+               "New-QCAIGuardrail",
+               "New-QCAIGuardrailVersion",
                "New-QCAIPrompt",
                "New-QCAIPromptVersion",
                "New-QCAssistant",
@@ -322,10 +353,16 @@ $QC_SelectMap = @{
                "New-QCContent",
                "New-QCContentAssociation",
                "New-QCKnowledgeBase",
+               "New-QCMessageTemplate",
+               "New-QCMessageTemplateAttachment",
+               "New-QCMessageTemplateVersion",
                "New-QCQuickResponse",
                "New-QCSession",
+               "Disable-QCMessageTemplate",
                "Remove-QCAIAgent",
                "Remove-QCAIAgentVersion",
+               "Remove-QCAIGuardrail",
+               "Remove-QCAIGuardrailVersion",
                "Remove-QCAIPrompt",
                "Remove-QCAIPromptVersion",
                "Remove-QCAssistant",
@@ -334,8 +371,11 @@ $QC_SelectMap = @{
                "Remove-QCContentAssociation",
                "Remove-QCImportJob",
                "Remove-QCKnowledgeBase",
+               "Remove-QCMessageTemplate",
+               "Remove-QCMessageTemplateAttachment",
                "Remove-QCQuickResponse",
                "Get-QCAIAgent",
+               "Get-QCAIGuardrail",
                "Get-QCAIPrompt",
                "Get-QCAssistant",
                "Get-QCAssistantAssociation",
@@ -344,11 +384,15 @@ $QC_SelectMap = @{
                "Get-QCContentSummary",
                "Get-QCImportJob",
                "Get-QCKnowledgeBase",
+               "Get-QCMessageTemplate",
+               "Get-QCNextMessage",
                "Get-QCQuickResponse",
                "Get-QCRecommendation",
                "Get-QCSession",
                "Get-QCAIAgentList",
                "Get-QCAIAgentVersionList",
+               "Get-QCAIGuardrailList",
+               "Get-QCAIGuardrailVersionList",
                "Get-QCAIPromptList",
                "Get-QCAIPromptVersionList",
                "Get-QCAssistantAssociationList",
@@ -357,6 +401,9 @@ $QC_SelectMap = @{
                "Get-QCContentList",
                "Get-QCImportJobList",
                "Get-QCKnowledgeBasisList",
+               "Get-QCMessageList",
+               "Get-QCMessageTemplateList",
+               "Get-QCMessageTemplateVersionList",
                "Get-QCQuickResponseList",
                "Get-QCResourceTag",
                "Remove-QCRecommendationsReceived",
@@ -364,18 +411,24 @@ $QC_SelectMap = @{
                "Search-QCAssistant",
                "Remove-QCAssistantAIAgent",
                "Remove-QCKnowledgeBaseTemplateUri",
+               "Invoke-QCMessageTemplate",
                "Search-QCContent",
+               "Search-QCMessageTemplate",
                "Search-QCQuickResponse",
                "Search-QCSession",
+               "Send-QCMessage",
                "Start-QCContentUpload",
                "Start-QCImportJob",
                "Add-QCResourceTag",
                "Remove-QCResourceTag",
                "Update-QCAIAgent",
+               "Update-QCAIGuardrail",
                "Update-QCAIPrompt",
                "Update-QCAssistantAIAgent",
                "Update-QCContent",
                "Update-QCKnowledgeBaseTemplateUri",
+               "Update-QCMessageTemplate",
+               "Update-QCMessageTemplateMetadata",
                "Update-QCQuickResponse",
                "Update-QCSession",
                "Update-QCSessionData")

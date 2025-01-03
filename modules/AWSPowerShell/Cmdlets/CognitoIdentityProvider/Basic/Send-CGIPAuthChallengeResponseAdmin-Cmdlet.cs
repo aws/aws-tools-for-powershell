@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Servicesservice, Amazon Simple Notification Service might place your account in the
+    /// Services service, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AnalyticsMetadata_AnalyticsEndpointId
         /// <summary>
         /// <para>
-        /// <para>The endpoint ID.</para>
+        /// <para>The endpoint ID. Information that you want to pass to Amazon Pinpoint about where
+        /// to send notifications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ChallengeName
         /// <summary>
         /// <para>
-        /// <para>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</para>
+        /// <para>The name of the challenge that you are responding to. You can find more information
+        /// about values for <c>ChallengeName</c> in the response parameters of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html#CognitoUserPools-AdminInitiateAuth-response-ChallengeName">AdminInitiateAuth</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,9 +109,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The responses to the challenge that you received in the previous request. Each challenge
         /// has its own required response parameters. The following examples are partial JSON
         /// request bodies that highlight challenge-response parameters.</para><important><para>You must provide a SECRET_HASH parameter in all challenge responses to an app client
-        /// that has a client secret.</para></important><dl><dt>SMS_MFA</dt><dd><para><c>"ChallengeName": "SMS_MFA", "ChallengeResponses": {"SMS_MFA_CODE": "[code]", "USERNAME":
+        /// that has a client secret. Include a <c>DEVICE_KEY</c> for device authentication.</para></important><dl><dt>SELECT_CHALLENGE</dt><dd><para><c>"ChallengeName": "SELECT_CHALLENGE", "ChallengeResponses": { "USERNAME": "[username]",
+        /// "ANSWER": "[Challenge name]"}</c></para><para>Available challenges are <c>PASSWORD</c>, <c>PASSWORD_SRP</c>, <c>EMAIL_OTP</c>, <c>SMS_OTP</c>,
+        /// and <c>WEB_AUTHN</c>.</para><para>Complete authentication in the <c>SELECT_CHALLENGE</c> response for <c>PASSWORD</c>,
+        /// <c>PASSWORD_SRP</c>, and <c>WEB_AUTHN</c>:</para><ul><li><para><c>"ChallengeName": "SELECT_CHALLENGE", "ChallengeResponses": { "ANSWER": "WEB_AUTHN",
+        /// "USERNAME": "[username]", "CREDENTIAL": "[AuthenticationResponseJSON]"}</c></para><para>See <a href="https://www.w3.org/TR/webauthn-3/#dictdef-authenticationresponsejson">
+        /// AuthenticationResponseJSON</a>.</para></li><li><para><c>"ChallengeName": "SELECT_CHALLENGE", "ChallengeResponses": { "ANSWER": "PASSWORD",
+        /// "USERNAME": "[username]", "PASSWORD": "[password]"}</c></para></li><li><para><c>"ChallengeName": "SELECT_CHALLENGE", "ChallengeResponses": { "ANSWER": "PASSWORD_SRP",
+        /// "USERNAME": "[username]", "SRP_A": "[SRP_A]"}</c></para></li></ul><para>For <c>SMS_OTP</c> and <c>EMAIL_OTP</c>, respond with the username and answer. Your
+        /// user pool will send a code for the user to submit in the next challenge response.</para><ul><li><para><c>"ChallengeName": "SELECT_CHALLENGE", "ChallengeResponses": { "ANSWER": "SMS_OTP",
+        /// "USERNAME": "[username]"}</c></para></li><li><para><c>"ChallengeName": "SELECT_CHALLENGE", "ChallengeResponses": { "ANSWER": "EMAIL_OTP",
+        /// "USERNAME": "[username]"}</c></para></li></ul></dd><dt>SMS_OTP</dt><dd><para><c>"ChallengeName": "SMS_OTP", "ChallengeResponses": {"SMS_OTP_CODE": "[code]", "USERNAME":
         /// "[username]"}</c></para></dd><dt>EMAIL_OTP</dt><dd><para><c>"ChallengeName": "EMAIL_OTP", "ChallengeResponses": {"EMAIL_OTP_CODE": "[code]",
-        /// "USERNAME": "[username]"}</c></para></dd><dt>PASSWORD_VERIFIER</dt><dd><para>This challenge response is part of the SRP flow. Amazon Cognito requires that your
+        /// "USERNAME": "[username]"}</c></para></dd><dt>SMS_MFA</dt><dd><para><c>"ChallengeName": "SMS_MFA", "ChallengeResponses": {"SMS_MFA_CODE": "[code]", "USERNAME":
+        /// "[username]"}</c></para></dd><dt>PASSWORD_VERIFIER</dt><dd><para>This challenge response is part of the SRP flow. Amazon Cognito requires that your
         /// application respond to this challenge within a few seconds. When the response time
         /// exceeds this period, your user pool returns a <c>NotAuthorizedException</c> error.</para><para><c>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses": {"PASSWORD_CLAIM_SIGNATURE":
         /// "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
@@ -141,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID.</para>
+        /// <para>The ID of the app client where you initiated sign-in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,16 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>A map of custom key-value pairs that you can provide as input for any custom workflows
         /// that this action triggers.</para><para>You create custom workflows by assigning Lambda functions to user pool triggers. When
         /// you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions
-        /// that you have assigned to the following triggers: </para><ul><li><para>pre sign-up</para></li><li><para>custom message</para></li><li><para>post authentication</para></li><li><para>user migration</para></li><li><para>pre token generation</para></li><li><para>define auth challenge</para></li><li><para>create auth challenge</para></li><li><para>verify auth challenge response</para></li></ul><para>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which
+        /// that you have assigned to the following triggers: </para><ul><li><para>Pre sign-up</para></li><li><para>custom message</para></li><li><para>Post authentication</para></li><li><para>User migration</para></li><li><para>Pre token generation</para></li><li><para>Define auth challenge</para></li><li><para>Create auth challenge</para></li><li><para>Verify auth challenge response</para></li></ul><para>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which
         /// the function receives as input. This payload contains a <c>clientMetadata</c> attribute
         /// that provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge
         /// request. In your function code in Lambda, you can process the <c>clientMetadata</c>
         /// value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
         /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the
-        /// following:</para><ul><li><para>Store the ClientMetadata value. This data is available only to Lambda triggers that
-        /// are assigned to a user pool to support custom workflows. If your user pool configuration
-        /// doesn't include triggers, the ClientMetadata parameter serves no purpose.</para></li><li><para>Validate the ClientMetadata value.</para></li><li><para>Encrypt the ClientMetadata value. Don't use Amazon Cognito to provide sensitive information.</para></li></ul></note>
+        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
+        /// that are assigned to a user pool to support custom workflows. If your user pool configuration
+        /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
+        /// parameter.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_HttpHeader
         /// <summary>
         /// <para>
-        /// <para>HttpHeaders received on your server in same order.</para>
+        /// <para>The HTTP headers from your user's authentication request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_ServerName
         /// <summary>
         /// <para>
-        /// <para>Your server endpoint where this API is invoked.</para>
+        /// <para>The name of your application's service endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ContextData_ServerPath
         /// <summary>
         /// <para>
-        /// <para>Your server path where this API is invoked.</para>
+        /// <para>The path of your application's service endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,11 +247,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session that should be passed both ways in challenge-response calls to the service.
-        /// If an <c>InitiateAuth</c> or <c>RespondToAuthChallenge</c> API call determines that
-        /// the caller must pass another challenge, it returns a session with other challenge
-        /// parameters. This session should be passed as it is to the next <c>RespondToAuthChallenge</c>
-        /// API call.</para>
+        /// <para>The session identifier that maintains the state of authentication requests and challenge
+        /// responses. If an <c>AdminInitiateAuth</c> or <c>AdminRespondToAuthChallenge</c> API
+        /// request results in a determination that your application must pass another challenge,
+        /// Amazon Cognito returns a session with other challenge parameters. Send this session
+        /// identifier, unmodified, to the next <c>AdminRespondToAuthChallenge</c> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Cognito user pool.</para>
+        /// <para>The ID of the user pool where you want to respond to an authentication challenge.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

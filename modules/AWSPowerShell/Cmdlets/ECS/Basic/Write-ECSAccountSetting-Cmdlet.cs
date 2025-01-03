@@ -63,7 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// account is affected. The opt-in and opt-out account setting must be set for each Amazon
         /// ECS resource separately. The ARN and resource ID format of a resource is defined by
         /// the opt-in status of the user or role that created the resource. You must turn on
-        /// this setting to use Amazon ECS features such as resource tagging.</para></li><li><para><c>containerInstanceLongArnFormat</c> - When modified, the Amazon Resource Name (ARN)
+        /// this setting to use Amazon ECS features such as resource tagging.</para></li><li><para><c>fargateFIPSMode</c> - When turned on, you can run Fargate workloads in a manner
+        /// that is compliant with Federal Information Processing Standard (FIPS-140). For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html">Fargate
+        /// Federal Information Processing Standard (FIPS-140)</a>.</para></li><li><para><c>containerInstanceLongArnFormat</c> - When modified, the Amazon Resource Name (ARN)
         /// and resource ID format of the resource type for a specified user, role, or the root
         /// user for an account is affected. The opt-in and opt-out account setting must be set
         /// for each Amazon ECS resource separately. The ARN and resource ID format of a resource
@@ -73,12 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// is turned on, any new container instances that support the feature are launched have
         /// the increased ENI limits available to them. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic
         /// Network Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para></li><li><para><c>containerInsights</c> - When modified, the default setting indicating whether
-        /// Amazon Web Services CloudWatch Container Insights is turned on for your clusters is
-        /// changed. If <c>containerInsights</c> is turned on, any new clusters that are created
-        /// will have Container Insights turned on unless you disable it during cluster creation.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
-        /// Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para></li><li><para><c>dualStackIPv6</c> - When turned on, when using a VPC in dual stack mode, your
+        /// Guide</i>.</para></li><li><para><c>containerInsights</c> - Container Insights with enhanced observability provides
+        /// all the Container Insights metrics, plus additional task and container metrics. This
+        /// version supports enhanced observability for Amazon ECS clusters using the Amazon EC2
+        /// and Fargate launch types. After you configure Container Insights with enhanced observability
+        /// on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry
+        /// from the cluster level down to the container level in your environment and displays
+        /// these critical performance data in curated dashboards removing the heavy lifting in
+        /// observability set-up. </para><para>To use Container Insights with enhanced observability, set the <c>containerInsights</c>
+        /// account setting to <c>enhanced</c>.</para><para>To use Container Insights, set the <c>containerInsights</c> account setting to <c>enabled</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">Monitor
+        /// Amazon ECS containers using Container Insights with enhanced observability</a> in
+        /// the <i>Amazon Elastic Container Service Developer Guide</i>.</para></li><li><para><c>dualStackIPv6</c> - When turned on, when using a VPC in dual stack mode, your
         /// tasks using the <c>awsvpc</c> network mode can have an IPv6 address assigned. For
         /// more information on using IPv6 with tasks launched on Amazon EC2 instances, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-awsvpc.html#task-networking-vpc-dual-stack">Using
         /// a VPC in dual-stack mode</a>. For more information on using IPv6 with tasks launched
@@ -131,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The account setting value for the specified principal ARN. Accepted values are <c>enabled</c>,
-        /// <c>disabled</c>, <c>on</c>, and <c>off</c>.</para><para>When you specify <c>fargateTaskRetirementWaitPeriod</c> for the <c>name</c>, the following
+        /// <c>disabled</c>, <c>enhanced</c>, <c>on</c>, and <c>off</c>.</para><para>When you specify <c>fargateTaskRetirementWaitPeriod</c> for the <c>name</c>, the following
         /// are the valid values:</para><ul><li><para><c>0</c> - Amazon Web Services sends the notification, and immediately retires the
         /// affected tasks.</para></li><li><para><c>7</c> - Amazon Web Services sends the notification, and waits 7 calendar days
         /// to retire the tasks.</para></li><li><para><c>14</c> - Amazon Web Services sends the notification, and waits 14 calendar days

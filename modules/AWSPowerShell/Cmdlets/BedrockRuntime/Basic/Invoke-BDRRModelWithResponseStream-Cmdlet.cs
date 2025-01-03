@@ -43,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// </para><para>
     /// This operation requires permissions to perform the <c>bedrock:InvokeModelWithResponseStream</c>
     /// action. 
+    /// </para><important><para>
+    /// To deny all inference access to resources that you specify in the modelId field, you
+    /// need to deny access to the <c>bedrock:InvokeModel</c> and <c>bedrock:InvokeModelWithResponseStream</c>
+    /// actions. Doing this also denies access to the resource through the Converse API actions
+    /// (<a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html">Converse</a>
+    /// and <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html">ConverseStream</a>).
+    /// For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference">Deny
+    /// access for inference on specific models</a>. 
+    /// </para></important><para>
+    /// For troubleshooting some of the common errors you might encounter when using the <c>InvokeModelWithResponseStream</c>
+    /// API, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html">Troubleshooting
+    /// Amazon Bedrock API Error Codes</a> in the Amazon Bedrock User Guide
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "BDRRModelWithResponseStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -118,9 +130,12 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the model to invoke to run inference.</para><para>The <c>modelId</c> to provide depends on the type of model that you use:</para><ul><li><para>If you use a base model, specify the model ID or its ARN. For a list of model IDs
+        /// <para>The unique identifier of the model to invoke to run inference.</para><para>The <c>modelId</c> to provide depends on the type of model or throughput that you
+        /// use:</para><ul><li><para>If you use a base model, specify the model ID or its ARN. For a list of model IDs
         /// for base models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">Amazon
-        /// Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For
+        /// Bedrock base model IDs (on-demand throughput)</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use an inference profile, specify the inference profile ID or its ARN. For
+        /// a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported
+        /// Regions and models for cross-region inference</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a provisioned model, specify the ARN of the Provisioned Throughput. For
         /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run
         /// inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a custom model, first purchase Provisioned Throughput for it. Then specify
         /// the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use
@@ -139,6 +154,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ModelId { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceConfigLatency
+        /// <summary>
+        /// <para>
+        /// <para>Model performance settings for the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfigLatency { get; set; }
         #endregion
         
         #region Parameter Trace
@@ -207,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformanceConfigLatency = this.PerformanceConfigLatency;
             context.Trace = this.Trace;
             
             // allow further manipulation of loaded context prior to processing
@@ -252,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 if (cmdletContext.ModelId != null)
                 {
                     request.ModelId = cmdletContext.ModelId;
+                }
+                if (cmdletContext.PerformanceConfigLatency != null)
+                {
+                    request.PerformanceConfigLatency = cmdletContext.PerformanceConfigLatency;
                 }
                 if (cmdletContext.Trace != null)
                 {
@@ -332,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public System.String GuardrailIdentifier { get; set; }
             public System.String GuardrailVersion { get; set; }
             public System.String ModelId { get; set; }
+            public Amazon.BedrockRuntime.PerformanceConfigLatency PerformanceConfigLatency { get; set; }
             public Amazon.BedrockRuntime.Trace Trace { get; set; }
             public System.Func<Amazon.BedrockRuntime.Model.InvokeModelWithResponseStreamResponse, InvokeBDRRModelWithResponseStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

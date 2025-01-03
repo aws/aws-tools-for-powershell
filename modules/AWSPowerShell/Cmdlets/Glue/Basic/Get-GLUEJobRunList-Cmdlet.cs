@@ -28,7 +28,12 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves metadata for all runs of a given job definition.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves metadata for all runs of a given job definition.
+    /// 
+    ///  
+    /// <para><c>GetJobRuns</c> returns the job runs in chronological order, with the newest jobs
+    /// returned first.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEJobRunList")]
     [OutputType("Amazon.Glue.Model.JobRun")]

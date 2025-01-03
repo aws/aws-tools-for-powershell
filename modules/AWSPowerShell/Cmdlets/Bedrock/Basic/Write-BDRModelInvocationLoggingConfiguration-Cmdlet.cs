@@ -138,6 +138,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.Boolean? LoggingConfig_TextDataDeliveryEnabled { get; set; }
         #endregion
         
+        #region Parameter LoggingConfig_VideoDataDeliveryEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to include video data in the log delivery.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingConfig_VideoDataDeliveryEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -188,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             context.S3Config_BucketName = this.S3Config_BucketName;
             context.S3Config_KeyPrefix = this.S3Config_KeyPrefix;
             context.LoggingConfig_TextDataDeliveryEnabled = this.LoggingConfig_TextDataDeliveryEnabled;
+            context.LoggingConfig_VideoDataDeliveryEnabled = this.LoggingConfig_VideoDataDeliveryEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -236,6 +247,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestLoggingConfig_loggingConfig_TextDataDeliveryEnabled != null)
             {
                 request.LoggingConfig.TextDataDeliveryEnabled = requestLoggingConfig_loggingConfig_TextDataDeliveryEnabled.Value;
+                requestLoggingConfigIsNull = false;
+            }
+            System.Boolean? requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled = null;
+            if (cmdletContext.LoggingConfig_VideoDataDeliveryEnabled != null)
+            {
+                requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled = cmdletContext.LoggingConfig_VideoDataDeliveryEnabled.Value;
+            }
+            if (requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled != null)
+            {
+                request.LoggingConfig.VideoDataDeliveryEnabled = requestLoggingConfig_loggingConfig_VideoDataDeliveryEnabled.Value;
                 requestLoggingConfigIsNull = false;
             }
             Amazon.Bedrock.Model.S3Config requestLoggingConfig_loggingConfig_S3Config = null;
@@ -418,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String S3Config_BucketName { get; set; }
             public System.String S3Config_KeyPrefix { get; set; }
             public System.Boolean? LoggingConfig_TextDataDeliveryEnabled { get; set; }
+            public System.Boolean? LoggingConfig_VideoDataDeliveryEnabled { get; set; }
             public System.Func<Amazon.Bedrock.Model.PutModelInvocationLoggingConfigurationResponse, WriteBDRModelInvocationLoggingConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -108,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedStorageConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify a Amazon Web Services Key Management Service key ID to encrypt the managed
-        /// storage.</para>
+        /// <para>Specify a Key Management Service key ID to encrypt the managed storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

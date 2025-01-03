@@ -42,6 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
     /// enablement</a>.
     /// </para></li><li><para>
+    /// To stream agent responses, make sure that only orchestration prompt is enabled. Agent
+    /// streaming is not supported for the following steps: 
+    /// </para><ul><li><para><c>Pre-processing</c></para></li><li><para><c>Post-processing</c></para></li><li><para>
+    /// Agent with 1 Knowledge base and <c>User Input</c> not enabled
+    /// </para></li></ul></li><li><para>
     /// End a conversation by setting <c>endSession</c> to <c>true</c>.
     /// </para></li><li><para>
     /// In the <c>sessionState</c> object, you can include attributes for the session or prompt
@@ -104,6 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AgentId { get; set; }
+        #endregion
+        
+        #region Parameter StreamingConfigurations_ApplyGuardrailInterval
+        /// <summary>
+        /// <para>
+        /// <para> The guardrail interval to apply as response is generated. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
         #endregion
         
         #region Parameter EnableTrace
@@ -176,6 +191,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration[] SessionState_KnowledgeBaseConfiguration { get; set; }
         #endregion
         
+        #region Parameter PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelConfigurations_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
+        #endregion
+        
         #region Parameter MemoryId
         /// <summary>
         /// <para>
@@ -184,6 +211,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MemoryId { get; set; }
+        #endregion
+        
+        #region Parameter ConversationHistory_Message
+        /// <summary>
+        /// <para>
+        /// <para>The conversation's messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionState_ConversationHistory_Messages")]
+        public Amazon.BedrockAgentRuntime.Model.Message[] ConversationHistory_Message { get; set; }
         #endregion
         
         #region Parameter SessionState_PromptSessionAttribute
@@ -243,6 +281,27 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String SessionId { get; set; }
         #endregion
         
+        #region Parameter SourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the resource making the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceArn { get; set; }
+        #endregion
+        
+        #region Parameter StreamingConfigurations_StreamFinalResponse
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether to enable streaming for the final response. This is set to <c>false</c>
+        /// by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StreamingConfigurations_StreamFinalResponse { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -299,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter AgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
             context.InputText = this.InputText;
@@ -310,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ConversationHistory_Message != null)
+            {
+                context.ConversationHistory_Message = new List<Amazon.BedrockAgentRuntime.Model.Message>(this.ConversationHistory_Message);
+            }
             if (this.SessionState_File != null)
             {
                 context.SessionState_File = new List<Amazon.BedrockAgentRuntime.Model.InputFile>(this.SessionState_File);
@@ -339,6 +403,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                     context.SessionState_SessionAttribute.Add((String)hashKey, (System.String)(this.SessionState_SessionAttribute[hashKey]));
                 }
             }
+            context.SourceArn = this.SourceArn;
+            context.StreamingConfigurations_ApplyGuardrailInterval = this.StreamingConfigurations_ApplyGuardrailInterval;
+            context.StreamingConfigurations_StreamFinalResponse = this.StreamingConfigurations_StreamFinalResponse;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -362,6 +429,40 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.AgentId != null)
             {
                 request.AgentId = cmdletContext.AgentId;
+            }
+            
+             // populate BedrockModelConfigurations
+            var requestBedrockModelConfigurationsIsNull = true;
+            request.BedrockModelConfigurations = new Amazon.BedrockAgentRuntime.Model.BedrockModelConfigurations();
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull = true;
+            requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency = null;
+            if (cmdletContext.PerformanceConfig_Latency != null)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency = cmdletContext.PerformanceConfig_Latency;
+            }
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency != null)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig.Latency = requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig_performanceConfig_Latency;
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull = false;
+            }
+             // determine if requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig should be set to null
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfigIsNull)
+            {
+                requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig = null;
+            }
+            if (requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig != null)
+            {
+                request.BedrockModelConfigurations.PerformanceConfig = requestBedrockModelConfigurations_bedrockModelConfigurations_PerformanceConfig;
+                requestBedrockModelConfigurationsIsNull = false;
+            }
+             // determine if request.BedrockModelConfigurations should be set to null
+            if (requestBedrockModelConfigurationsIsNull)
+            {
+                request.BedrockModelConfigurations = null;
             }
             if (cmdletContext.EnableTrace != null)
             {
@@ -447,10 +548,68 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 request.SessionState.SessionAttributes = requestSessionState_sessionState_SessionAttribute;
                 requestSessionStateIsNull = false;
             }
+            Amazon.BedrockAgentRuntime.Model.ConversationHistory requestSessionState_sessionState_ConversationHistory = null;
+            
+             // populate ConversationHistory
+            var requestSessionState_sessionState_ConversationHistoryIsNull = true;
+            requestSessionState_sessionState_ConversationHistory = new Amazon.BedrockAgentRuntime.Model.ConversationHistory();
+            List<Amazon.BedrockAgentRuntime.Model.Message> requestSessionState_sessionState_ConversationHistory_conversationHistory_Message = null;
+            if (cmdletContext.ConversationHistory_Message != null)
+            {
+                requestSessionState_sessionState_ConversationHistory_conversationHistory_Message = cmdletContext.ConversationHistory_Message;
+            }
+            if (requestSessionState_sessionState_ConversationHistory_conversationHistory_Message != null)
+            {
+                requestSessionState_sessionState_ConversationHistory.Messages = requestSessionState_sessionState_ConversationHistory_conversationHistory_Message;
+                requestSessionState_sessionState_ConversationHistoryIsNull = false;
+            }
+             // determine if requestSessionState_sessionState_ConversationHistory should be set to null
+            if (requestSessionState_sessionState_ConversationHistoryIsNull)
+            {
+                requestSessionState_sessionState_ConversationHistory = null;
+            }
+            if (requestSessionState_sessionState_ConversationHistory != null)
+            {
+                request.SessionState.ConversationHistory = requestSessionState_sessionState_ConversationHistory;
+                requestSessionStateIsNull = false;
+            }
              // determine if request.SessionState should be set to null
             if (requestSessionStateIsNull)
             {
                 request.SessionState = null;
+            }
+            if (cmdletContext.SourceArn != null)
+            {
+                request.SourceArn = cmdletContext.SourceArn;
+            }
+            
+             // populate StreamingConfigurations
+            var requestStreamingConfigurationsIsNull = true;
+            request.StreamingConfigurations = new Amazon.BedrockAgentRuntime.Model.StreamingConfigurations();
+            System.Int32? requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval = null;
+            if (cmdletContext.StreamingConfigurations_ApplyGuardrailInterval != null)
+            {
+                requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval = cmdletContext.StreamingConfigurations_ApplyGuardrailInterval.Value;
+            }
+            if (requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval != null)
+            {
+                request.StreamingConfigurations.ApplyGuardrailInterval = requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval.Value;
+                requestStreamingConfigurationsIsNull = false;
+            }
+            System.Boolean? requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse = null;
+            if (cmdletContext.StreamingConfigurations_StreamFinalResponse != null)
+            {
+                requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse = cmdletContext.StreamingConfigurations_StreamFinalResponse.Value;
+            }
+            if (requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse != null)
+            {
+                request.StreamingConfigurations.StreamFinalResponse = requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse.Value;
+                requestStreamingConfigurationsIsNull = false;
+            }
+             // determine if request.StreamingConfigurations should be set to null
+            if (requestStreamingConfigurationsIsNull)
+            {
+                request.StreamingConfigurations = null;
             }
             
             CmdletOutput output;
@@ -515,17 +674,22 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         {
             public System.String AgentAliasId { get; set; }
             public System.String AgentId { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public System.Boolean? EnableTrace { get; set; }
             public System.Boolean? EndSession { get; set; }
             public System.String InputText { get; set; }
             public System.String MemoryId { get; set; }
             public System.String SessionId { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.Message> ConversationHistory_Message { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.InputFile> SessionState_File { get; set; }
             public System.String SessionState_InvocationId { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration> SessionState_KnowledgeBaseConfiguration { get; set; }
             public Dictionary<System.String, System.String> SessionState_PromptSessionAttribute { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.InvocationResultMember> SessionState_ReturnControlInvocationResult { get; set; }
             public Dictionary<System.String, System.String> SessionState_SessionAttribute { get; set; }
+            public System.String SourceArn { get; set; }
+            public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
+            public System.Boolean? StreamingConfigurations_StreamFinalResponse { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse, InvokeBARAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

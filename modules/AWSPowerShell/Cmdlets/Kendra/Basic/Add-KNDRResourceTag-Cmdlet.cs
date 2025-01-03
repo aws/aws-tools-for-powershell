@@ -28,8 +28,8 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Adds the specified tag to the specified index, FAQ, or data source resource. If the
-    /// tag already exists, the existing value is replaced with the new value.
+    /// Adds the specified tag to the specified index, FAQ, data source, or other resource.
+    /// If the tag already exists, the existing value is replaced with the new value.
     /// </summary>
     [Cmdlet("Add", "KNDRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the index, FAQ, or data source to tag.</para>
+        /// <para>The Amazon Resource Name (ARN) of the index, FAQ, data source, or other resource to
+        /// add a tag. For example, the ARN of an index is constructed as follows: <i>arn:aws:kendra:your-region:your-account-id:index/index-id</i>
+        /// For information on how to construct an ARN for all types of Amazon Kendra resources,
+        /// see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html#amazonkendra-resources-for-iam-policies">Resource
+        /// types</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to add to the index, FAQ, or data source. If a tag already exists,
-        /// the existing value is replaced with the new value.</para>
+        /// <para>A list of tag keys to add to the index, FAQ, data source, or other resource. If a
+        /// tag already exists, the existing value is replaced with the new value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

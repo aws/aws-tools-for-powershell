@@ -47,11 +47,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para><para>
     /// To register a delegated administrator, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli">Register
     /// a Delegated Administrator</a> in the <i>Config developer guide</i>. 
-    /// </para></note><note><para><c>PutConfigurationAggregator</c> is an idempotent API. Subsequent requests won’t
+    /// </para></note><note><para><b>Tags are added at creation and cannot be updated with this operation</b></para><para><c>PutConfigurationAggregator</c> is an idempotent API. Subsequent requests won’t
     /// create a duplicate resource if one was already created. If a following request has
     /// different <c>tags</c> values, Config will ignore these differences and treat it as
     /// an idempotent request of the previous. In this case, <c>tags</c> will not be updated,
     /// even if they are different.
+    /// </para><para>
+    /// Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a>
+    /// and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a>
+    /// to update tags after creation.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConfigurationAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -138,6 +142,57 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public Amazon.ConfigService.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter ResourceType_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of resource type filter to apply. <c>INCLUDE</c> specifies that the list
+        /// of resource types in the <c>Value</c> field will be aggregated and no other resource
+        /// types will be filtered.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregatorFilters_ResourceType_Type")]
+        [AWSConstantClassSource("Amazon.ConfigService.AggregatorFilterType")]
+        public Amazon.ConfigService.AggregatorFilterType ResourceType_Type { get; set; }
+        #endregion
+        
+        #region Parameter ServicePrincipal_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of service principal filter to apply. <c>INCLUDE</c> specifies that the list
+        /// of service principals in the <c>Value</c> field will be aggregated and no other service
+        /// principals will be filtered.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregatorFilters_ServicePrincipal_Type")]
+        [AWSConstantClassSource("Amazon.ConfigService.AggregatorFilterType")]
+        public Amazon.ConfigService.AggregatorFilterType ServicePrincipal_Type { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType_Value
+        /// <summary>
+        /// <para>
+        /// <para>Comma-separate list of resource types to filter your aggregated configuration recorders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregatorFilters_ResourceType_Value")]
+        public System.String[] ResourceType_Value { get; set; }
+        #endregion
+        
+        #region Parameter ServicePrincipal_Value
+        /// <summary>
+        /// <para>
+        /// <para>Comma-separated list of service principals for the linked Amazon Web Services services
+        /// to filter your aggregated service-linked configuration recorders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregatorFilters_ServicePrincipal_Value")]
+        public System.String[] ServicePrincipal_Value { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfigurationAggregator'.
@@ -184,6 +239,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 context.AccountAggregationSource = new List<Amazon.ConfigService.Model.AccountAggregationSource>(this.AccountAggregationSource);
             }
+            context.ResourceType_Type = this.ResourceType_Type;
+            if (this.ResourceType_Value != null)
+            {
+                context.ResourceType_Value = new List<System.String>(this.ResourceType_Value);
+            }
+            context.ServicePrincipal_Type = this.ServicePrincipal_Type;
+            if (this.ServicePrincipal_Value != null)
+            {
+                context.ServicePrincipal_Value = new List<System.String>(this.ServicePrincipal_Value);
+            }
             context.ConfigurationAggregatorName = this.ConfigurationAggregatorName;
             #if MODULAR
             if (this.ConfigurationAggregatorName == null && ParameterWasBound(nameof(this.ConfigurationAggregatorName)))
@@ -220,6 +285,85 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.AccountAggregationSource != null)
             {
                 request.AccountAggregationSources = cmdletContext.AccountAggregationSource;
+            }
+            
+             // populate AggregatorFilters
+            var requestAggregatorFiltersIsNull = true;
+            request.AggregatorFilters = new Amazon.ConfigService.Model.AggregatorFilters();
+            Amazon.ConfigService.Model.AggregatorFilterResourceType requestAggregatorFilters_aggregatorFilters_ResourceType = null;
+            
+             // populate ResourceType
+            var requestAggregatorFilters_aggregatorFilters_ResourceTypeIsNull = true;
+            requestAggregatorFilters_aggregatorFilters_ResourceType = new Amazon.ConfigService.Model.AggregatorFilterResourceType();
+            Amazon.ConfigService.AggregatorFilterType requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Type = null;
+            if (cmdletContext.ResourceType_Type != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Type = cmdletContext.ResourceType_Type;
+            }
+            if (requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Type != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ResourceType.Type = requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Type;
+                requestAggregatorFilters_aggregatorFilters_ResourceTypeIsNull = false;
+            }
+            List<System.String> requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Value = null;
+            if (cmdletContext.ResourceType_Value != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Value = cmdletContext.ResourceType_Value;
+            }
+            if (requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Value != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ResourceType.Value = requestAggregatorFilters_aggregatorFilters_ResourceType_resourceType_Value;
+                requestAggregatorFilters_aggregatorFilters_ResourceTypeIsNull = false;
+            }
+             // determine if requestAggregatorFilters_aggregatorFilters_ResourceType should be set to null
+            if (requestAggregatorFilters_aggregatorFilters_ResourceTypeIsNull)
+            {
+                requestAggregatorFilters_aggregatorFilters_ResourceType = null;
+            }
+            if (requestAggregatorFilters_aggregatorFilters_ResourceType != null)
+            {
+                request.AggregatorFilters.ResourceType = requestAggregatorFilters_aggregatorFilters_ResourceType;
+                requestAggregatorFiltersIsNull = false;
+            }
+            Amazon.ConfigService.Model.AggregatorFilterServicePrincipal requestAggregatorFilters_aggregatorFilters_ServicePrincipal = null;
+            
+             // populate ServicePrincipal
+            var requestAggregatorFilters_aggregatorFilters_ServicePrincipalIsNull = true;
+            requestAggregatorFilters_aggregatorFilters_ServicePrincipal = new Amazon.ConfigService.Model.AggregatorFilterServicePrincipal();
+            Amazon.ConfigService.AggregatorFilterType requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Type = null;
+            if (cmdletContext.ServicePrincipal_Type != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Type = cmdletContext.ServicePrincipal_Type;
+            }
+            if (requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Type != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipal.Type = requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Type;
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipalIsNull = false;
+            }
+            List<System.String> requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Value = null;
+            if (cmdletContext.ServicePrincipal_Value != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Value = cmdletContext.ServicePrincipal_Value;
+            }
+            if (requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Value != null)
+            {
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipal.Value = requestAggregatorFilters_aggregatorFilters_ServicePrincipal_servicePrincipal_Value;
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipalIsNull = false;
+            }
+             // determine if requestAggregatorFilters_aggregatorFilters_ServicePrincipal should be set to null
+            if (requestAggregatorFilters_aggregatorFilters_ServicePrincipalIsNull)
+            {
+                requestAggregatorFilters_aggregatorFilters_ServicePrincipal = null;
+            }
+            if (requestAggregatorFilters_aggregatorFilters_ServicePrincipal != null)
+            {
+                request.AggregatorFilters.ServicePrincipal = requestAggregatorFilters_aggregatorFilters_ServicePrincipal;
+                requestAggregatorFiltersIsNull = false;
+            }
+             // determine if request.AggregatorFilters should be set to null
+            if (requestAggregatorFiltersIsNull)
+            {
+                request.AggregatorFilters = null;
             }
             if (cmdletContext.ConfigurationAggregatorName != null)
             {
@@ -330,6 +474,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ConfigService.Model.AccountAggregationSource> AccountAggregationSource { get; set; }
+            public Amazon.ConfigService.AggregatorFilterType ResourceType_Type { get; set; }
+            public List<System.String> ResourceType_Value { get; set; }
+            public Amazon.ConfigService.AggregatorFilterType ServicePrincipal_Type { get; set; }
+            public List<System.String> ServicePrincipal_Value { get; set; }
             public System.String ConfigurationAggregatorName { get; set; }
             public System.Boolean? OrganizationAggregationSource_AllAwsRegion { get; set; }
             public List<System.String> OrganizationAggregationSource_AwsRegion { get; set; }

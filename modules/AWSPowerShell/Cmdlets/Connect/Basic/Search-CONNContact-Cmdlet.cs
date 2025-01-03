@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.SearchableContactAttributesCriteria[] SearchableContactAttributes_Criterion { get; set; }
         #endregion
         
+        #region Parameter SearchableSegmentAttributes_Criterion
+        /// <summary>
+        /// <para>
+        /// <para>The list of criteria based on searchable segment attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_SearchableSegmentAttributes_Criteria")]
+        public Amazon.Connect.Model.SearchableSegmentAttributesCriteria[] SearchableSegmentAttributes_Criterion { get; set; }
+        #endregion
+        
         #region Parameter TimeRange_EndTime
         /// <summary>
         /// <para>
@@ -219,6 +230,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [Alias("SearchCriteria_SearchableContactAttributes_MatchType")]
         [AWSConstantClassSource("Amazon.Connect.SearchContactsMatchType")]
         public Amazon.Connect.SearchContactsMatchType SearchableContactAttributes_MatchType { get; set; }
+        #endregion
+        
+        #region Parameter SearchableSegmentAttributes_MatchType
+        /// <summary>
+        /// <para>
+        /// <para>The match type combining search criteria using multiple searchable segment attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_SearchableSegmentAttributes_MatchType")]
+        [AWSConstantClassSource("Amazon.Connect.SearchContactsMatchType")]
+        public Amazon.Connect.SearchContactsMatchType SearchableSegmentAttributes_MatchType { get; set; }
         #endregion
         
         #region Parameter Sort_Order
@@ -409,6 +432,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.SearchableContactAttributes_Criterion = new List<Amazon.Connect.Model.SearchableContactAttributesCriteria>(this.SearchableContactAttributes_Criterion);
             }
             context.SearchableContactAttributes_MatchType = this.SearchableContactAttributes_MatchType;
+            if (this.SearchableSegmentAttributes_Criterion != null)
+            {
+                context.SearchableSegmentAttributes_Criterion = new List<Amazon.Connect.Model.SearchableSegmentAttributesCriteria>(this.SearchableSegmentAttributes_Criterion);
+            }
+            context.SearchableSegmentAttributes_MatchType = this.SearchableSegmentAttributes_MatchType;
             context.Sort_FieldName = this.Sort_FieldName;
             context.Sort_Order = this.Sort_Order;
             context.TimeRange_EndTime = this.TimeRange_EndTime;
@@ -585,6 +613,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchCriteria_searchCriteria_SearchableContactAttributes != null)
             {
                 request.SearchCriteria.SearchableContactAttributes = requestSearchCriteria_searchCriteria_SearchableContactAttributes;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.SearchableSegmentAttributes requestSearchCriteria_searchCriteria_SearchableSegmentAttributes = null;
+            
+             // populate SearchableSegmentAttributes
+            var requestSearchCriteria_searchCriteria_SearchableSegmentAttributesIsNull = true;
+            requestSearchCriteria_searchCriteria_SearchableSegmentAttributes = new Amazon.Connect.Model.SearchableSegmentAttributes();
+            List<Amazon.Connect.Model.SearchableSegmentAttributesCriteria> requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_Criterion = null;
+            if (cmdletContext.SearchableSegmentAttributes_Criterion != null)
+            {
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_Criterion = cmdletContext.SearchableSegmentAttributes_Criterion;
+            }
+            if (requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_Criterion != null)
+            {
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributes.Criteria = requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_Criterion;
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributesIsNull = false;
+            }
+            Amazon.Connect.SearchContactsMatchType requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_MatchType = null;
+            if (cmdletContext.SearchableSegmentAttributes_MatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_MatchType = cmdletContext.SearchableSegmentAttributes_MatchType;
+            }
+            if (requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_MatchType != null)
+            {
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributes.MatchType = requestSearchCriteria_searchCriteria_SearchableSegmentAttributes_searchableSegmentAttributes_MatchType;
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributesIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_SearchableSegmentAttributes should be set to null
+            if (requestSearchCriteria_searchCriteria_SearchableSegmentAttributesIsNull)
+            {
+                requestSearchCriteria_searchCriteria_SearchableSegmentAttributes = null;
+            }
+            if (requestSearchCriteria_searchCriteria_SearchableSegmentAttributes != null)
+            {
+                request.SearchCriteria.SearchableSegmentAttributes = requestSearchCriteria_searchCriteria_SearchableSegmentAttributes;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.AgentHierarchyGroups requestSearchCriteria_searchCriteria_AgentHierarchyGroups = null;
@@ -826,6 +889,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<System.String> SearchCriteria_QueueId { get; set; }
             public List<Amazon.Connect.Model.SearchableContactAttributesCriteria> SearchableContactAttributes_Criterion { get; set; }
             public Amazon.Connect.SearchContactsMatchType SearchableContactAttributes_MatchType { get; set; }
+            public List<Amazon.Connect.Model.SearchableSegmentAttributesCriteria> SearchableSegmentAttributes_Criterion { get; set; }
+            public Amazon.Connect.SearchContactsMatchType SearchableSegmentAttributes_MatchType { get; set; }
             public Amazon.Connect.SortableFieldName Sort_FieldName { get; set; }
             public Amazon.Connect.SortOrder Sort_Order { get; set; }
             public System.DateTime? TimeRange_EndTime { get; set; }

@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>You can retrieve the replication configuration for a specific file system by providing
-        /// its file system ID.</para>
+        /// its file system ID. For cross-account,cross-region replication, an account can only
+        /// describe the replication configuration for a file system in its own Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

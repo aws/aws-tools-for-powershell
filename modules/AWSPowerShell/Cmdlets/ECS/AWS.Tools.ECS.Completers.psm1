@@ -93,6 +93,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.AvailabilityZoneRebalancing
+        {
+            ($_ -eq "New-ECSService/AvailabilityZoneRebalancing") -Or
+            ($_ -eq "Update-ECSService/AvailabilityZoneRebalancing")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.ContainerInstanceStatus
         {
             ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
@@ -305,6 +315,7 @@ $ECS_Completers = {
 $ECS_map = @{
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
+    "AvailabilityZoneRebalancing"=@("New-ECSService","Update-ECSService")
     "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "DeploymentController_Type"=@("New-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")

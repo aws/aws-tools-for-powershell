@@ -56,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with the VPC.</para></li><li><para><c>ipv6-cidr-block-association.ipv6-pool</c> - The ID of the IPv6 address pool from
         /// which the IPv6 CIDR block is allocated.</para></li><li><para><c>ipv6-cidr-block-association.association-id</c> - The association ID for an IPv6
         /// CIDR block associated with the VPC.</para></li><li><para><c>ipv6-cidr-block-association.state</c> - The state of an IPv6 CIDR block associated
-        /// with the VPC.</para></li><li><para><c>is-default</c> - Indicates whether the VPC is the default VPC.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the VPC.</para></li><li><para><c>state</c> - The state of the VPC (<c>pending</c> | <c>available</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// with the VPC.</para></li><li><para><c>is-default</c> - Indicates whether the VPC is the default VPC.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the VPC.</para></li><li><para><c>state</c> - The state of the VPC (<c>pending</c> | <c>available</c>).</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC.</para></li></ul>
         /// </para>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This action removes the website configuration for a bucket. Amazon S3 returns a <c>200
     /// OK</c> response upon successfully deleting a website configuration on the specified

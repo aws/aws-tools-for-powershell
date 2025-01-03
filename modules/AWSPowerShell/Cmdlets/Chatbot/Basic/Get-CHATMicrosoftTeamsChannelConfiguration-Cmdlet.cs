@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</para>
+        /// <para>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

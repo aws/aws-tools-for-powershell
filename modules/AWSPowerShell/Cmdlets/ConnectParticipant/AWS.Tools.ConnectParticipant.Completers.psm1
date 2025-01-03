@@ -157,11 +157,13 @@ $CONNP_SelectCompleters = {
 }
 
 $CONNP_SelectMap = @{
-    "Select"=@("Complete-CONNPAttachmentUpload",
+    "Select"=@("Stop-CONNPParticipantAuthentication",
+               "Complete-CONNPAttachmentUpload",
                "New-CONNPParticipantConnection",
                "Get-CONNPView",
                "Disconnect-CONNPParticipant",
                "Get-CONNPAttachment",
+               "Get-CONNPAuthenticationUrl",
                "Get-CONNPTranscript",
                "Send-CONNPEvent",
                "Send-CONNPMessage",

@@ -1,0 +1,3 @@
+﻿# BedrockDataAutomation
+
+Export-ModuleMember -Alias *

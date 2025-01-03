@@ -31,11 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     /// Posts a data lineage event.
     /// </summary>
     [Cmdlet("Submit", "DZLineageEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.DataZone.Model.PostLineageEventResponse")]
     [AWSCmdlet("Calls the Amazon DataZone PostLineageEvent API operation.", Operation = new[] {"PostLineageEvent"}, SelectReturnType = typeof(Amazon.DataZone.Model.PostLineageEventResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.PostLineageEventResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.PostLineageEventResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.DataZone.Model.PostLineageEventResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.PostLineageEventResponse object containing multiple properties."
     )]
     public partial class SubmitDZLineageEventCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
@@ -91,8 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.PostLineageEventResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.PostLineageEventResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public byte[] Event { get; set; }
             public System.Func<Amazon.DataZone.Model.PostLineageEventResponse, SubmitDZLineageEventCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

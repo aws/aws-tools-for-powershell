@@ -82,11 +82,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-BDRRAsyncInvoke', 
+        'Get-BDRRAsyncInvokeList', 
         'Invoke-BDRRConverse', 
         'Invoke-BDRRConverseStream', 
         'Invoke-BDRRGuardrail', 
         'Invoke-BDRRModel', 
-        'Invoke-BDRRModelWithResponseStream')
+        'Invoke-BDRRModelWithResponseStream', 
+        'Start-BDRRAsyncInvoke')
 
     # Variables to export from this module
     VariablesToExport = '*'

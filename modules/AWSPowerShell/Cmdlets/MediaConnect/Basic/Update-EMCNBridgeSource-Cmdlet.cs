@@ -79,6 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String NetworkSource_MulticastIp { get; set; }
         #endregion
         
+        #region Parameter MulticastSourceSettings_MulticastSourceIp
+        /// <summary>
+        /// <para>
+        /// The IP address of the source for source-specific
+        /// multicast (SSM).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkSource_MulticastSourceSettings_MulticastSourceIp")]
+        public System.String MulticastSourceSettings_MulticastSourceIp { get; set; }
+        #endregion
+        
         #region Parameter NetworkSource_NetworkName
         /// <summary>
         /// <para>
@@ -191,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.FlowSource_FlowArn = this.FlowSource_FlowArn;
             context.FlowVpcInterfaceAttachment_VpcInterfaceName = this.FlowVpcInterfaceAttachment_VpcInterfaceName;
             context.NetworkSource_MulticastIp = this.NetworkSource_MulticastIp;
+            context.MulticastSourceSettings_MulticastSourceIp = this.MulticastSourceSettings_MulticastSourceIp;
             context.NetworkSource_NetworkName = this.NetworkSource_NetworkName;
             context.NetworkSource_Port = this.NetworkSource_Port;
             context.NetworkSource_Protocol = this.NetworkSource_Protocol;
@@ -309,6 +322,31 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 request.NetworkSource.Protocol = requestNetworkSource_networkSource_Protocol;
                 requestNetworkSourceIsNull = false;
             }
+            Amazon.MediaConnect.Model.MulticastSourceSettings requestNetworkSource_networkSource_MulticastSourceSettings = null;
+            
+             // populate MulticastSourceSettings
+            var requestNetworkSource_networkSource_MulticastSourceSettingsIsNull = true;
+            requestNetworkSource_networkSource_MulticastSourceSettings = new Amazon.MediaConnect.Model.MulticastSourceSettings();
+            System.String requestNetworkSource_networkSource_MulticastSourceSettings_multicastSourceSettings_MulticastSourceIp = null;
+            if (cmdletContext.MulticastSourceSettings_MulticastSourceIp != null)
+            {
+                requestNetworkSource_networkSource_MulticastSourceSettings_multicastSourceSettings_MulticastSourceIp = cmdletContext.MulticastSourceSettings_MulticastSourceIp;
+            }
+            if (requestNetworkSource_networkSource_MulticastSourceSettings_multicastSourceSettings_MulticastSourceIp != null)
+            {
+                requestNetworkSource_networkSource_MulticastSourceSettings.MulticastSourceIp = requestNetworkSource_networkSource_MulticastSourceSettings_multicastSourceSettings_MulticastSourceIp;
+                requestNetworkSource_networkSource_MulticastSourceSettingsIsNull = false;
+            }
+             // determine if requestNetworkSource_networkSource_MulticastSourceSettings should be set to null
+            if (requestNetworkSource_networkSource_MulticastSourceSettingsIsNull)
+            {
+                requestNetworkSource_networkSource_MulticastSourceSettings = null;
+            }
+            if (requestNetworkSource_networkSource_MulticastSourceSettings != null)
+            {
+                request.NetworkSource.MulticastSourceSettings = requestNetworkSource_networkSource_MulticastSourceSettings;
+                requestNetworkSourceIsNull = false;
+            }
              // determine if request.NetworkSource should be set to null
             if (requestNetworkSourceIsNull)
             {
@@ -383,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String FlowSource_FlowArn { get; set; }
             public System.String FlowVpcInterfaceAttachment_VpcInterfaceName { get; set; }
             public System.String NetworkSource_MulticastIp { get; set; }
+            public System.String MulticastSourceSettings_MulticastSourceIp { get; set; }
             public System.String NetworkSource_NetworkName { get; set; }
             public System.Int32? NetworkSource_Port { get; set; }
             public Amazon.MediaConnect.Protocol NetworkSource_Protocol { get; set; }

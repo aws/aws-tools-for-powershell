@@ -75,24 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PreviousPassword
         /// <summary>
         /// <para>
-        /// <para>The old password.</para>
+        /// <para>The user's previous password. Required if the user has a password. If the user has
+        /// no password and only signs in with passwordless authentication options, you can omit
+        /// this parameter.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PreviousPassword { get; set; }
         #endregion
         
         #region Parameter ProposedPassword
         /// <summary>
         /// <para>
-        /// <para>The new password.</para>
+        /// <para>A new password that you prompted the user to enter in your application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,12 +150,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             #endif
             context.PreviousPassword = this.PreviousPassword;
-            #if MODULAR
-            if (this.PreviousPassword == null && ParameterWasBound(nameof(this.PreviousPassword)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PreviousPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ProposedPassword = this.ProposedPassword;
             #if MODULAR
             if (this.ProposedPassword == null && ParameterWasBound(nameof(this.ProposedPassword)))

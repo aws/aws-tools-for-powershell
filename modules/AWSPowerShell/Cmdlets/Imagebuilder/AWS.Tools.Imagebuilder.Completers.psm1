@@ -135,6 +135,13 @@ $EC2IB_Completers = {
             break
         }
 
+        # Amazon.Imagebuilder.MarketplaceResourceType
+        "Get-EC2IBMarketplaceResource/ResourceType"
+        {
+            $v = "COMPONENT_ARTIFACT","COMPONENT_DATA"
+            break
+        }
+
         # Amazon.Imagebuilder.Ownership
         {
             ($_ -eq "Get-EC2IBComponentList/Owner") -Or
@@ -144,7 +151,7 @@ $EC2IB_Completers = {
             ($_ -eq "Get-EC2IBWorkflowList/Owner")
         }
         {
-            $v = "Amazon","Self","Shared","ThirdParty"
+            $v = "Amazon","AWSMarketplace","Self","Shared","ThirdParty"
             break
         }
 
@@ -228,7 +235,7 @@ $EC2IB_map = @{
     "Placement_Tenancy"=@("New-EC2IBInfrastructureConfiguration","Update-EC2IBInfrastructureConfiguration")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")
-    "ResourceType"=@("New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")
+    "ResourceType"=@("Get-EC2IBMarketplaceResource","New-EC2IBLifecyclePolicy","Update-EC2IBLifecyclePolicy")
     "Schedule_PipelineExecutionStartCondition"=@("New-EC2IBImagePipeline","Update-EC2IBImagePipeline")
     "State_Status"=@("Start-EC2IBResourceStateUpdate")
     "Status"=@("New-EC2IBImagePipeline","New-EC2IBLifecyclePolicy","Update-EC2IBImagePipeline","Update-EC2IBLifecyclePolicy")
@@ -319,6 +326,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBInfrastructureConfiguration",
                "Get-EC2IBLifecycleExecution",
                "Get-EC2IBLifecyclePolicy",
+               "Get-EC2IBMarketplaceResource",
                "Get-EC2IBWorkflow",
                "Get-EC2IBWorkflowExecution",
                "Get-EC2IBWorkflowStepExecution",

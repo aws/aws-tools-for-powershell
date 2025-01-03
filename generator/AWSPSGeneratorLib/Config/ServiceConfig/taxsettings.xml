@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetTaxExemptions" OutputProperty="*" Verb="Get" Noun="BatchTaxExemption" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchPutTaxRegistration" OutputProperty="*" Verb="Write" Noun="TaxRegistrationBatch" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="TaxRegistrationEntry_RegistrationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +35,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTaxRegistration" Verb="Remove" Noun="TaxRegistration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTaxExemptionTypes" OutputProperty="TaxExemptionTypes" Verb="Get" Noun="TaxExemptionType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTaxInheritance" OutputProperty="HeritageStatus" Verb="Get" Noun="TaxInheritance" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -46,11 +58,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTaxExemptions" OutputProperty="TaxExemptionDetailsMap" Verb="Get" Noun="TaxExemptionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTaxRegistrations" OutputProperty="AccountDetails" Verb="Get" Noun="TaxRegistrationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutSupplementalTaxRegistration" OutputProperty="*" Verb="Write" Noun="SupplementalTaxRegistration" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTaxExemption" OutputProperty="CaseId" Verb="Write" Noun="TaxExemption" ShouldProcessTarget="ExemptionCertificate_DocumentName" PipelineParameter="ExemptionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTaxInheritance" Verb="Write" Noun="TaxInheritance" ShouldProcessTarget="HeritageStatus" PipelineParameter="HeritageStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new group in the specified user pool.
+    /// Creates a new group in the specified user pool. For more information about user pool
+    /// groups see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
+    /// groups to a user pool</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A string containing the description of the group.</para>
+        /// <para>A description of the group that you're creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group. Must be unique.</para>
+        /// <para>A name for the group. This name must be unique in your user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +102,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role Amazon Resource Name (ARN) for the group.</para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that you want to associate with the
+        /// group. A group role primarily declares a preferred role for the credentials that you
+        /// get from an identity pool. Amazon Cognito ID tokens have a <c>cognito:preferred_role</c>
+        /// claim that presents the highest-precedence group that a user belongs to. Both ID and
+        /// access tokens also contain a <c>cognito:groups</c> claim that list all the groups
+        /// that a user is a member of.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool.</para>
+        /// <para>The ID of the user pool where you want to create a user group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

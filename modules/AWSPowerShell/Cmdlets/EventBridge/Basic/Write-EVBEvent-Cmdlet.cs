@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// the constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value
     /// of 9,223,372,036,854,775,807.
     /// </para><note><para>
-    /// PutEvents will only process nested JSON up to 1100 levels deep.
+    /// PutEvents will only process nested JSON up to 1000 levels deep.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "EVBEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

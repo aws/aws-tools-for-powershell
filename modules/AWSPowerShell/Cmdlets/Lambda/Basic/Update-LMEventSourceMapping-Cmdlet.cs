@@ -41,12 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
     /// Amazon MQ and RabbitMQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html"> Amazon
     /// DocumentDB</a></para></li></ul><para>
-    /// The following error handling options are available only for stream sources (DynamoDB
-    /// and Kinesis):
+    /// The following error handling options are available only for DynamoDB and Kinesis event
+    /// sources:
     /// </para><ul><li><para><c>BisectBatchOnFunctionError</c> – If the function returns an error, split the batch
     /// in two and retry.
-    /// </para></li><li><para><c>DestinationConfig</c> – Send discarded records to an Amazon SQS queue or Amazon
-    /// SNS topic.
     /// </para></li><li><para><c>MaximumRecordAgeInSeconds</c> – Discard records older than the specified age.
     /// The default value is infinite (-1). When set to infinite (-1), failed records are
     /// retried until the record expires
@@ -54,6 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// The default value is infinite (-1). When set to infinite (-1), failed records are
     /// retried until the record expires.
     /// </para></li><li><para><c>ParallelizationFactor</c> – Process multiple batches from each shard concurrently.
+    /// </para></li></ul><para>
+    /// For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka),
+    /// the following option is also available:
+    /// </para><ul><li><para><c>DestinationConfig</c> – Send discarded records to an Amazon SQS queue, Amazon
+    /// SNS topic, or Amazon S3 bucket.
     /// </para></li></ul><para>
     /// For information about which configuration parameters apply to each event source, see
     /// the following topics.
@@ -126,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter OnFailure_Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous
-        /// invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
-        /// or Amazon EventBridge event bus as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations">Kinesis
-        /// and DynamoDB event sources</a>, you can configure an Amazon SNS topic or Amazon SQS
-        /// queue as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed
+        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous
+        /// invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3
+        /// bucket, Lambda function, or Amazon EventBridge event bus as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>,
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>,
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed
         /// Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon
         /// MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket
         /// as the destination.</para>
@@ -254,6 +257,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
         #endregion
         
+        #region Parameter ProvisionedPollerConfig_MaximumPoller
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of event pollers this event source can scale up to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisionedPollerConfig_MaximumPollers")]
+        public System.Int32? ProvisionedPollerConfig_MaximumPoller { get; set; }
+        #endregion
+        
         #region Parameter MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
@@ -277,6 +291,31 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaximumRetryAttempts")]
         public System.Int32? MaximumRetryAttempt { get; set; }
+        #endregion
+        
+        #region Parameter MetricsConfig_Metric
+        /// <summary>
+        /// <para>
+        /// <para> The metrics you want your event source mapping to produce. Include <c>EventCount</c>
+        /// to receive event source mapping metrics related to the number of events processed
+        /// by your event source mapping. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">
+        /// Event source mapping metrics</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricsConfig_Metrics")]
+        public System.String[] MetricsConfig_Metric { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedPollerConfig_MinimumPoller
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of event pollers this event source can scale down to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisionedPollerConfig_MinimumPollers")]
+        public System.Int32? ProvisionedPollerConfig_MinimumPoller { get; set; }
         #endregion
         
         #region Parameter ParallelizationFactor
@@ -395,7 +434,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.MaximumBatchingWindowInSecond = this.MaximumBatchingWindowInSecond;
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
+            if (this.MetricsConfig_Metric != null)
+            {
+                context.MetricsConfig_Metric = new List<System.String>(this.MetricsConfig_Metric);
+            }
             context.ParallelizationFactor = this.ParallelizationFactor;
+            context.ProvisionedPollerConfig_MaximumPoller = this.ProvisionedPollerConfig_MaximumPoller;
+            context.ProvisionedPollerConfig_MinimumPoller = this.ProvisionedPollerConfig_MinimumPoller;
             context.ScalingConfig_MaximumConcurrency = this.ScalingConfig_MaximumConcurrency;
             if (this.SourceAccessConfiguration != null)
             {
@@ -578,9 +623,57 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.MaximumRetryAttempts = cmdletContext.MaximumRetryAttempt.Value;
             }
+            
+             // populate MetricsConfig
+            var requestMetricsConfigIsNull = true;
+            request.MetricsConfig = new Amazon.Lambda.Model.EventSourceMappingMetricsConfig();
+            List<System.String> requestMetricsConfig_metricsConfig_Metric = null;
+            if (cmdletContext.MetricsConfig_Metric != null)
+            {
+                requestMetricsConfig_metricsConfig_Metric = cmdletContext.MetricsConfig_Metric;
+            }
+            if (requestMetricsConfig_metricsConfig_Metric != null)
+            {
+                request.MetricsConfig.Metrics = requestMetricsConfig_metricsConfig_Metric;
+                requestMetricsConfigIsNull = false;
+            }
+             // determine if request.MetricsConfig should be set to null
+            if (requestMetricsConfigIsNull)
+            {
+                request.MetricsConfig = null;
+            }
             if (cmdletContext.ParallelizationFactor != null)
             {
                 request.ParallelizationFactor = cmdletContext.ParallelizationFactor.Value;
+            }
+            
+             // populate ProvisionedPollerConfig
+            var requestProvisionedPollerConfigIsNull = true;
+            request.ProvisionedPollerConfig = new Amazon.Lambda.Model.ProvisionedPollerConfig();
+            System.Int32? requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller = null;
+            if (cmdletContext.ProvisionedPollerConfig_MaximumPoller != null)
+            {
+                requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller = cmdletContext.ProvisionedPollerConfig_MaximumPoller.Value;
+            }
+            if (requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller != null)
+            {
+                request.ProvisionedPollerConfig.MaximumPollers = requestProvisionedPollerConfig_provisionedPollerConfig_MaximumPoller.Value;
+                requestProvisionedPollerConfigIsNull = false;
+            }
+            System.Int32? requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller = null;
+            if (cmdletContext.ProvisionedPollerConfig_MinimumPoller != null)
+            {
+                requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller = cmdletContext.ProvisionedPollerConfig_MinimumPoller.Value;
+            }
+            if (requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller != null)
+            {
+                request.ProvisionedPollerConfig.MinimumPollers = requestProvisionedPollerConfig_provisionedPollerConfig_MinimumPoller.Value;
+                requestProvisionedPollerConfigIsNull = false;
+            }
+             // determine if request.ProvisionedPollerConfig should be set to null
+            if (requestProvisionedPollerConfigIsNull)
+            {
+                request.ProvisionedPollerConfig = null;
             }
             
              // populate ScalingConfig
@@ -689,7 +782,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }
+            public List<System.String> MetricsConfig_Metric { get; set; }
             public System.Int32? ParallelizationFactor { get; set; }
+            public System.Int32? ProvisionedPollerConfig_MaximumPoller { get; set; }
+            public System.Int32? ProvisionedPollerConfig_MinimumPoller { get; set; }
             public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
             public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
             public System.Int32? TumblingWindowInSecond { get; set; }

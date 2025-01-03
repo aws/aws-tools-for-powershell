@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Describes a resource server.
+    /// Describes a resource server. For more information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access
+    /// control with resource servers</a>.
     /// </summary>
     [Cmdlet("Get", "CGIPResourceServer")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool that hosts the resource server.</para>
+        /// <para>The ID of the user pool that hosts the resource server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

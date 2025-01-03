@@ -11,7 +11,10 @@
     <ServiceModuleGuid>9d3e39fd-cff2-4bf7-9248-e383e43d93d0</ServiceModuleGuid>
     <PipelineParameter />
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" PageSizeIsRequired="true" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Predict" To="Search" />
+        <Map From="Generate" To="Initialize" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -193,6 +196,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDefaultQBusinessApplication" OutputProperty="*" Verb="Remove" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFolder" OutputProperty="*" Verb="Remove" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -341,6 +348,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Get" Noun="DashboardsQAConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataSet" OutputProperty="DataSet" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -358,6 +369,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataSourcePermissions" OutputProperty="*" Verb="Get" Noun="DataSourcePermission" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDefaultQBusinessApplication" OutputProperty="ApplicationId" Verb="Get" Noun="DefaultQBusinessApplication" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -402,6 +417,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Get" Noun="QPersonalizationConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQuickSightQSearchConfiguration" OutputProperty="QSearchStatus" Verb="Get" Noun="QuickSightQSearchConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -477,6 +496,15 @@
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUserWithIdentity" OutputProperty="EmbedUrl" Verb="Initialize" Noun="EmbedUrlForRegisteredUserWithIdentity" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled_SharedView_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -624,6 +652,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PredictQAResults" OutputProperty="*" Verb="Search" Noun="QAResult" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutDataSetRefreshProperties" OutputProperty="*" Verb="Write" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -657,6 +689,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchGroups" OutputProperty="GroupList" Verb="Find" Noun="Group" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTopics" OutputProperty="TopicSummaryList" Verb="Search" Noun="Topic" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -703,6 +739,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationWithTokenExchangeGrant" OutputProperty="*" Verb="Update" Noun="ApplicationWithTokenExchangeGrant" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateBrand" OutputProperty="*" Verb="Update" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
             <Params>
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_PublicUrl" NewName="Favicon_PublicUrl" />
@@ -743,6 +783,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Update" Noun="DashboardsQAConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -765,6 +809,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDefaultQBusinessApplication" OutputProperty="*" Verb="Update" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -804,6 +852,10 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Update" Noun="QPersonalizationConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQuickSightQSearchConfiguration" OutputProperty="QSearchStatus" Verb="Update" Noun="QuickSightQSearchConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

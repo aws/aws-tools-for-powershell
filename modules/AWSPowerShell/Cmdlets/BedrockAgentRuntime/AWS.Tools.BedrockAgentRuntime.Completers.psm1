@@ -80,6 +80,13 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.InputQueryType
+        "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
+        {
+            $v = "TEXT"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.MemoryType
         "Get-BARAgentMemory/MemoryType"
         {
@@ -87,15 +94,63 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.PerformanceConfigLatency
+        {
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/ExternalSourcesConfig_PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARAgent/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARFlow/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARInlineAgent/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_ExternalSourcesConfig_PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency")
+        }
+        {
+            $v = "optimized","standard"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.QueryTransformationMode
+        "Invoke-BARGenerateQuery/TransformationConfiguration_Mode"
+        {
+            $v = "TEXT_TO_SQL"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.QueryTransformationType
-        "Invoke-BARRetrieveAndGenerate/QueryTransformationConfiguration_Type"
+        {
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/QueryTransformationConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/QueryTransformationConfiguration_Type")
+        }
         {
             $v = "QUERY_DECOMPOSITION"
             break
         }
 
+        # Amazon.BedrockAgentRuntime.RerankingConfigurationType
+        "Invoke-BARRerank/RerankingConfiguration_Type"
+        {
+            $v = "BEDROCK_RERANKING_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode
+        {
+            ($_ -eq "Invoke-BARRetrieve/MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/MetadataConfiguration_SelectionMode") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/MetadataConfiguration_SelectionMode")
+        }
+        {
+            $v = "ALL","SELECTIVE"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.RetrieveAndGenerateType
-        "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type"
+        {
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RetrieveAndGenerateConfiguration_Type")
+        }
         {
             $v = "EXTERNAL_SOURCES","KNOWLEDGE_BASE"
             break
@@ -104,10 +159,29 @@ $BAR_Completers = {
         # Amazon.BedrockAgentRuntime.SearchType
         {
             ($_ -eq "Invoke-BARRetrieve/VectorSearchConfiguration_OverrideSearchType") -Or
-            ($_ -eq "Invoke-BARRetrieveAndGenerate/VectorSearchConfiguration_OverrideSearchType")
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/VectorSearchConfiguration_OverrideSearchType") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/VectorSearchConfiguration_OverrideSearchType")
         }
         {
             $v = "HYBRID","SEMANTIC"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.TextToSqlConfigurationType
+        "Invoke-BARGenerateQuery/TextToSqlConfiguration_Type"
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType
+        {
+            ($_ -eq "Invoke-BARRetrieve/RerankingConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/RerankingConfiguration_Type") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerateStream/RerankingConfiguration_Type")
+        }
+        {
+            $v = "BEDROCK_RERANKING_MODEL"
             break
         }
 
@@ -120,10 +194,22 @@ $BAR_Completers = {
 }
 
 $BAR_map = @{
+    "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
+    "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
+    "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "MemoryType"=@("Get-BARAgentMemory")
-    "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
-    "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
-    "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate")
+    "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent")
+    "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
+    "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "Stream_ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
+    "Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
+    "Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerateStream")
+    "TextToSqlConfiguration_Type"=@("Invoke-BARGenerateQuery")
+    "TransformationConfiguration_Mode"=@("Invoke-BARGenerateQuery")
+    "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
 }
 
 _awsArgumentCompleterRegistration $BAR_Completers $BAR_map
@@ -177,11 +263,16 @@ $BAR_SelectCompleters = {
 
 $BAR_SelectMap = @{
     "Select"=@("Remove-BARAgentMemory",
+               "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
+               "Invoke-BARInlineAgent",
+               "Get-BAROptimizePrompt",
+               "Invoke-BARRerank",
                "Invoke-BARRetrieve",
-               "Invoke-BARRetrieveAndGenerate")
+               "Invoke-BARRetrieveAndGenerate",
+               "Invoke-BARRetrieveAndGenerateStream")
 }
 
 _awsArgumentCompleterRegistration $BAR_SelectCompleters $BAR_SelectMap

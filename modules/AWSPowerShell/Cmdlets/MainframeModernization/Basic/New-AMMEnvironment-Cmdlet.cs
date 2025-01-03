@@ -134,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type required for the runtime environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MainframeModernization.NetworkType")]
+        public Amazon.MainframeModernization.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
@@ -283,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
             if (this.SecurityGroupId != null)
@@ -367,6 +379,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -461,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public System.String InstanceType { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.MainframeModernization.NetworkType NetworkType { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroupId { get; set; }

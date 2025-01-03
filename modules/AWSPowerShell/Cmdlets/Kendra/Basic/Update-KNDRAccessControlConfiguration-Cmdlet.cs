@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// to apply the <c>AccessControlConfigurationId</c> in the <c>.metadata.json</c> file.
     /// Amazon Kendra currently only supports access control configuration for S3 data sources
     /// and documents indexed using the <c>BatchPutDocument</c> API.
-    /// </para>
+    /// </para><important><para>
+    /// You can't configure access control using <c>CreateAccessControlConfiguration</c> for
+    /// an Amazon Kendra Gen AI Enterprise Edition index. Amazon Kendra will return a <c>ValidationException</c>
+    /// error for a <c>Gen_AI_ENTERPRISE_EDITION</c> index.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "KNDRAccessControlConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

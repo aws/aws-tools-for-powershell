@@ -83,10 +83,25 @@ $CE_Completers = {
         # Amazon.CostExplorer.AccountScope
         {
             ($_ -eq "Get-CEReservationPurchaseRecommendation/AccountScope") -Or
-            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/AccountScope")
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/AccountScope") -Or
+            ($_ -eq "Start-CECommitmentPurchaseAnalysis/SavingsPlansPurchaseAnalysisConfiguration_AccountScope")
         }
         {
             $v = "LINKED","PAYER"
+            break
+        }
+
+        # Amazon.CostExplorer.AnalysisStatus
+        "Get-CECommitmentPurchaseAnalysisList/AnalysisStatus"
+        {
+            $v = "FAILED","PROCESSING","SUCCEEDED"
+            break
+        }
+
+        # Amazon.CostExplorer.AnalysisType
+        "Start-CECommitmentPurchaseAnalysis/SavingsPlansPurchaseAnalysisConfiguration_AnalysisType"
+        {
+            $v = "CUSTOM_COMMITMENT","MAX_SAVINGS"
             break
         }
 
@@ -284,6 +299,7 @@ $CE_Completers = {
 
 $CE_map = @{
     "AccountScope"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "AnalysisStatus"=@("Get-CECommitmentPurchaseAnalysisList")
     "AnomalyMonitor_MonitorDimension"=@("New-CEAnomalyMonitor")
     "AnomalyMonitor_MonitorType"=@("New-CEAnomalyMonitor")
     "AnomalySubscription_Frequency"=@("New-CEAnomalySubscription")
@@ -300,6 +316,8 @@ $CE_map = @{
     "Metric"=@("Get-CECostForecast","Get-CEUsageForecast")
     "PaymentOption"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "RuleVersion"=@("New-CECostCategoryDefinition","Update-CECostCategoryDefinition")
+    "SavingsPlansPurchaseAnalysisConfiguration_AccountScope"=@("Start-CECommitmentPurchaseAnalysis")
+    "SavingsPlansPurchaseAnalysisConfiguration_AnalysisType"=@("Start-CECommitmentPurchaseAnalysis")
     "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
     "SortBy_SortOrder"=@("Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CESavingsPlansUtilizationDetail")
     "Status"=@("Get-CECostAllocationTagList")
@@ -369,6 +387,7 @@ $CE_SelectMap = @{
                "Get-CEAnomalyMonitor",
                "Get-CEAnomalySubscription",
                "Get-CEApproximateUsageRecord",
+               "Get-CECommitmentPurchaseAnalysis",
                "Get-CECostAndUsage",
                "Get-CECostAndUsageWithResource",
                "Get-CECostCategory",
@@ -385,12 +404,14 @@ $CE_SelectMap = @{
                "Get-CESavingsPlansUtilizationDetail",
                "Get-CETag",
                "Get-CEUsageForecast",
+               "Get-CECommitmentPurchaseAnalysisList",
                "Get-CECostAllocationTagBackfillHistoryList",
                "Get-CECostAllocationTagList",
                "Get-CECostCategoryDefinitionList",
                "Get-CESavingsPlansPurchaseRecommendationGenerationList",
                "Get-CEResourceTag",
                "Set-CEAnomalyFeedback",
+               "Start-CECommitmentPurchaseAnalysis",
                "Start-CECostAllocationTagBackfill",
                "Start-CESavingsPlansPurchaseRecommendationGeneration",
                "Add-CEResourceTag",

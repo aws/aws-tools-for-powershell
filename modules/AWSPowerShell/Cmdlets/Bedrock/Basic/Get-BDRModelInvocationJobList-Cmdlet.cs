@@ -28,7 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Lists all batch inference jobs in the account. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view">View
+    /// Lists all batch inference jobs in the account. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-view.html">View
     /// details about a batch inference job</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDRModelInvocationJobList")]
@@ -80,7 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// <summary>
         /// <para>
         /// <para>Specify a status to filter for batch inference jobs whose statuses match the string
-        /// you specify.</para>
+        /// you specify.</para><para>The following statuses are possible:</para><ul><li><para>Submitted – This job has been submitted to a queue for validation.</para></li><li><para>Validating – This job is being validated for the requirements described in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-data.html">Format
+        /// and upload your batch inference data</a>. The criteria include the following:</para><ul><li><para>Your IAM service role has access to the Amazon S3 buckets containing your files.</para></li><li><para>Your files are .jsonl files and each individual record is a JSON object in the correct
+        /// format. Note that validation doesn't check if the <c>modelInput</c> value matches
+        /// the request body for the model.</para></li><li><para>Your files fulfill the requirements for file size and number of records. For more
+        /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html">Quotas
+        /// for Amazon Bedrock</a>.</para></li></ul></li><li><para>Scheduled – This job has been validated and is now in a queue. The job will automatically
+        /// start when it reaches its turn.</para></li><li><para>Expired – This job timed out because it was scheduled but didn't begin before the
+        /// set timeout duration. Submit a new job request.</para></li><li><para>InProgress – This job has begun. You can start viewing the results in the output S3
+        /// location.</para></li><li><para>Completed – This job has successfully completed. View the output files in the output
+        /// S3 location.</para></li><li><para>PartiallyCompleted – This job has partially completed. Not all of your records could
+        /// be processed in time. View the output files in the output S3 location.</para></li><li><para>Failed – This job has failed. Check the failure message for any further details. For
+        /// further assistance, reach out to the <a href="https://console.aws.amazon.com/support/home/">Amazon
+        /// Web Services Support Center</a>.</para></li><li><para>Stopped – This job was stopped by a user.</para></li><li><para>Stopping – This job is being stopped by a user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

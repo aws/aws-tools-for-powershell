@@ -117,12 +117,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The CPU architecture.</para><para>You can run your Linux tasks on an ARM-based platform by setting the value to <c>ARM64</c>.
         /// This option is available for tasks that run on Linux Amazon EC2 instance or Linux
-        /// containers on Fargate.</para><para>The default is <c>X86_64</c>.</para>
+        /// containers on Fargate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ECS.CPUArchitecture")]
         public Amazon.ECS.CPUArchitecture RuntimePlatform_CpuArchitecture { get; set; }
+        #endregion
+        
+        #region Parameter EnableFaultInjection
+        /// <summary>
+        /// <para>
+        /// <para>Enables fault injection when you register your task definition and allows for fault
+        /// injection requests to be accepted from the task's containers. The default value is
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableFaultInjection { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -180,10 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// If <c>none</c> is specified, then IPC resources within the containers of a task are
         /// private and not shared with other containers in a task or on the container instance.
         /// If no value is specified, then the IPC resource namespace sharing depends on the Docker
-        /// daemon setting on the container instance. For more information, see <a href="https://docs.docker.com/engine/reference/run/#ipc-settings---ipc">IPC
-        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <c>host</c> IPC mode is used, be aware that there is a heightened risk of undesired
-        /// IPC namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><para>If you are setting namespaced kernel parameters using <c>systemControls</c> for the
+        /// daemon setting on the container instance.</para><para>If the <c>host</c> IPC mode is used, be aware that there is a heightened risk of undesired
+        /// IPC namespace expose.</para><para>If you are setting namespaced kernel parameters using <c>systemControls</c> for the
         /// containers in the task, the following will apply to your IPC resource namespace. For
         /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
         /// Controls</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><ul><li><para>For tasks that use the <c>host</c> IPC mode, IPC namespace related <c>systemControls</c>
@@ -235,11 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// or the attached elastic network interface port (for the <c>awsvpc</c> network mode),
         /// so you cannot take advantage of dynamic host port mappings. </para><important><para>When using the <c>host</c> network mode, you should not run containers using the root
         /// user (UID 0). It is considered best practice to use a non-root user.</para></important><para>If the network mode is <c>awsvpc</c>, the task is allocated an elastic network interface,
-        /// and you must specify a <a>NetworkConfiguration</a> value when you create a service
-        /// or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
+        /// and you must specify a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a>
+        /// value when you create a service or run a task with the task definition. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
         /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the network mode is <c>host</c>, you cannot run multiple instantiations of the
-        /// same task on a single container instance when port mappings are used.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
-        /// settings</a> in the <i>Docker run reference</i>.</para>
+        /// same task on a single container instance when port mappings are used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter RuntimePlatform_OperatingSystemFamily
         /// <summary>
         /// <para>
-        /// <para>The operating system.</para><para>The default is <c>Linux</c>.</para>
+        /// <para>The operating system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,11 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// information about other containers running in the same task.</para><para>If <c>host</c> is specified, all containers within the tasks that specified the <c>host</c>
         /// PID mode on the same container instance share the same process namespace with the
         /// host Amazon EC2 instance.</para><para>If <c>task</c> is specified, all containers within the specified task share the same
-        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container. For
-        /// more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
-        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
-        /// namespace exposure. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
+        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
+        /// namespace exposure.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
         /// are using platform version <c>1.4.0</c> or later (Linux). This isn't supported for
         /// Windows containers on Fargate.</para></note>
         /// </para>
@@ -336,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
-        /// value is <c>20</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
+        /// value is <c>21</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             #endif
             context.Cpu = this.Cpu;
+            context.EnableFaultInjection = this.EnableFaultInjection;
             context.EphemeralStorage_SizeInGiB = this.EphemeralStorage_SizeInGiB;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.Family = this.Family;
@@ -515,6 +523,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cpu != null)
             {
                 request.Cpu = cmdletContext.Cpu;
+            }
+            if (cmdletContext.EnableFaultInjection != null)
+            {
+                request.EnableFaultInjection = cmdletContext.EnableFaultInjection.Value;
             }
             
              // populate EphemeralStorage
@@ -714,6 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinition { get; set; }
             public System.String Cpu { get; set; }
+            public System.Boolean? EnableFaultInjection { get; set; }
             public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String Family { get; set; }

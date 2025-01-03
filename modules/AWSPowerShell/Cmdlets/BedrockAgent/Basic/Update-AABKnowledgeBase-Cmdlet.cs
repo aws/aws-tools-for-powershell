@@ -52,7 +52,22 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     public partial class UpdateAABKnowledgeBaseCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter ProvisionedConfiguration_ClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Redshift cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_ClusterIdentifier")]
+        public System.String ProvisionedConfiguration_ClusterIdentifier { get; set; }
+        #endregion
         
         #region Parameter OpensearchServerlessConfiguration_CollectionArn
         /// <summary>
@@ -135,6 +150,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RedisEnterpriseCloudConfiguration_CredentialsSecretArn { get; set; }
         #endregion
         
+        #region Parameter GenerationContext_CuratedQuery
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, each of which defines information about example queries to help
+        /// the query engine generate appropriate SQL queries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_CuratedQueries")]
+        public Amazon.BedrockAgent.Model.CuratedQuery[] GenerationContext_CuratedQuery { get; set; }
+        #endregion
+        
         #region Parameter MongoDbAtlasConfiguration_DatabaseName
         /// <summary>
         /// <para>
@@ -157,6 +184,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RdsConfiguration_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter AuthConfiguration_DatabaseUser
+        /// <summary>
+        /// <para>
+        /// <para>The database username for authentication to an Amazon Redshift provisioned data warehouse.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_DatabaseUser")]
+        public System.String AuthConfiguration_DatabaseUser { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -177,6 +215,23 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_Dimensions")]
         public System.Int32? BedrockEmbeddingModelConfiguration_Dimension { get; set; }
+        #endregion
+        
+        #region Parameter BedrockEmbeddingModelConfiguration_EmbeddingDataType
+        /// <summary>
+        /// <para>
+        /// <para>The data type for the vectors when using a model to convert text into vector embeddings.
+        /// The model must support the specified data type for vector embeddings. Floating-point
+        /// (float32) is the default data type, and is supported by most models for vector embeddings.
+        /// See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported
+        /// embeddings models</a> for information on the available models and their vector data
+        /// types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_EmbeddingDataType")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.EmbeddingDataType")]
+        public Amazon.BedrockAgent.EmbeddingDataType BedrockEmbeddingModelConfiguration_EmbeddingDataType { get; set; }
         #endregion
         
         #region Parameter VectorKnowledgeBaseConfiguration_EmbeddingModelArn
@@ -223,6 +278,28 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageConfiguration_MongoDbAtlasConfiguration_EndpointServiceName")]
         public System.String MongoDbAtlasConfiguration_EndpointServiceName { get; set; }
+        #endregion
+        
+        #region Parameter QueryGenerationConfiguration_ExecutionTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The time after which query generation will time out.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_ExecutionTimeoutSeconds")]
+        public System.Int32? QueryGenerationConfiguration_ExecutionTimeoutSecond { get; set; }
+        #endregion
+        
+        #region Parameter KendraKnowledgeBaseConfiguration_KendraIndexArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Kendra index.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_KendraIndexArn")]
+        public System.String KendraKnowledgeBaseConfiguration_KendraIndexArn { get; set; }
         #endregion
         
         #region Parameter KnowledgeBaseId
@@ -361,6 +438,29 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter RedshiftConfiguration_StorageConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies configurations for Amazon Redshift database storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_StorageConfigurations")]
+        public Amazon.BedrockAgent.Model.RedshiftQueryEngineStorageConfiguration[] RedshiftConfiguration_StorageConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter SupplementalDataStorageConfiguration_StorageLocation
+        /// <summary>
+        /// <para>
+        /// <para>A list of objects specifying storage locations for images extracted from multimodal
+        /// documents in your data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_StorageLocations")]
+        public Amazon.BedrockAgent.Model.SupplementalDataStorageLocation[] SupplementalDataStorageConfiguration_StorageLocation { get; set; }
+        #endregion
+        
         #region Parameter RdsConfiguration_TableName
         /// <summary>
         /// <para>
@@ -370,6 +470,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageConfiguration_RdsConfiguration_TableName")]
         public System.String RdsConfiguration_TableName { get; set; }
+        #endregion
+        
+        #region Parameter GenerationContext_Table
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, each of which defines information about a table in the database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_Tables")]
+        public Amazon.BedrockAgent.Model.QueryGenerationTable[] GenerationContext_Table { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField
@@ -428,6 +539,53 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField { get; set; }
         #endregion
         
+        #region Parameter KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.RedshiftProvisionedAuthType")]
+        public Amazon.BedrockAgent.RedshiftProvisionedAuthType KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter AuthConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.RedshiftServerlessAuthType")]
+        public Amazon.BedrockAgent.RedshiftServerlessAuthType AuthConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter QueryEngineConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of query engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.RedshiftQueryEngineType")]
+        public Amazon.BedrockAgent.RedshiftQueryEngineType QueryEngineConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter SqlKnowledgeBaseConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of SQL database to connect to the knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.QueryEngineType")]
+        public Amazon.BedrockAgent.QueryEngineType SqlKnowledgeBaseConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter KnowledgeBaseConfiguration_Type
         /// <summary>
         /// <para>
@@ -451,15 +609,30 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>The vector store service in which the knowledge base is stored.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.BedrockAgent.KnowledgeBaseStorageType")]
         public Amazon.BedrockAgent.KnowledgeBaseStorageType StorageConfiguration_Type { get; set; }
+        #endregion
+        
+        #region Parameter KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an Secrets Manager secret for authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn { get; set; }
+        #endregion
+        
+        #region Parameter AuthConfiguration_UsernamePasswordSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an Secrets Manager secret for authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_UsernamePasswordSecretArn")]
+        public System.String AuthConfiguration_UsernamePasswordSecretArn { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField
@@ -540,6 +713,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RedisEnterpriseCloudConfiguration_VectorIndexName { get; set; }
         #endregion
         
+        #region Parameter ServerlessConfiguration_WorkgroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Redshift workgroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_WorkgroupArn")]
+        public System.String ServerlessConfiguration_WorkgroupArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'KnowledgeBase'.
@@ -583,6 +767,29 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.KendraKnowledgeBaseConfiguration_KendraIndexArn = this.KendraKnowledgeBaseConfiguration_KendraIndexArn;
+            context.AuthConfiguration_DatabaseUser = this.AuthConfiguration_DatabaseUser;
+            context.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type = this.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type;
+            context.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn = this.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn;
+            context.ProvisionedConfiguration_ClusterIdentifier = this.ProvisionedConfiguration_ClusterIdentifier;
+            context.AuthConfiguration_Type = this.AuthConfiguration_Type;
+            context.AuthConfiguration_UsernamePasswordSecretArn = this.AuthConfiguration_UsernamePasswordSecretArn;
+            context.ServerlessConfiguration_WorkgroupArn = this.ServerlessConfiguration_WorkgroupArn;
+            context.QueryEngineConfiguration_Type = this.QueryEngineConfiguration_Type;
+            context.QueryGenerationConfiguration_ExecutionTimeoutSecond = this.QueryGenerationConfiguration_ExecutionTimeoutSecond;
+            if (this.GenerationContext_CuratedQuery != null)
+            {
+                context.GenerationContext_CuratedQuery = new List<Amazon.BedrockAgent.Model.CuratedQuery>(this.GenerationContext_CuratedQuery);
+            }
+            if (this.GenerationContext_Table != null)
+            {
+                context.GenerationContext_Table = new List<Amazon.BedrockAgent.Model.QueryGenerationTable>(this.GenerationContext_Table);
+            }
+            if (this.RedshiftConfiguration_StorageConfiguration != null)
+            {
+                context.RedshiftConfiguration_StorageConfiguration = new List<Amazon.BedrockAgent.Model.RedshiftQueryEngineStorageConfiguration>(this.RedshiftConfiguration_StorageConfiguration);
+            }
+            context.SqlKnowledgeBaseConfiguration_Type = this.SqlKnowledgeBaseConfiguration_Type;
             context.KnowledgeBaseConfiguration_Type = this.KnowledgeBaseConfiguration_Type;
             #if MODULAR
             if (this.KnowledgeBaseConfiguration_Type == null && ParameterWasBound(nameof(this.KnowledgeBaseConfiguration_Type)))
@@ -592,6 +799,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             #endif
             context.VectorKnowledgeBaseConfiguration_EmbeddingModelArn = this.VectorKnowledgeBaseConfiguration_EmbeddingModelArn;
             context.BedrockEmbeddingModelConfiguration_Dimension = this.BedrockEmbeddingModelConfiguration_Dimension;
+            context.BedrockEmbeddingModelConfiguration_EmbeddingDataType = this.BedrockEmbeddingModelConfiguration_EmbeddingDataType;
+            if (this.SupplementalDataStorageConfiguration_StorageLocation != null)
+            {
+                context.SupplementalDataStorageConfiguration_StorageLocation = new List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation>(this.SupplementalDataStorageConfiguration_StorageLocation);
+            }
             context.KnowledgeBaseId = this.KnowledgeBaseId;
             #if MODULAR
             if (this.KnowledgeBaseId == null && ParameterWasBound(nameof(this.KnowledgeBaseId)))
@@ -647,12 +859,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField = this.StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField;
             context.RedisEnterpriseCloudConfiguration_VectorIndexName = this.RedisEnterpriseCloudConfiguration_VectorIndexName;
             context.StorageConfiguration_Type = this.StorageConfiguration_Type;
-            #if MODULAR
-            if (this.StorageConfiguration_Type == null && ParameterWasBound(nameof(this.StorageConfiguration_Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StorageConfiguration_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -685,6 +891,296 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_Type != null)
             {
                 request.KnowledgeBaseConfiguration.Type = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_Type;
+                requestKnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.KendraKnowledgeBaseConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration = null;
+            
+             // populate KendraKnowledgeBaseConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration = new Amazon.BedrockAgent.Model.KendraKnowledgeBaseConfiguration();
+            System.String requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_kendraKnowledgeBaseConfiguration_KendraIndexArn = null;
+            if (cmdletContext.KendraKnowledgeBaseConfiguration_KendraIndexArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_kendraKnowledgeBaseConfiguration_KendraIndexArn = cmdletContext.KendraKnowledgeBaseConfiguration_KendraIndexArn;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_kendraKnowledgeBaseConfiguration_KendraIndexArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration.KendraIndexArn = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration_kendraKnowledgeBaseConfiguration_KendraIndexArn;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration != null)
+            {
+                request.KnowledgeBaseConfiguration.KendraKnowledgeBaseConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_KendraKnowledgeBaseConfiguration;
+                requestKnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.SqlKnowledgeBaseConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration = null;
+            
+             // populate SqlKnowledgeBaseConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration = new Amazon.BedrockAgent.Model.SqlKnowledgeBaseConfiguration();
+            Amazon.BedrockAgent.QueryEngineType requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_sqlKnowledgeBaseConfiguration_Type = null;
+            if (cmdletContext.SqlKnowledgeBaseConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_sqlKnowledgeBaseConfiguration_Type = cmdletContext.SqlKnowledgeBaseConfiguration_Type;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_sqlKnowledgeBaseConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration.Type = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_sqlKnowledgeBaseConfiguration_Type;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RedshiftConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration = null;
+            
+             // populate RedshiftConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration = new Amazon.BedrockAgent.Model.RedshiftConfiguration();
+            List<Amazon.BedrockAgent.Model.RedshiftQueryEngineStorageConfiguration> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_redshiftConfiguration_StorageConfiguration = null;
+            if (cmdletContext.RedshiftConfiguration_StorageConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_redshiftConfiguration_StorageConfiguration = cmdletContext.RedshiftConfiguration_StorageConfiguration;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_redshiftConfiguration_StorageConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration.StorageConfigurations = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_redshiftConfiguration_StorageConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.QueryGenerationConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration = null;
+            
+             // populate QueryGenerationConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration = new Amazon.BedrockAgent.Model.QueryGenerationConfiguration();
+            System.Int32? requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_queryGenerationConfiguration_ExecutionTimeoutSecond = null;
+            if (cmdletContext.QueryGenerationConfiguration_ExecutionTimeoutSecond != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_queryGenerationConfiguration_ExecutionTimeoutSecond = cmdletContext.QueryGenerationConfiguration_ExecutionTimeoutSecond.Value;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_queryGenerationConfiguration_ExecutionTimeoutSecond != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration.ExecutionTimeoutSeconds = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_queryGenerationConfiguration_ExecutionTimeoutSecond.Value;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.QueryGenerationContext requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext = null;
+            
+             // populate GenerationContext
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContextIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext = new Amazon.BedrockAgent.Model.QueryGenerationContext();
+            List<Amazon.BedrockAgent.Model.CuratedQuery> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_CuratedQuery = null;
+            if (cmdletContext.GenerationContext_CuratedQuery != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_CuratedQuery = cmdletContext.GenerationContext_CuratedQuery;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_CuratedQuery != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext.CuratedQueries = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_CuratedQuery;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContextIsNull = false;
+            }
+            List<Amazon.BedrockAgent.Model.QueryGenerationTable> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_Table = null;
+            if (cmdletContext.GenerationContext_Table != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_Table = cmdletContext.GenerationContext_Table;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_Table != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext.Tables = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext_generationContext_Table;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContextIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContextIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration.GenerationContext = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration_GenerationContext;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration.QueryGenerationConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryGenerationConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RedshiftQueryEngineConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration = null;
+            
+             // populate QueryEngineConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration = new Amazon.BedrockAgent.Model.RedshiftQueryEngineConfiguration();
+            Amazon.BedrockAgent.RedshiftQueryEngineType requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_queryEngineConfiguration_Type = null;
+            if (cmdletContext.QueryEngineConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_queryEngineConfiguration_Type = cmdletContext.QueryEngineConfiguration_Type;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_queryEngineConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration.Type = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_queryEngineConfiguration_Type;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RedshiftProvisionedConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration = null;
+            
+             // populate ProvisionedConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration = new Amazon.BedrockAgent.Model.RedshiftProvisionedConfiguration();
+            System.String requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_provisionedConfiguration_ClusterIdentifier = null;
+            if (cmdletContext.ProvisionedConfiguration_ClusterIdentifier != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_provisionedConfiguration_ClusterIdentifier = cmdletContext.ProvisionedConfiguration_ClusterIdentifier;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_provisionedConfiguration_ClusterIdentifier != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration.ClusterIdentifier = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_provisionedConfiguration_ClusterIdentifier;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RedshiftProvisionedAuthConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration = null;
+            
+             // populate AuthConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration = new Amazon.BedrockAgent.Model.RedshiftProvisionedAuthConfiguration();
+            System.String requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_authConfiguration_DatabaseUser = null;
+            if (cmdletContext.AuthConfiguration_DatabaseUser != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_authConfiguration_DatabaseUser = cmdletContext.AuthConfiguration_DatabaseUser;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_authConfiguration_DatabaseUser != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration.DatabaseUser = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_authConfiguration_DatabaseUser;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.RedshiftProvisionedAuthType requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type = null;
+            if (cmdletContext.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type = cmdletContext.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration.Type = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfigurationIsNull = false;
+            }
+            System.String requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn = null;
+            if (cmdletContext.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn = cmdletContext.KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration.UsernamePasswordSecretArn = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration.AuthConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration.ProvisionedConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RedshiftServerlessConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration = null;
+            
+             // populate ServerlessConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration = new Amazon.BedrockAgent.Model.RedshiftServerlessConfiguration();
+            System.String requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_serverlessConfiguration_WorkgroupArn = null;
+            if (cmdletContext.ServerlessConfiguration_WorkgroupArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_serverlessConfiguration_WorkgroupArn = cmdletContext.ServerlessConfiguration_WorkgroupArn;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_serverlessConfiguration_WorkgroupArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration.WorkgroupArn = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_serverlessConfiguration_WorkgroupArn;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.RedshiftServerlessAuthConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration = null;
+            
+             // populate AuthConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration = new Amazon.BedrockAgent.Model.RedshiftServerlessAuthConfiguration();
+            Amazon.BedrockAgent.RedshiftServerlessAuthType requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_Type = null;
+            if (cmdletContext.AuthConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_Type = cmdletContext.AuthConfiguration_Type;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_Type != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration.Type = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_Type;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfigurationIsNull = false;
+            }
+            System.String requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_UsernamePasswordSecretArn = null;
+            if (cmdletContext.AuthConfiguration_UsernamePasswordSecretArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_UsernamePasswordSecretArn = cmdletContext.AuthConfiguration_UsernamePasswordSecretArn;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_UsernamePasswordSecretArn != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration.UsernamePasswordSecretArn = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration_authConfiguration_UsernamePasswordSecretArn;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration.AuthConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration_AuthConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration.ServerlessConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ServerlessConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration.QueryEngineConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration.RedshiftConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration != null)
+            {
+                request.KnowledgeBaseConfiguration.SqlKnowledgeBaseConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration;
                 requestKnowledgeBaseConfigurationIsNull = false;
             }
             Amazon.BedrockAgent.Model.VectorKnowledgeBaseConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration = null;
@@ -722,6 +1218,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.Dimensions = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_Dimension.Value;
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.EmbeddingDataType requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType = null;
+            if (cmdletContext.BedrockEmbeddingModelConfiguration_EmbeddingDataType != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType = cmdletContext.BedrockEmbeddingModelConfiguration_EmbeddingDataType;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration.EmbeddingDataType = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration_bedrockEmbeddingModelConfiguration_EmbeddingDataType;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull = false;
+            }
              // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfiguration should be set to null
             if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration_BedrockEmbeddingModelConfigurationIsNull)
             {
@@ -740,6 +1246,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration != null)
             {
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration.EmbeddingModelConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_EmbeddingModelConfiguration;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.SupplementalDataStorageConfiguration requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration = null;
+            
+             // populate SupplementalDataStorageConfiguration
+            var requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfigurationIsNull = true;
+            requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration = new Amazon.BedrockAgent.Model.SupplementalDataStorageConfiguration();
+            List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_supplementalDataStorageConfiguration_StorageLocation = null;
+            if (cmdletContext.SupplementalDataStorageConfiguration_StorageLocation != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_supplementalDataStorageConfiguration_StorageLocation = cmdletContext.SupplementalDataStorageConfiguration_StorageLocation;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_supplementalDataStorageConfiguration_StorageLocation != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration.StorageLocations = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration_supplementalDataStorageConfiguration_StorageLocation;
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfigurationIsNull = false;
+            }
+             // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration should be set to null
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfigurationIsNull)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration = null;
+            }
+            if (requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration != null)
+            {
+                requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration.SupplementalDataStorageConfiguration = requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration_SupplementalDataStorageConfiguration;
                 requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfigurationIsNull = false;
             }
              // determine if requestKnowledgeBaseConfiguration_knowledgeBaseConfiguration_VectorKnowledgeBaseConfiguration should be set to null
@@ -1330,9 +1861,25 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String KendraKnowledgeBaseConfiguration_KendraIndexArn { get; set; }
+            public System.String AuthConfiguration_DatabaseUser { get; set; }
+            public Amazon.BedrockAgent.RedshiftProvisionedAuthType KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type { get; set; }
+            public System.String KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn { get; set; }
+            public System.String ProvisionedConfiguration_ClusterIdentifier { get; set; }
+            public Amazon.BedrockAgent.RedshiftServerlessAuthType AuthConfiguration_Type { get; set; }
+            public System.String AuthConfiguration_UsernamePasswordSecretArn { get; set; }
+            public System.String ServerlessConfiguration_WorkgroupArn { get; set; }
+            public Amazon.BedrockAgent.RedshiftQueryEngineType QueryEngineConfiguration_Type { get; set; }
+            public System.Int32? QueryGenerationConfiguration_ExecutionTimeoutSecond { get; set; }
+            public List<Amazon.BedrockAgent.Model.CuratedQuery> GenerationContext_CuratedQuery { get; set; }
+            public List<Amazon.BedrockAgent.Model.QueryGenerationTable> GenerationContext_Table { get; set; }
+            public List<Amazon.BedrockAgent.Model.RedshiftQueryEngineStorageConfiguration> RedshiftConfiguration_StorageConfiguration { get; set; }
+            public Amazon.BedrockAgent.QueryEngineType SqlKnowledgeBaseConfiguration_Type { get; set; }
             public Amazon.BedrockAgent.KnowledgeBaseType KnowledgeBaseConfiguration_Type { get; set; }
             public System.String VectorKnowledgeBaseConfiguration_EmbeddingModelArn { get; set; }
             public System.Int32? BedrockEmbeddingModelConfiguration_Dimension { get; set; }
+            public Amazon.BedrockAgent.EmbeddingDataType BedrockEmbeddingModelConfiguration_EmbeddingDataType { get; set; }
+            public List<Amazon.BedrockAgent.Model.SupplementalDataStorageLocation> SupplementalDataStorageConfiguration_StorageLocation { get; set; }
             public System.String KnowledgeBaseId { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }

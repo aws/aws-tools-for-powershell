@@ -40,6 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// 
     ///  
     /// <para>
+    /// This operation doesn't reset an existing TOTP MFA for a user. To register a new TOTP
+    /// factor for a user, make an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a>
+    /// request. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html">TOTP
+    /// software token MFA</a>.
+    /// </para><para>
     /// Authorize this action with a signed-in user's access token. It must include the scope
     /// <c>aws.cognito.signin.user.admin</c>.
     /// </para><note><para>

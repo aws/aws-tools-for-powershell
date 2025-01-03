@@ -28,7 +28,8 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Retrieves information about the association between a service network and a VPC.
+    /// Retrieves information about the specified association between a service network and
+    /// a VPC.
     /// </summary>
     [Cmdlet("Get", "VPCLServiceNetworkVpcAssociation")]
     [OutputType("Amazon.VPCLattice.Model.GetServiceNetworkVpcAssociationResponse")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceNetworkVpcAssociationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the association.</para>
+        /// <para>The ID or ARN of the association.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

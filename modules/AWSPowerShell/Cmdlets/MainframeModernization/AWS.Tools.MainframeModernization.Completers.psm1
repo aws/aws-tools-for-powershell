@@ -99,6 +99,13 @@ $AMM_Completers = {
             break
         }
 
+        # Amazon.MainframeModernization.NetworkType
+        "New-AMMEnvironment/NetworkType"
+        {
+            $v = "dual","ipv4"
+            break
+        }
+
 
     }
 
@@ -109,6 +116,7 @@ $AMM_Completers = {
 
 $AMM_map = @{
     "EngineType"=@("Get-AMMEngineVersionList","Get-AMMEnvironmentList","New-AMMApplication","New-AMMEnvironment")
+    "NetworkType"=@("New-AMMEnvironment")
     "Status"=@("Get-AMMBatchJobExecutionList")
 }
 

@@ -80,6 +80,16 @@ $ELB2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticLoadBalancingV2.AdvertiseTrustStoreCaNamesEnum
+        {
+            ($_ -eq "Edit-ELB2Listener/MutualAuthentication_AdvertiseTrustStoreCaName") -Or
+            ($_ -eq "New-ELB2Listener/MutualAuthentication_AdvertiseTrustStoreCaName")
+        }
+        {
+            $v = "off","on"
+            break
+        }
+
         # Amazon.ElasticLoadBalancingV2.EnablePrefixForIpv6SourceNatEnum
         {
             ($_ -eq "New-ELB2LoadBalancer/EnablePrefixForIpv6SourceNat") -Or
@@ -176,6 +186,7 @@ $ELB2_map = @{
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
     "IpAddressType"=@("New-ELB2LoadBalancer","New-ELB2TargetGroup","Set-ELB2IpAddressType","Set-ELB2Subnet")
     "LoadBalancerType"=@("Get-ELB2SSLPolicy")
+    "MutualAuthentication_AdvertiseTrustStoreCaName"=@("Edit-ELB2Listener","New-ELB2Listener")
     "MutualAuthentication_TrustStoreAssociationStatus"=@("Edit-ELB2Listener","New-ELB2Listener")
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
@@ -249,6 +260,7 @@ $ELB2_SelectMap = @{
                "Remove-ELB2TrustStore",
                "Unregister-ELB2Target",
                "Get-ELB2AccountLimit",
+               "Get-ELB2CapacityReservation",
                "Get-ELB2ListenerAttribute",
                "Get-ELB2ListenerCertificate",
                "Get-ELB2Listener",
@@ -266,6 +278,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2ResourcePolicy",
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
+               "Edit-ELB2CapacityReservation",
                "Edit-ELB2Listener",
                "Edit-ELB2ListenerAttribute",
                "Edit-ELB2LoadBalancerAttribute",

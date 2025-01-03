@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelParticipantAuthentication" Verb="Stop" Noun="ParticipantAuthentication" ShouldProcessTarget="SessionId" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CompleteAttachmentUpload" Verb="Complete" Noun="AttachmentUpload" ShouldProcessTarget="ConnectionToken" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -36,6 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAttachment" OutputProperty="*" Verb="Get" Noun="Attachment" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAuthenticationUrl" OutputProperty="AuthenticationUrl" Verb="Get" Noun="AuthenticationUrl" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes the attributes for a user.
+    /// Self-deletes attributes for a user. For example, your application can submit a request
+    /// to this operation when a user wants to remove their <c>birthdate</c> attribute value.
     /// 
     ///  
     /// <para>
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttributeName
         /// <summary>
         /// <para>
-        /// <para>An array of strings representing the user attribute names you want to delete.</para><para>For custom attributes, you must prependattach the <c>custom:</c> prefix to the front
-        /// of the attribute name.</para>
+        /// <para>An array of strings representing the user attribute names you want to delete.</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
+        /// name, for example <c>custom:department</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

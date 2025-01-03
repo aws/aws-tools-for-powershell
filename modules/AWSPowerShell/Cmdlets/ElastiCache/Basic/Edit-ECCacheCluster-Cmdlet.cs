@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the strategy to use to update the AUTH token. This parameter must be specified
-        /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>ROTATE - default, if no update strategy is provided</para></li><li><para>SET - allowed only after ROTATE</para></li><li><para>DELETE - allowed only when transitioning to RBAC</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
+        /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>ROTATE - default, if no update strategy is provided</para></li><li><para>SET - allowed only after ROTATE</para></li><li><para>DELETE - allowed only when transitioning to RBAC</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/auth.html">Authenticating
         /// Users with AUTH</a></para>
         /// </para>
         /// </summary>
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+        /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
         /// If you want to use an earlier engine version, you must delete the existing cluster
         /// and create it anew with the earlier engine version. </para>
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// to the number of current nodes.</para><para>If <c>cross-az</c> is specified, existing Memcached nodes remain in their current
         /// Availability Zone. Only newly created nodes can be located in different Availability
         /// Zones. For guidance on how to move existing Memcached nodes to different Availability
-        /// Zones, see the <b>Availability Zone Considerations</b> section of <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html">Cache
+        /// Zones, see the <b>Availability Zone Considerations</b> section of <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html">Cache
         /// Node Considerations for Memcached</a>.</para><para><b>Impact of new add/remove requests upon pending requests</b></para><ul><li><para>Scenario-1</para><ul><li><para>Pending Action: Delete</para></li><li><para>New Request: Delete</para></li><li><para>Result: The new delete, pending or immediate, replaces the pending delete.</para></li></ul></li><li><para>Scenario-2</para><ul><li><para>Pending Action: Delete</para></li><li><para>New Request: Create</para></li><li><para>Result: The new create, pending or immediate, replaces the pending delete.</para></li></ul></li><li><para>Scenario-3</para><ul><li><para>Pending Action: Create</para></li><li><para>New Request: Delete</para></li><li><para>Result: The new delete, pending or immediate, replaces the pending create.</para></li></ul></li><li><para>Scenario-4</para><ul><li><para>Pending Action: Create</para></li><li><para>New Request: Create</para></li><li><para>Result: The new create is added to the pending create.</para><important><para><b>Important:</b> If the new create request is <b>Apply Immediately - Yes</b>, all
         /// creates are performed immediately. If the new create request is <b>Apply Immediately
         /// - No</b>, all creates are pending.</para></important></li></ul></li></ul>

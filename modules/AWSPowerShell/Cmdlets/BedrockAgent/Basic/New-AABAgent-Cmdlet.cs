@@ -69,7 +69,22 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     public partial class NewAABAgentCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AgentCollaboration
+        /// <summary>
+        /// <para>
+        /// <para>The agent's collaboration role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.AgentCollaboration")]
+        public Amazon.BedrockAgent.AgentCollaboration AgentCollaboration { get; set; }
+        #endregion
         
         #region Parameter AgentName
         /// <summary>
@@ -198,6 +213,41 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String Instruction { get; set; }
         #endregion
         
+        #region Parameter Executor_Lambda
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the Lambda function containing the business logic
+        /// that is carried out upon invoking the action. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomOrchestration_Executor_Lambda")]
+        public System.String Executor_Lambda { get; set; }
+        #endregion
+        
+        #region Parameter SessionSummaryConfiguration_MaxRecentSession
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of recent session summaries to include in the agent's prompt context.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemoryConfiguration_SessionSummaryConfiguration_MaxRecentSessions")]
+        public System.Int32? SessionSummaryConfiguration_MaxRecentSession { get; set; }
+        #endregion
+        
+        #region Parameter OrchestrationType
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the type of orchestration strategy for the agent. This is set to <c>DEFAULT</c>
+        /// orchestration type, by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.OrchestrationType")]
+        public Amazon.BedrockAgent.OrchestrationType OrchestrationType { get; set; }
+        #endregion
+        
         #region Parameter PromptOverrideConfiguration_OverrideLambda
         /// <summary>
         /// <para>
@@ -271,6 +321,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public string Select { get; set; } = "Agent";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AgentName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AgentName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgentName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -297,11 +357,22 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.CreateAgentResponse, NewAABAgentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.AgentName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AgentCollaboration = this.AgentCollaboration;
             context.AgentName = this.AgentName;
             #if MODULAR
             if (this.AgentName == null && ParameterWasBound(nameof(this.AgentName)))
@@ -312,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.AgentResourceRoleArn = this.AgentResourceRoleArn;
             context.ClientToken = this.ClientToken;
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
+            context.Executor_Lambda = this.Executor_Lambda;
             context.Description = this.Description;
             context.FoundationModel = this.FoundationModel;
             context.GuardrailConfiguration_GuardrailIdentifier = this.GuardrailConfiguration_GuardrailIdentifier;
@@ -322,7 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 context.MemoryConfiguration_EnabledMemoryType = new List<System.String>(this.MemoryConfiguration_EnabledMemoryType);
             }
+            context.SessionSummaryConfiguration_MaxRecentSession = this.SessionSummaryConfiguration_MaxRecentSession;
             context.MemoryConfiguration_StorageDay = this.MemoryConfiguration_StorageDay;
+            context.OrchestrationType = this.OrchestrationType;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
             if (this.PromptOverrideConfiguration_PromptConfiguration != null)
             {
@@ -352,6 +426,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             // create request
             var request = new Amazon.BedrockAgent.Model.CreateAgentRequest();
             
+            if (cmdletContext.AgentCollaboration != null)
+            {
+                request.AgentCollaboration = cmdletContext.AgentCollaboration;
+            }
             if (cmdletContext.AgentName != null)
             {
                 request.AgentName = cmdletContext.AgentName;
@@ -367,6 +445,40 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.CustomerEncryptionKeyArn != null)
             {
                 request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
+            }
+            
+             // populate CustomOrchestration
+            var requestCustomOrchestrationIsNull = true;
+            request.CustomOrchestration = new Amazon.BedrockAgent.Model.CustomOrchestration();
+            Amazon.BedrockAgent.Model.OrchestrationExecutor requestCustomOrchestration_customOrchestration_Executor = null;
+            
+             // populate Executor
+            var requestCustomOrchestration_customOrchestration_ExecutorIsNull = true;
+            requestCustomOrchestration_customOrchestration_Executor = new Amazon.BedrockAgent.Model.OrchestrationExecutor();
+            System.String requestCustomOrchestration_customOrchestration_Executor_executor_Lambda = null;
+            if (cmdletContext.Executor_Lambda != null)
+            {
+                requestCustomOrchestration_customOrchestration_Executor_executor_Lambda = cmdletContext.Executor_Lambda;
+            }
+            if (requestCustomOrchestration_customOrchestration_Executor_executor_Lambda != null)
+            {
+                requestCustomOrchestration_customOrchestration_Executor.Lambda = requestCustomOrchestration_customOrchestration_Executor_executor_Lambda;
+                requestCustomOrchestration_customOrchestration_ExecutorIsNull = false;
+            }
+             // determine if requestCustomOrchestration_customOrchestration_Executor should be set to null
+            if (requestCustomOrchestration_customOrchestration_ExecutorIsNull)
+            {
+                requestCustomOrchestration_customOrchestration_Executor = null;
+            }
+            if (requestCustomOrchestration_customOrchestration_Executor != null)
+            {
+                request.CustomOrchestration.Executor = requestCustomOrchestration_customOrchestration_Executor;
+                requestCustomOrchestrationIsNull = false;
+            }
+             // determine if request.CustomOrchestration should be set to null
+            if (requestCustomOrchestrationIsNull)
+            {
+                request.CustomOrchestration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -437,10 +549,39 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.MemoryConfiguration.StorageDays = requestMemoryConfiguration_memoryConfiguration_StorageDay.Value;
                 requestMemoryConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.SessionSummaryConfiguration requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration = null;
+            
+             // populate SessionSummaryConfiguration
+            var requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfigurationIsNull = true;
+            requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration = new Amazon.BedrockAgent.Model.SessionSummaryConfiguration();
+            System.Int32? requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession = null;
+            if (cmdletContext.SessionSummaryConfiguration_MaxRecentSession != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession = cmdletContext.SessionSummaryConfiguration_MaxRecentSession.Value;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration.MaxRecentSessions = requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration_sessionSummaryConfiguration_MaxRecentSession.Value;
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfigurationIsNull = false;
+            }
+             // determine if requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration should be set to null
+            if (requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfigurationIsNull)
+            {
+                requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration = null;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration != null)
+            {
+                request.MemoryConfiguration.SessionSummaryConfiguration = requestMemoryConfiguration_memoryConfiguration_SessionSummaryConfiguration;
+                requestMemoryConfigurationIsNull = false;
+            }
              // determine if request.MemoryConfiguration should be set to null
             if (requestMemoryConfigurationIsNull)
             {
                 request.MemoryConfiguration = null;
+            }
+            if (cmdletContext.OrchestrationType != null)
+            {
+                request.OrchestrationType = cmdletContext.OrchestrationType;
             }
             
              // populate PromptOverrideConfiguration
@@ -536,10 +677,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.BedrockAgent.AgentCollaboration AgentCollaboration { get; set; }
             public System.String AgentName { get; set; }
             public System.String AgentResourceRoleArn { get; set; }
             public System.String ClientToken { get; set; }
             public System.String CustomerEncryptionKeyArn { get; set; }
+            public System.String Executor_Lambda { get; set; }
             public System.String Description { get; set; }
             public System.String FoundationModel { get; set; }
             public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }
@@ -547,7 +690,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public System.String Instruction { get; set; }
             public List<System.String> MemoryConfiguration_EnabledMemoryType { get; set; }
+            public System.Int32? SessionSummaryConfiguration_MaxRecentSession { get; set; }
             public System.Int32? MemoryConfiguration_StorageDay { get; set; }
+            public Amazon.BedrockAgent.OrchestrationType OrchestrationType { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
             public List<Amazon.BedrockAgent.Model.PromptConfiguration> PromptOverrideConfiguration_PromptConfiguration { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

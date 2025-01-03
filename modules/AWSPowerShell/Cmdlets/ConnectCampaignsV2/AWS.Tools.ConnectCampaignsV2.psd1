@@ -117,7 +117,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CCS2CampaignSchedule', 
         'Update-CCS2CampaignSource', 
         'Write-CCS2ConnectInstanceIntegration', 
-        'Write-CCS2OutboundRequestBatch')
+        'Write-CCS2OutboundRequestBatch', 
+        'Write-CCS2ProfileOutboundRequestBatch')
 
     # Variables to export from this module
     VariablesToExport = '*'

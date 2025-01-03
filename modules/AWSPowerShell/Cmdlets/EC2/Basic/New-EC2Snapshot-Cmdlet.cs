@@ -34,11 +34,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can create snapshots of volumes in a Region and volumes on an Outpost. If you
-    /// create a snapshot of a volume in a Region, the snapshot must be stored in the same
-    /// Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
-    /// can be stored on the same Outpost as the volume, or in the Region for that Outpost.
-    /// </para><para>
+    /// The location of the source EBS volume determines where you can create the snapshot.
+    /// </para><ul><li><para>
+    /// If the source volume is in a Region, you must create the snapshot in the same Region
+    /// as the volume.
+    /// </para></li><li><para>
+    /// If the source volume is in a Local Zone, you can create the snapshot in the same Local
+    /// Zone or in parent Amazon Web Services Region.
+    /// </para></li><li><para>
+    /// If the source volume is on an Outpost, you can create the snapshot on the same Outpost
+    /// or in its parent Amazon Web Services Region.
+    /// </para></li></ul><para>
     /// When a snapshot is created, any Amazon Web Services Marketplace product codes that
     /// are associated with the source volume are propagated to the snapshot.
     /// </para><para>
@@ -57,13 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes
     /// that are created from encrypted snapshots are also automatically encrypted. Your encrypted
-    /// volumes and any associated snapshots always remain protected.
-    /// </para><para>
-    /// You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
-    /// your Amazon EC2 resources</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html">Amazon
-    /// EBS</a> and <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
+    /// volumes and any associated snapshots always remain protected. For more information,
+    /// <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
     /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.
     /// </para>
     /// </summary>
@@ -89,14 +90,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Location
+        /// <summary>
+        /// <para>
+        /// <note><para>Only supported for volumes in Local Zones. If the source volume is not in a Local
+        /// Zone, omit this parameter.</para></note><ul><li><para>To create a local snapshot in the same Local Zone as the source volume, specify <c>local</c>.</para></li><li><para>To create a regional snapshot in the parent Region of the Local Zone, specify <c>regional</c>
+        /// or omit this parameter.</para></li></ul><para>Default value: <c>regional</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.SnapshotLocationEnum")]
+        public Amazon.EC2.SnapshotLocationEnum Location { get; set; }
+        #endregion
+        
         #region Parameter OutpostArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.</para><ul><li><para>To create a snapshot of a volume in a Region, omit this parameter. The snapshot is
-        /// created in the same Region as the volume.</para></li><li><para>To create a snapshot of a volume on an Outpost and store the snapshot in the Region,
-        /// omit this parameter. The snapshot is created in the Region for the Outpost.</para></li><li><para>To create a snapshot of a volume on an Outpost and store the snapshot on an Outpost,
-        /// specify the ARN of the destination Outpost. The snapshot must be created on the same
-        /// Outpost as the volume.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">Create
+        /// <note><para>Only supported for volumes on Outposts. If the source volume is not on an Outpost,
+        /// omit this parameter.</para></note><ul><li><para>To create the snapshot on the same Outpost as the source volume, specify the ARN of
+        /// that Outpost. The snapshot must be created on the same Outpost as the volume.</para></li><li><para>To create the snapshot in the parent Region of the Outpost, omit this parameter.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">Create
         /// local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -175,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.Location = this.Location;
             context.OutpostArn = this.OutpostArn;
             if (this.TagSpecification != null)
             {
@@ -206,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Location != null)
+            {
+                request.Location = cmdletContext.Location;
             }
             if (cmdletContext.OutpostArn != null)
             {
@@ -281,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public Amazon.EC2.SnapshotLocationEnum Location { get; set; }
             public System.String OutpostArn { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VolumeId { get; set; }

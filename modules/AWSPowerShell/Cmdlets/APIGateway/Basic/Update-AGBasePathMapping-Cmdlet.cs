@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DomainNameId
+        /// <summary>
+        /// <para>
+        /// <para> The identifier for the domain name resource. Supported only for private custom domain
+        /// names. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainNameId { get; set; }
+        #endregion
+        
         #region Parameter PatchOperation
         /// <summary>
         /// <para>
@@ -143,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DomainNameId = this.DomainNameId;
             if (this.PatchOperation != null)
             {
                 context.PatchOperation = new List<Amazon.APIGateway.Model.PatchOperation>(this.PatchOperation);
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.DomainNameId != null)
+            {
+                request.DomainNameId = cmdletContext.DomainNameId;
             }
             if (cmdletContext.PatchOperation != null)
             {
@@ -238,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.String BasePath { get; set; }
             public System.String DomainName { get; set; }
+            public System.String DomainNameId { get; set; }
             public List<Amazon.APIGateway.Model.PatchOperation> PatchOperation { get; set; }
             public System.Func<Amazon.APIGateway.Model.UpdateBasePathMappingResponse, UpdateAGBasePathMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

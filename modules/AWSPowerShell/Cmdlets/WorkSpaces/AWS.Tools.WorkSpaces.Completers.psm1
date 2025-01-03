@@ -96,6 +96,34 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.AGAModeForDirectoryEnum
+        "Edit-WKSStreamingProperty/GlobalAccelerator_Mode"
+        {
+            $v = "DISABLED","ENABLED_AUTO"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAModeForWorkSpaceEnum
+        "Edit-WKSWorkspaceProperty/GlobalAccelerator_Mode"
+        {
+            $v = "DISABLED","ENABLED_AUTO","INHERITED"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAPreferredProtocolForDirectory
+        "Edit-WKSStreamingProperty/GlobalAccelerator_PreferredProtocol"
+        {
+            $v = "NONE","TCP"
+            break
+        }
+
+        # Amazon.WorkSpaces.AGAPreferredProtocolForWorkSpace
+        "Edit-WKSWorkspaceProperty/GlobalAccelerator_PreferredProtocol"
+        {
+            $v = "INHERITED","NONE","TCP"
+            break
+        }
+
         # Amazon.WorkSpaces.ApplicationSettingsStatusEnum
         {
             ($_ -eq "New-WKSWorkspacesPool/ApplicationSettings_Status") -Or
@@ -154,7 +182,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.OperatingSystemName
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
-            $v = "AMAZON_LINUX_2","RHEL_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX_2","RHEL_8","ROCKY_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 
@@ -251,6 +279,8 @@ $WKS_map = @{
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
+    "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")

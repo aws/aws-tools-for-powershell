@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN you specified to list the tags of.</para>
+        /// <para>The ARN of the resource to list tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

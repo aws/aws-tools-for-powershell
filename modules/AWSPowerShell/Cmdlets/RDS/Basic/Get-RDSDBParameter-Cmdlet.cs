@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>This parameter isn't currently supported.</para>
+        /// <para>A filter that specifies one or more DB parameters to describe.</para><para>The only supported filter is <c>parameter-name</c>. The results list only includes
+        /// information about the DB parameters with these names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

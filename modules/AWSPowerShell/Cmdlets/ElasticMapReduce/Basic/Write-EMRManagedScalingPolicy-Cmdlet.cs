@@ -119,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Int32? ComputeLimits_MinimumCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter ManagedScalingPolicy_ScalingStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether a custom scaling utilization performance index can be set. Possible
+        /// values include <i>ADVANCED</i> or <i>DEFAULT</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.ScalingStrategy")]
+        public Amazon.ElasticMapReduce.ScalingStrategy ManagedScalingPolicy_ScalingStrategy { get; set; }
+        #endregion
+        
         #region Parameter ComputeLimits_UnitType
         /// <summary>
         /// <para>
@@ -129,6 +141,19 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [Alias("ManagedScalingPolicy_ComputeLimits_UnitType")]
         [AWSConstantClassSource("Amazon.ElasticMapReduce.ComputeLimitsUnitType")]
         public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }
+        #endregion
+        
+        #region Parameter ManagedScalingPolicy_UtilizationPerformanceIndex
+        /// <summary>
+        /// <para>
+        /// <para>An integer value that represents an advanced scaling strategy. Setting a higher value
+        /// optimizes for performance. Setting a lower value optimizes for resource conservation.
+        /// Setting the value to 50 balances performance and resource conservation. Possible values
+        /// are 1, 25, 50, 75, and 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedScalingPolicy_UtilizationPerformanceIndex { get; set; }
         #endregion
         
         #region Parameter Select
@@ -184,6 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.ComputeLimits_MaximumOnDemandCapacityUnit = this.ComputeLimits_MaximumOnDemandCapacityUnit;
             context.ComputeLimits_MinimumCapacityUnit = this.ComputeLimits_MinimumCapacityUnit;
             context.ComputeLimits_UnitType = this.ComputeLimits_UnitType;
+            context.ManagedScalingPolicy_ScalingStrategy = this.ManagedScalingPolicy_ScalingStrategy;
+            context.ManagedScalingPolicy_UtilizationPerformanceIndex = this.ManagedScalingPolicy_UtilizationPerformanceIndex;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,6 +235,26 @@ namespace Amazon.PowerShell.Cmdlets.EMR
              // populate ManagedScalingPolicy
             var requestManagedScalingPolicyIsNull = true;
             request.ManagedScalingPolicy = new Amazon.ElasticMapReduce.Model.ManagedScalingPolicy();
+            Amazon.ElasticMapReduce.ScalingStrategy requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy = null;
+            if (cmdletContext.ManagedScalingPolicy_ScalingStrategy != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy = cmdletContext.ManagedScalingPolicy_ScalingStrategy;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy != null)
+            {
+                request.ManagedScalingPolicy.ScalingStrategy = requestManagedScalingPolicy_managedScalingPolicy_ScalingStrategy;
+                requestManagedScalingPolicyIsNull = false;
+            }
+            System.Int32? requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex = null;
+            if (cmdletContext.ManagedScalingPolicy_UtilizationPerformanceIndex != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex = cmdletContext.ManagedScalingPolicy_UtilizationPerformanceIndex.Value;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex != null)
+            {
+                request.ManagedScalingPolicy.UtilizationPerformanceIndex = requestManagedScalingPolicy_managedScalingPolicy_UtilizationPerformanceIndex.Value;
+                requestManagedScalingPolicyIsNull = false;
+            }
             Amazon.ElasticMapReduce.Model.ComputeLimits requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits = null;
             
              // populate ComputeLimits
@@ -345,6 +392,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.Int32? ComputeLimits_MaximumOnDemandCapacityUnit { get; set; }
             public System.Int32? ComputeLimits_MinimumCapacityUnit { get; set; }
             public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }
+            public Amazon.ElasticMapReduce.ScalingStrategy ManagedScalingPolicy_ScalingStrategy { get; set; }
+            public System.Int32? ManagedScalingPolicy_UtilizationPerformanceIndex { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.PutManagedScalingPolicyResponse, WriteEMRManagedScalingPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

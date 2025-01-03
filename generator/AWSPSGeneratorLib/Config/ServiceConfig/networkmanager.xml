@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDirectConnectGatewayAttachment" OutputProperty="DirectConnectGatewayAttachment" Verb="New" Noun="DirectConnectGatewayAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGlobalNetwork" OutputProperty="GlobalNetwork" Verb="New" Noun="GlobalNetwork" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -199,6 +203,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDirectConnectGatewayAttachment" OutputProperty="DirectConnectGatewayAttachment" Verb="Get" Noun="DirectConnectGatewayAttachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLinkAssociations" OutputProperty="LinkAssociations" Verb="Get" Noun="LinkAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -336,6 +344,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevice" OutputProperty="Device" Verb="Update" Noun="Device" ShouldProcessTarget="DeviceId" PipelineParameter="DeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDirectConnectGatewayAttachment" OutputProperty="DirectConnectGatewayAttachment" Verb="Update" Noun="DirectConnectGatewayAttachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,7 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates some parameters of an existing DataSync location for an object storage system.
+    /// Modifies the following configuration parameters of the object storage transfer location
+    /// that you're using with DataSync.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Configuring
+    /// DataSync transfers with an object storage system</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "DSYNLocationObjectStorage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

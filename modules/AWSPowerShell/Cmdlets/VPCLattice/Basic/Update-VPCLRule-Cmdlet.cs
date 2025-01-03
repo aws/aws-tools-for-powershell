@@ -28,8 +28,8 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Updates a rule for the listener. You can't modify a default listener rule. To modify
-    /// a default listener rule, use <c>UpdateListener</c>.
+    /// Updates a specified rule for the listener. You can't modify a default listener rule.
+    /// To modify a default listener rule, use <c>UpdateListener</c>.
     /// </summary>
     [Cmdlet("Update", "VPCLRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.UpdateRuleResponse")]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ListenerIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the listener.</para>
+        /// <para>The ID or ARN of the listener.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter RuleIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the rule.</para>
+        /// <para>The ID or ARN of the rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service.</para>
+        /// <para>The ID or ARN of the service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

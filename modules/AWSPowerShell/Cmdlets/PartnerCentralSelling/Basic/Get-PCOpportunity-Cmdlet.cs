@@ -30,11 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// <summary>
     /// Fetches the <c>Opportunity</c> record from Partner Central by a given <c>Identifier</c>.
     /// 
-    /// 
     ///  
     /// <para>
-    ///  Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
-    /// to obtain this identifier. 
+    /// Use the <c>ListOpportunities</c> action or the event notification (from Amazon EventBridge)
+    /// to obtain this identifier.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "PCOpportunity")]
@@ -53,11 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog associated with the request. This field takes a string value
+        /// <para>Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the opportunity is fetched from. Use <c>AWS</c> to retrieve opportunities
         /// in the Amazon Web Services catalog, and <c>Sandbox</c> to retrieve opportunities in
-        /// a secure, isolated testing environment. </para>
+        /// a secure, isolated testing environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier. </para>
+        /// <para>Read-only, system generated <c>Opportunity</c> unique identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Confirms tracking of the device. This API call is the call that begins device tracking.
-    /// For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
+    /// Confirms a device that a user wants to remember. A remembered device is a "Remember
+    /// me on this device" option for user pools that perform authentication with the device
+    /// key of a trusted device in the back end, instead of a user-provided MFA code. For
+    /// more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
     /// with user devices in your user pool</a>.
     /// 
     ///  
@@ -79,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceKey
         /// <summary>
         /// <para>
-        /// <para>The device key.</para>
+        /// <para>The unique identifier, or device key, of the device that you want to update the status
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceName
         /// <summary>
         /// <para>
-        /// <para>The device name.</para>
+        /// <para>A friendly name for the device, for example <c>MyMobilePhone</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceSecretVerifierConfig_PasswordVerifier
         /// <summary>
         /// <para>
-        /// <para>The password verifier.</para>
+        /// <para>A password verifier for a user's device. Used in SRP authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceSecretVerifierConfig_Salt
         /// <summary>
         /// <para>
-        /// <para>The <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a></para>
+        /// <para>The salt that you want to use in SRP authentication with the user's device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

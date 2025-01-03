@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Gets a metrics configuration (specified by the metrics configuration ID) from the
     /// bucket. Note that this doesn't include the daily storage metrics.

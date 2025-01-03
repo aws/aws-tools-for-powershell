@@ -55,9 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SMB_Domain
         /// <summary>
         /// <para>
-        /// <para>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory
-        /// that your storage virtual machine (SVM) belongs to.</para><para>If you have multiple domains in your environment, configuring this setting makes sure
-        /// that DataSync connects to the right SVM.</para>
+        /// <para>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs
+        /// to.</para><para>If you have multiple domains in your environment, configuring this setting makes sure
+        /// that DataSync connects to the right SVM.</para><para>If you have multiple Active Directory domains in your environment, configuring this
+        /// parameter makes sure that DataSync connects to the right SVM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

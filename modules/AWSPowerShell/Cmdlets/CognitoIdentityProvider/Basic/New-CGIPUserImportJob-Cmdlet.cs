@@ -28,7 +28,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a user import job.
+    /// Creates a user import job. You can import users into user pools from a comma-separated
+    /// values (CSV) file without adding Amazon Cognito MAU costs to your Amazon Web Services
+    /// bill. To generate a template for your import, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetCSVHeader.html">GetCSVHeader</a>.
+    /// To learn more about CSV import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing
+    /// users from a CSV file</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -53,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CloudWatchLogsRoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN for the Amazon CloudWatch Logs Logging role for the user import job.</para>
+        /// <para>You must specify an IAM role that has permission to log import-job results to Amazon
+        /// CloudWatch Logs. This parameter is the ARN of that role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The job name for the user import job.</para>
+        /// <para>A friendly name for the user import job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool that the users are being imported into.</para>
+        /// <para>The ID of the user pool that you want to import users into.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

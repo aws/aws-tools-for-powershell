@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// Therefore, TransitionToArchive must either not be set or must be later than TransitionToIA.
     /// </para><note><para>
     ///  The Archive storage class is available only for file systems that use the Elastic
-    /// Throughput mode and the General Purpose Performance mode. 
+    /// throughput mode and the General Purpose performance mode. 
     /// </para></note></li></ul><ul><li><para><b><c>TransitionToPrimaryStorageClass</c></b> – Whether to move files in the file
     /// system back to primary storage (Standard storage class) after they are accessed in
     /// IA or Archive storage.
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// array in the request body deletes any existing <c>LifecycleConfiguration</c>. In the
     /// request, specify the following: 
     /// </para><ul><li><para>
-    /// The ID for the file system for which you are enabling, disabling, or modifying Lifecycle
+    /// The ID for the file system for which you are enabling, disabling, or modifying lifecycle
     /// management.
     /// </para></li><li><para>
     /// A <c>LifecyclePolicies</c> array of <c>LifecyclePolicy</c> objects that define when
@@ -108,12 +108,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>An array of <c>LifecyclePolicy</c> objects that define the file system's <c>LifecycleConfiguration</c>
-        /// object. A <c>LifecycleConfiguration</c> object informs EFS Lifecycle management of
-        /// the following:</para><ul><li><para><b><c>TransitionToIA</c></b> – When to move files in the file system from primary
+        /// object. A <c>LifecycleConfiguration</c> object informs lifecycle management of the
+        /// following:</para><ul><li><para><b><c>TransitionToIA</c></b> – When to move files in the file system from primary
         /// storage (Standard storage class) into the Infrequent Access (IA) storage.</para></li><li><para><b><c>TransitionToArchive</c></b> – When to move files in the file system from
         /// their current storage class (either IA or Standard storage) into the Archive storage.</para><para>File systems cannot transition into Archive storage before transitioning into IA storage.
-        /// Therefore, TransitionToArchive must either not be set or must be later than TransitionToIA.</para><note><para> The Archive storage class is available only for file systems that use the Elastic
-        /// Throughput mode and the General Purpose Performance mode. </para></note></li><li><para><b><c>TransitionToPrimaryStorageClass</c></b> – Whether to move files in the file
+        /// Therefore, TransitionToArchive must either not be set or must be later than TransitionToIA.</para><note><para>The Archive storage class is available only for file systems that use the Elastic
+        /// throughput mode and the General Purpose performance mode. </para></note></li><li><para><b><c>TransitionToPrimaryStorageClass</c></b> – Whether to move files in the file
         /// system back to primary storage (Standard storage class) after they are accessed in
         /// IA or Archive storage.</para></li></ul><note><para>When using the <c>put-lifecycle-configuration</c> CLI command or the <c>PutLifecycleConfiguration</c>
         /// API action, Amazon EFS requires that each <c>LifecyclePolicy</c> object have only

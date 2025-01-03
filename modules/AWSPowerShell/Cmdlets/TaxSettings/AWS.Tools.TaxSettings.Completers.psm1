@@ -80,6 +80,13 @@ $TSA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TaxSettings.HeritageStatus
+        "Write-TSATaxInheritance/HeritageStatus"
+        {
+            $v = "OptIn","OptOut"
+            break
+        }
+
         # Amazon.TaxSettings.Industries
         {
             ($_ -eq "Write-TSATaxRegistration/TurkeyAdditionalInfo_Industry") -Or
@@ -199,6 +206,7 @@ $TSA_Completers = {
 
 $TSA_map = @{
     "GeorgiaAdditionalInfo_PersonType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "HeritageStatus"=@("Write-TSATaxInheritance")
     "IsraelAdditionalInfo_CustomerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "IsraelAdditionalInfo_DealerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "KenyaAdditionalInfo_PersonType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
@@ -262,14 +270,20 @@ $TSA_SelectCompleters = {
 
 $TSA_SelectMap = @{
     "Select"=@("Remove-TSATaxRegistrationBatch",
+               "Get-TSABatchTaxExemption",
                "Write-TSATaxRegistrationBatch",
                "Remove-TSASupplementalTaxRegistration",
                "Remove-TSATaxRegistration",
+               "Get-TSATaxExemptionType",
+               "Get-TSATaxInheritance",
                "Get-TSATaxRegistration",
                "Get-TSATaxRegistrationDocument",
                "Get-TSASupplementalTaxRegistrationList",
+               "Get-TSATaxExemptionList",
                "Get-TSATaxRegistrationList",
                "Write-TSASupplementalTaxRegistration",
+               "Write-TSATaxExemption",
+               "Write-TSATaxInheritance",
                "Write-TSATaxRegistration")
 }
 

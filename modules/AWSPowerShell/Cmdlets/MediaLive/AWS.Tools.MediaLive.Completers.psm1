@@ -460,6 +460,7 @@ $EML_SelectMap = @{
                "Get-EMLReservationList",
                "Get-EMLSignalMapList",
                "Get-EMLResourceTag",
+               "Get-EMLVersionList",
                "New-EMLOfferingPurchase",
                "Restart-EMLInputDevice",
                "Deny-EMLInputDeviceTransfer",

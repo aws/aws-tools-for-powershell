@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para></li><li><para>SCOPE</para></li><li><para>TENANCY</para></li></ul><para><c>GetReservationUtilization</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// <para>Filters utilization data by dimensions. You can filter by the following dimensions:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>SERVICE</para><note><para>If not specified, the <c>SERVICE</c> filter defaults to Amazon Elastic Compute Cloud
+        /// - Compute. Supported values for <c>SERVICE</c> are Amazon Elastic Compute Cloud -
+        /// Compute, Amazon Relational Database Service, Amazon ElastiCache, Amazon Redshift,
+        /// and Amazon Elasticsearch Service. The value for the <c>SERVICE</c> filter should not
+        /// exceed "1".</para></note></li><li><para>SCOPE</para></li><li><para>TENANCY</para></li></ul><para><c>GetReservationUtilization</c> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object as the other operations, but only <c>AND</c> is supported among each dimension,
         /// and nesting is supported up to only one level deep. If there are multiple values for
         /// a dimension, they are OR'd together.</para>

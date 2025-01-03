@@ -202,7 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The name of the container repository where the output container image is stored. This
-        /// name is prefixed by the repository location.</para>
+        /// name is prefixed by the repository location. For example, <c>&lt;repository location
+        /// url&gt;/repository_name</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

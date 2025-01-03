@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFNGeneratedTemplate', 
         'Get-CFNGeneratedTemplateInformation', 
         'Get-CFNGeneratedTemplateList', 
+        'Get-CFNHookResult', 
         'Get-CFNImportList', 
         'Get-CFNOrganizationsAccess', 
         'Get-CFNPublisher', 

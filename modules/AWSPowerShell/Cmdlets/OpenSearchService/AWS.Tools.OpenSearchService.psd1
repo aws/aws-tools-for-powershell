@@ -83,6 +83,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-OSDataSource', 
+        'Add-OSDirectQueryDataSource', 
         'Add-OSResourceTag', 
         'Approve-OSInboundConnection', 
         'Approve-OSVpcEndpointAccess', 
@@ -92,6 +93,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSCompatibleVersion', 
         'Get-OSDataSource', 
         'Get-OSDataSourceList', 
+        'Get-OSDirectQueryDataSource', 
+        'Get-OSDirectQueryDataSourceList', 
         'Get-OSDomain', 
         'Get-OSDomainAutoTune', 
         'Get-OSDomainChangeProgress', 
@@ -130,6 +133,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-OSVpcEndpoint', 
         'Remove-OSApplication', 
         'Remove-OSDataSource', 
+        'Remove-OSDirectQueryDataSource', 
         'Remove-OSDomain', 
         'Remove-OSInboundConnection', 
         'Remove-OSOutboundConnection', 
@@ -147,6 +151,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-OSServiceSoftwareUpdate', 
         'Update-OSApplication', 
         'Update-OSDataSource', 
+        'Update-OSDirectQueryDataSource', 
         'Update-OSDomain', 
         'Update-OSDomainConfig', 
         'Update-OSOSPackageScope', 

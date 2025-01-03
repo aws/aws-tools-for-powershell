@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// delete an EFS file system. This step is performed for you when you use the Amazon
     /// Web Services console to delete a file system.
     /// </para><note><para>
-    /// You cannot delete a file system that is part of an EFS Replication configuration.
+    /// You cannot delete a file system that is part of an EFS replication configuration.
     /// You need to delete the replication configuration first.
     /// </para></note><para>
     ///  You can't delete a file system that is in use. That is, if the file system has any

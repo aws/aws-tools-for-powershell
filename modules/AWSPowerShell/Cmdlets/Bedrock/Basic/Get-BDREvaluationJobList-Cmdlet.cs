@@ -28,7 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Lists model evaluation jobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all existing evaluation jobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDREvaluationJobList")]
     [OutputType("Amazon.Bedrock.Model.EvaluationSummary")]
@@ -42,10 +42,23 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ApplicationTypeEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter to only list evaluation jobs that are either model evaluations or knowledge
+        /// base evaluations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplicationTypeEquals")]
+        [AWSConstantClassSource("Amazon.Bedrock.ApplicationType")]
+        public Amazon.Bedrock.ApplicationType ApplicationTypeEqual { get; set; }
+        #endregion
+        
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that includes model evaluation jobs created after the time specified.</para>
+        /// <para>A filter to only list evaluation jobs created after a specified time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that includes model evaluation jobs created prior to the time specified.</para>
+        /// <para>A filter to only list evaluation jobs created before a specified time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>Query parameter string for model evaluation job names.</para>
+        /// <para>A filter to only list evaluation jobs that contain a specified string in the job name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Allows you to sort model evaluation jobs by when they were created.</para>
+        /// <para>Specifies a creation time to sort the list of evaluation jobs by when they were created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>How you want the order of jobs sorted.</para>
+        /// <para>Specifies whether to sort the list of evaluation jobs by either ascending or descending
+        /// order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter StatusEqual
         /// <summary>
         /// <para>
-        /// <para>Only return jobs where the status condition is met.</para>
+        /// <para>A filter to only list evaluation jobs that are of a certain status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.ListEvaluationJobsResponse, GetBDREvaluationJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApplicationTypeEqual = this.ApplicationTypeEqual;
             context.CreationTimeAfter = this.CreationTimeAfter;
             context.CreationTimeBefore = this.CreationTimeBefore;
             context.MaxResult = this.MaxResult;
@@ -195,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             // create request and set iteration invariants
             var request = new Amazon.Bedrock.Model.ListEvaluationJobsRequest();
             
+            if (cmdletContext.ApplicationTypeEqual != null)
+            {
+                request.ApplicationTypeEquals = cmdletContext.ApplicationTypeEqual;
+            }
             if (cmdletContext.CreationTimeAfter != null)
             {
                 request.CreationTimeAfter = cmdletContext.CreationTimeAfter.Value;
@@ -308,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Bedrock.ApplicationType ApplicationTypeEqual { get; set; }
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
             public System.Int32? MaxResult { get; set; }

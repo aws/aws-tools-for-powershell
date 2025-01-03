@@ -28,7 +28,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Removes the specified user from the specified group.
+    /// Given a username and a group name. removes them from the group. User pool groups are
+    /// identifiers that you can reference from the contents of ID and access tokens, and
+    /// set preferred IAM roles for identity-pool authentication. For more information, see
+    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
+    /// groups to a user pool</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The group name.</para>
+        /// <para>The name of the group that you want to remove the user from, for example <c>MyTestGroup</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool.</para>
+        /// <para>The ID of the user pool that contains the group and the user that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

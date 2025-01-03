@@ -28,9 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Removes the specified set of tags from an Amazon OpenSearch Service domain. For more
-    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging">
-    /// Tagging Amazon OpenSearch Service domains</a>.
+    /// Removes the specified set of tags from an Amazon OpenSearch Service domain, data source,
+    /// or application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging">
+    /// Tagging Amazon OpenSearch Service resources</a>.
     /// </summary>
     [Cmdlet("Remove", "OSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the domain from which you want to delete the specified
-        /// tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the domain, data source, or application from which
+        /// you want to delete the specified tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys to remove from the domain.</para>
+        /// <para>The list of tag keys to remove from the domain, data source, or application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

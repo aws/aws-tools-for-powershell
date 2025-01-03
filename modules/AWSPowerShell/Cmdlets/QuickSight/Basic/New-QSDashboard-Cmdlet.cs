@@ -513,6 +513,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.SheetDefinition[] Definition_Sheet { get; set; }
         #endregion
         
+        #region Parameter Definition_StaticFile
+        /// <summary>
+        /// <para>
+        /// <para>The static files for the definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_StaticFiles")]
+        public Amazon.QuickSight.Model.StaticFile[] Definition_StaticFile { get; set; }
+        #endregion
+        
         #region Parameter Parameters_StringParameter
         /// <summary>
         /// <para>
@@ -707,6 +718,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.Definition_Sheet != null)
             {
                 context.Definition_Sheet = new List<Amazon.QuickSight.Model.SheetDefinition>(this.Definition_Sheet);
+            }
+            if (this.Definition_StaticFile != null)
+            {
+                context.Definition_StaticFile = new List<Amazon.QuickSight.Model.StaticFile>(this.Definition_StaticFile);
             }
             if (this.FolderArn != null)
             {
@@ -1146,6 +1161,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDefinition_definition_Sheet != null)
             {
                 request.Definition.Sheets = requestDefinition_definition_Sheet;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.StaticFile> requestDefinition_definition_StaticFile = null;
+            if (cmdletContext.Definition_StaticFile != null)
+            {
+                requestDefinition_definition_StaticFile = cmdletContext.Definition_StaticFile;
+            }
+            if (requestDefinition_definition_StaticFile != null)
+            {
+                request.Definition.StaticFiles = requestDefinition_definition_StaticFile;
                 requestDefinitionIsNull = false;
             }
             Amazon.QuickSight.Model.AnalysisDefaults requestDefinition_definition_AnalysisDefaults = null;
@@ -1749,6 +1774,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
+            public List<Amazon.QuickSight.Model.StaticFile> Definition_StaticFile { get; set; }
             public List<System.String> FolderArn { get; set; }
             public List<System.String> LinkEntity { get; set; }
             public List<Amazon.QuickSight.Model.ResourcePermission> LinkSharingConfiguration_Permission { get; set; }

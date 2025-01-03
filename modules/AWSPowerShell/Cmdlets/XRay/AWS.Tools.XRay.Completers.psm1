@@ -101,6 +101,20 @@ $XR_Completers = {
             break
         }
 
+        # Amazon.XRay.TraceFormatType
+        "Get-XRRetrievedTraceList/TraceFormat"
+        {
+            $v = "OTEL","XRAY"
+            break
+        }
+
+        # Amazon.XRay.TraceSegmentDestination
+        "Update-XRTraceSegmentDestination/Destination"
+        {
+            $v = "CloudWatchLogs","XRay"
+            break
+        }
+
 
     }
 
@@ -110,8 +124,10 @@ $XR_Completers = {
 }
 
 $XR_map = @{
+    "Destination"=@("Update-XRTraceSegmentDestination")
     "SamplingStrategy_Name"=@("Get-XRTraceSummary")
     "TimeRangeType"=@("Get-XRTraceSummary")
+    "TraceFormat"=@("Get-XRRetrievedTraceList")
     "Type"=@("Write-XREncryptionConfig")
 }
 
@@ -166,6 +182,7 @@ $XR_SelectCompleters = {
 
 $XR_SelectMap = @{
     "Select"=@("Get-XRTraceBatch",
+               "Stop-XRTraceRetrieval",
                "New-XRGroup",
                "New-XRSamplingRule",
                "Remove-XRGroup",
@@ -174,27 +191,34 @@ $XR_SelectMap = @{
                "Get-XREncryptionConfig",
                "Get-XRGroup",
                "Get-XRGroupSummary",
+               "Get-XRIndexingRule",
                "Get-XRInsight",
                "Get-XRInsightEvent",
                "Get-XRInsightImpactGraph",
                "Get-XRInsightSummary",
+               "Get-XRRetrievedTracesGraph",
                "Get-XRSamplingRule",
                "Get-XRSamplingStatisticSummary",
                "Get-XRSamplingTarget",
                "Get-XRServiceGraph",
                "Get-XRTimeSeriesServiceStatistic",
                "Get-XRTraceGraph",
+               "Get-XRTraceSegmentDestination",
                "Get-XRTraceSummary",
                "Get-XRResourcePolicyList",
+               "Get-XRRetrievedTraceList",
                "Get-XRResourceTag",
                "Write-XREncryptionConfig",
                "Write-XRResourcePolicy",
                "Write-XRTelemetryRecord",
                "Write-XRTraceSegment",
+               "Start-XRTraceRetrieval",
                "Add-XRResourceTag",
                "Remove-XRResourceTag",
                "Update-XRGroup",
-               "Update-XRSamplingRule")
+               "Update-XRIndexingRule",
+               "Update-XRSamplingRule",
+               "Update-XRTraceSegmentDestination")
 }
 
 _awsArgumentCompleterRegistration $XR_SelectCompleters $XR_SelectMap

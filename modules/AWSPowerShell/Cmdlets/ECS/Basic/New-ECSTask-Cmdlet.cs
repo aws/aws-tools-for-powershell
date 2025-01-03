@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Whether the task's elastic network interface receives a public IP address. The default
-        /// value is <c>DISABLED</c>.</para>
+        /// value is <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The capacity provider strategy to use for the task.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
         /// must be omitted. If no <c>capacityProviderStrategy</c> or <c>launchType</c> is specified,
         /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used.</para><para>When you use cluster auto scaling, you must specify <c>capacityProviderStrategy</c>
-        /// and not <c>launchType</c>. </para><para>A capacity provider strategy may contain a maximum of 6 capacity providers.</para>
+        /// and not <c>launchType</c>. </para><para>A capacity provider strategy can contain a maximum of 20 capacity providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -318,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
-        /// value is <c>20</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
+        /// value is <c>21</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

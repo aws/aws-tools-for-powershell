@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Initiates a new outbound SMS contact to a customer. Response of this API provides
-    /// the ContactId of the outbound SMS contact created.
+    /// the <c>ContactId</c> of the outbound SMS contact created.
     /// 
     ///  
     /// <para><b>SourceEndpoint</b> only supports Endpoints with <c>CONNECT_PHONENUMBER_ARN</c>
     /// as Type and <b>DestinationEndpoint</b> only supports Endpoints with <c>TELEPHONE_NUMBER</c>
     /// as Type. <b>ContactFlowId</b> initiates the flow to manage the new SMS contact created.
     /// </para><para>
-    /// This API can be used to initiate outbound SMS contacts for an agent or it can also
+    /// This API can be used to initiate outbound SMS contacts for an agent, or it can also
     /// deflect an ongoing contact to an outbound SMS contact by using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a>
     /// Flow Action.
     /// </para><para>

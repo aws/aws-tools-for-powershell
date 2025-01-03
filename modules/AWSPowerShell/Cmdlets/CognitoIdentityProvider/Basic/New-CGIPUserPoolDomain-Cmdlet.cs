@@ -28,9 +28,22 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new domain for a user pool.
+    /// A user pool domain hosts managed login, an authorization server and web server for
+    /// authentication in your application. This operation creates a new user pool prefix
+    /// or custom domain and sets the managed login branding version. Set the branding version
+    /// to <c>1</c> for hosted UI (classic) or <c>2</c> for managed login. When you choose
+    /// a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
+    /// Amazon Web Services Region in your request.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Your prefix domain might take up to one minute to take effect. Your custom domain
+    /// is online within five minutes, but it can take up to one hour to distribute your SSL
+    /// certificate.
+    /// </para><para>
+    /// For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Configuring
+    /// a user pool domain</a>.
+    /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.
@@ -65,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The domain string. For custom domains, this is the fully-qualified domain name, such
-        /// as <c>auth.example.com</c>. For Amazon Cognito prefix domains, this is the prefix
-        /// alone, such as <c>auth</c>.</para>
+        /// as <c>auth.example.com</c>. For prefix domains, this is the prefix alone, such as
+        /// <c>myprefix</c>. A prefix value of <c>myprefix</c> for a user pool in the us-east-1
+        /// Region results in a domain of <c>myprefix.auth.us-east-1.amazoncognito.com</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,10 +94,23 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String Domain { get; set; }
         #endregion
         
+        #region Parameter ManagedLoginVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of managed login branding that you want to apply to your domain. A value
+        /// of <c>1</c> indicates hosted UI (classic) and a version of <c>2</c> indicates managed
+        /// login.</para><para>Managed login requires that your user pool be configured for any <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature
+        /// plan</a> other than <c>Lite</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedLoginVersion { get; set; }
+        #endregion
+        
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to add a domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -147,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ManagedLoginVersion = this.ManagedLoginVersion;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -192,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.ManagedLoginVersion != null)
+            {
+                request.ManagedLoginVersion = cmdletContext.ManagedLoginVersion.Value;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -260,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public System.String CustomDomainConfig_CertificateArn { get; set; }
             public System.String Domain { get; set; }
+            public System.Int32? ManagedLoginVersion { get; set; }
             public System.String UserPoolId { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.CreateUserPoolDomainResponse, NewCGIPUserPoolDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CloudFrontDomain;

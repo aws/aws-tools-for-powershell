@@ -56,6 +56,19 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ExcludeResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>[Region-level retention rules only] Specifies the exclusion tags to use to identify
+        /// resources that are to be excluded, or ignored, by a Region-level retention rule. Resources
+        /// that have any of these tags are not retained by the retention rule upon deletion.</para><para>You can't specify exclusion tags for tag-level retention rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeResourceTags")]
+        public Amazon.RecycleBin.Model.ResourceTag[] ExcludeResourceTag { get; set; }
+        #endregion
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>
@@ -76,12 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>Specifies the resource tags to use to identify resources that are to be retained by
-        /// a tag-level retention rule. For tag-level retention rules, only deleted resources,
-        /// of the specified resource type, that have one or more of the specified tag key and
-        /// value pairs are retained. If a resource is deleted, but it does not have any of the
-        /// specified tag key and value pairs, it is immediately deleted without being retained
-        /// by the retention rule.</para><para>You can add the same tag key and value pair to a maximum or five retention rules.</para><para>To create a Region-level retention rule, omit this parameter. A Region-level retention
+        /// <para>[Tag-level retention rules only] Specifies the resource tags to use to identify resources
+        /// that are to be retained by a tag-level retention rule. For tag-level retention rules,
+        /// only deleted resources, of the specified resource type, that have one or more of the
+        /// specified tag key and value pairs are retained. If a resource is deleted, but it does
+        /// not have any of the specified tag key and value pairs, it is immediately deleted without
+        /// being retained by the retention rule.</para><para>You can add the same tag key and value pair to a maximum or five retention rules.</para><para>To create a Region-level retention rule, omit this parameter. A Region-level retention
         /// rule does not have any resource tags specified. It retains all deleted resources of
         /// the specified resource type in the Region in which the rule is created, even if the
         /// resources are not tagged.</para>
@@ -170,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            if (this.ExcludeResourceTag != null)
+            {
+                context.ExcludeResourceTag = new List<Amazon.RecycleBin.Model.ResourceTag>(this.ExcludeResourceTag);
+            }
             context.Identifier = this.Identifier;
             #if MODULAR
             if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
@@ -203,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ExcludeResourceTag != null)
+            {
+                request.ExcludeResourceTags = cmdletContext.ExcludeResourceTag;
             }
             if (cmdletContext.Identifier != null)
             {
@@ -307,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public List<Amazon.RecycleBin.Model.ResourceTag> ExcludeResourceTag { get; set; }
             public System.String Identifier { get; set; }
             public List<Amazon.RecycleBin.Model.ResourceTag> ResourceTag { get; set; }
             public Amazon.RecycleBin.ResourceType ResourceType { get; set; }

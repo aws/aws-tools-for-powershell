@@ -104,6 +104,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKeyspace" OutputProperty="ResourceArn" Verb="Update" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateTable" OutputProperty="ResourceArn" Verb="Update" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />

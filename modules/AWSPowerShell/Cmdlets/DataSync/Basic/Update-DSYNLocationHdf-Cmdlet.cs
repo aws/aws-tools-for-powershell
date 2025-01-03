@@ -28,8 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates some parameters of a previously created location for a Hadoop Distributed
-    /// File System cluster.
+    /// Modifies the following configuration parameters of the Hadoop Distributed File System
+    /// (HDFS) transfer location that you're using with DataSync.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html">Configuring
+    /// DataSync transfers with an HDFS cluster</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "DSYNLocationHdf", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

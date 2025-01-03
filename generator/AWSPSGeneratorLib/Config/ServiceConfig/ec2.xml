@@ -261,6 +261,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelDeclarativePoliciesReport" OutputProperty="Return" Verb="Stop" Noun="DeclarativePoliciesReport" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskId" PipelineParameter="ExportTaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -627,6 +631,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="New" Noun="VpcBlockPublicAccessExclusion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="*" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -823,7 +831,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSecurityGroup" Verb="Remove" Noun="SecurityGroup" ShouldProcessTarget="GroupId" ShouldProcessMsgNoun="Security Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSecurityGroup" OutputProperty="*" Verb="Remove" Noun="SecurityGroup" ShouldProcessTarget="GroupId" ShouldProcessMsgNoun="Security Group" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -933,6 +941,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="Remove" Noun="VpcBlockPublicAccessExclusion" ShouldProcessTarget="ExclusionId" PipelineParameter="ExclusionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcEndpointConnectionNotifications" OutputProperty="Unsuccessful" Verb="Remove" Noun="EndpointConnectionNotification" ShouldProcessTarget="ConnectionNotificationIds" PipelineParameter="ConnectionNotificationIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1031,6 +1043,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionHistory" OutputProperty="CapacityBlockExtensions" Verb="Get" Noun="CapacityBlockExtensionHistory" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionOfferings" OutputProperty="CapacityBlockExtensionOfferings" Verb="Get" Noun="CapacityBlockExtensionOffering" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1084,6 +1104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCustomerGateways" OutputProperty="CustomerGateways" Verb="Get" Noun="CustomerGateway" PositionalParameters="Filters" PipelineParameter="CustomerGatewayIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeclarativePoliciesReports" OutputProperty="Reports" Verb="Get" Noun="DeclarativePoliciesReport" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1585,11 +1609,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessExclusions" OutputProperty="VpcBlockPublicAccessExclusions" Verb="Get" Noun="VpcBlockPublicAccessExclusion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Get" Noun="VpcBlockPublicAccessOption" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcClassicLink" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLink" PipelineParameter="VpcIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLinkDnsSupport" PipelineParameter="VpcIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1662,6 +1698,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisableAddressTransfer" OutputProperty="AddressTransfer" Verb="Disable" Noun="AddressTransfer" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Disable" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1799,6 +1839,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Enable" Noun="AllowedImagesSetting" ShouldProcessTarget="AllowedImagesSettingsState" PipelineParameter="AllowedImagesSettingsState" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableAwsNetworkPerformanceMetricSubscription" OutputProperty="Output" Verb="Enable" Noun="AwsNetworkPerformanceMetricSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1883,6 +1927,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportVerifiedAccessInstanceClientConfiguration" OutputProperty="*" Verb="Export" Noun="VerifiedAccessInstanceClientConfiguration" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAssociatedEnclaveCertificateIamRoles" OutputProperty="AssociatedRoles" Verb="Get" Noun="AssociatedEnclaveCertificateIamRole" PipelineParameter="CertificateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1908,6 +1960,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConsoleScreenshot" OutputProperty="*" Verb="Get" Noun="ConsoleScreenshot" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeclarativePoliciesReportSummary" OutputProperty="*" Verb="Get" Noun="DeclarativePoliciesReportSummary" PipelineParameter="ReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2063,6 +2119,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVerifiedAccessEndpointTargets" OutputProperty="VerifiedAccessEndpointTargets" Verb="Get" Noun="VerifiedAccessEndpointTarget" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVerifiedAccessGroupPolicy" OutputProperty="*" Verb="Get" Noun="VerifiedAccessGroupPolicy" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2210,6 +2270,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceNetworkPerformanceOptions" OutputProperty="*" Verb="Edit" Noun="InstanceNetworkPerformanceOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstancePlacement" OutputProperty="Return" Verb="Edit" Noun="InstancePlacement" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2350,6 +2414,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcBlockPublicAccessExclusion" OutputProperty="VpcBlockPublicAccessExclusion" Verb="Edit" Noun="VpcBlockPublicAccessExclusion" ShouldProcessTarget="ExclusionId" PipelineParameter="ExclusionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Edit" Noun="VpcBlockPublicAccessOption" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyVpcEndpoint" Verb="Edit" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2430,6 +2502,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseCapacityBlockExtension" OutputProperty="CapacityBlockExtensions" Verb="Invoke" Noun="CapacityBlockExtension" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PurchaseHostReservation" OutputProperty="*" Verb="New" Noun="HostReservation" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2499,6 +2575,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" OutputProperty="IamInstanceProfileAssociation" Verb="Set" Noun="IamInstanceProfileAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceImageCriteriaInAllowedImagesSettings" OutputProperty="ReturnValue" Verb="Set" Noun="ImageCriteriaInAllowedImagesSetting" ShouldProcessTarget="ImageCriteria" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2643,6 +2723,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendDiagnosticInterrupt" Verb="Send" Noun="DiagnosticInterrupt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeclarativePoliciesReport" OutputProperty="ReportId" Verb="Start" Noun="DeclarativePoliciesReport" ShouldProcessTarget="TargetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

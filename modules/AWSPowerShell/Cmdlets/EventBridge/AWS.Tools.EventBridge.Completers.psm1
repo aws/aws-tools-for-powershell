@@ -120,7 +120,7 @@ $EVB_Completers = {
         # Amazon.EventBridge.ConnectionState
         "Get-EVBConnectionList/ConnectionState"
         {
-            $v = "AUTHORIZED","AUTHORIZING","CREATING","DEAUTHORIZED","DEAUTHORIZING","DELETING","UPDATING"
+            $v = "ACTIVE","AUTHORIZED","AUTHORIZING","CREATING","DEAUTHORIZED","DEAUTHORIZING","DELETING","FAILED_CONNECTIVITY","UPDATING"
             break
         }
 

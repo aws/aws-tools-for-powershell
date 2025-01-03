@@ -73,6 +73,33 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public Amazon.IVSRealTime.Model.ParticipantTokenConfiguration[] ParticipantTokenConfiguration { get; set; }
         #endregion
         
+        #region Parameter ThumbnailConfiguration_RecordingMode
+        /// <summary>
+        /// <para>
+        /// <para>Thumbnail recording mode. Default: <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_ThumbnailConfiguration_RecordingMode")]
+        [AWSConstantClassSource("Amazon.IVSRealTime.ThumbnailRecordingMode")]
+        public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
+        #endregion
+        
+        #region Parameter ThumbnailConfiguration_Storage
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the format in which thumbnails are recorded. <c>SEQUENTIAL</c> records all
+        /// generated thumbnails in a serial manner, to the media/thumbnails/high directory. <c>LATEST</c>
+        /// saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites
+        /// it at the interval specified by <c>targetIntervalSeconds</c>. You can enable both
+        /// <c>SEQUENTIAL</c> and <c>LATEST</c>. Default: <c>SEQUENTIAL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_ThumbnailConfiguration_Storage")]
+        public System.String[] ThumbnailConfiguration_Storage { get; set; }
+        #endregion
+        
         #region Parameter AutoParticipantRecordingConfiguration_StorageConfigurationArn
         /// <summary>
         /// <para>
@@ -99,6 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ThumbnailConfiguration_TargetIntervalSecond
+        /// <summary>
+        /// <para>
+        /// <para>The targeted thumbnail-generation interval in seconds. This is configurable only if
+        /// <c>recordingMode</c> is <c>INTERVAL</c>. Default: 60.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_ThumbnailConfiguration_TargetIntervalSeconds")]
+        public System.Int32? ThumbnailConfiguration_TargetIntervalSecond { get; set; }
         #endregion
         
         #region Parameter Select
@@ -148,6 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
             }
             context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
+            context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
+            if (this.ThumbnailConfiguration_Storage != null)
+            {
+                context.ThumbnailConfiguration_Storage = new List<System.String>(this.ThumbnailConfiguration_Storage);
+            }
+            context.ThumbnailConfiguration_TargetIntervalSecond = this.ThumbnailConfiguration_TargetIntervalSecond;
             context.Name = this.Name;
             if (this.ParticipantTokenConfiguration != null)
             {
@@ -199,6 +244,51 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn != null)
             {
                 request.AutoParticipantRecordingConfiguration.StorageConfigurationArn = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+            Amazon.IVSRealTime.Model.ParticipantThumbnailConfiguration requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration = null;
+            
+             // populate ThumbnailConfiguration
+            var requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfigurationIsNull = true;
+            requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration = new Amazon.IVSRealTime.Model.ParticipantThumbnailConfiguration();
+            Amazon.IVSRealTime.ThumbnailRecordingMode requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_RecordingMode = null;
+            if (cmdletContext.ThumbnailConfiguration_RecordingMode != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_RecordingMode = cmdletContext.ThumbnailConfiguration_RecordingMode;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_RecordingMode != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration.RecordingMode = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_RecordingMode;
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfigurationIsNull = false;
+            }
+            List<System.String> requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_Storage = null;
+            if (cmdletContext.ThumbnailConfiguration_Storage != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_Storage = cmdletContext.ThumbnailConfiguration_Storage;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_Storage != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration.Storage = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_Storage;
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond = null;
+            if (cmdletContext.ThumbnailConfiguration_TargetIntervalSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond = cmdletContext.ThumbnailConfiguration_TargetIntervalSecond.Value;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration.TargetIntervalSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration_thumbnailConfiguration_TargetIntervalSecond.Value;
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfigurationIsNull = false;
+            }
+             // determine if requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration should be set to null
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfigurationIsNull)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration = null;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration != null)
+            {
+                request.AutoParticipantRecordingConfiguration.ThumbnailConfiguration = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
              // determine if request.AutoParticipantRecordingConfiguration should be set to null
@@ -281,6 +371,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
             public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
+            public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
+            public List<System.String> ThumbnailConfiguration_Storage { get; set; }
+            public System.Int32? ThumbnailConfiguration_TargetIntervalSecond { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IVSRealTime.Model.ParticipantTokenConfiguration> ParticipantTokenConfiguration { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

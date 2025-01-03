@@ -52,9 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SMB_Domain
         /// <summary>
         /// <para>
-        /// <para>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory
-        /// that your storage virtual machine (SVM) belongs to.</para><para>If you have multiple domains in your environment, configuring this setting makes sure
-        /// that DataSync connects to the right SVM.</para>
+        /// <para>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs
+        /// to.</para><para>If you have multiple domains in your environment, configuring this setting makes sure
+        /// that DataSync connects to the right SVM.</para><para>If you have multiple Active Directory domains in your environment, configuring this
+        /// parameter makes sure that DataSync connects to the right SVM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies a path to the file share in the SVM where you'll copy your data.</para><para>You can specify a junction path (also known as a mount point), qtree path (for NFS
+        /// <para>Specifies a path to the file share in the SVM where you want to transfer data to or
+        /// from.</para><para>You can specify a junction path (also known as a mount point), qtree path (for NFS
         /// file shares), or share name (for SMB file shares). For example, your mount path might
         /// be <c>/vol1</c>, <c>/vol1/tree1</c>, or <c>/share1</c>.</para><note><para>Don't specify a junction path in the SVM's root volume. For more information, see
         /// <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing

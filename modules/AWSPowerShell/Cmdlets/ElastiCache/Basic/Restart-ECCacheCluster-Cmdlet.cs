@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// mode enabled) clusters.
     /// </para><para>
     /// If you make changes to parameters that require a Valkey or Redis OSS (cluster mode
-    /// enabled) cluster reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html">Rebooting
+    /// enabled) cluster reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/nodes.rebooting.html">Rebooting
     /// a Cluster</a> for an alternate process.
     /// </para>
     /// </summary>

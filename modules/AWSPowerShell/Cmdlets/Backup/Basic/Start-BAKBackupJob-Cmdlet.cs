@@ -131,6 +131,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String IdempotencyToken { get; set; }
         #endregion
         
+        #region Parameter Index
+        /// <summary>
+        /// <para>
+        /// <para>Include this parameter to enable index creation if your backup job has a resource
+        /// type that supports backup indexes.</para><para>Resource types that support backup indexes include:</para><ul><li><para><c>EBS</c> for Amazon Elastic Block Store</para></li><li><para><c>S3</c> for Amazon Simple Storage Service (Amazon S3)</para></li></ul><para>Index can have 1 of 2 possible values, either <c>ENABLED</c> or <c>DISABLED</c>.</para><para>To create a backup index for an eligible <c>ACTIVE</c> recovery point that does not
+        /// yet have a backup index, set value to <c>ENABLED</c>.</para><para>To delete a backup index, set value to <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Backup.Index")]
+        public Amazon.Backup.Index Index { get; set; }
+        #endregion
+        
         #region Parameter Lifecycle_MoveToColdStorageAfterDay
         /// <summary>
         /// <para>
@@ -268,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             #endif
             context.IdempotencyToken = this.IdempotencyToken;
+            context.Index = this.Index;
             context.Lifecycle_DeleteAfterDay = this.Lifecycle_DeleteAfterDay;
             context.Lifecycle_MoveToColdStorageAfterDay = this.Lifecycle_MoveToColdStorageAfterDay;
             context.Lifecycle_OptInToArchiveForSupportedResource = this.Lifecycle_OptInToArchiveForSupportedResource;
@@ -322,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.Index != null)
+            {
+                request.Index = cmdletContext.Index;
             }
             
              // populate Lifecycle
@@ -440,6 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.Int64? CompleteWindowMinute { get; set; }
             public System.String IamRoleArn { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public Amazon.Backup.Index Index { get; set; }
             public System.Int64? Lifecycle_DeleteAfterDay { get; set; }
             public System.Int64? Lifecycle_MoveToColdStorageAfterDay { get; set; }
             public System.Boolean? Lifecycle_OptInToArchiveForSupportedResource { get; set; }

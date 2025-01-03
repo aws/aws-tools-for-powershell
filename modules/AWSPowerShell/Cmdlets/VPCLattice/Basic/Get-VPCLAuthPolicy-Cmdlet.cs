@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service network or service.</para>
+        /// <para>The ID or ARN of the service network or service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

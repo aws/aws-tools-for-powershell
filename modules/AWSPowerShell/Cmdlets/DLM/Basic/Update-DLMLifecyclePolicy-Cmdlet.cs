@@ -367,12 +367,11 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_PolicyType
         /// <summary>
         /// <para>
-        /// <para><b>[Custom policies only]</b> The valid target resource types and actions a policy
-        /// can manage. Specify <c>EBS_SNAPSHOT_MANAGEMENT</c> to create a lifecycle policy that
-        /// manages the lifecycle of Amazon EBS snapshots. Specify <c>IMAGE_MANAGEMENT</c> to
-        /// create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <c>EVENT_BASED_POLICY
-        /// </c> to create an event-based policy that performs specific actions when a defined
-        /// event occurs in your Amazon Web Services account.</para><para>The default is <c>EBS_SNAPSHOT_MANAGEMENT</c>.</para>
+        /// <para>The type of policy. Specify <c>EBS_SNAPSHOT_MANAGEMENT</c> to create a lifecycle policy
+        /// that manages the lifecycle of Amazon EBS snapshots. Specify <c>IMAGE_MANAGEMENT</c>
+        /// to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify
+        /// <c>EVENT_BASED_POLICY </c> to create an event-based policy that performs specific
+        /// actions when a defined event occurs in your Amazon Web Services account.</para><para>The default is <c>EBS_SNAPSHOT_MANAGEMENT</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,11 +382,13 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_ResourceLocation
         /// <summary>
         /// <para>
-        /// <para><b>[Custom snapshot and AMI policies only]</b> The location of the resources to backup.
-        /// If the source resources are located in an Amazon Web Services Region, specify <c>CLOUD</c>.
-        /// If the source resources are located on an Outpost in your account, specify <c>OUTPOST</c>.</para><para>If you specify <c>OUTPOST</c>, Amazon Data Lifecycle Manager backs up all resources
-        /// of the specified type with matching target tags across all of the Outposts in your
-        /// account.</para>
+        /// <para><b>[Custom snapshot and AMI policies only]</b> The location of the resources to backup.</para><ul><li><para>If the source resources are located in a Region, specify <c>CLOUD</c>. In this case,
+        /// the policy targets all resources of the specified type with matching target tags across
+        /// all Availability Zones in the Region.</para></li><li><para><b>[Custom snapshot policies only]</b> If the source resources are located in a Local
+        /// Zone, specify <c>LOCAL_ZONE</c>. In this case, the policy targets all resources of
+        /// the specified type with matching target tags across all Local Zones in the Region.</para></li><li><para>If the source resources are located on an Outpost in your account, specify <c>OUTPOST</c>.
+        /// In this case, the policy targets all resources of the specified type with matching
+        /// target tags across all of the Outposts in your account.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

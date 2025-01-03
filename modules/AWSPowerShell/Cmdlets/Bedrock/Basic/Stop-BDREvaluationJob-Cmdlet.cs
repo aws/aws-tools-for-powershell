@@ -28,7 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Stops an in progress model evaluation job.
+    /// Stops an evaluation job that is current being created or running.
     /// </summary>
     [Cmdlet("Stop", "BDREvaluationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ARN of the model evaluation job you want to stop.</para>
+        /// <para>The Amazon Resource Name (ARN) of the evaluation job you want to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

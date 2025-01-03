@@ -80,6 +80,13 @@ $EFS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticFileSystem.DeletionMode
+        "Remove-EFSReplicationConfiguration/DeletionMode"
+        {
+            $v = "ALL_CONFIGURATIONS","LOCAL_CONFIGURATION_ONLY"
+            break
+        }
+
         # Amazon.ElasticFileSystem.PerformanceMode
         "New-EFSFileSystem/PerformanceMode"
         {
@@ -128,6 +135,7 @@ $EFS_Completers = {
 
 $EFS_map = @{
     "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
+    "DeletionMode"=@("Remove-EFSReplicationConfiguration")
     "PerformanceMode"=@("New-EFSFileSystem")
     "ReplicationOverwriteProtection"=@("Update-EFSFileSystemProtection")
     "ResourceIdType"=@("Write-EFSAccountPreference")

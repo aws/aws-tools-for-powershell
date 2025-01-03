@@ -86,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String MemoryId { get; set; }
         #endregion
         
+        #region Parameter SessionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique session identifier of the memory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -142,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             #endif
             context.MemoryId = this.MemoryId;
+            context.SessionId = this.SessionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.MemoryId != null)
             {
                 request.MemoryId = cmdletContext.MemoryId;
+            }
+            if (cmdletContext.SessionId != null)
+            {
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -234,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String AgentAliasId { get; set; }
             public System.String AgentId { get; set; }
             public System.String MemoryId { get; set; }
+            public System.String SessionId { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.DeleteAgentMemoryResponse, RemoveBARAgentMemoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -28,13 +28,13 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Modifies some configurations of the Network File System (NFS) transfer location that
-    /// you're using with DataSync.
+    /// Modifies the following configuration parameters of the Network File System (NFS) transfer
+    /// location that you're using with DataSync.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring
-    /// transfers to or from an NFS file server</a>.
+    /// transfers with an NFS file server</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DSYNLocationNfs", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

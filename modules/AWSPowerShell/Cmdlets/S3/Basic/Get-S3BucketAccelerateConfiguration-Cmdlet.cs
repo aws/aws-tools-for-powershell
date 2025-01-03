@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This implementation of the GET action uses the <c>accelerate</c> subresource to return
     /// the Transfer Acceleration state of a bucket, which is either <c>Enabled</c> or <c>Suspended</c>.

@@ -140,7 +140,7 @@ $OUTP_Completers = {
             ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerConnector")
         }
         {
-            $v = "AH530P7W","AH532P6W","IEC309","L6_30P"
+            $v = "AH530P7W","AH532P6W","CS8365C","IEC309","L6_30P"
             break
         }
 

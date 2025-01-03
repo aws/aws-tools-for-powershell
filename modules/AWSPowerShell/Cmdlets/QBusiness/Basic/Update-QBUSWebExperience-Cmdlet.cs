@@ -70,6 +70,59 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String SamlConfiguration_AuthenticationUrl { get; set; }
         #endregion
         
+        #region Parameter CustomizationConfiguration_CustomCSSUrl
+        /// <summary>
+        /// <para>
+        /// <para>Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomizationConfiguration_CustomCSSUrl { get; set; }
+        #endregion
+        
+        #region Parameter BrowserExtensionConfiguration_EnabledBrowserExtension
+        /// <summary>
+        /// <para>
+        /// <para>Specify the browser extensions allowed for your Amazon Q web experience.</para><ul><li><para><c>CHROME</c> — Enables the extension for Chromium-based browsers (Google Chrome,
+        /// Microsoft Edge, Opera, etc.).</para></li><li><para><c>FIREFOX</c> — Enables the extension for Mozilla Firefox.</para></li><li><para><c>CHROME</c> and <c>FIREFOX</c> — Enable the extension for Chromium-based browsers
+        /// and Mozilla Firefox.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BrowserExtensionConfiguration_EnabledBrowserExtensions")]
+        public System.String[] BrowserExtensionConfiguration_EnabledBrowserExtension { get; set; }
+        #endregion
+        
+        #region Parameter CustomizationConfiguration_FaviconUrl
+        /// <summary>
+        /// <para>
+        /// <para>Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomizationConfiguration_FaviconUrl { get; set; }
+        #endregion
+        
+        #region Parameter CustomizationConfiguration_FontUrl
+        /// <summary>
+        /// <para>
+        /// <para>Provides the URL where the custom font file is hosted for an Amazon Q web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomizationConfiguration_FontUrl { get; set; }
+        #endregion
+        
+        #region Parameter CustomizationConfiguration_LogoUrl
+        /// <summary>
+        /// <para>
+        /// <para>Provides the URL where the custom logo file is hosted for an Amazon Q web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomizationConfiguration_LogoUrl { get; set; }
+        #endregion
+        
         #region Parameter SamlConfiguration_MetadataXML
         /// <summary>
         /// <para>
@@ -272,6 +325,14 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.SamlConfiguration_RoleArn = this.SamlConfiguration_RoleArn;
             context.SamlConfiguration_UserGroupAttribute = this.SamlConfiguration_UserGroupAttribute;
             context.SamlConfiguration_UserIdAttribute = this.SamlConfiguration_UserIdAttribute;
+            if (this.BrowserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                context.BrowserExtensionConfiguration_EnabledBrowserExtension = new List<System.String>(this.BrowserExtensionConfiguration_EnabledBrowserExtension);
+            }
+            context.CustomizationConfiguration_CustomCSSUrl = this.CustomizationConfiguration_CustomCSSUrl;
+            context.CustomizationConfiguration_FaviconUrl = this.CustomizationConfiguration_FaviconUrl;
+            context.CustomizationConfiguration_FontUrl = this.CustomizationConfiguration_FontUrl;
+            context.CustomizationConfiguration_LogoUrl = this.CustomizationConfiguration_LogoUrl;
             context.OpenIDConnectConfiguration_SecretsArn = this.OpenIDConnectConfiguration_SecretsArn;
             context.OpenIDConnectConfiguration_SecretsRole = this.OpenIDConnectConfiguration_SecretsRole;
             context.SamlConfiguration_AuthenticationUrl = this.SamlConfiguration_AuthenticationUrl;
@@ -374,6 +435,74 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAuthenticationConfigurationIsNull)
             {
                 request.AuthenticationConfiguration = null;
+            }
+            
+             // populate BrowserExtensionConfiguration
+            var requestBrowserExtensionConfigurationIsNull = true;
+            request.BrowserExtensionConfiguration = new Amazon.QBusiness.Model.BrowserExtensionConfiguration();
+            List<System.String> requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension = null;
+            if (cmdletContext.BrowserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension = cmdletContext.BrowserExtensionConfiguration_EnabledBrowserExtension;
+            }
+            if (requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension != null)
+            {
+                request.BrowserExtensionConfiguration.EnabledBrowserExtensions = requestBrowserExtensionConfiguration_browserExtensionConfiguration_EnabledBrowserExtension;
+                requestBrowserExtensionConfigurationIsNull = false;
+            }
+             // determine if request.BrowserExtensionConfiguration should be set to null
+            if (requestBrowserExtensionConfigurationIsNull)
+            {
+                request.BrowserExtensionConfiguration = null;
+            }
+            
+             // populate CustomizationConfiguration
+            var requestCustomizationConfigurationIsNull = true;
+            request.CustomizationConfiguration = new Amazon.QBusiness.Model.CustomizationConfiguration();
+            System.String requestCustomizationConfiguration_customizationConfiguration_CustomCSSUrl = null;
+            if (cmdletContext.CustomizationConfiguration_CustomCSSUrl != null)
+            {
+                requestCustomizationConfiguration_customizationConfiguration_CustomCSSUrl = cmdletContext.CustomizationConfiguration_CustomCSSUrl;
+            }
+            if (requestCustomizationConfiguration_customizationConfiguration_CustomCSSUrl != null)
+            {
+                request.CustomizationConfiguration.CustomCSSUrl = requestCustomizationConfiguration_customizationConfiguration_CustomCSSUrl;
+                requestCustomizationConfigurationIsNull = false;
+            }
+            System.String requestCustomizationConfiguration_customizationConfiguration_FaviconUrl = null;
+            if (cmdletContext.CustomizationConfiguration_FaviconUrl != null)
+            {
+                requestCustomizationConfiguration_customizationConfiguration_FaviconUrl = cmdletContext.CustomizationConfiguration_FaviconUrl;
+            }
+            if (requestCustomizationConfiguration_customizationConfiguration_FaviconUrl != null)
+            {
+                request.CustomizationConfiguration.FaviconUrl = requestCustomizationConfiguration_customizationConfiguration_FaviconUrl;
+                requestCustomizationConfigurationIsNull = false;
+            }
+            System.String requestCustomizationConfiguration_customizationConfiguration_FontUrl = null;
+            if (cmdletContext.CustomizationConfiguration_FontUrl != null)
+            {
+                requestCustomizationConfiguration_customizationConfiguration_FontUrl = cmdletContext.CustomizationConfiguration_FontUrl;
+            }
+            if (requestCustomizationConfiguration_customizationConfiguration_FontUrl != null)
+            {
+                request.CustomizationConfiguration.FontUrl = requestCustomizationConfiguration_customizationConfiguration_FontUrl;
+                requestCustomizationConfigurationIsNull = false;
+            }
+            System.String requestCustomizationConfiguration_customizationConfiguration_LogoUrl = null;
+            if (cmdletContext.CustomizationConfiguration_LogoUrl != null)
+            {
+                requestCustomizationConfiguration_customizationConfiguration_LogoUrl = cmdletContext.CustomizationConfiguration_LogoUrl;
+            }
+            if (requestCustomizationConfiguration_customizationConfiguration_LogoUrl != null)
+            {
+                request.CustomizationConfiguration.LogoUrl = requestCustomizationConfiguration_customizationConfiguration_LogoUrl;
+                requestCustomizationConfigurationIsNull = false;
+            }
+             // determine if request.CustomizationConfiguration should be set to null
+            if (requestCustomizationConfigurationIsNull)
+            {
+                request.CustomizationConfiguration = null;
             }
             
              // populate IdentityProviderConfiguration
@@ -538,6 +667,11 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String SamlConfiguration_RoleArn { get; set; }
             public System.String SamlConfiguration_UserGroupAttribute { get; set; }
             public System.String SamlConfiguration_UserIdAttribute { get; set; }
+            public List<System.String> BrowserExtensionConfiguration_EnabledBrowserExtension { get; set; }
+            public System.String CustomizationConfiguration_CustomCSSUrl { get; set; }
+            public System.String CustomizationConfiguration_FaviconUrl { get; set; }
+            public System.String CustomizationConfiguration_FontUrl { get; set; }
+            public System.String CustomizationConfiguration_LogoUrl { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
             public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }
             public System.String SamlConfiguration_AuthenticationUrl { get; set; }

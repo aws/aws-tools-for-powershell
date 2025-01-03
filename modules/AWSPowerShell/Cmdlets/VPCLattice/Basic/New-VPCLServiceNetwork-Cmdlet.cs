@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         public Amazon.VPCLattice.AuthType AuthType { get; set; }
         #endregion
         
+        #region Parameter SharingConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if the service network is enabled for sharing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SharingConfig_Enabled { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -154,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SharingConfig_Enabled = this.SharingConfig_Enabled;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -189,6 +200,25 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate SharingConfig
+            var requestSharingConfigIsNull = true;
+            request.SharingConfig = new Amazon.VPCLattice.Model.SharingConfig();
+            System.Boolean? requestSharingConfig_sharingConfig_Enabled = null;
+            if (cmdletContext.SharingConfig_Enabled != null)
+            {
+                requestSharingConfig_sharingConfig_Enabled = cmdletContext.SharingConfig_Enabled.Value;
+            }
+            if (requestSharingConfig_sharingConfig_Enabled != null)
+            {
+                request.SharingConfig.Enabled = requestSharingConfig_sharingConfig_Enabled.Value;
+                requestSharingConfigIsNull = false;
+            }
+             // determine if request.SharingConfig should be set to null
+            if (requestSharingConfigIsNull)
+            {
+                request.SharingConfig = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -258,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public Amazon.VPCLattice.AuthType AuthType { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? SharingConfig_Enabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.VPCLattice.Model.CreateServiceNetworkResponse, NewVPCLServiceNetworkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

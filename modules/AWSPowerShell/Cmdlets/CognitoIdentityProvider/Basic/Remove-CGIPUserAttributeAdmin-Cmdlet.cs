@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes the user attributes in a user pool as an administrator. Works on any user.
+    /// Deletes attribute values from a user. This operation doesn't affect tokens for existing
+    /// user sessions. The next ID token that the user receives will no longer have this attribute.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to delete user attributes.</para>
+        /// <para>The ID of the user pool where you want to delete user attributes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

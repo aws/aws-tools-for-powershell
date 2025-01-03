@@ -37,7 +37,19 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// or <c>DeleteConfigRule</c> request for the rule, you will receive a <c>ResourceInUseException</c>.
     /// </para><para>
     /// You can check the state of a rule by using the <c>DescribeConfigRules</c> request.
-    /// </para>
+    /// </para><note><para><b>Recommendation: Stop recording resource compliance before deleting rules</b></para><para>
+    /// It is highly recommended that you stop recording for the <c>AWS::Config::ResourceCompliance</c>
+    /// resource type before you delete rules in your account. Deleting rules creates CIs
+    /// for <c>AWS::Config::ResourceCompliance</c> and can affect your Config <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">configuration
+    /// recorder</a> costs. If you are deleting rules which evaluate a large number of resource
+    /// types, this can lead to a spike in the number of CIs recorded.
+    /// </para><para>
+    /// Best practice:
+    /// </para><ol><li><para>
+    /// Stop recording <c>AWS::Config::ResourceCompliance</c></para></li><li><para>
+    /// Delete rule(s)
+    /// </para></li><li><para>
+    /// Turn on recording for <c>AWS::Config::ResourceCompliance</c></para></li></ol></note>
     /// </summary>
     [Cmdlet("Remove", "CFGConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

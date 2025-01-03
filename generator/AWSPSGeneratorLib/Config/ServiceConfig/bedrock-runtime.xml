@@ -30,11 +30,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAsyncInvoke" OutputProperty="*" Verb="Get" Noun="AsyncInvoke" PipelineParameter="InvocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InvokeModel" OutputProperty="*" Verb="Invoke" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeModelWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="ModelWithResponseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAsyncInvokes" OutputProperty="AsyncInvokeSummaries" Verb="Get" Noun="AsyncInvokeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAsyncInvoke" OutputProperty="InvocationArn" Verb="Start" Noun="AsyncInvoke" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

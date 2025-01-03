@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates an inference component, which is a SageMaker hosting object that you can use
-    /// to deploy a model to an endpoint. In the inference component settings, you specify
+    /// Creates an inference component, which is a SageMaker AI hosting object that you can
+    /// use to deploy a model to an endpoint. In the inference component settings, you specify
     /// the model, the endpoint, and how the model utilizes the resources that the endpoint
     /// hosts. You can optimize resource utilization by tailoring how the required CPU cores,
     /// accelerators, and memory are allocated. You can deploy multiple inference components
@@ -61,6 +61,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String Container_ArtifactUrl { get; set; }
         #endregion
         
+        #region Parameter Specification_BaseInferenceComponentName
+        /// <summary>
+        /// <para>
+        /// <para>The name of an existing inference component that is to contain the inference component
+        /// that you're creating with your request.</para><para>Specify this parameter only if your request is meant to create an adapter inference
+        /// component. An adapter inference component contains the path to an adapter model. The
+        /// purpose of the adapter model is to tailor the inference output of a base foundation
+        /// model, which is hosted by the base inference component. The adapter inference component
+        /// uses the compute resources that you assigned to the base inference component.</para><para>When you create an adapter inference component, use the <c>Container</c> parameter
+        /// to specify the location of the adapter artifacts. In the parameter value, use the
+        /// <c>ArtifactUrl</c> parameter of the <c>InferenceComponentContainerSpecification</c>
+        /// data type.</para><para>Before you can create an adapter inference component, you must have an existing inference
+        /// component that contains the foundation model that you want to adapt.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Specification_BaseInferenceComponentName { get; set; }
+        #endregion
+        
         #region Parameter StartupParameters_ContainerStartupHealthCheckTimeoutInSecond
         /// <summary>
         /// <para>
@@ -81,13 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// Each copy can serve inference requests.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? RuntimeConfig_CopyCount { get; set; }
         #endregion
         
@@ -169,13 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// component.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Specification_ComputeResourceRequirements_MinMemoryRequiredInMb")]
         public System.Int32? ComputeResourceRequirements_MinMemoryRequiredInMb { get; set; }
         #endregion
@@ -196,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Specification_ModelName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing SageMaker model object in your account that you want to deploy
-        /// with the inference component.</para>
+        /// <para>The name of an existing SageMaker AI model object in your account that you want to
+        /// deploy with the inference component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,14 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The name of an existing production variant where you host the inference component.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VariantName { get; set; }
         #endregion
         
@@ -314,20 +314,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.RuntimeConfig_CopyCount = this.RuntimeConfig_CopyCount;
-            #if MODULAR
-            if (this.RuntimeConfig_CopyCount == null && ParameterWasBound(nameof(this.RuntimeConfig_CopyCount)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RuntimeConfig_CopyCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Specification_BaseInferenceComponentName = this.Specification_BaseInferenceComponentName;
             context.ComputeResourceRequirements_MaxMemoryRequiredInMb = this.ComputeResourceRequirements_MaxMemoryRequiredInMb;
             context.ComputeResourceRequirements_MinMemoryRequiredInMb = this.ComputeResourceRequirements_MinMemoryRequiredInMb;
-            #if MODULAR
-            if (this.ComputeResourceRequirements_MinMemoryRequiredInMb == null && ParameterWasBound(nameof(this.ComputeResourceRequirements_MinMemoryRequiredInMb)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ComputeResourceRequirements_MinMemoryRequiredInMb which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired = this.ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired;
             context.ComputeResourceRequirements_NumberOfCpuCoresRequired = this.ComputeResourceRequirements_NumberOfCpuCoresRequired;
             context.Container_ArtifactUrl = this.Container_ArtifactUrl;
@@ -348,12 +337,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
             context.VariantName = this.VariantName;
-            #if MODULAR
-            if (this.VariantName == null && ParameterWasBound(nameof(this.VariantName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VariantName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -401,6 +384,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate Specification
             var requestSpecificationIsNull = true;
             request.Specification = new Amazon.SageMaker.Model.InferenceComponentSpecification();
+            System.String requestSpecification_specification_BaseInferenceComponentName = null;
+            if (cmdletContext.Specification_BaseInferenceComponentName != null)
+            {
+                requestSpecification_specification_BaseInferenceComponentName = cmdletContext.Specification_BaseInferenceComponentName;
+            }
+            if (requestSpecification_specification_BaseInferenceComponentName != null)
+            {
+                request.Specification.BaseInferenceComponentName = requestSpecification_specification_BaseInferenceComponentName;
+                requestSpecificationIsNull = false;
+            }
             System.String requestSpecification_specification_ModelName = null;
             if (cmdletContext.Specification_ModelName != null)
             {
@@ -623,6 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String EndpointName { get; set; }
             public System.String InferenceComponentName { get; set; }
             public System.Int32? RuntimeConfig_CopyCount { get; set; }
+            public System.String Specification_BaseInferenceComponentName { get; set; }
             public System.Int32? ComputeResourceRequirements_MaxMemoryRequiredInMb { get; set; }
             public System.Int32? ComputeResourceRequirements_MinMemoryRequiredInMb { get; set; }
             public System.Single? ComputeResourceRequirements_NumberOfAcceleratorDevicesRequired { get; set; }

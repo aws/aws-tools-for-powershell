@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Modifies the Capacity Reservation settings for a stopped instance. Use this action
     /// to configure an instance to target a specific Capacity Reservation, run in any <c>open</c>
-    /// Capacity Reservation with matching attributes, or run On-Demand Instance capacity.
+    /// Capacity Reservation with matching attributes, run in On-Demand Instance capacity,
+    /// or only run in a Capacity Reservation.
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceCapacityReservationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -58,9 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationSpecification_CapacityReservationPreference
         /// <summary>
         /// <para>
-        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>open</c> - The instance can run in any <c>open</c> Capacity Reservation that has
-        /// matching attributes (instance type, platform, Availability Zone).</para></li><li><para><c>none</c> - The instance avoids running in a Capacity Reservation even if one is
-        /// available. The instance runs as an On-Demand Instance.</para></li></ul>
+        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>capacity-reservations-only</c> - The instance will only run in a Capacity Reservation
+        /// or Capacity Reservation group. If capacity isn't available, the instance will fail
+        /// to launch.</para></li><li><para><c>open</c> - The instance can run in any <c>open</c> Capacity Reservation that has
+        /// matching attributes (instance type, platform, Availability Zone, and tenancy). If
+        /// capacity isn't available, the instance runs as an On-Demand Instance.</para></li><li><para><c>none</c> - The instance doesn't run in a Capacity Reservation even if one is available.
+        /// The instance runs as an On-Demand Instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -117,7 +117,7 @@ $CGIP_Completers = {
             ($_ -eq "Start-CGIPAuthAdmin/AuthFlow")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","ADMIN_USER_PASSWORD_AUTH","CUSTOM_AUTH","REFRESH_TOKEN","REFRESH_TOKEN_AUTH","USER_PASSWORD_AUTH","USER_SRP_AUTH"
+            $v = "ADMIN_NO_SRP_AUTH","ADMIN_USER_PASSWORD_AUTH","CUSTOM_AUTH","REFRESH_TOKEN","REFRESH_TOKEN_AUTH","USER_AUTH","USER_PASSWORD_AUTH","USER_SRP_AUTH"
             break
         }
 
@@ -127,7 +127,7 @@ $CGIP_Completers = {
             ($_ -eq "Send-CGIPAuthChallengeResponseAdmin/ChallengeName")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","EMAIL_OTP","MFA_SETUP","NEW_PASSWORD_REQUIRED","PASSWORD_VERIFIER","SELECT_MFA_TYPE","SMS_MFA","SOFTWARE_TOKEN_MFA"
+            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","EMAIL_OTP","MFA_SETUP","NEW_PASSWORD_REQUIRED","PASSWORD","PASSWORD_SRP","PASSWORD_VERIFIER","SELECT_CHALLENGE","SELECT_MFA_TYPE","SMS_MFA","SMS_OTP","SOFTWARE_TOKEN_MFA","WEB_AUTHN"
             break
         }
 
@@ -267,6 +267,23 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.UserPoolTierType
+        {
+            ($_ -eq "New-CGIPUserPool/UserPoolTier") -Or
+            ($_ -eq "Update-CGIPUserPool/UserPoolTier")
+        }
+        {
+            $v = "ESSENTIALS","LITE","PLUS"
+            break
+        }
+
+        # Amazon.CognitoIdentityProvider.UserVerificationType
+        "Set-CGIPUserPoolMfaConfig/WebAuthnConfiguration_UserVerification"
+        {
+            $v = "preferred","required"
+            break
+        }
+
 
     }
 
@@ -298,7 +315,9 @@ $CGIP_map = @{
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "UserPoolTier"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "WebAuthnConfiguration_UserVerification"=@("Set-CGIPUserPoolMfaConfig")
 }
 
 _awsArgumentCompleterRegistration $CGIP_Completers $CGIP_map
@@ -380,11 +399,13 @@ $CGIP_SelectMap = @{
                "Disconnect-CGIPUserGlobalAdmin",
                "Add-CGIPSoftwareToken",
                "Update-CGIPPassword",
+               "Complete-CGIPWebAuthnRegistration",
                "Approve-CGIPDevice",
                "Confirm-CGIPForgotPassword",
                "Confirm-CGIPUserRegistration",
                "New-CGIPGroup",
                "New-CGIPIdentityProvider",
+               "New-CGIPManagedLoginBranding",
                "New-CGIPResourceServer",
                "New-CGIPUserImportJob",
                "New-CGIPUserPool",
@@ -392,13 +413,17 @@ $CGIP_SelectMap = @{
                "New-CGIPUserPoolDomain",
                "Remove-CGIPGroup",
                "Remove-CGIPIdentityProvider",
+               "Remove-CGIPManagedLoginBranding",
                "Remove-CGIPResourceServer",
                "Remove-CGIPUser",
                "Remove-CGIPUserAttribute",
                "Remove-CGIPUserPool",
                "Remove-CGIPUserPoolClient",
                "Remove-CGIPUserPoolDomain",
+               "Remove-CGIPWebAuthnCredential",
                "Get-CGIPIdentityProvider",
+               "Get-CGIPManagedLoginBranding",
+               "Get-CGIPManagedLoginBrandingByClient",
                "Get-CGIPResourceServer",
                "Get-CGIPRiskConfiguration",
                "Get-CGIPUserImportJob",
@@ -416,6 +441,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPUICustomization",
                "Get-CGIPUser",
                "Get-CGIPUserAttributeVerificationCode",
+               "Get-CGIPUserAuthFactor",
                "Get-CGIPUserPoolMfaConfig",
                "Disconnect-CGIPDeviceGlobal",
                "Start-CGIPAuth",
@@ -429,6 +455,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPUserPoolList",
                "Get-CGIPUserList",
                "Get-CGIPUsersInGroup",
+               "Get-CGIPWebAuthnCredentialList",
                "Send-CGIPConfirmationCode",
                "Send-CGIPAuthChallengeResponse",
                "Revoke-CGIPToken",
@@ -440,6 +467,7 @@ $CGIP_SelectMap = @{
                "Set-CGIPUserSetting",
                "Register-CGIPUserInPool",
                "Start-CGIPUserImportJob",
+               "Start-CGIPWebAuthnRegistration",
                "Stop-CGIPUserImportJob",
                "Add-CGIPResourceTag",
                "Remove-CGIPResourceTag",
@@ -447,6 +475,7 @@ $CGIP_SelectMap = @{
                "Edit-CGIPDeviceStatus",
                "Update-CGIPGroup",
                "Update-CGIPIdentityProvider",
+               "Update-CGIPManagedLoginBranding",
                "Update-CGIPResourceServer",
                "Update-CGIPUserAttribute",
                "Update-CGIPUserPool",

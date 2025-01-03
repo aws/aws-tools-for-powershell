@@ -111,13 +111,28 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.PolicyType
         "Set-AASScalingPolicy/PolicyType"
         {
-            $v = "StepScaling","TargetTrackingScaling"
+            $v = "PredictiveScaling","StepScaling","TargetTrackingScaling"
+            break
+        }
+
+        # Amazon.ApplicationAutoScaling.PredictiveScalingMaxCapacityBreachBehavior
+        "Set-AASScalingPolicy/PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior"
+        {
+            $v = "HonorMaxCapacity","IncreaseMaxCapacity"
+            break
+        }
+
+        # Amazon.ApplicationAutoScaling.PredictiveScalingMode
+        "Set-AASScalingPolicy/PredictiveScalingPolicyConfiguration_Mode"
+        {
+            $v = "ForecastAndScale","ForecastOnly"
             break
         }
 
         # Amazon.ApplicationAutoScaling.ScalableDimension
         {
             ($_ -eq "Add-AASScalableTarget/ScalableDimension") -Or
+            ($_ -eq "Get-AASPredictiveScalingForecast/ScalableDimension") -Or
             ($_ -eq "Get-AASScalableTarget/ScalableDimension") -Or
             ($_ -eq "Get-AASScalingActivity/ScalableDimension") -Or
             ($_ -eq "Get-AASScalingPolicy/ScalableDimension") -Or
@@ -136,6 +151,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.ServiceNamespace
         {
             ($_ -eq "Add-AASScalableTarget/ServiceNamespace") -Or
+            ($_ -eq "Get-AASPredictiveScalingForecast/ServiceNamespace") -Or
             ($_ -eq "Get-AASScalableTarget/ServiceNamespace") -Or
             ($_ -eq "Get-AASScalingActivity/ServiceNamespace") -Or
             ($_ -eq "Get-AASScalingPolicy/ServiceNamespace") -Or
@@ -163,8 +179,10 @@ $AAS_map = @{
     "CustomizedMetricSpecification_Statistic"=@("Set-AASScalingPolicy")
     "PolicyType"=@("Set-AASScalingPolicy")
     "PredefinedMetricSpecification_PredefinedMetricType"=@("Set-AASScalingPolicy")
-    "ScalableDimension"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Get-AASScheduledAction","Remove-AASScalableTarget","Remove-AASScalingPolicy","Remove-AASScheduledAction","Set-AASScalingPolicy","Set-AASScheduledAction")
-    "ServiceNamespace"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Get-AASScheduledAction","Remove-AASScalableTarget","Remove-AASScalingPolicy","Remove-AASScheduledAction","Set-AASScalingPolicy","Set-AASScheduledAction")
+    "PredictiveScalingPolicyConfiguration_MaxCapacityBreachBehavior"=@("Set-AASScalingPolicy")
+    "PredictiveScalingPolicyConfiguration_Mode"=@("Set-AASScalingPolicy")
+    "ScalableDimension"=@("Add-AASScalableTarget","Get-AASPredictiveScalingForecast","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Get-AASScheduledAction","Remove-AASScalableTarget","Remove-AASScalingPolicy","Remove-AASScheduledAction","Set-AASScalingPolicy","Set-AASScheduledAction")
+    "ServiceNamespace"=@("Add-AASScalableTarget","Get-AASPredictiveScalingForecast","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Get-AASScheduledAction","Remove-AASScalableTarget","Remove-AASScalingPolicy","Remove-AASScheduledAction","Set-AASScalingPolicy","Set-AASScheduledAction")
     "StepScalingPolicyConfiguration_AdjustmentType"=@("Set-AASScalingPolicy")
     "StepScalingPolicyConfiguration_MetricAggregationType"=@("Set-AASScalingPolicy")
 }
@@ -226,6 +244,7 @@ $AAS_SelectMap = @{
                "Get-AASScalingActivity",
                "Get-AASScalingPolicy",
                "Get-AASScheduledAction",
+               "Get-AASPredictiveScalingForecast",
                "Get-AASResourceTag",
                "Set-AASScalingPolicy",
                "Set-AASScheduledAction",

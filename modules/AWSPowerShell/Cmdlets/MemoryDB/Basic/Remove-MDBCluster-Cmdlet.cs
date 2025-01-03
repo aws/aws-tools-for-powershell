@@ -28,7 +28,11 @@ using Amazon.MemoryDB.Model;
 namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Deletes a cluster. It also deletes all associated nodes and node endpoints
+    /// Deletes a cluster. It also deletes all associated nodes and node endpoints.
+    /// 
+    ///  <note><para><c>CreateSnapshot</c> permission is required to create a final snapshot. Without
+    /// this permission, the API call will fail with an <c>Access Denied</c> exception.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "MDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.MemoryDB.Model.Cluster")]
@@ -69,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FinalSnapshotName { get; set; }
+        #endregion
+        
+        #region Parameter MultiRegionClusterName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the multi-Region cluster to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MultiRegionClusterName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -121,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             }
             #endif
             context.FinalSnapshotName = this.FinalSnapshotName;
+            context.MultiRegionClusterName = this.MultiRegionClusterName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -144,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.FinalSnapshotName != null)
             {
                 request.FinalSnapshotName = cmdletContext.FinalSnapshotName;
+            }
+            if (cmdletContext.MultiRegionClusterName != null)
+            {
+                request.MultiRegionClusterName = cmdletContext.MultiRegionClusterName;
             }
             
             CmdletOutput output;
@@ -208,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         {
             public System.String ClusterName { get; set; }
             public System.String FinalSnapshotName { get; set; }
+            public System.String MultiRegionClusterName { get; set; }
             public System.Func<Amazon.MemoryDB.Model.DeleteClusterResponse, RemoveMDBClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

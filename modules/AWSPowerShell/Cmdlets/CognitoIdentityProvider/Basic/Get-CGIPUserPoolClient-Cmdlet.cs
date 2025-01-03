@@ -28,8 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Client method for returning the configuration information and metadata of the specified
-    /// user pool app client.
+    /// Given an app client ID, returns configuration information. This operation is useful
+    /// when you want to inspect an existing app client and programmatically replicate the
+    /// configuration to another app client. For more information about app clients, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">App
+    /// clients</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID of the app associated with the user pool.</para>
+        /// <para>The ID of the app client that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool you want to describe.</para>
+        /// <para>The ID of the user pool that contains the app client you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

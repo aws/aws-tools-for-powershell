@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ACLName
         /// <summary>
         /// <para>
-        /// <para>The Access Control List that is associated with the cluster</para>
+        /// <para>The Access Control List that is associated with the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster to update</para>
+        /// <para>The name of the cluster to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the cluster to update</para>
+        /// <para>The description of the cluster to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine to be used for the nodes in this cluster. The value must be
-        /// set to either Redis or Valkey.</para>
+        /// <para>The name of the engine to be used for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter group to update</para>
+        /// <para>The name of the parameter group to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The SecurityGroupIds to update</para>
+        /// <para>The SecurityGroupIds to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>The SNS topic ARN to update</para>
+        /// <para>The SNS topic ARN to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

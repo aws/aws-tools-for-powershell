@@ -28,8 +28,8 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Gets details about a batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-view">View
-    /// details about a batch inference job</a>
+    /// Gets details about a batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-monitor">Monitor
+    /// batch inference jobs</a>
     /// </summary>
     [Cmdlet("Get", "BDRModelInvocationJob")]
     [OutputType("Amazon.Bedrock.Model.GetModelInvocationJobResponse")]

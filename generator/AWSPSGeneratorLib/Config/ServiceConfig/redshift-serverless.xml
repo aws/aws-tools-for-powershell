@@ -142,6 +142,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedWorkgroups" OutputProperty="ManagedWorkgroups" Verb="Get" Noun="ManagedWorkgroupList" PipelineParameter="SourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

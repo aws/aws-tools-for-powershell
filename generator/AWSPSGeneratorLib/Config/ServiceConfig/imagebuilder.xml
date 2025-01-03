@@ -151,6 +151,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMarketplaceResource" OutputProperty="*" Verb="Get" Noun="MarketplaceResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="WorkflowBuildVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -68,6 +68,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CompletionDurationMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
+        /// copy. Time-based snapshot copy operations complete within the specified duration.
+        /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
+        /// Time-based copies</a>.</para><para>If you do not specify a value, the snapshot copy operation is completed on a best-effort
+        /// basis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompletionDurationMinutes")]
+        public System.Int32? CompletionDurationMinute { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -194,6 +209,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public string Select { get; set; } = "SnapshotId";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SourceSnapshotId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SourceSnapshotId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SourceSnapshotId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -220,11 +245,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.CopySnapshotResponse, CopyEC2SnapshotCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.SourceSnapshotId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CompletionDurationMinute = this.CompletionDurationMinute;
             context.Description = this.Description;
             context.DestinationOutpostArn = this.DestinationOutpostArn;
             context.DestinationRegion = this.DestinationRegion;
@@ -264,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CopySnapshotRequest();
             
+            if (cmdletContext.CompletionDurationMinute != null)
+            {
+                request.CompletionDurationMinutes = cmdletContext.CompletionDurationMinute.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -357,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? CompletionDurationMinute { get; set; }
             public System.String Description { get; set; }
             public System.String DestinationOutpostArn { get; set; }
             public System.String DestinationRegion { get; set; }

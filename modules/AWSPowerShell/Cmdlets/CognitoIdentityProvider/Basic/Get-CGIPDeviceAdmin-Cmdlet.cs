@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the device, as an administrator.
+    /// Given the device key, returns details for a user' device. For more information, see
+    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
+    /// with devices</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceKey
         /// <summary>
         /// <para>
-        /// <para>The device key.</para>
+        /// <para>The key of the device that you want to delete. You can get device IDs in the response
+        /// to an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminListDevices.html">AdminListDevices</a>
+        /// request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where the device owner is a user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

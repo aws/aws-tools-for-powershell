@@ -79,6 +79,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ApplyOnTransformedLog
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is valid only for log groups that have an active log transformer. For
+        /// more information about log transformers, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>.</para><para>If the log group uses either a log-group level or account-level transformer, and you
+        /// specify <c>true</c>, the subscription filter will be applied on the transformed version
+        /// of the log events instead of the original ingested log events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplyOnTransformedLogs")]
+        public System.Boolean? ApplyOnTransformedLog { get; set; }
+        #endregion
+        
         #region Parameter DestinationArn
         /// <summary>
         /// <para>
@@ -192,6 +206,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the LogGroupName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -218,11 +242,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.PutSubscriptionFilterResponse, WriteCWLSubscriptionFilterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.LogGroupName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplyOnTransformedLog = this.ApplyOnTransformedLog;
             context.DestinationArn = this.DestinationArn;
             #if MODULAR
             if (this.DestinationArn == null && ParameterWasBound(nameof(this.DestinationArn)))
@@ -269,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.PutSubscriptionFilterRequest();
             
+            if (cmdletContext.ApplyOnTransformedLog != null)
+            {
+                request.ApplyOnTransformedLogs = cmdletContext.ApplyOnTransformedLog.Value;
+            }
             if (cmdletContext.DestinationArn != null)
             {
                 request.DestinationArn = cmdletContext.DestinationArn;
@@ -354,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ApplyOnTransformedLog { get; set; }
             public System.String DestinationArn { get; set; }
             public Amazon.CloudWatchLogs.Distribution Distribution { get; set; }
             public System.String FilterName { get; set; }

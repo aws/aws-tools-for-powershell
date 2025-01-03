@@ -47,7 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </para></li><li><para>
     /// Amazon Cognito no longer accepts a signed-out user's refresh tokens in refresh requests.
     /// </para></li></ul><para>
-    /// Other requests might be valid until your user's token expires.
+    /// Other requests might be valid until your user's token expires. This operation doesn't
+    /// clear the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
+    /// login</a> session cookie. To clear the session for a user who signed in with managed
+    /// login or the classic hosted UI, direct their browser session to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">logout
+    /// endpoint</a>.
     /// </para><para>
     /// Authorize this action with a signed-in user's access token. It must include the scope
     /// <c>aws.cognito.signin.user.admin</c>.

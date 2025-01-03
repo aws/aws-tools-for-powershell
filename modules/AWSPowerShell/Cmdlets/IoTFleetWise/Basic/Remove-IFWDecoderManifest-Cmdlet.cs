@@ -29,12 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
     /// Deletes a decoder manifest. You can't delete a decoder manifest if it has vehicles
-    /// associated with it. 
-    /// 
-    ///  <note><para>
-    /// If the decoder manifest is successfully deleted, Amazon Web Services IoT FleetWise
-    /// sends back an HTTP 200 response with an empty body.
-    /// </para></note>
+    /// associated with it.
     /// </summary>
     [Cmdlet("Remove", "IFWDecoderManifest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTFleetWise.Model.DeleteDecoderManifestResponse")]

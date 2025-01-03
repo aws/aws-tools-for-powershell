@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DomainNameId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the domain name resource. Supported only for private custom domain
+        /// names. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainNameId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -118,6 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DomainNameId = this.DomainNameId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.DomainNameId != null)
+            {
+                request.DomainNameId = cmdletContext.DomainNameId;
             }
             
             CmdletOutput output;
@@ -205,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.String BasePath { get; set; }
             public System.String DomainName { get; set; }
+            public System.String DomainNameId { get; set; }
             public System.Func<Amazon.APIGateway.Model.GetBasePathMappingResponse, GetAGBasePathMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -18,7 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateToConfiguration" Verb="Register" Noun="Association" ShouldProcessTarget="ChatConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="New" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomAction" OutputProperty="CustomActionArn" Verb="New" Noun="CustomAction" ShouldProcessTarget="ActionName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -31,6 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChimeWebhookConfiguration" Verb="Remove" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomAction" Verb="Remove" Noun="CustomAction" ShouldProcessTarget="CustomActionArn" PipelineParameter="CustomActionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -74,11 +86,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFromConfiguration" Verb="Unregister" Noun="Association" ShouldProcessTarget="ChatConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccountPreferences" OutputProperty="AccountPreferences" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomAction" OutputProperty="CustomAction" Verb="Get" Noun="CustomAction" PipelineParameter="CustomActionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Get" Noun="MicrosoftTeamsChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociations" OutputProperty="Associations" Verb="Get" Noun="AssociationList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomActions" OutputProperty="CustomActions" Verb="Get" Noun="CustomActionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,6 +139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="Update" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCustomAction" OutputProperty="CustomActionArn" Verb="Update" Noun="CustomAction" ShouldProcessTarget="CustomActionArn" PipelineParameter="CustomActionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

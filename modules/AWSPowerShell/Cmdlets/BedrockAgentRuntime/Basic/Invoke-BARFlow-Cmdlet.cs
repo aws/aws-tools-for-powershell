@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// Invokes an alias of a flow to run the inputs that you specify and return the output
     /// of each node as a stream. If there's an error, the error is returned. For more information,
     /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-test.html">Test
-    /// a flow in Amazon Bedrock</a> in the Amazon Bedrock User Guide.
+    /// a flow in Amazon Bedrock</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
+    /// Bedrock User Guide</a>.
     /// 
     ///  <note><para>
     /// The CLI doesn't support streaming operations in Amazon Bedrock, including <c>InvokeFlow</c>.
@@ -113,6 +114,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.FlowInput[] Input { get; set; }
         #endregion
         
+        #region Parameter PerformanceConfig_Latency
+        /// <summary>
+        /// <para>
+        /// <para>To use a latency-optimized version of the model, set to <c>optimized</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelPerformanceConfiguration_PerformanceConfig_Latency")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.PerformanceConfigLatency")]
+        public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ResponseStream'.
@@ -180,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter Input which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -211,6 +225,40 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.Input != null)
             {
                 request.Inputs = cmdletContext.Input;
+            }
+            
+             // populate ModelPerformanceConfiguration
+            var requestModelPerformanceConfigurationIsNull = true;
+            request.ModelPerformanceConfiguration = new Amazon.BedrockAgentRuntime.Model.ModelPerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig = null;
+            
+             // populate PerformanceConfig
+            var requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfigIsNull = true;
+            requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig = new Amazon.BedrockAgentRuntime.Model.PerformanceConfiguration();
+            Amazon.BedrockAgentRuntime.PerformanceConfigLatency requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig_performanceConfig_Latency = null;
+            if (cmdletContext.PerformanceConfig_Latency != null)
+            {
+                requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig_performanceConfig_Latency = cmdletContext.PerformanceConfig_Latency;
+            }
+            if (requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig_performanceConfig_Latency != null)
+            {
+                requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig.Latency = requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig_performanceConfig_Latency;
+                requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfigIsNull = false;
+            }
+             // determine if requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig should be set to null
+            if (requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfigIsNull)
+            {
+                requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig = null;
+            }
+            if (requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig != null)
+            {
+                request.ModelPerformanceConfiguration.PerformanceConfig = requestModelPerformanceConfiguration_modelPerformanceConfiguration_PerformanceConfig;
+                requestModelPerformanceConfigurationIsNull = false;
+            }
+             // determine if request.ModelPerformanceConfiguration should be set to null
+            if (requestModelPerformanceConfigurationIsNull)
+            {
+                request.ModelPerformanceConfiguration = null;
             }
             
             CmdletOutput output;
@@ -277,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String FlowAliasIdentifier { get; set; }
             public System.String FlowIdentifier { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.FlowInput> Input { get; set; }
+            public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.InvokeFlowResponse, InvokeBARFlowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResponseStream;
         }

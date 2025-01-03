@@ -116,6 +116,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContact" OutputProperty="*" Verb="New" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateContactFlow" OutputProperty="*" Verb="New" Noun="ContactFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -124,11 +128,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContactFlowVersion" OutputProperty="*" Verb="New" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEmailAddress" OutputProperty="*" Verb="New" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluationForm" OutputProperty="*" Verb="New" Noun="EvaluationForm" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateHoursOfOperation" OutputProperty="*" Verb="New" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHoursOfOperationOverride" OutputProperty="HoursOfOperationOverrideId" Verb="New" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -153,6 +169,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePrompt" OutputProperty="*" Verb="New" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePushNotificationRegistration" OutputProperty="RegistrationId" Verb="New" Noun="PushNotificationRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -228,11 +248,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEmailAddress" Verb="Remove" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEvaluationForm" Verb="Remove" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteHoursOfOperation" Verb="Remove" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHoursOfOperationOverride" Verb="Remove" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -249,6 +277,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePrompt" Verb="Remove" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePushNotificationRegistration" Verb="Remove" Noun="PushNotificationRegistration" ShouldProcessTarget="RegistrationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -328,11 +360,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEmailAddress" OutputProperty="*" Verb="Get" Noun="EmailAddress" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEvaluationForm" OutputProperty="EvaluationForm" Verb="Get" Noun="EvaluationForm" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeHoursOfOperation" OutputProperty="HoursOfOperation" Verb="Get" Noun="HoursOfOperation" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHoursOfOperationOverride" OutputProperty="HoursOfOperationOverride" Verb="Get" Noun="HoursOfOperationOverride" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -476,6 +516,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEffectiveHoursOfOperations" OutputProperty="*" Verb="Get" Noun="EffectiveHoursOfOperation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFederationToken" OutputProperty="Credentials" Verb="Get" Noun="FederationToken" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -520,6 +564,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedContacts" OutputProperty="ContactSummaryList" Verb="Get" Noun="AssociatedContactList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAuthenticationProfiles" OutputProperty="AuthenticationProfileSummaryList" Verb="Get" Noun="AuthenticationProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -540,6 +588,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContactFlowVersions" OutputProperty="ContactFlowVersionSummaryList" Verb="Get" Noun="ContactFlowVersionList" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContactReferences" OutputProperty="ReferenceSummaryList" Verb="Get" Noun="ContactReferenceList" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -557,6 +609,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFlowAssociations" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHoursOfOperationOverrides" OutputProperty="*" Verb="Get" Noun="HoursOfOperationOverrideList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -743,6 +799,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchEmailAddresses" OutputProperty="*" Verb="Search" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchHoursOfOperationOverrides" OutputProperty="*" Verb="Search" Noun="HoursOfOperationOverride" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchHoursOfOperations" OutputProperty="*" Verb="Search" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
@@ -853,6 +917,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendOutboundEmail" Verb="Send" Noun="OutboundEmail" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartAttachedFileUpload" OutputProperty="*" Verb="Start" Noun="AttachedFileUpload" ShouldProcessTarget="AssociatedResourceArn" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -873,7 +941,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartEmailContact" OutputProperty="ContactId" Verb="Start" Noun="EmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartOutboundChatContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartOutboundEmailContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundEmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -981,11 +1057,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEmailAddressMetadata" OutputProperty="*" Verb="Update" Noun="EmailAddressMetadata" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateEvaluationForm" OutputProperty="*" Verb="Update" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateHoursOfOperation" Verb="Update" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHoursOfOperationOverride" Verb="Update" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1000,6 +1084,10 @@
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_EncryptionType" NewName="StorageConfigS3ConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_S3Config_EncryptionConfig_KeyId" NewName="StorageConfigS3ConfigEncryptionConfigKeyId" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateParticipantAuthentication" Verb="Update" Noun="ParticipantAuthentication" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" ShouldProcessTarget="ContactId" PipelineParameter="InstanceId" NoPipelineParameter="false">
@@ -1035,6 +1123,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateQueueOutboundCallerConfig" Verb="Update" Noun="QueueOutboundCallerConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueueOutboundEmailConfig" Verb="Update" Noun="QueueOutboundEmailConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

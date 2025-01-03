@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
     /// Adds an environment member to an Cloud9 development environment.
+    /// 
+    ///  <important><para>
+    /// Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue
+    /// to use the service as normal. <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn
+    /// more"</a></para></important>
     /// </summary>
     [Cmdlet("New", "C9EnvironmentMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Cloud9.Model.EnvironmentMember")]

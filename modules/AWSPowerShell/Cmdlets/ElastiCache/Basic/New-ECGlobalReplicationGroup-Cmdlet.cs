@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Global Datastore offers fully managed, fast, reliable and secure cross-region replication.
     /// Using Global Datastore with Valkey or Redis OSS, you can create cross-region read
     /// replica clusters for ElastiCache to enable low-latency reads and disaster recovery
-    /// across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication
+    /// across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastore.html">Replication
     /// Across Regions Using Global Datastore</a>. 
     /// 
     ///  <ul><li><para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// with "dsdfu" along with the suffix name you provide. The suffix, combined with the
         /// auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple
         /// regions. </para><para>For a full list of Amazon Regions and their respective Global datastore iD prefixes,
-        /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using
+        /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastores-CLI.html">Using
         /// the Amazon CLI with Global datastores </a>.</para>
         /// </para>
         /// </summary>

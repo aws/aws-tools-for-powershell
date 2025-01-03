@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter BeforeSubstitution
         /// <summary>
         /// <para>
-        /// <para>A flag that provides a view of the job document before and after the substitution
-        /// parameters have been resolved with their exact values.</para>
+        /// <para>Provides a view of the job document before and after the substitution parameters have
+        /// been resolved with their exact values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BillingViewArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies a specific billing view. The
+        /// ARN is used to specify which particular billing view you want to interact with or
+        /// retrieve information from when making API calls related to Amazon Web Services Billing
+        /// and Cost Management features. The BillingViewArn can be retrieved by calling the ListBillingViews
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingViewArn { get; set; }
+        #endregion
+        
         #region Parameter Context
         /// <summary>
         /// <para>
@@ -51,8 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// operation. If the context is set to <c>COST_AND_USAGE</c>, the resulting dimension
         /// values can be used in the <c>GetCostAndUsage</c> operation.</para><para>If you set the context to <c>COST_AND_USAGE</c>, you can use the following dimensions
         /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <c>us-east-1a</c>.</para></li><li><para>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
-        /// values are the following:</para><para>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Servicesservices.</para><para>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
-        /// reseller for Amazon Web Servicesservices in India.</para><para>- Amazon Web Services Marketplace: The entity that supports the sale of solutions
+        /// values are the following:</para><para>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services
+        /// services.</para><para>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
+        /// reseller for Amazon Web Services services in India.</para><para>- Amazon Web Services Marketplace: The entity that supports the sale of solutions
         /// that are built on Amazon Web Services by third-party software providers.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
         /// values are <c>SingleAZ</c> and <c>MultiAZ</c>.</para></li><li><para>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora
         /// or MySQL.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <c>m4.xlarge</c>.</para></li><li><para>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.
@@ -195,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the TimePeriod parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TimePeriod' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TimePeriod' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         #if MODULAR
         /// <summary>
@@ -217,11 +242,22 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.GetDimensionValuesResponse, GetCEDimensionValueCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.TimePeriod;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BillingViewArn = this.BillingViewArn;
             context.Context = this.Context;
             context.Dimension = this.Dimension;
             #if MODULAR
@@ -259,11 +295,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.CostExplorer.Model.GetDimensionValuesRequest();
             
+            if (cmdletContext.BillingViewArn != null)
+            {
+                request.BillingViewArn = cmdletContext.BillingViewArn;
+            }
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
@@ -346,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request
             var request = new Amazon.CostExplorer.Model.GetDimensionValuesRequest();
             
+            if (cmdletContext.BillingViewArn != null)
+            {
+                request.BillingViewArn = cmdletContext.BillingViewArn;
+            }
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
@@ -440,6 +486,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BillingViewArn { get; set; }
             public Amazon.CostExplorer.Context Context { get; set; }
             public Amazon.CostExplorer.Dimension Dimension { get; set; }
             public Amazon.CostExplorer.Model.Expression Filter { get; set; }

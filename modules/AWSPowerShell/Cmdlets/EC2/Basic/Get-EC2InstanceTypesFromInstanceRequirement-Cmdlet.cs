@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_CpuManufacturer
         /// <summary>
         /// <para>
-        /// <para>The CPU manufacturers to include.</para><ul><li><para>For instance types with Intel CPUs, specify <c>intel</c>.</para></li><li><para>For instance types with AMD CPUs, specify <c>amd</c>.</para></li><li><para>For instance types with Amazon Web Services CPUs, specify <c>amazon-web-services</c>.</para></li></ul><note><para>Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched
+        /// <para>The CPU manufacturers to include.</para><ul><li><para>For instance types with Intel CPUs, specify <c>intel</c>.</para></li><li><para>For instance types with AMD CPUs, specify <c>amd</c>.</para></li><li><para>For instance types with Amazon Web Services CPUs, specify <c>amazon-web-services</c>.</para></li><li><para>For instance types with Apple CPUs, specify <c>apple</c>.</para></li></ul><note><para>Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched
         /// with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
         /// specify in your launch template.</para></note><para>Default: Any manufacturer</para>
         /// </para>
@@ -476,6 +476,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice { get; set; }
         #endregion
         
+        #region Parameter Cpu_Reference
+        /// <summary>
+        /// <para>
+        /// <para>Specify an instance family to use as the baseline reference for CPU performance. All
+        /// instance types that match your specified attributes will be compared against the CPU
+        /// performance of the referenced instance family, regardless of CPU manufacturer or architecture
+        /// differences.</para><note><para>Currently, only one instance family can be specified in the list.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceRequirements_BaselinePerformanceFactors_Cpu_References")]
+        public Amazon.EC2.Model.PerformanceFactorReferenceRequest[] Cpu_Reference { get; set; }
+        #endregion
+        
         #region Parameter InstanceRequirements_RequireHibernateSupport
         /// <summary>
         /// <para>
@@ -626,6 +640,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.InstanceRequirements_BareMetal = this.InstanceRequirements_BareMetal;
             context.BaselineEbsBandwidthMbps_Max = this.BaselineEbsBandwidthMbps_Max;
             context.BaselineEbsBandwidthMbps_Min = this.BaselineEbsBandwidthMbps_Min;
+            if (this.Cpu_Reference != null)
+            {
+                context.Cpu_Reference = new List<Amazon.EC2.Model.PerformanceFactorReferenceRequest>(this.Cpu_Reference);
+            }
             context.InstanceRequirements_BurstablePerformance = this.InstanceRequirements_BurstablePerformance;
             if (this.InstanceRequirements_CpuManufacturer != null)
             {
@@ -858,6 +876,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceRequirements_instanceRequirements_SpotMaxPricePercentageOverLowestPrice != null)
             {
                 request.InstanceRequirements.SpotMaxPricePercentageOverLowestPrice = requestInstanceRequirements_instanceRequirements_SpotMaxPricePercentageOverLowestPrice.Value;
+                requestInstanceRequirementsIsNull = false;
+            }
+            Amazon.EC2.Model.BaselinePerformanceFactorsRequest requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors = null;
+            
+             // populate BaselinePerformanceFactors
+            var requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactorsIsNull = true;
+            requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors = new Amazon.EC2.Model.BaselinePerformanceFactorsRequest();
+            Amazon.EC2.Model.CpuPerformanceFactorRequest requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu = null;
+            
+             // populate Cpu
+            var requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_CpuIsNull = true;
+            requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu = new Amazon.EC2.Model.CpuPerformanceFactorRequest();
+            List<Amazon.EC2.Model.PerformanceFactorReferenceRequest> requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu_cpu_Reference = null;
+            if (cmdletContext.Cpu_Reference != null)
+            {
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu_cpu_Reference = cmdletContext.Cpu_Reference;
+            }
+            if (requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu_cpu_Reference != null)
+            {
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu.References = requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu_cpu_Reference;
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_CpuIsNull = false;
+            }
+             // determine if requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu should be set to null
+            if (requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_CpuIsNull)
+            {
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu = null;
+            }
+            if (requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu != null)
+            {
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors.Cpu = requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors_instanceRequirements_BaselinePerformanceFactors_Cpu;
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactorsIsNull = false;
+            }
+             // determine if requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors should be set to null
+            if (requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactorsIsNull)
+            {
+                requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors = null;
+            }
+            if (requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors != null)
+            {
+                request.InstanceRequirements.BaselinePerformanceFactors = requestInstanceRequirements_instanceRequirements_BaselinePerformanceFactors;
                 requestInstanceRequirementsIsNull = false;
             }
             Amazon.EC2.Model.AcceleratorCountRequest requestInstanceRequirements_instanceRequirements_AcceleratorCount = null;
@@ -1285,6 +1343,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.BareMetal InstanceRequirements_BareMetal { get; set; }
             public System.Int32? BaselineEbsBandwidthMbps_Max { get; set; }
             public System.Int32? BaselineEbsBandwidthMbps_Min { get; set; }
+            public List<Amazon.EC2.Model.PerformanceFactorReferenceRequest> Cpu_Reference { get; set; }
             public Amazon.EC2.BurstablePerformance InstanceRequirements_BurstablePerformance { get; set; }
             public List<System.String> InstanceRequirements_CpuManufacturer { get; set; }
             public List<System.String> InstanceRequirements_ExcludedInstanceType { get; set; }

@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes a version of a SageMaker image.
+    /// Describes a version of a SageMaker AI image.
     /// </summary>
     [Cmdlet("Get", "SMImageVersion")]
     [OutputType("Amazon.SageMaker.Model.DescribeImageVersionResponse")]

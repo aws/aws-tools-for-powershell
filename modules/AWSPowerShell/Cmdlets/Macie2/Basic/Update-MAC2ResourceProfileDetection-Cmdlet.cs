@@ -63,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>An array of objects, one for each custom data identifier or managed data identifier
-        /// that detected the type of sensitive data to start excluding or including in the bucket's
-        /// score. To start including all sensitive data types in the score, don't specify any
-        /// values for this array.</para>
+        /// that detected a type of sensitive data to exclude from the bucket's score. To include
+        /// all sensitive data types in the score, don't specify any values for this array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

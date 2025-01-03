@@ -181,6 +181,17 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.OpenZFSReadCacheSizingMode
+        {
+            ($_ -eq "New-FSXFileSystem/ReadCacheConfiguration_SizingMode") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/ReadCacheConfiguration_SizingMode") -Or
+            ($_ -eq "Update-FSXFileSystem/ReadCacheConfiguration_SizingMode")
+        }
+        {
+            $v = "NO_CACHE","PROPORTIONAL_TO_THROUGHPUT_CAPACITY","USER_PROVISIONED"
+            break
+        }
+
         # Amazon.FSx.PrivilegedDelete
         {
             ($_ -eq "New-FSXVolume/SnaplockConfiguration_PrivilegedDelete") -Or
@@ -251,7 +262,7 @@ $FSX_Completers = {
             ($_ -eq "Update-FSXFileSystem/StorageType")
         }
         {
-            $v = "HDD","SSD"
+            $v = "HDD","INTELLIGENT_TIERING","SSD"
             break
         }
 
@@ -325,6 +336,7 @@ $FSX_map = @{
     "OpenZFSConfiguration_DeploymentType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
+    "ReadCacheConfiguration_SizingMode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
     "RootVolumeConfiguration_DataCompressionType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")

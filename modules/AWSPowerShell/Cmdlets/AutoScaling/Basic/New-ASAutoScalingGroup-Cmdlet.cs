@@ -121,6 +121,45 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Boolean? CapacityRebalance { get; set; }
         #endregion
         
+        #region Parameter CapacityReservationTarget_CapacityReservationId
+        /// <summary>
+        /// <para>
+        /// <para> The Capacity Reservation IDs to launch instances into. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationIds")]
+        public System.String[] CapacityReservationTarget_CapacityReservationId { get; set; }
+        #endregion
+        
+        #region Parameter CapacityReservationSpecification_CapacityReservationPreference
+        /// <summary>
+        /// <para>
+        /// <para> The capacity reservation preference. The following options are available: </para><ul><li><para><c>capacity-reservations-only</c> - Auto Scaling will only launch instances into
+        /// a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available,
+        /// instances will fail to launch.</para></li><li><para><c>capacity-reservations-first</c> - Auto Scaling will try to launch instances into
+        /// a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't
+        /// available, instances will run in On-Demand capacity.</para></li><li><para><c>none</c> - Auto Scaling will not launch instances into a Capacity Reservation.
+        /// Instances will run in On-Demand capacity. </para></li><li><para><c>default</c> - Auto Scaling uses the Capacity Reservation preference from your
+        /// launch template or an open Capacity Reservation.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.CapacityReservationPreference")]
+        public Amazon.AutoScaling.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
+        #endregion
+        
+        #region Parameter CapacityReservationTarget_CapacityReservationResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para> The resource group ARNs of the Capacity Reservation to launch instances into. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArns")]
+        public System.String[] CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
+        #endregion
+        
         #region Parameter Context
         /// <summary>
         /// <para>
@@ -223,6 +262,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HealthCheckType { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the health check behavior for the impaired Availability Zone in an active
+        /// zonal shift. If you select <c>Replace unhealthy</c>, instances that appear unhealthy
+        /// will be replaced in all Availability Zones. If you select <c>Ignore unhealthy</c>,
+        /// instances will not be replaced in the Availability Zone with the active zonal shift.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto
+        /// Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior")]
+        public Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -430,6 +485,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String ServiceLinkedRoleARN { get; set; }
         #endregion
         
+        #region Parameter SkipZonalShiftValidation
+        /// <summary>
+        /// <para>
+        /// <para> If you enable zonal shift with cross-zone disabled load balancers, capacity could
+        /// become imbalanced across Availability Zones. To skip the validation, specify <c>true</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto
+        /// Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipZonalShiftValidation { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -522,6 +590,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String VPCZoneIdentifier { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled
+        /// <summary>
+        /// <para>
+        /// <para> If <c>true</c>, enable zonal shift for your Auto Scaling group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -571,11 +649,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             #endif
             context.AvailabilityZoneDistribution_CapacityDistributionStrategy = this.AvailabilityZoneDistribution_CapacityDistributionStrategy;
+            context.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = this.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
+            context.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled = this.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled;
             if (this.AvailabilityZone != null)
             {
                 context.AvailabilityZone = new List<System.String>(this.AvailabilityZone);
             }
             context.CapacityRebalance = this.CapacityRebalance;
+            context.CapacityReservationSpecification_CapacityReservationPreference = this.CapacityReservationSpecification_CapacityReservationPreference;
+            if (this.CapacityReservationTarget_CapacityReservationId != null)
+            {
+                context.CapacityReservationTarget_CapacityReservationId = new List<System.String>(this.CapacityReservationTarget_CapacityReservationId);
+            }
+            if (this.CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                context.CapacityReservationTarget_CapacityReservationResourceGroupArn = new List<System.String>(this.CapacityReservationTarget_CapacityReservationResourceGroupArn);
+            }
             context.Context = this.Context;
             context.DefaultCooldown = this.DefaultCooldown;
             context.DefaultInstanceWarmup = this.DefaultInstanceWarmup;
@@ -617,6 +706,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
             context.ServiceLinkedRoleARN = this.ServiceLinkedRoleARN;
+            context.SkipZonalShiftValidation = this.SkipZonalShiftValidation;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
@@ -673,6 +763,35 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.AvailabilityZoneDistribution = null;
             }
+            
+             // populate AvailabilityZoneImpairmentPolicy
+            var requestAvailabilityZoneImpairmentPolicyIsNull = true;
+            request.AvailabilityZoneImpairmentPolicy = new Amazon.AutoScaling.Model.AvailabilityZoneImpairmentPolicy();
+            Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = null;
+            if (cmdletContext.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior != null)
+            {
+                requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior = cmdletContext.AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
+            }
+            if (requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior != null)
+            {
+                request.AvailabilityZoneImpairmentPolicy.ImpairedZoneHealthCheckBehavior = requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior;
+                requestAvailabilityZoneImpairmentPolicyIsNull = false;
+            }
+            System.Boolean? requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled = null;
+            if (cmdletContext.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled != null)
+            {
+                requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled = cmdletContext.AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled.Value;
+            }
+            if (requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled != null)
+            {
+                request.AvailabilityZoneImpairmentPolicy.ZonalShiftEnabled = requestAvailabilityZoneImpairmentPolicy_availabilityZoneImpairmentPolicy_ZonalShiftEnabled.Value;
+                requestAvailabilityZoneImpairmentPolicyIsNull = false;
+            }
+             // determine if request.AvailabilityZoneImpairmentPolicy should be set to null
+            if (requestAvailabilityZoneImpairmentPolicyIsNull)
+            {
+                request.AvailabilityZoneImpairmentPolicy = null;
+            }
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
@@ -680,6 +799,60 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.CapacityRebalance != null)
             {
                 request.CapacityRebalance = cmdletContext.CapacityRebalance.Value;
+            }
+            
+             // populate CapacityReservationSpecification
+            var requestCapacityReservationSpecificationIsNull = true;
+            request.CapacityReservationSpecification = new Amazon.AutoScaling.Model.CapacityReservationSpecification();
+            Amazon.AutoScaling.CapacityReservationPreference requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference = null;
+            if (cmdletContext.CapacityReservationSpecification_CapacityReservationPreference != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference = cmdletContext.CapacityReservationSpecification_CapacityReservationPreference;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference != null)
+            {
+                request.CapacityReservationSpecification.CapacityReservationPreference = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationPreference;
+                requestCapacityReservationSpecificationIsNull = false;
+            }
+            Amazon.AutoScaling.Model.CapacityReservationTarget requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = null;
+            
+             // populate CapacityReservationTarget
+            var requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = true;
+            requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = new Amazon.AutoScaling.Model.CapacityReservationTarget();
+            List<System.String> requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId = null;
+            if (cmdletContext.CapacityReservationTarget_CapacityReservationId != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId = cmdletContext.CapacityReservationTarget_CapacityReservationId;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationIds = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId;
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
+            }
+            List<System.String> requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = null;
+            if (cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationResourceGroupArns = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn;
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
+            }
+             // determine if requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget should be set to null
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget = null;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget != null)
+            {
+                request.CapacityReservationSpecification.CapacityReservationTarget = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget;
+                requestCapacityReservationSpecificationIsNull = false;
+            }
+             // determine if request.CapacityReservationSpecification should be set to null
+            if (requestCapacityReservationSpecificationIsNull)
+            {
+                request.CapacityReservationSpecification = null;
             }
             if (cmdletContext.Context != null)
             {
@@ -821,6 +994,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.ServiceLinkedRoleARN = cmdletContext.ServiceLinkedRoleARN;
             }
+            if (cmdletContext.SkipZonalShiftValidation != null)
+            {
+                request.SkipZonalShiftValidation = cmdletContext.SkipZonalShiftValidation.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -904,8 +1081,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             public System.String AutoScalingGroupName { get; set; }
             public Amazon.AutoScaling.CapacityDistributionStrategy AvailabilityZoneDistribution_CapacityDistributionStrategy { get; set; }
+            public Amazon.AutoScaling.ImpairedZoneHealthCheckBehavior AvailabilityZoneImpairmentPolicy_ImpairedZoneHealthCheckBehavior { get; set; }
+            public System.Boolean? AvailabilityZoneImpairmentPolicy_ZonalShiftEnabled { get; set; }
             public List<System.String> AvailabilityZone { get; set; }
             public System.Boolean? CapacityRebalance { get; set; }
+            public Amazon.AutoScaling.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
+            public List<System.String> CapacityReservationTarget_CapacityReservationId { get; set; }
+            public List<System.String> CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
             public System.String Context { get; set; }
             public System.Int32? DefaultCooldown { get; set; }
             public System.Int32? DefaultInstanceWarmup { get; set; }
@@ -929,6 +1111,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
             public System.String ServiceLinkedRoleARN { get; set; }
+            public System.Boolean? SkipZonalShiftValidation { get; set; }
             public List<Amazon.AutoScaling.Model.Tag> Tag { get; set; }
             public List<System.String> TargetGroupARNs { get; set; }
             public List<System.String> TerminationPolicy { get; set; }

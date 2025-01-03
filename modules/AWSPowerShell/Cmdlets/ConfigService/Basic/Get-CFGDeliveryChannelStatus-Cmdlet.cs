@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns the current status of the specified delivery channel. If a delivery channel
-    /// is not specified, this action returns the current status of all delivery channels
+    /// is not specified, this operation returns the current status of all delivery channels
     /// associated with the account.
     /// 
     ///  <note><para>

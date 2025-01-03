@@ -54,6 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }
         #endregion
         
+        #region Parameter ConcurrentJob
+        /// <summary>
+        /// <para>
+        /// Specify the maximum number of jobs your
+        /// queue can process concurrently. For on-demand queues, the value you enter is constrained
+        /// by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum
+        /// concurrent jobs, per account. For reserved queues, update your reservation plan instead
+        /// in order to increase your yearly commitment.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConcurrentJobs")]
+        public System.Int32? ConcurrentJob { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -138,6 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public string Select { get; set; } = "Queue";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -164,11 +189,22 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.MediaConvert.Model.UpdateQueueResponse, UpdateEMCQueueCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Name;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConcurrentJob = this.ConcurrentJob;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -197,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // create request
             var request = new Amazon.MediaConvert.Model.UpdateQueueRequest();
             
+            if (cmdletContext.ConcurrentJob != null)
+            {
+                request.ConcurrentJobs = cmdletContext.ConcurrentJob.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -309,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ConcurrentJob { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Amazon.MediaConvert.Commitment ReservationPlanSettings_Commitment { get; set; }

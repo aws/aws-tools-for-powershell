@@ -189,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryPointIndexDetails" OutputProperty="*" Verb="Get" Noun="RecoveryPointIndexDetail" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRecoveryPointRestoreMetadata" OutputProperty="*" Verb="Get" Noun="RecoveryPointRestoreMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -250,6 +254,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFrameworks" OutputProperty="Frameworks" Verb="Get" Noun="FrameworkList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndexedRecoveryPoints" OutputProperty="IndexedRecoveryPoints" Verb="Get" Noun="IndexedRecoveryPointList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -362,6 +370,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="GlobalSettings" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecoveryPointIndexSettings" OutputProperty="*" Verb="Update" Noun="RecoveryPointIndexSetting" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

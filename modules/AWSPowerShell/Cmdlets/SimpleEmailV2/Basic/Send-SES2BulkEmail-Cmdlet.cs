@@ -83,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public Amazon.SimpleEmailV2.Model.MessageTag[] DefaultEmailTag { get; set; }
         #endregion
         
+        #region Parameter EndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the multi-region endpoint (global-endpoint).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndpointId { get; set; }
+        #endregion
+        
         #region Parameter FeedbackForwardingEmailAddress
         /// <summary>
         /// <para>
@@ -296,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 context.DefaultEmailTag = new List<Amazon.SimpleEmailV2.Model.MessageTag>(this.DefaultEmailTag);
             }
+            context.EndpointId = this.EndpointId;
             context.FeedbackForwardingEmailAddress = this.FeedbackForwardingEmailAddress;
             context.FeedbackForwardingEmailAddressIdentityArn = this.FeedbackForwardingEmailAddressIdentityArn;
             context.FromEmailAddress = this.FromEmailAddress;
@@ -441,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 request.DefaultEmailTags = cmdletContext.DefaultEmailTag;
             }
+            if (cmdletContext.EndpointId != null)
+            {
+                request.EndpointId = cmdletContext.EndpointId;
+            }
             if (cmdletContext.FeedbackForwardingEmailAddress != null)
             {
                 request.FeedbackForwardingEmailAddress = cmdletContext.FeedbackForwardingEmailAddress;
@@ -532,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String Template_TemplateData { get; set; }
             public System.String Template_TemplateName { get; set; }
             public List<Amazon.SimpleEmailV2.Model.MessageTag> DefaultEmailTag { get; set; }
+            public System.String EndpointId { get; set; }
             public System.String FeedbackForwardingEmailAddress { get; set; }
             public System.String FeedbackForwardingEmailAddressIdentityArn { get; set; }
             public System.String FromEmailAddress { get; set; }

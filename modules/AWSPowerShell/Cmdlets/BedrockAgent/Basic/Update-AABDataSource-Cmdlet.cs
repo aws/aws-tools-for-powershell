@@ -388,6 +388,19 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public Amazon.BedrockAgent.Model.HierarchicalChunkingLevelConfiguration[] HierarchicalChunkingConfiguration_LevelConfiguration { get; set; }
         #endregion
         
+        #region Parameter CrawlerLimits_MaxPage
+        /// <summary>
+        /// <para>
+        /// <para> The max number of web pages crawled from your source URLs, up to 25,000 pages. If
+        /// the web pages exceed this limit, the data source sync will fail and no web pages will
+        /// be ingested. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_MaxPages")]
+        public System.Int32? CrawlerLimits_MaxPage { get; set; }
+        #endregion
+        
         #region Parameter FixedSizeChunkingConfiguration_MaxToken
         /// <summary>
         /// <para>
@@ -414,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference
-        /// profile</a>.</para>
+        /// profile</a> to use for parsing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,6 +472,32 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VectorIngestionConfiguration_ChunkingConfiguration_HierarchicalChunkingConfiguration_OverlapTokens")]
         public System.Int32? HierarchicalChunkingConfiguration_OverlapToken { get; set; }
+        #endregion
+        
+        #region Parameter BedrockDataAutomationConfiguration_ParsingModality
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable parsing of multimodal data, including both text and/or
+        /// images.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_ParsingModality")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.ParsingModality")]
+        public Amazon.BedrockAgent.ParsingModality BedrockDataAutomationConfiguration_ParsingModality { get; set; }
+        #endregion
+        
+        #region Parameter BedrockFoundationModelConfiguration_ParsingModality
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable parsing of multimodal data, including both text and/or
+        /// images.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingModality")]
+        [AWSConstantClassSource("Amazon.BedrockAgent.ParsingModality")]
+        public Amazon.BedrockAgent.ParsingModality BedrockFoundationModelConfiguration_ParsingModality { get; set; }
         #endregion
         
         #region Parameter ParsingPrompt_ParsingPromptText
@@ -622,6 +661,20 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String S3Location_Uri { get; set; }
         #endregion
         
+        #region Parameter CrawlerConfiguration_UserAgent
+        /// <summary>
+        /// <para>
+        /// <para>A string used for identifying the crawler or a bot when it accesses a web server.
+        /// By default, this is set to <c>bedrockbot_UUID</c> for your crawler. You can optionally
+        /// append a custom string to <c>bedrockbot_UUID</c> to allowlist a specific user agent
+        /// permitted to access your source URLs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgent")]
+        public System.String CrawlerConfiguration_UserAgent { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DataSource'.
@@ -709,6 +762,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter DataSourceConfiguration_Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CrawlerLimits_MaxPage = this.CrawlerLimits_MaxPage;
             context.CrawlerLimits_RateLimit = this.CrawlerLimits_RateLimit;
             if (this.CrawlerConfiguration_ExclusionFilter != null)
             {
@@ -719,6 +773,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.CrawlerConfiguration_InclusionFilter = new List<System.String>(this.CrawlerConfiguration_InclusionFilter);
             }
             context.CrawlerConfiguration_Scope = this.CrawlerConfiguration_Scope;
+            context.CrawlerConfiguration_UserAgent = this.CrawlerConfiguration_UserAgent;
             if (this.UrlConfiguration_SeedUrl != null)
             {
                 context.UrlConfiguration_SeedUrl = new List<Amazon.BedrockAgent.Model.SeedUrl>(this.UrlConfiguration_SeedUrl);
@@ -762,7 +817,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 context.CustomTransformationConfiguration_Transformation = new List<Amazon.BedrockAgent.Model.Transformation>(this.CustomTransformationConfiguration_Transformation);
             }
+            context.BedrockDataAutomationConfiguration_ParsingModality = this.BedrockDataAutomationConfiguration_ParsingModality;
             context.BedrockFoundationModelConfiguration_ModelArn = this.BedrockFoundationModelConfiguration_ModelArn;
+            context.BedrockFoundationModelConfiguration_ParsingModality = this.BedrockFoundationModelConfiguration_ParsingModality;
             context.ParsingPrompt_ParsingPromptText = this.ParsingPrompt_ParsingPromptText;
             context.ParsingConfiguration_ParsingStrategy = this.ParsingConfiguration_ParsingStrategy;
             
@@ -1294,11 +1351,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration.Scope = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_Scope;
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfigurationIsNull = false;
             }
+            System.String requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent = null;
+            if (cmdletContext.CrawlerConfiguration_UserAgent != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent = cmdletContext.CrawlerConfiguration_UserAgent;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration.UserAgent = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent;
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.WebCrawlerLimits requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits = null;
             
              // populate CrawlerLimits
             var requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimitsIsNull = true;
             requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits = new Amazon.BedrockAgent.Model.WebCrawlerLimits();
+            System.Int32? requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage = null;
+            if (cmdletContext.CrawlerLimits_MaxPage != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage = cmdletContext.CrawlerLimits_MaxPage.Value;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits.MaxPages = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_MaxPage.Value;
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimitsIsNull = false;
+            }
             System.Int32? requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits_crawlerLimits_RateLimit = null;
             if (cmdletContext.CrawlerLimits_RateLimit != null)
             {
@@ -1508,6 +1585,31 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration.ParsingStrategy = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_parsingConfiguration_ParsingStrategy;
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.BedrockDataAutomationConfiguration requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration = null;
+            
+             // populate BedrockDataAutomationConfiguration
+            var requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfigurationIsNull = true;
+            requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration = new Amazon.BedrockAgent.Model.BedrockDataAutomationConfiguration();
+            Amazon.BedrockAgent.ParsingModality requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality = null;
+            if (cmdletContext.BedrockDataAutomationConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality = cmdletContext.BedrockDataAutomationConfiguration_ParsingModality;
+            }
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration.ParsingModality = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration_bedrockDataAutomationConfiguration_ParsingModality;
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfigurationIsNull = false;
+            }
+             // determine if requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration should be set to null
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfigurationIsNull)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration = null;
+            }
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration.BedrockDataAutomationConfiguration = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockDataAutomationConfiguration;
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.BedrockFoundationModelConfiguration requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration = null;
             
              // populate BedrockFoundationModelConfiguration
@@ -1521,6 +1623,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ModelArn != null)
             {
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration.ModelArn = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ModelArn;
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.ParsingModality requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality = null;
+            if (cmdletContext.BedrockFoundationModelConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality = cmdletContext.BedrockFoundationModelConfiguration_ParsingModality;
+            }
+            if (requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality != null)
+            {
+                requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration.ParsingModality = requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_bedrockFoundationModelConfiguration_ParsingModality;
                 requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfigurationIsNull = false;
             }
             Amazon.BedrockAgent.Model.ParsingPrompt requestVectorIngestionConfiguration_vectorIngestionConfiguration_ParsingConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_vectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ParsingPrompt = null;
@@ -1798,10 +1910,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public List<System.String> SourceConfiguration_SiteUrl { get; set; }
             public System.String SourceConfiguration_TenantId { get; set; }
             public Amazon.BedrockAgent.DataSourceType DataSourceConfiguration_Type { get; set; }
+            public System.Int32? CrawlerLimits_MaxPage { get; set; }
             public System.Int32? CrawlerLimits_RateLimit { get; set; }
             public List<System.String> CrawlerConfiguration_ExclusionFilter { get; set; }
             public List<System.String> CrawlerConfiguration_InclusionFilter { get; set; }
             public Amazon.BedrockAgent.WebScopeType CrawlerConfiguration_Scope { get; set; }
+            public System.String CrawlerConfiguration_UserAgent { get; set; }
             public List<Amazon.BedrockAgent.Model.SeedUrl> UrlConfiguration_SeedUrl { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String Description { get; set; }
@@ -1818,7 +1932,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.Int32? SemanticChunkingConfiguration_MaxToken { get; set; }
             public System.String S3Location_Uri { get; set; }
             public List<Amazon.BedrockAgent.Model.Transformation> CustomTransformationConfiguration_Transformation { get; set; }
+            public Amazon.BedrockAgent.ParsingModality BedrockDataAutomationConfiguration_ParsingModality { get; set; }
             public System.String BedrockFoundationModelConfiguration_ModelArn { get; set; }
+            public Amazon.BedrockAgent.ParsingModality BedrockFoundationModelConfiguration_ParsingModality { get; set; }
             public System.String ParsingPrompt_ParsingPromptText { get; set; }
             public Amazon.BedrockAgent.ParsingStrategy ParsingConfiguration_ParsingStrategy { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.UpdateDataSourceResponse, UpdateAABDataSourceCmdlet, object> Select { get; set; } =

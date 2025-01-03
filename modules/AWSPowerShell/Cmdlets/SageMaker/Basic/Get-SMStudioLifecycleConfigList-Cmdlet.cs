@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web Services
+    /// Lists the Amazon SageMaker AI Studio Lifecycle Configurations in your Amazon Web Services
     /// Account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMStudioLifecycleConfigList")]

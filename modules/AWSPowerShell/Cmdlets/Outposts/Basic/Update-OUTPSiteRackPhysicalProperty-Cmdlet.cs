@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         /// <para>
         /// <para>The power connector that Amazon Web Services should plan to provide for connections
         /// to the hardware. Note the correlation between <c>PowerPhase</c> and <c>PowerConnector</c>.
-        /// </para><ul><li><para>Single-phase AC feed</para><ul><li><para><b>L6-30P</b> – (common in US); 30A; single phase</para></li><li><para><b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</para></li></ul></li><li><para>Three-phase AC feed</para><ul><li><para><b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</para></li><li><para><b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</para></li></ul></li></ul>
+        /// </para><ul><li><para>Single-phase AC feed</para><ul><li><para><b>L6-30P</b> – (common in US); 30A; single phase</para></li><li><para><b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</para></li></ul></li><li><para>Three-phase AC feed</para><ul><li><para><b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</para></li><li><para><b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</para></li><li><para><b>CS8365C</b> – (common in US); 3P+E, 50A; three phase</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

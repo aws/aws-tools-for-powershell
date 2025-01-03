@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceAttributes" Verb="Remove" Noun="ServiceAttribute" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterInstance" OutputProperty="OperationId" Verb="Remove" Noun="InstanceRegistration" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetService" OutputProperty="Service" Verb="Get" Noun="Service" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceAttributes" OutputProperty="ServiceAttributes" Verb="Get" Noun="ServiceAttribute" PipelineParameter="ServiceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" OutputProperty="OperationId" Verb="Update" Noun="Service" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceAttributes" Verb="Update" Noun="ServiceAttribute" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

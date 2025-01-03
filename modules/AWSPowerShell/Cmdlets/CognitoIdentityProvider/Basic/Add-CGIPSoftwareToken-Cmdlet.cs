@@ -51,7 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// requests, and you can't grant IAM permissions in policies. For more information about
     /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
     /// the Amazon Cognito user pools API and user pool endpoints</a>.
-    /// </para></note>
+    /// </para></note><para>
+    /// Authorize this action with a signed-in user's access token. It must include the scope
+    /// <c>aws.cognito.signin.user.admin</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "CGIPSoftwareToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AssociateSoftwareTokenResponse")]
@@ -68,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>A valid access token that Amazon Cognito issued to the user whose software token you
-        /// want to generate.</para>
+        /// want to generate. You can provide either an access token or a session ID in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session that should be passed both ways in challenge-response calls to the service.
-        /// This allows authentication of the user as part of the MFA setup process.</para>
+        /// <para>The session identifier that maintains the state of authentication requests and challenge
+        /// responses. In <c>AssociateSoftwareToken</c>, this is the session ID from a successful
+        /// sign-in. You can provide either an access token or a session ID in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

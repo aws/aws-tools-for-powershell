@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// active chat contact, a new chat contact is also created before handling chat action.
     /// 
     /// </para><para>
-    /// Access to this API is currently restricted to Amazon Pinpoint for supporting SMS integration.
-    /// 
+    /// Access to this API is currently restricted to Amazon Web Services End User Messaging
+    /// for supporting SMS integration. 
     /// </para>
     /// </summary>
     [Cmdlet("Send", "CONNChatIntegrationEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -101,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>Chat system identifier, used in part to uniquely identify chat. This is associated
-        /// with the Amazon Connect instance and flow to be used to start chats. For SMS, this
-        /// is the phone number destination of inbound SMS messages represented by an Amazon Pinpoint
-        /// phone number ARN.</para>
+        /// with the Amazon Connect instance and flow to be used to start chats. For Server Migration
+        /// Service, this is the phone number destination of inbound Server Migration Service
+        /// messages represented by an Amazon Web Services End User Messaging phone number ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Subtype
         /// <summary>
         /// <para>
-        /// <para>Classification of a channel. This is used in part to uniquely identify chat. </para><para>Valid value: <c>["connect:sms"]</c></para>
+        /// <para>Classification of a channel. This is used in part to uniquely identify chat. </para><para>Valid value: <c>["connect:sms", connect:"WhatsApp"]</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

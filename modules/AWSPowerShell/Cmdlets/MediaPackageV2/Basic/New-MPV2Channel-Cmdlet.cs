@@ -109,6 +109,28 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public Amazon.MediaPackageV2.InputType InputType { get; set; }
         #endregion
         
+        #region Parameter InputSwitchConfiguration_MQCSInputSwitching
+        /// <summary>
+        /// <para>
+        /// <para>When true, AWS Elemental MediaPackage performs input switching based on the MQCS.
+        /// Default is true. This setting is valid only when <c>InputType</c> is <c>CMAF</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InputSwitchConfiguration_MQCSInputSwitching { get; set; }
+        #endregion
+        
+        #region Parameter OutputHeaderConfiguration_PublishMQCS
+        /// <summary>
+        /// <para>
+        /// <para>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This
+        /// setting is valid only when <c>InputType</c> is <c>CMAF</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OutputHeaderConfiguration_PublishMQCS { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -188,7 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.InputSwitchConfiguration_MQCSInputSwitching = this.InputSwitchConfiguration_MQCSInputSwitching;
             context.InputType = this.InputType;
+            context.OutputHeaderConfiguration_PublishMQCS = this.OutputHeaderConfiguration_PublishMQCS;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -229,9 +253,47 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate InputSwitchConfiguration
+            var requestInputSwitchConfigurationIsNull = true;
+            request.InputSwitchConfiguration = new Amazon.MediaPackageV2.Model.InputSwitchConfiguration();
+            System.Boolean? requestInputSwitchConfiguration_inputSwitchConfiguration_MQCSInputSwitching = null;
+            if (cmdletContext.InputSwitchConfiguration_MQCSInputSwitching != null)
+            {
+                requestInputSwitchConfiguration_inputSwitchConfiguration_MQCSInputSwitching = cmdletContext.InputSwitchConfiguration_MQCSInputSwitching.Value;
+            }
+            if (requestInputSwitchConfiguration_inputSwitchConfiguration_MQCSInputSwitching != null)
+            {
+                request.InputSwitchConfiguration.MQCSInputSwitching = requestInputSwitchConfiguration_inputSwitchConfiguration_MQCSInputSwitching.Value;
+                requestInputSwitchConfigurationIsNull = false;
+            }
+             // determine if request.InputSwitchConfiguration should be set to null
+            if (requestInputSwitchConfigurationIsNull)
+            {
+                request.InputSwitchConfiguration = null;
+            }
             if (cmdletContext.InputType != null)
             {
                 request.InputType = cmdletContext.InputType;
+            }
+            
+             // populate OutputHeaderConfiguration
+            var requestOutputHeaderConfigurationIsNull = true;
+            request.OutputHeaderConfiguration = new Amazon.MediaPackageV2.Model.OutputHeaderConfiguration();
+            System.Boolean? requestOutputHeaderConfiguration_outputHeaderConfiguration_PublishMQCS = null;
+            if (cmdletContext.OutputHeaderConfiguration_PublishMQCS != null)
+            {
+                requestOutputHeaderConfiguration_outputHeaderConfiguration_PublishMQCS = cmdletContext.OutputHeaderConfiguration_PublishMQCS.Value;
+            }
+            if (requestOutputHeaderConfiguration_outputHeaderConfiguration_PublishMQCS != null)
+            {
+                request.OutputHeaderConfiguration.PublishMQCS = requestOutputHeaderConfiguration_outputHeaderConfiguration_PublishMQCS.Value;
+                requestOutputHeaderConfigurationIsNull = false;
+            }
+             // determine if request.OutputHeaderConfiguration should be set to null
+            if (requestOutputHeaderConfigurationIsNull)
+            {
+                request.OutputHeaderConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -302,7 +364,9 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String ChannelName { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? InputSwitchConfiguration_MQCSInputSwitching { get; set; }
             public Amazon.MediaPackageV2.InputType InputType { get; set; }
+            public System.Boolean? OutputHeaderConfiguration_PublishMQCS { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.CreateChannelResponse, NewMPV2ChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

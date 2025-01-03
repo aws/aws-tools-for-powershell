@@ -47,11 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog associated with the request. This field takes a string value
+        /// <para>Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the solutions are listed in. Use <c>AWS</c> to list solutions in the Amazon
         /// Web Services catalog, and <c>Sandbox</c> to list solutions in a secure and isolated
-        /// testing environment. </para>
+        /// testing environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para> Specifies the attribute to sort by, such as <c>Name</c>, <c>CreatedDate</c>, or <c>Status</c>.
-        /// </para>
+        /// <para>Specifies the attribute to sort by, such as <c>Name</c>, <c>CreatedDate</c>, or <c>Status</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para> Specifies the sorting order, either <c>Ascending</c> or <c>Descending</c>. The default
-        /// is <c>Descending</c>. </para>
+        /// <para>Specifies the sorting order, either <c>Ascending</c> or <c>Descending</c>. The default
+        /// is <c>Descending</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// <summary>
         /// <para>
         /// <para>The maximum number of results returned by a single call. This value must be provided
-        /// in the next call to retrieve the next set of results. </para><para>Default: 20</para>
+        /// in the next call to retrieve the next set of results.</para><para>Default: 20</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,9 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A pagination token used to retrieve the next set of results in subsequent calls.
-        /// This token is included in the response only if there are additional result pages available.
-        /// </para>
+        /// <para>A pagination token used to retrieve the next set of results in subsequent calls. This
+        /// token is included in the response only if there are additional result pages available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

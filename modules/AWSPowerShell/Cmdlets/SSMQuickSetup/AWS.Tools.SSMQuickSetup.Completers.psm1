@@ -125,9 +125,11 @@ $SSMQS_SelectCompleters = {
 $SSMQS_SelectMap = @{
     "Select"=@("New-SSMQSConfigurationManager",
                "Remove-SSMQSConfigurationManager",
+               "Get-SSMQSConfiguration",
                "Get-SSMQSConfigurationManager",
                "Get-SSMQSServiceSetting",
                "Get-SSMQSConfigurationManagerList",
+               "Get-SSMQSConfigurationList",
                "Get-SSMQSQuickSetupTypeList",
                "Get-SSMQSResourceTag",
                "Add-SSMQSResourceTag",

@@ -50,6 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// a remediation exception will not be generated. For more information on the conditions
     /// that initiate the possible Config evaluation results, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#aws-config-rules">Concepts
     /// | Config Rules</a> in the <i>Config Developer Guide</i>.
+    /// </para></note><note><para><b>Exceptions cannot be placed on service-linked remediation actions</b></para><para>
+    /// You cannot place an exception on service-linked remediation actions, such as remediation
+    /// actions put by an organizational conformance pack.
     /// </para></note><note><para><b>Auto remediation can be initiated even for compliant resources</b></para><para>
     /// If you enable auto remediation for a specific Config rule using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/emAPI_PutRemediationConfigurations.html">PutRemediationConfigurations</a>
     /// API or the Config console, it initiates the remediation process for all non-compliant

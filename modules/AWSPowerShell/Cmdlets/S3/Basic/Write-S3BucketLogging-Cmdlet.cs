@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Set the logging parameters for a bucket and to specify permissions for who can view
     /// and modify the logging parameters. All logs are saved to buckets in the same Amazon

@@ -28,7 +28,8 @@ using Amazon.IoTFleetWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
-    /// Retrieves information about the status of a vehicle with any associated campaigns.
+    /// Retrieves information about the status of campaigns, decoder manifests, or state
+    /// templates associated with a vehicle.
     /// </summary>
     [Cmdlet("Get", "IFWVehicleStatus")]
     [OutputType("Amazon.IoTFleetWise.Model.VehicleStatus")]
@@ -62,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of items to return, between 1 and 100, inclusive. </para>
+        /// <para>The maximum number of items to return, between 1 and 100, inclusive. This parameter
+        /// is only supported for resources of type <c>CAMPAIGN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// and a <c>nextToken</c> pagination token is returned in the response. To retrieve the
         /// next set of results, reissue the search request and include the returned token. When
         /// all results have been returned, the response does not contain a pagination token value.
-        /// </para>
+        /// This parameter is only supported for resources of type <c>CAMPAIGN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

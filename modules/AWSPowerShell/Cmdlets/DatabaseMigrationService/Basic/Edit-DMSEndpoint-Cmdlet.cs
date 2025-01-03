@@ -202,9 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_ArchivedLogsOnly
         /// <summary>
         /// <para>
-        /// <para>When this field is set to <c>Y</c>, DMS only accesses the archived redo logs. If the
-        /// archived redo logs are stored on Automatic Storage Management (ASM) only, the DMS
-        /// user account needs to be granted ASM privileges.</para>
+        /// <para>When this field is set to <c>True</c>, DMS only accesses the archived redo logs. If
+        /// the archived redo logs are stored on Automatic Storage Management (ASM) only, the
+        /// DMS user account needs to be granted ASM privileges.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,6 +252,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OracleSettings_AsmUser { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_AuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>Specifies using Kerberos authentication with Microsoft SQL Server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod")]
+        public Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod MicrosoftSQLServerSettings_AuthenticationMethod { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_AuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>Specifies using Kerberos authentication with Oracle.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.OracleAuthenticationMethod")]
+        public Amazon.DatabaseMigrationService.OracleAuthenticationMethod OracleSettings_AuthenticationMethod { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_AuthMechanism
@@ -440,7 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>To capture DDL events, DMS creates various artifacts in the PostgreSQL database when
-        /// the task starts. You can later remove these artifacts.</para><para>If this value is set to <c>N</c>, you don't have to create tables or triggers on the
+        /// the task starts. You can later remove these artifacts.</para><para>The default value is <c>true</c>.</para><para>If this value is set to <c>N</c>, you don't have to create tables or triggers on the
         /// source database.</para>
         /// </para>
         /// </summary>
@@ -983,7 +1005,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_DdlArtifactsSchema
         /// <summary>
         /// <para>
-        /// <para>The schema in which the operational DDL database artifacts are created.</para><para>Example: <c>ddlArtifactsSchema=xyzddlschema;</c></para>
+        /// <para>The schema in which the operational DDL database artifacts are created.</para><para>The default value is <c>public</c>.</para><para>Example: <c>ddlArtifactsSchema=xyzddlschema;</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1026,6 +1048,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? OracleSettings_DirectPathParallelLoad { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_DisableUnicodeSourceFilter
+        /// <summary>
+        /// <para>
+        /// <para>Disables the Unicode source filter with PostgreSQL, for values passed into the Selection
+        /// rule filter on Source Endpoint column values. By default DMS performs source filter
+        /// comparisons using a Unicode string which can cause look ups to ignore the indexes
+        /// in the text columns and slow down migrations.</para><para>Unicode support should only be disabled when using a selection rule filter is on a
+        /// text column in the Source database that is indexed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostgreSQLSettings_DisableUnicodeSourceFilter { get; set; }
         #endregion
         
         #region Parameter DocDbSettings_DocsToInvestigate
@@ -1419,7 +1455,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When set to <c>true</c>, this value causes a task to fail if the actual size of a
-        /// LOB column is greater than the specified <c>LobMaxSize</c>.</para><para>If task is set to Limited LOB mode and this option is set to true, the task fails
+        /// LOB column is greater than the specified <c>LobMaxSize</c>.</para><para>The default value is <c>false</c>.</para><para>If task is set to Limited LOB mode and this option is set to true, the task fails
         /// instead of truncating the LOB data.</para>
         /// </para>
         /// </summary>
@@ -1483,7 +1519,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this,
         /// it prevents idle logical replication slots from holding onto old WAL logs, which can
         /// result in storage full situations on the source. This heartbeat keeps <c>restart_lsn</c>
-        /// moving and prevents storage full scenarios.</para>
+        /// moving and prevents storage full scenarios.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1493,7 +1529,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_HeartbeatFrequency
         /// <summary>
         /// <para>
-        /// <para>Sets the WAL heartbeat frequency (in minutes).</para>
+        /// <para>Sets the WAL heartbeat frequency (in minutes).</para><para>The default value is 5 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1503,7 +1539,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_HeartbeatSchema
         /// <summary>
         /// <para>
-        /// <para>Sets the schema in which the heartbeat artifacts are created.</para>
+        /// <para>Sets the schema in which the heartbeat artifacts are created.</para><para>The default value is <c>public</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1759,7 +1795,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL
         /// migrates booleans as <c>varchar(5)</c>. You must set this setting on both the source
-        /// and target endpoints for it to take effect.</para>
+        /// and target endpoints for it to take effect.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1781,7 +1817,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_MapJsonbAsClob
         /// <summary>
         /// <para>
-        /// <para>When true, DMS migrates JSONB values as CLOB.</para>
+        /// <para>When true, DMS migrates JSONB values as CLOB.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1791,7 +1827,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_MapLongVarcharAs
         /// <summary>
         /// <para>
-        /// <para>When true, DMS migrates LONG values as VARCHAR.</para>
+        /// <para>Sets what datatype to map LONG values as.</para><para>The default value is <c>wstring</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1847,7 +1883,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_MaxFileSize
         /// <summary>
         /// <para>
-        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.</para><para>Example: <c>maxFileSize=512</c></para>
+        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.</para><para>The default value is 32,768 KB (32 MB).</para><para>Example: <c>maxFileSize=512</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2011,8 +2047,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_OpenTransactionWindow
         /// <summary>
         /// <para>
-        /// <para>The timeframe in minutes to check for open transactions for a CDC-only task.</para><para>You can specify an integer value between 0 (the default) and 240 (the maximum). </para><note><para>This parameter is only valid in DMS version 3.5.0 and later. DMS supports a window
-        /// of up to 9.5 hours including the value for <c>OpenTransactionWindow</c>.</para></note>
+        /// <para>The timeframe in minutes to check for open transactions for a CDC-only task.</para><para>You can specify an integer value between 0 (the default) and 240 (the maximum). </para><note><para>This parameter is only valid in DMS version 3.5.0 and later.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2249,7 +2284,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_PluginName
         /// <summary>
         /// <para>
-        /// <para>Specifies the plugin to use to create a replication slot.</para>
+        /// <para>Specifies the plugin to use to create a replication slot.</para><para>The default value is <c>pglogical</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -3637,10 +3672,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_UseBFile
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to Y to capture change data using the Binary Reader utility. Set
-        /// <c>UseLogminerReader</c> to N to set this attribute to Y. To use Binary Reader with
-        /// Amazon RDS for Oracle as the source, you set additional attributes. For more information
-        /// about using this setting with Oracle Automatic Storage Management (ASM), see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
+        /// <para>Set this attribute to True to capture change data using the Binary Reader utility.
+        /// Set <c>UseLogminerReader</c> to False to set this attribute to True. To use Binary
+        /// Reader with Amazon RDS for Oracle as the source, you set additional attributes. For
+        /// more information about using this setting with Oracle Automatic Storage Management
+        /// (ASM), see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
         /// Using Oracle LogMiner or DMS Binary Reader for CDC</a>.</para>
         /// </para>
         /// </summary>
@@ -3664,7 +3700,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_UseDirectPathFullLoad
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to Y to have DMS use a direct path full load. Specify this value
+        /// <para>Set this attribute to True to have DMS use a direct path full load. Specify this value
         /// to use the direct path protocol in the Oracle Call Interface (OCI). By using this
         /// OCI protocol, you can bulk-load Oracle target tables during a full load.</para>
         /// </para>
@@ -3673,13 +3709,33 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? OracleSettings_UseDirectPathFullLoad { get; set; }
         #endregion
         
+        #region Parameter KafkaSettings_UseLargeIntegerValue
+        /// <summary>
+        /// <para>
+        /// <para>Specifies using the large integer value with Kafka.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KafkaSettings_UseLargeIntegerValue { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_UseLargeIntegerValue
+        /// <summary>
+        /// <para>
+        /// <para>Specifies using the large integer value with Kinesis.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KinesisSettings_UseLargeIntegerValue { get; set; }
+        #endregion
+        
         #region Parameter OracleSettings_UseLogminerReader
         /// <summary>
         /// <para>
-        /// <para>Set this attribute to Y to capture change data using the Oracle LogMiner utility (the
-        /// default). Set this attribute to N if you want to access the redo logs as a binary
-        /// file. When you set <c>UseLogminerReader</c> to N, also set <c>UseBfile</c> to Y. For
-        /// more information on this setting and using Oracle ASM, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
+        /// <para>Set this attribute to True to capture change data using the Oracle LogMiner utility
+        /// (the default). Set this attribute to False if you want to access the redo logs as
+        /// a binary file. When you set <c>UseLogminerReader</c> to False, also set <c>UseBfile</c>
+        /// to True. For more information on this setting and using Oracle ASM, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC">
         /// Using Oracle LogMiner or DMS Binary Reader for CDC</a> in the <i>DMS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -4021,6 +4077,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.KafkaSettings_SslClientKeyPassword = this.KafkaSettings_SslClientKeyPassword;
             context.KafkaSettings_SslEndpointIdentificationAlgorithm = this.KafkaSettings_SslEndpointIdentificationAlgorithm;
             context.KafkaSettings_Topic = this.KafkaSettings_Topic;
+            context.KafkaSettings_UseLargeIntegerValue = this.KafkaSettings_UseLargeIntegerValue;
             context.KinesisSettings_IncludeControlDetail = this.KinesisSettings_IncludeControlDetail;
             context.KinesisSettings_IncludeNullAndEmpty = this.KinesisSettings_IncludeNullAndEmpty;
             context.KinesisSettings_IncludePartitionValue = this.KinesisSettings_IncludePartitionValue;
@@ -4031,6 +4088,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.KinesisSettings_PartitionIncludeSchemaTable = this.KinesisSettings_PartitionIncludeSchemaTable;
             context.KinesisSettings_ServiceAccessRoleArn = this.KinesisSettings_ServiceAccessRoleArn;
             context.KinesisSettings_StreamArn = this.KinesisSettings_StreamArn;
+            context.KinesisSettings_UseLargeIntegerValue = this.KinesisSettings_UseLargeIntegerValue;
+            context.MicrosoftSQLServerSettings_AuthenticationMethod = this.MicrosoftSQLServerSettings_AuthenticationMethod;
             context.MicrosoftSQLServerSettings_BcpPacketSize = this.MicrosoftSQLServerSettings_BcpPacketSize;
             context.MicrosoftSQLServerSettings_ControlTablesFileGroup = this.MicrosoftSQLServerSettings_ControlTablesFileGroup;
             context.MicrosoftSQLServerSettings_DatabaseName = this.MicrosoftSQLServerSettings_DatabaseName;
@@ -4095,6 +4154,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.OracleSettings_AsmPassword = this.OracleSettings_AsmPassword;
             context.OracleSettings_AsmServer = this.OracleSettings_AsmServer;
             context.OracleSettings_AsmUser = this.OracleSettings_AsmUser;
+            context.OracleSettings_AuthenticationMethod = this.OracleSettings_AuthenticationMethod;
             context.OracleSettings_CharLengthSemantic = this.OracleSettings_CharLengthSemantic;
             context.OracleSettings_ConvertTimestampWithZoneToUTC = this.OracleSettings_ConvertTimestampWithZoneToUTC;
             context.OracleSettings_DatabaseName = this.OracleSettings_DatabaseName;
@@ -4140,6 +4200,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.PostgreSQLSettings_DatabaseMode = this.PostgreSQLSettings_DatabaseMode;
             context.PostgreSQLSettings_DatabaseName = this.PostgreSQLSettings_DatabaseName;
             context.PostgreSQLSettings_DdlArtifactsSchema = this.PostgreSQLSettings_DdlArtifactsSchema;
+            context.PostgreSQLSettings_DisableUnicodeSourceFilter = this.PostgreSQLSettings_DisableUnicodeSourceFilter;
             context.PostgreSQLSettings_ExecuteTimeout = this.PostgreSQLSettings_ExecuteTimeout;
             context.PostgreSQLSettings_FailTasksOnLobTruncation = this.PostgreSQLSettings_FailTasksOnLobTruncation;
             context.PostgreSQLSettings_HeartbeatEnable = this.PostgreSQLSettings_HeartbeatEnable;
@@ -5053,6 +5114,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.KafkaSettings.Topic = requestKafkaSettings_kafkaSettings_Topic;
                 requestKafkaSettingsIsNull = false;
             }
+            System.Boolean? requestKafkaSettings_kafkaSettings_UseLargeIntegerValue = null;
+            if (cmdletContext.KafkaSettings_UseLargeIntegerValue != null)
+            {
+                requestKafkaSettings_kafkaSettings_UseLargeIntegerValue = cmdletContext.KafkaSettings_UseLargeIntegerValue.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_UseLargeIntegerValue != null)
+            {
+                request.KafkaSettings.UseLargeIntegerValue = requestKafkaSettings_kafkaSettings_UseLargeIntegerValue.Value;
+                requestKafkaSettingsIsNull = false;
+            }
              // determine if request.KafkaSettings should be set to null
             if (requestKafkaSettingsIsNull)
             {
@@ -5162,6 +5233,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.KinesisSettings.StreamArn = requestKinesisSettings_kinesisSettings_StreamArn;
                 requestKinesisSettingsIsNull = false;
             }
+            System.Boolean? requestKinesisSettings_kinesisSettings_UseLargeIntegerValue = null;
+            if (cmdletContext.KinesisSettings_UseLargeIntegerValue != null)
+            {
+                requestKinesisSettings_kinesisSettings_UseLargeIntegerValue = cmdletContext.KinesisSettings_UseLargeIntegerValue.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_UseLargeIntegerValue != null)
+            {
+                request.KinesisSettings.UseLargeIntegerValue = requestKinesisSettings_kinesisSettings_UseLargeIntegerValue.Value;
+                requestKinesisSettingsIsNull = false;
+            }
              // determine if request.KinesisSettings should be set to null
             if (requestKinesisSettingsIsNull)
             {
@@ -5171,6 +5252,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate MicrosoftSQLServerSettings
             var requestMicrosoftSQLServerSettingsIsNull = true;
             request.MicrosoftSQLServerSettings = new Amazon.DatabaseMigrationService.Model.MicrosoftSQLServerSettings();
+            Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_AuthenticationMethod = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_AuthenticationMethod != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_AuthenticationMethod = cmdletContext.MicrosoftSQLServerSettings_AuthenticationMethod;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_AuthenticationMethod != null)
+            {
+                request.MicrosoftSQLServerSettings.AuthenticationMethod = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_AuthenticationMethod;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
             System.Int32? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_BcpPacketSize = null;
             if (cmdletContext.MicrosoftSQLServerSettings_BcpPacketSize != null)
             {
@@ -5847,6 +5938,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.AsmUser = requestOracleSettings_oracleSettings_AsmUser;
                 requestOracleSettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.OracleAuthenticationMethod requestOracleSettings_oracleSettings_AuthenticationMethod = null;
+            if (cmdletContext.OracleSettings_AuthenticationMethod != null)
+            {
+                requestOracleSettings_oracleSettings_AuthenticationMethod = cmdletContext.OracleSettings_AuthenticationMethod;
+            }
+            if (requestOracleSettings_oracleSettings_AuthenticationMethod != null)
+            {
+                request.OracleSettings.AuthenticationMethod = requestOracleSettings_oracleSettings_AuthenticationMethod;
+                requestOracleSettingsIsNull = false;
+            }
             Amazon.DatabaseMigrationService.CharLengthSemantics requestOracleSettings_oracleSettings_CharLengthSemantic = null;
             if (cmdletContext.OracleSettings_CharLengthSemantic != null)
             {
@@ -6262,6 +6363,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_DdlArtifactsSchema != null)
             {
                 request.PostgreSQLSettings.DdlArtifactsSchema = requestPostgreSQLSettings_postgreSQLSettings_DdlArtifactsSchema;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Boolean? requestPostgreSQLSettings_postgreSQLSettings_DisableUnicodeSourceFilter = null;
+            if (cmdletContext.PostgreSQLSettings_DisableUnicodeSourceFilter != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_DisableUnicodeSourceFilter = cmdletContext.PostgreSQLSettings_DisableUnicodeSourceFilter.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_DisableUnicodeSourceFilter != null)
+            {
+                request.PostgreSQLSettings.DisableUnicodeSourceFilter = requestPostgreSQLSettings_postgreSQLSettings_DisableUnicodeSourceFilter.Value;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.Int32? requestPostgreSQLSettings_postgreSQLSettings_ExecuteTimeout = null;
@@ -7559,6 +7670,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String KafkaSettings_SslClientKeyPassword { get; set; }
             public Amazon.DatabaseMigrationService.KafkaSslEndpointIdentificationAlgorithm KafkaSettings_SslEndpointIdentificationAlgorithm { get; set; }
             public System.String KafkaSettings_Topic { get; set; }
+            public System.Boolean? KafkaSettings_UseLargeIntegerValue { get; set; }
             public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
             public System.Boolean? KinesisSettings_IncludeNullAndEmpty { get; set; }
             public System.Boolean? KinesisSettings_IncludePartitionValue { get; set; }
@@ -7569,6 +7681,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? KinesisSettings_PartitionIncludeSchemaTable { get; set; }
             public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
             public System.String KinesisSettings_StreamArn { get; set; }
+            public System.Boolean? KinesisSettings_UseLargeIntegerValue { get; set; }
+            public Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod MicrosoftSQLServerSettings_AuthenticationMethod { get; set; }
             public System.Int32? MicrosoftSQLServerSettings_BcpPacketSize { get; set; }
             public System.String MicrosoftSQLServerSettings_ControlTablesFileGroup { get; set; }
             public System.String MicrosoftSQLServerSettings_DatabaseName { get; set; }
@@ -7633,6 +7747,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String OracleSettings_AsmPassword { get; set; }
             public System.String OracleSettings_AsmServer { get; set; }
             public System.String OracleSettings_AsmUser { get; set; }
+            public Amazon.DatabaseMigrationService.OracleAuthenticationMethod OracleSettings_AuthenticationMethod { get; set; }
             public Amazon.DatabaseMigrationService.CharLengthSemantics OracleSettings_CharLengthSemantic { get; set; }
             public System.Boolean? OracleSettings_ConvertTimestampWithZoneToUTC { get; set; }
             public System.String OracleSettings_DatabaseName { get; set; }
@@ -7675,6 +7790,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.DatabaseMode PostgreSQLSettings_DatabaseMode { get; set; }
             public System.String PostgreSQLSettings_DatabaseName { get; set; }
             public System.String PostgreSQLSettings_DdlArtifactsSchema { get; set; }
+            public System.Boolean? PostgreSQLSettings_DisableUnicodeSourceFilter { get; set; }
             public System.Int32? PostgreSQLSettings_ExecuteTimeout { get; set; }
             public System.Boolean? PostgreSQLSettings_FailTasksOnLobTruncation { get; set; }
             public System.Boolean? PostgreSQLSettings_HeartbeatEnable { get; set; }

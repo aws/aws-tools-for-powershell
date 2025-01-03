@@ -28,35 +28,30 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your
-    /// user pool.
+    /// A user pool domain hosts managed login, an authorization server and web server for
+    /// authentication in your application. This operation updates the branding version for
+    /// user pool domains between <c>1</c> for hosted UI (classic) and <c>2</c> for managed
+    /// login. It also updates the SSL certificate for user pool custom domains.
     /// 
     ///  
     /// <para>
-    /// You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate
-    /// to Amazon Cognito. You can't use it to change the domain for a user pool.
+    /// Changes to the domain branding version take up to one minute to take effect for a
+    /// prefix domain and up to five minutes for a custom domain.
     /// </para><para>
-    /// A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up
-    /// and sign-in pages for your application. When you set up a custom domain, you provide
-    /// a certificate that you manage with Certificate Manager (ACM). When necessary, you
-    /// can use this operation to change the certificate that you applied to your custom domain.
+    /// This operation doesn't change the name of your user pool domain. To change your domain,
+    /// delete it with <c>DeleteUserPoolDomain</c> and create a new domain with <c>CreateUserPoolDomain</c>.
     /// </para><para>
-    /// Usually, this is unnecessary following routine certificate renewal with ACM. When
-    /// you renew your existing certificate in ACM, the ARN for your certificate remains the
-    /// same, and your custom domain uses the new certificate automatically.
+    /// You can pass the ARN of a new Certificate Manager certificate in this request. Typically,
+    /// ACM certificates automatically renew and you user pool can continue to use the same
+    /// ARN. But if you generate a new certificate for your custom domain name, replace the
+    /// original configuration with the new ARN in this request.
     /// </para><para>
-    /// However, if you replace your existing certificate with a new one, ACM gives the new
-    /// certificate a new ARN. To apply the new certificate to your custom domain, you must
-    /// provide this ARN to Amazon Cognito.
+    /// ACM certificates for custom domains must be in the US East (N. Virginia) Amazon Web
+    /// Services Region. After you submit your request, Amazon Cognito requires up to 1 hour
+    /// to distribute your new certificate to your custom domain.
     /// </para><para>
-    /// When you add your new certificate in ACM, you must choose US East (N. Virginia) as
-    /// the Amazon Web Services Region.
-    /// </para><para>
-    /// After you submit your request, Amazon Cognito requires up to 1 hour to distribute
-    /// your new certificate to your custom domain.
-    /// </para><para>
-    /// For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
-    /// Your Own Domain for the Hosted UI</a>.
+    /// For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Configuring
+    /// a user pool domain</a>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -84,14 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// this certificate for the subdomain of your custom domain.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CustomDomainConfig_CertificateArn { get; set; }
         #endregion
         
@@ -112,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter ManagedLoginVersion
+        /// <summary>
+        /// <para>
+        /// <para>A version number that indicates the state of managed login for your domain. Version
+        /// <c>1</c> is hosted UI (classic). Version <c>2</c> is the newer managed login with
+        /// the branding designer. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">Managed
+        /// login</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ManagedLoginVersion { get; set; }
         #endregion
         
         #region Parameter UserPoolId
@@ -175,12 +176,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CustomDomainConfig_CertificateArn = this.CustomDomainConfig_CertificateArn;
-            #if MODULAR
-            if (this.CustomDomainConfig_CertificateArn == null && ParameterWasBound(nameof(this.CustomDomainConfig_CertificateArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CustomDomainConfig_CertificateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Domain = this.Domain;
             #if MODULAR
             if (this.Domain == null && ParameterWasBound(nameof(this.Domain)))
@@ -188,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ManagedLoginVersion = this.ManagedLoginVersion;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -233,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.ManagedLoginVersion != null)
+            {
+                request.ManagedLoginVersion = cmdletContext.ManagedLoginVersion.Value;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -301,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             public System.String CustomDomainConfig_CertificateArn { get; set; }
             public System.String Domain { get; set; }
+            public System.Int32? ManagedLoginVersion { get; set; }
             public System.String UserPoolId { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.UpdateUserPoolDomainResponse, UpdateCGIPUserPoolDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CloudFrontDomain;

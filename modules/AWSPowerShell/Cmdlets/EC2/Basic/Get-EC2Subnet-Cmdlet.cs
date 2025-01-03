@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or the instance ID (resource-name). For IPv6 only subnets, an instance DNS name must
         /// be based on the instance ID (resource-name).</para></li><li><para><c>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</c> - Indicates
         /// whether to respond to DNS queries for instance hostnames with DNS A records.</para></li><li><para><c>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</c> -
-        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</para></li><li><para><c>state</c> - The state of the subnet (<c>pending</c> | <c>available</c>).</para></li><li><para><c>subnet-arn</c> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><c>subnet-id</c> - The ID of the subnet.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</para></li><li><para><c>state</c> - The state of the subnet (<c>pending</c> | <c>available</c>).</para></li><li><para><c>subnet-arn</c> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><c>subnet-id</c> - The ID of the subnet.</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><c>vpc-id</c> - The ID of the VPC for the subnet.</para></li></ul>
         /// </para>

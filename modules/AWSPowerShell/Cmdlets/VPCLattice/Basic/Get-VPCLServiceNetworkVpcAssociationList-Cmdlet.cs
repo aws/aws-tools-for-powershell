@@ -28,9 +28,9 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Lists the service network and VPC associations. You can filter the list either by
-    /// VPC or service network. You must provide either the service network identifier or
-    /// the VPC identifier.
+    /// Lists the associations between a service network and a VPC. You can filter the list
+    /// either by VPC or service network. You must provide either the ID of the service network
+    /// identifier or the ID of the VPC.
     /// </summary>
     [Cmdlet("Get", "VPCLServiceNetworkVpcAssociationList")]
     [OutputType("Amazon.VPCLattice.Model.ServiceNetworkVpcAssociationSummary")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ServiceNetworkIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service network.</para>
+        /// <para>The ID or ARN of the service network.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter VpcIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the VPC.</para>
+        /// <para>The ID or ARN of the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -149,6 +149,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Placement_AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter NetworkPerformanceOptions_BandwidthWeighting
+        /// <summary>
+        /// <para>
+        /// <para>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth,
+        /// as follows:</para><dl><dt>default</dt><dd><para>This option uses the standard bandwidth configuration for your instance type.</para></dd><dt>vpc-1</dt><dd><para>This option boosts your networking baseline bandwidth and reduces your EBS baseline
+        /// bandwidth.</para></dd><dt>ebs-1</dt><dd><para>This option boosts your EBS baseline bandwidth and reduces your networking baseline
+        /// bandwidth.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceBandwidthWeighting")]
+        public Amazon.EC2.InstanceBandwidthWeighting NetworkPerformanceOptions_BandwidthWeighting { get; set; }
+        #endregion
+        
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
@@ -176,9 +190,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationSpecification_CapacityReservationPreference
         /// <summary>
         /// <para>
-        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>open</c> - The instance can run in any <c>open</c> Capacity Reservation that has
-        /// matching attributes (instance type, platform, Availability Zone).</para></li><li><para><c>none</c> - The instance avoids running in a Capacity Reservation even if one is
-        /// available. The instance runs as an On-Demand Instance.</para></li></ul>
+        /// <para>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</para><ul><li><para><c>capacity-reservations-only</c> - The instance will only run in a Capacity Reservation
+        /// or Capacity Reservation group. If capacity isn't available, the instance will fail
+        /// to launch.</para></li><li><para><c>open</c> - The instance can run in any <c>open</c> Capacity Reservation that has
+        /// matching attributes (instance type, platform, Availability Zone, and tenancy). If
+        /// capacity isn't available, the instance runs as an On-Demand Instance.</para></li><li><para><c>none</c> - The instance doesn't run in a Capacity Reservation even if one is available.
+        /// The instance runs as an On-Demand Instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -666,6 +683,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? Placement_PartitionNumber { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The service provider that manages the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
@@ -907,6 +934,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.NetworkInterface = new List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification>(this.NetworkInterface);
             }
+            context.NetworkPerformanceOptions_BandwidthWeighting = this.NetworkPerformanceOptions_BandwidthWeighting;
+            context.Operator_Principal = this.Operator_Principal;
             context.Placement_Affinity = this.Placement_Affinity;
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
             context.Placement_GroupId = this.Placement_GroupId;
@@ -1266,6 +1295,44 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.NetworkInterfaces = cmdletContext.NetworkInterface;
             }
             
+             // populate NetworkPerformanceOptions
+            var requestNetworkPerformanceOptionsIsNull = true;
+            request.NetworkPerformanceOptions = new Amazon.EC2.Model.InstanceNetworkPerformanceOptionsRequest();
+            Amazon.EC2.InstanceBandwidthWeighting requestNetworkPerformanceOptions_networkPerformanceOptions_BandwidthWeighting = null;
+            if (cmdletContext.NetworkPerformanceOptions_BandwidthWeighting != null)
+            {
+                requestNetworkPerformanceOptions_networkPerformanceOptions_BandwidthWeighting = cmdletContext.NetworkPerformanceOptions_BandwidthWeighting;
+            }
+            if (requestNetworkPerformanceOptions_networkPerformanceOptions_BandwidthWeighting != null)
+            {
+                request.NetworkPerformanceOptions.BandwidthWeighting = requestNetworkPerformanceOptions_networkPerformanceOptions_BandwidthWeighting;
+                requestNetworkPerformanceOptionsIsNull = false;
+            }
+             // determine if request.NetworkPerformanceOptions should be set to null
+            if (requestNetworkPerformanceOptionsIsNull)
+            {
+                request.NetworkPerformanceOptions = null;
+            }
+            
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.EC2.Model.OperatorRequest();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
+            }
+            
              // populate Placement
             var requestPlacementIsNull = true;
             request.Placement = new Amazon.EC2.Model.Placement();
@@ -1530,6 +1597,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MinCount { get; set; }
             public System.Boolean? Monitoring { get; set; }
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> NetworkInterface { get; set; }
+            public Amazon.EC2.InstanceBandwidthWeighting NetworkPerformanceOptions_BandwidthWeighting { get; set; }
+            public System.String Operator_Principal { get; set; }
             public System.String Placement_Affinity { get; set; }
             public System.String Placement_AvailabilityZone { get; set; }
             public System.String Placement_GroupId { get; set; }

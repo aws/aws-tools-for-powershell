@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the policy</para>
+        /// <para>Name of the resiliency policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

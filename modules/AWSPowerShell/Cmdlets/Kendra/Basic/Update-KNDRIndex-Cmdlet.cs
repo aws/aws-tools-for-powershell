@@ -137,7 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserContextPolicy
         /// <summary>
         /// <para>
-        /// <para>The user context policy.</para>
+        /// <para>The user context policy.</para><important><para>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+        /// <c>ATTRIBUTE_FILTER</c> to filter search results by user context. If you're using
+        /// an Amazon Kendra Gen AI Enterprise Edition index and you try to use <c>USER_TOKEN</c>
+        /// to configure user context policy, Amazon Kendra returns a <c>ValidationException</c>
+        /// error.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserTokenConfiguration
         /// <summary>
         /// <para>
-        /// <para>The user token configuration.</para>
+        /// <para>The user token configuration.</para><important><para>If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+        /// <c>UserTokenConfigurations</c> to configure user context policy, Amazon Kendra returns
+        /// a <c>ValidationException</c> error.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

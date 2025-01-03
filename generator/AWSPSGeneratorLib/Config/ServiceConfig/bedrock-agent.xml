@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Register" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Register" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,6 +84,8 @@
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,7 +133,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Remove" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePrompt" OutputProperty="*" Verb="Remove" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAgentCollaborator" Verb="Unregister" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -144,6 +158,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgentAlias" OutputProperty="AgentAlias" Verb="Get" Noun="AgentAlias" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Get" Noun="AgentCollaborator" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,7 +197,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocument" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPrompt" OutputProperty="*" Verb="Get" Noun="Prompt" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IngestKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Add" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAgentAliases" OutputProperty="AgentAliasSummaries" Verb="Get" Noun="AgentAliasList" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAgentCollaborators" OutputProperty="AgentCollaboratorSummaries" Verb="Get" Noun="AgentCollaboratorList" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -220,6 +250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIngestionJobs" OutputProperty="IngestionJobSummaries" Verb="Get" Noun="IngestionJobList" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocumentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -271,6 +305,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Update" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Update" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -317,6 +355,8 @@
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
+                <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

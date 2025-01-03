@@ -83,6 +83,7 @@ $KS_Completers = {
         # Amazon.Keyspaces.ClientSideTimestampsStatus
         {
             ($_ -eq "New-KSTable/ClientSideTimestamps_Status") -Or
+            ($_ -eq "Update-KSKeyspace/ClientSideTimestamps_Status") -Or
             ($_ -eq "Update-KSTable/ClientSideTimestamps_Status")
         }
         {
@@ -113,7 +114,10 @@ $KS_Completers = {
         }
 
         # Amazon.Keyspaces.Rs
-        "New-KSKeyspace/ReplicationSpecification_ReplicationStrategy"
+        {
+            ($_ -eq "New-KSKeyspace/ReplicationSpecification_ReplicationStrategy") -Or
+            ($_ -eq "Update-KSKeyspace/ReplicationSpecification_ReplicationStrategy")
+        }
         {
             $v = "MULTI_REGION","SINGLE_REGION"
             break
@@ -151,12 +155,12 @@ $KS_Completers = {
 $KS_map = @{
     "CapacitySpecification_ThroughputMode"=@("New-KSTable","Update-KSTable")
     "CapacitySpecificationOverride_ThroughputMode"=@("Restore-KSTable")
-    "ClientSideTimestamps_Status"=@("New-KSTable","Update-KSTable")
+    "ClientSideTimestamps_Status"=@("New-KSTable","Update-KSKeyspace","Update-KSTable")
     "EncryptionSpecification_Type"=@("New-KSTable","Update-KSTable")
     "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")
     "PointInTimeRecovery_Status"=@("New-KSTable","Update-KSTable")
     "PointInTimeRecoveryOverride_Status"=@("Restore-KSTable")
-    "ReplicationSpecification_ReplicationStrategy"=@("New-KSKeyspace")
+    "ReplicationSpecification_ReplicationStrategy"=@("New-KSKeyspace","Update-KSKeyspace")
     "Ttl_Status"=@("New-KSTable","Update-KSTable")
 }
 
@@ -227,6 +231,7 @@ $KS_SelectMap = @{
                "Restore-KSTable",
                "Add-KSResourceTag",
                "Remove-KSResourceTag",
+               "Update-KSKeyspace",
                "Update-KSTable")
 }
 

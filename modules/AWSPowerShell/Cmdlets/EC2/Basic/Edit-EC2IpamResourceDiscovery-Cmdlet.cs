@@ -57,6 +57,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.AddIpamOperatingRegion[] AddOperatingRegion { get; set; }
         #endregion
         
+        #region Parameter AddOrganizationalUnitExclusion
+        /// <summary>
+        /// <para>
+        /// <para>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated
+        /// with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion,
+        /// IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a
+        /// limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas
+        /// for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddOrganizationalUnitExclusions")]
+        public Amazon.EC2.Model.AddIpamOrganizationalUnitExclusion[] AddOrganizationalUnitExclusion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -93,6 +108,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RemoveOperatingRegions")]
         public Amazon.EC2.Model.RemoveIpamOperatingRegion[] RemoveOperatingRegion { get; set; }
+        #endregion
+        
+        #region Parameter RemoveOrganizationalUnitExclusion
+        /// <summary>
+        /// <para>
+        /// <para>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated
+        /// with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion,
+        /// IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a
+        /// limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas
+        /// for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoveOrganizationalUnitExclusions")]
+        public Amazon.EC2.Model.RemoveIpamOrganizationalUnitExclusion[] RemoveOrganizationalUnitExclusion { get; set; }
         #endregion
         
         #region Parameter Select
@@ -141,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddOperatingRegion = new List<Amazon.EC2.Model.AddIpamOperatingRegion>(this.AddOperatingRegion);
             }
+            if (this.AddOrganizationalUnitExclusion != null)
+            {
+                context.AddOrganizationalUnitExclusion = new List<Amazon.EC2.Model.AddIpamOrganizationalUnitExclusion>(this.AddOrganizationalUnitExclusion);
+            }
             context.Description = this.Description;
             context.IpamResourceDiscoveryId = this.IpamResourceDiscoveryId;
             #if MODULAR
@@ -152,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (this.RemoveOperatingRegion != null)
             {
                 context.RemoveOperatingRegion = new List<Amazon.EC2.Model.RemoveIpamOperatingRegion>(this.RemoveOperatingRegion);
+            }
+            if (this.RemoveOrganizationalUnitExclusion != null)
+            {
+                context.RemoveOrganizationalUnitExclusion = new List<Amazon.EC2.Model.RemoveIpamOrganizationalUnitExclusion>(this.RemoveOrganizationalUnitExclusion);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -173,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AddOperatingRegions = cmdletContext.AddOperatingRegion;
             }
+            if (cmdletContext.AddOrganizationalUnitExclusion != null)
+            {
+                request.AddOrganizationalUnitExclusions = cmdletContext.AddOrganizationalUnitExclusion;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -184,6 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.RemoveOperatingRegion != null)
             {
                 request.RemoveOperatingRegions = cmdletContext.RemoveOperatingRegion;
+            }
+            if (cmdletContext.RemoveOrganizationalUnitExclusion != null)
+            {
+                request.RemoveOrganizationalUnitExclusions = cmdletContext.RemoveOrganizationalUnitExclusion;
             }
             
             CmdletOutput output;
@@ -247,9 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.AddIpamOperatingRegion> AddOperatingRegion { get; set; }
+            public List<Amazon.EC2.Model.AddIpamOrganizationalUnitExclusion> AddOrganizationalUnitExclusion { get; set; }
             public System.String Description { get; set; }
             public System.String IpamResourceDiscoveryId { get; set; }
             public List<Amazon.EC2.Model.RemoveIpamOperatingRegion> RemoveOperatingRegion { get; set; }
+            public List<Amazon.EC2.Model.RemoveIpamOrganizationalUnitExclusion> RemoveOrganizationalUnitExclusion { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse, EditEC2IpamResourceDiscoveryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamResourceDiscovery;
         }

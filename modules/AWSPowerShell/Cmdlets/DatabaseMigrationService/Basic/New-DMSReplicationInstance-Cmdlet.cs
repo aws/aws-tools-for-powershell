@@ -117,6 +117,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter KerberosAuthenticationSettings_KeyCacheSecretIamArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the IAM role that grants Amazon Web Services
+        /// DMS access to the secret containing key cache file for the replication instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KerberosAuthenticationSettings_KeyCacheSecretIamArn { get; set; }
+        #endregion
+        
+        #region Parameter KerberosAuthenticationSettings_KeyCacheSecretId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the secret ID of the key cache for the replication instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KerberosAuthenticationSettings_KeyCacheSecretId { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -128,6 +149,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter KerberosAuthenticationSettings_Krb5FileContent
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ID of the secret that stores the key cache file required for kerberos
+        /// authentication of the replication instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KerberosAuthenticationSettings_Krb5FileContents")]
+        public System.String KerberosAuthenticationSettings_Krb5FileContent { get; set; }
         #endregion
         
         #region Parameter MultiAZ
@@ -312,6 +345,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.AvailabilityZone = this.AvailabilityZone;
             context.DnsNameServer = this.DnsNameServer;
             context.EngineVersion = this.EngineVersion;
+            context.KerberosAuthenticationSettings_KeyCacheSecretIamArn = this.KerberosAuthenticationSettings_KeyCacheSecretIamArn;
+            context.KerberosAuthenticationSettings_KeyCacheSecretId = this.KerberosAuthenticationSettings_KeyCacheSecretId;
+            context.KerberosAuthenticationSettings_Krb5FileContent = this.KerberosAuthenticationSettings_Krb5FileContent;
             context.KmsKeyId = this.KmsKeyId;
             context.MultiAZ = this.MultiAZ;
             context.NetworkType = this.NetworkType;
@@ -376,6 +412,45 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            
+             // populate KerberosAuthenticationSettings
+            var requestKerberosAuthenticationSettingsIsNull = true;
+            request.KerberosAuthenticationSettings = new Amazon.DatabaseMigrationService.Model.KerberosAuthenticationSettings();
+            System.String requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretIamArn = null;
+            if (cmdletContext.KerberosAuthenticationSettings_KeyCacheSecretIamArn != null)
+            {
+                requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretIamArn = cmdletContext.KerberosAuthenticationSettings_KeyCacheSecretIamArn;
+            }
+            if (requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretIamArn != null)
+            {
+                request.KerberosAuthenticationSettings.KeyCacheSecretIamArn = requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretIamArn;
+                requestKerberosAuthenticationSettingsIsNull = false;
+            }
+            System.String requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretId = null;
+            if (cmdletContext.KerberosAuthenticationSettings_KeyCacheSecretId != null)
+            {
+                requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretId = cmdletContext.KerberosAuthenticationSettings_KeyCacheSecretId;
+            }
+            if (requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretId != null)
+            {
+                request.KerberosAuthenticationSettings.KeyCacheSecretId = requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_KeyCacheSecretId;
+                requestKerberosAuthenticationSettingsIsNull = false;
+            }
+            System.String requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_Krb5FileContent = null;
+            if (cmdletContext.KerberosAuthenticationSettings_Krb5FileContent != null)
+            {
+                requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_Krb5FileContent = cmdletContext.KerberosAuthenticationSettings_Krb5FileContent;
+            }
+            if (requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_Krb5FileContent != null)
+            {
+                request.KerberosAuthenticationSettings.Krb5FileContents = requestKerberosAuthenticationSettings_kerberosAuthenticationSettings_Krb5FileContent;
+                requestKerberosAuthenticationSettingsIsNull = false;
+            }
+             // determine if request.KerberosAuthenticationSettings should be set to null
+            if (requestKerberosAuthenticationSettingsIsNull)
+            {
+                request.KerberosAuthenticationSettings = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -487,6 +562,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String AvailabilityZone { get; set; }
             public System.String DnsNameServer { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String KerberosAuthenticationSettings_KeyCacheSecretIamArn { get; set; }
+            public System.String KerberosAuthenticationSettings_KeyCacheSecretId { get; set; }
+            public System.String KerberosAuthenticationSettings_Krb5FileContent { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String NetworkType { get; set; }

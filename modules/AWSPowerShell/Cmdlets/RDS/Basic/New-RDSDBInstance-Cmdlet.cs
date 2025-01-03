@@ -175,6 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String CustomIamInstanceProfile { get; set; }
         #endregion
         
+        #region Parameter DatabaseInsightsMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode of Database Insights to enable for the DB instance.</para><para>This setting only applies to Amazon Aurora DB instances.</para><note><para>Currently, this value is inherited from the DB cluster and can't be changed.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.DatabaseInsightsMode")]
+        public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
+        #endregion
+        
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
@@ -229,7 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The meaning of this parameter differs according to the database engine you use.</para><dl><dt>Amazon Aurora MySQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora MySQL
         /// DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster,
-        /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon Aurora PostgreSQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
+        /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+        /// (0-9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon Aurora PostgreSQL</dt><dd><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
         /// DB cluster is created. A database named <c>postgres</c> is always created. If this
         /// parameter is specified, an additional database with this name is created.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 63 alphanumeric characters.</para></li><li><para>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
         /// (0 to 9).</para></li><li><para>Can't be a word reserved by the database engine.</para></li></ul></dd><dt>Amazon RDS Custom for Oracle</dt><dd><para>The Oracle System ID (SID) of the created RDS Custom DB instance. If you don't specify
@@ -969,6 +981,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.CharacterSetName = this.CharacterSetName;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
+            context.DatabaseInsightsMode = this.DatabaseInsightsMode;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             #if MODULAR
@@ -1110,6 +1123,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CustomIamInstanceProfile != null)
             {
                 request.CustomIamInstanceProfile = cmdletContext.CustomIamInstanceProfile;
+            }
+            if (cmdletContext.DatabaseInsightsMode != null)
+            {
+                request.DatabaseInsightsMode = cmdletContext.DatabaseInsightsMode;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -1397,6 +1414,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String CharacterSetName { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String CustomIamInstanceProfile { get; set; }
+            public Amazon.RDS.DatabaseInsightsMode DatabaseInsightsMode { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }

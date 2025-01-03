@@ -80,6 +80,13 @@ $TSQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamQuery.ComputeMode
+        "Update-TSQAccountSetting/QueryCompute_ComputeMode"
+        {
+            $v = "ON_DEMAND","PROVISIONED"
+            break
+        }
+
         # Amazon.TimestreamQuery.QueryInsightsMode
         "Invoke-TSQQuery/QueryInsights_Mode"
         {
@@ -124,6 +131,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
+    "QueryCompute_ComputeMode"=@("Update-TSQAccountSetting")
     "QueryInsights_Mode"=@("Invoke-TSQQuery","Start-TSQScheduledQuery")
     "QueryPricingModel"=@("Update-TSQAccountSetting")
     "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")

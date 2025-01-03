@@ -28,12 +28,7 @@ using Amazon.IoTFleetWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
-    /// Deletes a signal catalog. 
-    /// 
-    ///  <note><para>
-    /// If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise sends
-    /// back an HTTP 200 response with an empty body.
-    /// </para></note>
+    /// Deletes a signal catalog.
     /// </summary>
     [Cmdlet("Remove", "IFWSignalCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTFleetWise.Model.DeleteSignalCatalogResponse")]

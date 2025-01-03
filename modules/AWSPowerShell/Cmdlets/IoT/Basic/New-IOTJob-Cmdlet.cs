@@ -201,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>A job identifier which must be unique for your Amazon Web Services account. We recommend
-        /// using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.</para>
+        /// <para>A job identifier which must be unique for your account. We recommend using a UUID.
+        /// Alpha-numeric characters, "-" and "_" are valid for use here.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

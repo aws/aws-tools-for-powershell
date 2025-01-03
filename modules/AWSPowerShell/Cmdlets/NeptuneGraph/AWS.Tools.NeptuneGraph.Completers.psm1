@@ -97,13 +97,20 @@ $NEPTG_Completers = {
             break
         }
 
+        # Amazon.NeptuneGraph.ExportFormat
+        "Start-NEPTGExportTask/Format"
+        {
+            $v = "CSV","PARQUET"
+            break
+        }
+
         # Amazon.NeptuneGraph.Format
         {
             ($_ -eq "New-NEPTGGraphUsingImportTask/Format") -Or
             ($_ -eq "Start-NEPTGImportTask/Format")
         }
         {
-            $v = "CSV","NTRIPLES","OPEN_CYPHER"
+            $v = "CSV","NTRIPLES","OPEN_CYPHER","PARQUET"
             break
         }
 
@@ -111,6 +118,17 @@ $NEPTG_Completers = {
         "Get-NEPTGGraphSummary/Mode"
         {
             $v = "BASIC","DETAILED"
+            break
+        }
+
+        # Amazon.NeptuneGraph.ParquetType
+        {
+            ($_ -eq "New-NEPTGGraphUsingImportTask/ParquetType") -Or
+            ($_ -eq "Start-NEPTGExportTask/ParquetType") -Or
+            ($_ -eq "Start-NEPTGImportTask/ParquetType")
+        }
+        {
+            $v = "COLUMNAR"
             break
         }
 
@@ -146,9 +164,10 @@ $NEPTG_Completers = {
 $NEPTG_map = @{
     "BlankNodeHandling"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "ExplainMode"=@("Invoke-NEPTGQuery")
-    "Format"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
+    "Format"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGExportTask","Start-NEPTGImportTask")
     "Language"=@("Invoke-NEPTGQuery")
     "Mode"=@("Get-NEPTGGraphSummary")
+    "ParquetType"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGExportTask","Start-NEPTGImportTask")
     "PlanCache"=@("Invoke-NEPTGQuery")
     "State"=@("Get-NEPTGQueryList")
 }
@@ -203,7 +222,8 @@ $NEPTG_SelectCompleters = {
 }
 
 $NEPTG_SelectMap = @{
-    "Select"=@("Stop-NEPTGImportTask",
+    "Select"=@("Stop-NEPTGExportTask",
+               "Stop-NEPTGImportTask",
                "Stop-NEPTGQuery",
                "New-NEPTGGraph",
                "New-NEPTGGraphSnapshot",
@@ -213,12 +233,14 @@ $NEPTG_SelectMap = @{
                "Remove-NEPTGGraphSnapshot",
                "Remove-NEPTGPrivateGraphEndpoint",
                "Invoke-NEPTGQuery",
+               "Get-NEPTGExportTask",
                "Get-NEPTGGraph",
                "Get-NEPTGGraphSnapshot",
                "Get-NEPTGGraphSummary",
                "Get-NEPTGImportTask",
                "Get-NEPTGPrivateGraphEndpoint",
                "Get-NEPTGQuery",
+               "Get-NEPTGExportTaskList",
                "Get-NEPTGGraphList",
                "Get-NEPTGGraphSnapshotList",
                "Get-NEPTGImportTaskList",
@@ -227,6 +249,7 @@ $NEPTG_SelectMap = @{
                "Get-NEPTGResourceTag",
                "Reset-NEPTGGraph",
                "Restore-NEPTGGraphFromSnapshot",
+               "Start-NEPTGExportTask",
                "Start-NEPTGImportTask",
                "Add-NEPTGResourceTag",
                "Remove-NEPTGResourceTag",

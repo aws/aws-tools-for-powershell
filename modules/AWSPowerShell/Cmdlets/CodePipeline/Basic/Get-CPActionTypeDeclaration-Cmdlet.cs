@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>Defines what kind of action can be taken in the stage. The following are the valid
-        /// values:</para><ul><li><para><c>Source</c></para></li><li><para><c>Build</c></para></li><li><para><c>Test</c></para></li><li><para><c>Deploy</c></para></li><li><para><c>Approval</c></para></li><li><para><c>Invoke</c></para></li></ul>
+        /// values:</para><ul><li><para><c>Source</c></para></li><li><para><c>Build</c></para></li><li><para><c>Test</c></para></li><li><para><c>Deploy</c></para></li><li><para><c>Approval</c></para></li><li><para><c>Invoke</c></para></li><li><para><c>Compute</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
