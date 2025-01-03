@@ -179,6 +179,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-RSSnapshotCopyGrant', 
         'New-RSSnapshotSchedule', 
         'New-RSUsageLimit', 
+        'Register-RSNamespace', 
         'Remove-RSAuthenticationProfile', 
         'Remove-RSCluster', 
         'Remove-RSClusterParameterGroup', 
@@ -217,6 +218,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-RSResize', 
         'Switch-RSEncryptionKey', 
         'Switch-RSReservedNode', 
+        'Unregister-RSNamespace', 
         'Update-RSPartnerStatus', 
         'Write-RSResourcePolicy')
 

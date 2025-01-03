@@ -77,6 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         public Amazon.CloudHSMV2.ClusterMode Mode { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The NetworkType to create a cluster with. The allowed values are <c>IPV4</c> and <c>DUALSTACK</c>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudHSMV2.NetworkType")]
+        public Amazon.CloudHSMV2.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter SourceBackupId
         /// <summary>
         /// <para>
@@ -194,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             }
             #endif
             context.Mode = this.Mode;
+            context.NetworkType = this.NetworkType;
             context.SourceBackupId = this.SourceBackupId;
             if (this.SubnetId != null)
             {
@@ -261,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.Mode != null)
             {
                 request.Mode = cmdletContext.Mode;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.SourceBackupId != null)
             {
@@ -339,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             public System.String BackupRetentionPolicy_Value { get; set; }
             public System.String HsmType { get; set; }
             public Amazon.CloudHSMV2.ClusterMode Mode { get; set; }
+            public Amazon.CloudHSMV2.NetworkType NetworkType { get; set; }
             public System.String SourceBackupId { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.CloudHSMV2.Model.Tag> TagList { get; set; }

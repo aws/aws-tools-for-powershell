@@ -28,8 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the specified user by user name in a user pool as an administrator. Works on
-    /// any user.
+    /// Given the username, returns details about a user profile in a user pool. This operation
+    /// contributes to your monthly active user (MAU) count for the purpose of billing. You
+    /// can specify alias attributes in the <c>Username</c> parameter.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to get information about the user.</para>
+        /// <para>The ID of the user pool where you want to get information about the user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,11 +28,11 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes an SageMaker notebook instance. Before you can delete a notebook instance,
+    /// Deletes an SageMaker AI notebook instance. Before you can delete a notebook instance,
     /// you must call the <c>StopNotebookInstance</c> API. 
     /// 
     ///  <important><para>
-    /// When you delete a notebook instance, you lose all of your data. SageMaker removes
+    /// When you delete a notebook instance, you lose all of your data. SageMaker AI removes
     /// the ML compute instance, and deletes the ML storage volume and the network interface
     /// associated with the notebook instance. 
     /// </para></important>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NotebookInstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the SageMaker notebook instance to delete.</para>
+        /// <para>The name of the SageMaker AI notebook instance to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

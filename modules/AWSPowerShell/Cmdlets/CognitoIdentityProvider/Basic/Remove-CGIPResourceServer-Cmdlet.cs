@@ -28,7 +28,21 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes a resource server.
+    /// Deletes a resource server. After you delete a resource server, users can no longer
+    /// generate access tokens with scopes that are associate with that resource server.
+    /// 
+    ///  
+    /// <para>
+    /// Resource servers are associated with custom scopes and machine-to-machine (M2M) authorization.
+    /// For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access
+    /// control with resource servers</a>.
+    /// </para><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Remove", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource server.</para>
+        /// <para>The identifier of the resource server that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool that hosts the resource server.</para>
+        /// <para>The ID of the user pool where you want to delete the resource server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

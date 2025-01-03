@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service setting to update. For example, <c>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</c>.
-        /// The setting ID can be one of the following.</para><ul><li><para><c>/ssm/managed-instance/default-ec2-instance-management-role</c></para></li><li><para><c>/ssm/automation/customer-script-log-destination</c></para></li><li><para><c>/ssm/automation/customer-script-log-group-name</c></para></li><li><para><c>/ssm/documents/console/public-sharing-permission</c></para></li><li><para><c>/ssm/managed-instance/activation-tier</c></para></li><li><para><c>/ssm/opsinsights/opscenter</c></para></li><li><para><c>/ssm/parameter-store/default-parameter-tier</c></para></li><li><para><c>/ssm/parameter-store/high-throughput-enabled</c></para></li></ul><note><para>Permissions to update the <c>/ssm/managed-instance/default-ec2-instance-management-role</c>
+        /// The setting ID can be one of the following.</para><ul><li><para><c>/ssm/appmanager/appmanager-enabled</c></para></li><li><para><c>/ssm/automation/customer-script-log-destination</c></para></li><li><para><c>/ssm/automation/customer-script-log-group-name</c></para></li><li><para>/ssm/automation/enable-adaptive-concurrency</para></li><li><para><c>/ssm/documents/console/public-sharing-permission</c></para></li><li><para><c>/ssm/managed-instance/activation-tier</c></para></li><li><para><c>/ssm/managed-instance/default-ec2-instance-management-role</c></para></li><li><para><c>/ssm/opsinsights/opscenter</c></para></li><li><para><c>/ssm/parameter-store/default-parameter-tier</c></para></li><li><para><c>/ssm/parameter-store/high-throughput-enabled</c></para></li></ul><note><para>Permissions to update the <c>/ssm/managed-instance/default-ec2-instance-management-role</c>
         /// setting should only be provided to administrators. Implement least privilege access
         /// when allowing individuals to configure or modify the Default Host Management Configuration.</para></note>
         /// </para>
@@ -83,10 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The new value to specify for the service setting. The following list specifies the
-        /// available values for each setting.</para><ul><li><para>For <c>/ssm/managed-instance/default-ec2-instance-management-role</c>, enter the name
-        /// of an IAM role. </para></li><li><para>For <c>/ssm/automation/customer-script-log-destination</c>, enter <c>CloudWatch</c>.</para></li><li><para>For <c>/ssm/automation/customer-script-log-group-name</c>, enter the name of an Amazon
+        /// available values for each setting.</para><ul><li><para>For <c>/ssm/appmanager/appmanager-enabled</c>, enter <c>True</c> or <c>False</c>.</para></li><li><para>For <c>/ssm/automation/customer-script-log-destination</c>, enter <c>CloudWatch</c>.</para></li><li><para>For <c>/ssm/automation/customer-script-log-group-name</c>, enter the name of an Amazon
         /// CloudWatch Logs log group.</para></li><li><para>For <c>/ssm/documents/console/public-sharing-permission</c>, enter <c>Enable</c> or
-        /// <c>Disable</c>.</para></li><li><para>For <c>/ssm/managed-instance/activation-tier</c>, enter <c>standard</c> or <c>advanced</c>.</para></li><li><para> For <c>/ssm/opsinsights/opscenter</c>, enter <c>Enabled</c> or <c>Disabled</c>. </para></li><li><para>For <c>/ssm/parameter-store/default-parameter-tier</c>, enter <c>Standard</c>, <c>Advanced</c>,
+        /// <c>Disable</c>.</para></li><li><para>For <c>/ssm/managed-instance/activation-tier</c>, enter <c>standard</c> or <c>advanced</c>.</para></li><li><para>For <c>/ssm/managed-instance/default-ec2-instance-management-role</c>, enter the name
+        /// of an IAM role. </para></li><li><para> For <c>/ssm/opsinsights/opscenter</c>, enter <c>Enabled</c> or <c>Disabled</c>. </para></li><li><para>For <c>/ssm/parameter-store/default-parameter-tier</c>, enter <c>Standard</c>, <c>Advanced</c>,
         /// or <c>Intelligent-Tiering</c></para></li><li><para>For <c>/ssm/parameter-store/high-throughput-enabled</c>, enter <c>true</c> or <c>false</c>.</para></li></ul>
         /// </para>
         /// </summary>

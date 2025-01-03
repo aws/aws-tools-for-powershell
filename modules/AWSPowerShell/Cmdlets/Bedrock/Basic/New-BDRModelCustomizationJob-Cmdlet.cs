@@ -59,7 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     public partial class NewBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter RequestMetadataFilters_AndAll
+        /// <summary>
+        /// <para>
+        /// <para>Include results where all of the based filters match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_AndAll")]
+        public Amazon.Bedrock.Model.RequestMetadataBaseFilters[] RequestMetadataFilters_AndAll { get; set; }
+        #endregion
         
         #region Parameter BaseModelIdentifier
         /// <summary>
@@ -140,6 +153,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.Tag[] CustomModelTag { get; set; }
         #endregion
         
+        #region Parameter RequestMetadataFilters_Equal
+        /// <summary>
+        /// <para>
+        /// <para>Include results where the key equals the value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_Equals")]
+        public System.Collections.Hashtable RequestMetadataFilters_Equal { get; set; }
+        #endregion
+        
         #region Parameter HyperParameter
         /// <summary>
         /// <para>
@@ -148,14 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// model hyperparameters</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("HyperParameters")]
         public System.Collections.Hashtable HyperParameter { get; set; }
         #endregion
@@ -186,6 +203,40 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobTags")]
         public Amazon.Bedrock.Model.Tag[] JobTag { get; set; }
+        #endregion
+        
+        #region Parameter TeacherModelConfig_MaxResponseLengthForInference
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tokens requested when the customization job invokes the teacher
+        /// model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_DistillationConfig_TeacherModelConfig_MaxResponseLengthForInference")]
+        public System.Int32? TeacherModelConfig_MaxResponseLengthForInference { get; set; }
+        #endregion
+        
+        #region Parameter RequestMetadataFilters_NotEqual
+        /// <summary>
+        /// <para>
+        /// <para>Include results where the key does not equal the value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_NotEquals")]
+        public System.Collections.Hashtable RequestMetadataFilters_NotEqual { get; set; }
+        #endregion
+        
+        #region Parameter RequestMetadataFilters_OrAll
+        /// <summary>
+        /// <para>
+        /// <para>Include results where any of the base filters match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_OrAll")]
+        public Amazon.Bedrock.Model.RequestMetadataBaseFilters[] RequestMetadataFilters_OrAll { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -226,20 +277,24 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String OutputDataConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter InvocationLogSource_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The URI of an invocation log in a bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataConfig_InvocationLogsConfig_InvocationLogSource_S3Uri")]
+        public System.String InvocationLogSource_S3Uri { get; set; }
+        #endregion
+        
         #region Parameter TrainingDataConfig_S3Uri
         /// <summary>
         /// <para>
         /// <para>The S3 URI where the training data is stored.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrainingDataConfig_S3Uri { get; set; }
         #endregion
         
@@ -263,6 +318,29 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter TeacherModelConfig_TeacherModelIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the teacher model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomizationConfig_DistillationConfig_TeacherModelConfig_TeacherModelIdentifier")]
+        public System.String TeacherModelConfig_TeacherModelIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter InvocationLogsConfig_UsePromptResponse
+        /// <summary>
+        /// <para>
+        /// <para>Whether to use the model's response for training, or just the prompt. The default
+        /// value is <c>False</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingDataConfig_InvocationLogsConfig_UsePromptResponse")]
+        public System.Boolean? InvocationLogsConfig_UsePromptResponse { get; set; }
         #endregion
         
         #region Parameter ValidationDataConfig_Validator
@@ -326,6 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.TeacherModelConfig_MaxResponseLengthForInference = this.TeacherModelConfig_MaxResponseLengthForInference;
+            context.TeacherModelConfig_TeacherModelIdentifier = this.TeacherModelConfig_TeacherModelIdentifier;
             context.CustomizationType = this.CustomizationType;
             context.CustomModelKmsKeyId = this.CustomModelKmsKeyId;
             context.CustomModelName = this.CustomModelName;
@@ -347,12 +427,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                     context.HyperParameter.Add((String)hashKey, (System.String)(this.HyperParameter[hashKey]));
                 }
             }
-            #if MODULAR
-            if (this.HyperParameter == null && ParameterWasBound(nameof(this.HyperParameter)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HyperParameter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -378,13 +452,33 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TrainingDataConfig_S3Uri = this.TrainingDataConfig_S3Uri;
-            #if MODULAR
-            if (this.TrainingDataConfig_S3Uri == null && ParameterWasBound(nameof(this.TrainingDataConfig_S3Uri)))
+            context.InvocationLogSource_S3Uri = this.InvocationLogSource_S3Uri;
+            if (this.RequestMetadataFilters_AndAll != null)
             {
-                WriteWarning("You are passing $null as a value for parameter TrainingDataConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.RequestMetadataFilters_AndAll = new List<Amazon.Bedrock.Model.RequestMetadataBaseFilters>(this.RequestMetadataFilters_AndAll);
             }
-            #endif
+            if (this.RequestMetadataFilters_Equal != null)
+            {
+                context.RequestMetadataFilters_Equal = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RequestMetadataFilters_Equal.Keys)
+                {
+                    context.RequestMetadataFilters_Equal.Add((String)hashKey, (System.String)(this.RequestMetadataFilters_Equal[hashKey]));
+                }
+            }
+            if (this.RequestMetadataFilters_NotEqual != null)
+            {
+                context.RequestMetadataFilters_NotEqual = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RequestMetadataFilters_NotEqual.Keys)
+                {
+                    context.RequestMetadataFilters_NotEqual.Add((String)hashKey, (System.String)(this.RequestMetadataFilters_NotEqual[hashKey]));
+                }
+            }
+            if (this.RequestMetadataFilters_OrAll != null)
+            {
+                context.RequestMetadataFilters_OrAll = new List<Amazon.Bedrock.Model.RequestMetadataBaseFilters>(this.RequestMetadataFilters_OrAll);
+            }
+            context.InvocationLogsConfig_UsePromptResponse = this.InvocationLogsConfig_UsePromptResponse;
+            context.TrainingDataConfig_S3Uri = this.TrainingDataConfig_S3Uri;
             if (this.ValidationDataConfig_Validator != null)
             {
                 context.ValidationDataConfig_Validator = new List<Amazon.Bedrock.Model.Validator>(this.ValidationDataConfig_Validator);
@@ -420,6 +514,65 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate CustomizationConfig
+            var requestCustomizationConfigIsNull = true;
+            request.CustomizationConfig = new Amazon.Bedrock.Model.CustomizationConfig();
+            Amazon.Bedrock.Model.DistillationConfig requestCustomizationConfig_customizationConfig_DistillationConfig = null;
+            
+             // populate DistillationConfig
+            var requestCustomizationConfig_customizationConfig_DistillationConfigIsNull = true;
+            requestCustomizationConfig_customizationConfig_DistillationConfig = new Amazon.Bedrock.Model.DistillationConfig();
+            Amazon.Bedrock.Model.TeacherModelConfig requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig = null;
+            
+             // populate TeacherModelConfig
+            var requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfigIsNull = true;
+            requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig = new Amazon.Bedrock.Model.TeacherModelConfig();
+            System.Int32? requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_MaxResponseLengthForInference = null;
+            if (cmdletContext.TeacherModelConfig_MaxResponseLengthForInference != null)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_MaxResponseLengthForInference = cmdletContext.TeacherModelConfig_MaxResponseLengthForInference.Value;
+            }
+            if (requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_MaxResponseLengthForInference != null)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig.MaxResponseLengthForInference = requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_MaxResponseLengthForInference.Value;
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfigIsNull = false;
+            }
+            System.String requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_TeacherModelIdentifier = null;
+            if (cmdletContext.TeacherModelConfig_TeacherModelIdentifier != null)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_TeacherModelIdentifier = cmdletContext.TeacherModelConfig_TeacherModelIdentifier;
+            }
+            if (requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_TeacherModelIdentifier != null)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig.TeacherModelIdentifier = requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig_teacherModelConfig_TeacherModelIdentifier;
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfigIsNull = false;
+            }
+             // determine if requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig should be set to null
+            if (requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfigIsNull)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig = null;
+            }
+            if (requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig != null)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig.TeacherModelConfig = requestCustomizationConfig_customizationConfig_DistillationConfig_customizationConfig_DistillationConfig_TeacherModelConfig;
+                requestCustomizationConfig_customizationConfig_DistillationConfigIsNull = false;
+            }
+             // determine if requestCustomizationConfig_customizationConfig_DistillationConfig should be set to null
+            if (requestCustomizationConfig_customizationConfig_DistillationConfigIsNull)
+            {
+                requestCustomizationConfig_customizationConfig_DistillationConfig = null;
+            }
+            if (requestCustomizationConfig_customizationConfig_DistillationConfig != null)
+            {
+                request.CustomizationConfig.DistillationConfig = requestCustomizationConfig_customizationConfig_DistillationConfig;
+                requestCustomizationConfigIsNull = false;
+            }
+             // determine if request.CustomizationConfig should be set to null
+            if (requestCustomizationConfigIsNull)
+            {
+                request.CustomizationConfig = null;
             }
             if (cmdletContext.CustomizationType != null)
             {
@@ -484,6 +637,111 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestTrainingDataConfig_trainingDataConfig_S3Uri != null)
             {
                 request.TrainingDataConfig.S3Uri = requestTrainingDataConfig_trainingDataConfig_S3Uri;
+                requestTrainingDataConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.InvocationLogsConfig requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig = null;
+            
+             // populate InvocationLogsConfig
+            var requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfigIsNull = true;
+            requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig = new Amazon.Bedrock.Model.InvocationLogsConfig();
+            System.Boolean? requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_invocationLogsConfig_UsePromptResponse = null;
+            if (cmdletContext.InvocationLogsConfig_UsePromptResponse != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_invocationLogsConfig_UsePromptResponse = cmdletContext.InvocationLogsConfig_UsePromptResponse.Value;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_invocationLogsConfig_UsePromptResponse != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig.UsePromptResponse = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_invocationLogsConfig_UsePromptResponse.Value;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.InvocationLogSource requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource = null;
+            
+             // populate InvocationLogSource
+            var requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSourceIsNull = true;
+            requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource = new Amazon.Bedrock.Model.InvocationLogSource();
+            System.String requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri = null;
+            if (cmdletContext.InvocationLogSource_S3Uri != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri = cmdletContext.InvocationLogSource_S3Uri;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource.S3Uri = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource_invocationLogSource_S3Uri;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSourceIsNull = false;
+            }
+             // determine if requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource should be set to null
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSourceIsNull)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource = null;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig.InvocationLogSource = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_InvocationLogSource;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.RequestMetadataFilters requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters = null;
+            
+             // populate RequestMetadataFilters
+            var requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFiltersIsNull = true;
+            requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters = new Amazon.Bedrock.Model.RequestMetadataFilters();
+            List<Amazon.Bedrock.Model.RequestMetadataBaseFilters> requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_AndAll = null;
+            if (cmdletContext.RequestMetadataFilters_AndAll != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_AndAll = cmdletContext.RequestMetadataFilters_AndAll;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_AndAll != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters.AndAll = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_AndAll;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFiltersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_Equal = null;
+            if (cmdletContext.RequestMetadataFilters_Equal != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_Equal = cmdletContext.RequestMetadataFilters_Equal;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_Equal != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters.Equals = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_Equal;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFiltersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_NotEqual = null;
+            if (cmdletContext.RequestMetadataFilters_NotEqual != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_NotEqual = cmdletContext.RequestMetadataFilters_NotEqual;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_NotEqual != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters.NotEquals = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_NotEqual;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFiltersIsNull = false;
+            }
+            List<Amazon.Bedrock.Model.RequestMetadataBaseFilters> requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_OrAll = null;
+            if (cmdletContext.RequestMetadataFilters_OrAll != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_OrAll = cmdletContext.RequestMetadataFilters_OrAll;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_OrAll != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters.OrAll = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters_requestMetadataFilters_OrAll;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFiltersIsNull = false;
+            }
+             // determine if requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters should be set to null
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFiltersIsNull)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters = null;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters != null)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig.RequestMetadataFilters = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig_trainingDataConfig_InvocationLogsConfig_RequestMetadataFilters;
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfigIsNull = false;
+            }
+             // determine if requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig should be set to null
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfigIsNull)
+            {
+                requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig = null;
+            }
+            if (requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig != null)
+            {
+                request.TrainingDataConfig.InvocationLogsConfig = requestTrainingDataConfig_trainingDataConfig_InvocationLogsConfig;
                 requestTrainingDataConfigIsNull = false;
             }
              // determine if request.TrainingDataConfig should be set to null
@@ -602,6 +860,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.String BaseModelIdentifier { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.Int32? TeacherModelConfig_MaxResponseLengthForInference { get; set; }
+            public System.String TeacherModelConfig_TeacherModelIdentifier { get; set; }
             public Amazon.Bedrock.CustomizationType CustomizationType { get; set; }
             public System.String CustomModelKmsKeyId { get; set; }
             public System.String CustomModelName { get; set; }
@@ -611,6 +871,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public List<Amazon.Bedrock.Model.Tag> JobTag { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String InvocationLogSource_S3Uri { get; set; }
+            public List<Amazon.Bedrock.Model.RequestMetadataBaseFilters> RequestMetadataFilters_AndAll { get; set; }
+            public Dictionary<System.String, System.String> RequestMetadataFilters_Equal { get; set; }
+            public Dictionary<System.String, System.String> RequestMetadataFilters_NotEqual { get; set; }
+            public List<Amazon.Bedrock.Model.RequestMetadataBaseFilters> RequestMetadataFilters_OrAll { get; set; }
+            public System.Boolean? InvocationLogsConfig_UsePromptResponse { get; set; }
             public System.String TrainingDataConfig_S3Uri { get; set; }
             public List<Amazon.Bedrock.Model.Validator> ValidationDataConfig_Validator { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }

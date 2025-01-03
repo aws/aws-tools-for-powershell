@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Describes one or more of your clusters.
+    /// 
+    ///  
+    /// <para>
+    ///  For CLI examples, see <a href="https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst">describe-clusters.rst</a>
+    /// on GitHub.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ECSClusterDetail")]
     [OutputType("Amazon.ECS.Model.DescribeClustersResponse")]

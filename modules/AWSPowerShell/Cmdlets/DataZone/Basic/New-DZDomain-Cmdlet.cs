@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainExecutionRole { get; set; }
         #endregion
         
+        #region Parameter DomainVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the domain that is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.DomainVersion")]
+        public Amazon.DataZone.DomainVersion DomainVersion { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyIdentifier
         /// <summary>
         /// <para>
@@ -96,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The service role of the domain that is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceRole { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -193,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainExecutionRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DomainVersion = this.DomainVersion;
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.Name = this.Name;
             #if MODULAR
@@ -201,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ServiceRole = this.ServiceRole;
             context.SingleSignOn_Type = this.SingleSignOn_Type;
             context.SingleSignOn_UserAssignment = this.SingleSignOn_UserAssignment;
             if (this.Tag != null)
@@ -239,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.DomainExecutionRole = cmdletContext.DomainExecutionRole;
             }
+            if (cmdletContext.DomainVersion != null)
+            {
+                request.DomainVersion = cmdletContext.DomainVersion;
+            }
             if (cmdletContext.KmsKeyIdentifier != null)
             {
                 request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
@@ -246,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ServiceRole != null)
+            {
+                request.ServiceRole = cmdletContext.ServiceRole;
             }
             
              // populate SingleSignOn
@@ -344,8 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DomainExecutionRole { get; set; }
+            public Amazon.DataZone.DomainVersion DomainVersion { get; set; }
             public System.String KmsKeyIdentifier { get; set; }
             public System.String Name { get; set; }
+            public System.String ServiceRole { get; set; }
             public Amazon.DataZone.AuthType SingleSignOn_Type { get; set; }
             public Amazon.DataZone.UserAssignment SingleSignOn_UserAssignment { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

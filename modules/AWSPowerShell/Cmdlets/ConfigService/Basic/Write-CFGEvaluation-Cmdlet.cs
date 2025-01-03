@@ -28,8 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Used by an Lambda function to deliver evaluation results to Config. This action is
-    /// required in every Lambda function that is invoked by an Config rule.
+    /// Used by an Lambda function to deliver evaluation results to Config. This operation
+    /// is required in every Lambda function that is invoked by an Config rule.
     /// </summary>
     [Cmdlet("Write", "CFGEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConfigService.Model.Evaluation")]

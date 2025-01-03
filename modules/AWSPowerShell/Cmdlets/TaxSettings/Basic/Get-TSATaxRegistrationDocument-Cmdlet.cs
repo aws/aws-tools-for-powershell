@@ -49,14 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         /// to.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DestinationS3Location_Bucket { get; set; }
         #endregion
         
@@ -134,12 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DestinationS3Location_Bucket = this.DestinationS3Location_Bucket;
-            #if MODULAR
-            if (this.DestinationS3Location_Bucket == null && ParameterWasBound(nameof(this.DestinationS3Location_Bucket)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DestinationS3Location_Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DestinationS3Location_Prefix = this.DestinationS3Location_Prefix;
             context.TaxDocumentMetadata_TaxDocumentAccessToken = this.TaxDocumentMetadata_TaxDocumentAccessToken;
             #if MODULAR

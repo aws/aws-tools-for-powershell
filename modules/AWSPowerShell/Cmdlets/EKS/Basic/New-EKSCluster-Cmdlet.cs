@@ -158,6 +158,44 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
         #endregion
         
+        #region Parameter ComputeConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Request to enable or disable the compute capability on your EKS Auto Mode cluster.
+        /// If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed
+        /// Instances in your Amazon Web Services account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ComputeConfig_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ElasticLoadBalancing_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster.
+        /// If the load balancing capability is enabled, EKS Auto Mode will create and delete
+        /// load balancers in your Amazon Web Services account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KubernetesNetworkConfig_ElasticLoadBalancing_Enabled")]
+        public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter BlockStorage_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the block storage capability is enabled on your EKS Auto Mode cluster.
+        /// If the block storage capability is enabled, EKS Auto Mode will create and delete EBS
+        /// volumes in your Amazon Web Services account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfig_BlockStorage_Enabled")]
+        public System.Boolean? BlockStorage_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ZonalShiftConfig_Enabled
         /// <summary>
         /// <para>
@@ -235,6 +273,30 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ComputeConfig_NodePool
+        /// <summary>
+        /// <para>
+        /// <para>Configuration for node pools that defines the compute resources for your EKS Auto
+        /// Mode cluster. For more information, see EKS Auto Mode Node Pools in the EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeConfig_NodePools")]
+        public System.String[] ComputeConfig_NodePool { get; set; }
+        #endregion
+        
+        #region Parameter ComputeConfig_NodeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto
+        /// Mode cluster. This value cannot be changed after the compute capability of EKS Auto
+        /// Mode is enabled. For more information, see the IAM Reference in the EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeConfig_NodeRoleArn { get; set; }
+        #endregion
+        
         #region Parameter OutpostConfig_OutpostArn
         /// <summary>
         /// <para>
@@ -245,6 +307,44 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OutpostConfig_OutpostArns")]
         public System.String[] OutpostConfig_OutpostArn { get; set; }
+        #endregion
+        
+        #region Parameter RemoteNetworkConfig_RemoteNodeNetwork
+        /// <summary>
+        /// <para>
+        /// <para>The list of network CIDRs that can contain hybrid nodes.</para><para>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+        /// the cluster. These blocks are typically determined by your network administrator.
+        /// </para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
+        /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
+        /// is /24, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
+        /// or the block of the Kubernetes service IP range.</para></li><li><para>Each block must have a route to the VPC that uses the VPC CIDR blocks, not public
+        /// IPs or Elastic IPs. There are many options including Transit Gateway, Site-to-Site
+        /// VPN, or Direct Connect.</para></li><li><para>Each host must allow outbound connection to the EKS cluster control plane on TCP ports
+        /// <c>443</c> and <c>10250</c>.</para></li><li><para>Each host must allow inbound connection from the EKS cluster control plane on TCP
+        /// port 10250 for logs, exec and port-forward operations.</para></li><li><para> Each host must allow TCP and UDP network connectivity to and from other hosts that
+        /// are running <c>CoreDNS</c> on UDP port <c>53</c> for service and pod DNS names.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoteNetworkConfig_RemoteNodeNetworks")]
+        public Amazon.EKS.Model.RemoteNodeNetwork[] RemoteNetworkConfig_RemoteNodeNetwork { get; set; }
+        #endregion
+        
+        #region Parameter RemoteNetworkConfig_RemotePodNetwork
+        /// <summary>
+        /// <para>
+        /// <para>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid
+        /// nodes.</para><para>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+        /// plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin
+        /// for Kubernetes isn't available for on-premises and edge locations.</para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
+        /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
+        /// is /24, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
+        /// or the block of the Kubernetes service IP range.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoteNetworkConfig_RemotePodNetworks")]
+        public Amazon.EKS.Model.RemotePodNetwork[] RemoteNetworkConfig_RemotePodNetwork { get; set; }
         #endregion
         
         #region Parameter ResourcesVpcConfig
@@ -390,10 +490,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.AccessConfig_BootstrapClusterCreatorAdminPermission = this.AccessConfig_BootstrapClusterCreatorAdminPermission;
             context.BootstrapSelfManagedAddon = this.BootstrapSelfManagedAddon;
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ComputeConfig_Enabled = this.ComputeConfig_Enabled;
+            if (this.ComputeConfig_NodePool != null)
+            {
+                context.ComputeConfig_NodePool = new List<System.String>(this.ComputeConfig_NodePool);
+            }
+            context.ComputeConfig_NodeRoleArn = this.ComputeConfig_NodeRoleArn;
             if (this.EncryptionConfig != null)
             {
                 context.EncryptionConfig = new List<Amazon.EKS.Model.EncryptionConfig>(this.EncryptionConfig);
             }
+            context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
             context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
             context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
             if (this.Logging_ClusterLogging != null)
@@ -413,6 +520,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 context.OutpostConfig_OutpostArn = new List<System.String>(this.OutpostConfig_OutpostArn);
             }
+            if (this.RemoteNetworkConfig_RemoteNodeNetwork != null)
+            {
+                context.RemoteNetworkConfig_RemoteNodeNetwork = new List<Amazon.EKS.Model.RemoteNodeNetwork>(this.RemoteNetworkConfig_RemoteNodeNetwork);
+            }
+            if (this.RemoteNetworkConfig_RemotePodNetwork != null)
+            {
+                context.RemoteNetworkConfig_RemotePodNetwork = new List<Amazon.EKS.Model.RemotePodNetwork>(this.RemoteNetworkConfig_RemotePodNetwork);
+            }
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
             #if MODULAR
             if (this.ResourcesVpcConfig == null && ParameterWasBound(nameof(this.ResourcesVpcConfig)))
@@ -427,6 +542,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BlockStorage_Enabled = this.BlockStorage_Enabled;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -491,6 +607,45 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
+            
+             // populate ComputeConfig
+            var requestComputeConfigIsNull = true;
+            request.ComputeConfig = new Amazon.EKS.Model.ComputeConfigRequest();
+            System.Boolean? requestComputeConfig_computeConfig_Enabled = null;
+            if (cmdletContext.ComputeConfig_Enabled != null)
+            {
+                requestComputeConfig_computeConfig_Enabled = cmdletContext.ComputeConfig_Enabled.Value;
+            }
+            if (requestComputeConfig_computeConfig_Enabled != null)
+            {
+                request.ComputeConfig.Enabled = requestComputeConfig_computeConfig_Enabled.Value;
+                requestComputeConfigIsNull = false;
+            }
+            List<System.String> requestComputeConfig_computeConfig_NodePool = null;
+            if (cmdletContext.ComputeConfig_NodePool != null)
+            {
+                requestComputeConfig_computeConfig_NodePool = cmdletContext.ComputeConfig_NodePool;
+            }
+            if (requestComputeConfig_computeConfig_NodePool != null)
+            {
+                request.ComputeConfig.NodePools = requestComputeConfig_computeConfig_NodePool;
+                requestComputeConfigIsNull = false;
+            }
+            System.String requestComputeConfig_computeConfig_NodeRoleArn = null;
+            if (cmdletContext.ComputeConfig_NodeRoleArn != null)
+            {
+                requestComputeConfig_computeConfig_NodeRoleArn = cmdletContext.ComputeConfig_NodeRoleArn;
+            }
+            if (requestComputeConfig_computeConfig_NodeRoleArn != null)
+            {
+                request.ComputeConfig.NodeRoleArn = requestComputeConfig_computeConfig_NodeRoleArn;
+                requestComputeConfigIsNull = false;
+            }
+             // determine if request.ComputeConfig should be set to null
+            if (requestComputeConfigIsNull)
+            {
+                request.ComputeConfig = null;
+            }
             if (cmdletContext.EncryptionConfig != null)
             {
                 request.EncryptionConfig = cmdletContext.EncryptionConfig;
@@ -517,6 +672,31 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr != null)
             {
                 request.KubernetesNetworkConfig.ServiceIpv4Cidr = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr;
+                requestKubernetesNetworkConfigIsNull = false;
+            }
+            Amazon.EKS.Model.ElasticLoadBalancing requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing = null;
+            
+             // populate ElasticLoadBalancing
+            var requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull = true;
+            requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing = new Amazon.EKS.Model.ElasticLoadBalancing();
+            System.Boolean? requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled = null;
+            if (cmdletContext.ElasticLoadBalancing_Enabled != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled = cmdletContext.ElasticLoadBalancing_Enabled.Value;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing.Enabled = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled.Value;
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull = false;
+            }
+             // determine if requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing should be set to null
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing = null;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing != null)
+            {
+                request.KubernetesNetworkConfig.ElasticLoadBalancing = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing;
                 requestKubernetesNetworkConfigIsNull = false;
             }
              // determine if request.KubernetesNetworkConfig should be set to null
@@ -601,6 +781,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.OutpostConfig = null;
             }
+            
+             // populate RemoteNetworkConfig
+            var requestRemoteNetworkConfigIsNull = true;
+            request.RemoteNetworkConfig = new Amazon.EKS.Model.RemoteNetworkConfigRequest();
+            List<Amazon.EKS.Model.RemoteNodeNetwork> requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork = null;
+            if (cmdletContext.RemoteNetworkConfig_RemoteNodeNetwork != null)
+            {
+                requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork = cmdletContext.RemoteNetworkConfig_RemoteNodeNetwork;
+            }
+            if (requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork != null)
+            {
+                request.RemoteNetworkConfig.RemoteNodeNetworks = requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork;
+                requestRemoteNetworkConfigIsNull = false;
+            }
+            List<Amazon.EKS.Model.RemotePodNetwork> requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork = null;
+            if (cmdletContext.RemoteNetworkConfig_RemotePodNetwork != null)
+            {
+                requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork = cmdletContext.RemoteNetworkConfig_RemotePodNetwork;
+            }
+            if (requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork != null)
+            {
+                request.RemoteNetworkConfig.RemotePodNetworks = requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork;
+                requestRemoteNetworkConfigIsNull = false;
+            }
+             // determine if request.RemoteNetworkConfig should be set to null
+            if (requestRemoteNetworkConfigIsNull)
+            {
+                request.RemoteNetworkConfig = null;
+            }
             if (cmdletContext.ResourcesVpcConfig != null)
             {
                 request.ResourcesVpcConfig = cmdletContext.ResourcesVpcConfig;
@@ -608,6 +817,40 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            
+             // populate StorageConfig
+            var requestStorageConfigIsNull = true;
+            request.StorageConfig = new Amazon.EKS.Model.StorageConfigRequest();
+            Amazon.EKS.Model.BlockStorage requestStorageConfig_storageConfig_BlockStorage = null;
+            
+             // populate BlockStorage
+            var requestStorageConfig_storageConfig_BlockStorageIsNull = true;
+            requestStorageConfig_storageConfig_BlockStorage = new Amazon.EKS.Model.BlockStorage();
+            System.Boolean? requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled = null;
+            if (cmdletContext.BlockStorage_Enabled != null)
+            {
+                requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled = cmdletContext.BlockStorage_Enabled.Value;
+            }
+            if (requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled != null)
+            {
+                requestStorageConfig_storageConfig_BlockStorage.Enabled = requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled.Value;
+                requestStorageConfig_storageConfig_BlockStorageIsNull = false;
+            }
+             // determine if requestStorageConfig_storageConfig_BlockStorage should be set to null
+            if (requestStorageConfig_storageConfig_BlockStorageIsNull)
+            {
+                requestStorageConfig_storageConfig_BlockStorage = null;
+            }
+            if (requestStorageConfig_storageConfig_BlockStorage != null)
+            {
+                request.StorageConfig.BlockStorage = requestStorageConfig_storageConfig_BlockStorage;
+                requestStorageConfigIsNull = false;
+            }
+             // determine if request.StorageConfig should be set to null
+            if (requestStorageConfigIsNull)
+            {
+                request.StorageConfig = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -720,7 +963,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Boolean? AccessConfig_BootstrapClusterCreatorAdminPermission { get; set; }
             public System.Boolean? BootstrapSelfManagedAddon { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? ComputeConfig_Enabled { get; set; }
+            public List<System.String> ComputeConfig_NodePool { get; set; }
+            public System.String ComputeConfig_NodeRoleArn { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
+            public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
@@ -728,8 +975,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
             public System.String ControlPlanePlacement_GroupName { get; set; }
             public List<System.String> OutpostConfig_OutpostArn { get; set; }
+            public List<Amazon.EKS.Model.RemoteNodeNetwork> RemoteNetworkConfig_RemoteNodeNetwork { get; set; }
+            public List<Amazon.EKS.Model.RemotePodNetwork> RemoteNetworkConfig_RemotePodNetwork { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Boolean? BlockStorage_Enabled { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
             public System.String Version { get; set; }

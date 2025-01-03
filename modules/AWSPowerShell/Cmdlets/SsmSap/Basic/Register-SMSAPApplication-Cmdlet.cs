@@ -88,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         public Amazon.SsmSap.ApplicationType ApplicationType { get; set; }
         #endregion
         
+        #region Parameter ComponentsInfo
+        /// <summary>
+        /// <para>
+        /// <para>This is an optional parameter for component details to which the SAP ABAP application
+        /// is attached, such as Web Dispatcher.</para><para>This is an array of ApplicationComponent objects. You may input 0 to 5 items.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SsmSap.Model.ComponentInfo[] ComponentsInfo { get; set; }
+        #endregion
+        
         #region Parameter ApplicationCredentials
         /// <summary>
         /// <para>
@@ -213,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
                 WriteWarning("You are passing $null as a value for parameter ApplicationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ComponentsInfo != null)
+            {
+                context.ComponentsInfo = new List<Amazon.SsmSap.Model.ComponentInfo>(this.ComponentsInfo);
+            }
             if (this.ApplicationCredentials != null)
             {
                 context.ApplicationCredentials = new List<Amazon.SsmSap.Model.ApplicationCredential>(this.ApplicationCredentials);
@@ -261,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.ApplicationType != null)
             {
                 request.ApplicationType = cmdletContext.ApplicationType;
+            }
+            if (cmdletContext.ComponentsInfo != null)
+            {
+                request.ComponentsInfo = cmdletContext.ComponentsInfo;
             }
             if (cmdletContext.ApplicationCredentials != null)
             {
@@ -349,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         {
             public System.String ApplicationId { get; set; }
             public Amazon.SsmSap.ApplicationType ApplicationType { get; set; }
+            public List<Amazon.SsmSap.Model.ComponentInfo> ComponentsInfo { get; set; }
             public List<Amazon.SsmSap.Model.ApplicationCredential> ApplicationCredentials { get; set; }
             public System.String DatabaseArn { get; set; }
             public List<System.String> Instance { get; set; }

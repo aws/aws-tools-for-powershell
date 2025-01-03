@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized
-        /// endpoint for this domain name. Certificate Manager is the only supported source.</para>
+        /// endpoint or private endpoint for this domain name. Certificate Manager is the only
+        /// supported source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>[Deprecated] The body of the server certificate that will be used by edge-optimized
-        /// endpoint for this domain name provided by your certificate authority.</para>
+        /// endpoint or private endpoint for this domain name provided by your certificate authority.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The user-friendly name of the certificate that will be used by edge-optimized endpoint
-        /// for this domain name.</para>
+        /// or private endpoint for this domain name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,6 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OwnershipVerificationCertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// <para>A stringified JSON policy document that applies to the <c>execute-api</c> service
+        /// for this DomainName regardless of the caller and Method configuration. Supported only
+        /// for private custom domain names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Policy { get; set; }
         #endregion
         
         #region Parameter RegionalCertificateArn
@@ -291,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.MutualTlsAuthentication_TruststoreUri = this.MutualTlsAuthentication_TruststoreUri;
             context.MutualTlsAuthentication_TruststoreVersion = this.MutualTlsAuthentication_TruststoreVersion;
             context.OwnershipVerificationCertificateArn = this.OwnershipVerificationCertificateArn;
+            context.Policy = this.Policy;
             context.RegionalCertificateArn = this.RegionalCertificateArn;
             context.RegionalCertificateName = this.RegionalCertificateName;
             context.SecurityPolicy = this.SecurityPolicy;
@@ -404,6 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.OwnershipVerificationCertificateArn = cmdletContext.OwnershipVerificationCertificateArn;
             }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
+            }
             if (cmdletContext.RegionalCertificateArn != null)
             {
                 request.RegionalCertificateArn = cmdletContext.RegionalCertificateArn;
@@ -492,6 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
             public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
             public System.String OwnershipVerificationCertificateArn { get; set; }
+            public System.String Policy { get; set; }
             public System.String RegionalCertificateArn { get; set; }
             public System.String RegionalCertificateName { get; set; }
             public Amazon.APIGateway.SecurityPolicy SecurityPolicy { get; set; }

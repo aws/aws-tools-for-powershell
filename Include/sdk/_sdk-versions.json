@@ -5,7 +5,7 @@
     "CoreVersion"       : "4.0.0.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : true,
-    "PreviewLabel"        : "preview.4",
+    "PreviewLabel"        : "preview.5",
     "ServiceVersions"     : {
         "CloudHSM" : {
             "Version" : "4.0.0.0",
@@ -3156,6 +3156,102 @@
             "InPreview"               : false
         },
         "ConnectCampaignsV2"                  : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "Notifications"                       : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "NotificationsContacts"               : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "BCMPricingCalculator"                : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "ObservabilityAdmin"                  : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "SecurityIR"                          : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "Invoicing"                           : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "NetworkFlowMonitor"                  : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "S3Tables"                            : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "DSQL"                                : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "BedrockDataAutomationRuntime"        : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "BedrockDataAutomation"               : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "BackupSearch"                        : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the SlackChannelConfiguration associated with
-        /// the user identities to describe.</para>
+        /// <para>The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the
+        /// user identities to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

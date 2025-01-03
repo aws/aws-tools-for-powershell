@@ -251,6 +251,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.OriginProtocolPolicy
+        {
+            ($_ -eq "New-CFVpcOrigin/VpcOriginEndpointConfig_OriginProtocolPolicy") -Or
+            ($_ -eq "Update-CFVpcOrigin/VpcOriginEndpointConfig_OriginProtocolPolicy")
+        }
+        {
+            $v = "http-only","https-only","match-viewer"
+            break
+        }
+
         # Amazon.CloudFront.OriginRequestPolicyCookieBehavior
         {
             ($_ -eq "New-CFOriginRequestPolicy/CookiesConfig_CookieBehavior") -Or
@@ -380,6 +390,7 @@ $CF_map = @{
     "ViewerCertificate_CertificateSource"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "VpcOriginEndpointConfig_OriginProtocolPolicy"=@("New-CFVpcOrigin","Update-CFVpcOrigin")
 }
 
 _awsArgumentCompleterRegistration $CF_Completers $CF_map
@@ -434,6 +445,7 @@ $CF_SelectCompleters = {
 $CF_SelectMap = @{
     "Select"=@("Move-CFAlias",
                "Copy-CFDistribution",
+               "New-CFAnycastIpList",
                "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
                "New-CFContinuousDeploymentPolicy",
@@ -453,6 +465,8 @@ $CF_SelectMap = @{
                "New-CFResponseHeadersPolicy",
                "New-CFStreamingDistribution",
                "New-CFStreamingDistributionWithTag",
+               "New-CFVpcOrigin",
+               "Remove-CFAnycastIpList",
                "Remove-CFCachePolicy",
                "Remove-CFCloudFrontOriginAccessIdentity",
                "Remove-CFContinuousDeploymentPolicy",
@@ -469,8 +483,10 @@ $CF_SelectMap = @{
                "Remove-CFRealtimeLogConfig",
                "Remove-CFResponseHeadersPolicy",
                "Remove-CFStreamingDistribution",
+               "Remove-CFVpcOrigin",
                "Get-CFFunctionSummary",
                "Get-CFKeyValueStore",
+               "Get-CFAnycastIpList",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
@@ -499,16 +515,20 @@ $CF_SelectMap = @{
                "Get-CFResponseHeadersPolicyConfig",
                "Get-CFStreamingDistribution",
                "Get-CFStreamingDistributionConfig",
+               "Get-CFVpcOrigin",
+               "Get-CFAnycastIpListList",
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFConflictingAlias",
                "Get-CFContinuousDeploymentPolicyList",
                "Get-CFDistributionList",
+               "Get-CFDistributionsByAnycastIpListId",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByKeyGroup",
                "Get-CFDistributionsByOriginRequestPolicyId",
                "Get-CFDistributionsByRealtimeLogConfig",
                "Get-CFDistributionsByResponseHeadersPolicyId",
+               "Get-CFDistributionsByVpcOriginId",
                "Get-CFDistributionListByWebACLId",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
@@ -523,6 +543,7 @@ $CF_SelectMap = @{
                "Get-CFResponseHeadersPolicyList",
                "Get-CFStreamingDistributionList",
                "Get-CFResourceTag",
+               "Get-CFVpcOriginList",
                "Publish-CFFunction",
                "Add-CFResourceTag",
                "Test-CFFunction",
@@ -543,6 +564,7 @@ $CF_SelectMap = @{
                "Update-CFRealtimeLogConfig",
                "Update-CFResponseHeadersPolicy",
                "Update-CFStreamingDistribution",
+               "Update-CFVpcOrigin",
                "New-CFSignedCookie",
                "New-CFSignedUrl")
 }

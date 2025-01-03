@@ -28,10 +28,7 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// API operation for creating and managing Amazon Bedrock automatic model evaluation
-    /// jobs and model evaluation jobs that use human workers. To learn more about the requirements
-    /// for creating a model evaluation job see, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model
-    /// evaluation</a>.
+    /// Creates an evaluation job.
     /// </summary>
     [Cmdlet("New", "BDREvaluationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,6 +41,30 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter ApplicationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge
+        /// base (retrieval and response generation).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.ApplicationType")]
+        public Amazon.Bedrock.ApplicationType ApplicationType { get; set; }
+        #endregion
+        
+        #region Parameter EvaluatorModelConfig_BedrockEvaluatorModel
+        /// <summary>
+        /// <para>
+        /// <para>The evaluator model used in knowledge base evaluation job or in model evaluation job
+        /// that use a model as judge. This model computes all evaluation related metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EvaluationConfig_Automated_EvaluatorModelConfig_BedrockEvaluatorModels")]
+        public Amazon.Bedrock.Model.BedrockEvaluatorModel[] EvaluatorModelConfig_BedrockEvaluatorModel { get; set; }
+        #endregion
         
         #region Parameter ClientRequestToken
         /// <summary>
@@ -61,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CustomerEncryptionKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify your customer managed key ARN that will be used to encrypt your model evaluation
-        /// job.</para>
+        /// <para>Specify your customer managed encryption key Amazon Resource Name (ARN) that will
+        /// be used to encrypt your evaluation job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter Automated_DatasetMetricConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the required elements for an automatic model evaluation job.</para>
+        /// <para>Configuration details of the prompt datasets and metrics you want to use for your
+        /// evaluation job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobDescription
         /// <summary>
         /// <para>
-        /// <para>A description of the model evaluation job.</para>
+        /// <para>A description of the evaluation job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the model evaluation job. Model evaluation job names must unique with
-        /// your AWS account, and your account's AWS region.</para>
+        /// <para>A name for the evaluation job. Names must unique with your Amazon Web Services account,
+        /// and your account's Amazon Web Services region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter InferenceConfig_Model
         /// <summary>
         /// <para>
-        /// <para>Used to specify the models.</para>
+        /// <para>Specifies the inference models.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,16 +198,26 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.EvaluationModelConfig[] InferenceConfig_Model { get; set; }
         #endregion
         
+        #region Parameter InferenceConfig_RagConfig
+        /// <summary>
+        /// <para>
+        /// <para>Contains the configuration details of the inference for a knowledge base evaluation
+        /// job, including either the retrieval only configuration or the retrieval with response
+        /// generation configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceConfig_RagConfigs")]
+        public Amazon.Bedrock.Model.RAGConfig[] InferenceConfig_RagConfig { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume
-        /// to perform tasks on your behalf. The service role must have Amazon Bedrock as the
-        /// service principal, and provide access to any Amazon S3 buckets specified in the <c>EvaluationConfig</c>
-        /// object. To pass this role to Amazon Bedrock, the caller of this API must have the
-        /// <c>iam:PassRole</c> permission. To learn more about the required permissions, see
+        /// to perform tasks on your behalf. To learn more about the required permissions, see
         /// <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html">Required
-        /// permissions</a>.</para>
+        /// permissions for model evaluations</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -202,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter OutputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 URI where the results of model evaluation job are saved.</para>
+        /// <para>The Amazon S3 URI where the results of the evaluation job are saved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -258,11 +290,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.CreateEvaluationJobResponse, NewBDREvaluationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApplicationType = this.ApplicationType;
             context.ClientRequestToken = this.ClientRequestToken;
             context.CustomerEncryptionKeyId = this.CustomerEncryptionKeyId;
             if (this.Automated_DatasetMetricConfig != null)
             {
                 context.Automated_DatasetMetricConfig = new List<Amazon.Bedrock.Model.EvaluationDatasetMetricConfig>(this.Automated_DatasetMetricConfig);
+            }
+            if (this.EvaluatorModelConfig_BedrockEvaluatorModel != null)
+            {
+                context.EvaluatorModelConfig_BedrockEvaluatorModel = new List<Amazon.Bedrock.Model.BedrockEvaluatorModel>(this.EvaluatorModelConfig_BedrockEvaluatorModel);
             }
             if (this.Human_CustomMetric != null)
             {
@@ -277,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (this.InferenceConfig_Model != null)
             {
                 context.InferenceConfig_Model = new List<Amazon.Bedrock.Model.EvaluationModelConfig>(this.InferenceConfig_Model);
+            }
+            if (this.InferenceConfig_RagConfig != null)
+            {
+                context.InferenceConfig_RagConfig = new List<Amazon.Bedrock.Model.RAGConfig>(this.InferenceConfig_RagConfig);
             }
             context.JobDescription = this.JobDescription;
             context.JobName = this.JobName;
@@ -320,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             // create request
             var request = new Amazon.Bedrock.Model.CreateEvaluationJobRequest();
             
+            if (cmdletContext.ApplicationType != null)
+            {
+                request.ApplicationType = cmdletContext.ApplicationType;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -345,6 +390,31 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestEvaluationConfig_evaluationConfig_Automated_automated_DatasetMetricConfig != null)
             {
                 requestEvaluationConfig_evaluationConfig_Automated.DatasetMetricConfigs = requestEvaluationConfig_evaluationConfig_Automated_automated_DatasetMetricConfig;
+                requestEvaluationConfig_evaluationConfig_AutomatedIsNull = false;
+            }
+            Amazon.Bedrock.Model.EvaluatorModelConfig requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig = null;
+            
+             // populate EvaluatorModelConfig
+            var requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfigIsNull = true;
+            requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig = new Amazon.Bedrock.Model.EvaluatorModelConfig();
+            List<Amazon.Bedrock.Model.BedrockEvaluatorModel> requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig_evaluatorModelConfig_BedrockEvaluatorModel = null;
+            if (cmdletContext.EvaluatorModelConfig_BedrockEvaluatorModel != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig_evaluatorModelConfig_BedrockEvaluatorModel = cmdletContext.EvaluatorModelConfig_BedrockEvaluatorModel;
+            }
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig_evaluatorModelConfig_BedrockEvaluatorModel != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig.BedrockEvaluatorModels = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig_evaluatorModelConfig_BedrockEvaluatorModel;
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfigIsNull = false;
+            }
+             // determine if requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig should be set to null
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfigIsNull)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig = null;
+            }
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated.EvaluatorModelConfig = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig;
                 requestEvaluationConfig_evaluationConfig_AutomatedIsNull = false;
             }
              // determine if requestEvaluationConfig_evaluationConfig_Automated should be set to null
@@ -444,6 +514,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestInferenceConfig_inferenceConfig_Model != null)
             {
                 request.InferenceConfig.Models = requestInferenceConfig_inferenceConfig_Model;
+                requestInferenceConfigIsNull = false;
+            }
+            List<Amazon.Bedrock.Model.RAGConfig> requestInferenceConfig_inferenceConfig_RagConfig = null;
+            if (cmdletContext.InferenceConfig_RagConfig != null)
+            {
+                requestInferenceConfig_inferenceConfig_RagConfig = cmdletContext.InferenceConfig_RagConfig;
+            }
+            if (requestInferenceConfig_inferenceConfig_RagConfig != null)
+            {
+                request.InferenceConfig.RagConfigs = requestInferenceConfig_inferenceConfig_RagConfig;
                 requestInferenceConfigIsNull = false;
             }
              // determine if request.InferenceConfig should be set to null
@@ -547,14 +627,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Bedrock.ApplicationType ApplicationType { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String CustomerEncryptionKeyId { get; set; }
             public List<Amazon.Bedrock.Model.EvaluationDatasetMetricConfig> Automated_DatasetMetricConfig { get; set; }
+            public List<Amazon.Bedrock.Model.BedrockEvaluatorModel> EvaluatorModelConfig_BedrockEvaluatorModel { get; set; }
             public List<Amazon.Bedrock.Model.HumanEvaluationCustomMetric> Human_CustomMetric { get; set; }
             public List<Amazon.Bedrock.Model.EvaluationDatasetMetricConfig> Human_DatasetMetricConfig { get; set; }
             public System.String HumanWorkflowConfig_FlowDefinitionArn { get; set; }
             public System.String HumanWorkflowConfig_Instruction { get; set; }
             public List<Amazon.Bedrock.Model.EvaluationModelConfig> InferenceConfig_Model { get; set; }
+            public List<Amazon.Bedrock.Model.RAGConfig> InferenceConfig_RagConfig { get; set; }
             public System.String JobDescription { get; set; }
             public System.String JobName { get; set; }
             public List<Amazon.Bedrock.Model.Tag> JobTag { get; set; }

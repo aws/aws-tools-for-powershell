@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContentType_CsvContentType
         /// <summary>
         /// <para>
-        /// <para>The list of all content type headers that Amazon SageMaker will treat as CSV and capture
-        /// accordingly.</para>
+        /// <para>The list of all content type headers that Amazon SageMaker AI will treat as CSV and
+        /// capture accordingly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ContentType_JsonContentType
         /// <summary>
         /// <para>
-        /// <para>The list of all content type headers that SageMaker will treat as JSON and capture
+        /// <para>The list of all content type headers that SageMaker AI will treat as JSON and capture
         /// accordingly.</para>
         /// </para>
         /// </summary>

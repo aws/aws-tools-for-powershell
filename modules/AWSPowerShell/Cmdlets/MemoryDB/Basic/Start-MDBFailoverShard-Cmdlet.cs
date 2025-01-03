@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The cluster being failed over</para>
+        /// <para>The cluster being failed over.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ShardName
         /// <summary>
         /// <para>
-        /// <para>The name of the shard</para>
+        /// <para>The name of the shard.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

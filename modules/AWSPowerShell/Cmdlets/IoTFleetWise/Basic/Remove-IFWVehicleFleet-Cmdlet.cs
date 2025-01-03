@@ -30,11 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     /// <summary>
     /// Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
     /// fleet doesn't delete the vehicle.
-    /// 
-    ///  <note><para>
-    /// If the vehicle is successfully dissociated from a fleet, Amazon Web Services IoT FleetWise
-    /// sends back an HTTP 200 response with an empty body.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IFWVehicleFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

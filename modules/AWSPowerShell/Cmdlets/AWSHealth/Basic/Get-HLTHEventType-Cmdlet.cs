@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <summary>
     /// Returns the event types that meet the specified filter criteria. You can use this
     /// API operation to find information about the Health event, such as the category, Amazon
-    /// Web Service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a>
+    /// Web Services service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a>
     /// object. 
     /// 
     ///  
@@ -92,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services associated with the event. For example, <c>EC2</c>, <c>RDS</c>.</para>
+        /// <para>The Amazon Web Services services associated with the event. For example, <c>EC2</c>,
+        /// <c>RDS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

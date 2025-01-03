@@ -28,7 +28,7 @@ using Amazon.MemoryDB.Model;
 namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Returns details of the service updates
+    /// Returns details of the service updates.
     /// </summary>
     [Cmdlet("Get", "MDBServiceUpdate")]
     [OutputType("Amazon.MemoryDB.Model.ServiceUpdate")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The list of cluster names to identify service updates to apply</para>
+        /// <para>The list of cluster names to identify service updates to apply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status(es) of the service updates to filter on</para>
+        /// <para>The status(es) of the service updates to filter on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

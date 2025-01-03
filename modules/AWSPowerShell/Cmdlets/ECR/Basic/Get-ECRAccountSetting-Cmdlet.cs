@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Retrieves the basic scan type version name.
+    /// Retrieves the account setting value for the specified setting name.
     /// </summary>
     [Cmdlet("Get", "ECRAccountSetting")]
     [OutputType("Amazon.ECR.Model.GetAccountSettingResponse")]
@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Basic scan type version name. </para>
+        /// <para>The name of the account setting, such as <c>BASIC_SCAN_TYPE_VERSION</c> or <c>REGISTRY_POLICY_SCOPE</c>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

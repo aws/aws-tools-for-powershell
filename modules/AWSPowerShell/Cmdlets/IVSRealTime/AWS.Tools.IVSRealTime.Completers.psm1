@@ -122,6 +122,16 @@ $IVSRT_Completers = {
             break
         }
 
+        # Amazon.IVSRealTime.ThumbnailRecordingMode
+        {
+            ($_ -eq "New-IVSRTStage/ThumbnailConfiguration_RecordingMode") -Or
+            ($_ -eq "Update-IVSRTStage/ThumbnailConfiguration_RecordingMode")
+        }
+        {
+            $v = "DISABLED","INTERVAL"
+            break
+        }
+
         # Amazon.IVSRealTime.VideoAspectRatio
         "Start-IVSRTComposition/Grid_VideoAspectRatio"
         {
@@ -156,6 +166,7 @@ $IVSRT_map = @{
     "Pip_PipBehavior"=@("Start-IVSRTComposition")
     "Pip_PipPosition"=@("Start-IVSRTComposition")
     "Pip_VideoFillMode"=@("Start-IVSRTComposition")
+    "ThumbnailConfiguration_RecordingMode"=@("New-IVSRTStage","Update-IVSRTStage")
 }
 
 _awsArgumentCompleterRegistration $IVSRT_Completers $IVSRT_map

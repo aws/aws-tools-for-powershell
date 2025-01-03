@@ -159,6 +159,23 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter ManageMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
+        /// Manager. If the cluster doesn't manage the master user password with Amazon Web Services
+        /// Secrets Manager, you can turn on this management. In this case, you can't specify
+        /// <c>MasterUserPassword</c>. If the cluster already manages the master user password
+        /// with Amazon Web Services Secrets Manager, and you specify that the master user password
+        /// is not managed with Amazon Web Services Secrets Manager, then you must specify <c>MasterUserPassword</c>.
+        /// In this case, Amazon DocumentDB deletes the secret and uses the new password for the
+        /// master user specified by <c>MasterUserPassword</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -168,6 +185,27 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if both of the following conditions are met:</para><ul><li><para>The cluster doesn't manage the master user password in Amazon Web Services Secrets
+        /// Manager. If the cluster already manages the master user password in Amazon Web Services
+        /// Secrets Manager, you can't change the KMS key that is used to encrypt the secret.</para></li><li><para>You are enabling <c>ManageMasterUserPassword</c> to manage the master user password
+        /// in Amazon Web Services Secrets Manager. If you are turning on <c>ManageMasterUserPassword</c>
+        /// and don't specify <c>MasterUserSecretKmsKeyId</c>, then the <c>aws/secretsmanager</c>
+        /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
+        /// Services account, then you can't use the <c>aws/secretsmanager</c> KMS key to encrypt
+        /// the secret, and you must use a customer managed KMS key.</para></li></ul><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter NewDBClusterIdentifier
@@ -213,6 +251,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter RotateMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager
+        /// for the master user password.</para><para>This setting is valid only if the master user password is managed by Amazon DocumentDB
+        /// in Amazon Web Services Secrets Manager for the cluster. The secret value contains
+        /// the updated password.</para><para>Constraint: You must apply the change immediately when rotating the master user password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RotateMasterUserPassword { get; set; }
         #endregion
         
         #region Parameter StorageType
@@ -301,11 +352,14 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DeletionProtection = this.DeletionProtection;
             context.EngineVersion = this.EngineVersion;
+            context.ManageMasterUserPassword = this.ManageMasterUserPassword;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.NewDBClusterIdentifier = this.NewDBClusterIdentifier;
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.RotateMasterUserPassword = this.RotateMasterUserPassword;
             context.StorageType = this.StorageType;
             if (this.VpcSecurityGroupId != null)
             {
@@ -384,9 +438,17 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.ManageMasterUserPassword != null)
+            {
+                request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUserSecretKmsKeyId != null)
+            {
+                request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
             }
             if (cmdletContext.NewDBClusterIdentifier != null)
             {
@@ -403,6 +465,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.RotateMasterUserPassword != null)
+            {
+                request.RotateMasterUserPassword = cmdletContext.RotateMasterUserPassword.Value;
             }
             if (cmdletContext.StorageType != null)
             {
@@ -482,11 +548,14 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.String DBClusterParameterGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.Boolean? ManageMasterUserPassword { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.String NewDBClusterIdentifier { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? RotateMasterUserPassword { get; set; }
             public System.String StorageType { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.DocDB.Model.ModifyDBClusterResponse, EditDOCDBClusterCmdlet, object> Select { get; set; } =

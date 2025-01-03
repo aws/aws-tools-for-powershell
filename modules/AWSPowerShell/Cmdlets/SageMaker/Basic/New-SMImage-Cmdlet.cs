@@ -28,10 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each
-    /// image version represents a container image stored in Amazon ECR. For more information,
+    /// Creates a custom SageMaker AI image. A SageMaker AI image is a set of image versions.
+    /// Each image version represents a container image stored in Amazon ECR. For more information,
     /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring
-    /// your own SageMaker image</a>.
+    /// your own SageMaker AI image</a>.
     /// </summary>
     [Cmdlet("New", "SMImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.</para>
+        /// <para>The ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

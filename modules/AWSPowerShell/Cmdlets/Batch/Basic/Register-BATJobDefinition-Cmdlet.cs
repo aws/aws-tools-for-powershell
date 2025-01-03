@@ -41,6 +41,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Metadata_Annotation
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs used to attach arbitrary, non-identifying metadata to Kubernetes objects.
+        /// Valid annotation keys have two segments: an optional prefix and a name, separated
+        /// by a slash (/). </para><ul><li><para>The prefix is optional and must be 253 characters or less. If specified, the prefix
+        /// must be a DNS subdomain− a series of DNS labels separated by dots (.), and it must
+        /// end with a slash (/).</para></li><li><para>The name segment is required and must be 63 characters or less. It can include alphanumeric
+        /// characters ([a-z0-9A-Z]), dashes (-), underscores (_), and dots (.), but must begin
+        /// and end with an alphanumeric character.</para></li></ul><note><para>Annotation values must be 255 characters or less.</para></note><para>Annotations can be added or modified at any time. Each resource can have multiple
+        /// annotations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksProperties_PodProperties_Metadata_Annotations")]
+        public System.Collections.Hashtable Metadata_Annotation { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_AssignPublicIp
         /// <summary>
         /// <para>
@@ -416,6 +434,26 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContainerProperties_MountPoints")]
         public Amazon.Batch.Model.MountPoint[] ContainerProperties_MountPoint { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace of the Amazon EKS cluster. In Kubernetes, namespaces provide a mechanism
+        /// for isolating groups of resources within a single cluster. Names of resources need
+        /// to be unique within a namespace, but not across namespaces. Batch places Batch Job
+        /// pods in this namespace. If this field is provided, the value can't be empty or null.
+        /// It must meet the following requirements:</para><ul><li><para>1-63 characters long</para></li><li><para>Can't be set to default</para></li><li><para>Can't start with <c>kube</c></para></li><li><para>Must match the following regular expression: <c>^[a-z0-9]([-a-z0-9]*[a-z0-9])?$</c></para></li></ul><para> For more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespaces</a>
+        /// in the <i>Kubernetes documentation</i>. This namespace can be different from the <c>kubernetesNamespace</c>
+        /// set in the compute environment's <c>EksConfiguration</c>, but must have identical
+        /// role-based access control (RBAC) roles as the compute environment's <c>kubernetesNamespace</c>.
+        /// For multi-node parallel jobs, the same value must be provided across all the node
+        /// ranges.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksProperties_PodProperties_Metadata_Namespace")]
+        public System.String Metadata_Namespace { get; set; }
         #endregion
         
         #region Parameter NodeProperties_NodeRangeProperty
@@ -989,6 +1027,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.PodProperties_InitContainer = new List<Amazon.Batch.Model.EksContainer>(this.PodProperties_InitContainer);
             }
+            if (this.Metadata_Annotation != null)
+            {
+                context.Metadata_Annotation = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata_Annotation.Keys)
+                {
+                    context.Metadata_Annotation.Add((String)hashKey, (System.String)(this.Metadata_Annotation[hashKey]));
+                }
+            }
             if (this.Metadata_Label != null)
             {
                 context.Metadata_Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -997,6 +1043,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                     context.Metadata_Label.Add((String)hashKey, (System.String)(this.Metadata_Label[hashKey]));
                 }
             }
+            context.Metadata_Namespace = this.Metadata_Namespace;
             context.PodProperties_ServiceAccountName = this.PodProperties_ServiceAccountName;
             context.PodProperties_ShareProcessNamespace = this.PodProperties_ShareProcessNamespace;
             if (this.PodProperties_Volume != null)
@@ -1608,6 +1655,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
              // populate Metadata
             var requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull = true;
             requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata = new Amazon.Batch.Model.EksMetadata();
+            Dictionary<System.String, System.String> requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Annotation = null;
+            if (cmdletContext.Metadata_Annotation != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Annotation = cmdletContext.Metadata_Annotation;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Annotation != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata.Annotations = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Annotation;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull = false;
+            }
             Dictionary<System.String, System.String> requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label = null;
             if (cmdletContext.Metadata_Label != null)
             {
@@ -1616,6 +1673,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label != null)
             {
                 requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata.Labels = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull = false;
+            }
+            System.String requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Namespace = null;
+            if (cmdletContext.Metadata_Namespace != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Namespace = cmdletContext.Metadata_Namespace;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Namespace != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata.Namespace = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Namespace;
                 requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull = false;
             }
              // determine if requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata should be set to null
@@ -1843,7 +1910,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Boolean? PodProperties_HostNetwork { get; set; }
             public List<Amazon.Batch.Model.ImagePullSecret> PodProperties_ImagePullSecret { get; set; }
             public List<Amazon.Batch.Model.EksContainer> PodProperties_InitContainer { get; set; }
+            public Dictionary<System.String, System.String> Metadata_Annotation { get; set; }
             public Dictionary<System.String, System.String> Metadata_Label { get; set; }
+            public System.String Metadata_Namespace { get; set; }
             public System.String PodProperties_ServiceAccountName { get; set; }
             public System.Boolean? PodProperties_ShareProcessNamespace { get; set; }
             public List<Amazon.Batch.Model.EksVolume> PodProperties_Volume { get; set; }

@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
     /// Creates a decoder manifest using your existing CAN DBC file from your local device.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// The CAN signal name must be unique and not repeated across CAN message definitions
+    /// in a .dbc file. 
+    /// </para>
     /// </summary>
     [Cmdlet("Import", "IFWDecoderManifest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTFleetWise.Model.ImportDecoderManifestResponse")]

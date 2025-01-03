@@ -22,6 +22,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCalculatedAttributeForProfile" OutputProperty="*" Verb="Get" Noun="GetCalculatedAttributeForProfile" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetProfile" OutputProperty="*" Verb="Get" Noun="GetProfile" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCalculatedAttributeDefinition" OutputProperty="*" Verb="New" Noun="CalculatedAttributeDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="CalculatedAttributeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -39,11 +47,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventTrigger" OutputProperty="*" Verb="New" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegrationWorkflow" OutputProperty="*" Verb="New" Noun="IntegrationWorkflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileId" Verb="New" Noun="Profile" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSegmentDefinition" OutputProperty="*" Verb="New" Noun="SegmentDefinition" ShouldProcessTarget="SegmentDefinitionName" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSegmentEstimate" OutputProperty="*" Verb="New" Noun="SegmentEstimate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSegmentSnapshot" OutputProperty="SnapshotId" Verb="New" Noun="SegmentSnapshot" ShouldProcessTarget="SegmentDefinitionName" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -56,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventStream" Verb="Remove" Noun="EventStream" ShouldProcessTarget="EventStreamName" PipelineParameter="EventStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventTrigger" OutputProperty="Message" Verb="Remove" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProfileObjectType" OutputProperty="Message" Verb="Remove" Noun="ProfileObjectType" ShouldProcessTarget="ObjectTypeName" PipelineParameter="ObjectTypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSegmentDefinition" OutputProperty="Message" Verb="Remove" Noun="SegmentDefinition" ShouldProcessTarget="SegmentDefinitionName" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,6 +139,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEventTrigger" OutputProperty="*" Verb="Get" Noun="EventTrigger" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIdentityResolutionJob" OutputProperty="*" Verb="Get" Noun="IdentityResolutionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +160,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetProfileObjectTypeTemplate" OutputProperty="*" Verb="Get" Noun="ProfileObjectTypeTemplate" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSegmentDefinition" OutputProperty="*" Verb="Get" Noun="SegmentDefinition" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSegmentEstimate" OutputProperty="*" Verb="Get" Noun="SegmentEstimate" PipelineParameter="EstimateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSegmentMembership" OutputProperty="*" Verb="Get" Noun="SegmentMembership" PipelineParameter="SegmentDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSegmentSnapshot" OutputProperty="*" Verb="Get" Noun="SegmentSnapshot" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,11 +211,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEventTriggers" OutputProperty="Items" Verb="Get" Noun="EventTriggerList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListIdentityResolutionJobs" OutputProperty="IdentityResolutionJobsList" Verb="Get" Noun="IdentityResolutionJobList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectTypeAttributes" OutputProperty="Items" Verb="Get" Noun="ObjectTypeAttributeList" PipelineParameter="ObjectTypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileAttributeValues" OutputProperty="*" Verb="Get" Noun="ProfileAttributeValueList" PipelineParameter="AttributeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -180,6 +244,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRuleBasedMatches" OutputProperty="MatchIds" Verb="Get" Noun="RuleBasedMatchList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSegmentDefinitions" OutputProperty="Items" Verb="Get" Noun="SegmentDefinitionList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -232,6 +300,10 @@
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3BucketName" />
                 <Param Name="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" NewName="RuleBasedMatching_ExportingConfig_S3Exporting_S3KeyName" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventTrigger" OutputProperty="*" Verb="Update" Noun="EventTrigger" ShouldProcessTarget="EventTriggerName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProfile" OutputProperty="ProfileId" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">

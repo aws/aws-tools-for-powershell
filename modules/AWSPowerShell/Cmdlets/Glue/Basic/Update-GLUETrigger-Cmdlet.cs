@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Updates a trigger definition.
+    /// 
+    ///  
+    /// <para>
+    /// Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve
+    /// secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret
+    /// management mechanism if you intend to keep them within the Job.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GLUETrigger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Glue.Model.Trigger")]

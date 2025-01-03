@@ -33,8 +33,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// type, EBS optimization, platform, instance store settings, Availability Zone, or tenancy.
     /// If you need to modify any of these attributes, we recommend that you cancel the Capacity
     /// Reservation, and then create a new one with the required attributes. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html">Modify
-    /// an active Capacity Reservation</a>.
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html">
+    /// Modify an active Capacity Reservation</a>.
+    /// 
+    ///  
+    /// <para>
+    /// The allowed modifications depend on the state of the Capacity Reservation:
+    /// </para><ul><li><para><c>assessing</c> or <c>scheduled</c> state - You can modify the tags only.
+    /// </para></li><li><para><c>pending</c> state - You can't modify the Capacity Reservation in any way.
+    /// </para></li><li><para><c>active</c> state but still within the commitment duration - You can't decrease
+    /// the instance count or set an end date that is within the commitment duration. All
+    /// other modifications are allowed.
+    /// </para></li><li><para><c>active</c> state with no commitment duration or elapsed commitment duration -
+    /// All modifications are allowed.
+    /// </para></li><li><para><c>expired</c>, <c>cancelled</c>, <c>unsupported</c>, or <c>failed</c> state - You
+    /// can't modify the Capacity Reservation in any way.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Edit", "EC2CapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

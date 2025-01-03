@@ -97,6 +97,17 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.CacheBehavior
+        {
+            ($_ -eq "New-OMICSRunCache/CacheBehavior") -Or
+            ($_ -eq "Start-OMICSRun/CacheBehavior") -Or
+            ($_ -eq "Update-OMICSRunCache/CacheBehavior")
+        }
+        {
+            $v = "CACHE_ALWAYS","CACHE_ON_FAILURE"
+            break
+        }
+
         # Amazon.Omics.CreationType
         "Get-OMICSReadSetList/Filter_CreationType"
         {
@@ -227,6 +238,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.SequenceStoreStatus
+        "Get-OMICSSequenceStoreList/Filter_Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
         # Amazon.Omics.StorageType
         "Start-OMICSRun/StorageType"
         {
@@ -293,11 +311,12 @@ $OMICS_Completers = {
 
 $OMICS_map = @{
     "Accelerator"=@("New-OMICSWorkflow")
+    "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
     "Engine"=@("New-OMICSWorkflow")
     "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
-    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
+    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSSequenceStoreList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
     "LogLevel"=@("Start-OMICSRun")
     "PartSource"=@("Get-OMICSReadSetUploadPartList","Set-OMICSReadSetPart")
     "ResourceOwner"=@("Get-OMICSShareList")
@@ -374,6 +393,7 @@ $OMICS_SelectMap = @{
                "New-OMICSAnnotationStoreVersion",
                "New-OMICSMultipartReadSetUpload",
                "New-OMICSReferenceStore",
+               "New-OMICSRunCache",
                "New-OMICSRunGroup",
                "New-OMICSSequenceStore",
                "New-OMICSShare",
@@ -384,7 +404,9 @@ $OMICS_SelectMap = @{
                "Remove-OMICSReference",
                "Remove-OMICSReferenceStore",
                "Remove-OMICSRun",
+               "Remove-OMICSRunCache",
                "Remove-OMICSRunGroup",
+               "Remove-OMICSS3AccessPolicy",
                "Remove-OMICSSequenceStore",
                "Remove-OMICSShare",
                "Remove-OMICSVariantStore",
@@ -402,8 +424,10 @@ $OMICS_SelectMap = @{
                "Get-OMICSReferenceMetadata",
                "Get-OMICSReferenceStore",
                "Get-OMICSRun",
+               "Get-OMICSRunCache",
                "Get-OMICSRunGroup",
                "Get-OMICSRunTask",
+               "Get-OMICSS3AccessPolicy",
                "Get-OMICSSequenceStore",
                "Get-OMICSShare",
                "Get-OMICSVariantImportJob",
@@ -421,6 +445,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSReferenceImportJobList",
                "Get-OMICSReferenceList",
                "Get-OMICSReferenceStoreList",
+               "Get-OMICSRunCachList",
                "Get-OMICSRunGroupList",
                "Get-OMICSRunList",
                "Get-OMICSRunTaskList",
@@ -430,6 +455,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSVariantImportJobList",
                "Get-OMICSVariantStoreList",
                "Get-OMICSWorkflowList",
+               "Write-OMICSS3AccessPolicy",
                "Start-OMICSAnnotationImportJob",
                "Start-OMICSReadSetActivationJob",
                "Start-OMICSReadSetExportJob",
@@ -441,7 +467,9 @@ $OMICS_SelectMap = @{
                "Remove-OMICSResourceTag",
                "Update-OMICSAnnotationStore",
                "Update-OMICSAnnotationStoreVersion",
+               "Update-OMICSRunCache",
                "Update-OMICSRunGroup",
+               "Update-OMICSSequenceStore",
                "Update-OMICSVariantStore",
                "Update-OMICSWorkflow",
                "Set-OMICSReadSetPart")

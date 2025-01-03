@@ -28,8 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Modifies some configurations of the Microsoft Azure Blob Storage transfer location
-    /// that you're using with DataSync.
+    /// Modifies the following configurations of the Microsoft Azure Blob Storage transfer
+    /// location that you're using with DataSync.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html">Configuring
+    /// DataSync transfers with Azure Blob Storage</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "DSYNLocationAzureBlob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

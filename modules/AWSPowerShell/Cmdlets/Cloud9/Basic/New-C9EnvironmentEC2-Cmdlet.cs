@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
     /// <summary>
     /// Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud
     /// (Amazon EC2) instance, and then connects from the instance to the environment.
+    /// 
+    ///  <important><para>
+    /// Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue
+    /// to use the service as normal. <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn
+    /// more"</a></para></important>
     /// </summary>
     [Cmdlet("New", "C9EnvironmentEC2", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -109,12 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
         /// <para>
         /// <para>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
         /// To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon
-        /// EC2 Systems Manager (SSM) path.</para><para>From December 04, 2023, you will be required to include the <c>imageId</c> parameter
-        /// for the <c>CreateEnvironmentEC2</c> action. This change will be reflected across all
-        /// direct methods of communicating with the API, such as Amazon Web Services SDK, Amazon
-        /// Web Services CLI and Amazon Web Services CloudFormation. This change will only affect
-        /// direct API consumers, and not Cloud9 console users.</para><para>We recommend using Amazon Linux 2023 as the AMI to create your environment as it is
-        /// fully supported. </para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
+        /// EC2 Systems Manager (SSM) path.</para><para>We recommend using Amazon Linux 2023 as the AMI to create your environment as it is
+        /// fully supported.</para><para>From December 16, 2024, Ubuntu 18.04 will be removed from the list of available <c>imageIds</c>
+        /// for Cloud9. This change is necessary as Ubuntu 18.04 has ended standard support on
+        /// May 31, 2023. This change will only affect direct API consumers, and not Cloud9 console
+        /// users.</para><para>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you
         /// choose Ubuntu 22.04.</para><para><b>AMI aliases </b></para><ul><li><para>Amazon Linux 2: <c>amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>ubuntu-22.04-x86_64</c></para></li></ul><para><b>SSM paths</b></para><ul><li><para>Amazon Linux 2: <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</c></para></li><li><para>Amazon Linux 2023 (recommended): <c>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64</c></para></li><li><para>Ubuntu 18.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</c></para></li><li><para>Ubuntu 22.04: <c>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</c></para></li></ul>
         /// </para>
         /// </summary>

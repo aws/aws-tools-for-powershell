@@ -119,6 +119,23 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.Index
+        {
+            ($_ -eq "Start-BAKBackupJob/Index") -Or
+            ($_ -eq "Update-BAKRecoveryPointIndexSetting/Index")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Backup.IndexStatus
+        "Get-BAKIndexedRecoveryPointList/IndexStatus"
+        {
+            $v = "ACTIVE","DELETING","FAILED","PENDING"
+            break
+        }
+
         # Amazon.Backup.RestoreJobState
         "Get-BAKRestoreJobSummaryList/State"
         {
@@ -173,6 +190,8 @@ $BAK_map = @{
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList","Get-BAKRestoreJobsByProtectedResourceList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
+    "Index"=@("Start-BAKBackupJob","Update-BAKRecoveryPointIndexSetting")
+    "IndexStatus"=@("Get-BAKIndexedRecoveryPointList")
     "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ValidationStatus"=@("Write-BAKRestoreValidationResult")
@@ -270,6 +289,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultAccessPolicy",
                "Get-BAKBackupVaultNotification",
                "Get-BAKLegalHold",
+               "Get-BAKRecoveryPointIndexDetail",
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKRestoreJobMetadata",
                "Get-BAKRestoreTestingInferredMetadata",
@@ -286,6 +306,7 @@ $BAK_SelectMap = @{
                "Get-BAKCopyJobList",
                "Get-BAKCopyJobSummaryList",
                "Get-BAKFrameworkList",
+               "Get-BAKIndexedRecoveryPointList",
                "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
                "Get-BAKProtectedResourcesByBackupVaultList",
@@ -314,6 +335,7 @@ $BAK_SelectMap = @{
                "Update-BAKBackupPlan",
                "Update-BAKFramework",
                "Update-BAKGlobalSetting",
+               "Update-BAKRecoveryPointIndexSetting",
                "Update-BAKRecoveryPointLifecycle",
                "Update-BAKRegionSetting",
                "Update-BAKReportPlan",

@@ -151,6 +151,7 @@ $IOTJ_SelectCompleters = {
 $IOTJ_SelectMap = @{
     "Select"=@("Get-IOTJJobExecution",
                "Get-IOTJPendingJobExecution",
+               "Start-IOTJCommandExecution",
                "Start-IOTJNextPendingJobExecution",
                "Update-IOTJJobExecution")
 }

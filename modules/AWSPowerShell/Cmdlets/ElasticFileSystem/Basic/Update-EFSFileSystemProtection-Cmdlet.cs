@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// EFS replication.</para></li><li><para><c>REPLICATING</c> – The file system is being used as the destination file system
         /// in a replication configuration. The file system is read-only and is only modified
         /// only by EFS replication.</para></li></ul><para>If the replication configuration is deleted, the file system's replication overwrite
-        /// protection is re-enabled, the file system becomes writeable.</para>
+        /// protection is re-enabled and the file system becomes writeable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         public System.String GraphIdentifier { get; set; }
         #endregion
         
+        #region Parameter ParquetType
+        /// <summary>
+        /// <para>
+        /// <para>The parquet type of the import task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NeptuneGraph.ParquetType")]
+        public Amazon.NeptuneGraph.ParquetType ParquetType { get; set; }
+        #endregion
+        
         #region Parameter Neptune_PreserveDefaultVertexLabel
         /// <summary>
         /// <para>
@@ -240,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             context.Neptune_PreserveEdgeId = this.Neptune_PreserveEdgeId;
             context.Neptune_S3ExportKmsKeyId = this.Neptune_S3ExportKmsKeyId;
             context.Neptune_S3ExportPath = this.Neptune_S3ExportPath;
+            context.ParquetType = this.ParquetType;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -350,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             {
                 request.ImportOptions = null;
             }
+            if (cmdletContext.ParquetType != null)
+            {
+                request.ParquetType = cmdletContext.ParquetType;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -427,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             public System.Boolean? Neptune_PreserveEdgeId { get; set; }
             public System.String Neptune_S3ExportKmsKeyId { get; set; }
             public System.String Neptune_S3ExportPath { get; set; }
+            public Amazon.NeptuneGraph.ParquetType ParquetType { get; set; }
             public System.String RoleArn { get; set; }
             public System.String Source { get; set; }
             public System.Func<Amazon.NeptuneGraph.Model.StartImportTaskResponse, StartNEPTGImportTaskCmdlet, object> Select { get; set; } =

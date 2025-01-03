@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a version of the SageMaker image specified by <c>ImageName</c>. The version
+    /// Creates a version of the SageMaker AI image specified by <c>ImageName</c>. The version
     /// represents the Amazon ECR container image specified by <c>BaseImage</c>.
     /// </summary>
     [Cmdlet("New", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para>Indicates SageMaker job type compatibility.</para><ul><li><para><c>TRAINING</c>: The image version is compatible with SageMaker training jobs.</para></li><li><para><c>INFERENCE</c>: The image version is compatible with SageMaker inference jobs.</para></li><li><para><c>NOTEBOOK_KERNEL</c>: The image version is compatible with SageMaker notebook kernels.</para></li></ul>
+        /// <para>Indicates SageMaker AI job type compatibility.</para><ul><li><para><c>TRAINING</c>: The image version is compatible with SageMaker AI training jobs.</para></li><li><para><c>INFERENCE</c>: The image version is compatible with SageMaker AI inference jobs.</para></li><li><para><c>NOTEBOOK_KERNEL</c>: The image version is compatible with SageMaker AI notebook
+        /// kernels.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

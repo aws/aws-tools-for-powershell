@@ -92,6 +92,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservation" OutputProperty="*" Verb="Get" Noun="CapacityReservation" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeListenerAttributes" OutputProperty="Attributes" Verb="Get" Noun="ListenerAttribute" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -157,6 +161,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTrustStoreRevocationContent" OutputProperty="Location" Verb="Get" Noun="TrustStoreRevocationContent" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCapacityReservation" OutputProperty="*" Verb="Edit" Noun="CapacityReservation" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,8 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates an account-level data protection policy or subscription filter policy that
-    /// applies to all log groups or a subset of log groups in the account.
+    /// Creates an account-level data protection policy, subscription filter policy, or field
+    /// index policy that applies to all log groups or a subset of log groups in the account.
     /// 
     ///  
     /// <para><b>Data protection policy</b></para><para>
@@ -97,6 +97,81 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// you are updating an existing filter, you must specify the correct name in <c>PolicyName</c>.
     /// To perform a <c>PutAccountPolicy</c> subscription filter operation for any destination
     /// except a Lambda function, you must also have the <c>iam:PassRole</c> permission.
+    /// </para><para><b>Transformer policy</b></para><para>
+    /// Creates or updates a <i>log transformer policy</i> for your account. You use log transformers
+    /// to transform log events into a different format, making them easier for you to process
+    /// and analyze. You can also transform logs from different sources into standardized
+    /// formats that contain relevant, source-specific information. After you have created
+    /// a transformer, CloudWatch Logs performs this transformation at the time of log ingestion.
+    /// You can then refer to the transformed versions of the logs during operations such
+    /// as querying with CloudWatch Logs Insights or creating metric filters or subscription
+    /// filters.
+    /// </para><para>
+    /// You can also use a transformer to copy metadata from metadata keys into the log events
+    /// themselves. This metadata can include log group name, log stream name, account ID
+    /// and Region.
+    /// </para><para>
+    /// A transformer for a log group is a series of processors, where each processor applies
+    /// one type of transformation to the log events ingested into this log group. For more
+    /// information about the available processors to use in a transformer, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors">
+    /// Processors that you can use</a>.
+    /// </para><para>
+    /// Having log events in standardized format enables visibility across your applications
+    /// for your log analysis, reporting, and alarming needs. CloudWatch Logs provides transformation
+    /// for common log types with out-of-the-box transformation templates for major Amazon
+    /// Web Services log sources such as VPC flow logs, Lambda, and Amazon RDS. You can use
+    /// pre-built transformation templates or create custom transformation policies.
+    /// </para><para>
+    /// You can create transformers only for the log groups in the Standard log class.
+    /// </para><para>
+    /// You can have one account-level transformer policy that applies to all log groups in
+    /// the account. Or you can create as many as 20 account-level transformer policies that
+    /// are each scoped to a subset of log groups with the <c>selectionCriteria</c> parameter.
+    /// If you have multiple account-level transformer policies with selection criteria, no
+    /// two of them can use the same or overlapping log group name prefixes. For example,
+    /// if you have one policy filtered to log groups that start with <c>my-log</c>, you can't
+    /// have another field index policy filtered to <c>my-logpprod</c> or <c>my-logging</c>.
+    /// </para><para>
+    /// You can also set up a transformer at the log-group level. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>.
+    /// If there is both a log-group level transformer created with <c>PutTransformer</c>
+    /// and an account-level transformer that could apply to the same log group, the log group
+    /// uses only the log-group level transformer. It ignores the account-level transformer.
+    /// </para><para><b>Field index policy</b></para><para>
+    /// You can use field index policies to create indexes on fields found in log events in
+    /// the log group. Creating field indexes can help lower the scan volume for CloudWatch
+    /// Logs Insights queries that reference those fields, because these queries attempt to
+    /// skip the processing of log events that are known to not match the indexed field. Good
+    /// fields to index are fields that you often need to query for and fields or values that
+    /// match only a small fraction of the total log events. Common examples of indexes include
+    /// request ID, session ID, user IDs, or instance IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create
+    /// field indexes to improve query performance and reduce costs</a></para><para>
+    /// To find the fields that are in your log group events, use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a>
+    /// operation.
+    /// </para><para>
+    /// For example, suppose you have created a field index for <c>requestId</c>. Then, any
+    /// CloudWatch Logs Insights query on that log group that includes <c>requestId = <i>value</i></c> or <c>requestId in [<i>value</i>, <i>value</i>, ...]</c> will attempt to process
+    /// only the log events where the indexed field matches the specified value.
+    /// </para><para>
+    /// Matches of log events to the names of indexed fields are case-sensitive. For example,
+    /// an indexed field of <c>RequestId</c> won't match a log event containing <c>requestId</c>.
+    /// </para><para>
+    /// You can have one account-level field index policy that applies to all log groups in
+    /// the account. Or you can create as many as 20 account-level field index policies that
+    /// are each scoped to a subset of log groups with the <c>selectionCriteria</c> parameter.
+    /// If you have multiple account-level index policies with selection criteria, no two
+    /// of them can use the same or overlapping log group name prefixes. For example, if you
+    /// have one policy filtered to log groups that start with <c>my-log</c>, you can't have
+    /// another field index policy filtered to <c>my-logpprod</c> or <c>my-logging</c>.
+    /// </para><para>
+    /// If you create an account-level field index policy in a monitoring account in cross-account
+    /// observability, the policy is applied only to the monitoring account and not to any
+    /// source accounts.
+    /// </para><para>
+    /// If you want to create a field index policy for a single log group, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>
+    /// instead of <c>PutAccountPolicy</c>. If you do so, that log group will use only that
+    /// log-group level policy, and will ignore the account-level policy that you create with
+    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -141,7 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// events.</para></li><li><para><b>Distribution</b> The method used to distribute log data to the destination. By
         /// default, log data is grouped by log stream, but the grouping can be set to <c>Random</c>
         /// for a more even distribution. This property is only applicable when the destination
-        /// is an Kinesis Data Streams data stream.</para></li></ul>
+        /// is an Kinesis Data Streams data stream.</para></li></ul><para><b>Transformer policy</b></para><para>A transformer policy must include one JSON block with the array of processors and
+        /// their configurations. For more information about available processors, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors">
+        /// Processors that you can use</a>. </para><para><b>Field index policy</b></para><para>A field index filter policy can include the following attribute in a JSON block:</para><ul><li><para><b>Fields</b> The array of field indexes to create.</para></li></ul><para>It must contain at least one field index.</para><para>The following is an example of an index policy document that creates two indexes,
+        /// <c>RequestId</c> and <c>TransactionId</c>.</para><para><c>"policyDocument": "{ \"Fields\": [ \"RequestId\", \"TransactionId\" ] }"</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -205,13 +283,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter SelectionCriterion
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to apply the subscription filter policy to a subset of log groups
-        /// in the account. Currently, the only supported filter is <c>LogGroupName NOT IN []</c>.
-        /// The <c>selectionCriteria</c> string can be up to 25KB in length. The length is determined
-        /// by using its UTF-8 bytes.</para><para>Using the <c>selectionCriteria</c> parameter is useful to help prevent infinite loops.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log
-        /// recursion prevention</a>.</para><para>Specifing <c>selectionCriteria</c> is valid only when you specify <c> SUBSCRIPTION_FILTER_POLICY</c>
-        /// for <c>policyType</c>.</para>
+        /// <para>Use this parameter to apply the new policy to a subset of log groups in the account.</para><para>Specifing <c>selectionCriteria</c> is valid only when you specify <c>SUBSCRIPTION_FILTER_POLICY</c>,
+        /// <c>FIELD_INDEX_POLICY</c> or <c>TRANSFORMER_POLICY</c>for <c>policyType</c>.</para><para>If <c>policyType</c> is <c>SUBSCRIPTION_FILTER_POLICY</c>, the only supported <c>selectionCriteria</c>
+        /// filter is <c>LogGroupName NOT IN []</c></para><para>If <c>policyType</c> is <c>FIELD_INDEX_POLICY</c> or <c>TRANSFORMER_POLICY</c>, the
+        /// only supported <c>selectionCriteria</c> filter is <c>LogGroupNamePrefix</c></para><para>The <c>selectionCriteria</c> string can be up to 25KB in length. The length is determined
+        /// by using its UTF-8 bytes.</para><para>Using the <c>selectionCriteria</c> parameter with <c>SUBSCRIPTION_FILTER_POLICY</c>
+        /// is useful to help prevent infinite loops. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log
+        /// recursion prevention</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

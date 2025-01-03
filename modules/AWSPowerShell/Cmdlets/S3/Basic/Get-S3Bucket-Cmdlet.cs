@@ -29,20 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Returns a list of all buckets owned by the authenticated sender of the request. To
-    /// use this operation, you must have the <c>s3:ListAllMyBuckets</c> permission. 
+    /// grant IAM permission to use this operation, you must add the <c>s3:ListAllMyBuckets</c>
+    /// policy action. 
     /// </para><para>
     /// For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
     /// configuring, and working with Amazon S3 buckets</a>.
     /// </para><important><para>
-    /// We strongly recommend using only paginated requests. Unpaginated requests are only
-    /// supported for Amazon Web Services accounts set to the default general purpose bucket
-    /// quota of 10,000. If you have an approved general purpose bucket quota above 10,000,
-    /// you must send paginated requests to list your account’s buckets. All unpaginated ListBuckets
-    /// requests will be rejected for Amazon Web Services accounts with a general purpose
-    /// bucket quota greater than 10,000. 
+    /// We strongly recommend using only paginated <c>ListBuckets</c> requests. Unpaginated
+    /// <c>ListBuckets</c> requests are only supported for Amazon Web Services accounts set
+    /// to the default general purpose bucket quota of 10,000. If you have an approved general
+    /// purpose bucket quota above 10,000, you must send paginated <c>ListBuckets</c> requests
+    /// to list your account’s buckets. All unpaginated <c>ListBuckets</c> requests will be
+    /// rejected for Amazon Web Services accounts with a general purpose bucket quota greater
+    /// than 10,000. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "S3Bucket")]

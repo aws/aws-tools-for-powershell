@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// Before you can delete the delivery channel, you must stop the configuration recorder
-    /// by using the <a>StopConfigurationRecorder</a> action.
+    /// Before you can delete the delivery channel, you must stop the customer managed configuration
+    /// recorder. You can use the <a>StopConfigurationRecorder</a> operation to stop the customer
+    /// managed configuration recorder.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -51,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery channel to delete.</para>
+        /// <para>The name of the delivery channel that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

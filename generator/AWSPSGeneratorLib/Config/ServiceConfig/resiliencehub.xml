@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetricsExport" OutputProperty="*" Verb="Get" Noun="MetricsExport" PipelineParameter="MetricsExportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeResiliencyPolicy" OutputProperty="Policy" Verb="Get" Noun="ResiliencyPolicy" PipelineParameter="PolicyArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +175,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMetrics" OutputProperty="Rows" Verb="Get" Noun="MetricList" PipelineParameter="DataSource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRecommendationTemplates" OutputProperty="RecommendationTemplates" Verb="Get" Noun="RecommendationTemplateList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -224,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAppAssessment" OutputProperty="Assessment" Verb="Start" Noun="AppAssessment" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetricsExport" OutputProperty="*" Verb="Start" Noun="MetricsExport" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

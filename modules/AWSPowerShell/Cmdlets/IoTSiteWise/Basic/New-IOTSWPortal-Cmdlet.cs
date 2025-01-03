@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class NewIOTSWPortalCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Alarms_AlarmRoleArn
@@ -157,6 +159,30 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PortalName { get; set; }
+        #endregion
+        
+        #region Parameter PortalType
+        /// <summary>
+        /// <para>
+        /// <para>Define the type of portal. The value for IoT SiteWise Monitor (Classic) is <c>SITEWISE_PORTAL_V1</c>.
+        /// The value for IoT SiteWise Monitor (AI-aware) is <c>SITEWISE_PORTAL_V2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.PortalType")]
+        public Amazon.IoTSiteWise.PortalType PortalType { get; set; }
+        #endregion
+        
+        #region Parameter PortalTypeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The configuration entry associated with the specific portal type. The value for IoT
+        /// SiteWise Monitor (Classic) is <c>SITEWISE_PORTAL_V1</c>. The value for IoT SiteWise
+        /// Monitor (AI-aware) is <c>SITEWISE_PORTAL_V2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable PortalTypeConfiguration { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -278,6 +304,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter PortalName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PortalType = this.PortalType;
+            if (this.PortalTypeConfiguration != null)
+            {
+                context.PortalTypeConfiguration = new Dictionary<System.String, Amazon.IoTSiteWise.Model.PortalTypeEntry>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PortalTypeConfiguration.Keys)
+                {
+                    context.PortalTypeConfiguration.Add((String)hashKey, (Amazon.IoTSiteWise.Model.PortalTypeEntry)(this.PortalTypeConfiguration[hashKey]));
+                }
+            }
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -396,6 +431,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 {
                     request.PortalName = cmdletContext.PortalName;
                 }
+                if (cmdletContext.PortalType != null)
+                {
+                    request.PortalType = cmdletContext.PortalType;
+                }
+                if (cmdletContext.PortalTypeConfiguration != null)
+                {
+                    request.PortalTypeConfiguration = cmdletContext.PortalTypeConfiguration;
+                }
                 if (cmdletContext.RoleArn != null)
                 {
                     request.RoleArn = cmdletContext.RoleArn;
@@ -483,6 +526,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public byte[] PortalLogoImageFile_Data { get; set; }
             public Amazon.IoTSiteWise.ImageFileType PortalLogoImageFile_Type { get; set; }
             public System.String PortalName { get; set; }
+            public Amazon.IoTSiteWise.PortalType PortalType { get; set; }
+            public Dictionary<System.String, Amazon.IoTSiteWise.Model.PortalTypeEntry> PortalTypeConfiguration { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreatePortalResponse, NewIOTSWPortalCmdlet, object> Select { get; set; } =

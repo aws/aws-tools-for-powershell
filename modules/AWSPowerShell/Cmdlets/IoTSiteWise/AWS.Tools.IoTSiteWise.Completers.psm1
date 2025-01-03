@@ -107,6 +107,27 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.DatasetSourceFormat
+        {
+            ($_ -eq "New-IOTSWDataset/DatasetSource_SourceFormat") -Or
+            ($_ -eq "Update-IOTSWDataset/DatasetSource_SourceFormat")
+        }
+        {
+            $v = "KNOWLEDGE_BASE"
+            break
+        }
+
+        # Amazon.IoTSiteWise.DatasetSourceType
+        {
+            ($_ -eq "New-IOTSWDataset/DatasetSource_SourceType") -Or
+            ($_ -eq "Update-IOTSWDataset/DatasetSource_SourceType") -Or
+            ($_ -eq "Get-IOTSWDatasetList/SourceType")
+        }
+        {
+            $v = "KENDRA"
+            break
+        }
+
         # Amazon.IoTSiteWise.DisassociatedDataStorageState
         "Write-IOTSWStorageConfiguration/DisassociatedDataStorage"
         {
@@ -190,6 +211,16 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.PortalType
+        {
+            ($_ -eq "New-IOTSWPortal/PortalType") -Or
+            ($_ -eq "Update-IOTSWPortal/PortalType")
+        }
+        {
+            $v = "SITEWISE_PORTAL_V1","SITEWISE_PORTAL_V2"
+            break
+        }
+
         # Amazon.IoTSiteWise.PropertyNotificationState
         "Update-IOTSWAssetProperty/PropertyNotificationState"
         {
@@ -267,6 +298,8 @@ $IOTSW_Completers = {
 $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
     "AssetModelType"=@("New-IOTSWAssetModel")
+    "DatasetSource_SourceFormat"=@("New-IOTSWDataset","Update-IOTSWDataset")
+    "DatasetSource_SourceType"=@("New-IOTSWDataset","Update-IOTSWDataset")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "File_Type"=@("Update-IOTSWPortal")
@@ -276,9 +309,11 @@ $IOTSW_map = @{
     "MatchForVersionType"=@("New-IOTSWAssetModelCompositeModel","Remove-IOTSWAssetModel","Remove-IOTSWAssetModelCompositeModel","Update-IOTSWAssetModel","Update-IOTSWAssetModelCompositeModel")
     "PortalAuthMode"=@("New-IOTSWPortal")
     "PortalLogoImageFile_Type"=@("New-IOTSWPortal")
+    "PortalType"=@("New-IOTSWPortal","Update-IOTSWPortal")
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
+    "SourceType"=@("Get-IOTSWDatasetList")
     "StorageType"=@("Write-IOTSWStorageConfiguration")
     "TargetResourceType"=@("Get-IOTSWActionList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
@@ -352,6 +387,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWAssetModelCompositeModel",
                "New-IOTSWBulkImportJob",
                "New-IOTSWDashboard",
+               "New-IOTSWDataset",
                "New-IOTSWGateway",
                "New-IOTSWPortal",
                "New-IOTSWProject",
@@ -360,6 +396,7 @@ $IOTSW_SelectMap = @{
                "Remove-IOTSWAssetModel",
                "Remove-IOTSWAssetModelCompositeModel",
                "Remove-IOTSWDashboard",
+               "Remove-IOTSWDataset",
                "Remove-IOTSWGateway",
                "Remove-IOTSWPortal",
                "Remove-IOTSWProject",
@@ -373,6 +410,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetProperty",
                "Get-IOTSWBulkImportJob",
                "Get-IOTSWDashboard",
+               "Get-IOTSWDataset",
                "Get-IOTSWDefaultEncryptionConfiguration",
                "Get-IOTSWGateway",
                "Get-IOTSWGatewayCapabilityConfiguration",
@@ -389,6 +427,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetPropertyValue",
                "Get-IOTSWAssetPropertyValueHistory",
                "Get-IOTSWInterpolatedAssetPropertyValue",
+               "Invoke-IOTSWAssistant",
                "Get-IOTSWAccessPolicyList",
                "Get-IOTSWActionList",
                "Get-IOTSWAssetModelCompositeModelList",
@@ -401,6 +440,7 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWBulkImportJobList",
                "Get-IOTSWCompositionRelationshipList",
                "Get-IOTSWDashboardList",
+               "Get-IOTSWDatasetList",
                "Get-IOTSWGatewayList",
                "Get-IOTSWPortalList",
                "Get-IOTSWProjectAssetList",
@@ -418,6 +458,7 @@ $IOTSW_SelectMap = @{
                "Update-IOTSWAssetModelCompositeModel",
                "Update-IOTSWAssetProperty",
                "Update-IOTSWDashboard",
+               "Update-IOTSWDataset",
                "Update-IOTSWGateway",
                "Update-IOTSWGatewayCapabilityConfiguration",
                "Update-IOTSWPortal",

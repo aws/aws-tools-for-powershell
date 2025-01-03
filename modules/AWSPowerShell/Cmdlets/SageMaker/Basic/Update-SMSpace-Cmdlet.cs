@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Updates the settings of a space.
+    /// 
+    ///  <note><para>
+    /// You can't edit the app type of a space in the <c>SpaceSettings</c>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SMSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_AppType
         /// <summary>
         /// <para>
-        /// <para>The type of app created within the space.</para>
+        /// <para>The type of app created within the space.</para><para>If using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html">
+        /// UpdateSpace</a> API, you can't change the app type of your space by specifying a different
+        /// value for this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JupyterServerAppSettings_CodeRepository
         /// <summary>
         /// <para>
-        /// <para>A list of Git repositories that SageMaker automatically displays to users for cloning
+        /// <para>A list of Git repositories that SageMaker AI automatically displays to users for cloning
         /// in the JupyterServer application.</para>
         /// </para>
         /// </summary>
@@ -81,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A file system, created by you, that you assign to a space for an Amazon SageMaker
-        /// Domain. Permitted users can access this file system in Amazon SageMaker Studio.</para>
+        /// AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KernelGatewayAppSettings_CustomImage
         /// <summary>
         /// <para>
-        /// <para>A list of custom SageMaker images that are configured to run as a KernelGateway app.</para>
+        /// <para>A list of custom SageMaker AI images that are configured to run as a KernelGateway
+        /// app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -309,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

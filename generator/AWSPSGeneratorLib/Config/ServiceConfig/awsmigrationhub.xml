@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>awsmigrationhub</C2jFilename>
     <AssemblyName>MigrationHub</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -24,6 +24,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateDiscoveredResource" Verb="Add" Noun="DiscoveredResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="DiscoveredResource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSourceResource" Verb="Add" Noun="SourceResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSourceResource" Verb="Remove" Noun="SourceResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportMigrationTask" Verb="Import" Noun="MigrationTask" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,7 +79,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMigrationTaskUpdates" OutputProperty="MigrationTaskUpdateList" Verb="Get" Noun="MigrationTaskUpdateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProgressUpdateStreams" OutputProperty="ProgressUpdateStreamSummaryList" Verb="Get" Noun="ProgressUpdateStream" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceResources" OutputProperty="SourceResourceList" Verb="Get" Noun="SourceResourceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,8 +104,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.MigrationHub.Model.CreatedArtifact</Type>
         <Type>Amazon.MigrationHub.Model.DiscoveredResource</Type>

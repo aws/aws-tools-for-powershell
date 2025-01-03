@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CaptureContentTypeHeader_CsvContentType
         /// <summary>
         /// <para>
-        /// <para>The list of all content type headers that Amazon SageMaker will treat as CSV and capture
-        /// accordingly.</para>
+        /// <para>The list of all content type headers that Amazon SageMaker AI will treat as CSV and
+        /// capture accordingly.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,10 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-        /// perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
-        /// Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this action must have
-        /// the <c>iam:PassRole</c> permission.</para></note>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume
+        /// to perform actions on your behalf. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
+        /// AI Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker AI, the caller of this action must
+        /// have the <c>iam:PassRole</c> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,8 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_InitialSamplingPercentage
         /// <summary>
         /// <para>
-        /// <para>The percentage of requests SageMaker will capture. A lower value is recommended for
-        /// Endpoints with high traffic.</para>
+        /// <para>The percentage of requests SageMaker AI will capture. A lower value is recommended
+        /// for Endpoints with high traffic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CaptureContentTypeHeader_JsonContentType
         /// <summary>
         /// <para>
-        /// <para>The list of all content type headers that SageMaker will treat as JSON and capture
+        /// <para>The list of all content type headers that SageMaker AI will treat as JSON and capture
         /// accordingly.</para>
         /// </para>
         /// </summary>
@@ -304,8 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataCaptureConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker uses
-        /// to encrypt the captured data at rest using Amazon S3 server-side encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of an Key Management Service key that SageMaker AI
+        /// uses to encrypt the captured data at rest using Amazon S3 server-side encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Alias name: <c>alias/ExampleAlias</c></para></li><li><para>Alias name ARN: <c>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

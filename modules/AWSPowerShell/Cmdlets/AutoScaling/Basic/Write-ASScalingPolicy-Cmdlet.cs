@@ -291,6 +291,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String CustomizedMetricSpecification_Namespace { get; set; }
         #endregion
         
+        #region Parameter CustomizedMetricSpecification_Period
+        /// <summary>
+        /// <para>
+        /// <para> The period of the metric in seconds. The default value is 60. Accepted values are
+        /// 10, 30, and 60. For high resolution metric, set the value to less than 60. For more
+        /// information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html">Create
+        /// a target tracking policy using high-resolution metrics for faster response</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetTrackingConfiguration_CustomizedMetricSpecification_Period")]
+        public System.Int32? CustomizedMetricSpecification_Period { get; set; }
+        #endregion
+        
         #region Parameter PolicyName
         /// <summary>
         /// <para>
@@ -521,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.CustomizedMetricSpecification_Metric = new List<Amazon.AutoScaling.Model.TargetTrackingMetricDataQuery>(this.CustomizedMetricSpecification_Metric);
             }
             context.CustomizedMetricSpecification_Namespace = this.CustomizedMetricSpecification_Namespace;
+            context.CustomizedMetricSpecification_Period = this.CustomizedMetricSpecification_Period;
             context.CustomizedMetricSpecification_Statistic = this.CustomizedMetricSpecification_Statistic;
             context.CustomizedMetricSpecification_Unit = this.CustomizedMetricSpecification_Unit;
             context.TargetTrackingConfiguration_DisableScaleIn = this.TargetTrackingConfiguration_DisableScaleIn;
@@ -754,6 +769,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.Namespace = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Namespace;
                 requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
             }
+            System.Int32? requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Period = null;
+            if (cmdletContext.CustomizedMetricSpecification_Period != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Period = cmdletContext.CustomizedMetricSpecification_Period.Value;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Period != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.Period = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Period.Value;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
             Amazon.AutoScaling.MetricStatistic requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Statistic = null;
             if (cmdletContext.CustomizedMetricSpecification_Statistic != null)
             {
@@ -871,6 +896,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String CustomizedMetricSpecification_MetricName { get; set; }
             public List<Amazon.AutoScaling.Model.TargetTrackingMetricDataQuery> CustomizedMetricSpecification_Metric { get; set; }
             public System.String CustomizedMetricSpecification_Namespace { get; set; }
+            public System.Int32? CustomizedMetricSpecification_Period { get; set; }
             public Amazon.AutoScaling.MetricStatistic CustomizedMetricSpecification_Statistic { get; set; }
             public System.String CustomizedMetricSpecification_Unit { get; set; }
             public System.Boolean? TargetTrackingConfiguration_DisableScaleIn { get; set; }

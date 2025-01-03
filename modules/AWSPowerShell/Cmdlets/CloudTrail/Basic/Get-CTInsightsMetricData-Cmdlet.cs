@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter DataType
         /// <summary>
         /// <para>
-        /// <para>Type of datapoints to return. Valid values are <c>NonZeroData</c> and <c>FillWithZeros</c>.
+        /// <para>Type of data points to return. Valid values are <c>NonZeroData</c> and <c>FillWithZeros</c>.
         /// The default is <c>NonZeroData</c>.</para>
         /// </para>
         /// </summary>
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of datapoints to return. Valid values are integers from 1 to 21600.
+        /// <para>The maximum number of data points to return. Valid values are integers from 1 to 21600.
         /// The default value is 21600.</para>
         /// </para>
         /// </summary>

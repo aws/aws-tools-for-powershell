@@ -127,6 +127,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.TagCondition[][] TagFilter_OrCondition { get; set; }
         #endregion
         
+        #region Parameter SearchCriteria_StateCondition
+        /// <summary>
+        /// <para>
+        /// <para>The state of the flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactFlowModuleState")]
+        public Amazon.Connect.ContactFlowModuleState SearchCriteria_StateCondition { get; set; }
+        #endregion
+        
+        #region Parameter SearchCriteria_StatusCondition
+        /// <summary>
+        /// <para>
+        /// <para>The status of the flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactFlowModuleStatus")]
+        public Amazon.Connect.ContactFlowModuleStatus SearchCriteria_StatusCondition { get; set; }
+        #endregion
+        
         #region Parameter TagCondition_TagKey
         /// <summary>
         /// <para>
@@ -255,6 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.SearchCriteria_OrCondition = new List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria>(this.SearchCriteria_OrCondition);
             }
+            context.SearchCriteria_StateCondition = this.SearchCriteria_StateCondition;
+            context.SearchCriteria_StatusCondition = this.SearchCriteria_StatusCondition;
             context.StringCondition_ComparisonType = this.StringCondition_ComparisonType;
             context.StringCondition_FieldName = this.StringCondition_FieldName;
             context.StringCondition_Value = this.StringCondition_Value;
@@ -320,6 +344,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchCriteria_searchCriteria_OrCondition != null)
             {
                 request.SearchCriteria.OrConditions = requestSearchCriteria_searchCriteria_OrCondition;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.ContactFlowModuleState requestSearchCriteria_searchCriteria_StateCondition = null;
+            if (cmdletContext.SearchCriteria_StateCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_StateCondition = cmdletContext.SearchCriteria_StateCondition;
+            }
+            if (requestSearchCriteria_searchCriteria_StateCondition != null)
+            {
+                request.SearchCriteria.StateCondition = requestSearchCriteria_searchCriteria_StateCondition;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.ContactFlowModuleStatus requestSearchCriteria_searchCriteria_StatusCondition = null;
+            if (cmdletContext.SearchCriteria_StatusCondition != null)
+            {
+                requestSearchCriteria_searchCriteria_StatusCondition = cmdletContext.SearchCriteria_StatusCondition;
+            }
+            if (requestSearchCriteria_searchCriteria_StatusCondition != null)
+            {
+                request.SearchCriteria.StatusCondition = requestSearchCriteria_searchCriteria_StatusCondition;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.StringCondition requestSearchCriteria_searchCriteria_StringCondition = null;
@@ -541,6 +585,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String NextToken { get; set; }
             public List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria> SearchCriteria_AndCondition { get; set; }
             public List<Amazon.Connect.Model.ContactFlowModuleSearchCriteria> SearchCriteria_OrCondition { get; set; }
+            public Amazon.Connect.ContactFlowModuleState SearchCriteria_StateCondition { get; set; }
+            public Amazon.Connect.ContactFlowModuleStatus SearchCriteria_StatusCondition { get; set; }
             public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
             public System.String StringCondition_FieldName { get; set; }
             public System.String StringCondition_Value { get; set; }

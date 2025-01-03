@@ -96,11 +96,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterSchedulerConfig" OutputProperty="*" Verb="New" Noun="ClusterSchedulerConfig" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="New" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCompilationJob" OutputProperty="CompilationJobArn" Verb="New" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateComputeQuota" OutputProperty="*" Verb="New" Noun="ComputeQuota" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -300,6 +308,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePartnerApp" OutputProperty="Arn" Verb="New" Noun="PartnerApp" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePartnerAppPresignedUrl" OutputProperty="Url" Verb="New" Noun="PartnerAppPresignedUrl" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePipeline" OutputProperty="PipelineArn" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -359,6 +375,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrainingPlan" OutputProperty="TrainingPlanArn" Verb="New" Noun="TrainingPlan" ShouldProcessTarget="TrainingPlanName" PipelineParameter="TrainingPlanOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransformJob" OutputProperty="TransformJobArn" Verb="New" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -411,11 +431,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterSchedulerConfig" Verb="Remove" Noun="ClusterSchedulerConfig" ShouldProcessTarget="ClusterSchedulerConfigId" PipelineParameter="ClusterSchedulerConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeRepository" Verb="Remove" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCompilationJob" Verb="Remove" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComputeQuota" Verb="Remove" Noun="ComputeQuota" ShouldProcessTarget="ComputeQuotaId" PipelineParameter="ComputeQuotaId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -551,6 +579,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePartnerApp" OutputProperty="Arn" Verb="Remove" Noun="PartnerApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePipeline" OutputProperty="PipelineArn" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -631,11 +663,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterSchedulerConfig" OutputProperty="*" Verb="Get" Noun="ClusterSchedulerConfig" PipelineParameter="ClusterSchedulerConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCodeRepository" OutputProperty="*" Verb="Get" Noun="CodeRepository" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCompilationJob" OutputProperty="*" Verb="Get" Noun="CompilationJob" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComputeQuota" OutputProperty="*" Verb="Get" Noun="ComputeQuota" PipelineParameter="ComputeQuotaId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -787,6 +827,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePartnerApp" OutputProperty="*" Verb="Get" Noun="PartnerApp" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribePipeline" OutputProperty="*" Verb="Get" Noun="Pipeline" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -820,6 +864,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTrainingJob" OutputProperty="*" Verb="Get" Noun="TrainingJob" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrainingPlan" OutputProperty="*" Verb="Get" Noun="TrainingPlan" PipelineParameter="TrainingPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -931,11 +979,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterSchedulerConfigs" OutputProperty="ClusterSchedulerConfigSummaries" Verb="Get" Noun="ClusterSchedulerConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCodeRepositories" OutputProperty="CodeRepositorySummaryList" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCompilationJobs" OutputProperty="CompilationJobSummaries" Verb="Get" Noun="CompilationJobList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComputeQuotas" OutputProperty="ComputeQuotaSummaries" Verb="Get" Noun="ComputeQuotaList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1115,6 +1171,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPartnerApps" OutputProperty="Summaries" Verb="Get" Noun="PartnerAppList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1171,6 +1231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainingPlans" OutputProperty="TrainingPlanSummaries" Verb="Get" Noun="TrainingPlanList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTransformJobs" OutputProperty="TransformJobSummaries" Verb="Get" Noun="TransformJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1216,6 +1280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Search" OutputProperty="Results" Verb="Search" Noun="Resource" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTrainingPlanOfferings" OutputProperty="TrainingPlanOfferings" Verb="Search" Noun="TrainingPlanOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1341,11 +1409,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClusterSchedulerConfig" OutputProperty="*" Verb="Update" Noun="ClusterSchedulerConfig" ShouldProcessTarget="ClusterSchedulerConfigId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterSoftware" OutputProperty="ClusterArn" Verb="Update" Noun="ClusterSoftware" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComputeQuota" OutputProperty="*" Verb="Update" Noun="ComputeQuota" ShouldProcessTarget="ComputeQuotaId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1450,6 +1526,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotebookInstanceLifecycleConfig" Verb="Update" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePartnerApp" OutputProperty="Arn" Verb="Update" Noun="PartnerApp" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

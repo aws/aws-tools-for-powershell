@@ -232,6 +232,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
         public System.String DefaultOutboundConfig_ConnectSourcePhoneNumberArn { get; set; }
         #endregion
         
+        #region Parameter EventTrigger_CustomerProfilesDomainArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_EventTrigger_CustomerProfilesDomainArn")]
+        public System.String EventTrigger_CustomerProfilesDomainArn { get; set; }
+        #endregion
+        
         #region Parameter Source_CustomerProfilesSegmentArn
         /// <summary>
         /// <para>
@@ -584,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             context.Schedule_RefreshFrequency = this.Schedule_RefreshFrequency;
             context.Schedule_StartTime = this.Schedule_StartTime;
             context.Source_CustomerProfilesSegmentArn = this.Source_CustomerProfilesSegmentArn;
+            context.EventTrigger_CustomerProfilesDomainArn = this.EventTrigger_CustomerProfilesDomainArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1315,6 +1327,31 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
                 request.Source.CustomerProfilesSegmentArn = requestSource_source_CustomerProfilesSegmentArn;
                 requestSourceIsNull = false;
             }
+            Amazon.ConnectCampaignsV2.Model.EventTrigger requestSource_source_EventTrigger = null;
+            
+             // populate EventTrigger
+            var requestSource_source_EventTriggerIsNull = true;
+            requestSource_source_EventTrigger = new Amazon.ConnectCampaignsV2.Model.EventTrigger();
+            System.String requestSource_source_EventTrigger_eventTrigger_CustomerProfilesDomainArn = null;
+            if (cmdletContext.EventTrigger_CustomerProfilesDomainArn != null)
+            {
+                requestSource_source_EventTrigger_eventTrigger_CustomerProfilesDomainArn = cmdletContext.EventTrigger_CustomerProfilesDomainArn;
+            }
+            if (requestSource_source_EventTrigger_eventTrigger_CustomerProfilesDomainArn != null)
+            {
+                requestSource_source_EventTrigger.CustomerProfilesDomainArn = requestSource_source_EventTrigger_eventTrigger_CustomerProfilesDomainArn;
+                requestSource_source_EventTriggerIsNull = false;
+            }
+             // determine if requestSource_source_EventTrigger should be set to null
+            if (requestSource_source_EventTriggerIsNull)
+            {
+                requestSource_source_EventTrigger = null;
+            }
+            if (requestSource_source_EventTrigger != null)
+            {
+                request.Source.EventTrigger = requestSource_source_EventTrigger;
+                requestSourceIsNull = false;
+            }
              // determine if request.Source should be set to null
             if (requestSourceIsNull)
             {
@@ -1419,6 +1456,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS2
             public System.String Schedule_RefreshFrequency { get; set; }
             public System.DateTime? Schedule_StartTime { get; set; }
             public System.String Source_CustomerProfilesSegmentArn { get; set; }
+            public System.String EventTrigger_CustomerProfilesDomainArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ConnectCampaignsV2.Model.CreateCampaignResponse, NewCCS2CampaignCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

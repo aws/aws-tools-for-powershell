@@ -175,11 +175,17 @@
     <Reference Include="AWSSDK.BackupGateway">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupGateway.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BackupSearch">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupSearch.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BCMDataExports">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMDataExports.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BCMPricingCalculator">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BCMPricingCalculator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Bedrock.dll</HintPath>
@@ -189,6 +195,12 @@
     </Reference>
     <Reference Include="AWSSDK.BedrockAgentRuntime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockAgentRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockDataAutomation">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockDataAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockDataAutomationRuntime">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockDataAutomationRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockRuntime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BedrockRuntime.dll</HintPath>
@@ -436,6 +448,9 @@
     <Reference Include="AWSSDK.Drs">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Drs.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DSQL">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DSQL.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
@@ -594,6 +609,9 @@
     </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InternetMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Invoicing">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Invoicing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoT.dll</HintPath>
@@ -835,14 +853,26 @@
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkFlowMonitor">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkFlowMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkMonitor">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NetworkMonitor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Notifications">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Notifications.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NotificationsContacts">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.NotificationsContacts.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OAM.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ObservabilityAdmin">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ObservabilityAdmin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Omics">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Omics.dll</HintPath>
@@ -1018,6 +1048,9 @@
     <Reference Include="AWSSDK.S3Outposts">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.S3Tables">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Tables.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMaker.dll</HintPath>
     </Reference>
@@ -1050,6 +1083,9 @@
     </Reference>
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityIR">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityIR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityLake">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityLake.dll</HintPath>
@@ -1335,11 +1371,17 @@
     <Reference Include="AWSSDK.BackupGateway">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BackupGateway.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.BackupSearch">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BackupSearch.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BCMDataExports">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMDataExports.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BCMPricingCalculator">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BCMPricingCalculator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Bedrock">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Bedrock.dll</HintPath>
@@ -1349,6 +1391,12 @@
     </Reference>
     <Reference Include="AWSSDK.BedrockAgentRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockAgentRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockDataAutomation">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockDataAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.BedrockDataAutomationRuntime">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockDataAutomationRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.BedrockRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BedrockRuntime.dll</HintPath>
@@ -1596,6 +1644,9 @@
     <Reference Include="AWSSDK.Drs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Drs.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DSQL">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DSQL.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
@@ -1754,6 +1805,9 @@
     </Reference>
     <Reference Include="AWSSDK.InternetMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InternetMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Invoicing">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Invoicing.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoT.dll</HintPath>
@@ -1995,14 +2049,26 @@
     <Reference Include="AWSSDK.NetworkFirewall">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFirewall.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkFlowMonitor">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkFlowMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.NetworkManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.NetworkMonitor">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NetworkMonitor.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Notifications">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Notifications.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.NotificationsContacts">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.NotificationsContacts.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OAM.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ObservabilityAdmin">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ObservabilityAdmin.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Omics">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Omics.dll</HintPath>
@@ -2178,6 +2244,9 @@
     <Reference Include="AWSSDK.S3Outposts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.S3Tables">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Tables.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMaker.dll</HintPath>
     </Reference>
@@ -2210,6 +2279,9 @@
     </Reference>
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityIR">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityIR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityLake">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityLake.dll</HintPath>

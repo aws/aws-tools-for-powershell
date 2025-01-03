@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster</para>
+        /// <para>The name of the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

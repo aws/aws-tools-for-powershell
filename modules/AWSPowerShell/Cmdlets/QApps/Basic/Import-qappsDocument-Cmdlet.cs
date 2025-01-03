@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         #region Parameter CardId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the card the file is associated with, if applicable.</para>
+        /// <para>The unique identifier of the card the file is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Whether the file is associated with an Q App definition or a specific Q App session.</para>
+        /// <para>Whether the file is associated with a Q App definition or a specific Q App session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

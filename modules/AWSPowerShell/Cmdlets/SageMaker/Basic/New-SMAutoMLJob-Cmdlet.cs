@@ -32,20 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// An AutoML job in SageMaker is a fully automated process that allows you to build machine
-    /// learning models with minimal effort and machine learning expertise. When initiating
+    /// An AutoML job in SageMaker AI is a fully automated process that allows you to build
+    /// machine learning models with minimal effort and machine learning expertise. When initiating
     /// an AutoML job, you provide your data and optionally specify parameters tailored to
-    /// your use case. SageMaker then automates the entire model development lifecycle, including
-    /// data preprocessing, model training, tuning, and evaluation. AutoML jobs are designed
-    /// to simplify and accelerate the model building process by automating various tasks
-    /// and exploring different combinations of machine learning algorithms, data preprocessing
+    /// your use case. SageMaker AI then automates the entire model development lifecycle,
+    /// including data preprocessing, model training, tuning, and evaluation. AutoML jobs
+    /// are designed to simplify and accelerate the model building process by automating various
+    /// tasks and exploring different combinations of machine learning algorithms, data preprocessing
     /// techniques, and hyperparameter values. The output of an AutoML job comprises one or
-    /// more trained models ready for deployment and inference. Additionally, SageMaker AutoML
-    /// jobs generate a candidate model leaderboard, allowing you to select the best-performing
+    /// more trained models ready for deployment and inference. Additionally, SageMaker AI
+    /// AutoML jobs generate a candidate model leaderboard, allowing you to select the best-performing
     /// model for deployment.
     /// </para><para>
     /// For more information about AutoML jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html</a>
-    /// in the SageMaker developer guide.
+    /// in the SageMaker AI developer guide.
     /// </para><note><para>
     /// We recommend using the new versions <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>,

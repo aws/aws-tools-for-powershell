@@ -161,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
         #endregion
         
+        #region Parameter EventTriggerName
+        /// <summary>
+        /// <para>
+        /// <para>A list of unique names for active event triggers associated with the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventTriggerNames")]
+        public System.String[] EventTriggerName { get; set; }
+        #endregion
+        
         #region Parameter Scheduled_FirstExecutionFrom
         /// <summary>
         /// <para>
@@ -437,6 +448,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EventTriggerName != null)
+            {
+                context.EventTriggerName = new List<System.String>(this.EventTriggerName);
+            }
             context.FlowDefinition_Description = this.FlowDefinition_Description;
             context.FlowDefinition_FlowName = this.FlowDefinition_FlowName;
             context.FlowDefinition_KmsArn = this.FlowDefinition_KmsArn;
@@ -501,6 +516,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.EventTriggerName != null)
+            {
+                request.EventTriggerNames = cmdletContext.EventTriggerName;
             }
             
              // populate FlowDefinition
@@ -988,6 +1007,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
+            public List<System.String> EventTriggerName { get; set; }
             public System.String FlowDefinition_Description { get; set; }
             public System.String FlowDefinition_FlowName { get; set; }
             public System.String FlowDefinition_KmsArn { get; set; }

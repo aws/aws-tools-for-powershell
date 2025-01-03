@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Creates a definition for a job that monitors model quality and drift. For information
     /// about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon
-    /// SageMaker Model Monitor</a>.
+    /// SageMaker AI Model Monitor</a>.
     /// </summary>
     [Cmdlet("New", "SMModelQualityJobDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -306,8 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelQualityJobOutputConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key that Amazon SageMaker uses to encrypt the model
-        /// artifacts at rest using Amazon S3 server-side encryption.</para>
+        /// <para>The Key Management Service (KMS) key that Amazon SageMaker AI uses to encrypt the
+        /// model artifacts at rest using Amazon S3 server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -472,8 +472,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-        /// perform tasks on your behalf.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume
+        /// to perform tasks on your behalf.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -630,8 +630,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterConfig_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Key Management Service (KMS) key that Amazon SageMaker uses to encrypt data on
-        /// the storage volume attached to the ML compute instance(s) that run the model monitoring
+        /// <para>The Key Management Service (KMS) key that Amazon SageMaker AI uses to encrypt data
+        /// on the storage volume attached to the ML compute instance(s) that run the model monitoring
         /// job.</para>
         /// </para>
         /// </summary>

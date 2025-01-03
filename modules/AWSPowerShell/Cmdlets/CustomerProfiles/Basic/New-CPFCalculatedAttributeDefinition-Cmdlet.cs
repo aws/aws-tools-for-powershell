@@ -136,6 +136,29 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String AttributeDetails_Expression { get; set; }
         #endregion
         
+        #region Parameter Filter_Group
+        /// <summary>
+        /// <para>
+        /// <para>Holds the list of Filter groups within the Filter definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Groups")]
+        public Amazon.CustomerProfiles.Model.FilterGroup[] Filter_Group { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Include
+        /// <summary>
+        /// <para>
+        /// <para>Define whether to include or exclude objects for Calculated Attributed calculation
+        /// that fit the filter groups criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.Include")]
+        public Amazon.CustomerProfiles.Include Filter_Include { get; set; }
+        #endregion
+        
         #region Parameter Conditions_ObjectCount
         /// <summary>
         /// <para>
@@ -300,6 +323,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Filter_Group != null)
+            {
+                context.Filter_Group = new List<Amazon.CustomerProfiles.Model.FilterGroup>(this.Filter_Group);
+            }
+            context.Filter_Include = this.Filter_Include;
             context.Statistic = this.Statistic;
             #if MODULAR
             if (this.Statistic == null && ParameterWasBound(nameof(this.Statistic)))
@@ -465,6 +493,35 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.DomainName = cmdletContext.DomainName;
             }
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.CustomerProfiles.Model.Filter();
+            List<Amazon.CustomerProfiles.Model.FilterGroup> requestFilter_filter_Group = null;
+            if (cmdletContext.Filter_Group != null)
+            {
+                requestFilter_filter_Group = cmdletContext.Filter_Group;
+            }
+            if (requestFilter_filter_Group != null)
+            {
+                request.Filter.Groups = requestFilter_filter_Group;
+                requestFilterIsNull = false;
+            }
+            Amazon.CustomerProfiles.Include requestFilter_filter_Include = null;
+            if (cmdletContext.Filter_Include != null)
+            {
+                requestFilter_filter_Include = cmdletContext.Filter_Include;
+            }
+            if (requestFilter_filter_Include != null)
+            {
+                request.Filter.Include = requestFilter_filter_Include;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.Statistic != null)
             {
                 request.Statistic = cmdletContext.Statistic;
@@ -545,6 +602,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String DomainName { get; set; }
+            public List<Amazon.CustomerProfiles.Model.FilterGroup> Filter_Group { get; set; }
+            public Amazon.CustomerProfiles.Include Filter_Include { get; set; }
             public Amazon.CustomerProfiles.Statistic Statistic { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.CreateCalculatedAttributeDefinitionResponse, NewCPFCalculatedAttributeDefinitionCmdlet, object> Select { get; set; } =

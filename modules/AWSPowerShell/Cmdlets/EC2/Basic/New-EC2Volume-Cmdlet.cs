@@ -151,6 +151,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String OutpostArn { get; set; }
         #endregion
         
+        #region Parameter Operator_Principal
+        /// <summary>
+        /// <para>
+        /// <para>The service provider that manages the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operator_Principal { get; set; }
+        #endregion
+        
         #region Parameter Size
         /// <summary>
         /// <para>
@@ -274,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
             context.MultiAttachEnabled = this.MultiAttachEnabled;
+            context.Operator_Principal = this.Operator_Principal;
             context.OutpostArn = this.OutpostArn;
             context.Size = this.Size;
             context.SnapshotId = this.SnapshotId;
@@ -322,6 +333,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.MultiAttachEnabled != null)
             {
                 request.MultiAttachEnabled = cmdletContext.MultiAttachEnabled.Value;
+            }
+            
+             // populate Operator
+            var requestOperatorIsNull = true;
+            request.Operator = new Amazon.EC2.Model.OperatorRequest();
+            System.String requestOperator_operator_Principal = null;
+            if (cmdletContext.Operator_Principal != null)
+            {
+                requestOperator_operator_Principal = cmdletContext.Operator_Principal;
+            }
+            if (requestOperator_operator_Principal != null)
+            {
+                request.Operator.Principal = requestOperator_operator_Principal;
+                requestOperatorIsNull = false;
+            }
+             // determine if request.Operator should be set to null
+            if (requestOperatorIsNull)
+            {
+                request.Operator = null;
             }
             if (cmdletContext.OutpostArn != null)
             {
@@ -414,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Boolean? MultiAttachEnabled { get; set; }
+            public System.String Operator_Principal { get; set; }
             public System.String OutpostArn { get; set; }
             public System.Int32? Size { get; set; }
             public System.String SnapshotId { get; set; }

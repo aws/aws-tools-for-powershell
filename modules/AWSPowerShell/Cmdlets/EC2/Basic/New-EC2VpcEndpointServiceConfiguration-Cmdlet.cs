@@ -116,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] SupportedIpAddressType { get; set; }
         #endregion
         
+        #region Parameter SupportedRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Regions from which service consumers can access the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedRegions")]
+        public System.String[] SupportedRegion { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -196,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SupportedIpAddressType = new List<System.String>(this.SupportedIpAddressType);
             }
+            if (this.SupportedRegion != null)
+            {
+                context.SupportedRegion = new List<System.String>(this.SupportedRegion);
+            }
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -239,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SupportedIpAddressType != null)
             {
                 request.SupportedIpAddressTypes = cmdletContext.SupportedIpAddressType;
+            }
+            if (cmdletContext.SupportedRegion != null)
+            {
+                request.SupportedRegions = cmdletContext.SupportedRegion;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -311,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> NetworkLoadBalancerArn { get; set; }
             public System.String PrivateDnsName { get; set; }
             public List<System.String> SupportedIpAddressType { get; set; }
+            public List<System.String> SupportedRegion { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcEndpointServiceConfigurationResponse, NewEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

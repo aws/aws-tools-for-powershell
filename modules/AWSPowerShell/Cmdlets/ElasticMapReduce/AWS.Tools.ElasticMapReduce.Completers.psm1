@@ -195,6 +195,16 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.ScalingStrategy
+        {
+            ($_ -eq "Start-EMRJobFlow/ManagedScalingPolicy_ScalingStrategy") -Or
+            ($_ -eq "Write-EMRManagedScalingPolicy/ManagedScalingPolicy_ScalingStrategy")
+        }
+        {
+            $v = "ADVANCED","DEFAULT"
+            break
+        }
+
         # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
         {
             ($_ -eq "Add-EMRInstanceFleet/SpotResizeSpecification_AllocationStrategy") -Or
@@ -240,6 +250,7 @@ $EMR_map = @{
     "InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet")
     "InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
+    "ManagedScalingPolicy_ScalingStrategy"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
     "OnDemandResizeSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
     "OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "OutputNotebookFormat"=@("Start-EMRNotebookExecution")

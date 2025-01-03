@@ -28,8 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lists the tags for the specified trails, event data stores, or channels in the current
-    /// Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the tags for the specified trails, event data stores, dashboards, or channels
+    /// in the current Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTResourceTag")]
     [OutputType("Amazon.CloudTrail.Model.ResourceTag")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceIdList
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of trail, event data store, or channel ARNs whose tags will be listed.
-        /// The list has a limit of 20 ARNs.</para><para> Example trail ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para><para>Example event data store ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>Example channel ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
+        /// <para>Specifies a list of trail, event data store, dashboard, or channel ARNs whose tags
+        /// will be listed. The list has a limit of 20 ARNs.</para><para> Example trail ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</c></para><para>Example event data store ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>Example dashboard ARN format: <c>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</c></para><para>Example channel ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

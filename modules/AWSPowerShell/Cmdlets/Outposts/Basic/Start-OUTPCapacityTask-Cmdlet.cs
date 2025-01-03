@@ -28,8 +28,8 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Starts the specified capacity task. You can have one active capacity task per order
-    /// or Outpost.
+    /// Starts the specified capacity task. You can have one active capacity task for each
+    /// order and each Outpost.
     /// </summary>
     [Cmdlet("Start", "OUTPCapacityTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Outposts.Model.StartCapacityTaskResponse")]

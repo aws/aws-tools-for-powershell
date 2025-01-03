@@ -28,9 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Terminates the ML compute instance. Before terminating the instance, SageMaker disconnects
-    /// the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
-    /// stops charging you for the ML compute instance when you call <c>StopNotebookInstance</c>.
+    /// Terminates the ML compute instance. Before terminating the instance, SageMaker AI
+    /// disconnects the ML storage volume from it. SageMaker AI preserves the ML storage volume.
+    /// SageMaker AI stops charging you for the ML compute instance when you call <c>StopNotebookInstance</c>.
     /// 
     ///  
     /// <para>

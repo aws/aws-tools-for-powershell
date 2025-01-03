@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Servicesservice, Amazon Simple Notification Service might place your account in the
+    /// Services service, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -87,12 +87,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AdminCreateUserConfig_AllowAdminCreateUserOnly
         /// <summary>
         /// <para>
-        /// <para>Set to <c>True</c> if only the administrator is allowed to create user profiles. Set
-        /// to <c>False</c> if users can sign themselves up via an app.</para>
+        /// <para>The setting for allowing self-service sign-up. When <c>true</c>, only administrators
+        /// can create new user profiles. When <c>false</c>, users can register themselves and
+        /// create a new user profile with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? AdminCreateUserConfig_AllowAdminCreateUserOnly { get; set; }
+        #endregion
+        
+        #region Parameter SignInPolicy_AllowedFirstAuthFactor
+        /// <summary>
+        /// <para>
+        /// <para>The sign-in methods that a user pool supports as the first factor. You can permit
+        /// users to start authentication with a standard username and password, or with other
+        /// one-time password and hardware factors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Policies_SignInPolicy_AllowedFirstAuthFactors")]
+        public System.String[] SignInPolicy_AllowedFirstAuthFactor { get; set; }
         #endregion
         
         #region Parameter UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate
@@ -162,7 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_CreateAuthChallenge
         /// <summary>
         /// <para>
-        /// <para>Creates an authentication challenge.</para>
+        /// <para>The configuration of a create auth challenge Lambda trigger, one of three triggers
+        /// in the sequence of the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">custom
+        /// authentication challenge triggers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_CustomMessage
         /// <summary>
         /// <para>
-        /// <para>A custom Message Lambda trigger.</para>
+        /// <para>A custom message Lambda trigger. This trigger is an opportunity to customize all SMS
+        /// and email messages from your user pool. When a custom message trigger is active, your
+        /// user pool routes all messages to a Lambda function that returns a runtime-customized
+        /// message subject and body for your user pool to deliver to a user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter VerificationMessageTemplate_DefaultEmailOption
         /// <summary>
         /// <para>
-        /// <para>The default email option.</para>
+        /// <para>The configuration of verification emails to contain a clickable link or a verification
+        /// code.</para><para>For link, your template body must contain link text in the format <c>{##Click here##}</c>.
+        /// "Click here" in the example is a customizable string. For code, your template body
+        /// must contain a code placeholder in the format <c>{####}</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_DefineAuthChallenge
         /// <summary>
         /// <para>
-        /// <para>Defines the authentication challenge.</para>
+        /// <para>The configuration of a define auth challenge Lambda trigger, one of three triggers
+        /// in the sequence of the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">custom
+        /// authentication challenge triggers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,7 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// authentication (MFA), Amazon Cognito creates a role with the required permissions
         /// and a trust policy that demonstrates use of the <c>ExternalId</c>.</para><para>For more information about the <c>ExternalId</c> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
         /// to use an external ID when granting access to your Amazon Web Services resources to
-        /// a third party</a></para>
+        /// a third party</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,9 +433,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_KMSKeyID
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an <a href="/kms/latest/developerguide/concepts.html#master_keys">KMS
+        /// <para>The ARN of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">KMS
         /// key</a>. Amazon Cognito uses the key to encrypt codes and temporary passwords sent
-        /// to <c>CustomEmailSender</c> and <c>CustomSMSSender</c>.</para>
+        /// to custom sender Lambda triggers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -534,10 +559,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32? PasswordPolicy_PasswordHistorySize { get; set; }
         #endregion
         
+        #region Parameter PoolName
+        /// <summary>
+        /// <para>
+        /// <para>The updated name of your user pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PoolName { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig_PostAuthentication
         /// <summary>
         /// <para>
-        /// <para>A post-authentication Lambda trigger.</para>
+        /// <para>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html">post
+        /// authentication Lambda trigger</a> in a user pool. This trigger can take custom actions
+        /// after a user signs in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -547,7 +584,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PostConfirmation
         /// <summary>
         /// <para>
-        /// <para>A post-confirmation Lambda trigger.</para>
+        /// <para>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html">post
+        /// confirmation Lambda trigger</a> in a user pool. This trigger can take custom actions
+        /// after a user confirms their user account and their email address or phone number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -557,7 +596,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PreAuthentication
         /// <summary>
         /// <para>
-        /// <para>A pre-authentication Lambda trigger.</para>
+        /// <para>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html">pre
+        /// authentication trigger</a> in a user pool. This trigger can evaluate and modify user
+        /// sign-in events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -567,7 +608,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PreSignUp
         /// <summary>
         /// <para>
-        /// <para>A pre-registration Lambda trigger.</para>
+        /// <para>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">pre
+        /// sign-up Lambda trigger</a> in a user pool. This trigger evaluates new users and can
+        /// bypass confirmation, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link
+        /// a federated user profile</a>, or block sign-up requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -577,10 +621,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_PreTokenGeneration
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda
-        /// trigger.</para><para>Set this parameter for legacy purposes. If you also set an ARN in <c>PreTokenGenerationConfig</c>,
+        /// <para>The legacy configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html">pre
+        /// token generation Lambda trigger</a> in a user pool.</para><para>Set this parameter for legacy purposes. If you also set an ARN in <c>PreTokenGenerationConfig</c>,
         /// its value must be identical to <c>PreTokenGeneration</c>. For new instances of pre
-        /// token generation triggers, set the <c>LambdaArn</c> of <c>PreTokenGenerationConfig</c>.</para><para>You can set <code /></para>
+        /// token generation triggers, set the <c>LambdaArn</c> of <c>PreTokenGenerationConfig</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -590,7 +634,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccountRecoverySetting_RecoveryMechanism
         /// <summary>
         /// <para>
-        /// <para>The list of <c>RecoveryOptionTypes</c>.</para>
+        /// <para>The list of options and priorities for user message delivery in forgot-password operations.
+        /// Sets or displays user pool preferences for email or SMS message priority, whether
+        /// users should fall back to a second delivery method, and whether passwords should only
+        /// be reset by administrators.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -611,8 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PasswordPolicy_RequireLowercase
         /// <summary>
         /// <para>
-        /// <para>In the password policy that you have set, refers to whether you have required users
-        /// to use at least one lowercase letter in their password.</para>
+        /// <para>The requirement in a password policy that users must include at least one lowercase
+        /// letter in their password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -623,8 +670,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PasswordPolicy_RequireNumber
         /// <summary>
         /// <para>
-        /// <para>In the password policy that you have set, refers to whether you have required users
-        /// to use at least one number in their password.</para>
+        /// <para>The requirement in a password policy that users must include at least one number in
+        /// their password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -635,8 +682,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PasswordPolicy_RequireSymbol
         /// <summary>
         /// <para>
-        /// <para>In the password policy that you have set, refers to whether you have required users
-        /// to use at least one symbol in their password.</para>
+        /// <para>The requirement in a password policy that users must include at least one symbol in
+        /// their password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -647,8 +694,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PasswordPolicy_RequireUppercase
         /// <summary>
         /// <para>
-        /// <para>In the password policy that you have set, refers to whether you have required users
-        /// to use at least one uppercase letter in their password.</para>
+        /// <para>The requirement in a password policy that users must include at least one uppercase
+        /// letter in their password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -765,12 +812,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AdminCreateUserConfig_UnusedAccountValidityDay
         /// <summary>
         /// <para>
-        /// <para>The user account expiration limit, in days, after which a new account that hasn't
-        /// signed in is no longer usable. To reset the account after that time limit, you must
-        /// call <c>AdminCreateUser</c> again, specifying <c>"RESEND"</c> for the <c>MessageAction</c>
-        /// parameter. The default value for this parameter is 7.</para><note><para>If you set a value for <c>TemporaryPasswordValidityDays</c> in <c>PasswordPolicy</c>,
-        /// that value will be used, and <c>UnusedAccountValidityDays</c> will be no longer be
-        /// an available parameter for that user pool.</para></note>
+        /// <para>This parameter is no longer in use. Configure the duration of temporary passwords
+        /// with the <c>TemporaryPasswordValidityDays</c> parameter of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html">PasswordPolicyType</a>.
+        /// For older user pools that have a <c>UnusedAccountValidityDays</c> configuration, that
+        /// value is effective until you set a value for <c>TemporaryPasswordValidityDays</c>.</para><para>The password expiration limit in days for administrator-created users. When this time
+        /// expires, the user can't sign in with their temporary password. To reset the account
+        /// after that time limit, you must call <c>AdminCreateUser</c> again, specifying <c>RESEND</c>
+        /// for the <c>MessageAction</c> parameter. </para><para>The default value for this parameter is 7.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -781,7 +829,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LambdaConfig_UserMigration
         /// <summary>
         /// <para>
-        /// <para>The user migration Lambda config type.</para>
+        /// <para>The configuration of a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-migrate-user.html">migrate
+        /// user Lambda trigger</a> in a user pool. This trigger can create user profiles when
+        /// users sign in or attempt to reset their password with credentials that don't exist
+        /// yet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -791,7 +842,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool you want to update.</para>
+        /// <para>The ID of the user pool you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -818,10 +869,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Collections.Hashtable UserPoolTag { get; set; }
         #endregion
         
+        #region Parameter UserPoolTier
+        /// <summary>
+        /// <para>
+        /// <para>The user pool <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature
+        /// plan</a>, or tier. This parameter determines the eligibility of the user pool for
+        /// features like managed login, access-token customization, and threat protection. Defaults
+        /// to <c>ESSENTIALS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.UserPoolTierType")]
+        public Amazon.CognitoIdentityProvider.UserPoolTierType UserPoolTier { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig_VerifyAuthChallengeResponse
         /// <summary>
         /// <para>
-        /// <para>Verifies the authentication challenge response.</para>
+        /// <para>The configuration of a verify auth challenge Lambda trigger, one of three triggers
+        /// in the sequence of the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">custom
+        /// authentication challenge triggers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -917,6 +984,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.PasswordPolicy_RequireSymbol = this.PasswordPolicy_RequireSymbol;
             context.PasswordPolicy_RequireUppercase = this.PasswordPolicy_RequireUppercase;
             context.PasswordPolicy_TemporaryPasswordValidityDay = this.PasswordPolicy_TemporaryPasswordValidityDay;
+            if (this.SignInPolicy_AllowedFirstAuthFactor != null)
+            {
+                context.SignInPolicy_AllowedFirstAuthFactor = new List<System.String>(this.SignInPolicy_AllowedFirstAuthFactor);
+            }
+            context.PoolName = this.PoolName;
             context.SmsAuthenticationMessage = this.SmsAuthenticationMessage;
             context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
@@ -943,6 +1015,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     context.UserPoolTag.Add((String)hashKey, (System.String)(this.UserPoolTag[hashKey]));
                 }
             }
+            context.UserPoolTier = this.UserPoolTier;
             context.VerificationMessageTemplate_DefaultEmailOption = this.VerificationMessageTemplate_DefaultEmailOption;
             context.VerificationMessageTemplate_EmailMessage = this.VerificationMessageTemplate_EmailMessage;
             context.VerificationMessageTemplate_EmailMessageByLink = this.VerificationMessageTemplate_EmailMessageByLink;
@@ -1394,6 +1467,31 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
              // populate Policies
             var requestPoliciesIsNull = true;
             request.Policies = new Amazon.CognitoIdentityProvider.Model.UserPoolPolicyType();
+            Amazon.CognitoIdentityProvider.Model.SignInPolicyType requestPolicies_policies_SignInPolicy = null;
+            
+             // populate SignInPolicy
+            var requestPolicies_policies_SignInPolicyIsNull = true;
+            requestPolicies_policies_SignInPolicy = new Amazon.CognitoIdentityProvider.Model.SignInPolicyType();
+            List<System.String> requestPolicies_policies_SignInPolicy_signInPolicy_AllowedFirstAuthFactor = null;
+            if (cmdletContext.SignInPolicy_AllowedFirstAuthFactor != null)
+            {
+                requestPolicies_policies_SignInPolicy_signInPolicy_AllowedFirstAuthFactor = cmdletContext.SignInPolicy_AllowedFirstAuthFactor;
+            }
+            if (requestPolicies_policies_SignInPolicy_signInPolicy_AllowedFirstAuthFactor != null)
+            {
+                requestPolicies_policies_SignInPolicy.AllowedFirstAuthFactors = requestPolicies_policies_SignInPolicy_signInPolicy_AllowedFirstAuthFactor;
+                requestPolicies_policies_SignInPolicyIsNull = false;
+            }
+             // determine if requestPolicies_policies_SignInPolicy should be set to null
+            if (requestPolicies_policies_SignInPolicyIsNull)
+            {
+                requestPolicies_policies_SignInPolicy = null;
+            }
+            if (requestPolicies_policies_SignInPolicy != null)
+            {
+                request.Policies.SignInPolicy = requestPolicies_policies_SignInPolicy;
+                requestPoliciesIsNull = false;
+            }
             Amazon.CognitoIdentityProvider.Model.PasswordPolicyType requestPolicies_policies_PasswordPolicy = null;
             
              // populate PasswordPolicy
@@ -1483,6 +1581,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestPoliciesIsNull)
             {
                 request.Policies = null;
+            }
+            if (cmdletContext.PoolName != null)
+            {
+                request.PoolName = cmdletContext.PoolName;
             }
             if (cmdletContext.SmsAuthenticationMessage != null)
             {
@@ -1601,6 +1703,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.UserPoolTag != null)
             {
                 request.UserPoolTags = cmdletContext.UserPoolTag;
+            }
+            if (cmdletContext.UserPoolTier != null)
+            {
+                request.UserPoolTier = cmdletContext.UserPoolTier;
             }
             
              // populate VerificationMessageTemplate
@@ -1774,6 +1880,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.Boolean? PasswordPolicy_RequireSymbol { get; set; }
             public System.Boolean? PasswordPolicy_RequireUppercase { get; set; }
             public System.Int32? PasswordPolicy_TemporaryPasswordValidityDay { get; set; }
+            public List<System.String> SignInPolicy_AllowedFirstAuthFactor { get; set; }
+            public System.String PoolName { get; set; }
             public System.String SmsAuthenticationMessage { get; set; }
             public System.String SmsConfiguration_ExternalId { get; set; }
             public System.String SmsConfiguration_SnsCallerArn { get; set; }
@@ -1784,6 +1892,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public Amazon.CognitoIdentityProvider.AdvancedSecurityModeType UserPoolAddOns_AdvancedSecurityMode { get; set; }
             public System.String UserPoolId { get; set; }
             public Dictionary<System.String, System.String> UserPoolTag { get; set; }
+            public Amazon.CognitoIdentityProvider.UserPoolTierType UserPoolTier { get; set; }
             public Amazon.CognitoIdentityProvider.DefaultEmailOptionType VerificationMessageTemplate_DefaultEmailOption { get; set; }
             public System.String VerificationMessageTemplate_EmailMessage { get; set; }
             public System.String VerificationMessageTemplate_EmailMessageByLink { get; set; }

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter SubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the subnet group to delete</para>
+        /// <para>The name of the subnet group to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

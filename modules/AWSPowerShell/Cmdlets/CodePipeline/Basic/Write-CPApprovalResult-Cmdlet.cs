@@ -134,7 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>The system-generated token used to identify a unique approval request. The token for
         /// each open approval request can be obtained using the <a>GetPipelineState</a> action.
         /// It is used to validate that the approval request corresponding to this token is still
-        /// valid.</para>
+        /// valid.</para><important><para>For a pipeline where the execution mode is set to PARALLEL, the token required to
+        /// approve/reject approval request as detailed above is not available. Instead, use the
+        /// <c>externalExecutionId</c> from the <c>GetPipelineState</c> action as the token in
+        /// the approval request.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

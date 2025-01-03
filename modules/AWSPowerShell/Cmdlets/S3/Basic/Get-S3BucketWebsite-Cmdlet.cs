@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Returns the website configuration for a bucket. To host website on Amazon S3, you
     /// can configure a bucket as website by adding a website configuration. For more information

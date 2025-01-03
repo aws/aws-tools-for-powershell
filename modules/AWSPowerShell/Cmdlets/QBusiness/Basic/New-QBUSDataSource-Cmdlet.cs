@@ -143,6 +143,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter ImageExtractionConfiguration_ImageExtractionStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specify whether to extract semantic meaning from images and visuals from documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MediaExtractionConfiguration_ImageExtractionConfiguration_ImageExtractionStatus")]
+        [AWSConstantClassSource("Amazon.QBusiness.ImageExtractionStatus")]
+        public Amazon.QBusiness.ImageExtractionStatus ImageExtractionConfiguration_ImageExtractionStatus { get; set; }
+        #endregion
+        
         #region Parameter IndexId
         /// <summary>
         /// <para>
@@ -547,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImageExtractionConfiguration_ImageExtractionStatus = this.ImageExtractionConfiguration_ImageExtractionStatus;
             context.RoleArn = this.RoleArn;
             context.SyncSchedule = this.SyncSchedule;
             if (this.Tag != null)
@@ -890,6 +903,40 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.IndexId = cmdletContext.IndexId;
             }
+            
+             // populate MediaExtractionConfiguration
+            var requestMediaExtractionConfigurationIsNull = true;
+            request.MediaExtractionConfiguration = new Amazon.QBusiness.Model.MediaExtractionConfiguration();
+            Amazon.QBusiness.Model.ImageExtractionConfiguration requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration = null;
+            
+             // populate ImageExtractionConfiguration
+            var requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfigurationIsNull = true;
+            requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration = new Amazon.QBusiness.Model.ImageExtractionConfiguration();
+            Amazon.QBusiness.ImageExtractionStatus requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration_imageExtractionConfiguration_ImageExtractionStatus = null;
+            if (cmdletContext.ImageExtractionConfiguration_ImageExtractionStatus != null)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration_imageExtractionConfiguration_ImageExtractionStatus = cmdletContext.ImageExtractionConfiguration_ImageExtractionStatus;
+            }
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration_imageExtractionConfiguration_ImageExtractionStatus != null)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration.ImageExtractionStatus = requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration_imageExtractionConfiguration_ImageExtractionStatus;
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfigurationIsNull = false;
+            }
+             // determine if requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration should be set to null
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfigurationIsNull)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration = null;
+            }
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration != null)
+            {
+                request.MediaExtractionConfiguration.ImageExtractionConfiguration = requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration;
+                requestMediaExtractionConfigurationIsNull = false;
+            }
+             // determine if request.MediaExtractionConfiguration should be set to null
+            if (requestMediaExtractionConfigurationIsNull)
+            {
+                request.MediaExtractionConfiguration = null;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -1017,6 +1064,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String PreExtractionHookConfiguration_RoleArn { get; set; }
             public System.String PreExtractionHookConfiguration_S3BucketName { get; set; }
             public System.String IndexId { get; set; }
+            public Amazon.QBusiness.ImageExtractionStatus ImageExtractionConfiguration_ImageExtractionStatus { get; set; }
             public System.String RoleArn { get; set; }
             public System.String SyncSchedule { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }

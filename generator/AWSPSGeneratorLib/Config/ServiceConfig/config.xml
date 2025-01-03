@@ -22,6 +22,10 @@
         <Property>TotalDiscoveredResources</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateResourceTypes" OutputProperty="ConfigurationRecorder" Verb="Add" Noun="ResourceType" ShouldProcessTarget="ConfigurationRecorderArn" PipelineParameter="ConfigurationRecorderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetAggregateResourceConfig" OutputProperty="*" Verb="Get" Noun="AggregateResourceConfigBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +87,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRetentionConfiguration" Verb="Remove" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionConfigurationName" PipelineParameter="RetentionConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceLinkedConfigurationRecorder" OutputProperty="*" Verb="Remove" Noun="ServiceLinkedConfigurationRecorder" ShouldProcessTarget="ServicePrincipal" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,6 +202,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResourceTypes" OutputProperty="ConfigurationRecorder" Verb="Remove" Noun="ResourceType" ShouldProcessTarget="ConfigurationRecorderArn" PipelineParameter="ConfigurationRecorderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAggregateComplianceDetailsByConfigRule" OutputProperty="AggregateEvaluationResults" Verb="Get" Noun="AggregateComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -274,6 +286,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationRecorders" OutputProperty="ConfigurationRecorderSummaries" Verb="Get" Noun="ConfigurationRecorderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListConformancePackComplianceScores" OutputProperty="ConformancePackComplianceScores" Verb="Get" Noun="ConformancePackComplianceScoreList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -351,6 +367,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionConfiguration" OutputProperty="RetentionConfiguration" Verb="Write" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionPeriodInDays" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutServiceLinkedConfigurationRecorder" OutputProperty="*" Verb="Write" Noun="ServiceLinkedConfigurationRecorder" ShouldProcessTarget="ServicePrincipal" PipelineParameter="ServicePrincipal" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

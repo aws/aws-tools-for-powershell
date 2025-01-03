@@ -126,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The bytes of the base64 encoded asset bundle import zip file. This file can't exceed
-        /// 20 MB.</para><para>If you are calling the API operations from the Amazon Web Services SDK for Java, JavaScript,
+        /// 20 MB. If the size of the file that you want to upload is more than 20 MB, add the
+        /// file to your Amazon S3 bucket and use <c>S3Uri</c> of the file for this operation.</para><para>If you are calling the API operations from the Amazon Web Services SDK for Java, JavaScript,
         /// Python, or PHP, the SDK encodes base64 automatically to allow the direct setting of
         /// the zip file's bytes. If you are using an SDK for a different language or receiving
         /// related errors, try to base64 encode your data.</para>
@@ -325,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <para>
         /// <para>The Amazon S3 URI for an asset bundle import file that exists in an Amazon S3 bucket
         /// that the caller has read access to. The file must be a zip format file and can't exceed
-        /// 20 MB.</para>
+        /// 1 GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

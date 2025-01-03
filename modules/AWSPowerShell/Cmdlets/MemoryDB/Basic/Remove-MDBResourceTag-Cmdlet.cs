@@ -28,7 +28,7 @@ using Amazon.MemoryDB.Model;
 namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Use this operation to remove tags on a resource
+    /// Use this operation to remove tags on a resource.
     /// </summary>
     [Cmdlet("Remove", "MDBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.MemoryDB.Model.Tag")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The list of keys of the tags that are to be removed</para>
+        /// <para>The list of keys of the tags that are to be removed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

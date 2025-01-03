@@ -163,6 +163,17 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         public System.Int32? MinProvisionedMemory { get; set; }
         #endregion
         
+        #region Parameter ParquetType
+        /// <summary>
+        /// <para>
+        /// <para>The parquet type of the import task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NeptuneGraph.ParquetType")]
+        public Amazon.NeptuneGraph.ParquetType ParquetType { get; set; }
+        #endregion
+        
         #region Parameter Neptune_PreserveDefaultVertexLabel
         /// <summary>
         /// <para>
@@ -345,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.MaxProvisionedMemory = this.MaxProvisionedMemory;
             context.MinProvisionedMemory = this.MinProvisionedMemory;
+            context.ParquetType = this.ParquetType;
             context.PublicConnectivity = this.PublicConnectivity;
             context.ReplicaCount = this.ReplicaCount;
             context.RoleArn = this.RoleArn;
@@ -482,6 +494,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             {
                 request.MinProvisionedMemory = cmdletContext.MinProvisionedMemory.Value;
             }
+            if (cmdletContext.ParquetType != null)
+            {
+                request.ParquetType = cmdletContext.ParquetType;
+            }
             if (cmdletContext.PublicConnectivity != null)
             {
                 request.PublicConnectivity = cmdletContext.PublicConnectivity.Value;
@@ -594,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             public System.String KmsKeyIdentifier { get; set; }
             public System.Int32? MaxProvisionedMemory { get; set; }
             public System.Int32? MinProvisionedMemory { get; set; }
+            public Amazon.NeptuneGraph.ParquetType ParquetType { get; set; }
             public System.Boolean? PublicConnectivity { get; set; }
             public System.Int32? ReplicaCount { get; set; }
             public System.String RoleArn { get; set; }

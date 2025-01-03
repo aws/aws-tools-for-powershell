@@ -175,13 +175,26 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Whether the task's elastic network interface receives a public IP address. The default
-        /// value is <c>DISABLED</c>.</para>
+        /// value is <c>ENABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")]
         [AWSConstantClassSource("Amazon.ECS.AssignPublicIp")]
         public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneRebalancing
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use Availability Zone rebalancing for the service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing
+        /// an Amazon ECS service across Availability Zones</a> in the <i>Amazon Elastic Container
+        /// Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECS.AvailabilityZoneRebalancing")]
+        public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
         #endregion
         
         #region Parameter CapacityProviderStrategy
@@ -306,13 +319,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
-        /// Elastic Load Balancing target health checks after a task has first started. This is
-        /// only valid if your service is configured to use a load balancer. If your service's
-        /// tasks take a while to start and respond to Elastic Load Balancing health checks, you
-        /// can specify a health check grace period of up to 2,147,483,647 seconds. During that
-        /// time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check
-        /// status. This grace period can prevent the ECS service scheduler from marking tasks
-        /// as unhealthy and stopping them before they have time to come up.</para>
+        /// Elastic Load Balancing, VPC Lattice, and container health checks after a task has
+        /// first started. If you don't specify a health check grace period value, the default
+        /// value of <c>0</c> is used. If you don't use any of the health checks, then <c>healthCheckGracePeriodSeconds</c>
+        /// is unused.</para><para>If your service's tasks take a while to start and respond to health checks, you can
+        /// specify a health check grace period of up to 2,147,483,647 seconds (about 69 years).
+        /// During that time, the Amazon ECS service scheduler ignores health check status. This
+        /// grace period can prevent the service scheduler from marking tasks as unhealthy and
+        /// stopping them before they have time to come up.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,15 +394,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <c>maximumPercent</c> value of 200%, the scheduler may start four new tasks before
         /// stopping the four older tasks (provided that the cluster resources required to do
         /// this are available). The default <c>maximumPercent</c> value for a service using the
-        /// <c>REPLICA</c> service scheduler is 200%.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
+        /// <c>REPLICA</c> service scheduler is 200%.</para><para>The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting
+        /// replacement tasks first and then stopping the unhealthy tasks, as long as cluster
+        /// resources for starting replacement tasks are available. For more information about
+        /// how the scheduler replaces unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon
+        /// ECS services</a>.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
         /// deployment types, and tasks in the service use the EC2 launch type, the <b>maximum
         /// percent</b> value is set to the default value. The <b>maximum percent</b> value is
         /// used to define the upper limit on the number of the tasks in the service that remain
         /// in the <c>RUNNING</c> state while the container instances are in the <c>DRAINING</c>
         /// state.</para><note><para>You can't specify a custom <c>maximumPercent</c> value for a service that uses either
         /// the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c> deployment types and has tasks
-        /// that use the EC2 launch type.</para></note><para>If the tasks in the service use the Fargate launch type, the maximum percent value
-        /// is not used, although it is returned when describing your service.</para>
+        /// that use the EC2 launch type.</para></note><para>If the service uses either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
+        /// deployment types, and the tasks in the service use the Fargate launch type, the maximum
+        /// percent value is not used. The value is still returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -405,7 +424,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// using additional cluster capacity. For example, if your service has a <c>desiredCount</c>
         /// of four tasks and a <c>minimumHealthyPercent</c> of 50%, the service scheduler may
         /// stop two existing tasks to free up cluster capacity before starting two new tasks.
-        /// </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
+        /// </para><para> If any tasks are unhealthy and if <c>maximumPercent</c> doesn't allow the Amazon
+        /// ECS scheduler to start replacement tasks, the scheduler stops the unhealthy tasks
+        /// one-by-one — using the <c>minimumHealthyPercent</c> as a constraint — to clear up
+        /// capacity to launch replacement tasks. For more information about how the scheduler
+        /// replaces unhealthy tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Amazon
+        /// ECS services</a> . </para><para>For services that <i>do not</i> use a load balancer, the following should be noted:</para><ul><li><para>A service is considered healthy if all essential containers within the tasks in the
         /// service pass their health checks.</para></li><li><para>If a task has no essential containers with a health check defined, the service scheduler
         /// will wait for 40 seconds after a task reaches a <c>RUNNING</c> state before the task
         /// is counted towards the minimum healthy percent total.</para></li><li><para>If a task has one or more essential containers with a health check defined, the service
@@ -512,7 +536,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Amazon Web Services Region with <c>region</c> and a name for the log stream with <c>delivery_stream</c>.</para><para>When you export logs to Amazon Kinesis Data Streams, you can specify an Amazon Web
         /// Services Region with <c>region</c> and a data stream name with <c>stream</c>.</para><para> When you export logs to Amazon OpenSearch Service, you can specify options like <c>Name</c>,
         /// <c>Host</c> (OpenSearch Service endpoint without protocol), <c>Port</c>, <c>Index</c>,
-        /// <c>Type</c>, <c>Aws_auth</c>, <c>Aws_region</c>, <c>Suppress_Type_Name</c>, and <c>tls</c>.</para><para>When you export logs to Amazon S3, you can specify the bucket using the <c>bucket</c>
+        /// <c>Type</c>, <c>Aws_auth</c>, <c>Aws_region</c>, <c>Suppress_Type_Name</c>, and <c>tls</c>.
+        /// For more information, see <a href="http://aws.amazon.com/blogs/containers/under-the-hood-firelens-for-amazon-ecs-tasks/">Under
+        /// the hood: FireLens for Amazon ECS Tasks</a>.</para><para>When you export logs to Amazon S3, you can specify the bucket using the <c>bucket</c>
         /// option. You can also specify <c>region</c>, <c>total_file_size</c>, <c>upload_timeout</c>,
         /// and <c>use_put_object</c> as options.</para><para>This parameter requires version 1.19 of the Docker Remote API or greater on your container
         /// instance. To check the Docker Remote API version on your container instance, log in
@@ -724,6 +750,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ServiceVolumeConfiguration[] VolumeConfiguration { get; set; }
         #endregion
         
+        #region Parameter VpcLatticeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>An object representing the VPC Lattice configuration for the service being updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcLatticeConfigurations")]
+        public Amazon.ECS.Model.VpcLatticeConfiguration[] VpcLatticeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Service'.
@@ -733,6 +770,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Service";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Cluster parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Cluster' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Cluster' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -761,11 +808,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ECS.Model.UpdateServiceResponse, UpdateECSServiceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Cluster;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AvailabilityZoneRebalancing = this.AvailabilityZoneRebalancing;
             if (this.CapacityProviderStrategy != null)
             {
                 context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
@@ -844,6 +902,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.VolumeConfiguration = new List<Amazon.ECS.Model.ServiceVolumeConfiguration>(this.VolumeConfiguration);
             }
+            if (this.VpcLatticeConfiguration != null)
+            {
+                context.VpcLatticeConfiguration = new List<Amazon.ECS.Model.VpcLatticeConfiguration>(this.VpcLatticeConfiguration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -860,6 +922,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.UpdateServiceRequest();
             
+            if (cmdletContext.AvailabilityZoneRebalancing != null)
+            {
+                request.AvailabilityZoneRebalancing = cmdletContext.AvailabilityZoneRebalancing;
+            }
             if (cmdletContext.CapacityProviderStrategy != null)
             {
                 request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
@@ -1171,6 +1237,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.VolumeConfigurations = cmdletContext.VolumeConfiguration;
             }
+            if (cmdletContext.VpcLatticeConfiguration != null)
+            {
+                request.VpcLatticeConfigurations = cmdletContext.VpcLatticeConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -1232,6 +1302,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ECS.AvailabilityZoneRebalancing AvailabilityZoneRebalancing { get; set; }
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String Cluster { get; set; }
             public List<System.String> Alarms_AlarmName { get; set; }
@@ -1264,6 +1335,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistry { get; set; }
             public System.String TaskDefinition { get; set; }
             public List<Amazon.ECS.Model.ServiceVolumeConfiguration> VolumeConfiguration { get; set; }
+            public List<Amazon.ECS.Model.VpcLatticeConfiguration> VpcLatticeConfiguration { get; set; }
             public System.Func<Amazon.ECS.Model.UpdateServiceResponse, UpdateECSServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;
         }

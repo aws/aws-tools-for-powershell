@@ -28,9 +28,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Imports a claimed phone number from an external service, such as Amazon Pinpoint,
-    /// into an Amazon Connect instance. You can call this API only in the same Amazon Web
-    /// Services Region where the Amazon Connect instance was created.
+    /// Imports a claimed phone number from an external service, such as Amazon Web Services
+    /// End User Messaging, into an Amazon Connect instance. You can call this API only in
+    /// the same Amazon Web Services Region where the Amazon Connect instance was created.
     /// 
     ///  <important><para>
     /// Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a>
@@ -97,8 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The claimed phone number ARN being imported from the external service, such as Amazon
-        /// Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number
-        /// to import from Amazon Pinpoint.</para>
+        /// Web Services End User Messaging. If it is from Amazon Web Services End User Messaging,
+        /// it looks like the ARN of the phone number to import from Amazon Web Services End User
+        /// Messaging.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -84,16 +84,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-qappsResourceTag', 
         'ConvertFrom-qappsQApp', 
+        'Export-qappsQAppSessionData', 
         'Get-qappsCategoryList', 
         'Get-qappsLibraryItem', 
         'Get-qappsLibraryItemList', 
         'Get-qappsQApp', 
         'Get-qappsQAppList', 
+        'Get-qappsQAppPermission', 
         'Get-qappsQAppSession', 
+        'Get-qappsQAppSessionDataList', 
+        'Get-qappsQAppSessionMetadata', 
         'Get-qappsResourceTag', 
         'Import-qappsDocument', 
         'New-qappsCreateCategory', 
         'New-qappsLibraryItem', 
+        'New-qappsPresignedUrl', 
         'New-qappsQApp', 
         'Register-qappsLibraryItemReview', 
         'Register-qappsQAppWithUser', 
@@ -109,7 +114,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-qappsLibraryItem', 
         'Update-qappsLibraryItemMetadata', 
         'Update-qappsQApp', 
-        'Update-qappsQAppSession')
+        'Update-qappsQAppPermission', 
+        'Update-qappsQAppSession', 
+        'Update-qappsQAppSessionMetadata')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog in which the AWS Opportunity is located. Accepted values include
+        /// <para>Specifies the catalog in which the AWS Opportunity is located. Accepted values include
         /// <c>AWS</c> for production opportunities or <c>Sandbox</c> for testing purposes. The
-        /// catalog determines which environment the opportunity data is pulled from. </para>
+        /// catalog determines which environment the opportunity data is pulled from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter RelatedOpportunityIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier for the related partner opportunity. Use this field to correlate
-        /// an AWS opportunity with its corresponding partner opportunity. </para>
+        /// <para>The unique identifier for the related partner opportunity. Use this field to correlate
+        /// an AWS opportunity with its corresponding partner opportunity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

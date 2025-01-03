@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>iot-jobs-data</C2jFilename>
     <AssemblyName>IoTJobsDataPlane</AssemblyName>
@@ -12,7 +13,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartCommandExecution" OutputProperty="ExecutionId" Verb="Start" Noun="CommandExecution" AnonymousShouldProcessTarget="true" PipelineParameter="CommandArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartNextPendingJobExecution" OutputProperty="Execution" Verb="Start" Noun="NextPendingJobExecution" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -35,7 +39,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

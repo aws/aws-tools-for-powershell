@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String LogGroupName { get; set; }
         #endregion
         
+        #region Parameter QueryLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Limits the returned queries to only the queries that use the specified query language.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.QueryLanguage")]
+        public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -130,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.LogGroupName = this.LogGroupName;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.QueryLanguage = this.QueryLanguage;
             context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
@@ -156,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.QueryLanguage != null)
+            {
+                request.QueryLanguage = cmdletContext.QueryLanguage;
             }
             if (cmdletContext.Status != null)
             {
@@ -249,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String LogGroupName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
             public Amazon.CloudWatchLogs.QueryStatus Status { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeQueriesResponse, GetCWLQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Queries;

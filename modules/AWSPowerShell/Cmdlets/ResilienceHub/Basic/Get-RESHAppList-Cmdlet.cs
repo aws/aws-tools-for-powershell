@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter FromLastAssessmentTime
         /// <summary>
         /// <para>
-        /// <para>Indicates the lower limit of the range that is used to filter applications based on
-        /// their last assessment times.</para>
+        /// <para>Lower limit of the range that is used to filter applications based on their last assessment
+        /// times.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter ToLastAssessmentTime
         /// <summary>
         /// <para>
-        /// <para>Indicates the upper limit of the range that is used to filter the applications based
-        /// on their last assessment times.</para>
+        /// <para>Upper limit of the range that is used to filter the applications based on their last
+        /// assessment times.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

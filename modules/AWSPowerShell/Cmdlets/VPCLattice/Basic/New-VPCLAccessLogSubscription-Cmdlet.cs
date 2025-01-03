@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service network or service.</para>
+        /// <para>The ID or ARN of the service network or service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ServiceNetworkLogType
+        /// <summary>
+        /// <para>
+        /// <para>The type of log that monitors your Amazon VPC Lattice service networks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.VPCLattice.ServiceNetworkLogType")]
+        public Amazon.VPCLattice.ServiceNetworkLogType ServiceNetworkLogType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -163,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
                 WriteWarning("You are passing $null as a value for parameter ResourceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ServiceNetworkLogType = this.ServiceNetworkLogType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -198,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             if (cmdletContext.ResourceIdentifier != null)
             {
                 request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
+            }
+            if (cmdletContext.ServiceNetworkLogType != null)
+            {
+                request.ServiceNetworkLogType = cmdletContext.ServiceNetworkLogType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -267,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
             public System.String ClientToken { get; set; }
             public System.String DestinationArn { get; set; }
             public System.String ResourceIdentifier { get; set; }
+            public Amazon.VPCLattice.ServiceNetworkLogType ServiceNetworkLogType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.VPCLattice.Model.CreateAccessLogSubscriptionResponse, NewVPCLAccessLogSubscriptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

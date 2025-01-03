@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateQuery" OutputProperty="Queries" Verb="Invoke" Noun="GenerateQuery" ShouldProcessTarget="TransformationConfiguration_TextToSqlConfiguration_KnowledgeBaseConfiguration_KnowledgeBaseArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +35,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeFlow" OutputProperty="ResponseStream" Verb="Invoke" Noun="Flow" ShouldProcessTarget="FlowAliasIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeInlineAgent" OutputProperty="*" Verb="Invoke" Noun="InlineAgent" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OptimizePrompt" OutputProperty="OptimizedPrompt" Verb="Get" Noun="OptimizePrompt" ShouldProcessTarget="" PipelineParameter="TargetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Rerank" OutputProperty="*" Verb="Invoke" Noun="Rerank" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,6 +71,30 @@
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="ExternalSourcesConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveAndGenerateStream" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerateStream" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false">
+            <Params>
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" />
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_ExternalSourcesConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
+                <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

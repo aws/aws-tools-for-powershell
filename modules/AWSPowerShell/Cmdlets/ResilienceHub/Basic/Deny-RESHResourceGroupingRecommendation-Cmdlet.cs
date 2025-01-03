@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter Entry
         /// <summary>
         /// <para>
-        /// <para>Indicates the list of resource grouping recommendations you have selected to exclude
-        /// from your application.</para>
+        /// <para>List of resource grouping recommendations you have selected to exclude from your application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -250,6 +250,32 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationEfs" Verb="Update" Noun="LocationEfs" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationFsxLustre" Verb="Update" Noun="LocationFsxLustre" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationFsxOntap" Verb="Update" Noun="LocationFsxOntap" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
+                <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationFsxOpenZfs" Verb="Update" Noun="LocationFsxOpenZf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Protocol_NFS_MountOptions_Version" NewName="Protocol_NFS_MountOptions_Version" />
+                <Param Name="Protocol_SMB_MountOptions_Version" NewName="Protocol_SMB_MountOptions_Version" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationFsxWindows" Verb="Update" Noun="LocationFsxWindow" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLocationHdfs" Verb="Update" Noun="LocationHdf" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -263,6 +289,10 @@
                 <Param Name="AccessKey" NewName="BucketAccessKey" AutoApplyAlias="false" />
                 <Param Name="SecretKey" NewName="BucketSecretKey" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLocationS3" Verb="Update" Noun="LocationS3" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLocationSmb" Verb="Update" Noun="LocationSmb" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">

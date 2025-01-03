@@ -163,6 +163,19 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4,
+        /// which can communicate over IPv4 protocol only, or DUAL, which can communicate over
+        /// both IPv4 and IPv6 protocols.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamInfluxDB.NetworkType")]
+        public Amazon.TimestreamInfluxDB.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Organization
         /// <summary>
         /// <para>
@@ -180,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// <para>The password of the initial admin user created in InfluxDB. This password will allow
         /// you to access the InfluxDB UI to perform various administrative tasks and also use
         /// the InfluxDB CLI to create an operator token. These attributes will be stored in a
-        /// Secret created in AWS SecretManager in your account.</para>
+        /// Secret created in Amazon Web Services SecretManager in your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -345,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             context.Organization = this.Organization;
             context.Password = this.Password;
             #if MODULAR
@@ -472,6 +486,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
+            }
             if (cmdletContext.Organization != null)
             {
                 request.Organization = cmdletContext.Organization;
@@ -574,6 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             public System.String S3Configuration_BucketName { get; set; }
             public System.Boolean? S3Configuration_Enabled { get; set; }
             public System.String Name { get; set; }
+            public Amazon.TimestreamInfluxDB.NetworkType NetworkType { get; set; }
             public System.String Organization { get; set; }
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }

@@ -28,9 +28,15 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of case-sensitive
-    /// key-value pairs. A domain can have up to 10 tags. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging
-    /// Amazon OpenSearch Service domains</a>.
+    /// Attaches tags to an existing Amazon OpenSearch Service domain, data source, or application.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// Tags are a set of case-sensitive key-value pairs. A domain, data source, or application
+    /// can have up to 10 tags. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging
+    /// Amazon OpenSearch Service resources</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "OSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) for the OpenSearch Service domain to which you want to
-        /// attach resource tags.</para>
+        /// <para>Amazon Resource Name (ARN) for the OpenSearch Service domain, data source, or application
+        /// to which you want to attach resource tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

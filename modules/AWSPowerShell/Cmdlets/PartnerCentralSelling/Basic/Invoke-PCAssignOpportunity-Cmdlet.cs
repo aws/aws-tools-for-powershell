@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// Enables you to reassign an existing <c>Opportunity</c> to another user within your
     /// Partner Central account. The specified user receives the opportunity, and it appears
     /// on their Partner Central dashboard, allowing them to take necessary actions or proceed
-    /// with the opportunity. 
+    /// with the opportunity.
     /// 
     ///  
     /// <para>
-    ///  This is useful for distributing opportunities to the appropriate team members or
-    /// departments within your organization, ensuring that each opportunity is handled by
-    /// the right person. By default, the opportunity owner is the one who creates it. Currently,
-    /// there's no API to enumerate the list of available users. 
+    /// This is useful for distributing opportunities to the appropriate team members or departments
+    /// within your organization, ensuring that each opportunity is handled by the right person.
+    /// By default, the opportunity owner is the one who creates it. Currently, there's no
+    /// API to enumerate the list of available users.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "PCAssignOpportunity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog associated with the request. This field takes a string value
+        /// <para>Specifies the catalog associated with the request. This field takes a string value
         /// from a predefined list: <c>AWS</c> or <c>Sandbox</c>. The catalog determines which
         /// environment the opportunity is assigned in. Use <c>AWS</c> to assign real opportunities
         /// in the Amazon Web Services catalog, and <c>Sandbox</c> for testing in secure, isolated
-        /// environments. </para>
+        /// environments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,9 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para> Requires the <c>Opportunity</c>'s unique identifier when you want to assign it to
-        /// another user. Provide the correct identifier so the intended opportunity is reassigned.
-        /// </para>
+        /// <para>Requires the <c>Opportunity</c>'s unique identifier when you want to assign it to
+        /// another user. Provide the correct identifier so the intended opportunity is reassigned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

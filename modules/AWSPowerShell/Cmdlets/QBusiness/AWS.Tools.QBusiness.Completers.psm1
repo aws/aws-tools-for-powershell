@@ -143,7 +143,17 @@ $QBUS_Completers = {
         # Amazon.QBusiness.IdentityType
         "New-QBUSApplication/IdentityType"
         {
-            $v = "AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML"
+            $v = "AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML","AWS_QUICKSIGHT_IDP"
+            break
+        }
+
+        # Amazon.QBusiness.ImageExtractionStatus
+        {
+            ($_ -eq "New-QBUSDataSource/ImageExtractionConfiguration_ImageExtractionStatus") -Or
+            ($_ -eq "Update-QBUSDataSource/ImageExtractionConfiguration_ImageExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -193,9 +203,12 @@ $QBUS_Completers = {
         }
 
         # Amazon.QBusiness.PluginType
-        "New-QBUSPlugin/Type"
         {
-            $v = "CUSTOM","JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
+            ($_ -eq "Get-QBUSPluginTypeActionList/PluginType") -Or
+            ($_ -eq "New-QBUSPlugin/Type")
+        }
+        {
+            $v = "ASANA","ATLASSIAN_CONFLUENCE","CUSTOM","GOOGLE_CALENDAR","JIRA","JIRA_CLOUD","MICROSOFT_EXCHANGE","MICROSOFT_TEAMS","PAGERDUTY_ADVANCE","QUICKSIGHT","SALESFORCE","SALESFORCE_CRM","SERVICENOW_NOW_PLATFORM","SERVICE_NOW","SMARTSHEET","ZENDESK","ZENDESK_SUITE"
             break
         }
 
@@ -258,9 +271,11 @@ $QBUS_map = @{
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "IdentityType"=@("New-QBUSApplication")
+    "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
+    "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ResponseScope"=@("Update-QBUSChatControlsConfiguration")
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
@@ -319,10 +334,12 @@ $QBUS_SelectCompleters = {
 }
 
 $QBUS_SelectMap = @{
-    "Select"=@("Remove-QBUSBatchDeleteDocument",
+    "Select"=@("Add-QBUSPermission",
+               "Remove-QBUSBatchDeleteDocument",
                "Set-QBUSBatchPutDocument",
                "Set-QBUSChatSync",
                "New-QBUSApplication",
+               "New-QBUSDataAccessor",
                "New-QBUSDataSource",
                "New-QBUSIndex",
                "New-QBUSPlugin",
@@ -332,6 +349,7 @@ $QBUS_SelectMap = @{
                "Remove-QBUSApplication",
                "Remove-QBUSChatControlsConfiguration",
                "Remove-QBUSConversation",
+               "Remove-QBUSDataAccessor",
                "Remove-QBUSDataSource",
                "Remove-QBUSGroup",
                "Remove-QBUSIndex",
@@ -339,35 +357,46 @@ $QBUS_SelectMap = @{
                "Remove-QBUSRetriever",
                "Remove-QBUSUser",
                "Remove-QBUSWebExperience",
+               "Remove-QBUSPermission",
                "Get-QBUSApplication",
                "Get-QBUSChatControlsConfiguration",
+               "Get-QBUSDataAccessor",
                "Get-QBUSDataSource",
                "Get-QBUSGroup",
                "Get-QBUSIndex",
+               "Get-QBUSMedia",
                "Get-QBUSPlugin",
+               "Get-QBUSPolicy",
                "Get-QBUSRetriever",
                "Get-QBUSUser",
                "Get-QBUSWebExperience",
                "Get-QBUSApplicationList",
+               "Get-QBUSAttachmentList",
                "Get-QBUSConversationList",
+               "Get-QBUSDataAccessorList",
                "Get-QBUSDataSourceList",
                "Get-QBUSDataSourceSyncJobList",
                "Get-QBUSDocumentList",
                "Get-QBUSGroupList",
                "Get-QBUSIndexList",
                "Get-QBUSMessageList",
+               "Get-QBUSPluginActionList",
                "Get-QBUSPluginList",
+               "Get-QBUSPluginTypeActionList",
+               "Get-QBUSPluginTypeMetadataList",
                "Get-QBUSRetrieverList",
                "Get-QBUSResourceTag",
                "Get-QBUSWebExperienceList",
                "Write-QBUSFeedback",
                "Write-QBUSGroup",
+               "Search-QBUSRelevantContent",
                "Start-QBUSDataSourceSyncJob",
                "Stop-QBUSDataSourceSyncJob",
                "Add-QBUSResourceTag",
                "Remove-QBUSResourceTag",
                "Update-QBUSApplication",
                "Update-QBUSChatControlsConfiguration",
+               "Update-QBUSDataAccessor",
                "Update-QBUSDataSource",
                "Update-QBUSIndex",
                "Update-QBUSPlugin",

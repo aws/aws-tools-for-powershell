@@ -41,12 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// processing attempts or stays in the asynchronous invocation queue for too long, Lambda
     /// discards it. To retain discarded events, configure a dead-letter queue with <a>UpdateFunctionConfiguration</a>.
     /// </para><para>
-    /// To send an invocation record to a queue, topic, function, or event bus, specify a
-    /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>.
+    /// To send an invocation record to a queue, topic, S3 bucket, function, or event bus,
+    /// specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>.
     /// You can configure separate destinations for successful invocations (on-success) and
     /// events that fail all processing attempts (on-failure). You can configure destinations
     /// in addition to or instead of a dead-letter queue.
-    /// </para>
+    /// </para><note><para>
+    /// S3 buckets are supported only for on-failure destinations. To retain records of successful
+    /// invocations, use another destination type.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "LMFunctionEventInvokeConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.PutFunctionEventInvokeConfigResponse")]
@@ -62,11 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter OnFailure_Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous
-        /// invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
-        /// or Amazon EventBridge event bus as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations">Kinesis
-        /// and DynamoDB event sources</a>, you can configure an Amazon SNS topic or Amazon SQS
-        /// queue as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed
+        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous
+        /// invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3
+        /// bucket, Lambda function, or Amazon EventBridge event bus as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>,
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>,
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed
         /// Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon
         /// MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket
         /// as the destination.</para>

@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSSCustomDomainAssociationList', 
         'Get-RSSEndpointAccess', 
         'Get-RSSEndpointAccessList', 
+        'Get-RSSManagedWorkgroupList', 
         'Get-RSSNamespace', 
         'Get-RSSNamespaceList', 
         'Get-RSSRecoveryPoint', 

@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool.</para>
+        /// <para>The ID of the user pool where you want to delete the user's linked identities.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

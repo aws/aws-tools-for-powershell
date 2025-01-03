@@ -28,12 +28,15 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates the user pool client.
+    /// Creates an app client in a user pool. This operation sets basic and advanced configuration
+    /// options. You can create an app client in the Amazon Cognito console to your preferences
+    /// and use the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>
+    /// to generate requests from that baseline.
     /// 
     ///  
     /// <para>
-    /// When you create a new user pool client, token revocation is automatically activated.
-    /// For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
+    /// New app clients activate token revocation by default. For more information about revoking
+    /// tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
     /// </para><important><para>
     /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
     /// value.
@@ -60,10 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter TokenValidityUnits_AccessToken
         /// <summary>
         /// <para>
-        /// <para> A time unit of <c>seconds</c>, <c>minutes</c>, <c>hours</c>, or <c>days</c> for the
-        /// value that you set in the <c>AccessTokenValidity</c> parameter. The default <c>AccessTokenValidity</c>
-        /// time unit is hours. <c>AccessTokenValidity</c> duration can range from five minutes
-        /// to one day.</para>
+        /// <para> A time unit for the value that you set in the <c>AccessTokenValidity</c> parameter.
+        /// The default <c>AccessTokenValidity</c> time unit is <c>hours</c>. <c>AccessTokenValidity</c>
+        /// duration can range from five minutes to one day.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,10 +123,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthScope
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth scopes. Possible values provided by OAuth are <c>phone</c>, <c>email</c>,
-        /// <c>openid</c>, and <c>profile</c>. Possible values provided by Amazon Web Services
-        /// are <c>aws.cognito.signin.user.admin</c>. Custom scopes created in Resource Servers
-        /// are also supported.</para>
+        /// <para>The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes
+        /// govern access control to user pool self-service API operations, user data from the
+        /// <c>userInfo</c> endpoint, and third-party APIs. Possible values provided by OAuth
+        /// are <c>phone</c>, <c>email</c>, <c>openid</c>, and <c>profile</c>. Possible values
+        /// provided by Amazon Web Services are <c>aws.cognito.signin.user.admin</c>. Custom scopes
+        /// created in Resource Servers are also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,9 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AnalyticsConfiguration_ApplicationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
-        /// Pinpoint project to integrate with the chosen user pool Client. Amazon Cognito publishes
-        /// events to the Amazon Pinpoint project that the app ARN declares.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Amazon Pinpoint project that you want to connect
+        /// to your user pool app client. Amazon Cognito publishes events to the Amazon Pinpoint
+        /// project that <c>ApplicationArn</c> declares. You can also configure your application
+        /// to pass an endpoint ID in the <c>AnalyticsMetadata</c> parameter of sign-in operations.
+        /// The endpoint ID is information about the destination for push notifications</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AnalyticsConfiguration_ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The application ID for an Amazon Pinpoint application.</para>
+        /// <para>Your Amazon Pinpoint project ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed redirect (callback) URLs for the IdPs.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
+        /// <para>A list of allowed redirect (callback) URLs for the IdPs.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server. Amazon Cognito doesn't accept authorization
+        /// requests with <c>redirect_uri</c> values that aren't in the list of <c>CallbackURLs</c>
+        /// that you provide in this parameter.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
         /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
         /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
         /// </para>
@@ -182,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientName
         /// <summary>
         /// <para>
-        /// <para>The client name for the user pool client you would like to create.</para>
+        /// <para>A friendly name for the app client that you want to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -200,9 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The default redirect URI. In app clients with one assigned IdP, replaces <c>redirect_uri</c>
-        /// in authentication requests. Must be in the <c>CallbackURLs</c> list.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about">Default
-        /// redirect URI</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
-        /// only.</para><para>App callback URLs such as myapp://example are also supported.</para>
+        /// in authentication requests. Must be in the <c>CallbackURLs</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Activates the propagation of additional user context data. For more information about
-        /// propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+        /// propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html">
         /// Adding advanced security to a user pool</a>. If you don’t include this parameter,
         /// you can't send device fingerprint information, including source IP address, to Amazon
         /// Cognito advanced security. You can only activate <c>EnablePropagateAdditionalUserContextData</c>
@@ -244,7 +250,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// or more flows, including with a user name and Secure Remote Password (SRP), a user
         /// name and password, or a custom authentication process that you define with Lambda
         /// functions.</para><note><para>If you don't specify a value for <c>ExplicitAuthFlows</c>, your user client supports
-        /// <c>ALLOW_REFRESH_TOKEN_AUTH</c>, <c>ALLOW_USER_SRP_AUTH</c>, and <c>ALLOW_CUSTOM_AUTH</c>.</para></note><para>Valid values include:</para><ul><li><para><c>ALLOW_ADMIN_USER_PASSWORD_AUTH</c>: Enable admin based user password authentication
+        /// <c>ALLOW_REFRESH_TOKEN_AUTH</c>, <c>ALLOW_USER_SRP_AUTH</c>, and <c>ALLOW_CUSTOM_AUTH</c>.</para></note><para>Valid values include:</para><ul><li><para><c>ALLOW_USER_AUTH</c>: Enable selection-based sign-in with <c>USER_AUTH</c>. This
+        /// setting covers username-password, secure remote password (SRP), passwordless, and
+        /// passkey authentication. This authentiation flow can do username-password and SRP authentication
+        /// without other <c>ExplicitAuthFlows</c> permitting them. For example users can complete
+        /// an SRP challenge through <c>USER_AUTH</c> without the flow <c>USER_SRP_AUTH</c> being
+        /// active for the app client. This flow doesn't include <c>CUSTOM_AUTH</c>. </para></li><li><para><c>ALLOW_ADMIN_USER_PASSWORD_AUTH</c>: Enable admin based user password authentication
         /// flow <c>ADMIN_USER_PASSWORD_AUTH</c>. This setting replaces the <c>ADMIN_NO_SRP_AUTH</c>
         /// setting. With this authentication flow, your app passes a user name and password to
         /// Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol
@@ -264,7 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AnalyticsConfiguration_ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID.</para>
+        /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">external
+        /// ID</a> of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,8 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GenerateSecret
         /// <summary>
         /// <para>
-        /// <para>Boolean to specify whether you want to generate a secret for the user pool client
-        /// being created.</para>
+        /// <para>When <c>true</c>, generates a client secret for the app client. Client secrets are
+        /// used with server-side and machine-to-machine applications. For more information, see
+        /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types">App
+        /// client types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -285,10 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter TokenValidityUnits_IdToken
         /// <summary>
         /// <para>
-        /// <para>A time unit of <c>seconds</c>, <c>minutes</c>, <c>hours</c>, or <c>days</c> for the
-        /// value that you set in the <c>IdTokenValidity</c> parameter. The default <c>IdTokenValidity</c>
-        /// time unit is hours. <c>IdTokenValidity</c> duration can range from five minutes to
-        /// one day.</para>
+        /// <para>A time unit for the value that you set in the <c>IdTokenValidity</c> parameter. The
+        /// default <c>IdTokenValidity</c> time unit is <c>hours</c>. <c>IdTokenValidity</c> duration
+        /// can range from five minutes to one day.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed logout URLs for the IdPs.</para>
+        /// <para>A list of allowed logout URLs for managed login authentication. For more information,
+        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout
+        /// endpoint</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,10 +380,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter TokenValidityUnits_RefreshToken
         /// <summary>
         /// <para>
-        /// <para>A time unit of <c>seconds</c>, <c>minutes</c>, <c>hours</c>, or <c>days</c> for the
-        /// value that you set in the <c>RefreshTokenValidity</c> parameter. The default <c>RefreshTokenValidity</c>
-        /// time unit is days. <c>RefreshTokenValidity</c> duration can range from 60 minutes
-        /// to 10 years.</para>
+        /// <para>A time unit for the value that you set in the <c>RefreshTokenValidity</c> parameter.
+        /// The default <c>RefreshTokenValidity</c> time unit is <c>days</c>. <c>RefreshTokenValidity</c>
+        /// duration can range from 60 minutes to 10 years.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,8 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AnalyticsConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an Identity and Access Management role that authorizes Amazon Cognito to
-        /// publish events to Amazon Pinpoint analytics.</para>
+        /// <para>The ARN of an Identity and Access Management role that has the permissions required
+        /// for Amazon Cognito to publish events to Amazon Pinpoint analytics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -413,7 +427,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// client. The following are supported: <c>COGNITO</c>, <c>Facebook</c>, <c>Google</c>,
         /// <c>SignInWithApple</c>, and <c>LoginWithAmazon</c>. You can also specify the names
         /// that you configured for the SAML and OIDC IdPs in your user pool, for example <c>MySAMLIdP</c>
-        /// or <c>MyOIDCIdP</c>.</para>
+        /// or <c>MyOIDCIdP</c>.</para><para>This setting applies to providers that you can access with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
+        /// login</a>. The removal of <c>COGNITO</c> from this list doesn't prevent authentication
+        /// operations for local users with the user pools API in an Amazon Web Services SDK.
+        /// The only way to prevent API-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF
+        /// rule</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -435,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to create a user pool client.</para>
+        /// <para>The ID of the user pool where you want to create an app client.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

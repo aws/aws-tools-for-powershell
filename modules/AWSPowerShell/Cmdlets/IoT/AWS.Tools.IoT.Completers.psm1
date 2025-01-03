@@ -221,6 +221,24 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.CommandExecutionStatus
+        "Get-IOTCommandExecutionList/Status"
+        {
+            $v = "CREATED","FAILED","IN_PROGRESS","REJECTED","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
+        # Amazon.IoT.CommandNamespace
+        {
+            ($_ -eq "Get-IOTCommandExecutionList/Namespace") -Or
+            ($_ -eq "Get-IOTCommandList/Namespace") -Or
+            ($_ -eq "New-IOTCommand/Namespace")
+        }
+        {
+            $v = "AWS-IoT","AWS-IoT-FleetWise"
+            break
+        }
+
         # Amazon.IoT.CustomMetricType
         "New-IOTCustomMetric/MetricType"
         {
@@ -425,6 +443,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.SortOrder
+        {
+            ($_ -eq "Get-IOTCommandExecutionList/SortOrder") -Or
+            ($_ -eq "Get-IOTCommandList/SortOrder")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.IoT.Status
         "Get-IOTThingRegistrationTaskList/Status"
         {
@@ -529,6 +557,7 @@ $IOT_map = @{
     "LogLevel"=@("Set-IOTV2LoggingLevel")
     "LogTarget_TargetType"=@("Set-IOTV2LoggingLevel")
     "MetricType"=@("New-IOTCustomMetric")
+    "Namespace"=@("Get-IOTCommandExecutionList","Get-IOTCommandList","New-IOTCommand")
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
@@ -538,7 +567,8 @@ $IOT_map = @{
     "SchedulingConfig_EndBehavior"=@("New-IOTJob")
     "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
     "Sns_MessageFormat"=@("New-IOTTopicRule","Set-IOTTopicRule")
-    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTPackageVersionList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
+    "SortOrder"=@("Get-IOTCommandExecutionList","Get-IOTCommandList")
+    "Status"=@("Get-IOTAuthorizerList","Get-IOTCommandExecutionList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTPackageVersionList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTAuditMitigationActionsTaskList","Get-IOTTaskList")
@@ -629,6 +659,7 @@ $IOT_SelectMap = @{
                "New-IOTBillingGroup",
                "New-IOTCertificateFromCsr",
                "New-IOTCertificateProvider",
+               "New-IOTCommand",
                "New-IOTCustomMetric",
                "New-IOTDimension",
                "New-IOTDomainConfiguration",
@@ -662,6 +693,8 @@ $IOT_SelectMap = @{
                "Remove-IOTCACertificate",
                "Remove-IOTCertificate",
                "Remove-IOTCertificateProvider",
+               "Remove-IOTCommand",
+               "Remove-IOTCommandExecution",
                "Remove-IOTCustomMetric",
                "Remove-IOTDimension",
                "Remove-IOTDomainConfiguration",
@@ -734,6 +767,8 @@ $IOT_SelectMap = @{
                "Get-IOTBehaviorModelTrainingSummary",
                "Get-IOTBucketsAggregation",
                "Get-IOTCardinality",
+               "Get-IOTCommand",
+               "Get-IOTCommandExecution",
                "Get-IOTEffectivePolicy",
                "Get-IOTIndexingConfiguration",
                "Get-IOTJobDocument",
@@ -747,6 +782,7 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersion",
                "Get-IOTRegistrationCode",
                "Get-IOTStatistic",
+               "Get-IOTThingConnectivityData",
                "Get-IOTTopicRule",
                "Get-IOTTopicRuleDestination",
                "Get-IOTV2LoggingOption",
@@ -763,6 +799,8 @@ $IOT_SelectMap = @{
                "Get-IOTCertificateProviderList",
                "Get-IOTCertificateList",
                "Get-IOTCertificateListByCA",
+               "Get-IOTCommandExecutionList",
+               "Get-IOTCommandList",
                "Get-IOTCustomMetricList",
                "Get-IOTDetectMitigationActionsExecutionList",
                "Get-IOTDetectMitigationActionsTaskList",
@@ -845,6 +883,7 @@ $IOT_SelectMap = @{
                "Update-IOTCACertificate",
                "Update-IOTCertificate",
                "Update-IOTCertificateProvider",
+               "Update-IOTCommand",
                "Update-IOTCustomMetric",
                "Update-IOTDimension",
                "Update-IOTDomainConfiguration",

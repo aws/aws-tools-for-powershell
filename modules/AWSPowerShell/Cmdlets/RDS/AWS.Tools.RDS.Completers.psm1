@@ -115,6 +115,20 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.DatabaseInsightsMode
+        {
+            ($_ -eq "Edit-RDSDBCluster/DatabaseInsightsMode") -Or
+            ($_ -eq "Edit-RDSDBInstance/DatabaseInsightsMode") -Or
+            ($_ -eq "New-RDSDBCluster/DatabaseInsightsMode") -Or
+            ($_ -eq "New-RDSDBInstance/DatabaseInsightsMode") -Or
+            ($_ -eq "New-RDSDBInstanceReadReplica/DatabaseInsightsMode") -Or
+            ($_ -eq "Restore-RDSDBInstanceFromS3/DatabaseInsightsMode")
+        }
+        {
+            $v = "advanced","standard"
+            break
+        }
+
         # Amazon.RDS.DBProxyEndpointTargetRole
         "New-RDSDBProxyEndpoint/TargetRole"
         {
@@ -168,6 +182,7 @@ $RDS_map = @{
     "AuditPolicyState"=@("Edit-RDSActivityStream")
     "AutomationMode"=@("Edit-RDSDBInstance")
     "ClusterScalabilityType"=@("New-RDSDBCluster")
+    "DatabaseInsightsMode"=@("Edit-RDSDBCluster","Edit-RDSDBInstance","New-RDSDBCluster","New-RDSDBInstance","New-RDSDBInstanceReadReplica","Restore-RDSDBInstanceFromS3")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")

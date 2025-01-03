@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes a SageMaker image.
+    /// Describes a SageMaker AI image.
     /// </summary>
     [Cmdlet("Get", "SMImage")]
     [OutputType("Amazon.SageMaker.Model.DescribeImageResponse")]

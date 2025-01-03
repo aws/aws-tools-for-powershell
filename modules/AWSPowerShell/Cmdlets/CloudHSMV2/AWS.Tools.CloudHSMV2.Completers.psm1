@@ -97,6 +97,13 @@ $HSM2_Completers = {
             break
         }
 
+        # Amazon.CloudHSMV2.NetworkType
+        "New-HSM2Cluster/NetworkType"
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
 
     }
 
@@ -108,6 +115,7 @@ $HSM2_Completers = {
 $HSM2_map = @{
     "BackupRetentionPolicy_Type"=@("Edit-HSM2Cluster","New-HSM2Cluster")
     "Mode"=@("New-HSM2Cluster")
+    "NetworkType"=@("New-HSM2Cluster")
 }
 
 _awsArgumentCompleterRegistration $HSM2_Completers $HSM2_map

@@ -108,6 +108,44 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
         #endregion
         
+        #region Parameter ComputeConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Request to enable or disable the compute capability on your EKS Auto Mode cluster.
+        /// If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed
+        /// Instances in your Amazon Web Services account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ComputeConfig_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ElasticLoadBalancing_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster.
+        /// If the load balancing capability is enabled, EKS Auto Mode will create and delete
+        /// load balancers in your Amazon Web Services account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KubernetesNetworkConfig_ElasticLoadBalancing_Enabled")]
+        public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter BlockStorage_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the block storage capability is enabled on your EKS Auto Mode cluster.
+        /// If the block storage capability is enabled, EKS Auto Mode will create and delete EBS
+        /// volumes in your Amazon Web Services account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfig_BlockStorage_Enabled")]
+        public System.Boolean? BlockStorage_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ZonalShiftConfig_Enabled
         /// <summary>
         /// <para>
@@ -117,6 +155,29 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ZonalShiftConfig_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter KubernetesNetworkConfig_IpFamily
+        /// <summary>
+        /// <para>
+        /// <para>Specify which IP family is used to assign Kubernetes pod and service IP addresses.
+        /// If you don't specify a value, <c>ipv4</c> is used by default. You can only specify
+        /// an IP family when you create a cluster and can't change this value once the cluster
+        /// is created. If you specify <c>ipv6</c>, the VPC and subnets that you specify for cluster
+        /// creation must have both <c>IPv4</c> and <c>IPv6</c> CIDR blocks assigned to them.
+        /// You can't specify <c>ipv6</c> for clusters in China Regions.</para><para>You can only specify <c>ipv6</c> for <c>1.21</c> and later clusters that use version
+        /// <c>1.10.1</c> or later of the Amazon VPC CNI add-on. If you specify <c>ipv6</c>, then
+        /// ensure that your VPC meets the requirements listed in the considerations listed in
+        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
+        /// IPv6 addresses to pods and services</a> in the Amazon EKS User Guide. Kubernetes assigns
+        /// services <c>IPv6</c> addresses from the unique local address range <c>(fc00::/7)</c>.
+        /// You can't specify a custom <c>IPv6</c> CIDR block. Pod addresses are assigned from
+        /// the subnet's <c>IPv6</c> CIDR.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.IpFamily")]
+        public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
         #endregion
         
         #region Parameter Name
@@ -136,6 +197,30 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ComputeConfig_NodePool
+        /// <summary>
+        /// <para>
+        /// <para>Configuration for node pools that defines the compute resources for your EKS Auto
+        /// Mode cluster. For more information, see EKS Auto Mode Node Pools in the EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ComputeConfig_NodePools")]
+        public System.String[] ComputeConfig_NodePool { get; set; }
+        #endregion
+        
+        #region Parameter ComputeConfig_NodeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto
+        /// Mode cluster. This value cannot be changed after the compute capability of EKS Auto
+        /// Mode is enabled. For more information, see the IAM Reference in the EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeConfig_NodeRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ResourcesVpcConfig
         /// <summary>
         /// <para>
@@ -144,6 +229,23 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
+        #endregion
+        
+        #region Parameter KubernetesNetworkConfig_ServiceIpv4Cidr
+        /// <summary>
+        /// <para>
+        /// <para>Don't specify a value if you select <c>ipv6</c> for <b>ipFamily</b>. The CIDR block
+        /// to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes
+        /// assigns addresses from either the <c>10.100.0.0/16</c> or <c>172.20.0.0/16</c> CIDR
+        /// blocks. We recommend that you specify a block that does not overlap with resources
+        /// in other networks that are peered or connected to your VPC. The block must meet the
+        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: <c>10.0.0.0/8</c>, <c>172.16.0.0/12</c>,
+        /// or <c>192.168.0.0/16</c>.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between <c>/24</c> and <c>/12</c>.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster. You can't change
+        /// this value after the cluster is created.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
         #endregion
         
         #region Parameter UpgradePolicy_SupportType
@@ -204,6 +306,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             context.AccessConfig_AuthenticationMode = this.AccessConfig_AuthenticationMode;
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ComputeConfig_Enabled = this.ComputeConfig_Enabled;
+            if (this.ComputeConfig_NodePool != null)
+            {
+                context.ComputeConfig_NodePool = new List<System.String>(this.ComputeConfig_NodePool);
+            }
+            context.ComputeConfig_NodeRoleArn = this.ComputeConfig_NodeRoleArn;
+            context.ElasticLoadBalancing_Enabled = this.ElasticLoadBalancing_Enabled;
+            context.KubernetesNetworkConfig_IpFamily = this.KubernetesNetworkConfig_IpFamily;
+            context.KubernetesNetworkConfig_ServiceIpv4Cidr = this.KubernetesNetworkConfig_ServiceIpv4Cidr;
             if (this.Logging_ClusterLogging != null)
             {
                 context.Logging_ClusterLogging = new List<Amazon.EKS.Model.LogSetup>(this.Logging_ClusterLogging);
@@ -216,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
+            context.BlockStorage_Enabled = this.BlockStorage_Enabled;
             context.UpgradePolicy_SupportType = this.UpgradePolicy_SupportType;
             context.ZonalShiftConfig_Enabled = this.ZonalShiftConfig_Enabled;
             
@@ -258,6 +370,99 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
             
+             // populate ComputeConfig
+            var requestComputeConfigIsNull = true;
+            request.ComputeConfig = new Amazon.EKS.Model.ComputeConfigRequest();
+            System.Boolean? requestComputeConfig_computeConfig_Enabled = null;
+            if (cmdletContext.ComputeConfig_Enabled != null)
+            {
+                requestComputeConfig_computeConfig_Enabled = cmdletContext.ComputeConfig_Enabled.Value;
+            }
+            if (requestComputeConfig_computeConfig_Enabled != null)
+            {
+                request.ComputeConfig.Enabled = requestComputeConfig_computeConfig_Enabled.Value;
+                requestComputeConfigIsNull = false;
+            }
+            List<System.String> requestComputeConfig_computeConfig_NodePool = null;
+            if (cmdletContext.ComputeConfig_NodePool != null)
+            {
+                requestComputeConfig_computeConfig_NodePool = cmdletContext.ComputeConfig_NodePool;
+            }
+            if (requestComputeConfig_computeConfig_NodePool != null)
+            {
+                request.ComputeConfig.NodePools = requestComputeConfig_computeConfig_NodePool;
+                requestComputeConfigIsNull = false;
+            }
+            System.String requestComputeConfig_computeConfig_NodeRoleArn = null;
+            if (cmdletContext.ComputeConfig_NodeRoleArn != null)
+            {
+                requestComputeConfig_computeConfig_NodeRoleArn = cmdletContext.ComputeConfig_NodeRoleArn;
+            }
+            if (requestComputeConfig_computeConfig_NodeRoleArn != null)
+            {
+                request.ComputeConfig.NodeRoleArn = requestComputeConfig_computeConfig_NodeRoleArn;
+                requestComputeConfigIsNull = false;
+            }
+             // determine if request.ComputeConfig should be set to null
+            if (requestComputeConfigIsNull)
+            {
+                request.ComputeConfig = null;
+            }
+            
+             // populate KubernetesNetworkConfig
+            var requestKubernetesNetworkConfigIsNull = true;
+            request.KubernetesNetworkConfig = new Amazon.EKS.Model.KubernetesNetworkConfigRequest();
+            Amazon.EKS.IpFamily requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily = null;
+            if (cmdletContext.KubernetesNetworkConfig_IpFamily != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily = cmdletContext.KubernetesNetworkConfig_IpFamily;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily != null)
+            {
+                request.KubernetesNetworkConfig.IpFamily = requestKubernetesNetworkConfig_kubernetesNetworkConfig_IpFamily;
+                requestKubernetesNetworkConfigIsNull = false;
+            }
+            System.String requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr = null;
+            if (cmdletContext.KubernetesNetworkConfig_ServiceIpv4Cidr != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr = cmdletContext.KubernetesNetworkConfig_ServiceIpv4Cidr;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr != null)
+            {
+                request.KubernetesNetworkConfig.ServiceIpv4Cidr = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ServiceIpv4Cidr;
+                requestKubernetesNetworkConfigIsNull = false;
+            }
+            Amazon.EKS.Model.ElasticLoadBalancing requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing = null;
+            
+             // populate ElasticLoadBalancing
+            var requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull = true;
+            requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing = new Amazon.EKS.Model.ElasticLoadBalancing();
+            System.Boolean? requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled = null;
+            if (cmdletContext.ElasticLoadBalancing_Enabled != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled = cmdletContext.ElasticLoadBalancing_Enabled.Value;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled != null)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing.Enabled = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing_elasticLoadBalancing_Enabled.Value;
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull = false;
+            }
+             // determine if requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing should be set to null
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancingIsNull)
+            {
+                requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing = null;
+            }
+            if (requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing != null)
+            {
+                request.KubernetesNetworkConfig.ElasticLoadBalancing = requestKubernetesNetworkConfig_kubernetesNetworkConfig_ElasticLoadBalancing;
+                requestKubernetesNetworkConfigIsNull = false;
+            }
+             // determine if request.KubernetesNetworkConfig should be set to null
+            if (requestKubernetesNetworkConfigIsNull)
+            {
+                request.KubernetesNetworkConfig = null;
+            }
+            
              // populate Logging
             var requestLoggingIsNull = true;
             request.Logging = new Amazon.EKS.Model.Logging();
@@ -283,6 +488,40 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ResourcesVpcConfig != null)
             {
                 request.ResourcesVpcConfig = cmdletContext.ResourcesVpcConfig;
+            }
+            
+             // populate StorageConfig
+            var requestStorageConfigIsNull = true;
+            request.StorageConfig = new Amazon.EKS.Model.StorageConfigRequest();
+            Amazon.EKS.Model.BlockStorage requestStorageConfig_storageConfig_BlockStorage = null;
+            
+             // populate BlockStorage
+            var requestStorageConfig_storageConfig_BlockStorageIsNull = true;
+            requestStorageConfig_storageConfig_BlockStorage = new Amazon.EKS.Model.BlockStorage();
+            System.Boolean? requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled = null;
+            if (cmdletContext.BlockStorage_Enabled != null)
+            {
+                requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled = cmdletContext.BlockStorage_Enabled.Value;
+            }
+            if (requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled != null)
+            {
+                requestStorageConfig_storageConfig_BlockStorage.Enabled = requestStorageConfig_storageConfig_BlockStorage_blockStorage_Enabled.Value;
+                requestStorageConfig_storageConfig_BlockStorageIsNull = false;
+            }
+             // determine if requestStorageConfig_storageConfig_BlockStorage should be set to null
+            if (requestStorageConfig_storageConfig_BlockStorageIsNull)
+            {
+                requestStorageConfig_storageConfig_BlockStorage = null;
+            }
+            if (requestStorageConfig_storageConfig_BlockStorage != null)
+            {
+                request.StorageConfig.BlockStorage = requestStorageConfig_storageConfig_BlockStorage;
+                requestStorageConfigIsNull = false;
+            }
+             // determine if request.StorageConfig should be set to null
+            if (requestStorageConfigIsNull)
+            {
+                request.StorageConfig = null;
             }
             
              // populate UpgradePolicy
@@ -385,9 +624,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             public Amazon.EKS.AuthenticationMode AccessConfig_AuthenticationMode { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? ComputeConfig_Enabled { get; set; }
+            public List<System.String> ComputeConfig_NodePool { get; set; }
+            public System.String ComputeConfig_NodeRoleArn { get; set; }
+            public System.Boolean? ElasticLoadBalancing_Enabled { get; set; }
+            public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }
+            public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
+            public System.Boolean? BlockStorage_Enabled { get; set; }
             public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
             public System.Boolean? ZonalShiftConfig_Enabled { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateClusterConfigResponse, UpdateEKSClusterConfigCmdlet, object> Select { get; set; } =

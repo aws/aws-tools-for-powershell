@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// to categorize and track all your ElastiCache resources, with the exception of global
     /// replication group. When you add or remove tags on replication groups, those actions
     /// will be replicated to all nodes in the replication group. For more information, see
-    /// <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level
+    /// <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html">Resource-level
     /// permissions</a>.
     /// </summary>
     [Cmdlet("Remove", "ECTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

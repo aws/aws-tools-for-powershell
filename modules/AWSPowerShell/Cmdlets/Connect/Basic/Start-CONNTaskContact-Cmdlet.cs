@@ -93,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the
-        /// Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Contact
-        /// Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose <b>Show
-        /// additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
-        /// here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
+        /// Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Flows</b>.
+        /// Choose the flow. On the flow page, under the name of the flow, choose <b>Show additional
+        /// flow information</b>. The ContactFlowId is the last part of the ARN, shown here in
+        /// bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,6 +216,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.DateTime? ScheduledTime { get; set; }
         #endregion
         
+        #region Parameter SegmentAttribute
+        /// <summary>
+        /// <para>
+        /// <para>A set of system defined key-value pairs stored on individual contact segments (unique
+        /// contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+        /// They can be accessed in flows.</para><para>Attribute keys can include only alphanumeric, -, and _.</para><para>This field can be used to set Contact Expiry as a duration in minutes and set a UserId
+        /// for the User who created a task.</para><note><para>To set contact expiry, a ValueMap must be specified containing the integer number
+        /// of minutes the contact will be active for before expiring, with <c>SegmentAttributes</c>
+        /// like { <c> "connect:ContactExpiry": {"ValueMap" : { "ExpiryDuration": { "ValueInteger":
+        /// 135}}}}</c>. </para><para>To set the created by user, a valid AgentResourceId must be supplied, with <c>SegmentAttributes</c>
+        /// like { <c>"connect:CreatedByUser" { "ValueString": "arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/agent/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}}}</c>.
+        /// </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SegmentAttributes")]
+        public System.Collections.Hashtable SegmentAttribute { get; set; }
+        #endregion
+        
         #region Parameter TaskTemplateId
         /// <summary>
         /// <para>
@@ -320,6 +339,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.RelatedContactId = this.RelatedContactId;
             context.ScheduledTime = this.ScheduledTime;
+            if (this.SegmentAttribute != null)
+            {
+                context.SegmentAttribute = new Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SegmentAttribute.Keys)
+                {
+                    context.SegmentAttribute.Add((String)hashKey, (Amazon.Connect.Model.SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
+                }
+            }
             context.TaskTemplateId = this.TaskTemplateId;
             
             // allow further manipulation of loaded context prior to processing
@@ -380,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ScheduledTime != null)
             {
                 request.ScheduledTime = cmdletContext.ScheduledTime.Value;
+            }
+            if (cmdletContext.SegmentAttribute != null)
+            {
+                request.SegmentAttributes = cmdletContext.SegmentAttribute;
             }
             if (cmdletContext.TaskTemplateId != null)
             {
@@ -457,6 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.String RelatedContactId { get; set; }
             public System.DateTime? ScheduledTime { get; set; }
+            public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }
             public System.String TaskTemplateId { get; set; }
             public System.Func<Amazon.Connect.Model.StartTaskContactResponse, StartCONNTaskContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContactId;

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSReplicationTaskAssessmentResultCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ReplicationTaskArn

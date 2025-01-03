@@ -28,8 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates some of the parameters of a Server Message Block (SMB) file server location
-    /// that you can use for DataSync transfers.
+    /// Modifies the following configuration parameters of the Server Message Block (SMB)
+    /// transfer location that you're using with DataSync.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Configuring
+    /// DataSync transfers with an SMB file server</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "DSYNLocationSmb", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

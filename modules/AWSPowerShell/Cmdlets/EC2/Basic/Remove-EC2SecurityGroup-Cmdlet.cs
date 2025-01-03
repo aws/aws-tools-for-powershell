@@ -38,11 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("Amazon.EC2.Model.DeleteSecurityGroupResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSecurityGroup API operation.", Operation = new[] {"DeleteSecurityGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSecurityGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSecurityGroupResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteSecurityGroupResponse) be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.EC2.Model.DeleteSecurityGroupResponse",
+        "This cmdlet returns an Amazon.EC2.Model.DeleteSecurityGroupResponse object containing multiple properties."
     )]
     public partial class RemoveEC2SecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -73,8 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteSecurityGroupResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteSecurityGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupId { get; set; }
             public System.String GroupName { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteSecurityGroupResponse, RemoveEC2SecurityGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

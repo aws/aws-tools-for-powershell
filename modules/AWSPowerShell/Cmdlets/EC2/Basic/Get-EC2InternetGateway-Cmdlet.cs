@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>attachment.state</c> - The current state of the attachment between the gateway
         /// and the VPC (<c>available</c>). Present only if a VPC is attached.</para></li><li><para><c>attachment.vpc-id</c> - The ID of an attached VPC.</para></li><li><para><c>internet-gateway-id</c> - The ID of the Internet gateway.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the internet
-        /// gateway.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
-        /// Use the tag key in the filter name and the tag value as the filter value. For example,
-        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// gateway.</para></li><li><para><c>tag</c> - The key/value combination of a tag assigned to the resource. Use the
+        /// tag key in the filter name and the tag value as the filter value. For example, to
+        /// find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
         /// all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
         /// </para>

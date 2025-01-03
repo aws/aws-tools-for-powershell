@@ -39,7 +39,23 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     public partial class InvokeBARRetrieveCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter ModelConfiguration_AdditionalModelRequestField
+        /// <summary>
+        /// <para>
+        /// <para>A JSON object whose keys are request fields for the model and whose values are values
+        /// for those fields.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_AdditionalModelRequestFields")]
+        public System.Collections.Hashtable ModelConfiguration_AdditionalModelRequestField { get; set; }
+        #endregion
         
         #region Parameter Filter_AndAll
         /// <summary>
@@ -51,6 +67,50 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrievalConfiguration_VectorSearchConfiguration_Filter_AndAll")]
         public Amazon.BedrockAgentRuntime.Model.RetrievalFilter[] Filter_AndAll { get; set; }
+        #endregion
+        
+        #region Parameter SelectiveModeConfiguration_FieldsToExclude
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, each of which specifies a metadata field to exclude from consideration
+        /// when reranking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToExclude")]
+        public Amazon.BedrockAgentRuntime.Model.FieldForReranking[] SelectiveModeConfiguration_FieldsToExclude { get; set; }
+        #endregion
+        
+        #region Parameter SelectiveModeConfiguration_FieldsToInclude
+        /// <summary>
+        /// <para>
+        /// <para>An array of objects, each of which specifies a metadata field to include in consideration
+        /// when reranking. The remaining metadata fields are ignored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_FieldsToInclude")]
+        public Amazon.BedrockAgentRuntime.Model.FieldForReranking[] SelectiveModeConfiguration_FieldsToInclude { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailConfiguration_GuardrailId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailConfiguration_GuardrailId { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailConfiguration_GuardrailVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
         #endregion
         
         #region Parameter Equals_Key
@@ -191,6 +251,50 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String KnowledgeBaseId { get; set; }
         #endregion
         
+        #region Parameter ImplicitFilterConfiguration_MetadataAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Metadata that can be used in a filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_MetadataAttributes")]
+        public Amazon.BedrockAgentRuntime.Model.MetadataAttributeSchema[] ImplicitFilterConfiguration_MetadataAttribute { get; set; }
+        #endregion
+        
+        #region Parameter ImplicitFilterConfiguration_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The model that generates the filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_ModelArn")]
+        public System.String ImplicitFilterConfiguration_ModelArn { get; set; }
+        #endregion
+        
+        #region Parameter ModelConfiguration_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the reranker model to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_ModelArn")]
+        public System.String ModelConfiguration_ModelArn { get; set; }
+        #endregion
+        
+        #region Parameter BedrockRerankingConfiguration_NumberOfRerankedResult
+        /// <summary>
+        /// <para>
+        /// <para>The number of results to return after reranking.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_NumberOfRerankedResults")]
+        public System.Int32? BedrockRerankingConfiguration_NumberOfRerankedResult { get; set; }
+        #endregion
+        
         #region Parameter VectorSearchConfiguration_NumberOfResult
         /// <summary>
         /// <para>
@@ -232,6 +336,20 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.SearchType VectorSearchConfiguration_OverrideSearchType { get; set; }
         #endregion
         
+        #region Parameter MetadataConfiguration_SelectionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to consider all metadata when reranking, or only the metadata that
+        /// you select. If you specify <c>SELECTIVE</c>, include the <c>selectiveModeConfiguration</c>
+        /// field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectionMode")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode")]
+        public Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode MetadataConfiguration_SelectionMode { get; set; }
+        #endregion
+        
         #region Parameter RetrievalQuery_Text
         /// <summary>
         /// <para>
@@ -247,6 +365,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RetrievalQuery_Text { get; set; }
+        #endregion
+        
+        #region Parameter RerankingConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of reranker model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType")]
+        public Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType RerankingConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter Equals_Value
@@ -393,6 +523,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the KnowledgeBaseId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^KnowledgeBaseId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KnowledgeBaseId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -419,11 +559,23 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgentRuntime.Model.RetrieveResponse, InvokeBARRetrieveCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.KnowledgeBaseId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.GuardrailConfiguration_GuardrailId = this.GuardrailConfiguration_GuardrailId;
+            context.GuardrailConfiguration_GuardrailVersion = this.GuardrailConfiguration_GuardrailVersion;
             context.KnowledgeBaseId = this.KnowledgeBaseId;
             #if MODULAR
             if (this.KnowledgeBaseId == null && ParameterWasBound(nameof(this.KnowledgeBaseId)))
@@ -462,8 +614,33 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.StartsWith_Value = this.StartsWith_Value;
             context.StringContains_Key = this.StringContains_Key;
             context.StringContains_Value = this.StringContains_Value;
+            if (this.ImplicitFilterConfiguration_MetadataAttribute != null)
+            {
+                context.ImplicitFilterConfiguration_MetadataAttribute = new List<Amazon.BedrockAgentRuntime.Model.MetadataAttributeSchema>(this.ImplicitFilterConfiguration_MetadataAttribute);
+            }
+            context.ImplicitFilterConfiguration_ModelArn = this.ImplicitFilterConfiguration_ModelArn;
             context.VectorSearchConfiguration_NumberOfResult = this.VectorSearchConfiguration_NumberOfResult;
             context.VectorSearchConfiguration_OverrideSearchType = this.VectorSearchConfiguration_OverrideSearchType;
+            context.MetadataConfiguration_SelectionMode = this.MetadataConfiguration_SelectionMode;
+            if (this.SelectiveModeConfiguration_FieldsToExclude != null)
+            {
+                context.SelectiveModeConfiguration_FieldsToExclude = new List<Amazon.BedrockAgentRuntime.Model.FieldForReranking>(this.SelectiveModeConfiguration_FieldsToExclude);
+            }
+            if (this.SelectiveModeConfiguration_FieldsToInclude != null)
+            {
+                context.SelectiveModeConfiguration_FieldsToInclude = new List<Amazon.BedrockAgentRuntime.Model.FieldForReranking>(this.SelectiveModeConfiguration_FieldsToInclude);
+            }
+            if (this.ModelConfiguration_AdditionalModelRequestField != null)
+            {
+                context.ModelConfiguration_AdditionalModelRequestField = new Dictionary<System.String, Amazon.Runtime.Documents.Document>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ModelConfiguration_AdditionalModelRequestField.Keys)
+                {
+                    context.ModelConfiguration_AdditionalModelRequestField.Add((String)hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.ModelConfiguration_AdditionalModelRequestField[hashKey]));
+                }
+            }
+            context.ModelConfiguration_ModelArn = this.ModelConfiguration_ModelArn;
+            context.BedrockRerankingConfiguration_NumberOfRerankedResult = this.BedrockRerankingConfiguration_NumberOfRerankedResult;
+            context.RerankingConfiguration_Type = this.RerankingConfiguration_Type;
             context.RetrievalQuery_Text = this.RetrievalQuery_Text;
             #if MODULAR
             if (this.RetrievalQuery_Text == null && ParameterWasBound(nameof(this.RetrievalQuery_Text)))
@@ -487,6 +664,35 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             // create request
             var request = new Amazon.BedrockAgentRuntime.Model.RetrieveRequest();
             
+            
+             // populate GuardrailConfiguration
+            var requestGuardrailConfigurationIsNull = true;
+            request.GuardrailConfiguration = new Amazon.BedrockAgentRuntime.Model.GuardrailConfiguration();
+            System.String requestGuardrailConfiguration_guardrailConfiguration_GuardrailId = null;
+            if (cmdletContext.GuardrailConfiguration_GuardrailId != null)
+            {
+                requestGuardrailConfiguration_guardrailConfiguration_GuardrailId = cmdletContext.GuardrailConfiguration_GuardrailId;
+            }
+            if (requestGuardrailConfiguration_guardrailConfiguration_GuardrailId != null)
+            {
+                request.GuardrailConfiguration.GuardrailId = requestGuardrailConfiguration_guardrailConfiguration_GuardrailId;
+                requestGuardrailConfigurationIsNull = false;
+            }
+            System.String requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion = null;
+            if (cmdletContext.GuardrailConfiguration_GuardrailVersion != null)
+            {
+                requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion = cmdletContext.GuardrailConfiguration_GuardrailVersion;
+            }
+            if (requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion != null)
+            {
+                request.GuardrailConfiguration.GuardrailVersion = requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion;
+                requestGuardrailConfigurationIsNull = false;
+            }
+             // determine if request.GuardrailConfiguration should be set to null
+            if (requestGuardrailConfigurationIsNull)
+            {
+                request.GuardrailConfiguration = null;
+            }
             if (cmdletContext.KnowledgeBaseId != null)
             {
                 request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
@@ -522,6 +728,186 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.OverrideSearchType = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.ImplicitFilterConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration = null;
+            
+             // populate ImplicitFilterConfiguration
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfigurationIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration = new Amazon.BedrockAgentRuntime.Model.ImplicitFilterConfiguration();
+            List<Amazon.BedrockAgentRuntime.Model.MetadataAttributeSchema> requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_MetadataAttribute = null;
+            if (cmdletContext.ImplicitFilterConfiguration_MetadataAttribute != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_MetadataAttribute = cmdletContext.ImplicitFilterConfiguration_MetadataAttribute;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_MetadataAttribute != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration.MetadataAttributes = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_MetadataAttribute;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfigurationIsNull = false;
+            }
+            System.String requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_ModelArn = null;
+            if (cmdletContext.ImplicitFilterConfiguration_ModelArn != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_ModelArn = cmdletContext.ImplicitFilterConfiguration_ModelArn;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_ModelArn != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration.ModelArn = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration_implicitFilterConfiguration_ModelArn;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfigurationIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfigurationIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.ImplicitFilterConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_ImplicitFilterConfiguration;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.VectorSearchRerankingConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration = null;
+            
+             // populate RerankingConfiguration
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfigurationIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration = new Amazon.BedrockAgentRuntime.Model.VectorSearchRerankingConfiguration();
+            Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_rerankingConfiguration_Type = null;
+            if (cmdletContext.RerankingConfiguration_Type != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_rerankingConfiguration_Type = cmdletContext.RerankingConfiguration_Type;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_rerankingConfiguration_Type != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration.Type = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_rerankingConfiguration_Type;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.VectorSearchBedrockRerankingConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration = null;
+            
+             // populate BedrockRerankingConfiguration
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration = new Amazon.BedrockAgentRuntime.Model.VectorSearchBedrockRerankingConfiguration();
+            System.Int32? requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_bedrockRerankingConfiguration_NumberOfRerankedResult = null;
+            if (cmdletContext.BedrockRerankingConfiguration_NumberOfRerankedResult != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_bedrockRerankingConfiguration_NumberOfRerankedResult = cmdletContext.BedrockRerankingConfiguration_NumberOfRerankedResult.Value;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_bedrockRerankingConfiguration_NumberOfRerankedResult != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration.NumberOfRerankedResults = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_bedrockRerankingConfiguration_NumberOfRerankedResult.Value;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.MetadataConfigurationForReranking requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration = null;
+            
+             // populate MetadataConfiguration
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration = new Amazon.BedrockAgentRuntime.Model.MetadataConfigurationForReranking();
+            Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_metadataConfiguration_SelectionMode = null;
+            if (cmdletContext.MetadataConfiguration_SelectionMode != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_metadataConfiguration_SelectionMode = cmdletContext.MetadataConfiguration_SelectionMode;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_metadataConfiguration_SelectionMode != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration.SelectionMode = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_metadataConfiguration_SelectionMode;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.RerankingMetadataSelectiveModeConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration = null;
+            
+             // populate SelectiveModeConfiguration
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration = new Amazon.BedrockAgentRuntime.Model.RerankingMetadataSelectiveModeConfiguration();
+            List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToExclude = null;
+            if (cmdletContext.SelectiveModeConfiguration_FieldsToExclude != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToExclude = cmdletContext.SelectiveModeConfiguration_FieldsToExclude;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToExclude != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration.FieldsToExclude = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToExclude;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull = false;
+            }
+            List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToInclude = null;
+            if (cmdletContext.SelectiveModeConfiguration_FieldsToInclude != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToInclude = cmdletContext.SelectiveModeConfiguration_FieldsToInclude;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToInclude != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration.FieldsToInclude = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration_selectiveModeConfiguration_FieldsToInclude;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfigurationIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration.SelectiveModeConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration_SelectiveModeConfiguration;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfigurationIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration.MetadataConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_MetadataConfiguration;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.VectorSearchBedrockRerankingModelConfiguration requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration = null;
+            
+             // populate ModelConfiguration
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration = new Amazon.BedrockAgentRuntime.Model.VectorSearchBedrockRerankingModelConfiguration();
+            Dictionary<System.String, Amazon.Runtime.Documents.Document> requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_AdditionalModelRequestField = null;
+            if (cmdletContext.ModelConfiguration_AdditionalModelRequestField != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_AdditionalModelRequestField = cmdletContext.ModelConfiguration_AdditionalModelRequestField;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_AdditionalModelRequestField != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration.AdditionalModelRequestFields = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_AdditionalModelRequestField;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull = false;
+            }
+            System.String requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_ModelArn = null;
+            if (cmdletContext.ModelConfiguration_ModelArn != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_ModelArn = cmdletContext.ModelConfiguration_ModelArn;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_ModelArn != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration.ModelArn = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration_modelConfiguration_ModelArn;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfigurationIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration.ModelConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration_ModelConfiguration;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfigurationIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration.BedrockRerankingConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration_BedrockRerankingConfiguration;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfigurationIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfigurationIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.RerankingConfiguration = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_RerankingConfiguration;
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.RetrievalFilter requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter = null;
@@ -1039,6 +1425,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GuardrailConfiguration_GuardrailId { get; set; }
+            public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
             public System.String KnowledgeBaseId { get; set; }
             public System.String NextToken { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> Filter_AndAll { get; set; }
@@ -1065,8 +1453,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.Management.Automation.PSObject StartsWith_Value { get; set; }
             public System.String StringContains_Key { get; set; }
             public System.Management.Automation.PSObject StringContains_Value { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.MetadataAttributeSchema> ImplicitFilterConfiguration_MetadataAttribute { get; set; }
+            public System.String ImplicitFilterConfiguration_ModelArn { get; set; }
             public System.Int32? VectorSearchConfiguration_NumberOfResult { get; set; }
             public Amazon.BedrockAgentRuntime.SearchType VectorSearchConfiguration_OverrideSearchType { get; set; }
+            public Amazon.BedrockAgentRuntime.RerankingMetadataSelectionMode MetadataConfiguration_SelectionMode { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> SelectiveModeConfiguration_FieldsToExclude { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.FieldForReranking> SelectiveModeConfiguration_FieldsToInclude { get; set; }
+            public Dictionary<System.String, Amazon.Runtime.Documents.Document> ModelConfiguration_AdditionalModelRequestField { get; set; }
+            public System.String ModelConfiguration_ModelArn { get; set; }
+            public System.Int32? BedrockRerankingConfiguration_NumberOfRerankedResult { get; set; }
+            public Amazon.BedrockAgentRuntime.VectorSearchRerankingConfigurationType RerankingConfiguration_Type { get; set; }
             public System.String RetrievalQuery_Text { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.RetrieveResponse, InvokeBARRetrieveCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

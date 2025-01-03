@@ -94,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorExternalSystemsConfiguration" Verb="Remove" Noun="VoiceConnectorExternalSystemsConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteVoiceConnectorGroup" Verb="Remove" Noun="VoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -179,6 +183,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVoiceConnectorEmergencyCallingConfiguration" OutputProperty="EmergencyCallingConfiguration" Verb="Get" Noun="VoiceConnectorEmergencyCallingConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorExternalSystemsConfiguration" OutputProperty="ExternalSystemsConfiguration" Verb="Get" Noun="VoiceConnectorExternalSystemsConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -283,6 +291,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutVoiceConnectorEmergencyCallingConfiguration" OutputProperty="EmergencyCallingConfiguration" Verb="Write" Noun="VoiceConnectorEmergencyCallingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorExternalSystemsConfiguration" OutputProperty="ExternalSystemsConfiguration" Verb="Write" Noun="VoiceConnectorExternalSystemsConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

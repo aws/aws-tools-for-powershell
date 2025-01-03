@@ -1,0 +1,331 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
+
+namespace Amazon.PowerShell.Cmdlets.SM
+{
+    /// <summary>
+    /// Searches for available training plan offerings based on specified criteria. 
+    /// 
+    ///  <ul><li><para>
+    /// Users search for available plan offerings based on their requirements (e.g., instance
+    /// type, count, start time, duration). 
+    /// </para></li><li><para>
+    /// And then, they create a plan that best matches their needs using the ID of the plan
+    /// offering they want to use. 
+    /// </para></li></ul><para>
+    /// For more information about how to reserve GPU capacity for your SageMaker training
+    /// jobs or SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see <c><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a></c>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Search", "SMTrainingPlanOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.TrainingPlanOffering")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service SearchTrainingPlanOfferings API operation.", Operation = new[] {"SearchTrainingPlanOfferings"}, SelectReturnType = typeof(Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.TrainingPlanOffering or Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse",
+        "This cmdlet returns a collection of Amazon.SageMaker.Model.TrainingPlanOffering objects.",
+        "The service call response (type Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse) can be returned by specifying '-Select *'."
+    )]
+    public partial class SearchSMTrainingPlanOfferingCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter DurationHour
+        /// <summary>
+        /// <para>
+        /// <para>The desired duration in hours for the training plan offerings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DurationHours")]
+        public System.Int64? DurationHour { get; set; }
+        #endregion
+        
+        #region Parameter EndTimeBefore
+        /// <summary>
+        /// <para>
+        /// <para>A filter to search for reserved capacity offerings with an end time before a specified
+        /// date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? EndTimeBefore { get; set; }
+        #endregion
+        
+        #region Parameter InstanceCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of instances you want to reserve in the training plan offerings. This allows
+        /// you to specify the quantity of compute resources needed for your SageMaker training
+        /// jobs or SageMaker HyperPod clusters, helping you find reserved capacity offerings
+        /// that match your requirements.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? InstanceCount { get; set; }
+        #endregion
+        
+        #region Parameter InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of instance you want to search for in the available training plan offerings.
+        /// This field allows you to filter the search results based on the specific compute resources
+        /// you require for your SageMaker training jobs or SageMaker HyperPod clusters. When
+        /// searching for training plan offerings, specifying the instance type helps you find
+        /// Reserved Instances that match your computational needs.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.SageMaker.ReservedCapacityInstanceType")]
+        public Amazon.SageMaker.ReservedCapacityInstanceType InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter StartTimeAfter
+        /// <summary>
+        /// <para>
+        /// <para>A filter to search for training plan offerings with a start time after a specified
+        /// date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartTimeAfter { get; set; }
+        #endregion
+        
+        #region Parameter TargetResource
+        /// <summary>
+        /// <para>
+        /// <para>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) to search
+        /// for in the offerings.</para><para>Training plans are specific to their target resource.</para><ul><li><para>A training plan designed for SageMaker training jobs can only be used to schedule
+        /// and run training jobs.</para></li><li><para>A training plan for HyperPod clusters can be used exclusively to provide compute resources
+        /// to a cluster's instance group.</para></li></ul>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TargetResources")]
+        public System.String[] TargetResource { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TrainingPlanOfferings'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "TrainingPlanOfferings";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            this._AWSSignerType = "v4";
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-SMTrainingPlanOffering (SearchTrainingPlanOfferings)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse, SearchSMTrainingPlanOfferingCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.DurationHour = this.DurationHour;
+            context.EndTimeBefore = this.EndTimeBefore;
+            context.InstanceCount = this.InstanceCount;
+            #if MODULAR
+            if (this.InstanceCount == null && ParameterWasBound(nameof(this.InstanceCount)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InstanceType = this.InstanceType;
+            #if MODULAR
+            if (this.InstanceType == null && ParameterWasBound(nameof(this.InstanceType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.StartTimeAfter = this.StartTimeAfter;
+            if (this.TargetResource != null)
+            {
+                context.TargetResource = new List<System.String>(this.TargetResource);
+            }
+            #if MODULAR
+            if (this.TargetResource == null && ParameterWasBound(nameof(this.TargetResource)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TargetResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SageMaker.Model.SearchTrainingPlanOfferingsRequest();
+            
+            if (cmdletContext.DurationHour != null)
+            {
+                request.DurationHours = cmdletContext.DurationHour.Value;
+            }
+            if (cmdletContext.EndTimeBefore != null)
+            {
+                request.EndTimeBefore = cmdletContext.EndTimeBefore.Value;
+            }
+            if (cmdletContext.InstanceCount != null)
+            {
+                request.InstanceCount = cmdletContext.InstanceCount.Value;
+            }
+            if (cmdletContext.InstanceType != null)
+            {
+                request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.StartTimeAfter != null)
+            {
+                request.StartTimeAfter = cmdletContext.StartTimeAfter.Value;
+            }
+            if (cmdletContext.TargetResource != null)
+            {
+                request.TargetResources = cmdletContext.TargetResource;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.SearchTrainingPlanOfferingsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "SearchTrainingPlanOfferings");
+            try
+            {
+                #if DESKTOP
+                return client.SearchTrainingPlanOfferings(request);
+                #elif CORECLR
+                return client.SearchTrainingPlanOfferingsAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.Int64? DurationHour { get; set; }
+            public System.DateTime? EndTimeBefore { get; set; }
+            public System.Int32? InstanceCount { get; set; }
+            public Amazon.SageMaker.ReservedCapacityInstanceType InstanceType { get; set; }
+            public System.DateTime? StartTimeAfter { get; set; }
+            public List<System.String> TargetResource { get; set; }
+            public System.Func<Amazon.SageMaker.Model.SearchTrainingPlanOfferingsResponse, SearchSMTrainingPlanOfferingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TrainingPlanOfferings;
+        }
+        
+    }
+}

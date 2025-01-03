@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWebApp" OutputProperty="WebAppId" Verb="New" Noun="WebApp" ShouldProcessTarget="IdentityProviderDetails_IdentityCenterConfig_InstanceArn" PipelineParameter="AccessEndpoint" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkflow" OutputProperty="WorkflowId" Verb="New" Noun="Workflow" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,6 +84,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebApp" Verb="Remove" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebAppCustomization" Verb="Remove" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,6 +136,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWebApp" OutputProperty="WebApp" Verb="Get" Noun="WebApp" PipelineParameter="WebAppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWebAppCustomization" OutputProperty="WebAppCustomization" Verb="Get" Noun="WebAppCustomization" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,6 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebApps" OutputProperty="WebApps" Verb="Get" Noun="WebAppList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -260,6 +284,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUser" OutputProperty="*" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWebApp" OutputProperty="WebAppId" Verb="Update" Noun="WebApp" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWebAppCustomization" OutputProperty="WebAppId" Verb="Update" Noun="WebAppCustomization" ShouldProcessTarget="WebAppId" PipelineParameter="WebAppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

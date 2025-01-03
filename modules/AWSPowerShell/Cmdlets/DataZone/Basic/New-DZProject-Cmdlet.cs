@@ -108,6 +108,27 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProjectProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the project profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectProfileId { get; set; }
+        #endregion
+        
+        #region Parameter UserParameter
+        /// <summary>
+        /// <para>
+        /// <para>The user parameters of the project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserParameters")]
+        public Amazon.DataZone.Model.EnvironmentConfigurationUserParameter[] UserParameter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
@@ -170,6 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProjectProfileId = this.ProjectProfileId;
+            if (this.UserParameter != null)
+            {
+                context.UserParameter = new List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter>(this.UserParameter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +231,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProjectProfileId != null)
+            {
+                request.ProjectProfileId = cmdletContext.ProjectProfileId;
+            }
+            if (cmdletContext.UserParameter != null)
+            {
+                request.UserParameters = cmdletContext.UserParameter;
             }
             
             CmdletOutput output;
@@ -272,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainUnitId { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Name { get; set; }
+            public System.String ProjectProfileId { get; set; }
+            public List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter> UserParameter { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateProjectResponse, NewDZProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }

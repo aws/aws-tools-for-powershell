@@ -30,6 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Returns configuration item that is aggregated for your specific resource in a specific
     /// source account and region.
+    /// 
+    ///  <note><para>
+    /// The API does not return results for deleted resources.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CFGAggregateResourceConfig")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationItem")]

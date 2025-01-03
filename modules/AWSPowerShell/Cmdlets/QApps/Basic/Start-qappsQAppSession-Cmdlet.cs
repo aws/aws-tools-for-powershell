@@ -107,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter SessionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the a Q App session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -185,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionId = this.SessionId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -224,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.SessionId != null)
+            {
+                request.SessionId = cmdletContext.SessionId;
             }
             if (cmdletContext.Tag != null)
             {
@@ -294,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             public System.Int32? AppVersion { get; set; }
             public List<Amazon.QApps.Model.CardValue> InitialValue { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String SessionId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.QApps.Model.StartQAppSessionResponse, StartqappsQAppSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

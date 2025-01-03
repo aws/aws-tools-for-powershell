@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes a domain for a user pool.
+    /// Given a user pool ID and domain identifier, deletes a user pool domain. After you
+    /// delete a user pool domain, your managed login pages and authorization server are no
+    /// longer available.
     /// </summary>
     [Cmdlet("Remove", "CGIPUserPoolDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The domain string. For custom domains, this is the fully-qualified domain name, such
-        /// as <c>auth.example.com</c>. For Amazon Cognito prefix domains, this is the prefix
-        /// alone, such as <c>auth</c>.</para>
+        /// <para>The domain that you want to delete. For custom domains, this is the fully-qualified
+        /// domain name, such as <c>auth.example.com</c>. For Amazon Cognito prefix domains, this
+        /// is the prefix alone, such as <c>auth</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to delete the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

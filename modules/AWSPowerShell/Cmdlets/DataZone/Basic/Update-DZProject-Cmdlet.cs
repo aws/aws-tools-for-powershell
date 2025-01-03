@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnvironmentDeploymentDetails_EnvironmentFailureReason
+        /// <summary>
+        /// <para>
+        /// <para>Environment failure reasons.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnvironmentDeploymentDetails_EnvironmentFailureReasons")]
+        public System.Collections.Hashtable EnvironmentDeploymentDetails_EnvironmentFailureReason { get; set; }
+        #endregion
+        
         #region Parameter GlossaryTerm
         /// <summary>
         /// <para>
@@ -105,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentDeploymentDetails_OverallDeploymentStatus
+        /// <summary>
+        /// <para>
+        /// <para>The overall deployment status of the environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataZone.OverallDeploymentStatus")]
+        public Amazon.DataZone.OverallDeploymentStatus EnvironmentDeploymentDetails_OverallDeploymentStatus { get; set; }
         #endregion
         
         #region Parameter Select
@@ -157,6 +179,27 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EnvironmentDeploymentDetails_EnvironmentFailureReason != null)
+            {
+                context.EnvironmentDeploymentDetails_EnvironmentFailureReason = new Dictionary<System.String, List<Amazon.DataZone.Model.EnvironmentError>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EnvironmentDeploymentDetails_EnvironmentFailureReason.Keys)
+                {
+                    object hashValue = this.EnvironmentDeploymentDetails_EnvironmentFailureReason[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.EnvironmentDeploymentDetails_EnvironmentFailureReason.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<Amazon.DataZone.Model.EnvironmentError>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((Amazon.DataZone.Model.EnvironmentError)s);
+                    }
+                    context.EnvironmentDeploymentDetails_EnvironmentFailureReason.Add((String)hashKey, valueSet);
+                }
+            }
+            context.EnvironmentDeploymentDetails_OverallDeploymentStatus = this.EnvironmentDeploymentDetails_OverallDeploymentStatus;
             if (this.GlossaryTerm != null)
             {
                 context.GlossaryTerm = new List<System.String>(this.GlossaryTerm);
@@ -192,6 +235,35 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            
+             // populate EnvironmentDeploymentDetails
+            var requestEnvironmentDeploymentDetailsIsNull = true;
+            request.EnvironmentDeploymentDetails = new Amazon.DataZone.Model.EnvironmentDeploymentDetails();
+            Dictionary<System.String, List<Amazon.DataZone.Model.EnvironmentError>> requestEnvironmentDeploymentDetails_environmentDeploymentDetails_EnvironmentFailureReason = null;
+            if (cmdletContext.EnvironmentDeploymentDetails_EnvironmentFailureReason != null)
+            {
+                requestEnvironmentDeploymentDetails_environmentDeploymentDetails_EnvironmentFailureReason = cmdletContext.EnvironmentDeploymentDetails_EnvironmentFailureReason;
+            }
+            if (requestEnvironmentDeploymentDetails_environmentDeploymentDetails_EnvironmentFailureReason != null)
+            {
+                request.EnvironmentDeploymentDetails.EnvironmentFailureReasons = requestEnvironmentDeploymentDetails_environmentDeploymentDetails_EnvironmentFailureReason;
+                requestEnvironmentDeploymentDetailsIsNull = false;
+            }
+            Amazon.DataZone.OverallDeploymentStatus requestEnvironmentDeploymentDetails_environmentDeploymentDetails_OverallDeploymentStatus = null;
+            if (cmdletContext.EnvironmentDeploymentDetails_OverallDeploymentStatus != null)
+            {
+                requestEnvironmentDeploymentDetails_environmentDeploymentDetails_OverallDeploymentStatus = cmdletContext.EnvironmentDeploymentDetails_OverallDeploymentStatus;
+            }
+            if (requestEnvironmentDeploymentDetails_environmentDeploymentDetails_OverallDeploymentStatus != null)
+            {
+                request.EnvironmentDeploymentDetails.OverallDeploymentStatus = requestEnvironmentDeploymentDetails_environmentDeploymentDetails_OverallDeploymentStatus;
+                requestEnvironmentDeploymentDetailsIsNull = false;
+            }
+             // determine if request.EnvironmentDeploymentDetails should be set to null
+            if (requestEnvironmentDeploymentDetailsIsNull)
+            {
+                request.EnvironmentDeploymentDetails = null;
             }
             if (cmdletContext.GlossaryTerm != null)
             {
@@ -268,6 +340,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public Dictionary<System.String, List<Amazon.DataZone.Model.EnvironmentError>> EnvironmentDeploymentDetails_EnvironmentFailureReason { get; set; }
+            public Amazon.DataZone.OverallDeploymentStatus EnvironmentDeploymentDetails_OverallDeploymentStatus { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }

@@ -58,13 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         /// <para>The inclusive time range start date.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? ActiveTimeRange_ActiveAfterInclusive { get; set; }
         #endregion
         
@@ -74,14 +68,41 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         /// <para> The inclusive time range end date. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? ActiveTimeRange_ActiveBeforeInclusive { get; set; }
+        #endregion
+        
+        #region Parameter Arn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Arns")]
+        public System.String[] Arn { get; set; }
+        #endregion
+        
+        #region Parameter BillingViewType
+        /// <summary>
+        /// <para>
+        /// <para>The type of billing view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BillingViewTypes")]
+        public System.String[] BillingViewType { get; set; }
+        #endregion
+        
+        #region Parameter OwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para> The list of owners of the billing view. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnerAccountId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -146,21 +167,18 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ActiveTimeRange_ActiveAfterInclusive = this.ActiveTimeRange_ActiveAfterInclusive;
-            #if MODULAR
-            if (this.ActiveTimeRange_ActiveAfterInclusive == null && ParameterWasBound(nameof(this.ActiveTimeRange_ActiveAfterInclusive)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ActiveTimeRange_ActiveAfterInclusive which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ActiveTimeRange_ActiveBeforeInclusive = this.ActiveTimeRange_ActiveBeforeInclusive;
-            #if MODULAR
-            if (this.ActiveTimeRange_ActiveBeforeInclusive == null && ParameterWasBound(nameof(this.ActiveTimeRange_ActiveBeforeInclusive)))
+            if (this.Arn != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ActiveTimeRange_ActiveBeforeInclusive which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Arn = new List<System.String>(this.Arn);
             }
-            #endif
+            if (this.BillingViewType != null)
+            {
+                context.BillingViewType = new List<System.String>(this.BillingViewType);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OwnerAccountId = this.OwnerAccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,9 +226,21 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
             {
                 request.ActiveTimeRange = null;
             }
+            if (cmdletContext.Arn != null)
+            {
+                request.Arns = cmdletContext.Arn;
+            }
+            if (cmdletContext.BillingViewType != null)
+            {
+                request.BillingViewTypes = cmdletContext.BillingViewType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.OwnerAccountId != null)
+            {
+                request.OwnerAccountId = cmdletContext.OwnerAccountId;
             }
             
             // Initialize loop variant and commence piping
@@ -299,8 +329,11 @@ namespace Amazon.PowerShell.Cmdlets.AWSB
         {
             public System.DateTime? ActiveTimeRange_ActiveAfterInclusive { get; set; }
             public System.DateTime? ActiveTimeRange_ActiveBeforeInclusive { get; set; }
+            public List<System.String> Arn { get; set; }
+            public List<System.String> BillingViewType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OwnerAccountId { get; set; }
             public System.Func<Amazon.Billing.Model.ListBillingViewsResponse, GetAWSBBillingViewListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BillingViews;
         }

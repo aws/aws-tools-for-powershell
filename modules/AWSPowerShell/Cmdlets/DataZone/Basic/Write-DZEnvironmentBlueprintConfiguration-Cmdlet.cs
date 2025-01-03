@@ -93,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String EnvironmentBlueprintIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnvironmentRolePermissionBoundary
+        /// <summary>
+        /// <para>
+        /// <para>The environment role permissions boundary.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentRolePermissionBoundary { get; set; }
+        #endregion
+        
         #region Parameter ManageAccessRoleArn
         /// <summary>
         /// <para>
@@ -201,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter EnvironmentBlueprintIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnvironmentRolePermissionBoundary = this.EnvironmentRolePermissionBoundary;
             context.ManageAccessRoleArn = this.ManageAccessRoleArn;
             if (this.ProvisioningConfiguration != null)
             {
@@ -242,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.EnvironmentBlueprintIdentifier != null)
             {
                 request.EnvironmentBlueprintIdentifier = cmdletContext.EnvironmentBlueprintIdentifier;
+            }
+            if (cmdletContext.EnvironmentRolePermissionBoundary != null)
+            {
+                request.EnvironmentRolePermissionBoundary = cmdletContext.EnvironmentRolePermissionBoundary;
             }
             if (cmdletContext.ManageAccessRoleArn != null)
             {
@@ -323,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String DomainIdentifier { get; set; }
             public List<System.String> EnabledRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
+            public System.String EnvironmentRolePermissionBoundary { get; set; }
             public System.String ManageAccessRoleArn { get; set; }
             public List<Amazon.DataZone.Model.ProvisioningConfiguration> ProvisioningConfiguration { get; set; }
             public System.String ProvisioningRoleArn { get; set; }

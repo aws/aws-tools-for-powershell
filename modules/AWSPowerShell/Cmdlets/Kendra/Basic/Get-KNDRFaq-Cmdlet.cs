@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets information about an FAQ list.
+    /// Gets information about a FAQ.
     /// </summary>
     [Cmdlet("Get", "KNDRFaq")]
     [OutputType("Amazon.Kendra.Model.DescribeFaqResponse")]

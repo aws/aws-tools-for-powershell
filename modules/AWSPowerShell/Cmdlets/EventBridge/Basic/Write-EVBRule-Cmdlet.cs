@@ -81,6 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// you use budgeting, which alerts you when charges exceed your specified limit. For
     /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing
     /// Your Costs with Budgets</a>.
+    /// </para><para>
+    /// To create a rule that filters for management events from Amazon Web Services services,
+    /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html#eb-service-event-cloudtrail-management">Receiving
+    /// read-only management events from Amazon Web Services services</a> in the <i>EventBridge
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "EVBRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

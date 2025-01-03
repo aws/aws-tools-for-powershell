@@ -123,6 +123,44 @@ $VPCL_Completers = {
             break
         }
 
+        # Amazon.VPCLattice.ProtocolType
+        "New-VPCLResourceConfiguration/Protocol"
+        {
+            $v = "TCP"
+            break
+        }
+
+        # Amazon.VPCLattice.ResourceConfigurationIpAddressType
+        {
+            ($_ -eq "New-VPCLResourceConfiguration/DnsResource_IpAddressType") -Or
+            ($_ -eq "Update-VPCLResourceConfiguration/DnsResource_IpAddressType")
+        }
+        {
+            $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.VPCLattice.ResourceConfigurationType
+        "New-VPCLResourceConfiguration/Type"
+        {
+            $v = "ARN","CHILD","GROUP","SINGLE"
+            break
+        }
+
+        # Amazon.VPCLattice.ResourceGatewayIpAddressType
+        "New-VPCLResourceGateway/IpAddressType"
+        {
+            $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
+        # Amazon.VPCLattice.ServiceNetworkLogType
+        "New-VPCLAccessLogSubscription/ServiceNetworkLogType"
+        {
+            $v = "RESOURCE","SERVICE"
+            break
+        }
+
         # Amazon.VPCLattice.TargetGroupProtocol
         {
             ($_ -eq "New-VPCLTargetGroup/Config_Protocol") -Or
@@ -165,11 +203,14 @@ $VPCL_map = @{
     "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
+    "DnsResource_IpAddressType"=@("New-VPCLResourceConfiguration","Update-VPCLResourceConfiguration")
     "HealthCheck_Protocol"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
-    "Protocol"=@("New-VPCLListener")
+    "IpAddressType"=@("New-VPCLResourceGateway")
+    "Protocol"=@("New-VPCLListener","New-VPCLResourceConfiguration")
+    "ServiceNetworkLogType"=@("New-VPCLAccessLogSubscription")
     "TargetGroupType"=@("Get-VPCLTargetGroupList")
-    "Type"=@("New-VPCLTargetGroup")
+    "Type"=@("New-VPCLResourceConfiguration","New-VPCLTargetGroup")
 }
 
 _awsArgumentCompleterRegistration $VPCL_Completers $VPCL_map
@@ -225,19 +266,26 @@ $VPCL_SelectMap = @{
     "Select"=@("Update-VPCLRuleList",
                "New-VPCLAccessLogSubscription",
                "New-VPCLListener",
+               "New-VPCLResourceConfiguration",
+               "New-VPCLResourceGateway",
                "New-VPCLRule",
                "New-VPCLService",
                "New-VPCLServiceNetwork",
+               "New-VPCLServiceNetworkResourceAssociation",
                "New-VPCLServiceNetworkServiceAssociation",
                "New-VPCLServiceNetworkVpcAssociation",
                "New-VPCLTargetGroup",
                "Remove-VPCLAccessLogSubscription",
                "Remove-VPCLAuthPolicy",
                "Remove-VPCLListener",
+               "Remove-VPCLResourceConfiguration",
+               "Remove-VPCLResourceEndpointAssociation",
+               "Remove-VPCLResourceGateway",
                "Remove-VPCLResourcePolicy",
                "Remove-VPCLRule",
                "Remove-VPCLService",
                "Remove-VPCLServiceNetwork",
+               "Remove-VPCLServiceNetworkResourceAssociation",
                "Remove-VPCLServiceNetworkServiceAssociation",
                "Remove-VPCLServiceNetworkVpcAssociation",
                "Remove-VPCLTargetGroup",
@@ -245,19 +293,27 @@ $VPCL_SelectMap = @{
                "Get-VPCLAccessLogSubscription",
                "Get-VPCLAuthPolicy",
                "Get-VPCLListener",
+               "Get-VPCLResourceConfiguration",
+               "Get-VPCLResourceGateway",
                "Get-VPCLResourcePolicy",
                "Get-VPCLRule",
                "Get-VPCLService",
                "Get-VPCLServiceNetwork",
+               "Get-VPCLServiceNetworkResourceAssociation",
                "Get-VPCLServiceNetworkServiceAssociation",
                "Get-VPCLServiceNetworkVpcAssociation",
                "Get-VPCLTargetGroup",
                "Get-VPCLAccessLogSubscriptionList",
                "Get-VPCLListenerList",
+               "Get-VPCLResourceConfigurationList",
+               "Get-VPCLResourceEndpointAssociationList",
+               "Get-VPCLResourceGatewayList",
                "Get-VPCLRuleList",
+               "Get-VPCLServiceNetworkResourceAssociationList",
                "Get-VPCLServiceNetworkList",
                "Get-VPCLServiceNetworkServiceAssociationList",
                "Get-VPCLServiceNetworkVpcAssociationList",
+               "Get-VPCLServiceNetworkVpcEndpointAssociationList",
                "Get-VPCLServiceList",
                "Get-VPCLResourceTag",
                "Get-VPCLTargetGroupList",
@@ -269,6 +325,8 @@ $VPCL_SelectMap = @{
                "Remove-VPCLResourceTag",
                "Update-VPCLAccessLogSubscription",
                "Update-VPCLListener",
+               "Update-VPCLResourceConfiguration",
+               "Update-VPCLResourceGateway",
                "Update-VPCLRule",
                "Update-VPCLService",
                "Update-VPCLServiceNetwork",

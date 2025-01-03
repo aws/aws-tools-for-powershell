@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows a user to delete their own user profile.
+    /// Self-deletes a user profile. A deleted user profile can no longer be used to sign
+    /// in and can't be restored.
     /// 
     ///  
     /// <para>

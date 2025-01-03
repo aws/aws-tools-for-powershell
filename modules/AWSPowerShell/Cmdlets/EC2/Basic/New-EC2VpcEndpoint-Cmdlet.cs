@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
         #endregion
         
+        #region Parameter ResourceConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a resource configuration that will be associated
+        /// with the VPC endpoint of type resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
@@ -140,15 +151,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The name of the endpoint service.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceName { get; set; }
+        #endregion
+        
+        #region Parameter ServiceNetworkArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a service network that will be associated with the
+        /// VPC endpoint of type service-network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceNetworkArn { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Region where the service is hosted. The default is the current Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceRegion { get; set; }
         #endregion
         
         #region Parameter SubnetConfiguration
@@ -274,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.IpAddressType = this.IpAddressType;
             context.PolicyDocument = this.PolicyDocument;
             context.PrivateDnsEnabled = this.PrivateDnsEnabled;
+            context.ResourceConfigurationArn = this.ResourceConfigurationArn;
             if (this.RouteTableId != null)
             {
                 context.RouteTableId = new List<System.String>(this.RouteTableId);
@@ -283,12 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
             context.ServiceName = this.ServiceName;
-            #if MODULAR
-            if (this.ServiceName == null && ParameterWasBound(nameof(this.ServiceName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ServiceNetworkArn = this.ServiceNetworkArn;
+            context.ServiceRegion = this.ServiceRegion;
             if (this.SubnetConfiguration != null)
             {
                 context.SubnetConfiguration = new List<Amazon.EC2.Model.SubnetConfiguration>(this.SubnetConfiguration);
@@ -370,6 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.PrivateDnsEnabled = cmdletContext.PrivateDnsEnabled.Value;
             }
+            if (cmdletContext.ResourceConfigurationArn != null)
+            {
+                request.ResourceConfigurationArn = cmdletContext.ResourceConfigurationArn;
+            }
             if (cmdletContext.RouteTableId != null)
             {
                 request.RouteTableIds = cmdletContext.RouteTableId;
@@ -381,6 +407,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ServiceName != null)
             {
                 request.ServiceName = cmdletContext.ServiceName;
+            }
+            if (cmdletContext.ServiceNetworkArn != null)
+            {
+                request.ServiceNetworkArn = cmdletContext.ServiceNetworkArn;
+            }
+            if (cmdletContext.ServiceRegion != null)
+            {
+                request.ServiceRegion = cmdletContext.ServiceRegion;
             }
             if (cmdletContext.SubnetConfiguration != null)
             {
@@ -469,9 +503,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.IpAddressType IpAddressType { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.Boolean? PrivateDnsEnabled { get; set; }
+            public System.String ResourceConfigurationArn { get; set; }
             public List<System.String> RouteTableId { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String ServiceName { get; set; }
+            public System.String ServiceNetworkArn { get; set; }
+            public System.String ServiceRegion { get; set; }
             public List<Amazon.EC2.Model.SubnetConfiguration> SubnetConfiguration { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

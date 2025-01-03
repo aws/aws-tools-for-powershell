@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// Retrieves (queries) statistical data and other information about Amazon Web Services
-    /// resources that Amazon Macie monitors and analyzes.
+    /// resources that Amazon Macie monitors and analyzes for an account.
     /// </summary>
     [Cmdlet("Search", "MAC2Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie2.Model.MatchingResource")]

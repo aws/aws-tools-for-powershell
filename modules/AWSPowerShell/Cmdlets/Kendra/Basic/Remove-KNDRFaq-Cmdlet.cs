@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Removes an FAQ from an index.
+    /// Removes a FAQ from an index.
     /// </summary>
     [Cmdlet("Remove", "KNDRFaq", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

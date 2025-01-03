@@ -81,7 +81,10 @@ $qapps_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.QApps.DocumentScope
-        "Import-qappsDocument/Scope"
+        {
+            ($_ -eq "Import-qappsDocument/Scope") -Or
+            ($_ -eq "New-qappsPresignedUrl/Scope")
+        }
         {
             $v = "APPLICATION","SESSION"
             break
@@ -103,7 +106,7 @@ $qapps_Completers = {
 }
 
 $qapps_map = @{
-    "Scope"=@("Import-qappsDocument")
+    "Scope"=@("Import-qappsDocument","New-qappsPresignedUrl")
     "Status"=@("Update-qappsLibraryItem")
 }
 
@@ -163,18 +166,23 @@ $qapps_SelectMap = @{
                "Remove-qappsDeleteCategory",
                "Set-qappsUpdateCategory",
                "New-qappsLibraryItem",
+               "New-qappsPresignedUrl",
                "New-qappsQApp",
                "Remove-qappsLibraryItem",
                "Remove-qappsQApp",
+               "Get-qappsQAppPermission",
                "Unregister-qappsLibraryItemReview",
                "Unregister-qappsQAppFromUser",
+               "Export-qappsQAppSessionData",
                "Get-qappsLibraryItem",
                "Get-qappsQApp",
                "Get-qappsQAppSession",
+               "Get-qappsQAppSessionMetadata",
                "Import-qappsDocument",
                "Get-qappsCategoryList",
                "Get-qappsLibraryItemList",
                "Get-qappsQAppList",
+               "Get-qappsQAppSessionDataList",
                "Get-qappsResourceTag",
                "ConvertFrom-qappsQApp",
                "Start-qappsQAppSession",
@@ -184,7 +192,9 @@ $qapps_SelectMap = @{
                "Update-qappsLibraryItem",
                "Update-qappsLibraryItemMetadata",
                "Update-qappsQApp",
-               "Update-qappsQAppSession")
+               "Update-qappsQAppPermission",
+               "Update-qappsQAppSession",
+               "Update-qappsQAppSessionMetadata")
 }
 
 _awsArgumentCompleterRegistration $qapps_SelectCompleters $qapps_SelectMap

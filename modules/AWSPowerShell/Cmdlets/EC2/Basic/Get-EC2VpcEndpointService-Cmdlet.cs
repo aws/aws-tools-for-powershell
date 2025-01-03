@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>owner</c> - The ID or alias of the Amazon Web Services account that owns the service.</para></li><li><para><c>service-name</c> - The name of the service.</para></li><li><para><c>service-type</c> - The type of service (<c>Interface</c> | <c>Gateway</c> | <c>GatewayLoadBalancer</c>).</para></li><li><para><c>supported-ip-address-types</c> - The IP address type (<c>ipv4</c> | <c>ipv6</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
+        /// <para>The filters.</para><ul><li><para><c>owner</c> - The ID or alias of the Amazon Web Services account that owns the service.</para></li><li><para><c>service-name</c> - The name of the service.</para></li><li><para><c>service-region</c> - The Region of the service.</para></li><li><para><c>service-type</c> - The type of service (<c>Interface</c> | <c>Gateway</c> | <c>GatewayLoadBalancer</c>).</para></li><li><para><c>supported-ip-address-types</c> - The IP address type (<c>ipv4</c> | <c>ipv6</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of a tag assigned to the resource.
         /// Use the tag key in the filter name and the tag value as the filter value. For example,
         /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
         /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li><li><para><c>tag-key</c> - The key of a tag assigned to the resource. Use this filter to find
@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ServiceNames")]
         public System.String[] ServiceName { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRegion
+        /// <summary>
+        /// <para>
+        /// <para>The service Regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceRegions")]
+        public System.String[] ServiceRegion { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -152,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ServiceName = new List<System.String>(this.ServiceName);
             }
+            if (this.ServiceRegion != null)
+            {
+                context.ServiceRegion = new List<System.String>(this.ServiceRegion);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ServiceName != null)
             {
                 request.ServiceNames = cmdletContext.ServiceName;
+            }
+            if (cmdletContext.ServiceRegion != null)
+            {
+                request.ServiceRegions = cmdletContext.ServiceRegion;
             }
             
             // Initialize loop variant and commence piping
@@ -253,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ServiceNames = cmdletContext.ServiceName;
             }
+            if (cmdletContext.ServiceRegion != null)
+            {
+                request.ServiceRegions = cmdletContext.ServiceRegion;
+            }
             
             CmdletOutput output;
             
@@ -319,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> ServiceName { get; set; }
+            public List<System.String> ServiceRegion { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeVpcEndpointServicesResponse, GetEC2VpcEndpointServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

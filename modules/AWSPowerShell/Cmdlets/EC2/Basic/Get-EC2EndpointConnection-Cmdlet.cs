@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><c>ip-address-type</c> - The IP address type (<c>ipv4</c> | <c>ipv6</c>).</para></li><li><para><c>service-id</c> - The ID of the service.</para></li><li><para><c>vpc-endpoint-owner</c> - The ID of the Amazon Web Services account ID that owns
-        /// the endpoint.</para></li><li><para><c>vpc-endpoint-state</c> - The state of the endpoint (<c>pendingAcceptance</c> |
+        /// the endpoint.</para></li><li><para><c>vpc-endpoint-region</c> - The Region of the endpoint or <c>cross-region</c> to
+        /// find endpoints for other Regions.</para></li><li><para><c>vpc-endpoint-state</c> - The state of the endpoint (<c>pendingAcceptance</c> |
         /// <c>pending</c> | <c>available</c> | <c>deleting</c> | <c>deleted</c> | <c>rejected</c>
         /// | <c>failed</c>).</para></li><li><para><c>vpc-endpoint-id</c> - The ID of the endpoint.</para></li></ul>
         /// </para>

@@ -72,6 +72,49 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? NetworkInterfaceOptions_Port { get; set; }
         #endregion
         
+        #region Parameter RdsOptions_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RdsOptions_Port { get; set; }
+        #endregion
+        
+        #region Parameter CidrOptions_PortRange
+        /// <summary>
+        /// <para>
+        /// <para>The port ranges.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CidrOptions_PortRanges")]
+        public Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange[] CidrOptions_PortRange { get; set; }
+        #endregion
+        
+        #region Parameter LoadBalancerOptions_PortRange
+        /// <summary>
+        /// <para>
+        /// <para>The port ranges.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoadBalancerOptions_PortRanges")]
+        public Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange[] LoadBalancerOptions_PortRange { get; set; }
+        #endregion
+        
+        #region Parameter NetworkInterfaceOptions_PortRange
+        /// <summary>
+        /// <para>
+        /// <para>The port ranges.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkInterfaceOptions_PortRanges")]
+        public Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange[] NetworkInterfaceOptions_PortRange { get; set; }
+        #endregion
+        
         #region Parameter LoadBalancerOptions_Protocol
         /// <summary>
         /// <para>
@@ -94,6 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.VerifiedAccessEndpointProtocol NetworkInterfaceOptions_Protocol { get; set; }
         #endregion
         
+        #region Parameter RdsOptions_RdsEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The RDS endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RdsOptions_RdsEndpoint { get; set; }
+        #endregion
+        
         #region Parameter LoadBalancerOptions_SubnetId
         /// <summary>
         /// <para>
@@ -103,6 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LoadBalancerOptions_SubnetIds")]
         public System.String[] LoadBalancerOptions_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter RdsOptions_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RdsOptions_SubnetIds")]
+        public System.String[] RdsOptions_SubnetId { get; set; }
         #endregion
         
         #region Parameter VerifiedAccessEndpointId
@@ -155,6 +219,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public string Select { get; set; } = "VerifiedAccessEndpoint";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the VerifiedAccessEndpointId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VerifiedAccessEndpointId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VerifiedAccessEndpointId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -181,21 +255,49 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyVerifiedAccessEndpointResponse, EditEC2VerifiedAccessEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.VerifiedAccessEndpointId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CidrOptions_PortRange != null)
+            {
+                context.CidrOptions_PortRange = new List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange>(this.CidrOptions_PortRange);
             }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.LoadBalancerOptions_Port = this.LoadBalancerOptions_Port;
+            if (this.LoadBalancerOptions_PortRange != null)
+            {
+                context.LoadBalancerOptions_PortRange = new List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange>(this.LoadBalancerOptions_PortRange);
+            }
             context.LoadBalancerOptions_Protocol = this.LoadBalancerOptions_Protocol;
             if (this.LoadBalancerOptions_SubnetId != null)
             {
                 context.LoadBalancerOptions_SubnetId = new List<System.String>(this.LoadBalancerOptions_SubnetId);
             }
             context.NetworkInterfaceOptions_Port = this.NetworkInterfaceOptions_Port;
+            if (this.NetworkInterfaceOptions_PortRange != null)
+            {
+                context.NetworkInterfaceOptions_PortRange = new List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange>(this.NetworkInterfaceOptions_PortRange);
+            }
             context.NetworkInterfaceOptions_Protocol = this.NetworkInterfaceOptions_Protocol;
+            context.RdsOptions_Port = this.RdsOptions_Port;
+            context.RdsOptions_RdsEndpoint = this.RdsOptions_RdsEndpoint;
+            if (this.RdsOptions_SubnetId != null)
+            {
+                context.RdsOptions_SubnetId = new List<System.String>(this.RdsOptions_SubnetId);
+            }
             context.VerifiedAccessEndpointId = this.VerifiedAccessEndpointId;
             #if MODULAR
             if (this.VerifiedAccessEndpointId == null && ParameterWasBound(nameof(this.VerifiedAccessEndpointId)))
@@ -220,6 +322,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyVerifiedAccessEndpointRequest();
             
+            
+             // populate CidrOptions
+            var requestCidrOptionsIsNull = true;
+            request.CidrOptions = new Amazon.EC2.Model.ModifyVerifiedAccessEndpointCidrOptions();
+            List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange> requestCidrOptions_cidrOptions_PortRange = null;
+            if (cmdletContext.CidrOptions_PortRange != null)
+            {
+                requestCidrOptions_cidrOptions_PortRange = cmdletContext.CidrOptions_PortRange;
+            }
+            if (requestCidrOptions_cidrOptions_PortRange != null)
+            {
+                request.CidrOptions.PortRanges = requestCidrOptions_cidrOptions_PortRange;
+                requestCidrOptionsIsNull = false;
+            }
+             // determine if request.CidrOptions should be set to null
+            if (requestCidrOptionsIsNull)
+            {
+                request.CidrOptions = null;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -240,6 +361,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestLoadBalancerOptions_loadBalancerOptions_Port != null)
             {
                 request.LoadBalancerOptions.Port = requestLoadBalancerOptions_loadBalancerOptions_Port.Value;
+                requestLoadBalancerOptionsIsNull = false;
+            }
+            List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange> requestLoadBalancerOptions_loadBalancerOptions_PortRange = null;
+            if (cmdletContext.LoadBalancerOptions_PortRange != null)
+            {
+                requestLoadBalancerOptions_loadBalancerOptions_PortRange = cmdletContext.LoadBalancerOptions_PortRange;
+            }
+            if (requestLoadBalancerOptions_loadBalancerOptions_PortRange != null)
+            {
+                request.LoadBalancerOptions.PortRanges = requestLoadBalancerOptions_loadBalancerOptions_PortRange;
                 requestLoadBalancerOptionsIsNull = false;
             }
             Amazon.EC2.VerifiedAccessEndpointProtocol requestLoadBalancerOptions_loadBalancerOptions_Protocol = null;
@@ -281,6 +412,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.NetworkInterfaceOptions.Port = requestNetworkInterfaceOptions_networkInterfaceOptions_Port.Value;
                 requestNetworkInterfaceOptionsIsNull = false;
             }
+            List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange> requestNetworkInterfaceOptions_networkInterfaceOptions_PortRange = null;
+            if (cmdletContext.NetworkInterfaceOptions_PortRange != null)
+            {
+                requestNetworkInterfaceOptions_networkInterfaceOptions_PortRange = cmdletContext.NetworkInterfaceOptions_PortRange;
+            }
+            if (requestNetworkInterfaceOptions_networkInterfaceOptions_PortRange != null)
+            {
+                request.NetworkInterfaceOptions.PortRanges = requestNetworkInterfaceOptions_networkInterfaceOptions_PortRange;
+                requestNetworkInterfaceOptionsIsNull = false;
+            }
             Amazon.EC2.VerifiedAccessEndpointProtocol requestNetworkInterfaceOptions_networkInterfaceOptions_Protocol = null;
             if (cmdletContext.NetworkInterfaceOptions_Protocol != null)
             {
@@ -295,6 +436,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestNetworkInterfaceOptionsIsNull)
             {
                 request.NetworkInterfaceOptions = null;
+            }
+            
+             // populate RdsOptions
+            var requestRdsOptionsIsNull = true;
+            request.RdsOptions = new Amazon.EC2.Model.ModifyVerifiedAccessEndpointRdsOptions();
+            System.Int32? requestRdsOptions_rdsOptions_Port = null;
+            if (cmdletContext.RdsOptions_Port != null)
+            {
+                requestRdsOptions_rdsOptions_Port = cmdletContext.RdsOptions_Port.Value;
+            }
+            if (requestRdsOptions_rdsOptions_Port != null)
+            {
+                request.RdsOptions.Port = requestRdsOptions_rdsOptions_Port.Value;
+                requestRdsOptionsIsNull = false;
+            }
+            System.String requestRdsOptions_rdsOptions_RdsEndpoint = null;
+            if (cmdletContext.RdsOptions_RdsEndpoint != null)
+            {
+                requestRdsOptions_rdsOptions_RdsEndpoint = cmdletContext.RdsOptions_RdsEndpoint;
+            }
+            if (requestRdsOptions_rdsOptions_RdsEndpoint != null)
+            {
+                request.RdsOptions.RdsEndpoint = requestRdsOptions_rdsOptions_RdsEndpoint;
+                requestRdsOptionsIsNull = false;
+            }
+            List<System.String> requestRdsOptions_rdsOptions_SubnetId = null;
+            if (cmdletContext.RdsOptions_SubnetId != null)
+            {
+                requestRdsOptions_rdsOptions_SubnetId = cmdletContext.RdsOptions_SubnetId;
+            }
+            if (requestRdsOptions_rdsOptions_SubnetId != null)
+            {
+                request.RdsOptions.SubnetIds = requestRdsOptions_rdsOptions_SubnetId;
+                requestRdsOptionsIsNull = false;
+            }
+             // determine if request.RdsOptions should be set to null
+            if (requestRdsOptionsIsNull)
+            {
+                request.RdsOptions = null;
             }
             if (cmdletContext.VerifiedAccessEndpointId != null)
             {
@@ -365,13 +545,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange> CidrOptions_PortRange { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.Int32? LoadBalancerOptions_Port { get; set; }
+            public List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange> LoadBalancerOptions_PortRange { get; set; }
             public Amazon.EC2.VerifiedAccessEndpointProtocol LoadBalancerOptions_Protocol { get; set; }
             public List<System.String> LoadBalancerOptions_SubnetId { get; set; }
             public System.Int32? NetworkInterfaceOptions_Port { get; set; }
+            public List<Amazon.EC2.Model.ModifyVerifiedAccessEndpointPortRange> NetworkInterfaceOptions_PortRange { get; set; }
             public Amazon.EC2.VerifiedAccessEndpointProtocol NetworkInterfaceOptions_Protocol { get; set; }
+            public System.Int32? RdsOptions_Port { get; set; }
+            public System.String RdsOptions_RdsEndpoint { get; set; }
+            public List<System.String> RdsOptions_SubnetId { get; set; }
             public System.String VerifiedAccessEndpointId { get; set; }
             public System.String VerifiedAccessGroupId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVerifiedAccessEndpointResponse, EditEC2VerifiedAccessEndpointCmdlet, object> Select { get; set; } =

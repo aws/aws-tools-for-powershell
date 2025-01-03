@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2IBLifecycleExecutionResourceList', 
         'Get-EC2IBLifecyclePolicy', 
         'Get-EC2IBLifecyclePolicyList', 
+        'Get-EC2IBMarketplaceResource', 
         'Get-EC2IBResourceTag', 
         'Get-EC2IBWaitingWorkflowStepList', 
         'Get-EC2IBWorkflow', 

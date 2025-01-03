@@ -52,9 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RiskExceptionConfiguration_BlockedIPRangeList
         /// <summary>
         /// <para>
-        /// <para>Overrides the risk decision to always block the pre-authentication requests. The IP
-        /// range is in CIDR notation, a compact representation of an IP address and its routing
-        /// prefix.</para>
+        /// <para>An always-block IP address list. Overrides the risk decision and always blocks authentication
+        /// requests. This parameter is displayed and set in CIDR notation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,10 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter HighAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The action to take in response to the account takeover action. Valid values are as
-        /// follows:</para><ul><li><para><c>BLOCK</c> Choosing this action will block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c> Present an MFA challenge if user has configured it, else
-        /// allow the request.</para></li><li><para><c>MFA_REQUIRED</c> Present an MFA challenge if user has configured it, else block
-        /// the request.</para></li><li><para><c>NO_ACTION</c> Allow the user to sign in.</para></li></ul>
+        /// <para>The action to take for the attempted account takeover action for the associated risk
+        /// level. Valid values are as follows:</para><ul><li><para><c>BLOCK</c>: Block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c>: Present an MFA challenge if possible. MFA is possible if
+        /// the user pool has active MFA methods that the user can set up. For example, if the
+        /// user pool only supports SMS message MFA but the user doesn't have a phone number attribute,
+        /// MFA setup isn't possible. If MFA setup isn't possible, allow the request.</para></li><li><para><c>MFA_REQUIRED</c>: Present an MFA challenge if possible. Block the request if a
+        /// user hasn't set up MFA. To sign in with required MFA, users must have an email address
+        /// or phone number attribute, or a registered TOTP factor.</para></li><li><para><c>NO_ACTION</c>: Take no action. Permit sign-in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,10 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LowAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The action to take in response to the account takeover action. Valid values are as
-        /// follows:</para><ul><li><para><c>BLOCK</c> Choosing this action will block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c> Present an MFA challenge if user has configured it, else
-        /// allow the request.</para></li><li><para><c>MFA_REQUIRED</c> Present an MFA challenge if user has configured it, else block
-        /// the request.</para></li><li><para><c>NO_ACTION</c> Allow the user to sign in.</para></li></ul>
+        /// <para>The action to take for the attempted account takeover action for the associated risk
+        /// level. Valid values are as follows:</para><ul><li><para><c>BLOCK</c>: Block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c>: Present an MFA challenge if possible. MFA is possible if
+        /// the user pool has active MFA methods that the user can set up. For example, if the
+        /// user pool only supports SMS message MFA but the user doesn't have a phone number attribute,
+        /// MFA setup isn't possible. If MFA setup isn't possible, allow the request.</para></li><li><para><c>MFA_REQUIRED</c>: Present an MFA challenge if possible. Block the request if a
+        /// user hasn't set up MFA. To sign in with required MFA, users must have an email address
+        /// or phone number attribute, or a registered TOTP factor.</para></li><li><para><c>NO_ACTION</c>: Take no action. Permit sign-in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +113,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MediumAction_EventAction
         /// <summary>
         /// <para>
-        /// <para>The action to take in response to the account takeover action. Valid values are as
-        /// follows:</para><ul><li><para><c>BLOCK</c> Choosing this action will block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c> Present an MFA challenge if user has configured it, else
-        /// allow the request.</para></li><li><para><c>MFA_REQUIRED</c> Present an MFA challenge if user has configured it, else block
-        /// the request.</para></li><li><para><c>NO_ACTION</c> Allow the user to sign in.</para></li></ul>
+        /// <para>The action to take for the attempted account takeover action for the associated risk
+        /// level. Valid values are as follows:</para><ul><li><para><c>BLOCK</c>: Block the request.</para></li><li><para><c>MFA_IF_CONFIGURED</c>: Present an MFA challenge if possible. MFA is possible if
+        /// the user pool has active MFA methods that the user can set up. For example, if the
+        /// user pool only supports SMS message MFA but the user doesn't have a phone number attribute,
+        /// MFA setup isn't possible. If MFA setup isn't possible, allow the request.</para></li><li><para><c>MFA_REQUIRED</c>: Present an MFA challenge if possible. Block the request if a
+        /// user hasn't set up MFA. To sign in with required MFA, users must have an email address
+        /// or phone number attribute, or a registered TOTP factor.</para></li><li><para><c>NO_ACTION</c>: Take no action. Permit sign-in.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Actions_EventAction
         /// <summary>
         /// <para>
-        /// <para>The event action.</para>
+        /// <para>The action that Amazon Cognito takes when it detects compromised credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CompromisedCredentialsRiskConfiguration_EventFilter
         /// <summary>
         /// <para>
-        /// <para>Perform the action for these events. The default is to perform all events if no event
-        /// filter is specified.</para>
+        /// <para>Settings for the sign-in activity where you want to configure compromised-credentials
+        /// actions. Defaults to all events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NotifyConfiguration_From
         /// <summary>
         /// <para>
-        /// <para>The email address that is sending the email. The address must be either individually
+        /// <para>The email address that sends the email message. The address must be either individually
         /// verified with Amazon Simple Email Service, or from a domain that has been verified
         /// with Amazon SES.</para>
         /// </para>
@@ -159,7 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter BlockEmail_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The email HTML body.</para>
+        /// <para>The body of an email notification formatted in HTML. Choose an <c>HtmlBody</c> or
+        /// a <c>TextBody</c> to send an HTML-formatted or plaintext message, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaEmail_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The email HTML body.</para>
+        /// <para>The body of an email notification formatted in HTML. Choose an <c>HtmlBody</c> or
+        /// a <c>TextBody</c> to send an HTML-formatted or plaintext message, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NoActionEmail_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The email HTML body.</para>
+        /// <para>The body of an email notification formatted in HTML. Choose an <c>HtmlBody</c> or
+        /// a <c>TextBody</c> to send an HTML-formatted or plaintext message, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter HighAction_Notify
         /// <summary>
         /// <para>
-        /// <para>Flag specifying whether to send a notification.</para>
+        /// <para>Determines whether Amazon Cognito sends a user a notification message when your user
+        /// pools assesses a user's session at the associated risk level.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,7 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LowAction_Notify
         /// <summary>
         /// <para>
-        /// <para>Flag specifying whether to send a notification.</para>
+        /// <para>Determines whether Amazon Cognito sends a user a notification message when your user
+        /// pools assesses a user's session at the associated risk level.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MediumAction_Notify
         /// <summary>
         /// <para>
-        /// <para>Flag specifying whether to send a notification.</para>
+        /// <para>Determines whether Amazon Cognito sends a user a notification message when your user
+        /// pools assesses a user's session at the associated risk level.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NotifyConfiguration_ReplyTo
         /// <summary>
         /// <para>
-        /// <para>The destination to which the receiver of an email should reply to.</para>
+        /// <para>The reply-to email address of an email template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,8 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RiskExceptionConfiguration_SkippedIPRangeList
         /// <summary>
         /// <para>
-        /// <para>Risk detection isn't performed on the IP addresses in this range list. The IP range
-        /// is in CIDR notation.</para>
+        /// <para>An always-allow IP address list. Risk detection isn't performed on the IP addresses
+        /// in this range list. This parameter is displayed and set in CIDR notation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -260,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter BlockEmail_Subject
         /// <summary>
         /// <para>
-        /// <para>The email subject.</para>
+        /// <para>The subject of the threat protection email notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaEmail_Subject
         /// <summary>
         /// <para>
-        /// <para>The email subject.</para>
+        /// <para>The subject of the threat protection email notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NoActionEmail_Subject
         /// <summary>
         /// <para>
-        /// <para>The email subject.</para>
+        /// <para>The subject of the threat protection email notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter BlockEmail_TextBody
         /// <summary>
         /// <para>
-        /// <para>The email text body.</para>
+        /// <para>The body of an email notification formatted in plaintext. Choose an <c>HtmlBody</c>
+        /// or a <c>TextBody</c> to send an HTML-formatted or plaintext message, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,7 +319,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaEmail_TextBody
         /// <summary>
         /// <para>
-        /// <para>The email text body.</para>
+        /// <para>The body of an email notification formatted in plaintext. Choose an <c>HtmlBody</c>
+        /// or a <c>TextBody</c> to send an HTML-formatted or plaintext message, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +331,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NoActionEmail_TextBody
         /// <summary>
         /// <para>
-        /// <para>The email text body.</para>
+        /// <para>The body of an email notification formatted in plaintext. Choose an <c>HtmlBody</c>
+        /// or a <c>TextBody</c> to send an HTML-formatted or plaintext message, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

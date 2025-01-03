@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets the user pool multi-factor authentication (MFA) configuration.
+    /// Sets the user pool multi-factor authentication (MFA) and passkey configuration.
     /// 
     ///  <note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Servicesservice, Amazon Simple Notification Service might place your account in the
+    /// Services service, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -63,10 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailMfaConfiguration_Message
         /// <summary>
         /// <para>
-        /// <para>The template for the email message that your user pool sends to users with an MFA
-        /// code. The message must contain the <c>{####}</c> placeholder. In the message, Amazon
-        /// Cognito replaces this placeholder with the code. If you don't provide this parameter,
-        /// Amazon Cognito sends messages in the default format.</para>
+        /// <para>The template for the email message that your user pool sends to users with a code
+        /// for MFA and sign-in with an email OTP. The message must contain the <c>{####}</c>
+        /// placeholder. In the message, Amazon Cognito replaces this placeholder with the code.
+        /// If you don't provide this parameter, Amazon Cognito sends messages in the default
+        /// format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,6 +86,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CognitoIdentityProvider.UserPoolMfaType")]
         public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter WebAuthnConfiguration_RelyingPartyId
+        /// <summary>
+        /// <para>
+        /// <para>Sets or displays the authentication domain, typically your user pool domain, that
+        /// passkey providers must use as a relying party (RP) in their configuration.</para><para>Under the following conditions, the passkey relying party ID must be the fully-qualified
+        /// domain name of your custom domain:</para><ul><li><para>The user pool is configured for passkey authentication.</para></li><li><para>The user pool has a custom domain, whether or not it also has a prefix domain.</para></li><li><para>Your application performs authentication with managed login or the classic hosted
+        /// UI.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WebAuthnConfiguration_RelyingPartyId { get; set; }
         #endregion
         
         #region Parameter SmsMfaConfiguration
@@ -112,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailMfaConfiguration_Subject
         /// <summary>
         /// <para>
-        /// <para>The subject of the email message that your user pool sends to users with an MFA code.</para>
+        /// <para>The subject of the email message that your user pool sends to users with a code for
+        /// MFA and email OTP sign-in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,6 +149,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserPoolId { get; set; }
+        #endregion
+        
+        #region Parameter WebAuthnConfiguration_UserVerification
+        /// <summary>
+        /// <para>
+        /// <para>When <c>required</c>, users can only register and sign in users with passkeys that
+        /// are capable of <a href="https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement">user
+        /// verification</a>. When <c>preferred</c>, your user pool doesn't require the use of
+        /// authenticators with user verification but encourages it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.UserVerificationType")]
+        public Amazon.CognitoIdentityProvider.UserVerificationType WebAuthnConfiguration_UserVerification { get; set; }
         #endregion
         
         #region Parameter Select
@@ -190,6 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WebAuthnConfiguration_RelyingPartyId = this.WebAuthnConfiguration_RelyingPartyId;
+            context.WebAuthnConfiguration_UserVerification = this.WebAuthnConfiguration_UserVerification;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +281,35 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.UserPoolId != null)
             {
                 request.UserPoolId = cmdletContext.UserPoolId;
+            }
+            
+             // populate WebAuthnConfiguration
+            var requestWebAuthnConfigurationIsNull = true;
+            request.WebAuthnConfiguration = new Amazon.CognitoIdentityProvider.Model.WebAuthnConfigurationType();
+            System.String requestWebAuthnConfiguration_webAuthnConfiguration_RelyingPartyId = null;
+            if (cmdletContext.WebAuthnConfiguration_RelyingPartyId != null)
+            {
+                requestWebAuthnConfiguration_webAuthnConfiguration_RelyingPartyId = cmdletContext.WebAuthnConfiguration_RelyingPartyId;
+            }
+            if (requestWebAuthnConfiguration_webAuthnConfiguration_RelyingPartyId != null)
+            {
+                request.WebAuthnConfiguration.RelyingPartyId = requestWebAuthnConfiguration_webAuthnConfiguration_RelyingPartyId;
+                requestWebAuthnConfigurationIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.UserVerificationType requestWebAuthnConfiguration_webAuthnConfiguration_UserVerification = null;
+            if (cmdletContext.WebAuthnConfiguration_UserVerification != null)
+            {
+                requestWebAuthnConfiguration_webAuthnConfiguration_UserVerification = cmdletContext.WebAuthnConfiguration_UserVerification;
+            }
+            if (requestWebAuthnConfiguration_webAuthnConfiguration_UserVerification != null)
+            {
+                request.WebAuthnConfiguration.UserVerification = requestWebAuthnConfiguration_webAuthnConfiguration_UserVerification;
+                requestWebAuthnConfigurationIsNull = false;
+            }
+             // determine if request.WebAuthnConfiguration should be set to null
+            if (requestWebAuthnConfigurationIsNull)
+            {
+                request.WebAuthnConfiguration = null;
             }
             
             CmdletOutput output;
@@ -318,6 +378,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public Amazon.CognitoIdentityProvider.Model.SmsMfaConfigType SmsMfaConfiguration { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType SoftwareTokenMfaConfiguration { get; set; }
             public System.String UserPoolId { get; set; }
+            public System.String WebAuthnConfiguration_RelyingPartyId { get; set; }
+            public Amazon.CognitoIdentityProvider.UserVerificationType WebAuthnConfiguration_UserVerification { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.SetUserPoolMfaConfigResponse, SetCGIPUserPoolMfaConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

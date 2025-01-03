@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool that the users are being imported into.</para>
+        /// <para>The ID of the user pool that the users are being imported into.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

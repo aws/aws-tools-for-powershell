@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EventDataStoreOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para> The account ID of the event data store owner. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventDataStoreOwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter MaxQueryResult
         /// <summary>
         /// <para>
@@ -136,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EventDataStoreOwnerAccountId = this.EventDataStoreOwnerAccountId;
             context.MaxQueryResult = this.MaxQueryResult;
             context.NextToken = this.NextToken;
             context.QueryId = this.QueryId;
@@ -169,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.EventDataStoreOwnerAccountId != null)
+            {
+                request.EventDataStoreOwnerAccountId = cmdletContext.EventDataStoreOwnerAccountId;
+            }
             if (cmdletContext.MaxQueryResult != null)
             {
                 request.MaxQueryResults = cmdletContext.MaxQueryResult.Value;
@@ -264,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             [System.ObsoleteAttribute]
             public System.String EventDataStore { get; set; }
+            public System.String EventDataStoreOwnerAccountId { get; set; }
             public System.Int32? MaxQueryResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String QueryId { get; set; }

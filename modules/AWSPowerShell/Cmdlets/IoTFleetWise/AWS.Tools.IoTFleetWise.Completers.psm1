@@ -87,6 +87,16 @@ $IFW_Completers = {
             break
         }
 
+        # Amazon.IoTFleetWise.DefaultForUnmappedSignalsType
+        {
+            ($_ -eq "New-IFWDecoderManifest/DefaultForUnmappedSignal") -Or
+            ($_ -eq "Update-IFWDecoderManifest/DefaultForUnmappedSignal")
+        }
+        {
+            $v = "CUSTOM_DECODING"
+            break
+        }
+
         # Amazon.IoTFleetWise.DiagnosticsMode
         "New-IFWCampaign/DiagnosticsMode"
         {
@@ -175,6 +185,7 @@ $IFW_map = @{
     "CloudWatchLogDelivery_LogType"=@("Write-IFWLoggingOption")
     "Compression"=@("New-IFWCampaign")
     "ConditionBasedCollectionScheme_TriggerMode"=@("New-IFWCampaign")
+    "DefaultForUnmappedSignal"=@("New-IFWDecoderManifest","Update-IFWDecoderManifest")
     "DiagnosticsMode"=@("New-IFWCampaign")
     "EncryptionType"=@("Write-IFWEncryptionConfiguration")
     "SignalNodeType"=@("Get-IFWSignalCatalogNodeList")
@@ -240,12 +251,14 @@ $IFW_SelectMap = @{
                "New-IFWFleet",
                "New-IFWModelManifest",
                "New-IFWSignalCatalog",
+               "New-IFWStateTemplate",
                "New-IFWVehicle",
                "Remove-IFWCampaign",
                "Remove-IFWDecoderManifest",
                "Remove-IFWFleet",
                "Remove-IFWModelManifest",
                "Remove-IFWSignalCatalog",
+               "Remove-IFWStateTemplate",
                "Remove-IFWVehicle",
                "Remove-IFWVehicleFleet",
                "Get-IFWCampaign",
@@ -256,6 +269,7 @@ $IFW_SelectMap = @{
                "Get-IFWModelManifest",
                "Get-IFWRegisterAccountStatus",
                "Get-IFWSignalCatalog",
+               "Get-IFWStateTemplate",
                "Get-IFWVehicle",
                "Get-IFWVehicleStatus",
                "Import-IFWDecoderManifest",
@@ -270,6 +284,7 @@ $IFW_SelectMap = @{
                "Get-IFWModelManifestList",
                "Get-IFWSignalCatalogNodeList",
                "Get-IFWSignalCatalogList",
+               "Get-IFWStateTemplateList",
                "Get-IFWResourceTag",
                "Get-IFWVehicleList",
                "Get-IFWVehiclesInFleetList",
@@ -283,6 +298,7 @@ $IFW_SelectMap = @{
                "Update-IFWFleet",
                "Update-IFWModelManifest",
                "Update-IFWSignalCatalog",
+               "Update-IFWStateTemplate",
                "Update-IFWVehicle")
 }
 

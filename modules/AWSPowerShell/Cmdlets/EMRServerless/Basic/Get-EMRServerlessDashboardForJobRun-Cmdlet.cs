@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AccessSystemProfileLog
+        /// <summary>
+        /// <para>
+        /// <para>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessSystemProfileLogs")]
+        public System.Boolean? AccessSystemProfileLog { get; set; }
+        #endregion
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
@@ -109,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public string Select { get; set; } = "Url";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the JobRunId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -119,11 +140,22 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.GetDashboardForJobRunResponse, GetEMRServerlessDashboardForJobRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.JobRunId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessSystemProfileLog = this.AccessSystemProfileLog;
             context.ApplicationId = this.ApplicationId;
             #if MODULAR
             if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
@@ -155,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             // create request
             var request = new Amazon.EMRServerless.Model.GetDashboardForJobRunRequest();
             
+            if (cmdletContext.AccessSystemProfileLog != null)
+            {
+                request.AccessSystemProfileLogs = cmdletContext.AccessSystemProfileLog.Value;
+            }
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
@@ -228,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AccessSystemProfileLog { get; set; }
             public System.String ApplicationId { get; set; }
             public System.Int32? Attempt { get; set; }
             public System.String JobRunId { get; set; }

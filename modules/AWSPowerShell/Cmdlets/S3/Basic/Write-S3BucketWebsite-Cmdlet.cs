@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Sets the configuration of the website that is specified in the <c>website</c> subresource.
     /// To configure a bucket as a website, you can add this subresource on the bucket with

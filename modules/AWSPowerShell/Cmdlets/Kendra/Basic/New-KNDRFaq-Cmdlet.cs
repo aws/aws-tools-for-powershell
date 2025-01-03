@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to access the S3 bucket
-        /// that contains the FAQs. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// that contains the FAQ file. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
         /// access roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>

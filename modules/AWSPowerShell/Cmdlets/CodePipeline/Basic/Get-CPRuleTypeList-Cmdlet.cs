@@ -28,7 +28,9 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Lists the rules for the condition.
+    /// Lists the rules for the condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
+    /// conditions</a>. For more information about rules, see the <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html">CodePipeline
+    /// rule reference</a>.
     /// </summary>
     [Cmdlet("Get", "CPRuleTypeList")]
     [OutputType("Amazon.CodePipeline.Model.RuleType")]

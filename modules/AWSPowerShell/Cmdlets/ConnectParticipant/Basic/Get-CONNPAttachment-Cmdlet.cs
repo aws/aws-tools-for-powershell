@@ -31,7 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// Provides a pre-signed URL for download of a completed attachment. This is an asynchronous
     /// API for use with active contacts.
     /// 
-    ///  <note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
+    ///  
+    /// <para>
+    /// For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon
+    /// Connect Chat security best practices</a>.
+    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
     /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
@@ -82,6 +86,18 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         public System.String ConnectionToken { get; set; }
         #endregion
         
+        #region Parameter UrlExpiryInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
+        /// yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UrlExpiryInSeconds")]
+        public System.Int32? UrlExpiryInSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -122,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
                 WriteWarning("You are passing $null as a value for parameter ConnectionToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UrlExpiryInSecond = this.UrlExpiryInSecond;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             if (cmdletContext.ConnectionToken != null)
             {
                 request.ConnectionToken = cmdletContext.ConnectionToken;
+            }
+            if (cmdletContext.UrlExpiryInSecond != null)
+            {
+                request.UrlExpiryInSeconds = cmdletContext.UrlExpiryInSecond.Value;
             }
             
             CmdletOutput output;
@@ -209,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             public System.String AttachmentId { get; set; }
             public System.String ConnectionToken { get; set; }
+            public System.Int32? UrlExpiryInSecond { get; set; }
             public System.Func<Amazon.ConnectParticipant.Model.GetAttachmentResponse, GetCONNPAttachmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

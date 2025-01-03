@@ -90,6 +90,13 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.DashboardType
+        "Get-CTDashboardSummary/Type"
+        {
+            $v = "CUSTOM","MANAGED"
+            break
+        }
+
         # Amazon.CloudTrail.EventCategory
         "Find-CTEvent/EventCategory"
         {
@@ -125,6 +132,26 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.RefreshScheduleFrequencyUnit
+        {
+            ($_ -eq "New-CTDashboard/Frequency_Unit") -Or
+            ($_ -eq "Update-CTDashboard/Frequency_Unit")
+        }
+        {
+            $v = "DAYS","HOURS"
+            break
+        }
+
+        # Amazon.CloudTrail.RefreshScheduleStatus
+        {
+            ($_ -eq "New-CTDashboard/RefreshSchedule_Status") -Or
+            ($_ -eq "Update-CTDashboard/RefreshSchedule_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -137,9 +164,12 @@ $CT_map = @{
     "BillingMode"=@("New-CTEventDataStore","Update-CTEventDataStore")
     "DataType"=@("Get-CTInsightsMetricData")
     "EventCategory"=@("Find-CTEvent")
+    "Frequency_Unit"=@("New-CTDashboard","Update-CTDashboard")
     "ImportStatus"=@("Get-CTImportList")
     "InsightType"=@("Get-CTInsightsMetricData")
     "QueryStatus"=@("Get-CTQuerySummary")
+    "RefreshSchedule_Status"=@("New-CTDashboard","Update-CTDashboard")
+    "Type"=@("Get-CTDashboardSummary")
 }
 
 _awsArgumentCompleterRegistration $CT_Completers $CT_map
@@ -195,9 +225,11 @@ $CT_SelectMap = @{
     "Select"=@("Add-CTResourceTag",
                "Stop-CTQuery",
                "New-CTChannel",
+               "New-CTDashboard",
                "New-CTEventDataStore",
                "New-CTTrail",
                "Remove-CTChannel",
+               "Remove-CTDashboard",
                "Remove-CTEventDataStore",
                "Remove-CTResourcePolicy",
                "Remove-CTTrail",
@@ -208,6 +240,7 @@ $CT_SelectMap = @{
                "Enable-CTFederation",
                "Invoke-CTGenerateQuery",
                "Get-CTChannel",
+               "Get-CTDashboard",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",
                "Get-CTImport",
@@ -217,6 +250,7 @@ $CT_SelectMap = @{
                "Get-CTTrailByName",
                "Get-CTTrailStatus",
                "Get-CTChannelSummary",
+               "Get-CTDashboardSummary",
                "Get-CTEventDataStoreSummary",
                "Get-CTImportFailure",
                "Get-CTImportList",
@@ -232,6 +266,7 @@ $CT_SelectMap = @{
                "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
+               "Start-CTDashboardRefresh",
                "Start-CTEventDataStoreIngestion",
                "Start-CTImport",
                "Start-CTLogging",
@@ -240,6 +275,7 @@ $CT_SelectMap = @{
                "Stop-CTImport",
                "Stop-CTLogging",
                "Update-CTChannel",
+               "Update-CTDashboard",
                "Update-CTEventDataStore",
                "Update-CTTrail")
 }

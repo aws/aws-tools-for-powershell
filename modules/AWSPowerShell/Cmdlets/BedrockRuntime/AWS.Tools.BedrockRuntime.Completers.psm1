@@ -80,6 +80,13 @@ $BDRR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockRuntime.AsyncInvokeStatus
+        "Get-BDRRAsyncInvokeList/StatusEqual"
+        {
+            $v = "Completed","Failed","InProgress"
+            break
+        }
+
         # Amazon.BedrockRuntime.GuardrailContentSource
         "Invoke-BDRRGuardrail/Source"
         {
@@ -104,6 +111,32 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.PerformanceConfigLatency
+        {
+            ($_ -eq "Invoke-BDRRConverse/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/PerformanceConfig_Latency") -Or
+            ($_ -eq "Invoke-BDRRModel/PerformanceConfigLatency") -Or
+            ($_ -eq "Invoke-BDRRModelWithResponseStream/PerformanceConfigLatency")
+        }
+        {
+            $v = "optimized","standard"
+            break
+        }
+
+        # Amazon.BedrockRuntime.SortAsyncInvocationBy
+        "Get-BDRRAsyncInvokeList/SortBy"
+        {
+            $v = "SubmissionTime"
+            break
+        }
+
+        # Amazon.BedrockRuntime.SortOrder
+        "Get-BDRRAsyncInvokeList/SortOrder"
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
         # Amazon.BedrockRuntime.Trace
         {
             ($_ -eq "Invoke-BDRRModel/Trace") -Or
@@ -125,7 +158,12 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+    "SortBy"=@("Get-BDRRAsyncInvokeList")
+    "SortOrder"=@("Get-BDRRAsyncInvokeList")
     "Source"=@("Invoke-BDRRGuardrail")
+    "StatusEqual"=@("Get-BDRRAsyncInvokeList")
     "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
 }
 
@@ -182,8 +220,11 @@ $BDRR_SelectMap = @{
     "Select"=@("Invoke-BDRRGuardrail",
                "Invoke-BDRRConverse",
                "Invoke-BDRRConverseStream",
+               "Get-BDRRAsyncInvoke",
                "Invoke-BDRRModel",
-               "Invoke-BDRRModelWithResponseStream")
+               "Invoke-BDRRModelWithResponseStream",
+               "Get-BDRRAsyncInvokeList",
+               "Start-BDRRAsyncInvoke")
 }
 
 _awsArgumentCompleterRegistration $BDRR_SelectCompleters $BDRR_SelectMap

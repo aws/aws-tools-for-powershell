@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Retrieves the <c>PublicAccessBlock</c> configuration for an Amazon S3 bucket. To use
     /// this operation, you must have the <c>s3:GetBucketPublicAccessBlock</c> permission.

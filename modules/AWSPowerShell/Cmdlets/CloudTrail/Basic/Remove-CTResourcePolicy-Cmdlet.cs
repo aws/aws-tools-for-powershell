@@ -28,7 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Deletes the resource-based policy attached to the CloudTrail channel.
+    /// Deletes the resource-based policy attached to the CloudTrail event data store, dashboard,
+    /// or channel.
     /// </summary>
     [Cmdlet("Remove", "CTResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the CloudTrail channel you're deleting the resource-based
-        /// policy from. The following is the format of a resource ARN: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</c>.
-        /// </para>
+        /// <para> The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or
+        /// channel you're deleting the resource-based policy from.</para><para>Example event data store ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</c></para><para>Example dashboard ARN format: <c>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</c></para><para>Example channel ARN format: <c>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

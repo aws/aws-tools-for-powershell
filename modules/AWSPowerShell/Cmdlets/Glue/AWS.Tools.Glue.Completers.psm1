@@ -83,7 +83,7 @@ $GLUE_Completers = {
         # Amazon.Glue.AuthenticationType
         "Test-GLUEConnection/AuthenticationConfiguration_AuthenticationType"
         {
-            $v = "BASIC","CUSTOM","OAUTH2"
+            $v = "BASIC","CUSTOM","IAM","OAUTH2"
             break
         }
 
@@ -111,10 +111,17 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ComputeEnvironment
+        "Get-GLUEConnection/ApplyOverrideForComputeEnvironment"
+        {
+            $v = "ATHENA","PYTHON","SPARK"
+            break
+        }
+
         # Amazon.Glue.ConnectionType
         "Test-GLUEConnection/TestConnectionInput_ConnectionType"
         {
-            $v = "CUSTOM","JDBC","KAFKA","MARKETPLACE","MONGODB","NETWORK","SALESFORCE","SFTP","VIEW_VALIDATION_ATHENA","VIEW_VALIDATION_REDSHIFT"
+            $v = "CUSTOM","FACEBOOKADS","GOOGLEADS","GOOGLEANALYTICS4","GOOGLESHEETS","HUBSPOT","INSTAGRAMADS","INTERCOM","JDBC","JIRACLOUD","KAFKA","MARKETO","MARKETPLACE","MONGODB","NETSUITEERP","NETWORK","SALESFORCE","SALESFORCEMARKETINGCLOUD","SALESFORCEPARDOT","SAPODATA","SERVICENOW","SFTP","SLACK","SNAPCHATADS","STRIPE","VIEW_VALIDATION_ATHENA","VIEW_VALIDATION_REDSHIFT","ZENDESK","ZOHOCRM"
             break
         }
 
@@ -155,6 +162,13 @@ $GLUE_Completers = {
         }
         {
             $v = "AVRO","JSON","PROTOBUF"
+            break
+        }
+
+        # Amazon.Glue.DataQualityEncryptionMode
+        "New-GLUESecurityConfiguration/DataQualityEncryption_DataQualityEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
             break
         }
 
@@ -374,6 +388,16 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.UnnestSpec
+        {
+            ($_ -eq "New-GLUEIntegrationTableProperty/TargetTableConfig_UnnestSpec") -Or
+            ($_ -eq "Update-GLUEIntegrationTableProperty/TargetTableConfig_UnnestSpec")
+        }
+        {
+            $v = "FULL","NOUNNEST","TOPLEVEL"
+            break
+        }
+
         # Amazon.Glue.ViewDialect
         "Get-GLUEUnfilteredTableMetadata/SupportedDialect_Dialect"
         {
@@ -412,6 +436,7 @@ $GLUE_Completers = {
 
 $GLUE_map = @{
     "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "ApplyOverrideForComputeEnvironment"=@("Get-GLUEConnection")
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
@@ -419,6 +444,7 @@ $GLUE_map = @{
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "CsvClassifier_Serde"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
+    "DataQualityEncryption_DataQualityEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")
@@ -444,6 +470,7 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
+    "TargetTableConfig_UnnestSpec"=@("New-GLUEIntegrationTableProperty","Update-GLUEIntegrationTableProperty")
     "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "ViewUpdateAction"=@("Update-GLUETable")
@@ -524,6 +551,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUEStatement",
                "Get-GLUESchemaVersionValidity",
                "New-GLUEBlueprint",
+               "New-GLUECatalog",
                "New-GLUEClassifier",
                "New-GLUEColumnStatisticsTaskSetting",
                "New-GLUEConnection",
@@ -532,6 +560,9 @@ $GLUE_SelectMap = @{
                "New-GLUEDatabase",
                "New-GLUEDataQualityRuleset",
                "New-GLUEDevEndpoint",
+               "New-GLUEIntegration",
+               "New-GLUEIntegrationResourceProperty",
+               "New-GLUEIntegrationTableProperty",
                "New-GLUEJob",
                "New-GLUEMLTransform",
                "New-GLUEPartition",
@@ -548,6 +579,7 @@ $GLUE_SelectMap = @{
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
                "Remove-GLUEBlueprint",
+               "Remove-GLUECatalog",
                "Remove-GLUEClassifier",
                "Remove-GLUEColumnStatisticsForPartition",
                "Remove-GLUEColumnStatisticsForTable",
@@ -558,6 +590,8 @@ $GLUE_SelectMap = @{
                "Remove-GLUEDatabase",
                "Remove-GLUEDataQualityRuleset",
                "Remove-GLUEDevEndpoint",
+               "Remove-GLUEIntegration",
+               "Remove-GLUEIntegrationTableProperty",
                "Remove-GLUEJob",
                "Remove-GLUEMLTransform",
                "Remove-GLUEPartition",
@@ -575,10 +609,16 @@ $GLUE_SelectMap = @{
                "Remove-GLUEUsageProfile",
                "Remove-GLUEUserDefinedFunction",
                "Remove-GLUEWorkflow",
+               "Get-GLUEConnectionType",
+               "Get-GLUEEntity",
+               "Get-GLUEInboundIntegration",
+               "Get-GLUEIntegration",
                "Get-GLUEBlueprint",
                "Get-GLUEBlueprintRun",
                "Get-GLUEBlueprintRunList",
+               "Get-GLUECatalog",
                "Get-GLUECatalogImportStatus",
+               "Get-GLUECatalogList",
                "Get-GLUEClassifier",
                "Get-GLUEClassifierList",
                "Get-GLUEColumnStatisticsForPartition",
@@ -604,6 +644,9 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityRulesetEvaluationRun",
                "Get-GLUEDevEndpoint",
                "Get-GLUEDevEndpointList",
+               "Get-GLUEEntityRecord",
+               "Get-GLUEIntegrationResourceProperty",
+               "Get-GLUEIntegrationTableProperty",
                "Get-GLUEJob",
                "Get-GLUEJobBookmark",
                "Get-GLUEJobRun",
@@ -650,6 +693,7 @@ $GLUE_SelectMap = @{
                "Import-GLUECatalog",
                "Get-GLUEBlueprintList",
                "Get-GLUEColumnStatisticsTaskRunList",
+               "Get-GLUEConnectionTypeList",
                "Get-GLUECrawlerNameList",
                "Get-GLUECrawlList",
                "Get-GLUECustomEntityTypeList",
@@ -660,6 +704,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityStatisticAnnotationList",
                "Get-GLUEDataQualityStatisticList",
                "Get-GLUEDevEndpointNameList",
+               "Get-GLUEEntityList",
                "Get-GLUEJobNameList",
                "Get-GLUEMLTransformIdentifier",
                "Get-GLUERegistryList",
@@ -671,6 +716,7 @@ $GLUE_SelectMap = @{
                "Get-GLUETriggerNameList",
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
+               "Edit-GLUEIntegration",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Write-GLUEDataQualityProfileAnnotation",
                "Set-GLUEResourcePolicy",
@@ -708,6 +754,7 @@ $GLUE_SelectMap = @{
                "Test-GLUEConnection",
                "Remove-GLUEResourceTag",
                "Update-GLUEBlueprint",
+               "Update-GLUECatalog",
                "Update-GLUEClassifier",
                "Update-GLUEColumnStatisticsForPartition",
                "Update-GLUEColumnStatisticsForTable",
@@ -718,6 +765,8 @@ $GLUE_SelectMap = @{
                "Update-GLUEDatabase",
                "Update-GLUEDataQualityRuleset",
                "Update-GLUEDevEndpoint",
+               "Update-GLUEIntegrationResourceProperty",
+               "Update-GLUEIntegrationTableProperty",
                "Update-GLUEJob",
                "Update-GLUEJobFromSourceControl",
                "Update-GLUEMLTransform",

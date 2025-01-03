@@ -59,10 +59,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String ViewerCertificate_ACMCertificateArn { get; set; }
         #endregion
         
+        #region Parameter DistributionConfig_AnycastIpListId
+        /// <summary>
+        /// <para>
+        /// <para>ID of the Anycast static IP list that is associated with the distribution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_AnycastIpListId")]
+        public System.String DistributionConfig_AnycastIpListId { get; set; }
+        #endregion
+        
         #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket to store the access logs in, for example, <c>myawslogbucket.s3.amazonaws.com</c>.</para>
+        /// <para>The Amazon S3 bucket to store the access logs in, for example, <c>amzn-s3-demo-bucket.s3.amazonaws.com</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,20 +177,36 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_DefaultRootObject
         /// <summary>
         /// <para>
-        /// <para>The object that you want CloudFront to request from your origin (for example, <c>index.html</c>)
-        /// when a viewer requests the root URL for your distribution (<c>https://www.example.com</c>)
-        /// instead of an object in your distribution (<c>https://www.example.com/product-description.html</c>).
-        /// Specifying a default root object avoids exposing the contents of your distribution.</para><para>Specify only the object name, for example, <c>index.html</c>. Don't add a <c>/</c>
-        /// before the object name.</para><para>If you don't want to specify a default root object when you create a distribution,
+        /// <para>When a viewer requests the root URL for your distribution, the default root object
+        /// is the object that you want CloudFront to request from your origin. For example, if
+        /// your root URL is <c>https://www.example.com</c>, you can specify CloudFront to return
+        /// the <c>index.html</c> file as the default root object. You can specify a default root
+        /// object so that viewers see a specific file or object, instead of another object in
+        /// your distribution (for example, <c>https://www.example.com/product-description.html</c>).
+        /// A default root object avoids exposing the contents of your distribution.</para><para>You can specify the object name or a path to the object name (for example, <c>index.html</c>
+        /// or <c>exampleFolderName/index.html</c>). Your string can't begin with a forward slash
+        /// (<c>/</c>). Only specify the object name or the path to the object.</para><para>If you don't want to specify a default root object when you create a distribution,
         /// include an empty <c>DefaultRootObject</c> element.</para><para>To delete the default root object from an existing distribution, update the distribution
         /// configuration and include an empty <c>DefaultRootObject</c> element.</para><para>To replace the default root object, update the distribution configuration and specify
-        /// the new object.</para><para>For more information about the default root object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html">Creating
-        /// a Default Root Object</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// the new object.</para><para>For more information about the default root object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html">Specify
+        /// a default root object</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DistributionConfigWithTags_DistributionConfig_DefaultRootObject")]
         public System.String DistributionConfig_DefaultRootObject { get; set; }
+        #endregion
+        
+        #region Parameter GrpcConfig_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables your CloudFront distribution to receive gRPC requests and to proxy them directly
+        /// to your origins.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig_Enabled")]
+        public System.Boolean? GrpcConfig_Enabled { get; set; }
         #endregion
         
         #region Parameter TrustedKeyGroups_Enabled
@@ -231,8 +258,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// If you don't want to enable logging when you create a distribution or if you want
         /// to disable logging for an existing distribution, specify <c>false</c> for <c>Enabled</c>,
         /// and specify empty <c>Bucket</c> and <c>Prefix</c> elements. If you specify <c>false</c>
-        /// for <c>Enabled</c> but you specify values for <c>Bucket</c>, <c>prefix</c>, and <c>IncludeCookies</c>,
-        /// the values are automatically deleted.</para>
+        /// for <c>Enabled</c> but you specify values for <c>Bucket</c> and <c>prefix</c>, the
+        /// values are automatically deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1128,6 +1155,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.Aliases_Item = new List<System.String>(this.Aliases_Item);
             }
             context.Aliases_Quantity = this.Aliases_Quantity;
+            context.DistributionConfig_AnycastIpListId = this.DistributionConfig_AnycastIpListId;
             if (this.CacheBehaviors_Item != null)
             {
                 context.CacheBehaviors_Item = new List<Amazon.CloudFront.Model.CacheBehavior>(this.CacheBehaviors_Item);
@@ -1191,6 +1219,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.FunctionAssociations_Item = new List<Amazon.CloudFront.Model.FunctionAssociation>(this.FunctionAssociations_Item);
             }
             context.FunctionAssociations_Quantity = this.FunctionAssociations_Quantity;
+            context.GrpcConfig_Enabled = this.GrpcConfig_Enabled;
             if (this.LambdaFunctionAssociations_Item != null)
             {
                 context.LambdaFunctionAssociations_Item = new List<Amazon.CloudFront.Model.LambdaFunctionAssociation>(this.LambdaFunctionAssociations_Item);
@@ -1342,6 +1371,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
              // populate DistributionConfig
             var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = true;
             requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig = new Amazon.CloudFront.Model.DistributionConfig();
+            System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_AnycastIpListId = null;
+            if (cmdletContext.DistributionConfig_AnycastIpListId != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_AnycastIpListId = cmdletContext.DistributionConfig_AnycastIpListId;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_AnycastIpListId != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.AnycastIpListId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_AnycastIpListId;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
             System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_CallerReference = null;
             if (cmdletContext.DistributionConfig_CallerReference != null)
             {
@@ -1952,6 +1991,31 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.ViewerProtocolPolicy = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            Amazon.CloudFront.Model.GrpcConfig requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig = null;
+            
+             // populate GrpcConfig
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfigIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig = new Amazon.CloudFront.Model.GrpcConfig();
+            System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig_grpcConfig_Enabled = null;
+            if (cmdletContext.GrpcConfig_Enabled != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig_grpcConfig_Enabled = cmdletContext.GrpcConfig_Enabled.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig_grpcConfig_Enabled != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig.Enabled = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig_grpcConfig_Enabled.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfigIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfigIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.GrpcConfig = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_GrpcConfig;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             Amazon.CloudFront.Model.FunctionAssociations requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_FunctionAssociations = null;
             
              // populate FunctionAssociations
@@ -2427,6 +2491,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             public List<System.String> Aliases_Item { get; set; }
             public System.Int32? Aliases_Quantity { get; set; }
+            public System.String DistributionConfig_AnycastIpListId { get; set; }
             public List<Amazon.CloudFront.Model.CacheBehavior> CacheBehaviors_Item { get; set; }
             public System.Int32? CacheBehaviors_Quantity { get; set; }
             public System.String DistributionConfig_CallerReference { get; set; }
@@ -2453,6 +2518,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? QueryStringCacheKeys_Quantity { get; set; }
             public List<Amazon.CloudFront.Model.FunctionAssociation> FunctionAssociations_Item { get; set; }
             public System.Int32? FunctionAssociations_Quantity { get; set; }
+            public System.Boolean? GrpcConfig_Enabled { get; set; }
             public List<Amazon.CloudFront.Model.LambdaFunctionAssociation> LambdaFunctionAssociations_Item { get; set; }
             public System.Int32? LambdaFunctionAssociations_Quantity { get; set; }
             [System.ObsoleteAttribute]

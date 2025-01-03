@@ -299,6 +299,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.OracleAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/OracleSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/OracleSettings_AuthenticationMethod")
+        }
+        {
+            $v = "kerberos","password"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.OriginTypeValue
         {
             ($_ -eq "Start-DMSMetadataModelExportAsScript/Origin") -Or
@@ -376,6 +386,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/MicrosoftSQLServerSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/MicrosoftSQLServerSettings_AuthenticationMethod")
+        }
+        {
+            $v = "kerberos","password"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.SslSecurityProtocolValue
         {
             ($_ -eq "Edit-DMSEndpoint/RedisSettings_SslSecurityProtocol") -Or
@@ -442,6 +462,7 @@ $DMS_map = @{
     "KafkaSettings_SslEndpointIdentificationAlgorithm"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MariaDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "MicrosoftSQLServerSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSqlServerSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MicrosoftSQLServerSettings_TlogAccessMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -452,6 +473,7 @@ $DMS_map = @{
     "MongoDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "OracleSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantic"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")

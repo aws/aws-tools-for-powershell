@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// from the next run after this update is made, <c>lastrun</c> to use the screenshots
         /// from the most recent run before this update was made, or the value of <c>Id</c> in
         /// the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html">
-        /// CanaryRun</a> from any past run of this canary.</para>
+        /// CanaryRun</a> from a run of this a canary in the past 31 days. If you specify the
+        /// <c>Id</c> of a canary run older than 31 days, the operation returns a 400 validation
+        /// exception error..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,6 +201,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Code_Handler { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Ipv6AllowedForDualStack
+        /// <summary>
+        /// <para>
+        /// <para>Set this to <c>true</c> to allow outbound IPv6 traffic on VPC canaries that are connected
+        /// to dual-stack subnets. The default is <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
         #endregion
         
         #region Parameter S3Encryption_KmsKeyArn
@@ -440,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             {
                 context.VisualReference_BaseScreenshot = new List<Amazon.Synthetics.Model.BaseScreenshot>(this.VisualReference_BaseScreenshot);
             }
+            context.VpcConfig_Ipv6AllowedForDualStack = this.VpcConfig_Ipv6AllowedForDualStack;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -711,6 +725,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                  // populate VpcConfig
                 var requestVpcConfigIsNull = true;
                 request.VpcConfig = new Amazon.Synthetics.Model.VpcConfigInput();
+                System.Boolean? requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack = null;
+                if (cmdletContext.VpcConfig_Ipv6AllowedForDualStack != null)
+                {
+                    requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack = cmdletContext.VpcConfig_Ipv6AllowedForDualStack.Value;
+                }
+                if (requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack != null)
+                {
+                    request.VpcConfig.Ipv6AllowedForDualStack = requestVpcConfig_vpcConfig_Ipv6AllowedForDualStack.Value;
+                    requestVpcConfigIsNull = false;
+                }
                 List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
                 if (cmdletContext.VpcConfig_SecurityGroupId != null)
                 {
@@ -827,6 +851,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
             public System.String VisualReference_BaseCanaryRunId { get; set; }
             public List<Amazon.Synthetics.Model.BaseScreenshot> VisualReference_BaseScreenshot { get; set; }
+            public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.Synthetics.Model.UpdateCanaryResponse, UpdateCWSYNCanaryCmdlet, object> Select { get; set; } =

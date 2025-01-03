@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes the specified Amazon Cognito user pool.
+    /// Deletes a user pool. After you delete a user pool, users can no longer sign in to
+    /// any associated applications.
     /// </summary>
     [Cmdlet("Remove", "CGIPUserPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool you want to delete.</para>
+        /// <para>The ID of the user pool that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

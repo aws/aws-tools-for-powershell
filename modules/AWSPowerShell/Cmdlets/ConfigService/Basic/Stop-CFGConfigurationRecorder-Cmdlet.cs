@@ -28,8 +28,9 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Stops recording configurations of the Amazon Web Services resources you have selected
-    /// to record in your Amazon Web Services account.
+    /// Stops the customer managed configuration recorder. The customer managed configuration
+    /// recorder will stop recording configuration changes for the resource types you have
+    /// specified.
     /// </summary>
     [Cmdlet("Stop", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
-        /// <para>The name of the recorder object that records each configuration change made to the
-        /// resources.</para>
+        /// <para>The name of the customer managed configuration recorder that you want to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

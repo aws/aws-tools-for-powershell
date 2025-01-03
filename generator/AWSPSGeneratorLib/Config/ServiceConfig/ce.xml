@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Get" Noun="CommitmentPurchaseAnalysis" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
@@ -129,6 +133,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCommitmentPurchaseAnalyses" OutputProperty="AnalysisSummaryList" Verb="Get" Noun="CommitmentPurchaseAnalysisList" PipelineParameter="AnalysisStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCostAllocationTagBackfillHistory" OutputProperty="BackfillRequests" Verb="Get" Noun="CostAllocationTagBackfillHistoryList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -151,6 +159,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvideAnomalyFeedback" OutputProperty="AnomalyId" Verb="Set" Noun="AnomalyFeedback" ShouldProcessTarget="AnomalyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCommitmentPurchaseAnalysis" OutputProperty="*" Verb="Start" Noun="CommitmentPurchaseAnalysis" ShouldProcessTarget="CommitmentPurchaseAnalysisConfiguration_SavingsPlansPurchaseAnalysisConfiguration_AccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

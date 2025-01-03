@@ -18,11 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ActivateMessageTemplate" OutputProperty="*" Verb="Enable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAIAgent" OutputProperty="AiAgent" Verb="New" Noun="AIAgent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAIAgentVersion" OutputProperty="*" Verb="New" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIGuardrail" OutputProperty="AiGuardrail" Verb="New" Noun="AIGuardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAIGuardrailVersion" OutputProperty="*" Verb="New" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +66,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMessageTemplate" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Content_Email_Body_PlainText_Content" NewName="Content_Email_Body_PlainText_Content" />
+                <Param Name="Content_Sms_Body_PlainText_Content" NewName="Content_Sms_Body_PlainText_Content" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMessageTemplateAttachment" OutputProperty="Attachment" Verb="New" Noun="MessageTemplateAttachment" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMessageTemplateVersion" OutputProperty="MessageTemplate" Verb="New" Noun="MessageTemplateVersion" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateQuickResponse" OutputProperty="QuickResponse" Verb="New" Noun="QuickResponse" AnonymousShouldProcessTarget="true" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -62,11 +89,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateMessageTemplate" OutputProperty="*" Verb="Disable" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAIAgent" Verb="Remove" Noun="AIAgent" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAIAgentVersion" Verb="Remove" Noun="AIAgentVersion" ShouldProcessTarget="AiAgentId" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIGuardrail" Verb="Remove" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAIGuardrailVersion" Verb="Remove" Noun="AIGuardrailVersion" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -102,11 +141,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMessageTemplate" Verb="Remove" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMessageTemplateAttachment" Verb="Remove" Noun="MessageTemplateAttachment" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteQuickResponse" Verb="Remove" Noun="QuickResponse" ShouldProcessTarget="QuickResponseId" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAIAgent" OutputProperty="*" Verb="Get" Noun="AIAgent" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAIGuardrail" OutputProperty="*" Verb="Get" Noun="AIGuardrail" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -142,6 +193,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMessageTemplate" OutputProperty="MessageTemplate" Verb="Get" Noun="MessageTemplate" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNextMessage" OutputProperty="*" Verb="Get" Noun="NextMessage" PipelineParameter="NextMessageToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetQuickResponse" OutputProperty="QuickResponse" Verb="Get" Noun="QuickResponse" PipelineParameter="QuickResponseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -159,6 +218,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAIAgentVersions" OutputProperty="AiAgentVersionSummaries" Verb="Get" Noun="AIAgentVersionList" PipelineParameter="AiAgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIGuardrails" OutputProperty="AiGuardrailSummaries" Verb="Get" Noun="AIGuardrailList" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAIGuardrailVersions" OutputProperty="AiGuardrailVersionSummaries" Verb="Get" Noun="AIGuardrailVersionList" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -194,6 +261,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMessages" OutputProperty="Messages" Verb="Get" Noun="MessageList" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMessageTemplates" OutputProperty="MessageTemplateSummaries" Verb="Get" Noun="MessageTemplateList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMessageTemplateVersions" OutputProperty="MessageTemplateVersionSummaries" Verb="Get" Noun="MessageTemplateVersionList" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListQuickResponses" OutputProperty="QuickResponseSummaries" Verb="Get" Noun="QuickResponseList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -222,7 +301,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RenderMessageTemplate" OutputProperty="*" Verb="Invoke" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchContent" OutputProperty="ContentSummaries" Verb="Search" Noun="Content" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchMessageTemplates" OutputProperty="Results" Verb="Search" Noun="MessageTemplate" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -231,6 +318,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchSessions" OutputProperty="SessionSummaries" Verb="Search" Noun="Session" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -254,6 +345,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAIGuardrail" OutputProperty="AiGuardrail" Verb="Update" Noun="AIGuardrail" ShouldProcessTarget="AiGuardrailId" PipelineParameter="AiGuardrailId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAIPrompt" OutputProperty="AiPrompt" Verb="Update" Noun="AIPrompt" ShouldProcessTarget="AiPromptId" PipelineParameter="AiPromptId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -267,6 +362,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKnowledgeBaseTemplateUri" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBaseTemplateUri" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMessageTemplate" OutputProperty="MessageTemplate" Verb="Update" Noun="MessageTemplate" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Content_Email_Body_PlainText_Content" NewName="Content_Email_Body_PlainText_Content" />
+                <Param Name="Content_Sms_Body_PlainText_Content" NewName="Content_Sms_Body_PlainText_Content" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMessageTemplateMetadata" OutputProperty="MessageTemplate" Verb="Update" Noun="MessageTemplateMetadata" ShouldProcessTarget="MessageTemplateId" PipelineParameter="MessageTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

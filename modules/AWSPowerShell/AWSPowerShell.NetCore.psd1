@@ -30,7 +30,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 3
 This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service.'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion = '3.1'
+    PowerShellVersion = '3.0'
 
     # Name of the PowerShell host required by this module
     PowerShellHostName = ''
@@ -49,9 +49,10 @@ This product provides support for all AWS services in a single module. As an alt
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules = @(
+
     )
 
-# Assemblies that must be loaded prior to importing this module.
+    # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
         'AWSSDK.AccessAnalyzer.dll',
         'AWSSDK.Account.dll',
@@ -92,11 +93,15 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.B2bi.dll',
         'AWSSDK.Backup.dll',
         'AWSSDK.BackupGateway.dll',
+        'AWSSDK.BackupSearch.dll',
         'AWSSDK.Batch.dll',
         'AWSSDK.BCMDataExports.dll',
+        'AWSSDK.BCMPricingCalculator.dll',
         'AWSSDK.Bedrock.dll',
         'AWSSDK.BedrockAgent.dll',
         'AWSSDK.BedrockAgentRuntime.dll',
+        'AWSSDK.BedrockDataAutomation.dll',
+        'AWSSDK.BedrockDataAutomationRuntime.dll',
         'AWSSDK.BedrockRuntime.dll',
         'AWSSDK.Billing.dll',
         'AWSSDK.BillingConductor.dll',
@@ -179,7 +184,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.DocDB.dll',
         'AWSSDK.DocDBElastic.dll',
         'AWSSDK.Drs.dll',
-        'AWSSDK.DynamoDBStreams.dll',
+        'AWSSDK.DSQL.dll',
         'AWSSDK.DynamoDBv2.dll',
         'AWSSDK.EBS.dll',
         'AWSSDK.EC2.dll',
@@ -233,6 +238,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Inspector2.dll',
         'AWSSDK.InspectorScan.dll',
         'AWSSDK.InternetMonitor.dll',
+        'AWSSDK.Invoicing.dll',
         'AWSSDK.IoT.dll',
         'AWSSDK.IoTDeviceAdvisor.dll',
         'AWSSDK.IoTEvents.dll',
@@ -313,9 +319,13 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Neptunedata.dll',
         'AWSSDK.NeptuneGraph.dll',
         'AWSSDK.NetworkFirewall.dll',
+        'AWSSDK.NetworkFlowMonitor.dll',
         'AWSSDK.NetworkManager.dll',
         'AWSSDK.NetworkMonitor.dll',
+        'AWSSDK.Notifications.dll',
+        'AWSSDK.NotificationsContacts.dll',
         'AWSSDK.OAM.dll',
+        'AWSSDK.ObservabilityAdmin.dll',
         'AWSSDK.Omics.dll',
         'AWSSDK.OpenSearchServerless.dll',
         'AWSSDK.OpenSearchService.dll',
@@ -374,6 +384,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.S3.dll',
         'AWSSDK.S3Control.dll',
         'AWSSDK.S3Outposts.dll',
+        'AWSSDK.S3Tables.dll',
         'AWSSDK.SageMaker.dll',
         'AWSSDK.SagemakerEdgeManager.dll',
         'AWSSDK.SageMakerFeatureStoreRuntime.dll',
@@ -385,6 +396,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Schemas.dll',
         'AWSSDK.SecretsManager.dll',
         'AWSSDK.SecurityHub.dll',
+        'AWSSDK.SecurityIR.dll',
         'AWSSDK.SecurityLake.dll',
         'AWSSDK.SecurityToken.dll',
         'AWSSDK.ServerlessApplicationRepository.dll',
@@ -443,9 +455,7 @@ This product provides support for all AWS services in a single module. As an alt
         'aws-crt-auth.dll',
         'aws-crt-http.dll',
         'aws-crt-checksums.dll',
-        'AWSSDK.Extensions.CrtIntegration.dll',
-        'AWSSDK.Extensions.CloudFront.Signers.dll',
-        'AWSSDK.Extensions.EC2.DecryptPassword.dll'
+        'AWSSDK.Extensions.CrtIntegration.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -498,8 +508,7 @@ This product provides support for all AWS services in a single module. As an alt
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
-            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
-            Prerelease = 'preview001'
+            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
         }
     }
 }

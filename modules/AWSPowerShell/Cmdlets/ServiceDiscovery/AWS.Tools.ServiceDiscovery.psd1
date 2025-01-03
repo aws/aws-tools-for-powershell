@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SDOperationList', 
         'Get-SDResourceTag', 
         'Get-SDService', 
+        'Get-SDServiceAttribute', 
         'Get-SDServiceList', 
         'New-SDHttpNamespace', 
         'New-SDInstanceRegistration', 
@@ -104,11 +105,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SDNamespace', 
         'Remove-SDResourceTag', 
         'Remove-SDService', 
+        'Remove-SDServiceAttribute', 
         'Update-SDHttpNamespace', 
         'Update-SDInstanceCustomHealthStatus', 
         'Update-SDPrivateDnsNamespace', 
         'Update-SDPublicDnsNamespace', 
-        'Update-SDService')
+        'Update-SDService', 
+        'Update-SDServiceAttribute')
 
     # Variables to export from this module
     VariablesToExport = '*'

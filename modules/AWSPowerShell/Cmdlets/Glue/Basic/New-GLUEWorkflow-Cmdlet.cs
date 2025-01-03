@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DefaultRunProperty
         /// <summary>
         /// <para>
-        /// <para>A collection of properties to be used as part of each execution of the workflow.</para>
+        /// <para>A collection of properties to be used as part of each execution of the workflow.</para><para>Run properties may be logged. Do not pass plaintext secrets as properties. Retrieve
+        /// secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret
+        /// management mechanism if you intend to use them within the workflow run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

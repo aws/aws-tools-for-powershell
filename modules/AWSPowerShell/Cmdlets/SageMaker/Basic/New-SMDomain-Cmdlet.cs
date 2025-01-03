@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// the domain. Each user receives a private home directory within the EFS volume for
     /// notebooks, Git repositories, and data files.
     /// </para><para>
-    /// SageMaker uses the Amazon Web Services Key Management Service (Amazon Web Services
+    /// SageMaker AI uses the Amazon Web Services Key Management Service (Amazon Web Services
     /// KMS) to encrypt the EFS volume attached to the domain with an Amazon Web Services
     /// managed key by default. For more control, you can specify a customer managed key.
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect
@@ -50,20 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// parameter. <c>AppNetworkAccessType</c> corresponds to the network access type that
     /// you choose when you onboard to the domain. The following options are available:
     /// </para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic goes through a VPC managed by Amazon
-    /// SageMaker, which allows internet access. This is the default value.
+    /// SageMaker AI, which allows internet access. This is the default value.
     /// </para></li><li><para><c>VpcOnly</c> - All traffic is through the specified VPC and subnets. Internet access
     /// is disabled by default. To allow internet access, you must specify a NAT gateway.
     /// </para><para>
-    /// When internet access is disabled, you won't be able to run a Amazon SageMaker Studio
+    /// When internet access is disabled, you won't be able to run a Amazon SageMaker AI Studio
     /// notebook or to train or host models unless your VPC has an interface endpoint to the
-    /// SageMaker API and runtime or a NAT gateway and your security groups allow outbound
+    /// SageMaker AI API and runtime or a NAT gateway and your security groups allow outbound
     /// connections.
     /// </para></li></ul><important><para>
     /// NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound
-    /// rules in order to launch a Amazon SageMaker Studio app successfully.
+    /// rules in order to launch a Amazon SageMaker AI Studio app successfully.
     /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect
-    /// Amazon SageMaker Studio Notebooks to Resources in a VPC</a>.
+    /// Amazon SageMaker AI Studio Notebooks to Resources in a VPC</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AppNetworkAccessType
         /// <summary>
         /// <para>
-        /// <para>Specifies the VPC used for non-EFS traffic. The default value is <c>PublicInternetOnly</c>.</para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic is through a VPC managed by Amazon SageMaker,
-        /// which allows direct internet access</para></li><li><para><c>VpcOnly</c> - All traffic is through the specified VPC and subnets</para></li></ul>
+        /// <para>Specifies the VPC used for non-EFS traffic. The default value is <c>PublicInternetOnly</c>.</para><ul><li><para><c>PublicInternetOnly</c> - Non-EFS traffic is through a VPC managed by Amazon SageMaker
+        /// AI, which allows direct internet access</para></li><li><para><c>VpcOnly</c> - All traffic is through the specified VPC and subnets</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter JupyterServerAppSettings_CodeRepository
         /// <summary>
         /// <para>
-        /// <para>A list of Git repositories that SageMaker automatically displays to users for cloning
+        /// <para>A list of Git repositories that SageMaker AI automatically displays to users for cloning
         /// in the JupyterServer application.</para>
         /// </para>
         /// </summary>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The settings for assigning a custom file system to a domain. Permitted users can access
-        /// this file system in Amazon SageMaker Studio.</para>
+        /// this file system in Amazon SageMaker AI Studio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KernelGatewayAppSettings_CustomImage
         /// <summary>
         /// <para>
-        /// <para>A list of custom SageMaker images that are configured to run as a KernelGateway app.</para>
+        /// <para>A list of custom SageMaker AI images that are configured to run as a KernelGateway
+        /// app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,8 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainSettings_ExecutionRoleIdentityConfig
         /// <summary>
         /// <para>
-        /// <para>The configuration for attaching a SageMaker user profile name to the execution role
-        /// as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity
+        /// <para>The configuration for attaching a SageMaker AI user profile name to the execution
+        /// role as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity
         /// key</a>.</para>
         /// </para>
         /// </summary>
@@ -393,9 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>SageMaker uses Amazon Web Services KMS to encrypt EFS and EBS volumes attached to
-        /// the domain with an Amazon Web Services managed key by default. For more control, specify
-        /// a customer managed key.</para>
+        /// <para>SageMaker AI uses Amazon Web Services KMS to encrypt EFS and EBS volumes attached
+        /// to the domain with an Amazon Web Services managed key by default. For more control,
+        /// specify a customer managed key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -563,7 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -573,7 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -583,7 +584,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -593,7 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the SageMaker image that the image version belongs to.</para>
+        /// <para>The ARN of the SageMaker AI image that the image version belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

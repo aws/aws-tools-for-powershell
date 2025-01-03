@@ -28,8 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Schedules a query of a log group using CloudWatch Logs Insights. You specify the log
-    /// group and time range to query and the query string to use.
+    /// Starts a query of one or more log groups using CloudWatch Logs Insights. You specify
+    /// the log groups and time range to query and the query string to use.
     /// 
     ///  
     /// <para>
@@ -40,7 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Logs. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetQueryResults.html">GetQueryResults</a>
     /// to retrieve the results of a query, using the <c>queryId</c> that <c>StartQuery</c>
     /// returns. 
+    /// </para><note><para>
+    /// To specify the log groups to query, a <c>StartQuery</c> operation must include one
+    /// of the following:
+    /// </para><ul><li><para>
+    /// Either exactly one of the following parameters: <c>logGroupName</c>, <c>logGroupNames</c>,
+    /// or <c>logGroupIdentifiers</c></para></li><li><para>
+    /// Or the <c>queryString</c> must include a <c>SOURCE</c> command to select log groups
+    /// for the query. The <c>SOURCE</c> command can select log groups based on log group
+    /// name prefix, account ID, and log class. 
     /// </para><para>
+    /// For more information about the <c>SOURCE</c> command, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax-Source.html">SOURCE</a>.
+    /// </para></li></ul></note><para>
     /// If you have associated a KMS key with the query results in this account, then <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>
     /// uses that key to encrypt the results when it stores them. If no key is associated
     /// with query results, the query results are encrypted with the default CloudWatch Logs
@@ -95,8 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The list of log groups to query. You can include up to 50 log groups.</para><para>You can specify them by the log group name or ARN. If a log group that you're querying
         /// is in a source account and you're using a monitoring account, you must specify the
         /// ARN of the log group here. The query definition must also be defined in the monitoring
-        /// account.</para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
-        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. </para>
+        /// account.</para><para>If you specify an ARN, use the format arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i>
+        /// Don't include an * at the end.</para><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
+        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. The exception
+        /// is queries using the OpenSearch Service SQL query language, where you specify the
+        /// log group names inside the <c>querystring</c> instead of here. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The log group on which to perform the query.</para><note><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
-        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. </para></note>
+        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. The exception
+        /// is queries using the OpenSearch Service SQL query language, where you specify the
+        /// log group names inside the <c>querystring</c> instead of here.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,11 +135,27 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The list of log groups to be queried. You can include up to 50 log groups.</para><note><para>A <c>StartQuery</c> operation must include exactly one of the following parameters:
-        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. </para></note>
+        /// <c>logGroupName</c>, <c>logGroupNames</c>, or <c>logGroupIdentifiers</c>. The exception
+        /// is queries using the OpenSearch Service SQL query language, where you specify the
+        /// log group names inside the <c>querystring</c> instead of here.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] LogGroupNameList { get; set; }
+        #endregion
+        
+        #region Parameter QueryLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Specify the query language to use for this query. The options are Logs Insights QL,
+        /// OpenSearch PPL, and OpenSearch SQL. For more information about the query languages
+        /// that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported
+        /// query languages</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.QueryLanguage")]
+        public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
         #endregion
         
         #region Parameter QueryString
@@ -233,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 context.LogGroupNameList = new List<System.String>(this.LogGroupNameList);
             }
+            context.QueryLanguage = this.QueryLanguage;
             context.QueryString = this.QueryString;
             #if MODULAR
             if (this.QueryString == null && ParameterWasBound(nameof(this.QueryString)))
@@ -282,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupNameList != null)
             {
                 request.LogGroupNames = cmdletContext.LogGroupNameList;
+            }
+            if (cmdletContext.QueryLanguage != null)
+            {
+                request.QueryLanguage = cmdletContext.QueryLanguage;
             }
             if (cmdletContext.QueryString != null)
             {
@@ -357,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public List<System.String> LogGroupIdentifier { get; set; }
             public System.String LogGroupName { get; set; }
             public List<System.String> LogGroupNameList { get; set; }
+            public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
             public System.String QueryString { get; set; }
             public System.Int64? StartTime { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.StartQueryResponse, StartCWLQueryCmdlet, object> Select { get; set; } =

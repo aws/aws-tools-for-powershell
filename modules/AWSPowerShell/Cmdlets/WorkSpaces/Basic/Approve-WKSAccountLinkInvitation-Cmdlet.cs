@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</para>
+        /// <para>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent
+        /// creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

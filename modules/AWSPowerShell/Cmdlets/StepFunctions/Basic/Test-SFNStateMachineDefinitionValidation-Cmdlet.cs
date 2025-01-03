@@ -28,27 +28,38 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Validates the syntax of a state machine definition.
+    /// Validates the syntax of a state machine definition specified in <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
+    /// States Language</a> (ASL), a JSON-based, structured language.
     /// 
     ///  
     /// <para>
     /// You can validate that a state machine definition is correct without creating a state
-    /// machine resource. Step Functions will implicitly perform the same syntax check when
-    /// you invoke <c>CreateStateMachine</c> and <c>UpdateStateMachine</c>. State machine
-    /// definitions are specified using a JSON-based, structured language. For more information
-    /// on Amazon States Language see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-    /// States Language</a> (ASL). 
+    /// machine resource.
     /// </para><para>
     /// Suggested uses for <c>ValidateStateMachineDefinition</c>:
     /// </para><ul><li><para>
     /// Integrate automated checks into your code review or Continuous Integration (CI) process
-    /// to validate state machine definitions before starting deployments.
+    /// to check state machine definitions before starting deployments.
     /// </para></li><li><para>
-    /// Run the validation from a Git pre-commit hook to check your state machine definitions
-    /// before committing them to your source repository.
-    /// </para></li></ul><note><para>
-    /// Errors found in the state machine definition will be returned in the response as a
-    /// list of <b>diagnostic elements</b>, rather than raise an exception.
+    /// Run validation from a Git pre-commit hook to verify the definition before committing
+    /// to your source repository.
+    /// </para></li></ul><para>
+    /// Validation will look for problems in your state machine definition and return a <b>result</b>
+    /// and a list of <b>diagnostic elements</b>.
+    /// </para><para>
+    /// The <b>result</b> value will be <c>OK</c> when your workflow definition can be successfully
+    /// created or updated. Note the result can be <c>OK</c> even when diagnostic warnings
+    /// are present in the response. The <b>result</b> value will be <c>FAIL</c> when the
+    /// workflow definition contains errors that would prevent you from creating or updating
+    /// your state machine. 
+    /// </para><para>
+    /// The list of <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_ValidateStateMachineDefinitionDiagnostic.html">ValidateStateMachineDefinitionDiagnostic</a>
+    /// data elements can contain zero or more <b>WARNING</b> and/or <b>ERROR</b> elements.
+    /// </para><note><para>
+    /// The <b>ValidateStateMachineDefinition API</b> might add new diagnostics in the future,
+    /// adjust diagnostic codes, or change the message wording. Your automated processes should
+    /// only rely on the value of the <b>result</b> field value (OK, FAIL). Do <b>not</b>
+    /// rely on the exact order, count, or wording of diagnostic messages.
     /// </para></note>
     /// </summary>
     [Cmdlet("Test", "SFNStateMachineDefinitionValidation")]
@@ -59,6 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     )]
     public partial class TestSFNStateMachineDefinitionValidationCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -129,6 +144,16 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Definition parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Definition' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Definition' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -139,11 +164,21 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.ValidateStateMachineDefinitionResponse, TestSFNStateMachineDefinitionValidationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Definition;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Definition = this.Definition;
             #if MODULAR
             if (this.Definition == null && ParameterWasBound(nameof(this.Definition)))

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
 {
     /// <summary>
     /// Gets details of a job execution.
+    /// 
+    ///  
+    /// <para>
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeJobExecution</a>
+    /// action.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTJJobExecution")]
     [OutputType("Amazon.IoTJobsDataPlane.Model.JobExecution")]
@@ -56,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
         #region Parameter IncludeJobDocument
         /// <summary>
         /// <para>
-        /// <para>Optional. When set to true, the response contains the job document. The default is
-        /// false.</para>
+        /// <para>Optional. Unless set to false, the response contains the job document. The default
+        /// is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <para>
     /// You can configure Systems Manager Inventory to use the <c>SyncToDestination</c> type
     /// to synchronize Inventory data from multiple Amazon Web Services Regions to a single
-    /// Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-create-resource-data-sync.html">Creatinga
+    /// Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-create-resource-data-sync.html">Creating
     /// a resource data sync for Inventory</a> in the <i>Amazon Web Services Systems Manager
     /// User Guide</i>.
     /// </para><para>

@@ -36,7 +36,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="AuthParameters_ConnectivityParameters_ResourceParameters_ResourceConfigurationArn" NewName="AuthParameters_ConnectivityParameters_ResourceParameters_ResourceConfigurationArn" Alias="Auth_Resource_Configuration" />
+                <Param Name="InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn" NewName="InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn" Alias="Invocation_Resource_Configuration" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" OutputProperty="*" Verb="New" Noun="Endpoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
@@ -240,7 +243,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="AuthParameters_ConnectivityParameters_ResourceParameters_ResourceConfigurationArn" NewName="AuthParameters_ConnectivityParameters_ResourceParameters_ResourceConfigurationArn" Alias="Auth_Resource_Configuration" />
+                <Param Name="InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn" NewName="InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn" Alias="Invocation_Resource_Configuration" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="*" Verb="Update" Noun="Endpoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">

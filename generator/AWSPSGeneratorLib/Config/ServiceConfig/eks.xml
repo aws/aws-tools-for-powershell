@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterVersions" OutputProperty="ClusterVersions" Verb="Get" Noun="ClusterVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEksAnywhereSubscription" OutputProperty="Subscription" Verb="Get" Noun="EksAnywhereSubscription" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

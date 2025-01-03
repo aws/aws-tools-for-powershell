@@ -103,6 +103,13 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.DataFormat
+        "New-CPFSegmentSnapshot/DataFormat"
+        {
+            $v = "CSV","JSONL","ORC"
+            break
+        }
+
         # Amazon.CustomerProfiles.DataPullMode
         {
             ($_ -eq "New-CPFIntegrationWorkflow/Scheduled_DataPullMode") -Or
@@ -120,6 +127,23 @@ $CPF_Completers = {
         }
         {
             $v = "FEMALE","MALE","UNSPECIFIED"
+            break
+        }
+
+        # Amazon.CustomerProfiles.Include
+        "New-CPFCalculatedAttributeDefinition/Filter_Include"
+        {
+            $v = "ALL","ANY","NONE"
+            break
+        }
+
+        # Amazon.CustomerProfiles.IncludeOptions
+        {
+            ($_ -eq "New-CPFSegmentDefinition/SegmentGroups_Include") -Or
+            ($_ -eq "New-CPFSegmentEstimate/SegmentQuery_Include")
+        }
+        {
+            $v = "ALL","ANY","NONE"
             break
         }
 
@@ -164,6 +188,13 @@ $CPF_Completers = {
         }
         {
             $v = "BUSINESS","INDIVIDUAL","OTHER"
+            break
+        }
+
+        # Amazon.CustomerProfiles.RangeUnit
+        "Get-CPFGetCalculatedAttributeForProfile/Range_Unit"
+        {
+            $v = "DAYS"
             break
         }
 
@@ -232,14 +263,18 @@ $CPF_Completers = {
 $CPF_map = @{
     "AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
     "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview","New-CPFDomain","Update-CPFDomain")
+    "DataFormat"=@("New-CPFSegmentSnapshot")
+    "Filter_Include"=@("New-CPFCalculatedAttributeDefinition")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
     "JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "LogicalOperator"=@("Search-CPFProfile")
     "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
-    "Range_Unit"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
+    "Range_Unit"=@("Get-CPFGetCalculatedAttributeForProfile","New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
+    "SegmentGroups_Include"=@("New-CPFSegmentDefinition")
+    "SegmentQuery_Include"=@("New-CPFSegmentEstimate")
     "SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
     "Statistic"=@("New-CPFCalculatedAttributeDefinition")
     "Status"=@("Get-CPFWorkflowList")
@@ -299,19 +334,27 @@ $CPF_SelectCompleters = {
 
 $CPF_SelectMap = @{
     "Select"=@("Add-CPFProfileKey",
+               "Get-CPFGetCalculatedAttributeForProfile",
+               "Get-CPFGetProfile",
                "New-CPFCalculatedAttributeDefinition",
                "New-CPFDomain",
                "New-CPFEventStream",
+               "New-CPFEventTrigger",
                "New-CPFIntegrationWorkflow",
                "New-CPFProfile",
+               "New-CPFSegmentDefinition",
+               "New-CPFSegmentEstimate",
+               "New-CPFSegmentSnapshot",
                "Remove-CPFCalculatedAttributeDefinition",
                "Remove-CPFDomain",
                "Remove-CPFEventStream",
+               "Remove-CPFEventTrigger",
                "Remove-CPFIntegration",
                "Remove-CPFProfile",
                "Remove-CPFProfileKey",
                "Remove-CPFProfileObject",
                "Remove-CPFProfileObjectType",
+               "Remove-CPFSegmentDefinition",
                "Remove-CPFWorkflow",
                "Find-CPFProfileObjectType",
                "Get-CPFAutoMergingPreview",
@@ -319,11 +362,16 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributeForProfile",
                "Get-CPFDomain",
                "Get-CPFEventStream",
+               "Get-CPFEventTrigger",
                "Get-CPFIdentityResolutionJob",
                "Get-CPFIntegration",
                "Get-CPFMatch",
                "Get-CPFProfileObjectType",
                "Get-CPFProfileObjectTypeTemplate",
+               "Get-CPFSegmentDefinition",
+               "Get-CPFSegmentEstimate",
+               "Get-CPFSegmentMembership",
+               "Get-CPFSegmentSnapshot",
                "Get-CPFSimilarProfile",
                "Get-CPFWorkflow",
                "Get-CPFWorkflowStep",
@@ -332,12 +380,16 @@ $CPF_SelectMap = @{
                "Get-CPFCalculatedAttributesForProfileList",
                "Get-CPFDomainList",
                "Get-CPFEventStreamList",
+               "Get-CPFEventTriggerList",
                "Get-CPFIdentityResolutionJobList",
                "Get-CPFIntegrationList",
+               "Get-CPFObjectTypeAttributeList",
+               "Get-CPFProfileAttributeValueList",
                "Get-CPFProfileObjectList",
                "Get-CPFProfileObjectTypeList",
                "Get-CPFProfileObjectTypeTemplateList",
                "Get-CPFRuleBasedMatchList",
+               "Get-CPFSegmentDefinitionList",
                "Get-CPFResourceTag",
                "Get-CPFWorkflowList",
                "Merge-CPFProfile",
@@ -349,6 +401,7 @@ $CPF_SelectMap = @{
                "Remove-CPFResourceTag",
                "Update-CPFCalculatedAttributeDefinition",
                "Update-CPFDomain",
+               "Update-CPFEventTrigger",
                "Update-CPFProfile")
 }
 

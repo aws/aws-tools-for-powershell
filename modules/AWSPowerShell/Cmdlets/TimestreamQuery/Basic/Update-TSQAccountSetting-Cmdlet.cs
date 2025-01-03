@@ -48,14 +48,31 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter QueryCompute_ComputeMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within
+        /// an account. Note that in the Asia Pacific (Mumbai) region, the API operation only
+        /// recognizes the value <c>PROVISIONED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamQuery.ComputeMode")]
+        public Amazon.TimestreamQuery.ComputeMode QueryCompute_ComputeMode { get; set; }
+        #endregion
+        
         #region Parameter MaxQueryTCU
         /// <summary>
         /// <para>
         /// <para>The maximum number of compute units the service will use at any point in time to serve
         /// your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set
-        /// the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on.</para><para>The maximum value supported for <c>MaxQueryTCU</c> is 1000. To request an increase
+        /// the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on.
+        /// The maximum value supported for <c>MaxQueryTCU</c> is 1000. To request an increase
         /// to this soft limit, contact Amazon Web Services Support. For information about the
-        /// default quota for maxQueryTCU, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default
+        /// default quota for maxQueryTCU, see Default quotas. This configuration is applicable
+        /// only for on-demand usage of Timestream Compute Units (TCUs).</para><para>The maximum value supported for <c>MaxQueryTCU</c> is 1000. To request an increase
+        /// to this soft limit, contact Amazon Web Services Support. For information about the
+        /// default quota for <c>maxQueryTCU</c>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default
         /// quotas</a>.</para>
         /// </para>
         /// </summary>
@@ -74,6 +91,41 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.TimestreamQuery.QueryPricingModel")]
         public Amazon.TimestreamQuery.QueryPricingModel QueryPricingModel { get; set; }
+        #endregion
+        
+        #region Parameter NotificationConfiguration_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon Resource Name (ARN) that grants Timestream permission to publish notifications.
+        /// This field is only visible if SNS Topic is provided when updating the account settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryCompute_ProvisionedCapacity_NotificationConfiguration_RoleArn")]
+        public System.String NotificationConfiguration_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedCapacity_TargetQueryTCU
+        /// <summary>
+        /// <para>
+        /// <para>The target compute capacity for querying data, specified in Timestream Compute Units
+        /// (TCUs).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryCompute_ProvisionedCapacity_TargetQueryTCU")]
+        public System.Int32? ProvisionedCapacity_TargetQueryTCU { get; set; }
+        #endregion
+        
+        #region Parameter SnsConfiguration_TopicArn
+        /// <summary>
+        /// <para>
+        /// <para>SNS topic ARN that the scheduled query status notifications will be sent to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration_TopicArn")]
+        public System.String SnsConfiguration_TopicArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -119,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxQueryTCU = this.MaxQueryTCU;
+            context.QueryCompute_ComputeMode = this.QueryCompute_ComputeMode;
+            context.NotificationConfiguration_RoleArn = this.NotificationConfiguration_RoleArn;
+            context.SnsConfiguration_TopicArn = this.SnsConfiguration_TopicArn;
+            context.ProvisionedCapacity_TargetQueryTCU = this.ProvisionedCapacity_TargetQueryTCU;
             context.QueryPricingModel = this.QueryPricingModel;
             
             // allow further manipulation of loaded context prior to processing
@@ -139,6 +195,100 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             if (cmdletContext.MaxQueryTCU != null)
             {
                 request.MaxQueryTCU = cmdletContext.MaxQueryTCU.Value;
+            }
+            
+             // populate QueryCompute
+            var requestQueryComputeIsNull = true;
+            request.QueryCompute = new Amazon.TimestreamQuery.Model.QueryComputeRequest();
+            Amazon.TimestreamQuery.ComputeMode requestQueryCompute_queryCompute_ComputeMode = null;
+            if (cmdletContext.QueryCompute_ComputeMode != null)
+            {
+                requestQueryCompute_queryCompute_ComputeMode = cmdletContext.QueryCompute_ComputeMode;
+            }
+            if (requestQueryCompute_queryCompute_ComputeMode != null)
+            {
+                request.QueryCompute.ComputeMode = requestQueryCompute_queryCompute_ComputeMode;
+                requestQueryComputeIsNull = false;
+            }
+            Amazon.TimestreamQuery.Model.ProvisionedCapacityRequest requestQueryCompute_queryCompute_ProvisionedCapacity = null;
+            
+             // populate ProvisionedCapacity
+            var requestQueryCompute_queryCompute_ProvisionedCapacityIsNull = true;
+            requestQueryCompute_queryCompute_ProvisionedCapacity = new Amazon.TimestreamQuery.Model.ProvisionedCapacityRequest();
+            System.Int32? requestQueryCompute_queryCompute_ProvisionedCapacity_provisionedCapacity_TargetQueryTCU = null;
+            if (cmdletContext.ProvisionedCapacity_TargetQueryTCU != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_provisionedCapacity_TargetQueryTCU = cmdletContext.ProvisionedCapacity_TargetQueryTCU.Value;
+            }
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_provisionedCapacity_TargetQueryTCU != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity.TargetQueryTCU = requestQueryCompute_queryCompute_ProvisionedCapacity_provisionedCapacity_TargetQueryTCU.Value;
+                requestQueryCompute_queryCompute_ProvisionedCapacityIsNull = false;
+            }
+            Amazon.TimestreamQuery.Model.AccountSettingsNotificationConfiguration requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration = null;
+            
+             // populate NotificationConfiguration
+            var requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfigurationIsNull = true;
+            requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration = new Amazon.TimestreamQuery.Model.AccountSettingsNotificationConfiguration();
+            System.String requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_notificationConfiguration_RoleArn = null;
+            if (cmdletContext.NotificationConfiguration_RoleArn != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_notificationConfiguration_RoleArn = cmdletContext.NotificationConfiguration_RoleArn;
+            }
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_notificationConfiguration_RoleArn != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration.RoleArn = requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_notificationConfiguration_RoleArn;
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfigurationIsNull = false;
+            }
+            Amazon.TimestreamQuery.Model.SnsConfiguration requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration = null;
+            
+             // populate SnsConfiguration
+            var requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfigurationIsNull = true;
+            requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration = new Amazon.TimestreamQuery.Model.SnsConfiguration();
+            System.String requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration_snsConfiguration_TopicArn = null;
+            if (cmdletContext.SnsConfiguration_TopicArn != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration_snsConfiguration_TopicArn = cmdletContext.SnsConfiguration_TopicArn;
+            }
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration_snsConfiguration_TopicArn != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration.TopicArn = requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration_snsConfiguration_TopicArn;
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfigurationIsNull = false;
+            }
+             // determine if requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration should be set to null
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfigurationIsNull)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration = null;
+            }
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration.SnsConfiguration = requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration_queryCompute_ProvisionedCapacity_NotificationConfiguration_SnsConfiguration;
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfigurationIsNull = false;
+            }
+             // determine if requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration should be set to null
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfigurationIsNull)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration = null;
+            }
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration != null)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity.NotificationConfiguration = requestQueryCompute_queryCompute_ProvisionedCapacity_queryCompute_ProvisionedCapacity_NotificationConfiguration;
+                requestQueryCompute_queryCompute_ProvisionedCapacityIsNull = false;
+            }
+             // determine if requestQueryCompute_queryCompute_ProvisionedCapacity should be set to null
+            if (requestQueryCompute_queryCompute_ProvisionedCapacityIsNull)
+            {
+                requestQueryCompute_queryCompute_ProvisionedCapacity = null;
+            }
+            if (requestQueryCompute_queryCompute_ProvisionedCapacity != null)
+            {
+                request.QueryCompute.ProvisionedCapacity = requestQueryCompute_queryCompute_ProvisionedCapacity;
+                requestQueryComputeIsNull = false;
+            }
+             // determine if request.QueryCompute should be set to null
+            if (requestQueryComputeIsNull)
+            {
+                request.QueryCompute = null;
             }
             if (cmdletContext.QueryPricingModel != null)
             {
@@ -206,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxQueryTCU { get; set; }
+            public Amazon.TimestreamQuery.ComputeMode QueryCompute_ComputeMode { get; set; }
+            public System.String NotificationConfiguration_RoleArn { get; set; }
+            public System.String SnsConfiguration_TopicArn { get; set; }
+            public System.Int32? ProvisionedCapacity_TargetQueryTCU { get; set; }
             public Amazon.TimestreamQuery.QueryPricingModel QueryPricingModel { get; set; }
             public System.Func<Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse, UpdateTSQAccountSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

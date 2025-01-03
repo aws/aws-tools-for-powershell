@@ -28,7 +28,9 @@ using Amazon.Keyspaces.Model;
 namespace Amazon.PowerShell.Cmdlets.KS
 {
     /// <summary>
-    /// Returns the name and the Amazon Resource Name (ARN) of the specified table.
+    /// Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the replication
+    /// strategy, the Amazon Web Services Regions of a multi-Region keyspace, and the status
+    /// of newly added Regions after an <c>UpdateKeyspace</c> operation.
     /// </summary>
     [Cmdlet("Get", "KSKeyspace")]
     [OutputType("Amazon.Keyspaces.Model.GetKeyspaceResponse")]

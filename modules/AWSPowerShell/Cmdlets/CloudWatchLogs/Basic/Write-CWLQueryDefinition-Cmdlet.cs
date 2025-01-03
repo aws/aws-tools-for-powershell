@@ -60,8 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to include specific log groups as part of your query definition.</para><para>If you are updating a query definition and you omit this parameter, then the updated
-        /// definition will contain no log groups.</para>
+        /// <para>Use this parameter to include specific log groups as part of your query definition.
+        /// If your query uses the OpenSearch Service query language, you specify the log group
+        /// names inside the <c>querystring</c> instead of here.</para><para>If you are updating an existing query definition for the Logs Insights QL or OpenSearch
+        /// Service PPL and you omit this parameter, then the updated definition will contain
+        /// no log groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,6 +104,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String QueryDefinitionId { get; set; }
+        #endregion
+        
+        #region Parameter QueryLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Specify the query language to use for this query. The options are Logs Insights QL,
+        /// OpenSearch PPL, and OpenSearch SQL. For more information about the query languages
+        /// that CloudWatch Logs supports, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData_Languages.html">Supported
+        /// query languages</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.QueryLanguage")]
+        public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
         #endregion
         
         #region Parameter QueryString
@@ -187,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.QueryDefinitionId = this.QueryDefinitionId;
+            context.QueryLanguage = this.QueryLanguage;
             context.QueryString = this.QueryString;
             #if MODULAR
             if (this.QueryString == null && ParameterWasBound(nameof(this.QueryString)))
@@ -225,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.QueryDefinitionId != null)
             {
                 request.QueryDefinitionId = cmdletContext.QueryDefinitionId;
+            }
+            if (cmdletContext.QueryLanguage != null)
+            {
+                request.QueryLanguage = cmdletContext.QueryLanguage;
             }
             if (cmdletContext.QueryString != null)
             {
@@ -295,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public List<System.String> LogGroupName { get; set; }
             public System.String Name { get; set; }
             public System.String QueryDefinitionId { get; set; }
+            public Amazon.CloudWatchLogs.QueryLanguage QueryLanguage { get; set; }
             public System.String QueryString { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.PutQueryDefinitionResponse, WriteCWLQueryDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueryDefinitionId;

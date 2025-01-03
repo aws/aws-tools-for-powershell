@@ -160,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter PostExtractionHookConfiguration_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run a Lambda function
-        /// during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// roles for Amazon Kendra</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function
+        /// during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">an
+        /// IAM roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter PreExtractionHookConfiguration_LambdaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run a Lambda function
-        /// during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// roles for Amazon Kendra</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to run a Lambda function
+        /// during ingestion. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">an
+        /// IAM roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,10 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter CustomDocumentEnrichmentConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to run <c>PreExtractionHookConfiguration</c>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to run <c>PreExtractionHookConfiguration</c>
         /// and <c>PostExtractionHookConfiguration</c> for altering document metadata and content
-        /// during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// roles for Amazon Kendra</a>.</para>
+        /// during the document ingestion process. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">an
+        /// IAM roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -81,6 +81,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.OutputDestination[] Destination { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EncoderSetting
         /// <summary>
         /// <para>
@@ -203,6 +213,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter ChannelEngineVersion_Version
+        /// <summary>
+        /// <para>
+        /// The build identifier of the engine version to
+        /// use for this channel. Specify 'DEFAULT' to reset to the default version.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChannelEngineVersion_Version { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Channel'.
@@ -246,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CdiInputSpecification_Resolution = this.CdiInputSpecification_Resolution;
+            context.ChannelEngineVersion_Version = this.ChannelEngineVersion_Version;
             context.ChannelId = this.ChannelId;
             #if MODULAR
             if (this.ChannelId == null && ParameterWasBound(nameof(this.ChannelId)))
@@ -257,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.Destination = new List<Amazon.MediaLive.Model.OutputDestination>(this.Destination);
             }
+            context.DryRun = this.DryRun;
             context.EncoderSetting = this.EncoderSetting;
             if (this.InputAttachment != null)
             {
@@ -306,6 +329,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.CdiInputSpecification = null;
             }
+            
+             // populate ChannelEngineVersion
+            var requestChannelEngineVersionIsNull = true;
+            request.ChannelEngineVersion = new Amazon.MediaLive.Model.ChannelEngineVersionRequest();
+            System.String requestChannelEngineVersion_channelEngineVersion_Version = null;
+            if (cmdletContext.ChannelEngineVersion_Version != null)
+            {
+                requestChannelEngineVersion_channelEngineVersion_Version = cmdletContext.ChannelEngineVersion_Version;
+            }
+            if (requestChannelEngineVersion_channelEngineVersion_Version != null)
+            {
+                request.ChannelEngineVersion.Version = requestChannelEngineVersion_channelEngineVersion_Version;
+                requestChannelEngineVersionIsNull = false;
+            }
+             // determine if request.ChannelEngineVersion should be set to null
+            if (requestChannelEngineVersionIsNull)
+            {
+                request.ChannelEngineVersion = null;
+            }
             if (cmdletContext.ChannelId != null)
             {
                 request.ChannelId = cmdletContext.ChannelId;
@@ -313,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Destination != null)
             {
                 request.Destinations = cmdletContext.Destination;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.EncoderSetting != null)
             {
@@ -474,8 +520,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.MediaLive.CdiInputResolution CdiInputSpecification_Resolution { get; set; }
+            public System.String ChannelEngineVersion_Version { get; set; }
             public System.String ChannelId { get; set; }
             public List<Amazon.MediaLive.Model.OutputDestination> Destination { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSetting { get; set; }
             public List<Amazon.MediaLive.Model.InputAttachment> InputAttachment { get; set; }
             public Amazon.MediaLive.InputCodec InputSpecification_Codec { get; set; }

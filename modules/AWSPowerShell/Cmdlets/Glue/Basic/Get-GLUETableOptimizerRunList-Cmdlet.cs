@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of table optimizer. Currently, the only valid value is <c>compaction</c>.</para>
+        /// <para>The type of table optimizer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

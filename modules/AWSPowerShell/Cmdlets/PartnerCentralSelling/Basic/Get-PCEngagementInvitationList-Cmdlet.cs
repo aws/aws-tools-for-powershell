@@ -64,6 +64,20 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String Catalog { get; set; }
         #endregion
         
+        #region Parameter EngagementIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> Retrieves a list of engagement invitation summaries based on specified filters. The
+        /// ListEngagementInvitations operation allows you to view all invitations that you have
+        /// sent or received. You must specify the ParticipantType to filter invitations where
+        /// you are either the SENDER or the RECEIVER. Invitations will automatically expire if
+        /// not accepted within 15 days. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] EngagementIdentifier { get; set; }
+        #endregion
+        
         #region Parameter ParticipantType
         /// <summary>
         /// <para>
@@ -93,6 +107,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public System.String[] PayloadType { get; set; }
         #endregion
         
+        #region Parameter SenderAwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para> List of sender AWS account IDs to filter the invitations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] SenderAwsAccountId { get; set; }
+        #endregion
+        
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
@@ -115,6 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.PartnerCentralSelling.SortOrder")]
         public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para> Status values to filter the invitations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -194,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EngagementIdentifier != null)
+            {
+                context.EngagementIdentifier = new List<System.String>(this.EngagementIdentifier);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ParticipantType = this.ParticipantType;
@@ -207,8 +245,16 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 context.PayloadType = new List<System.String>(this.PayloadType);
             }
+            if (this.SenderAwsAccountId != null)
+            {
+                context.SenderAwsAccountId = new List<System.String>(this.SenderAwsAccountId);
+            }
             context.Sort_SortBy = this.Sort_SortBy;
             context.Sort_SortOrder = this.Sort_SortOrder;
+            if (this.Status != null)
+            {
+                context.Status = new List<System.String>(this.Status);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             {
                 request.Catalog = cmdletContext.Catalog;
             }
+            if (cmdletContext.EngagementIdentifier != null)
+            {
+                request.EngagementIdentifier = cmdletContext.EngagementIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -244,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (cmdletContext.PayloadType != null)
             {
                 request.PayloadType = cmdletContext.PayloadType;
+            }
+            if (cmdletContext.SenderAwsAccountId != null)
+            {
+                request.SenderAwsAccountId = cmdletContext.SenderAwsAccountId;
             }
             
              // populate Sort
@@ -273,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (requestSortIsNull)
             {
                 request.Sort = null;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -336,12 +394,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Catalog { get; set; }
+            public List<System.String> EngagementIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.PartnerCentralSelling.ParticipantType ParticipantType { get; set; }
             public List<System.String> PayloadType { get; set; }
+            public List<System.String> SenderAwsAccountId { get; set; }
             public Amazon.PartnerCentralSelling.OpportunityEngagementInvitationSortName Sort_SortBy { get; set; }
             public Amazon.PartnerCentralSelling.SortOrder Sort_SortOrder { get; set; }
+            public List<System.String> Status { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.ListEngagementInvitationsResponse, GetPCEngagementInvitationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EngagementInvitationSummaries;
         }

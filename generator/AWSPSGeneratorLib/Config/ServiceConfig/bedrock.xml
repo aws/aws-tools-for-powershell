@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="New" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModelCopyJob" OutputProperty="JobArn" Verb="New" Noun="ModelCopyJob" ShouldProcessTarget="SourceModelArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -75,11 +79,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMarketplaceModelEndpoint" Verb="Remove" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteModelInvocationLoggingConfiguration" Verb="Remove" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProvisionedModelThroughput" Verb="Remove" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ProvisionedModelId" PipelineParameter="ProvisionedModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterMarketplaceModelEndpoint" Verb="Unregister" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,6 +119,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Get" Noun="MarketplaceModelEndpoint" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetModelCopyJob" OutputProperty="*" Verb="Get" Noun="ModelCopyJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +140,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetModelInvocationLoggingConfiguration" OutputProperty="LoggingConfig" Verb="Get" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPromptRouter" OutputProperty="*" Verb="Get" Noun="PromptRouter" PipelineParameter="PromptRouterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +175,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMarketplaceModelEndpoints" OutputProperty="MarketplaceModelEndpoints" Verb="Get" Noun="MarketplaceModelEndpointList" PipelineParameter="ModelSourceEquals" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListModelCopyJobs" OutputProperty="ModelCopyJobSummaries" Verb="Get" Noun="ModelCopyJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +195,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPromptRouters" OutputProperty="PromptRouterSummaries" Verb="Get" Noun="PromptRouterList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProvisionedModelThroughputs" OutputProperty="ProvisionedModelSummaries" Verb="Get" Noun="ProvisionedModelThroughputList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -180,6 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutModelInvocationLoggingConfiguration" Verb="Write" Noun="ModelInvocationLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Register" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +236,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGuardrail" OutputProperty="*" Verb="Update" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMarketplaceModelEndpoint" OutputProperty="MarketplaceModelEndpoint" Verb="Update" Noun="MarketplaceModelEndpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

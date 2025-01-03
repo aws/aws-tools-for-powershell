@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Returns the details of one or more configuration aggregators. If the configuration
-    /// aggregator is not specified, this action returns the details for all the configuration
+    /// aggregator is not specified, this operation returns the details for all the configuration
     /// aggregators associated with the account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationAggregatorList")]
