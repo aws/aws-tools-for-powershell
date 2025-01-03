@@ -490,7 +490,7 @@
             <PreviewLabel Condition="'$(PreviewLabel)'==''">""</PreviewLabel>
         </PropertyGroup>
         <Exec Command="dotnet restore --disable-parallel ../solutions/ReleaseNotesGenerator.sln"/>
-        <Exec Command="dotnet build -c Release --no-incremental --no-restore ../solutions/ReleaseNotesGenerator.sln"/>
+        <Exec Command="dotnet build -c Release --no-incremental --no-restore -p:UseSharedCompilation=false ../solutions/ReleaseNotesGenerator.sln"/>
         <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml -pl $(PreviewLabel) -nv $(PatchNumber)" />
         <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../generator/ReleaseNotesGenerator/bin/Release/net8.0/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt -bc ../BreakingChangesLookup.xml -or ../overrides.xml"/>
     </Target>
