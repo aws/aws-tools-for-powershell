@@ -99,6 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter WebAppDnsDomain
+        /// <summary>
+        /// <para>
+        /// <para>The DNS subdomain of the web app. This would be "example" in the URL "example.scn.global.on.aws".
+        /// You can set this to a custom value, as long as the domain isn't already being used
+        /// by someone else. The name may only include alphanumeric characters and hyphens.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WebAppDnsDomain { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -163,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.WebAppDnsDomain = this.WebAppDnsDomain;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.WebAppDnsDomain != null)
+            {
+                request.WebAppDnsDomain = cmdletContext.WebAppDnsDomain;
             }
             
             CmdletOutput output;
@@ -265,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             public System.String InstanceName { get; set; }
             public System.String KmsKeyArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String WebAppDnsDomain { get; set; }
             public System.Func<Amazon.SupplyChain.Model.CreateInstanceResponse, NewSUPCHInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Instance;
         }

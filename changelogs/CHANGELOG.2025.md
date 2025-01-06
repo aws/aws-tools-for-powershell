@@ -1,4 +1,9 @@
-﻿### 4.1.729 (2025-01-03 21:36Z)
+﻿### 4.1.730 (2025-01-06 21:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.957.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Supply Chain
+    * Modified cmdlet New-SUPCHInstance: added parameter WebAppDnsDomain.
+
+### 4.1.729 (2025-01-03 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.956.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.728 (2025-01-02 21:35Z)
