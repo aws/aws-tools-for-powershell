@@ -36557,6 +36557,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBWorkflowExecution",
                "Get-EC2IBWorkflowStepExecution",
                "Import-EC2IBComponent",
+               "Import-EC2IBDiskImage",
                "Import-EC2IBVmImage",
                "Get-EC2IBComponentBuildVersionList",
                "Get-EC2IBComponentList",

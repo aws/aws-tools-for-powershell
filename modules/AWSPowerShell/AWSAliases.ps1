@@ -15247,6 +15247,7 @@ Set-Alias -Name EC2IB-GetWorkflow -Value Get-EC2IBWorkflow
 Set-Alias -Name EC2IB-GetWorkflowExecution -Value Get-EC2IBWorkflowExecution
 Set-Alias -Name EC2IB-GetWorkflowStepExecution -Value Get-EC2IBWorkflowStepExecution
 Set-Alias -Name EC2IB-ImportComponent -Value Import-EC2IBComponent
+Set-Alias -Name EC2IB-ImportDiskImage -Value Import-EC2IBDiskImage
 Set-Alias -Name EC2IB-ImportVmImage -Value Import-EC2IBVmImage
 Set-Alias -Name List-EC2IBComponentBuildVersions -Value Get-EC2IBComponentBuildVersionList
 Set-Alias -Name List-EC2IBComponentBuildVersionList -Value Get-EC2IBComponentBuildVersionList

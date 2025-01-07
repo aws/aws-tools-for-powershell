@@ -127,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2IBWorkflowStepExecution', 
         'Get-EC2IBWorkflowStepExecutionList', 
         'Import-EC2IBComponent', 
+        'Import-EC2IBDiskImage', 
         'Import-EC2IBVmImage', 
         'New-EC2IBComponent', 
         'New-EC2IBContainerRecipe', 

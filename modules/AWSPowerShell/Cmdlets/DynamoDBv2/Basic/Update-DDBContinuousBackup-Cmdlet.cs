@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// any point in time within <c>EarliestRestorableDateTime</c> and <c>LatestRestorableDateTime</c>.
     /// 
     /// </para><para><c>LatestRestorableDateTime</c> is typically 5 minutes before the current time. You
-    /// can restore your table to any point in time during the last 35 days. 
+    /// can restore your table to any point in time in the last 35 days. You can set the recovery
+    /// period to any value between 1 and 35 days.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBContinuousBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,6 +71,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled { get; set; }
+        #endregion
+        
+        #region Parameter PointInTimeRecoverySpecification_RecoveryPeriodInDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of preceding days for which continuous backups are taken and maintained.
+        /// Your table data is only recoverable to any point-in-time from within the configured
+        /// recovery period. This parameter is optional. If no value is provided, the value will
+        /// default to 35.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PointInTimeRecoverySpecification_RecoveryPeriodInDays")]
+        public System.Int32? PointInTimeRecoverySpecification_RecoveryPeriodInDay { get; set; }
         #endregion
         
         #region Parameter TableName
@@ -159,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PointInTimeRecoverySpecification_RecoveryPeriodInDay = this.PointInTimeRecoverySpecification_RecoveryPeriodInDay;
             context.TableName = this.TableName;
             #if MODULAR
             if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
@@ -194,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_PointInTimeRecoveryEnabled != null)
             {
                 request.PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled = requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_PointInTimeRecoveryEnabled.Value;
+                requestPointInTimeRecoverySpecificationIsNull = false;
+            }
+            System.Int32? requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_RecoveryPeriodInDay = null;
+            if (cmdletContext.PointInTimeRecoverySpecification_RecoveryPeriodInDay != null)
+            {
+                requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_RecoveryPeriodInDay = cmdletContext.PointInTimeRecoverySpecification_RecoveryPeriodInDay.Value;
+            }
+            if (requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_RecoveryPeriodInDay != null)
+            {
+                request.PointInTimeRecoverySpecification.RecoveryPeriodInDays = requestPointInTimeRecoverySpecification_pointInTimeRecoverySpecification_RecoveryPeriodInDay.Value;
                 requestPointInTimeRecoverySpecificationIsNull = false;
             }
              // determine if request.PointInTimeRecoverySpecification should be set to null
@@ -267,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? PointInTimeRecoverySpecification_PointInTimeRecoveryEnabled { get; set; }
+            public System.Int32? PointInTimeRecoverySpecification_RecoveryPeriodInDay { get; set; }
             public System.String TableName { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.UpdateContinuousBackupsResponse, UpdateDDBContinuousBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ContinuousBackupsDescription;
