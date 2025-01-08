@@ -1,4 +1,7 @@
-﻿### 4.1.731 (2025-01-07 21:35Z)
+﻿### 4.1.732 (2025-01-08 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.959.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.731 (2025-01-07 21:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.958.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudHSM V2
     * Modified cmdlet Edit-HSM2Cluster: added parameter HsmType.

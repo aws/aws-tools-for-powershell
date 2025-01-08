@@ -247,7 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// depending on the type of the cluster you are creating. You can create an Aurora Serverless
         /// v1 clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
         /// v1 cluster. To create a clone that is an Aurora Serverless v1 cluster, the original
-        /// cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster.</para><para>Valid for: Aurora DB clusters only</para>
+        /// cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster.
+        /// To create a full copy that is an Aurora Serverless v1 cluster, specify the engine
+        /// mode <c>serverless</c>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
