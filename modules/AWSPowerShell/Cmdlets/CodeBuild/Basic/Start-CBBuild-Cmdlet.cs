@@ -532,7 +532,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> Set to true to report to your source provider the status of a build's start and completion.
         /// If you use this option with a source provider other than GitHub, GitHub Enterprise,
-        /// or Bitbucket, an <c>invalidInputException</c> is thrown. </para><para>To be able to report the build status to the source provider, the user associated
+        /// GitLab, GitLab Self Managed, or Bitbucket, an <c>invalidInputException</c> is thrown.
+        /// </para><para>To be able to report the build status to the source provider, the user associated
         /// with the source provider must have write access to the repo. If the user does not
         /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
         /// provider access</a> in the <i>CodeBuild User Guide</i>.</para><note><para> The status of a build triggered by a webhook is always reported to your source provider.

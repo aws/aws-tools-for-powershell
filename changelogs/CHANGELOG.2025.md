@@ -1,4 +1,11 @@
-﻿### 4.1.732 (2025-01-08 21:41Z)
+﻿### 4.1.733 (2025-01-09 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.960.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameter Restrictions_FleetsAllowed.
+    * Modified cmdlet Start-CBBatch: added parameter Restrictions_FleetsAllowed.
+    * Modified cmdlet Update-CBProject: added parameter Restrictions_FleetsAllowed.
+
+### 4.1.732 (2025-01-08 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.959.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.731 (2025-01-07 21:35Z)
