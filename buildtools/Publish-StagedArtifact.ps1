@@ -125,17 +125,16 @@ if (-not $DryRun -and $PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
     $ApiKey = ((Get-SECSecretValue -SecretId $SecretId -Region $SecretRegion -ProfileName $SecretReaderProfile).SecretString | ConvertFrom-Json).$SecretKey
 }
 
-if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
-    $commonArgs = @{
-        'ApiKey' = $ApiKey
-        'Repository'  = "PSGallery"
-    }
+$commonArgs = @{
+    'ApiKey'                     = $LocalRepositoryNuGetApiKey
+    'SkipDependenciesCheck'      = $true
+    'SkipModuleManifestValidate' = $true
+    'Repository'                 = $LocalRepositoryName
 }
-else {
-    $commonArgs = @{        
-        'ApiKey' = $LocalRepositoryNuGetApiKey
-        'Repository'  = $LocalRepositoryName
-    }
+
+if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
+    $commonArgs.ApiKey = $ApiKey
+    $commonArgs.Repository = "PSGallery"
 }
 
 function PublishRecursive([string]$modulePath) {
