@@ -205,8 +205,8 @@ namespace Amazon.PowerShell.Common
 
             if (innerCredentials == null)
             {
-                // try and load credentials from ECS endpoint (if the relevant environment variable is set)
-                // or EC2 Instance Profile as a last resort
+                // We'll attempt to use the generic container provider if either of the URI environment variables are set.
+                // If they're not, we will use instance profile as a last resort.
                 try
                 {
                     string relativeUri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Common
 
                     if (!string.IsNullOrEmpty(relativeUri) || !string.IsNullOrEmpty(fullUri))
                     {
-                        innerCredentials = new ECSTaskCredentials();
+                        innerCredentials = new GenericContainerCredentials();
                         source = CredentialsSource.Container;
                         name = "Container";
                         // no need to set proxy and callback
