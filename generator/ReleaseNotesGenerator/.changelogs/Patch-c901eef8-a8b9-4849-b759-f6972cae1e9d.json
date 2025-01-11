@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "Update the AWS Tools for PowerShell to support EKS Pod Identity credentials"
-}

@@ -420,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>If <c>true</c>, the cluster can be accessed from a public network. Only clusters in
-        /// VPCs can be set to be publicly available.</para>
+        /// VPCs can be set to be publicly available.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

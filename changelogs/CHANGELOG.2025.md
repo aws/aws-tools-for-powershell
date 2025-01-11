@@ -1,4 +1,8 @@
-﻿### 4.1.733 (2025-01-09 22:01Z)
+﻿### 4.1.734 (2025-01-10 23:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.960.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Update the AWS Tools for PowerShell to support EKS Pod Identity credentials
+
+### 4.1.733 (2025-01-09 22:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.960.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBProject: added parameter Restrictions_FleetsAllowed.
