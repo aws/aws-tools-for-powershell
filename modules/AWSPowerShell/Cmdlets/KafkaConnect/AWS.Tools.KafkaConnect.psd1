@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-MSKCResourceTag', 
         'Get-MSKCConnector', 
         'Get-MSKCConnectorList', 
+        'Get-MSKCConnectorOperation', 
+        'Get-MSKCConnectorOperationList', 
         'Get-MSKCCustomPlugin', 
         'Get-MSKCCustomPluginList', 
         'Get-MSKCResourceTag', 

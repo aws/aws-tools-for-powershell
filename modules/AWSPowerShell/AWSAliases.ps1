@@ -17150,10 +17150,15 @@ Set-Alias -Name Delete-MSKCWorkerConfiguration -Value Remove-MSKCWorkerConfigura
 Set-Alias -Name MSKC-DeleteWorkerConfiguration -Value Remove-MSKCWorkerConfiguration
 Set-Alias -Name Describe-MSKCConnector -Value Get-MSKCConnector
 Set-Alias -Name MSKC-DescribeConnector -Value Get-MSKCConnector
+Set-Alias -Name Describe-MSKCConnectorOperation -Value Get-MSKCConnectorOperation
+Set-Alias -Name MSKC-DescribeConnectorOperation -Value Get-MSKCConnectorOperation
 Set-Alias -Name Describe-MSKCCustomPlugin -Value Get-MSKCCustomPlugin
 Set-Alias -Name MSKC-DescribeCustomPlugin -Value Get-MSKCCustomPlugin
 Set-Alias -Name Describe-MSKCWorkerConfiguration -Value Get-MSKCWorkerConfiguration
 Set-Alias -Name MSKC-DescribeWorkerConfiguration -Value Get-MSKCWorkerConfiguration
+Set-Alias -Name List-MSKCConnectorOperations -Value Get-MSKCConnectorOperationList
+Set-Alias -Name List-MSKCConnectorOperationList -Value Get-MSKCConnectorOperationList
+Set-Alias -Name MSKC-ListConnectorOperations -Value Get-MSKCConnectorOperationList
 Set-Alias -Name List-MSKCConnectors -Value Get-MSKCConnectorList
 Set-Alias -Name List-MSKCConnectorList -Value Get-MSKCConnectorList
 Set-Alias -Name MSKC-ListConnectors -Value Get-MSKCConnectorList

@@ -121,6 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.Model.Rule[] Rule { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new call
+        /// analytics category at the time you start this new job.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CategoryProperties'.
@@ -201,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter Rule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -228,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.Rule != null)
             {
                 request.Rules = cmdletContext.Rule;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -293,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String CategoryName { get; set; }
             public Amazon.TranscribeService.InputType InputType { get; set; }
             public List<Amazon.TranscribeService.Model.Rule> Rule { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.TranscribeService.Model.CreateCallAnalyticsCategoryResponse, NewTRSCallAnalyticsCategoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CategoryProperties;
         }

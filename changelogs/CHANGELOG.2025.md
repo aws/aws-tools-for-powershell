@@ -1,4 +1,17 @@
-﻿### 4.1.734 (2025-01-10 23:55Z)
+﻿### 4.1.735 (2025-01-13 21:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.961.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2ClientVpnEndpoint: added parameter DisconnectOnSessionTimeout.
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameter DisconnectOnSessionTimeout.
+  * Amazon Managed Streaming for Kafka Connect
+    * Added cmdlet Get-MSKCConnectorOperation leveraging the DescribeConnectorOperation service API.
+    * Added cmdlet Get-MSKCConnectorOperationList leveraging the ListConnectorOperations service API.
+    * Modified cmdlet Update-MSKCConnector: added parameter ConnectorConfiguration.
+  * Amazon Transcribe Service
+    * Modified cmdlet New-TRSCallAnalyticsCategory: added parameter Tag.
+    * Modified cmdlet Start-TRSCallAnalyticsJob: added parameter Tag.
+
+### 4.1.734 (2025-01-10 23:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.960.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Update the AWS Tools for PowerShell to support EKS Pod Identity credentials
 

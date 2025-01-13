@@ -299,6 +299,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new call
+        /// analytics job at the time you start this new job.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.TranscribeService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Settings_VocabularyFilterMethod
         /// <summary>
         /// <para>
@@ -434,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.Settings_VocabularyFilterMethod = this.Settings_VocabularyFilterMethod;
             context.Settings_VocabularyFilterName = this.Settings_VocabularyFilterName;
             context.Settings_VocabularyName = this.Settings_VocabularyName;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.TranscribeService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -638,6 +655,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.Settings = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -716,6 +737,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }
             public System.String Settings_VocabularyFilterName { get; set; }
             public System.String Settings_VocabularyName { get; set; }
+            public List<Amazon.TranscribeService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.TranscribeService.Model.StartCallAnalyticsJobResponse, StartTRSCallAnalyticsJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CallAnalyticsJob;
         }

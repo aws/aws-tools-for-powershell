@@ -22,45 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.KafkaConnect;
+using Amazon.KafkaConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Deletes the specified snapshot.
-    /// 
-    ///  
-    /// <para>
-    /// When you make periodic snapshots of a volume, the snapshots are incremental, and only
-    /// the blocks on the device that have changed since your last snapshot are saved in the
-    /// new snapshot. When you delete a snapshot, only the data not needed for any other snapshot
-    /// is removed. So regardless of which prior snapshots have been deleted, all active snapshots
-    /// will have access to all the information needed to restore the volume.
-    /// </para><para>
-    /// You cannot delete a snapshot of the root device of an EBS volume used by a registered
-    /// AMI. You must first deregister the AMI before you can delete the snapshot.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html">Delete
-    /// an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.
-    /// </para>
+    /// Returns information about the specified connector's operations.
     /// </summary>
-    [Cmdlet("Remove", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteSnapshotResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.DeleteSnapshotResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.DeleteSnapshotResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "MSKCConnectorOperation")]
+    [OutputType("Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse")]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect DescribeConnectorOperation API operation.", Operation = new[] {"DescribeConnectorOperation"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse))]
+    [AWSCmdletOutput("Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse",
+        "This cmdlet returns an Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse object containing multiple properties."
     )]
-    public partial class RemoveEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetMSKCConnectorOperationCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter SnapshotId
+        #region Parameter ConnectorOperationArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the EBS snapshot.</para>
+        /// <para>ARN of the connector operation to be described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,13 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SnapshotId { get; set; }
+        public System.String ConnectorOperationArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteSnapshotResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse).
+        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,34 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SnapshotId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConnectorOperationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConnectorOperationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SnapshotId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectorOperationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SnapshotId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2Snapshot (DeleteSnapshot)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -123,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteSnapshotResponse, RemoveEC2SnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse, GetMSKCConnectorOperationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SnapshotId;
+                context.Select = (response, cmdlet) => this.ConnectorOperationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.SnapshotId = this.SnapshotId;
+            context.ConnectorOperationArn = this.ConnectorOperationArn;
             #if MODULAR
-            if (this.SnapshotId == null && ParameterWasBound(nameof(this.SnapshotId)))
+            if (this.ConnectorOperationArn == null && ParameterWasBound(nameof(this.ConnectorOperationArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter SnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectorOperationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -156,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DeleteSnapshotRequest();
+            var request = new Amazon.KafkaConnect.Model.DescribeConnectorOperationRequest();
             
-            if (cmdletContext.SnapshotId != null)
+            if (cmdletContext.ConnectorOperationArn != null)
             {
-                request.SnapshotId = cmdletContext.SnapshotId;
+                request.ConnectorOperationArn = cmdletContext.ConnectorOperationArn;
             }
             
             CmdletOutput output;
@@ -195,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DeleteSnapshotResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteSnapshotRequest request)
+        private Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.DescribeConnectorOperationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "DescribeConnectorOperation");
             try
             {
                 #if DESKTOP
-                return client.DeleteSnapshot(request);
+                return client.DescribeConnectorOperation(request);
                 #elif CORECLR
-                return client.DeleteSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.DescribeConnectorOperationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String SnapshotId { get; set; }
-            public System.Func<Amazon.EC2.Model.DeleteSnapshotResponse, RemoveEC2SnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ConnectorOperationArn { get; set; }
+            public System.Func<Amazon.KafkaConnect.Model.DescribeConnectorOperationResponse, GetMSKCConnectorOperationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
