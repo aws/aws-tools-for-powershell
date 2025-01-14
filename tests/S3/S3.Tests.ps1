@@ -184,10 +184,12 @@ Describe -Tag "Smoke" "S3" {
         BeforeAll {
             $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
             New-S3Bucket -BucketName $script:bucketName
+            $testFilePath = Join-Path -Path (Split-Path -Path (Get-Location)) -ChildPath 'foo.txt'
         }
 
         AfterAll {
             $script:bucketName | Remove-S3Bucket -Force -DeleteBucketContent
+            Remove-Item $testFilePath -ErrorAction 'SilentlyContinue'
         }
 
         It "Put and get an object with a SHA1 checksum" {
@@ -221,6 +223,18 @@ Describe -Tag "Smoke" "S3" {
 
             { Read-S3Object -BucketName $script:bucketName -Key "key1" -File "temp\key1.txt" } | Should -Throw
             { Read-S3Object -BucketName $script:bucketName -Key "key2" -File "temp\key2.txt" } | Should -Throw
+        }
+
+        It "Can write objects with a precalcuated checksum value" {
+            Set-Content -Path $testFilePath -Value "Hello world!"
+            $checksumValue = 'vjV9Yg=='
+            Write-S3Object -BucketName $script:bucketName -Key foo.txt -File $testFilePath -ChecksumAlgorithm CRC32C -ChecksumValue $checksumValue
+        }
+
+        It "Throws when writing objects with an invalid checksum value" {
+            Set-Content -Path $testFilePath -Value "Hello world!"
+            $checksumValue = 'abc123'
+            {Write-S3Object -BucketName $script:bucketName -Key foo.txt -File $testFilePath -ChecksumAlgorithm CRC32C -ChecksumValue $checksumValue} | Should -Throw '* is invalid.'
         }
     }
 }
