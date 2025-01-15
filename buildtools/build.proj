@@ -75,7 +75,7 @@
         <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
     </Target>
 
-    <Target Name="staging-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;build-test-modules">
+    <Target Name="staging-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts."/>
     </Target>
 
