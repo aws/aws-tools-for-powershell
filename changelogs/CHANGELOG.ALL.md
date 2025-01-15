@@ -1,4 +1,19 @@
-﻿### 4.1.736 (2025-01-14 21:25Z)
+﻿### 4.1.737 (2025-01-15 22:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.963.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARInlineAgent: added parameters StreamingConfigurations_ApplyGuardrailInterval and StreamingConfigurations_StreamFinalResponse.
+  * Amazon Partner Central Selling API
+    * Added cmdlet Add-PCResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-PCResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-PCResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Invoke-PCResourceSnapshotJob: added parameter Tag.
+    * Modified cmdlet Invoke-PCStartEngagementByAcceptingInvitationTask: added parameter Tag.
+    * Modified cmdlet Invoke-PCStartEngagementFromOpportunityTask: added parameter Tag.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3Object: added parameters ChecksumValue and MpuObjectSize.
+    * Modified cmdlet Write-S3GetObjectResponse: added parameter ChecksumCRC64NVME.
+
+### 4.1.736 (2025-01-14 21:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.962.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GameLift Service
     * Modified cmdlet Start-GMLGameSessionPlacement: added parameters PriorityConfigurationOverride_LocationOrder and PriorityConfigurationOverride_PlacementFallbackStrategy.

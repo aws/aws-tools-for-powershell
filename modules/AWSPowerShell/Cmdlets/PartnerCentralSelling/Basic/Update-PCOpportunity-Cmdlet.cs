@@ -540,10 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// savings of proposed solutions on Amazon Web Services versus on-premises or a traditional
         /// hosting environment.</para></li><li><para>Cosell—Deal Support: Request Amazon Web Services seller's support to progress the
         /// opportunity (for example: joint customer call, strategic positioning).</para></li><li><para>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where
-        /// the partner needs RFx support from Amazon Web Services.</para></li><li><para>Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support
-        /// from an Amazon Web Services Sales representative. The opportunity is managed solely
-        /// by the partner. It's possible to request coselling support on these opportunities
-        /// at any stage during their lifecycle. Also known as, for-visibility-only (FVO) opportunity.</para></li></ul>
+        /// the partner needs RFx support from Amazon Web Services.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

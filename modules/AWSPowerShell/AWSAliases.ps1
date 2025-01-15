@@ -22418,6 +22418,7 @@ Set-Alias -Name PC-ListResourceSnapshots -Value Get-PCResourceSnapshotList
 Set-Alias -Name List-PCSolutions -Value Get-PCSolutionList
 Set-Alias -Name List-PCSolutionList -Value Get-PCSolutionList
 Set-Alias -Name PC-ListSolutions -Value Get-PCSolutionList
+Set-Alias -Name PC-ListTagsForResource -Value Get-PCResourceTag
 Set-Alias -Name Put-PCSellingSystemSettings -Value Write-PCSellingSystemSetting
 Set-Alias -Name Put-PCSellingSystemSetting -Value Write-PCSellingSystemSetting
 Set-Alias -Name PC-PutSellingSystemSettings -Value Write-PCSellingSystemSetting
@@ -22433,6 +22434,8 @@ Set-Alias -Name PC-StartEngagementFromOpportunityTask -Value Invoke-PCStartEngag
 Set-Alias -Name PC-StartResourceSnapshotJob -Value Start-PCResourceSnapshotJob
 Set-Alias -Name PC-StopResourceSnapshotJob -Value Stop-PCResourceSnapshotJob
 Set-Alias -Name PC-SubmitOpportunity -Value Submit-PCOpportunity
+Set-Alias -Name PC-TagResource -Value Add-PCResourceTag
+Set-Alias -Name PC-UntagResource -Value Remove-PCResourceTag
 Set-Alias -Name PC-UpdateOpportunity -Value Update-PCOpportunity
 Set-Alias -Name Create-PAYCCAlias -Value New-PAYCCAlias
 Set-Alias -Name PAYCC-CreateAlias -Value New-PAYCCAlias

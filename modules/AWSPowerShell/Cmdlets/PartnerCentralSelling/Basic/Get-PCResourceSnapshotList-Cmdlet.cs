@@ -28,7 +28,20 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Retrieves a list of resource view snapshots based on specified criteria.
+    /// Retrieves a list of resource view snapshots based on specified criteria. This operation
+    /// supports various use cases, including: 
+    /// 
+    ///  <ul><li><para>
+    /// Fetching all snapshots associated with an engagement.
+    /// </para></li><li><para>
+    /// Retrieving snapshots of a specific resource type within an engagement.
+    /// </para></li><li><para>
+    /// Obtaining snapshots for a particular resource using a specified template.
+    /// </para></li><li><para>
+    /// Accessing the latest snapshot of a resource within an engagement.
+    /// </para></li><li><para>
+    /// Filtering snapshots by resource owner.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "PCResourceSnapshotList")]
     [OutputType("Amazon.PartnerCentralSelling.Model.ResourceSnapshotSummary")]
@@ -66,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter CreatedBy
         /// <summary>
         /// <para>
-        /// <para> Filters the response to include only snapshots of resources created by the specified
+        /// <para>Filters the response to include only snapshots of resources owned by the specified
         /// AWS account. </para>
         /// </para>
         /// </summary>
@@ -104,8 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceSnapshotTemplateIdentifier
         /// <summary>
         /// <para>
-        /// <para> Filters the response to include only snapshots created using the specified template.
-        /// </para>
+        /// <para>Filters the response to include only snapshots created using the specified template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

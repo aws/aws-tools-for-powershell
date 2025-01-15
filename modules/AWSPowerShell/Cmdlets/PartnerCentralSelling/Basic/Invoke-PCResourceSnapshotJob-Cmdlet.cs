@@ -28,8 +28,8 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Use this action to create a job to generate a snapshot of the specified resource
-    /// within an engagement. It initiates an asynchronous process to create a resource snapshot.
+    /// Use this action to create a job to generate a snapshot of the specified resource within
+    /// an engagement. It initiates an asynchronous process to create a resource snapshot.
     /// The job creates a new snapshot only if the resource state has changed, adhering to
     /// the same access control and immutability rules as direct snapshot creation.
     /// </summary>
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog in which to create the snapshot job. Valid values are <c>AWS</c>
-        /// and <c> Sandbox</c>. </para>
+        /// <para>Specifies the catalog in which to create the snapshot job. Valid values are <c>AWS</c>
+        /// and <c> Sandbox</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para> Specifies the identifier of the engagement associated with the resource to be snapshotted.
-        /// </para>
+        /// <para>Specifies the identifier of the engagement associated with the resource to be snapshotted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> Specifies the identifier of the specific resource to be snapshotted. The format depends
-        /// on the <c>ResourceType</c>. </para>
+        /// <para>Specifies the identifier of the specific resource to be snapshotted. The format depends
+        /// on the <c> ResourceType</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceSnapshotTemplateIdentifier
         /// <summary>
         /// <para>
-        /// <para> Specifies the name of the template that defines the schema for the snapshot. </para>
+        /// <para>Specifies the name of the template that defines the schema for the snapshot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para> The type of resource for which the snapshot job is being created. Must be one of
-        /// the supported resource types <c>Opportunity</c>. </para>
+        /// <para>The type of resource for which the snapshot job is being created. Must be one of the
+        /// supported resource types i.e. <c>Opportunity</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -133,11 +132,22 @@ namespace Amazon.PowerShell.Cmdlets.PC
         public Amazon.PartnerCentralSelling.ResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of objects specifying each tag name and value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.PartnerCentralSelling.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> Specifies a unique, client-generated UUID to ensure that the request is handled exactly
-        /// once. This token helps prevent duplicate snapshot job creations. </para>
+        /// <para>A client-generated UUID used for idempotency check. The token helps prevent duplicate
+        /// job creations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.PartnerCentralSelling.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -281,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -349,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String ResourceIdentifier { get; set; }
             public System.String ResourceSnapshotTemplateIdentifier { get; set; }
             public Amazon.PartnerCentralSelling.ResourceType ResourceType { get; set; }
+            public List<Amazon.PartnerCentralSelling.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.CreateResourceSnapshotJobResponse, InvokePCResourceSnapshotJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

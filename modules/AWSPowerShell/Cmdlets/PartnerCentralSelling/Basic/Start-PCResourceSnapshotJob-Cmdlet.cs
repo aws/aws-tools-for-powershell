@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog related to the request. </para>
+        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para>AWS: Starts the request from the production AWS environment.</para></li><li><para>Sandbox: Starts the request from a sandbox environment used for testing or development
+        /// purposes.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceSnapshotJobIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the resource snapshot job to start. </para>
+        /// <para>The identifier of the resource snapshot job to start.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

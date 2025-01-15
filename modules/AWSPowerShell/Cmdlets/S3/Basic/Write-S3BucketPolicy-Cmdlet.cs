@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  <note><para><b>Directory buckets </b> - For directory buckets, you must make requests for this
     /// API operation to the Regional endpoint. These endpoints support path-style requests
     /// in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. For more information about endpoints
-    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional
+    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
     /// and Zonal endpoints for directory buckets in Availability Zones</a> in the <i>Amazon
-    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
-    /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
+    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available
+    /// Local Zone for directory buckets</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><para>
     /// If you are using an identity other than the root user of the Amazon Web Services account
     /// that owns the bucket, the calling identity must both have the <c>PutBucketPolicy</c>
@@ -108,10 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>Indicates the algorithm used to create the checksum for the object when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
         /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the
-        /// request with the HTTP status code <c>400 Bad Request</c>.</para><para>For the <c>x-amz-checksum-<i>algorithm</i></c> header, replace <c><i>algorithm</i></c> with the supported algorithm from the following list: </para><ul><li><para>CRC32</para></li><li><para>CRC32C</para></li><li><para>SHA1</para></li><li><para>SHA256</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// request with the HTTP status code <c>400 Bad Request</c>.</para><para>For the <c>x-amz-checksum-<i>algorithm</i></c> header, replace <c><i>algorithm</i></c> with the supported algorithm from the following list: </para><ul><li><para>CRC-32</para></li><li><para>CRC-32C</para></li><li><para>CRC-64NVME</para></li><li><para>SHA-1</para></li><li><para>SHA-256</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
         /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If the individual checksum value you provide through <c>x-amz-checksum-<i>algorithm</i></c> doesn't match the checksum algorithm you set through <c>x-amz-sdk-checksum-algorithm</c>,
-        /// Amazon S3 ignores any provided <c>ChecksumAlgorithm</c> parameter and uses the
-        /// checksum algorithm that matches the provided value in <c>x-amz-checksum-<i>algorithm</i></c>.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is
+        /// Amazon S3 fails the request with a <c>BadDigest</c> error.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is
         /// the default checksum algorithm that's used for performance.</para></note>
         /// </para>
         /// </summary>

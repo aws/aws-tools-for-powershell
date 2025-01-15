@@ -55174,6 +55174,7 @@ $PC_SelectMap = @{
                "Get-PCResourceSnapshotJobList",
                "Get-PCResourceSnapshotList",
                "Get-PCSolutionList",
+               "Get-PCResourceTag",
                "Write-PCSellingSystemSetting",
                "Invoke-PCRejectEngagementInvitation",
                "Invoke-PCStartEngagementByAcceptingInvitationTask",
@@ -55181,6 +55182,8 @@ $PC_SelectMap = @{
                "Start-PCResourceSnapshotJob",
                "Stop-PCResourceSnapshotJob",
                "Submit-PCOpportunity",
+               "Add-PCResourceTag",
+               "Remove-PCResourceTag",
                "Update-PCOpportunity")
 }
 
@@ -64094,7 +64097,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3ObjectTagSet/ChecksumAlgorithm")
         }
         {
-            $v = "CRC32","CRC32C","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
             break
         }
 
@@ -77294,7 +77297,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName")
         }
         {
-            $v = "GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
+            $v = "GENERALPURPOSE_4XLARGE","GENERALPURPOSE_8XLARGE","GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
         }
 

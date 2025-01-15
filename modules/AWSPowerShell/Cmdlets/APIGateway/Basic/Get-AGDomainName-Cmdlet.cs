@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter DomainNameId
         /// <summary>
         /// <para>
-        /// <para> The identifier for the domain name resource. Supported only for private custom domain
-        /// names. </para>
+        /// <para> The identifier for the domain name resource. Required for private custom domain names.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

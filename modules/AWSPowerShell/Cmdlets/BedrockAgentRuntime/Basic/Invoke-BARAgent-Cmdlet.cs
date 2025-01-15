@@ -28,9 +28,7 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// <note><para>
-    /// The CLI doesn't support streaming operations in Amazon Bedrock, including <c>InvokeAgent</c>.
-    /// </para></note><para>
+    /// <note></note><para>
     /// Sends a prompt for the agent to process and respond to. Note the following fields
     /// for the request:
     /// </para><ul><li><para>
@@ -53,7 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// or, if you configured an action group to return control, results from invocation of
     /// the action group.
     /// </para></li></ul><para>
-    /// The response is returned in the <c>bytes</c> field of the <c>chunk</c> object.
+    /// The response contains both <b>chunk</b> and <b>trace</b> attributes.
+    /// </para><para>
+    /// The final response is returned in the <c>bytes</c> field of the <c>chunk</c> object.
+    /// The <c>InvokeAgent</c> returns one chunk for the entire interaction.
     /// </para><ul><li><para>
     /// The <c>attribution</c> object contains citations for parts of the response.
     /// </para></li><li><para>

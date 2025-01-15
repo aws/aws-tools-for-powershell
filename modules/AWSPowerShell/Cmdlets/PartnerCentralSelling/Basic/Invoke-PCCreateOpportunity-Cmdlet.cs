@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
     /// </para></li><li><para>
     /// To associate a solution with the opportunity, use <c>AssociateOpportunity</c>.
     /// </para></li><li><para>
-    /// To submit the opportunity, use <c>StartEngagementFromOpportunityTask</c>.
+    /// To start the engagement with AWS, use <c>StartEngagementFromOpportunity</c>.
     /// </para></li></ol><para>
     /// After submission, you can't edit the opportunity until the review is complete. But
     /// opportunities in the <c>Pending Submission</c> state must have complete details. You
@@ -545,11 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// savings of proposed solutions on Amazon Web Services versus on-premises or a traditional
         /// hosting environment.</para></li><li><para>Cosell—Deal Support: Request Amazon Web Services seller's support to progress the
         /// opportunity (for example: joint customer call, strategic positioning).</para></li><li><para>Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where
-        /// the partner needs Amazon Web Services RFx support.</para></li><li><para>Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support
-        /// from an Amazon Web Services sales representative, and the partner solely manages the
-        /// opportunity. It's possible to request coselling support on these opportunities at
-        /// any stage during their lifecycles. This is also known as a for-visibility-only (FVO)
-        /// opportunity.</para></li></ul>
+        /// the partner needs Amazon Web Services RFx support.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

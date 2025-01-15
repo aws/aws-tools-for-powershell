@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-PCResourceTag', 
         'Get-PCAwsOpportunitySummary', 
         'Get-PCEngagement', 
         'Get-PCEngagementByAcceptingInvitationTaskList', 
@@ -101,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PCResourceSnapshotJob', 
         'Get-PCResourceSnapshotJobList', 
         'Get-PCResourceSnapshotList', 
+        'Get-PCResourceTag', 
         'Get-PCSellingSystemSetting', 
         'Get-PCSolutionList', 
         'Invoke-PCAcceptEngagementInvitation', 
@@ -116,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-PCStartEngagementByAcceptingInvitationTask', 
         'Invoke-PCStartEngagementFromOpportunityTask', 
         'Remove-PCResourceSnapshotJob', 
+        'Remove-PCResourceTag', 
         'Start-PCResourceSnapshotJob', 
         'Stop-PCResourceSnapshotJob', 
         'Submit-PCOpportunity', 

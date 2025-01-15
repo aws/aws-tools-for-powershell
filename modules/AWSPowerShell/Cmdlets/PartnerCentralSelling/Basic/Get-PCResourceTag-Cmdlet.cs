@@ -28,42 +28,24 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Use this action to retrieves information about a specific resource snapshot job.
+    /// Returns a list of tags for a resource.
     /// </summary>
-    [Cmdlet("Get", "PCResourceSnapshotJob")]
-    [OutputType("Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse")]
-    [AWSCmdlet("Calls the Partner Central Selling API GetResourceSnapshotJob API operation.", Operation = new[] {"GetResourceSnapshotJob"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse))]
-    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse",
-        "This cmdlet returns an Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse object containing multiple properties."
+    [Cmdlet("Get", "PCResourceTag")]
+    [OutputType("Amazon.PartnerCentralSelling.Model.Tag")]
+    [AWSCmdlet("Calls the Partner Central Selling API ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("Amazon.PartnerCentralSelling.Model.Tag or Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of Amazon.PartnerCentralSelling.Model.Tag objects.",
+        "The service call response (type Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetPCResourceSnapshotJobCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class GetPCResourceTagCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Catalog
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para> AWS: Retrieves the snapshot job from the production AWS environment. </para></li><li><para> Sandbox: Retrieves the snapshot job from a sandbox environment used for testing or
-        /// development purposes. </para></li></ul>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Catalog { get; set; }
-        #endregion
-        
-        #region Parameter ResourceSnapshotJobIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the resource snapshot job to be retrieved. This identifier
-        /// is crucial for pinpointing the specific job you want to query. </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,26 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceSnapshotJobIdentifier { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse).
-        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceSnapshotJobIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceSnapshotJobIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceSnapshotJobIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse, GetPCResourceSnapshotJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse, GetPCResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,21 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.PC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceSnapshotJobIdentifier;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Catalog = this.Catalog;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Catalog == null && ParameterWasBound(nameof(this.Catalog)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Catalog which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ResourceSnapshotJobIdentifier = this.ResourceSnapshotJobIdentifier;
-            #if MODULAR
-            if (this.ResourceSnapshotJobIdentifier == null && ParameterWasBound(nameof(this.ResourceSnapshotJobIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceSnapshotJobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobRequest();
+            var request = new Amazon.PartnerCentralSelling.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.Catalog != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Catalog = cmdletContext.Catalog;
-            }
-            if (cmdletContext.ResourceSnapshotJobIdentifier != null)
-            {
-                request.ResourceSnapshotJobIdentifier = cmdletContext.ResourceSnapshotJobIdentifier;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -194,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobRequest request)
+        private Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "GetResourceSnapshotJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetResourceSnapshotJob(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetResourceSnapshotJobAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Catalog { get; set; }
-            public System.String ResourceSnapshotJobIdentifier { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.GetResourceSnapshotJobResponse, GetPCResourceSnapshotJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.PartnerCentralSelling.Model.ListTagsForResourceResponse, GetPCResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

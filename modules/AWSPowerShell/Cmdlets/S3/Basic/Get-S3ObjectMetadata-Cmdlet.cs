@@ -111,10 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><note><para>
     /// For directory buckets, you must make requests for this API operation to the Zonal
     /// endpoint. These endpoints support virtual-hosted-style requests in the format <c>https://<i>bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information about endpoints
-    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional
+    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
     /// and Zonal endpoints for directory buckets in Availability Zones</a> in the <i>Amazon
-    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
-    /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
+    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available
+    /// Local Zone for directory buckets</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note></dd></dl><para>
     /// The following actions are related to <c>HeadObject</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>

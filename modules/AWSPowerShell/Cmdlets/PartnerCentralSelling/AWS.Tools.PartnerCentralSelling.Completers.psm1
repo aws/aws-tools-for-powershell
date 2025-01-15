@@ -439,6 +439,7 @@ $PC_SelectMap = @{
                "Get-PCResourceSnapshotJobList",
                "Get-PCResourceSnapshotList",
                "Get-PCSolutionList",
+               "Get-PCResourceTag",
                "Write-PCSellingSystemSetting",
                "Invoke-PCRejectEngagementInvitation",
                "Invoke-PCStartEngagementByAcceptingInvitationTask",
@@ -446,6 +447,8 @@ $PC_SelectMap = @{
                "Start-PCResourceSnapshotJob",
                "Stop-PCResourceSnapshotJob",
                "Submit-PCOpportunity",
+               "Add-PCResourceTag",
+               "Remove-PCResourceTag",
                "Update-PCOpportunity")
 }
 
