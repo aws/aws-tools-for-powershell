@@ -66207,7 +66207,7 @@ $SM_Completers = {
         # Amazon.SageMaker.ReservedCapacityInstanceType
         "Search-SMTrainingPlanOffering/InstanceType"
         {
-            $v = "ml.p4d.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.trn2.48xlarge"
+            $v = "ml.p4d.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
             break
         }
 
