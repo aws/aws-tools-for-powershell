@@ -28,23 +28,15 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Untags a resource with a specified Amazon Resource Name (ARN).
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
-    /// your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources
-    /// User Guide</i>.
-    /// </para>
+    /// Returns a specified <c>ManagedNotificationConfiguration</c>.
     /// </summary>
-    [Cmdlet("Remove", "UNOResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS User Notifications UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Notifications.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Notifications.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Notifications.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "UNOManagedNotificationConfiguration")]
+    [OutputType("Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse")]
+    [AWSCmdlet("Calls the AWS User Notifications GetManagedNotificationConfiguration API operation.", Operation = new[] {"GetManagedNotificationConfiguration"}, SelectReturnType = typeof(Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse",
+        "This cmdlet returns an Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse object containing multiple properties."
     )]
-    public partial class RemoveUNOResourceTagCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class GetUNOManagedNotificationConfigurationCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -52,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) to use to untag a resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>ManagedNotificationConfiguration</c> to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,28 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The tag keys to use to untag a resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,26 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-UNOResourceTag (UntagResource)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -133,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.UntagResourceResponse, RemoveUNOResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse, GetUNOManagedNotificationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,16 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.UNO
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,15 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.UntagResourceRequest();
+            var request = new Amazon.Notifications.Model.GetManagedNotificationConfigurationRequest();
             
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -219,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.UntagResourceRequest request)
+        private Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.GetManagedNotificationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "GetManagedNotificationConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.GetManagedNotificationConfiguration(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.GetManagedNotificationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,9 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Notifications.Model.UntagResourceResponse, RemoveUNOResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.Notifications.Model.GetManagedNotificationConfigurationResponse, GetUNOManagedNotificationConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

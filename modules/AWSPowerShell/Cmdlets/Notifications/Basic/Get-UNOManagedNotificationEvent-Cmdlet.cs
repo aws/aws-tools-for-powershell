@@ -22,42 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.Notifications;
+using Amazon.Notifications.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation prefixes
-    /// from a network interface.
+    /// Returns a specified <c>ManagedNotificationEvent</c>.
     /// </summary>
-    [Cmdlet("Unregister", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) UnassignPrivateIpAddresses API operation.", Operation = new[] {"UnassignPrivateIpAddresses"}, SelectReturnType = typeof(Amazon.EC2.Model.UnassignPrivateIpAddressesResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.UnassignPrivateIpAddressesResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.UnassignPrivateIpAddressesResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "UNOManagedNotificationEvent")]
+    [OutputType("Amazon.Notifications.Model.GetManagedNotificationEventResponse")]
+    [AWSCmdlet("Calls the AWS User Notifications GetManagedNotificationEvent API operation.", Operation = new[] {"GetManagedNotificationEvent"}, SelectReturnType = typeof(Amazon.Notifications.Model.GetManagedNotificationEventResponse))]
+    [AWSCmdletOutput("Amazon.Notifications.Model.GetManagedNotificationEventResponse",
+        "This cmdlet returns an Amazon.Notifications.Model.GetManagedNotificationEventResponse object containing multiple properties."
     )]
-    public partial class UnregisterEC2PrivateIpAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetUNOManagedNotificationEventCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Ipv4Prefix
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The IPv4 prefixes to unassign from the network interface.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Ipv4Prefixes")]
-        public System.String[] Ipv4Prefix { get; set; }
-        #endregion
-        
-        #region Parameter NetworkInterfaceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the network interface.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>ManagedNotificationEvent</c> to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,25 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NetworkInterfaceId { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
-        #region Parameter PrivateIpAddress
+        #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The secondary private IP addresses to unassign from the network interface. You can
-        /// specify this option multiple times to unassign more than one IP address.</para>
+        /// <para>The locale code of the language used for the retrieved <c>ManagedNotificationEvent</c>.
+        /// The default locale is English <c>(en_US)</c>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        [Alias("PrivateIpAddresses")]
-        public System.String[] PrivateIpAddress { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Notifications.LocaleCode")]
+        public Amazon.Notifications.LocaleCode Locale { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.UnassignPrivateIpAddressesResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.GetManagedNotificationEventResponse).
+        /// Specifying the name of a property of type Amazon.Notifications.Model.GetManagedNotificationEventResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,34 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the secondary private IP addresses
-        /// The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in future
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NetworkInterfaceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-EC2PrivateIpAddress (UnassignPrivateIpAddresses)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -132,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.UnassignPrivateIpAddressesResponse, UnregisterEC2PrivateIpAddressCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.GetManagedNotificationEventResponse, GetUNOManagedNotificationEventCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,24 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => context.PrivateIpAddress;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Ipv4Prefix != null)
-            {
-                context.Ipv4Prefix = new List<System.String>(this.Ipv4Prefix);
-            }
-            context.NetworkInterfaceId = this.NetworkInterfaceId;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter NetworkInterfaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.PrivateIpAddress != null)
-            {
-                context.PrivateIpAddress = new List<System.String>(this.PrivateIpAddress);
-            }
+            context.Locale = this.Locale;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.UnassignPrivateIpAddressesRequest();
+            var request = new Amazon.Notifications.Model.GetManagedNotificationEventRequest();
             
-            if (cmdletContext.Ipv4Prefix != null)
+            if (cmdletContext.Arn != null)
             {
-                request.Ipv4Prefixes = cmdletContext.Ipv4Prefix;
+                request.Arn = cmdletContext.Arn;
             }
-            if (cmdletContext.NetworkInterfaceId != null)
+            if (cmdletContext.Locale != null)
             {
-                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
-            }
-            if (cmdletContext.PrivateIpAddress != null)
-            {
-                request.PrivateIpAddresses = cmdletContext.PrivateIpAddress;
+                request.Locale = cmdletContext.Locale;
             }
             
             CmdletOutput output;
@@ -220,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.UnassignPrivateIpAddressesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.UnassignPrivateIpAddressesRequest request)
+        private Amazon.Notifications.Model.GetManagedNotificationEventResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.GetManagedNotificationEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "UnassignPrivateIpAddresses");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "GetManagedNotificationEvent");
             try
             {
                 #if DESKTOP
-                return client.UnassignPrivateIpAddresses(request);
+                return client.GetManagedNotificationEvent(request);
                 #elif CORECLR
-                return client.UnassignPrivateIpAddressesAsync(request).GetAwaiter().GetResult();
+                return client.GetManagedNotificationEventAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,11 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Ipv4Prefix { get; set; }
-            public System.String NetworkInterfaceId { get; set; }
-            public List<System.String> PrivateIpAddress { get; set; }
-            public System.Func<Amazon.EC2.Model.UnassignPrivateIpAddressesResponse, UnregisterEC2PrivateIpAddressCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Arn { get; set; }
+            public Amazon.Notifications.LocaleCode Locale { get; set; }
+            public System.Func<Amazon.Notifications.Model.GetManagedNotificationEventResponse, GetUNOManagedNotificationEventCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

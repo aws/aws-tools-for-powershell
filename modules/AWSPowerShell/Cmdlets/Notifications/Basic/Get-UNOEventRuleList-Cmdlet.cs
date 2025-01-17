@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of EventRules according to specified filters, in reverse chronological
+    /// Returns a list of <c>EventRules</c> according to specified filters, in reverse chronological
     /// order (newest first).
     /// </summary>
     [Cmdlet("Get", "UNOEventRuleList")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationConfiguration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationConfiguration</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The start token for paginated calls. Retrieved from the response of a previous ListEventRules
+        /// <para>The start token for paginated calls. Retrieved from the response of a previous <c>ListEventRules</c>
         /// call. Next token uses Base64 encoding.</para>
         /// </para>
         /// </summary>

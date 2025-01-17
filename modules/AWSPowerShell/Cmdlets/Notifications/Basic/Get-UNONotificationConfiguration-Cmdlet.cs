@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a specified NotificationConfiguration.
+    /// Returns a specified <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("Get", "UNONotificationConfiguration")]
     [OutputType("Amazon.Notifications.Model.GetNotificationConfigurationResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationConfiguration to return.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationConfiguration</c> to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

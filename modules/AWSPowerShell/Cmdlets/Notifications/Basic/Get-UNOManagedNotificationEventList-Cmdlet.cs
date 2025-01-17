@@ -28,40 +28,20 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of <c>NotificationEvents</c> according to specified filters, in reverse
-    /// chronological order (newest first).
-    /// 
-    ///  <important><para>
-    /// User Notifications stores notifications in the individual Regions you register as
-    /// notification hubs and the Region of the source event rule. ListNotificationEvents
-    /// only returns notifications stored in the same Region in which the action is called.
-    /// User Notifications doesn't backfill notifications to new Regions selected as notification
-    /// hubs. For this reason, we recommend that you make calls in your oldest registered
-    /// notification hub. For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification
-    /// hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.
-    /// </para></important>
+    /// Returns a list of Managed Notification Events according to specified filters, ordered
+    /// by creation time in reverse chronological order (newest first).
     /// </summary>
-    [Cmdlet("Get", "UNONotificationEventList")]
-    [OutputType("Amazon.Notifications.Model.NotificationEventOverview")]
-    [AWSCmdlet("Calls the AWS User Notifications ListNotificationEvents API operation.", Operation = new[] {"ListNotificationEvents"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListNotificationEventsResponse))]
-    [AWSCmdletOutput("Amazon.Notifications.Model.NotificationEventOverview or Amazon.Notifications.Model.ListNotificationEventsResponse",
-        "This cmdlet returns a collection of Amazon.Notifications.Model.NotificationEventOverview objects.",
-        "The service call response (type Amazon.Notifications.Model.ListNotificationEventsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "UNOManagedNotificationEventList")]
+    [OutputType("Amazon.Notifications.Model.ManagedNotificationEventOverview")]
+    [AWSCmdlet("Calls the AWS User Notifications ListManagedNotificationEvents API operation.", Operation = new[] {"ListManagedNotificationEvents"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListManagedNotificationEventsResponse))]
+    [AWSCmdletOutput("Amazon.Notifications.Model.ManagedNotificationEventOverview or Amazon.Notifications.Model.ListManagedNotificationEventsResponse",
+        "This cmdlet returns a collection of Amazon.Notifications.Model.ManagedNotificationEventOverview objects.",
+        "The service call response (type Amazon.Notifications.Model.ListManagedNotificationEventsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetUNONotificationEventListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class GetUNOManagedNotificationEventListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter AggregateNotificationEventArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the <c>aggregatedNotificationEventArn</c> to match.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AggregateNotificationEventArn { get; set; }
-        #endregion
         
         #region Parameter EndTime
         /// <summary>
@@ -73,22 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public System.DateTime? EndTime { get; set; }
         #endregion
         
-        #region Parameter IncludeChildEvent
-        /// <summary>
-        /// <para>
-        /// <para>Include aggregated child events in the result.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("IncludeChildEvents")]
-        public System.Boolean? IncludeChildEvent { get; set; }
-        #endregion
-        
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale code of the language used for the retrieved <c>NotificationEvent</c>. The
-        /// default locale is English <c>(en_US)</c>.</para>
+        /// <para>The locale code of the language used for the retrieved NotificationEvent. The default
+        /// locale is English (en_US).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,13 +65,30 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         public Amazon.Notifications.LocaleCode Locale { get; set; }
         #endregion
         
+        #region Parameter OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The Organizational Unit Id that an Amazon Web Services account belongs to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationalUnitId { get; set; }
+        #endregion
+        
+        #region Parameter RelatedAccount
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID associated with the Managed Notification Events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedAccount { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only Amazon Web Services service
-        /// sourced events are supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
-        /// delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// <para>The Amazon Web Services service the event originates from. For example aws.cloudwatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The start token for paginated calls. Retrieved from the response of a previous <c>ListEventRules</c>
+        /// <para>The start token for paginated calls. Retrieved from the response of a previous <c>ListManagedNotificationChannelAssociations</c>
         /// call. Next token uses Base64 encoding.</para>
         /// </para>
         /// </summary>
@@ -143,13 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NotificationEvents'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListNotificationEventsResponse).
-        /// Specifying the name of a property of type Amazon.Notifications.Model.ListNotificationEventsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ManagedNotificationEvents'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListManagedNotificationEventsResponse).
+        /// Specifying the name of a property of type Amazon.Notifications.Model.ListManagedNotificationEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NotificationEvents";
+        public string Select { get; set; } = "ManagedNotificationEvents";
         #endregion
         
         protected override void ProcessRecord()
@@ -164,15 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListNotificationEventsResponse, GetUNONotificationEventListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListManagedNotificationEventsResponse, GetUNOManagedNotificationEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AggregateNotificationEventArn = this.AggregateNotificationEventArn;
             context.EndTime = this.EndTime;
-            context.IncludeChildEvent = this.IncludeChildEvent;
             context.Locale = this.Locale;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OrganizationalUnitId = this.OrganizationalUnitId;
+            context.RelatedAccount = this.RelatedAccount;
             context.Source = this.Source;
             context.StartTime = this.StartTime;
             
@@ -189,19 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.ListNotificationEventsRequest();
+            var request = new Amazon.Notifications.Model.ListManagedNotificationEventsRequest();
             
-            if (cmdletContext.AggregateNotificationEventArn != null)
-            {
-                request.AggregateNotificationEventArn = cmdletContext.AggregateNotificationEventArn;
-            }
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
-            }
-            if (cmdletContext.IncludeChildEvent != null)
-            {
-                request.IncludeChildEvents = cmdletContext.IncludeChildEvent.Value;
             }
             if (cmdletContext.Locale != null)
             {
@@ -214,6 +192,14 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.OrganizationalUnitId != null)
+            {
+                request.OrganizationalUnitId = cmdletContext.OrganizationalUnitId;
+            }
+            if (cmdletContext.RelatedAccount != null)
+            {
+                request.RelatedAccount = cmdletContext.RelatedAccount;
             }
             if (cmdletContext.Source != null)
             {
@@ -256,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.ListNotificationEventsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListNotificationEventsRequest request)
+        private Amazon.Notifications.Model.ListManagedNotificationEventsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListManagedNotificationEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListNotificationEvents");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListManagedNotificationEvents");
             try
             {
                 #if DESKTOP
-                return client.ListNotificationEvents(request);
+                return client.ListManagedNotificationEvents(request);
                 #elif CORECLR
-                return client.ListNotificationEventsAsync(request).GetAwaiter().GetResult();
+                return client.ListManagedNotificationEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -284,16 +270,16 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AggregateNotificationEventArn { get; set; }
             public System.DateTime? EndTime { get; set; }
-            public System.Boolean? IncludeChildEvent { get; set; }
             public Amazon.Notifications.LocaleCode Locale { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OrganizationalUnitId { get; set; }
+            public System.String RelatedAccount { get; set; }
             public System.String Source { get; set; }
             public System.DateTime? StartTime { get; set; }
-            public System.Func<Amazon.Notifications.Model.ListNotificationEventsResponse, GetUNONotificationEventListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NotificationEvents;
+            public System.Func<Amazon.Notifications.Model.ListManagedNotificationEventsResponse, GetUNOManagedNotificationEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ManagedNotificationEvents;
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a specified EventRule.
+    /// Returns a specified <c>EventRule</c>.
     /// </summary>
     [Cmdlet("Get", "UNOEventRule")]
     [OutputType("Amazon.Notifications.Model.GetEventRuleResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the EventRule to return.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>EventRule</c> to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

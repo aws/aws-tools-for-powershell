@@ -23,6 +23,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateManagedNotificationAccountContact" Verb="Add" Noun="ManagedNotificationAccountContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateManagedNotificationAdditionalChannel" Verb="Add" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEventRule" OutputProperty="*" Verb="New" Noun="EventRule" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params>
                 <Param Name="Regions" NewName="EventRuleRegion" AutoApplyAlias="false" />
@@ -45,11 +53,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableNotificationsAccessForOrganization" Verb="Disable" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="NotificationConfigurationArn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateManagedNotificationAccountContact" Verb="Remove" Noun="ManagedNotificationAccountContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateManagedNotificationAdditionalChannel" Verb="Remove" Noun="ManagedNotificationAdditionalChannel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableNotificationsAccessForOrganization" Verb="Enable" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEventRule" OutputProperty="*" Verb="Get" Noun="EventRule" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedNotificationChildEvent" OutputProperty="*" Verb="Get" Noun="ManagedNotificationChildEvent" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedNotificationConfiguration" OutputProperty="*" Verb="Get" Noun="ManagedNotificationConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedNotificationEvent" OutputProperty="*" Verb="Get" Noun="ManagedNotificationEvent" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,11 +97,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetNotificationsAccessForOrganization" OutputProperty="NotificationsAccessForOrganization" Verb="Get" Noun="NotificationsAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEventRules" OutputProperty="EventRules" Verb="Get" Noun="EventRuleList" PipelineParameter="NotificationConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedNotificationChannelAssociations" OutputProperty="ChannelAssociations" Verb="Get" Noun="ManagedNotificationChannelAssociationList" PipelineParameter="ManagedNotificationConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedNotificationChildEvents" OutputProperty="ManagedNotificationChildEvents" Verb="Get" Noun="ManagedNotificationChildEventList" PipelineParameter="AggregateManagedNotificationEventArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedNotificationConfigurations" OutputProperty="ManagedNotificationConfigurations" Verb="Get" Noun="ManagedNotificationConfigurationList" PipelineParameter="ChannelIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedNotificationEvents" OutputProperty="ManagedNotificationEvents" Verb="Get" Noun="ManagedNotificationEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

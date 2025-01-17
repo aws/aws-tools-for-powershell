@@ -28,8 +28,8 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of abbreviated NotificationConfigurations according to specified filters,
-    /// in reverse chronological order (newest first).
+    /// Returns a list of abbreviated <c>NotificationConfigurations</c> according to specified
+    /// filters, in reverse chronological order (newest first).
     /// </summary>
     [Cmdlet("Get", "UNONotificationConfigurationList")]
     [OutputType("Amazon.Notifications.Model.NotificationConfigurationStructure")]
@@ -56,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter EventRuleSource
         /// <summary>
         /// <para>
-        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only AWS service sourced events are
-        /// supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
-        /// delivery from AWS services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only Amazon Web Services service
+        /// sourced events are supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
+        /// delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The NotificationConfiguration status to match.</para><ul><li><para>Values:</para><ul><li><para><c>ACTIVE</c></para><ul><li><para>All EventRules are <c>ACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>PARTIALLY_ACTIVE</c></para><ul><li><para>Some EventRules are <c>ACTIVE</c> and some are <c>INACTIVE</c>. Any call can be run.</para></li><li><para>Any call can be run.</para></li></ul></li><li><para><c>INACTIVE</c></para><ul><li><para>All EventRules are <c>INACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>DELETING</c></para><ul><li><para>This NotificationConfiguration is being deleted.</para></li><li><para>Only <c>GET</c> and <c>LIST</c> calls can be run.</para></li></ul></li></ul></li></ul>
+        /// <para>The <c>NotificationConfiguration</c> status to match.</para><ul><li><para>Values:</para><ul><li><para><c>ACTIVE</c></para><ul><li><para>All <c>EventRules</c> are <c>ACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>PARTIALLY_ACTIVE</c></para><ul><li><para>Some <c>EventRules</c> are <c>ACTIVE</c> and some are <c>INACTIVE</c>. Any call can
+        /// be run.</para></li><li><para>Any call can be run.</para></li></ul></li><li><para><c>INACTIVE</c></para><ul><li><para>All <c>EventRules</c> are <c>INACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>DELETING</c></para><ul><li><para>This <c>NotificationConfiguration</c> is being deleted.</para></li><li><para>Only <c>GET</c> and <c>LIST</c> calls can be run.</para></li></ul></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The start token for paginated calls. Retrieved from the response of a previous ListEventRules
+        /// <para>The start token for paginated calls. Retrieved from the response of a previous <c>ListEventRules</c>
         /// call. Next token uses Base64 encoding.</para>
         /// </para>
         /// </summary>

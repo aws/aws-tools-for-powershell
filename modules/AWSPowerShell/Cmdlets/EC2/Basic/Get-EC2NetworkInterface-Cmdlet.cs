@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your network interfaces.
+    /// Describes the specified network interfaces or all your network interfaces.
     /// 
     ///  
     /// <para>

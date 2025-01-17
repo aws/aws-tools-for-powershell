@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Deletes a NotificationConfiguration.
+    /// Deletes a <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("Remove", "UNONotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationConfiguration to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationConfiguration</c> to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

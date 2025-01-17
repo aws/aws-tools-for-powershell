@@ -28,12 +28,13 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Deregisters a NotificationHub in the specified Region.
+    /// Deregisters a <c>NotificationConfiguration</c> in the specified Region.
     /// 
     ///  <note><para>
-    /// You can't deregister the last NotificationHub in the account. NotificationEvents stored
-    /// in the deregistered NotificationHub are no longer be visible. Recreating a new NotificationHub
-    /// in the same Region restores access to those NotificationEvents.
+    /// You can't deregister the last <c>NotificationHub</c> in the account. <c>NotificationEvents</c>
+    /// stored in the deregistered <c>NotificationConfiguration</c> are no longer be visible.
+    /// Recreating a new <c>NotificationConfiguration</c> in the same Region restores access
+    /// to those <c>NotificationEvents</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "UNONotificationHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationHubRegion
         /// <summary>
         /// <para>
-        /// <para>The NotificationHub Region.</para>
+        /// <para>The <c>NotificationConfiguration</c> Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

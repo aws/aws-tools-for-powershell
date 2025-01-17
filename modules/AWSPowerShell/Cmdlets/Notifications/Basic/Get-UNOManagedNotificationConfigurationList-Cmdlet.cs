@@ -28,24 +28,35 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of <c>NotificationHubs</c>.
+    /// Returns a list of Managed Notification Configurations according to specified filters,
+    /// ordered by creation time in reverse chronological order (newest first).
     /// </summary>
-    [Cmdlet("Get", "UNONotificationHubList")]
-    [OutputType("Amazon.Notifications.Model.NotificationHubOverview")]
-    [AWSCmdlet("Calls the AWS User Notifications ListNotificationHubs API operation.", Operation = new[] {"ListNotificationHubs"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListNotificationHubsResponse))]
-    [AWSCmdletOutput("Amazon.Notifications.Model.NotificationHubOverview or Amazon.Notifications.Model.ListNotificationHubsResponse",
-        "This cmdlet returns a collection of Amazon.Notifications.Model.NotificationHubOverview objects.",
-        "The service call response (type Amazon.Notifications.Model.ListNotificationHubsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "UNOManagedNotificationConfigurationList")]
+    [OutputType("Amazon.Notifications.Model.ManagedNotificationConfigurationStructure")]
+    [AWSCmdlet("Calls the AWS User Notifications ListManagedNotificationConfigurations API operation.", Operation = new[] {"ListManagedNotificationConfigurations"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse))]
+    [AWSCmdletOutput("Amazon.Notifications.Model.ManagedNotificationConfigurationStructure or Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse",
+        "This cmdlet returns a collection of Amazon.Notifications.Model.ManagedNotificationConfigurationStructure objects.",
+        "The service call response (type Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetUNONotificationHubListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class GetUNOManagedNotificationConfigurationListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ChannelIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier or ARN of the notification channel to filter configurations by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ChannelIdentifier { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of records to list in a single response.</para>
+        /// <para>The maximum number of results to be returned in this call. Defaults to 20.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token. Set to null to start listing notification hubs from the start.</para>
+        /// <para>The start token for paginated calls. Retrieved from the response of a previous ListManagedNotificationChannelAssociations
+        /// call. Next token uses Base64 encoding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,13 +77,23 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NotificationHubs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListNotificationHubsResponse).
-        /// Specifying the name of a property of type Amazon.Notifications.Model.ListNotificationHubsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ManagedNotificationConfigurations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse).
+        /// Specifying the name of a property of type Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NotificationHubs";
+        public string Select { get; set; } = "ManagedNotificationConfigurations";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ChannelIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -84,11 +106,22 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListNotificationHubsResponse, GetUNONotificationHubListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse, GetUNOManagedNotificationConfigurationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ChannelIdentifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ChannelIdentifier = this.ChannelIdentifier;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -105,8 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.ListNotificationHubsRequest();
+            var request = new Amazon.Notifications.Model.ListManagedNotificationConfigurationsRequest();
             
+            if (cmdletContext.ChannelIdentifier != null)
+            {
+                request.ChannelIdentifier = cmdletContext.ChannelIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -148,15 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.ListNotificationHubsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListNotificationHubsRequest request)
+        private Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListManagedNotificationConfigurationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListNotificationHubs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListManagedNotificationConfigurations");
             try
             {
                 #if DESKTOP
-                return client.ListNotificationHubs(request);
+                return client.ListManagedNotificationConfigurations(request);
                 #elif CORECLR
-                return client.ListNotificationHubsAsync(request).GetAwaiter().GetResult();
+                return client.ListManagedNotificationConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -176,10 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ChannelIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Notifications.Model.ListNotificationHubsResponse, GetUNONotificationHubListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NotificationHubs;
+            public System.Func<Amazon.Notifications.Model.ListManagedNotificationConfigurationsResponse, GetUNOManagedNotificationConfigurationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ManagedNotificationConfigurations;
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Updates an existing EventRule.
+    /// Updates an existing <c>EventRule</c>.
     /// </summary>
     [Cmdlet("Update", "UNOEventRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Notifications.Model.UpdateEventRuleResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) to use to update the EventRule.</para>
+        /// <para>The Amazon Resource Name (ARN) to use to update the <c>EventRule</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>An additional event pattern used to further filter the events this EventRule receives.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon
+        /// <para>An additional event pattern used to further filter the events this <c>EventRule</c>
+        /// receives.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon
         /// EventBridge event patterns</a> in the <i>Amazon EventBridge User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter EventRuleRegion
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Regions that sends events to this EventRule.</para>
+        /// <para>A list of Amazon Web Services Regions that sends events to this <c>EventRule</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

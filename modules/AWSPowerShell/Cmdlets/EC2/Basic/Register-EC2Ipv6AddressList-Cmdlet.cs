@@ -28,11 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Assigns one or more IPv6 addresses to the specified network interface. You can specify
-    /// one or more specific IPv6 addresses, or you can specify the number of IPv6 addresses
-    /// to be automatically assigned from within the subnet's IPv6 CIDR block range. You can
-    /// assign as many IPv6 addresses to a network interface as you can assign private IPv4
-    /// addresses, and the limit varies per instance type.
+    /// Assigns the specified IPv6 addresses to the specified network interface. You can specify
+    /// specific IPv6 addresses, or you can specify the number of IPv6 addresses to be automatically
+    /// assigned from the subnet's IPv6 CIDR block range. You can assign as many IPv6 addresses
+    /// to a network interface as you can assign private IPv4 addresses, and the limit varies
+    /// by instance type.
     /// 
     ///  
     /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6Prefix
         /// <summary>
         /// <para>
-        /// <para>One or more IPv6 prefixes assigned to the network interface. You cannot use this option
+        /// <para>One or more IPv6 prefixes assigned to the network interface. You can't use this option
         /// if you use the <c>Ipv6PrefixCount</c> option.</para>
         /// </para>
         /// </summary>

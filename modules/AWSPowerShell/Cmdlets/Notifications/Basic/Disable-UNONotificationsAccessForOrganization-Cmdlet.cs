@@ -28,56 +28,50 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of <c>NotificationHubs</c>.
+    /// Disables service trust between User Notifications and Amazon Web Services Organizations.
     /// </summary>
-    [Cmdlet("Get", "UNONotificationHubList")]
-    [OutputType("Amazon.Notifications.Model.NotificationHubOverview")]
-    [AWSCmdlet("Calls the AWS User Notifications ListNotificationHubs API operation.", Operation = new[] {"ListNotificationHubs"}, SelectReturnType = typeof(Amazon.Notifications.Model.ListNotificationHubsResponse))]
-    [AWSCmdletOutput("Amazon.Notifications.Model.NotificationHubOverview or Amazon.Notifications.Model.ListNotificationHubsResponse",
-        "This cmdlet returns a collection of Amazon.Notifications.Model.NotificationHubOverview objects.",
-        "The service call response (type Amazon.Notifications.Model.ListNotificationHubsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Disable", "UNONotificationsAccessForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS User Notifications DisableNotificationsAccessForOrganization API operation.", Operation = new[] {"DisableNotificationsAccessForOrganization"}, SelectReturnType = typeof(Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse))]
+    [AWSCmdletOutput("None or Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetUNONotificationHubListCmdlet : AmazonNotificationsClientCmdlet, IExecutor
+    public partial class DisableUNONotificationsAccessForOrganizationCmdlet : AmazonNotificationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of records to list in a single response.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A pagination token. Set to null to start listing notification hubs from the start.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NotificationHubs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.ListNotificationHubsResponse).
-        /// Specifying the name of a property of type Amazon.Notifications.Model.ListNotificationHubsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NotificationHubs";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-UNONotificationsAccessForOrganization (DisableNotificationsAccessForOrganization)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -86,11 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.UNO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.ListNotificationHubsResponse, GetUNONotificationHubListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse, DisableUNONotificationsAccessForOrganizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -105,16 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Notifications.Model.ListNotificationHubsRequest();
+            var request = new Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationRequest();
             
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             
             CmdletOutput output;
             
@@ -148,15 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         #region AWS Service Operation Call
         
-        private Amazon.Notifications.Model.ListNotificationHubsResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.ListNotificationHubsRequest request)
+        private Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse CallAWSServiceOperation(IAmazonNotifications client, Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "ListNotificationHubs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications", "DisableNotificationsAccessForOrganization");
             try
             {
                 #if DESKTOP
-                return client.ListNotificationHubs(request);
+                return client.DisableNotificationsAccessForOrganization(request);
                 #elif CORECLR
-                return client.ListNotificationHubsAsync(request).GetAwaiter().GetResult();
+                return client.DisableNotificationsAccessForOrganizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -176,10 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.Notifications.Model.ListNotificationHubsResponse, GetUNONotificationHubListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NotificationHubs;
+            public System.Func<Amazon.Notifications.Model.DisableNotificationsAccessForOrganizationResponse, DisableUNONotificationsAccessForOrganizationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
