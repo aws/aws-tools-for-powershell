@@ -526,4 +526,80 @@ namespace Amazon.PowerShell.Common
             }
         }
     }
+
+    /// <summary>
+    /// Controls the display of sensitive information in the PowerShell console output.
+    /// When set to false (default), sensitive data is masked in the console display.
+    /// When set to true, sensitive data is shown in plain text.
+    /// Note: This setting only affects console display - stored variables retain the original unmasked data regardless of this setting.
+    /// This cmdlet sets a shell variable AWSPowerShell_Show_Sensitive_Data using the scope.
+    /// </summary>
+    [Cmdlet("Set", "AWSSensitiveDataConfiguration")]
+    [AWSCmdlet("Controls the display of sensitive information in the PowerShell console output. When set to true, sensitive data is shown in plain text in the console output.")]
+    [OutputType("None")]
+    public class SetAWSSensitiveDataConfigurationCmdlet : PSCmdlet
+    {
+        #region Parameter ShowSensitiveData
+
+        /// <summary>
+        /// Controls whether sensitive data appears in PowerShell console output.
+        /// When set to true, displays un-redacted sensitive data in the console.
+        /// When set to false (default), automatically masks sensitive data in console output.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        public bool ShowSensitiveData { get; set; }
+
+        #endregion
+
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// Sets the scope of the shell variable AWSPowerShell_Show_Sensitive_Data.
+        /// For details about variables scopes, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes.
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public VariableScope Scope { get; set; }
+        #endregion
+
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            WriteVerbose($"Setting AWSShowSensitiveData to {ShowSensitiveData}");
+            string scope = MyInvocation.BoundParameters.ContainsKey("Scope") ? Scope.ToString() + ":" : "";
+
+            this.SessionState.PSVariable.Set(scope+ SessionKeys.AWSShowSensitiveData, ShowSensitiveData);
+        }
+    }
+
+    /// <summary>
+    /// Returns the current configuration value that controls how sensitive data is displayed in the PowerShell console.
+    /// This cmdlet returns a Boolean value indicating whether sensitive data is shown or redacted in console output.
+    /// </summary>
+    [Cmdlet("Get", "AWSSensitiveDataConfiguration")]
+    [AWSCmdlet("Gets the current configuration settings for sensitive data display in PowerShell output.")]
+    [OutputType("PSObject")]
+    public class GetAWSSensitiveDataConfigurationCmdlet : PSCmdlet
+    {
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            var showSensitiveData = this.SessionState.PSVariable.Get(SessionKeys.AWSShowSensitiveData);
+            var result = new PSObject();
+            
+            // in v4 default ShowSensitiveData is true
+            const bool defaultShowSensitiveData = true;
+
+            var noteProperty = new PSNoteProperty("ShowSensitiveData", defaultShowSensitiveData);
+            
+            if (showSensitiveData != null)
+            {
+                noteProperty.Value = (bool)showSensitiveData.Value;
+                
+            }
+
+            result.Properties.Add(noteProperty);
+            WriteObject(result);
+        }
+    }
 }
