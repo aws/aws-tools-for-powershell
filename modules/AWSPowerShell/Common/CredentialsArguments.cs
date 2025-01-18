@@ -799,6 +799,7 @@ namespace Amazon.PowerShell.Common
         public const string AWSCredentialsVariableName = "StoredAWSCredentials";
         public const string AWSRegionVariableName = "StoredAWSRegion";
         public const string AWSCallHistoryName = "AWSHistory";
+        public const string AWSShowSensitiveData = "AWSPowerShell_Show_Sensitive_Data";
         public const string AWSProxyVariableName = "AWSProxy";
     }
 
