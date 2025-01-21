@@ -55,11 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// are updating an existing filter, you must specify the correct name in <c>filterName</c>.
     /// 
     /// </para><para>
-    /// Using regular expressions to create subscription filters is supported. For these filters,
-    /// there is a quotas of quota of two regular expression patterns within a single filter
-    /// pattern. There is also a quota of five regular expression patterns per log group.
-    /// For more information about using regular expressions in subscription filters, see
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
+    /// Using regular expressions in filter patterns is supported. For these filters, there
+    /// is a quotas of quota of two regular expression patterns within a single filter pattern.
+    /// There is also a quota of five regular expression patterns per log group. For more
+    /// information about using regular expressions in filter patterns, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
     /// Filter pattern syntax for metric filters, subscription filters, filter log events,
     /// and Live Tail</a>.
     /// </para><para>

@@ -6659,6 +6659,8 @@ Set-Alias -Name Delete-CONNContactFlow -Value Remove-CONNContactFlow
 Set-Alias -Name CONN-DeleteContactFlow -Value Remove-CONNContactFlow
 Set-Alias -Name Delete-CONNContactFlowModule -Value Remove-CONNContactFlowModule
 Set-Alias -Name CONN-DeleteContactFlowModule -Value Remove-CONNContactFlowModule
+Set-Alias -Name Delete-CONNContactFlowVersion -Value Remove-CONNContactFlowVersion
+Set-Alias -Name CONN-DeleteContactFlowVersion -Value Remove-CONNContactFlowVersion
 Set-Alias -Name Delete-CONNEmailAddress -Value Remove-CONNEmailAddress
 Set-Alias -Name CONN-DeleteEmailAddress -Value Remove-CONNEmailAddress
 Set-Alias -Name Delete-CONNEvaluationForm -Value Remove-CONNEvaluationForm

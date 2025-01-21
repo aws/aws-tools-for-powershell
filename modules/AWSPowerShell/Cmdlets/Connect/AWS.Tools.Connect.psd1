@@ -236,6 +236,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CONNContactEvaluation', 
         'Remove-CONNContactFlow', 
         'Remove-CONNContactFlowModule', 
+        'Remove-CONNContactFlowVersion', 
         'Remove-CONNContactTag', 
         'Remove-CONNEmailAddress', 
         'Remove-CONNEvaluationForm', 

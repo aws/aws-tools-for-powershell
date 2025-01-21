@@ -28,7 +28,7 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// &gt;Associates a set of proficiencies with a user.
+    /// Associates a set of proficiencies with a user.
     /// </summary>
     [Cmdlet("Add", "CONNUserProficiency", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

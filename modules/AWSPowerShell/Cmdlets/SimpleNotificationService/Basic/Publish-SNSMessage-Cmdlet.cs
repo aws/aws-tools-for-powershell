@@ -109,14 +109,24 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter MessageDeduplicationId
         /// <summary>
         /// <para>
-        /// <para>This parameter applies only to FIFO (first-in-first-out) topics. The <c>MessageDeduplicationId</c>
+        /// <ul><li><para>This parameter applies only to FIFO (first-in-first-out) topics. The <c>MessageDeduplicationId</c>
         /// can contain up to 128 alphanumeric characters <c>(a-z, A-Z, 0-9)</c> and punctuation
-        /// <c>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</c>.</para><para>Every message must have a unique <c>MessageDeduplicationId</c>, which is a token used
-        /// for deduplication of sent messages. If a message with a particular <c>MessageDeduplicationId</c>
-        /// is sent successfully, any message sent with the same <c>MessageDeduplicationId</c>
-        /// during the 5-minute deduplication interval is treated as a duplicate. </para><para>If the topic has <c>ContentBasedDeduplication</c> set, the system generates a <c>MessageDeduplicationId</c>
-        /// based on the contents of the message. Your <c>MessageDeduplicationId</c> overrides
-        /// the generated one.</para>
+        /// <c>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</c>.</para></li><li><para>Every message must have a unique <c>MessageDeduplicationId</c>, which is a token used
+        /// for deduplication of sent messages within the 5 minute minimum deduplication interval.</para></li><li><para>The scope of deduplication depends on the <c>FifoThroughputScope</c> attribute, when
+        /// set to <c>Topic</c> the message deduplication scope is across the entire topic, when
+        /// set to <c>MessageGroup</c> the message deduplication scope is within each individual
+        /// message group.</para></li><li><para>If a message with a particular <c>MessageDeduplicationId</c> is sent successfully,
+        /// subsequent messages within the deduplication scope and interval, with the same <c>MessageDeduplicationId</c>,
+        /// are accepted successfully but aren't delivered.</para></li><li><para>Every message must have a unique <c>MessageDeduplicationId</c>:</para><ul><li><para>You may provide a <c>MessageDeduplicationId</c> explicitly.</para></li><li><para>If you aren't able to provide a <c>MessageDeduplicationId</c> and you enable <c>ContentBasedDeduplication</c>
+        /// for your topic, Amazon SNS uses a SHA-256 hash to generate the <c>MessageDeduplicationId</c>
+        /// using the body of the message (but not the attributes of the message).</para></li><li><para>If you don't provide a <c>MessageDeduplicationId</c> and the topic doesn't have <c>ContentBasedDeduplication</c>
+        /// set, the action fails with an error.</para></li><li><para>If the topic has a <c>ContentBasedDeduplication</c> set, your <c>MessageDeduplicationId</c>
+        /// overrides the generated one. </para></li></ul></li><li><para>When <c>ContentBasedDeduplication</c> is in effect, messages with identical content
+        /// sent within the deduplication scope and interval are treated as duplicates and only
+        /// one copy of the message is delivered.</para></li><li><para>If you send one message with <c>ContentBasedDeduplication</c> enabled, and then another
+        /// message with a <c>MessageDeduplicationId</c> that is the same as the one generated
+        /// for the first <c>MessageDeduplicationId</c>, the two messages are treated as duplicates,
+        /// within the deduplication scope and interval, and only one copy of the message is delivered.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

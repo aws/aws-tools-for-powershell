@@ -47,7 +47,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutAssetPropertyValue" OutputProperty="ErrorEntries" Verb="Import" Noun="PutAssetPropertyValue" ShouldProcessTarget="Entries" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutAssetPropertyValue" OutputProperty="ErrorEntries" Verb="Import" Noun="PutAssetPropertyValue" ShouldProcessTarget="Entries" PipelineParameter="EnablePartialEntryProcessing" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

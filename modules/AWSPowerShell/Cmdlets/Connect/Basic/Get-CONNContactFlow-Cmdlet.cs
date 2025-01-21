@@ -40,6 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// published, <c>$SAVED</c> needs to be supplied to view saved content that has not been
     /// published.
     /// </para><para>
+    /// Use <c>arn:aws:.../contact-flow/{id}:{version}</c> to retrieve the content of a specific
+    /// flow version.
+    /// </para><para>
     /// In the response, <b>Status</b> indicates the flow status as either <c>SAVED</c> or
     /// <c>PUBLISHED</c>. The <c>PUBLISHED</c> status will initiate validation on the content.
     /// <c>SAVED</c> does not initiate validation of the content. <c>SAVED</c> | <c>PUBLISHED</c></para>

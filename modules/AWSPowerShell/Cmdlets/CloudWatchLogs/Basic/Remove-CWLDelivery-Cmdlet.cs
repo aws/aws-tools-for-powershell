@@ -28,7 +28,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes s <i>delivery</i>. A delivery is a connection between a logical <i>delivery
+    /// Deletes a <i>delivery</i>. A delivery is a connection between a logical <i>delivery
     /// source</i> and a logical <i>delivery destination</i>. Deleting a delivery only deletes
     /// the connection between the delivery source and delivery destination. It does not delete
     /// the delivery destination or the delivery source.

@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DisallowIngestNullNaN
+        /// <summary>
+        /// <para>
+        /// <para>Describes the configuration for ingesting NULL and NaN data. By default the feature
+        /// is allowed. The feature is disallowed if the value is <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisallowIngestNullNaN { get; set; }
+        #endregion
+        
         #region Parameter DisassociatedDataStorage
         /// <summary>
         /// <para>
@@ -222,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = (response, cmdlet) => this.StorageType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DisallowIngestNullNaN = this.DisallowIngestNullNaN;
             context.DisassociatedDataStorage = this.DisassociatedDataStorage;
             context.CustomerManagedS3Storage_RoleArn = this.CustomerManagedS3Storage_RoleArn;
             context.CustomerManagedS3Storage_S3ResourceArn = this.CustomerManagedS3Storage_S3ResourceArn;
@@ -253,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.PutStorageConfigurationRequest();
             
+            if (cmdletContext.DisallowIngestNullNaN != null)
+            {
+                request.DisallowIngestNullNaN = cmdletContext.DisallowIngestNullNaN.Value;
+            }
             if (cmdletContext.DisassociatedDataStorage != null)
             {
                 request.DisassociatedDataStorage = cmdletContext.DisassociatedDataStorage;
@@ -428,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DisallowIngestNullNaN { get; set; }
             public Amazon.IoTSiteWise.DisassociatedDataStorageState DisassociatedDataStorage { get; set; }
             public System.String CustomerManagedS3Storage_RoleArn { get; set; }
             public System.String CustomerManagedS3Storage_S3ResourceArn { get; set; }

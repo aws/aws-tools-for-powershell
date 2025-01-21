@@ -28,25 +28,24 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes a queue.
+    /// Deletes the particular version specified in flow version identifier.
     /// </summary>
-    [Cmdlet("Remove", "CONNQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CONNContactFlowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service DeleteQueue API operation.", Operation = new[] {"DeleteQueue"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteQueueResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteQueueResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service DeleteContactFlowVersion API operation.", Operation = new[] {"DeleteContactFlowVersion"}, SelectReturnType = typeof(Amazon.Connect.Model.DeleteContactFlowVersionResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DeleteContactFlowVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.DeleteQueueResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Connect.Model.DeleteContactFlowVersionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCONNQueueCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class RemoveCONNContactFlowVersionCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The identifier of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,13 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ContactFlowId { get; set; }
         #endregion
         
-        #region Parameter QueueId
+        #region Parameter ContactFlowVersion
         /// <summary>
         /// <para>
-        /// <para>The identifier for the queue.</para>
+        /// <para>The identifier of the flow version.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int64? ContactFlowVersion { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueueId { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteQueueResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DeleteContactFlowVersionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ContactFlowId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNQueue (DeleteQueue)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactFlowId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CONNContactFlowVersion (DeleteContactFlowVersion)"))
             {
                 return;
             }
@@ -126,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteQueueResponse, RemoveCONNQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DeleteContactFlowVersionResponse, RemoveCONNContactFlowVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +151,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ContactFlowId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContactFlowId = this.ContactFlowId;
+            #if MODULAR
+            if (this.ContactFlowId == null && ParameterWasBound(nameof(this.ContactFlowId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ContactFlowVersion = this.ContactFlowVersion;
+            #if MODULAR
+            if (this.ContactFlowVersion == null && ParameterWasBound(nameof(this.ContactFlowVersion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContactFlowVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.QueueId = this.QueueId;
-            #if MODULAR
-            if (this.QueueId == null && ParameterWasBound(nameof(this.QueueId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DeleteQueueRequest();
+            var request = new Amazon.Connect.Model.DeleteContactFlowVersionRequest();
             
+            if (cmdletContext.ContactFlowId != null)
+            {
+                request.ContactFlowId = cmdletContext.ContactFlowId;
+            }
+            if (cmdletContext.ContactFlowVersion != null)
+            {
+                request.ContactFlowVersion = cmdletContext.ContactFlowVersion.Value;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.QueueId != null)
-            {
-                request.QueueId = cmdletContext.QueueId;
             }
             
             CmdletOutput output;
@@ -209,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DeleteQueueResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteQueueRequest request)
+        private Amazon.Connect.Model.DeleteContactFlowVersionResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DeleteContactFlowVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteQueue");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DeleteContactFlowVersion");
             try
             {
                 #if DESKTOP
-                return client.DeleteQueue(request);
+                return client.DeleteContactFlowVersion(request);
                 #elif CORECLR
-                return client.DeleteQueueAsync(request).GetAwaiter().GetResult();
+                return client.DeleteContactFlowVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,9 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContactFlowId { get; set; }
+            public System.Int64? ContactFlowVersion { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String QueueId { get; set; }
-            public System.Func<Amazon.Connect.Model.DeleteQueueResponse, RemoveCONNQueueCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Connect.Model.DeleteContactFlowVersionResponse, RemoveCONNContactFlowVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

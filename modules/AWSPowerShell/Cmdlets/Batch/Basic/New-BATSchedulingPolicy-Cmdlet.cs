@@ -81,9 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The amount of time (in seconds) to use to calculate a fair share percentage for each
-        /// fair share identifier in use. A value of zero (0) indicates that only current usage
-        /// is measured. The decay allows for more recently run jobs to have more weight than
-        /// jobs that ran earlier. The maximum supported value is 604800 (1 week).</para>
+        /// fair share identifier in use. A value of zero (0) indicates the default minimum time
+        /// window (600 seconds). The maximum supported value is 604800 (1 week).</para><para>The decay allows for more recently run jobs to have more weight than jobs that ran
+        /// earlier. Consider adjusting this number if you have jobs that (on average) run longer
+        /// than ten minutes, or a large difference in job count or job run times between share
+        /// identifiers, and the allocation of resources doesn’t meet your needs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

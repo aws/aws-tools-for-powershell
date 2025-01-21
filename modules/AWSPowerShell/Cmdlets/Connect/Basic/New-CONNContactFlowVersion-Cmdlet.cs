@@ -29,11 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Publishes a new version of the flow provided. Versions are immutable and monotonically
-    /// increasing. If a version of the same flow content already exists, no new version is
-    /// created and instead the existing version number is returned. If the <c>FlowContentSha256</c>
-    /// provided is different from the <c>FlowContentSha256</c> of the <c>$LATEST</c> published
-    /// flow content, then an error is returned. This API only supports creating versions
-    /// for flows of type <c>Campaign</c>.
+    /// increasing. If the <c>FlowContentSha256</c> provided is different from the <c>FlowContentSha256</c>
+    /// of the <c>$LATEST</c> published flow content, then an error is returned. This API
+    /// only supports creating versions for flows of type <c>Campaign</c>.
     /// </summary>
     [Cmdlet("New", "CONNContactFlowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateContactFlowVersionResponse")]
@@ -61,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ContactFlowId { get; set; }
+        #endregion
+        
+        #region Parameter ContactFlowVersion
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the flow version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? ContactFlowVersion { get; set; }
         #endregion
         
         #region Parameter Description
@@ -189,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ContactFlowVersion = this.ContactFlowVersion;
             context.Description = this.Description;
             context.FlowContentSha256 = this.FlowContentSha256;
             context.InstanceId = this.InstanceId;
@@ -219,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.ContactFlowId != null)
             {
                 request.ContactFlowId = cmdletContext.ContactFlowId;
+            }
+            if (cmdletContext.ContactFlowVersion != null)
+            {
+                request.ContactFlowVersion = cmdletContext.ContactFlowVersion.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -302,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ContactFlowId { get; set; }
+            public System.Int64? ContactFlowVersion { get; set; }
             public System.String Description { get; set; }
             public System.String FlowContentSha256 { get; set; }
             public System.String InstanceId { get; set; }

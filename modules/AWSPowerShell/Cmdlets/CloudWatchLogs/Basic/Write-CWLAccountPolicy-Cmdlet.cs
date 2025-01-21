@@ -32,7 +32,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// index policy that applies to all log groups or a subset of log groups in the account.
     /// 
     ///  
-    /// <para><b>Data protection policy</b></para><para>
+    /// <para>
+    /// To use this operation, you must be signed on with the correct permissions depending
+    /// on the type of policy that you are creating.
+    /// </para><ul><li><para>
+    /// To create a data protection policy, you must have the <c>logs:PutDataProtectionPolicy</c>
+    /// and <c>logs:PutAccountPolicy</c> permissions.
+    /// </para></li><li><para>
+    /// To create a subscription filter policy, you must have the <c>logs:PutSubscriptionFilter</c>
+    /// and <c>logs:PutccountPolicy</c> permissions.
+    /// </para></li><li><para>
+    /// To create a transformer policy, you must have the <c>logs:PutTransformer</c> and <c>logs:PutAccountPolicy</c>
+    /// permissions.
+    /// </para></li><li><para>
+    /// To create a field index policy, you must have the <c>logs:PutIndexPolicy</c> and <c>logs:PutAccountPolicy</c>
+    /// permissions.
+    /// </para></li></ul><para><b>Data protection policy</b></para><para>
     /// A data protection policy can help safeguard sensitive data that's ingested by your
     /// log groups by auditing and masking the sensitive log data. Each account can have only
     /// one account-level data protection policy.

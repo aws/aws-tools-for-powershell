@@ -1,4 +1,13 @@
-﻿### 4.1.739 (2025-01-17 21:47Z)
+﻿### 4.1.740 (2025-01-21 22:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.966.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Remove-CONNContactFlowVersion leveraging the DeleteContactFlowVersion service API.
+    * Modified cmdlet New-CONNContactFlowVersion: added parameter ContactFlowVersion.
+  * Amazon IoT SiteWise
+    * Modified cmdlet Import-IOTSWPutAssetPropertyValue: added parameters EnablePartialEntryProcessing and PassThru.
+    * Modified cmdlet Write-IOTSWStorageConfiguration: added parameter DisallowIngestNullNaN.
+
+### 4.1.739 (2025-01-17 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.965.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon User Notifications
     * Added cmdlet Add-UNOManagedNotificationAccountContact leveraging the AssociateManagedNotificationAccountContact service API.

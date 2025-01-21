@@ -248,6 +248,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContactFlowVersion" Verb="Remove" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEmailAddress" Verb="Remove" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
