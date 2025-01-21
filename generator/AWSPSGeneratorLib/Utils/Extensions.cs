@@ -60,7 +60,8 @@ namespace AWSPowerShellGenerator.Utils
         /// </summary>
         public static bool ContainsSensitiveData(this Type type, HashSet<Type> visitedTypes = null)
         {
-            visitedTypes ??= [];
+            if (visitedTypes == null)
+                visitedTypes = new HashSet<Type>();
 
             if (!visitedTypes.Add(type)) 
                 return false;
