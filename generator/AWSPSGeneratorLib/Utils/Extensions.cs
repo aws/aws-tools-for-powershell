@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using System.IO;
-using System.Reflection;
 
 namespace AWSPowerShellGenerator.Utils
 {
@@ -46,27 +45,5 @@ namespace AWSPowerShellGenerator.Utils
 
             return typeName + "<" + args + ">";
         }
-
-        public static bool IsSensitive(this PropertyInfo propertyInfo)
-        {
-            dynamic awsPropertyAttribute = propertyInfo
-                .GetCustomAttributes().SingleOrDefault(attribute => attribute.GetType().FullName == "Amazon.Runtime.Internal.AWSPropertyAttribute");
-
-            return awsPropertyAttribute != null && awsPropertyAttribute.Sensitive;
-        }
-
-        /// <summary>
-        /// Checks if the type contains any sensitive data by going recursively over all the internal properties
-        /// </summary>
-        public static bool ContainsSensitiveData(this Type type, HashSet<Type> visitedTypes = null)
-        {
-            visitedTypes ??= [];
-
-            if (!visitedTypes.Add(type)) 
-                return false;
-
-            return type.GetProperties().Any(childProperty => IsSensitive(childProperty) || ContainsSensitiveData(childProperty.PropertyType, visitedTypes));
-        }
-
     }
 }

@@ -32,8 +32,6 @@ namespace AWSPowerShellGenerator.Generators
         private ConfigModelCollection ConfigCollection { get; set; }
 
         private const string AwsToolsPrefix = "AWS.Tools.";
-
-        private const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
         #endregion
 
 
@@ -177,8 +175,7 @@ namespace AWSPowerShellGenerator.Generators
                     existingColumn.Merge(new ColumnConfig
                     {
                         HeaderLabel = name,
-                        PropertyName = name,
-                        IsSensitive = property.IsSensitive()
+                        PropertyName = name
                     });
 
                     newConfig.Columns.Add(existingColumn);
@@ -325,16 +322,7 @@ namespace AWSPowerShellGenerator.Generators
                                 {
                                     writer.WriteStartElement(isTableView ? "TableColumnItem" : "ListItem");
                                     {
-                                        if (column.IsSensitive)
-                                        {
-                                            if (!isTableView)
-                                                writer.WriteElementString("Label", column.PropertyName);
-
-                                            string scriptBlockValue =
-                                                $"if((Test-Path variable:AWSPowerShell_Show_Sensitive_Data) -and $false.Equals((Get-Variable AWSPowerShell_Show_Sensitive_Data).Value)){{'{SensitiveDataRedactionMessage}'}} else{{$_.{column.PropertyName}}}";
-                                            writer.WriteElementString("ScriptBlock", scriptBlockValue);
-                                        }
-                                        else if (!string.IsNullOrEmpty(column.PropertyName))
+                                        if (!string.IsNullOrEmpty(column.PropertyName))
                                             writer.WriteElementString("PropertyName", column.PropertyName);
                                         else if (!string.IsNullOrEmpty(column.ScriptBlock))
                                             writer.WriteElementString("ScriptBlock", column.ScriptBlock);

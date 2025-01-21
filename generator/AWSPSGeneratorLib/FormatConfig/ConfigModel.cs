@@ -71,7 +71,7 @@ namespace AWSPowerShellGenerator.FormatConfig
         }
 
         /// <summary>
-        /// Specific types to exclude from the emitted formats. This list will be
+        /// Specific types to exlude from the emitted formats. This list will be
         /// automatically extended to include any types found in custom format files.
         /// </summary>
         [XmlArray]
@@ -245,21 +245,16 @@ namespace AWSPowerShellGenerator.FormatConfig
         public HeaderAlignment HeaderAlignment { get; set; }
         [XmlAttribute]
         public int HeaderOrder { get; set; }
-        [XmlIgnore]
-        public bool IsSensitive { get; set; }
 
         [XmlAttribute]
         public string ScriptBlock { get; set; }
         [XmlAttribute]
         public string PropertyName { get; set; }
 
-
-
         public ColumnConfig()
         {
             ScriptBlock = null;
             PropertyName = null;
-            IsSensitive = false;
 
             HeaderLabel = null;
             HeaderWidth = 0;
@@ -273,7 +268,6 @@ namespace AWSPowerShellGenerator.FormatConfig
             HeaderWidth = other.HeaderWidth != 0 ? other.HeaderWidth : this.HeaderWidth;
             HeaderAlignment = other.HeaderAlignment != HeaderAlignment.None ? other.HeaderAlignment : this.HeaderAlignment;
             HeaderOrder = other.HeaderOrder != 0 ? other.HeaderOrder : this.HeaderOrder;
-            IsSensitive = other.IsSensitive || this.IsSensitive;
 
             ScriptBlock = other.ScriptBlock ?? this.ScriptBlock;
             PropertyName = other.PropertyName ?? this.PropertyName;
