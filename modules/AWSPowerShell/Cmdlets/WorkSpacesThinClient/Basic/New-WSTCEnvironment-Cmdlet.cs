@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces
-        /// Web, or AppStream 2.0.</para>
+        /// Secure Browser, or AppStream 2.0.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

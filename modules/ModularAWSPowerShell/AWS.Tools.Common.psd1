@@ -95,6 +95,8 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Initialize-AWSDefaultConfiguration', 
         'Clear-AWSDefaultConfiguration', 
         'Get-AWSPowerShellVersion', 
+        'Set-AWSSensitiveDataConfiguration', 
+        'Get-AWSSensitiveDataConfiguration', 
         'New-AWSCredential', 
         'Set-AWSCredential', 
         'Clear-AWSCredential', 

@@ -1,4 +1,12 @@
-﻿### 4.1.740 (2025-01-21 22:24Z)
+﻿### 4.1.741 (2025-01-22 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.967.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Added cmdlet Get-AWSSensitiveDataConfiguration.
+    * Added cmdlet Set-AWSSensitiveDataConfiguration.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARFlow: added parameter ExecutionId.
+
+### 4.1.740 (2025-01-21 22:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.966.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Remove-CONNContactFlowVersion leveraging the DeleteContactFlowVersion service API.

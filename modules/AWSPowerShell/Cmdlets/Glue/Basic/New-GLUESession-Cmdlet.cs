@@ -209,8 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para> The number of minutes before session times out. Default for Spark ETL jobs is 48
-        /// hours (2880 minutes), the maximum session lifetime for this job type. Consult the
-        /// documentation for other job types. </para>
+        /// hours (2880 minutes). Consult the documentation for other job types. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
