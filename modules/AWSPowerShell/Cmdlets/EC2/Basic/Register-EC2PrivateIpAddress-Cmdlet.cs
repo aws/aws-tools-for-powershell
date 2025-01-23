@@ -28,14 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Assigns the specified secondary private IP addresses to the specified network interface.
+    /// Assigns one or more secondary private IP addresses to the specified network interface.
     /// 
     ///  
     /// <para>
-    /// You can specify specific secondary IP addresses, or you can specify the number of
-    /// secondary IP addresses to be automatically assigned from the subnet's CIDR block range.
-    /// The number of secondary IP addresses that you can assign to an instance varies by
-    /// instance type. For more information about Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+    /// You can specify one or more specific secondary IP addresses, or you can specify the
+    /// number of secondary IP addresses to be automatically assigned within the subnet's
+    /// CIDR block range. The number of secondary IP addresses that you can assign to an instance
+    /// varies by instance type. For more information about Elastic IP addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// When you move a secondary private IP address to another network interface, any Elastic
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
-        /// network interface. You can't use this option if you use the <c>Ipv4 Prefixes</c> option.</para>
+        /// network interface. You cannot use this option if you use the <c>Ipv4 Prefixes</c>
+        /// option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv4Prefix
         /// <summary>
         /// <para>
-        /// <para>One or more IPv4 prefixes assigned to the network interface. You can't use this option
+        /// <para>One or more IPv4 prefixes assigned to the network interface. You cannot use this option
         /// if you use the <c>Ipv4PrefixCount</c> option.</para>
         /// </para>
         /// </summary>

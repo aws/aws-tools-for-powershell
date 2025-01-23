@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a managed prefix list. You can specify entries for the prefix list. Each entry
-    /// consists of a CIDR block and an optional description.
+    /// Creates a managed prefix list. You can specify one or more entries for the prefix
+    /// list. Each entry consists of a CIDR block and an optional description.
     /// </summary>
     [Cmdlet("New", "EC2ManagedPrefixList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ManagedPrefixList")]

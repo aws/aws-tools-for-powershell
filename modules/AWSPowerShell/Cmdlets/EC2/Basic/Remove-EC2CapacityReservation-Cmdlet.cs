@@ -37,10 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><ul><li><para><c>assessing</c></para></li><li><para><c>active</c> and there is no commitment duration or the commitment duration has
     /// elapsed. You can't cancel a future-dated Capacity Reservation during the commitment
     /// duration.
-    /// </para></li></ul><note><para>
-    /// You can't modify or cancel a Capacity Block. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html">Capacity
-    /// Blocks for ML</a>.
-    /// </para></note><para>
+    /// </para></li></ul><para>
     /// If a future-dated Capacity Reservation enters the <c>delayed</c> state, the commitment
     /// duration is waived, and you can cancel it as soon as it enters the <c>active</c> state.
     /// </para><para>

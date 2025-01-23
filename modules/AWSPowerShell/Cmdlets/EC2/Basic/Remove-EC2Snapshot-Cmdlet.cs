@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// will have access to all the information needed to restore the volume.
     /// </para><para>
     /// You cannot delete a snapshot of the root device of an EBS volume used by a registered
-    /// AMI. You must first deregister the AMI before you can delete the snapshot.
+    /// AMI. You must first de-register the AMI before you can delete the snapshot.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html">Delete
     /// an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.

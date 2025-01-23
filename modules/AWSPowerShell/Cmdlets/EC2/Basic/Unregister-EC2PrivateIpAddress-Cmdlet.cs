@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Unassigns the specified secondary private IP addresses or IPv4 Prefix Delegation prefixes
+    /// Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes
     /// from a network interface.
     /// </summary>
     [Cmdlet("Unregister", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

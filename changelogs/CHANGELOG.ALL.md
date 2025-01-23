@@ -1,4 +1,7 @@
-﻿### 4.1.741 (2025-01-22 21:58Z)
+﻿### 4.1.742 (2025-01-23 21:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.968.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.741 (2025-01-22 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.967.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Added cmdlet Get-AWSSensitiveDataConfiguration.

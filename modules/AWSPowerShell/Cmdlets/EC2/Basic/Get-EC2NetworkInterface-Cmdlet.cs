@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the specified network interfaces or all your network interfaces.
+    /// Describes one or more of your network interfaces.
     /// 
     ///  
     /// <para>
@@ -76,9 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>efa</c> | <c>efa-only</c> | <c>efs</c> | <c>gateway_load_balancer</c> | <c>gateway_load_balancer_endpoint</c>
         /// | <c>global_accelerator_managed</c> | <c>interface</c> | <c>iot_rules_managed</c>
         /// | <c>lambda</c> | <c>load_balancer</c> | <c>nat_gateway</c> | <c>network_load_balancer</c>
-        /// | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c> | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>operator.managed</c> - A Boolean that indicates whether this is a managed network
-        /// interface.</para></li><li><para><c>operator.principal</c> - The principal that manages the network interface. Only
-        /// valid for managed network interfaces, where <c>managed</c> is <c>true</c>.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the network interface owner.</para></li><li><para><c>private-dns-name</c> - The private DNS name of the network interface (IPv4).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address or addresses of the network
+        /// | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c> | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the network interface owner.</para></li><li><para><c>private-dns-name</c> - The private DNS name of the network interface (IPv4).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address or addresses of the network
         /// interface.</para></li><li><para><c>requester-id</c> - The alias or Amazon Web Services account ID of the principal
         /// or service that created the network interface.</para></li><li><para><c>requester-managed</c> - Indicates whether the network interface is being managed
         /// by an Amazon Web Services service (for example, Amazon Web Services Management Console,
