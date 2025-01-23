@@ -12,7 +12,7 @@
     modules to be published (i.e. .\AWSPowerShell, .\AWSPowerShell.NetCore, and
     .\AWS.Tools).
 
-    Publishing is done using the Publish-PSResource cmdlet of the PSResourceGet 
+    Publishing is done using the Publish-Module cmdlet of the PowerShellGet 
     module. This module must be installed either in user scope or globally 
     before this script can be used.
 
@@ -87,7 +87,7 @@ $ErrorActionPreference = "Stop"
 $paramSetRemoteName = "remote"
 $paramSetLocalName = "local"
 
-Import-Module Microsoft.PowerShell.PSResourceGet
+Import-Module -Name "PowerShellGet"
 
 #Import DynamoDBv2 needed to update the PackageVersions table.
 if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
@@ -101,7 +101,7 @@ if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
 }
 elseif($PSCmdlet.ParameterSetName -eq $paramSetLocalName){
     # validate if the LocalRepositoryName exists
-    $localRepo = Get-PSResourceRepository -Name $LocalRepositoryName -ErrorAction SilentlyContinue
+    $localRepo = Get-PSRepository -Name $LocalRepositoryName -ErrorAction SilentlyContinue
     if(-not $localRepo){
         throw "Local repository $LocalRepositoryName does not exist."
     }
@@ -125,16 +125,17 @@ if (-not $DryRun -and $PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
     $ApiKey = ((Get-SECSecretValue -SecretId $SecretId -Region $SecretRegion -ProfileName $SecretReaderProfile).SecretString | ConvertFrom-Json).$SecretKey
 }
 
-$commonArgs = @{
-    'ApiKey'                     = $LocalRepositoryNuGetApiKey
-    'SkipDependenciesCheck'      = $true
-    'SkipModuleManifestValidate' = $true
-    'Repository'                 = $LocalRepositoryName
+if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
+    $commonArgs = @{
+        'NuGetApiKey' = $ApiKey
+        'Repository'  = "PSGallery"
+    }
 }
-
-if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
-    $commonArgs.ApiKey = $ApiKey
-    $commonArgs.Repository = "PSGallery"
+else {
+    $commonArgs = @{        
+        'NuGetApiKey' = $LocalRepositoryNuGetApiKey
+        'Repository'  = $LocalRepositoryName
+    }
 }
 
 function PublishRecursive([string]$modulePath) {
@@ -169,7 +170,7 @@ function PublishRecursive([string]$modulePath) {
                     Write-Host "-DryRun specified, skipped actual publish and PackageVersions update of $modulePath"
                 }
                 else {
-                    Publish-PSResource -Path $modulePath @commonArgs
+                    Publish-Module -Path $modulePath @commonArgs -Force
                     if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
                         Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                     }
@@ -181,7 +182,7 @@ function PublishRecursive([string]$modulePath) {
                 #We could have failed because the module was already published (possible in case we run this script multiple times)
                 if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
                     try {
-                        Find-PSResource -Repository 'PSGallery' -Type 'Module' -Name ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -Version $manifestData.ModuleVersion
+                        Find-Module ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -RequiredVersion $manifestData.ModuleVersion
                         Write-Host "Successfully found module $modulePath version $($manifestData.ModuleVersion) already on the gallery"
                         if ($DryRun) {
                             Write-Host "-DryRun specified, skipped PackageVersions update of $modulePath in catch."
