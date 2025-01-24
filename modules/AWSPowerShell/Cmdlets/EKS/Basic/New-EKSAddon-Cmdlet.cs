@@ -122,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>An array of Pod Identity Assocations to be created. Each EKS Pod Identity association
         /// maps a Kubernetes service account to an IAM Role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach
-        /// an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</para>
+        /// an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the <i>Amazon EKS User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

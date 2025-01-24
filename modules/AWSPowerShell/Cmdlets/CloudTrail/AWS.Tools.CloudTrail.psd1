@@ -125,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CTResourceTag', 
         'Remove-CTTrail', 
         'Restore-CTEventDataStore', 
+        'Search-CTSampleQuery', 
         'Start-CTDashboardRefresh', 
         'Start-CTEventDataStoreIngestion', 
         'Start-CTImport', 

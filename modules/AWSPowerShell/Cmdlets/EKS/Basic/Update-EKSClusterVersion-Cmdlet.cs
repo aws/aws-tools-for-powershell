@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// eventually consistent). When the update is complete (either <c>Failed</c> or <c>Successful</c>),
     /// the cluster status moves to <c>Active</c>.
     /// </para><para>
-    /// If your cluster has managed node groups attached to it, all of your node groups’ Kubernetes
-    /// versions must match the cluster’s Kubernetes version in order to update the cluster
+    /// If your cluster has managed node groups attached to it, all of your node groups' Kubernetes
+    /// versions must match the cluster's Kubernetes version in order to update the cluster
     /// to a new Kubernetes version.
     /// </para>
     /// </summary>

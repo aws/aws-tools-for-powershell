@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// and running on your managed nodes, or that certain ports must be closed. For static
     /// targets, the association specifies a schedule for when the configuration is reapplied.
     /// For dynamic targets, such as an Amazon Web Services resource group or an Amazon Web
-    /// Services autoscaling group, State Manager, a capability of Amazon Web Services Systems
-    /// Manager applies the configuration when new managed nodes are added to the group. The
-    /// association also specifies actions to take when applying the configuration. For example,
-    /// an association for anti-virus software might run once a day. If the software isn't
-    /// installed, then State Manager installs it. If the software is installed, but the service
-    /// isn't running, then the association might instruct State Manager to start the service.
+    /// Services autoscaling group, State Manager, a tool in Amazon Web Services Systems Manager
+    /// applies the configuration when new managed nodes are added to the group. The association
+    /// also specifies actions to take when applying the configuration. For example, an association
+    /// for anti-virus software might run once a day. If the software isn't installed, then
+    /// State Manager installs it. If the software is installed, but the service isn't running,
+    /// then the association might instruct State Manager to start the service.
     /// </summary>
     [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Choose the parameter that will define how your automation will branch out. This target
         /// is required for associations that use an Automation runbook and target resources by
-        /// using rate controls. Automation is a capability of Amazon Web Services Systems Manager.</para>
+        /// using rate controls. Automation is a tool in Amazon Web Services Systems Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

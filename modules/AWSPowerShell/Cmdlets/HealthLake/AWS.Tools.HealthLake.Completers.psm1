@@ -83,7 +83,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.AuthorizationStrategy
         "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy"
         {
-            $v = "AWS_AUTH","SMART_ON_FHIR_V1"
+            $v = "AWS_AUTH","SMART_ON_FHIR","SMART_ON_FHIR_V1"
             break
         }
 
@@ -114,7 +114,7 @@ $AHL_Completers = {
             ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
         }
         {
-            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","QUEUED","SUBMITTED"
             break
         }
 

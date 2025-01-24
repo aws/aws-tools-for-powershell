@@ -22,54 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.CloudTrail;
+using Amazon.CloudTrail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem.
-    /// OpsCenter is a tool in Amazon Web Services Systems Manager.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches sample queries and returns a list of sample queries that are sorted by relevance.
+    /// To search for sample queries, provide a natural language <c>SearchPhrase</c> in English.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SSMOpsItemRelatedItem")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary")]
-    [AWSCmdlet("Calls the AWS Systems Manager ListOpsItemRelatedItems API operation.", Operation = new[] {"ListOpsItemRelatedItems"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse))]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary or Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse",
-        "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemSummary objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Search", "CTSampleQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudTrail.Model.SearchSampleQueriesSearchResult")]
+    [AWSCmdlet("Calls the AWS CloudTrail SearchSampleQueries API operation.", Operation = new[] {"SearchSampleQueries"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.SearchSampleQueriesResponse))]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.SearchSampleQueriesSearchResult or Amazon.CloudTrail.Model.SearchSampleQueriesResponse",
+        "This cmdlet returns a collection of Amazon.CloudTrail.Model.SearchSampleQueriesSearchResult objects.",
+        "The service call response (type Amazon.CloudTrail.Model.SearchSampleQueriesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSSMOpsItemRelatedItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class SearchCTSampleQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Filter
+        #region Parameter SearchPhrase
         /// <summary>
         /// <para>
-        /// <para>One or more OpsItem filters. Use a filter to return a more specific list of results.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemsFilter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter OpsItemId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the OpsItem for which you want to list all related-item resources.</para>
+        /// <para> The natural language phrase to use for the semantic search. The phrase must be in
+        /// English. The length constraint is in characters, not words.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String OpsItemId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SearchPhrase { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// <para> The maximum number of results to return on a single page. The default value is 10.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// <para> A token you can use to get the next page of results. The length constraint is in
+        /// characters, not words. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -94,23 +90,33 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Summaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse).
-        /// Specifying the name of a property of type Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SearchResults'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.SearchSampleQueriesResponse).
+        /// Specifying the name of a property of type Amazon.CloudTrail.Model.SearchSampleQueriesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Summaries";
+        public string Select { get; set; } = "SearchResults";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OpsItemId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OpsItemId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SearchPhrase parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SearchPhrase' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OpsItemId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SearchPhrase' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -128,6 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SearchPhrase), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CTSampleQuery (SearchSampleQueries)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -136,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse, GetSSMOpsItemRelatedItemCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.SearchSampleQueriesResponse, SearchCTSampleQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,16 +157,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OpsItemId;
+                context.Select = (response, cmdlet) => this.SearchPhrase;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Filter != null)
-            {
-                context.Filter = new List<Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemsFilter>(this.Filter);
-            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.OpsItemId = this.OpsItemId;
+            context.SearchPhrase = this.SearchPhrase;
+            #if MODULAR
+            if (this.SearchPhrase == null && ParameterWasBound(nameof(this.SearchPhrase)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SearchPhrase which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +187,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsRequest();
+            var request = new Amazon.CloudTrail.Model.SearchSampleQueriesRequest();
             
-            if (cmdletContext.Filter != null)
-            {
-                request.Filters = cmdletContext.Filter;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.OpsItemId != null)
+            if (cmdletContext.SearchPhrase != null)
             {
-                request.OpsItemId = cmdletContext.OpsItemId;
+                request.SearchPhrase = cmdletContext.SearchPhrase;
             }
             
             // Initialize loop variant and commence piping
@@ -244,15 +254,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsRequest request)
+        private Amazon.CloudTrail.Model.SearchSampleQueriesResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.SearchSampleQueriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "ListOpsItemRelatedItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "SearchSampleQueries");
             try
             {
                 #if DESKTOP
-                return client.ListOpsItemRelatedItems(request);
+                return client.SearchSampleQueries(request);
                 #elif CORECLR
-                return client.ListOpsItemRelatedItemsAsync(request).GetAwaiter().GetResult();
+                return client.SearchSampleQueriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,12 +282,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.OpsItemRelatedItemsFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String OpsItemId { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.ListOpsItemRelatedItemsResponse, GetSSMOpsItemRelatedItemCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Summaries;
+            public System.String SearchPhrase { get; set; }
+            public System.Func<Amazon.CloudTrail.Model.SearchSampleQueriesResponse, SearchCTSampleQueryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SearchResults;
         }
         
     }

@@ -266,6 +266,7 @@ $CT_SelectMap = @{
                "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
+               "Search-CTSampleQuery",
                "Start-CTDashboardRefresh",
                "Start-CTEventDataStoreIngestion",
                "Start-CTImport",

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// of <c>OPEN</c> only if all calendars in the request are open. If one or more calendars
     /// in the request are closed, the status returned is <c>CLOSED</c>.
     /// </para><para>
-    /// For more information about Change Calendar, a capability of Amazon Web Services Systems
+    /// For more information about Change Calendar, a tool in Amazon Web Services Systems
     /// Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon
     /// Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems
     /// Manager User Guide</i>.

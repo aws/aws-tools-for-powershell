@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieve information about one or more parameters in a specific hierarchy. 
+    /// Retrieve information about one or more parameters under a specified level in a hierarchy.
+    /// 
     /// 
     ///  
     /// <para>

@@ -169,7 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// tags for a change request. Tags enable you to categorize a resource in different ways,
         /// such as by purpose, owner, or environment. For example, you might want to tag a change
         /// request to identify an environment or target Amazon Web Services Region. In this case,
-        /// you could specify the following key-value pairs:</para><ul><li><para><c>Key=Environment,Value=Production</c></para></li><li><para><c>Key=Region,Value=us-east-2</c></para></li></ul>
+        /// you could specify the following key-value pairs:</para><ul><li><para><c>Key=Environment,Value=Production</c></para></li><li><para><c>Key=Region,Value=us-east-2</c></para></li></ul><note><para>The <c>Array Members</c> maximum value is reported as 1000. This number includes capacity
+        /// reserved for internal operations. When calling the <c>StartChangeRequestExecution</c>
+        /// action, you can specify a maximum of 5 tags. You can, however, use the <a>AddTagsToResource</a>
+        /// action to add up to a total of 50 tags to an existing change request configuration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

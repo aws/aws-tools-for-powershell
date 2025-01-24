@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// <para>
     /// The partner is identified with the <c>PartnerProfileId</c>, and the AS2 process is
     /// identified with the <c>LocalProfileId</c>.
-    /// </para>
+    /// </para><note><para>
+    /// Specify <i>either</i><c>BaseDirectory</c> or <c>CustomDirectories</c>, but not both.
+    /// Specifying both causes the command to fail.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "TFRAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -92,14 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>The landing directory (folder) for files transferred by using the AS2 protocol.</para><para>A <c>BaseDirectory</c> example is <c>/<i>amzn-s3-demo-bucket</i>/home/mydirectory</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BaseDirectory { get; set; }
         #endregion
         
@@ -126,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.EnforceMessageSigningType EnforceMessageSigning { get; set; }
         #endregion
         
+        #region Parameter CustomDirectories_FailedFilesDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a location to store failed AS2 message files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDirectories_FailedFilesDirectory { get; set; }
+        #endregion
+        
         #region Parameter LocalProfileId
         /// <summary>
         /// <para>
@@ -143,6 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String LocalProfileId { get; set; }
         #endregion
         
+        #region Parameter CustomDirectories_MdnFilesDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a location to store MDN files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDirectories_MdnFilesDirectory { get; set; }
+        #endregion
+        
         #region Parameter PartnerProfileId
         /// <summary>
         /// <para>
@@ -158,6 +174,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PartnerProfileId { get; set; }
+        #endregion
+        
+        #region Parameter CustomDirectories_PayloadFilesDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a location to store the payload for AS2 message files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDirectories_PayloadFilesDirectory { get; set; }
         #endregion
         
         #region Parameter PreserveFilename
@@ -204,6 +230,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.AgreementStatusType Status { get; set; }
         #endregion
         
+        #region Parameter CustomDirectories_StatusFilesDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a location to store AS2 status messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDirectories_StatusFilesDirectory { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -213,6 +249,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Transfer.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter CustomDirectories_TemporaryFilesDirectory
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a location to store temporary AS2 message files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomDirectories_TemporaryFilesDirectory { get; set; }
         #endregion
         
         #region Parameter Select
@@ -285,12 +331,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             #endif
             context.BaseDirectory = this.BaseDirectory;
-            #if MODULAR
-            if (this.BaseDirectory == null && ParameterWasBound(nameof(this.BaseDirectory)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BaseDirectory which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.CustomDirectories_FailedFilesDirectory = this.CustomDirectories_FailedFilesDirectory;
+            context.CustomDirectories_MdnFilesDirectory = this.CustomDirectories_MdnFilesDirectory;
+            context.CustomDirectories_PayloadFilesDirectory = this.CustomDirectories_PayloadFilesDirectory;
+            context.CustomDirectories_StatusFilesDirectory = this.CustomDirectories_StatusFilesDirectory;
+            context.CustomDirectories_TemporaryFilesDirectory = this.CustomDirectories_TemporaryFilesDirectory;
             context.Description = this.Description;
             context.EnforceMessageSigning = this.EnforceMessageSigning;
             context.LocalProfileId = this.LocalProfileId;
@@ -343,6 +388,65 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.BaseDirectory != null)
             {
                 request.BaseDirectory = cmdletContext.BaseDirectory;
+            }
+            
+             // populate CustomDirectories
+            var requestCustomDirectoriesIsNull = true;
+            request.CustomDirectories = new Amazon.Transfer.Model.CustomDirectoriesType();
+            System.String requestCustomDirectories_customDirectories_FailedFilesDirectory = null;
+            if (cmdletContext.CustomDirectories_FailedFilesDirectory != null)
+            {
+                requestCustomDirectories_customDirectories_FailedFilesDirectory = cmdletContext.CustomDirectories_FailedFilesDirectory;
+            }
+            if (requestCustomDirectories_customDirectories_FailedFilesDirectory != null)
+            {
+                request.CustomDirectories.FailedFilesDirectory = requestCustomDirectories_customDirectories_FailedFilesDirectory;
+                requestCustomDirectoriesIsNull = false;
+            }
+            System.String requestCustomDirectories_customDirectories_MdnFilesDirectory = null;
+            if (cmdletContext.CustomDirectories_MdnFilesDirectory != null)
+            {
+                requestCustomDirectories_customDirectories_MdnFilesDirectory = cmdletContext.CustomDirectories_MdnFilesDirectory;
+            }
+            if (requestCustomDirectories_customDirectories_MdnFilesDirectory != null)
+            {
+                request.CustomDirectories.MdnFilesDirectory = requestCustomDirectories_customDirectories_MdnFilesDirectory;
+                requestCustomDirectoriesIsNull = false;
+            }
+            System.String requestCustomDirectories_customDirectories_PayloadFilesDirectory = null;
+            if (cmdletContext.CustomDirectories_PayloadFilesDirectory != null)
+            {
+                requestCustomDirectories_customDirectories_PayloadFilesDirectory = cmdletContext.CustomDirectories_PayloadFilesDirectory;
+            }
+            if (requestCustomDirectories_customDirectories_PayloadFilesDirectory != null)
+            {
+                request.CustomDirectories.PayloadFilesDirectory = requestCustomDirectories_customDirectories_PayloadFilesDirectory;
+                requestCustomDirectoriesIsNull = false;
+            }
+            System.String requestCustomDirectories_customDirectories_StatusFilesDirectory = null;
+            if (cmdletContext.CustomDirectories_StatusFilesDirectory != null)
+            {
+                requestCustomDirectories_customDirectories_StatusFilesDirectory = cmdletContext.CustomDirectories_StatusFilesDirectory;
+            }
+            if (requestCustomDirectories_customDirectories_StatusFilesDirectory != null)
+            {
+                request.CustomDirectories.StatusFilesDirectory = requestCustomDirectories_customDirectories_StatusFilesDirectory;
+                requestCustomDirectoriesIsNull = false;
+            }
+            System.String requestCustomDirectories_customDirectories_TemporaryFilesDirectory = null;
+            if (cmdletContext.CustomDirectories_TemporaryFilesDirectory != null)
+            {
+                requestCustomDirectories_customDirectories_TemporaryFilesDirectory = cmdletContext.CustomDirectories_TemporaryFilesDirectory;
+            }
+            if (requestCustomDirectories_customDirectories_TemporaryFilesDirectory != null)
+            {
+                request.CustomDirectories.TemporaryFilesDirectory = requestCustomDirectories_customDirectories_TemporaryFilesDirectory;
+                requestCustomDirectoriesIsNull = false;
+            }
+             // determine if request.CustomDirectories should be set to null
+            if (requestCustomDirectoriesIsNull)
+            {
+                request.CustomDirectories = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -439,6 +543,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             public System.String AccessRole { get; set; }
             public System.String BaseDirectory { get; set; }
+            public System.String CustomDirectories_FailedFilesDirectory { get; set; }
+            public System.String CustomDirectories_MdnFilesDirectory { get; set; }
+            public System.String CustomDirectories_PayloadFilesDirectory { get; set; }
+            public System.String CustomDirectories_StatusFilesDirectory { get; set; }
+            public System.String CustomDirectories_TemporaryFilesDirectory { get; set; }
             public System.String Description { get; set; }
             public Amazon.Transfer.EnforceMessageSigningType EnforceMessageSigning { get; set; }
             public System.String LocalProfileId { get; set; }

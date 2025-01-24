@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>One or more policies to apply to a parameter. This operation takes a JSON array. Parameter
-        /// Store, a capability of Amazon Web Services Systems Manager supports the following
-        /// policy types:</para><para>Expiration: This policy deletes the parameter after it expires. When you create the
+        /// Store, a tool in Amazon Web Services Systems Manager supports the following policy
+        /// types:</para><para>Expiration: This policy deletes the parameter after it expires. When you create the
         /// policy, you specify the expiration date. You can update the expiration date and time
         /// by updating the policy. Updating the <i>parameter</i> doesn't affect the expiration
         /// date and time. When the expiration time is reached, Parameter Store deletes the parameter.</para><para>ExpirationNotification: This policy initiates an event in Amazon CloudWatch Events
@@ -239,7 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The parameter value that you want to add to the system. Standard parameters have a
         /// value limit of 4 KB. Advanced parameters have a value limit of 8 KB.</para><note><para>Parameters can't be referenced or nested in the values of other parameters. You can't
-        /// include <c>{{}}</c> or <c>{{ssm:<i>parameter-name</i>}}</c> in a parameter value.</para></note>
+        /// include values wrapped in double brackets <c>{{}}</c> or <c>{{ssm:<i>parameter-name</i>}}</c>
+        /// in a parameter value.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

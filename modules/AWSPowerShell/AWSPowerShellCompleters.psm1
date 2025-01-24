@@ -13355,6 +13355,7 @@ $CT_SelectMap = @{
                "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
+               "Search-CTSampleQuery",
                "Start-CTDashboardRefresh",
                "Start-CTEventDataStoreIngestion",
                "Start-CTImport",
@@ -27856,6 +27857,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.NodegroupUpdateStrategies
+        {
+            ($_ -eq "New-EKSNodegroup/UpdateConfig_UpdateStrategy") -Or
+            ($_ -eq "Update-EKSNodegroupConfig/UpdateConfig_UpdateStrategy")
+        }
+        {
+            $v = "DEFAULT","MINIMAL"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflict") -Or
@@ -27895,6 +27906,7 @@ $EKS_map = @{
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
 }
 
@@ -35793,7 +35805,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.AuthorizationStrategy
         "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy"
         {
-            $v = "AWS_AUTH","SMART_ON_FHIR_V1"
+            $v = "AWS_AUTH","SMART_ON_FHIR","SMART_ON_FHIR_V1"
             break
         }
 
@@ -35824,7 +35836,7 @@ $AHL_Completers = {
             ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
         }
         {
-            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","QUEUED","SUBMITTED"
             break
         }
 

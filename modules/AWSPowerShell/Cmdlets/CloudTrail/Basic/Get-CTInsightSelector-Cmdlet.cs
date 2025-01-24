@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// for an event data store, or the <c>TrailName</c> parameter to the get Insights event
     /// selectors for a trail. You cannot specify these parameters together.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging
-    /// CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Working
+    /// with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CTInsightSelector")]

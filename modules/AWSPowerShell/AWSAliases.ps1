@@ -4923,6 +4923,8 @@ Set-Alias -Name CT-RegisterOrganizationDelegatedAdmin -Value Register-CTOrganiza
 Set-Alias -Name Remove-CTTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RemoveTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RestoreEventDataStore -Value Restore-CTEventDataStore
+Set-Alias -Name Search-CTSampleQueries -Value Search-CTSampleQuery
+Set-Alias -Name CT-SearchSampleQueries -Value Search-CTSampleQuery
 Set-Alias -Name CT-StartDashboardRefresh -Value Start-CTDashboardRefresh
 Set-Alias -Name CT-StartEventDataStoreIngestion -Value Start-CTEventDataStoreIngestion
 Set-Alias -Name CT-StartImport -Value Start-CTImport
