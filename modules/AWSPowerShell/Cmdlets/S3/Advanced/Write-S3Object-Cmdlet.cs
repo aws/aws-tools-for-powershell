@@ -405,7 +405,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromContent)]
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromStream)]
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFileChecksum, Mandatory = true)]
-        [Amazon.PowerShell.Common.AWSRequiredParameter(ParameterSets = new[] { ParamSet_FromLocalFileChecksum })]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFolder)]
+        [AWSRequiredParameter(ParameterSets = new[] { ParamSet_FromLocalFileChecksum })]
         [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
         public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
@@ -415,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The checksum of the object base64 encoded with the alorithm specified in the <code>ChecksumAlgorithm</code> parameter. This checksum is only present if the checksum was uploaded
         /// with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. 
         /// Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
-        /// with multipart uploads, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums\">
+        /// with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
         /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>."
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFileChecksum)]
@@ -467,6 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// This property determines whether the Content-MD5 header should be calculated for upload.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
+        [Obsolete("This parameter is redundant in the latest version of the S3 module, which automatically calculates a checksum to verify data integrity")]
         public bool CalculateContentMD5Header { get; set; }
         #endregion
 
@@ -598,8 +600,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Metadata = this.Metadata;
             context.Headers = this.HeaderCollection;
             context.TagSet = this.TagSet;
+
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             context.CalculateContentMD5Header = this.CalculateContentMD5Header;
-            
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
+
             if (this.ChecksumAlgorithm != null)
             {
                 context.ChecksumAlgorithm = this.ChecksumAlgorithm;
@@ -695,7 +700,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
 
             if (cmdletContext.RequestPayer != null)
             {
@@ -795,7 +802,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
                 request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
 
                 if (cmdletContext.PartSize != null)
                     request.PartSize = cmdletContext.PartSize.Value;
@@ -864,7 +873,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.TagSet != null)
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
+
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            }
 
             if (cmdletContext.RequestPayer != null)
             {

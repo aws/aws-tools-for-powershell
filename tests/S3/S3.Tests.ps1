@@ -236,5 +236,14 @@ Describe -Tag "Smoke" "S3" {
             $checksumValue = 'abc123'
             {Write-S3Object -BucketName $script:bucketName -Key foo.txt -File $testFilePath -ChecksumAlgorithm CRC32C -ChecksumValue $checksumValue} | Should -Throw '* is invalid.'
         }
+
+        It "Can upload a folder using a checksum different than the default" {
+            $void = New-Item -Path "temp\checksums-upload" -Type directory -Force
+            "sample text" | Out-File -FilePath ".\temp\checksums-upload\test.txt" -Force
+            "more sample text" | Out-File -FilePath ".\temp\checksums-upload\test2.txt" -Force
+
+            Write-S3Object -BucketName $script:bucketName -KeyPrefix checksums\ -Folder ".\temp\checksums-upload" -Recurse -ChecksumAlgorithm CRC32C
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix checksums -Folder ".\temp\checksums-download"
+        }
     }
 }
