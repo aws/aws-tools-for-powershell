@@ -1,4 +1,7 @@
-﻿### 4.1.743 (2025-01-24 21:33Z)
+﻿### 4.1.744 (2025-01-27 22:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.970.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.743 (2025-01-24 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.969.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudTrail
     * Added cmdlet Search-CTSampleQuery leveraging the SearchSampleQueries service API.
