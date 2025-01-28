@@ -20459,6 +20459,16 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.SmbAuthenticationType
+        {
+            ($_ -eq "New-DSYNLocationSmb/AuthenticationType") -Or
+            ($_ -eq "Update-DSYNLocationSmb/AuthenticationType")
+        }
+        {
+            $v = "KERBEROS","NTLM"
+            break
+        }
+
         # Amazon.DataSync.SmbVersion
         {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
@@ -20490,7 +20500,7 @@ $DSYN_Completers = {
 
 $DSYN_map = @{
     "AccessTier"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
-    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
+    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","New-DSYNLocationSmb","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf","Update-DSYNLocationSmb")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "InTransitEncryption"=@("New-DSYNLocationEfs","Update-DSYNLocationEfs")
@@ -21715,6 +21725,13 @@ $ADC_Completers = {
             break
         }
 
+        # Amazon.Deadline.UpdateQueueLimitAssociationStatus
+        "Update-ADCQueueLimitAssociation/Status"
+        {
+            $v = "ACTIVE","STOP_LIMIT_USAGE_AND_CANCEL_TASKS","STOP_LIMIT_USAGE_AND_COMPLETE_TASKS"
+            break
+        }
+
 
     }
 
@@ -21737,7 +21754,7 @@ $ADC_map = @{
     "OsFamily"=@("New-ADCStorageProfile","Update-ADCStorageProfile")
     "Period"=@("Start-ADCSessionsStatisticsAggregation")
     "PrincipalType"=@("Add-ADCMemberToFarm","Add-ADCMemberToFleet","Add-ADCMemberToJob","Add-ADCMemberToQueue")
-    "Status"=@("Get-ADCBudgetList","Get-ADCFleetList","Get-ADCQueueList","Update-ADCBudget","Update-ADCQueueFleetAssociation","Update-ADCWorker")
+    "Status"=@("Get-ADCBudgetList","Get-ADCFleetList","Get-ADCQueueList","Update-ADCBudget","Update-ADCQueueFleetAssociation","Update-ADCQueueLimitAssociation","Update-ADCWorker")
     "TargetLifecycleStatus"=@("Update-ADCSession")
     "TargetRunStatus"=@("Update-ADCTask")
     "TargetTaskRunStatus"=@("New-ADCJob","Update-ADCJob","Update-ADCStep")
@@ -21812,21 +21829,25 @@ $ADC_SelectMap = @{
                "New-ADCFleet",
                "New-ADCJob",
                "New-ADCLicenseEndpoint",
+               "New-ADCLimit",
                "New-ADCMonitor",
                "New-ADCQueue",
                "New-ADCQueueEnvironment",
                "New-ADCQueueFleetAssociation",
+               "New-ADCQueueLimitAssociation",
                "New-ADCStorageProfile",
                "New-ADCWorker",
                "Remove-ADCBudget",
                "Remove-ADCFarm",
                "Remove-ADCFleet",
                "Remove-ADCLicenseEndpoint",
+               "Remove-ADCLimit",
                "Remove-ADCMeteredProduct",
                "Remove-ADCMonitor",
                "Remove-ADCQueue",
                "Remove-ADCQueueEnvironment",
                "Remove-ADCQueueFleetAssociation",
+               "Remove-ADCQueueLimitAssociation",
                "Remove-ADCStorageProfile",
                "Remove-ADCWorker",
                "Remove-ADCMemberFromFarm",
@@ -21838,10 +21859,12 @@ $ADC_SelectMap = @{
                "Get-ADCFleet",
                "Get-ADCJob",
                "Get-ADCLicenseEndpoint",
+               "Get-ADCLimit",
                "Get-ADCMonitor",
                "Get-ADCQueue",
                "Get-ADCQueueEnvironment",
                "Get-ADCQueueFleetAssociation",
+               "Get-ADCQueueLimitAssociation",
                "Get-ADCSession",
                "Get-ADCSessionAction",
                "Get-ADCSessionsStatisticsAggregation",
@@ -21860,10 +21883,12 @@ $ADC_SelectMap = @{
                "Get-ADCJobParameterDefinitionList",
                "Get-ADCJobList",
                "Get-ADCLicenseEndpointList",
+               "Get-ADCLimitList",
                "Get-ADCMeteredProductList",
                "Get-ADCMonitorList",
                "Get-ADCQueueEnvironmentList",
                "Get-ADCQueueFleetAssociationList",
+               "Get-ADCQueueLimitAssociationList",
                "Get-ADCQueueMemberList",
                "Get-ADCQueueList",
                "Get-ADCSessionActionList",
@@ -21889,10 +21914,12 @@ $ADC_SelectMap = @{
                "Update-ADCFarm",
                "Update-ADCFleet",
                "Update-ADCJob",
+               "Update-ADCLimit",
                "Update-ADCMonitor",
                "Update-ADCQueue",
                "Update-ADCQueueEnvironment",
                "Update-ADCQueueFleetAssociation",
+               "Update-ADCQueueLimitAssociation",
                "Update-ADCSession",
                "Update-ADCStep",
                "Update-ADCStorageProfile",
@@ -73547,7 +73574,10 @@ $TIDB_Completers = {
         }
 
         # Amazon.TimestreamInfluxDB.DbStorageType
-        "New-TIDBDbInstance/DbStorageType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DbStorageType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DbStorageType")
+        }
         {
             $v = "InfluxIOIncludedT1","InfluxIOIncludedT2","InfluxIOIncludedT3"
             break
@@ -73610,7 +73640,7 @@ $TIDB_Completers = {
 
 $TIDB_map = @{
     "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DbStorageType"=@("New-TIDBDbInstance")
+    "DbStorageType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")

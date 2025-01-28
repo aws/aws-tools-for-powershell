@@ -63,16 +63,89 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String[] AgentArn { get; set; }
         #endregion
         
+        #region Parameter AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the authentication protocol that DataSync uses to connect to your SMB file
+        /// server. DataSync supports <c>NTLM</c> (default) and <c>KERBEROS</c> authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.SmbAuthenticationType")]
+        public Amazon.DataSync.SmbAuthenticationType AuthenticationType { get; set; }
+        #endregion
+        
+        #region Parameter DnsIpAddress
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs
+        /// to. This parameter applies only if <c>AuthenticationType</c> is set to <c>KERBEROS</c>.</para><para>If you have multiple domains in your environment, configuring this parameter makes
+        /// sure that DataSync connects to the right SMB file server. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DnsIpAddresses")]
+        public System.String[] DnsIpAddress { get; set; }
+        #endregion
+        
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specifies the Windows domain name that your SMB file server belongs to. </para><para>If you have multiple domains in your environment, configuring this parameter makes
-        /// sure that DataSync connects to the right file server.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
-        /// permissions</a> for SMB locations.</para>
+        /// <para>Specifies the Windows domain name that your SMB file server belongs to. This parameter
+        /// applies only if <c>AuthenticationType</c> is set to <c>NTLM</c>.</para><para>If you have multiple domains in your environment, configuring this parameter makes
+        /// sure that DataSync connects to the right file server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter KerberosKeytab
+        /// <summary>
+        /// <para>
+        /// <para>Specifies your Kerberos key table (keytab) file, which includes mappings between your
+        /// service principal name (SPN) and encryption keys.</para><para>You can specify the keytab using a file path (for example, <c>file://path/to/file.keytab</c>).
+        /// The file must be base64 encoded. If you're using the CLI, the encoding is done for
+        /// you.</para><para>To avoid task execution errors, make sure that the SPN in the keytab file matches
+        /// exactly what you specify for <c>KerberosPrincipal</c> and in your <c>krb5.conf</c>
+        /// file.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] KerberosKeytab { get; set; }
+        #endregion
+        
+        #region Parameter KerberosKrb5Conf
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a Kerberos configuration file (<c>krb5.conf</c>) that defines your Kerberos
+        /// realm configuration.</para><para>You can specify the <c>krb5.conf</c> using a file path (for example, <c>file://path/to/krb5.conf</c>).
+        /// The file must be base64 encoded. If you're using the CLI, the encoding is done for
+        /// you.</para><para>To avoid task execution errors, make sure that the service principal name (SPN) in
+        /// the <c>krb5.conf</c> file matches exactly what you specify for <c>KerberosPrincipal</c>
+        /// and in your keytab file.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] KerberosKrb5Conf { get; set; }
+        #endregion
+        
+        #region Parameter KerberosPrincipal
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a service principal name (SPN), which is an identity in your Kerberos realm
+        /// that has permission to access the files, folders, and file metadata in your SMB file
+        /// server.</para><para>SPNs are case sensitive and must include a prepended <c>cifs/</c>. For example, an
+        /// SPN might look like <c>cifs/kerberosuser@EXAMPLE.COM</c>.</para><para>Your task execution will fail if the SPN that you provide for this parameter doesn’t
+        /// match what’s exactly in your keytab or <c>krb5.conf</c> files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KerberosPrincipal { get; set; }
         #endregion
         
         #region Parameter LocationArn
@@ -96,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the password of the user who can mount your SMB file server and has permission
-        /// to access the files and folders involved in your transfer.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
-        /// permissions</a> for SMB locations.</para>
+        /// to access the files and folders involved in your transfer. This parameter applies
+        /// only if <c>AuthenticationType</c> is set to <c>NTLM</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// read or write data. You can include a subdirectory in the share path (for example,
         /// <c>/path/to/subdirectory</c>). Make sure that other SMB clients in your network can
         /// also mount this path.</para><para>To copy all data in the specified subdirectory, DataSync must be able to mount the
-        /// SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
-        /// permissions</a> for SMB locations.</para>
+        /// SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing
+        /// DataSync access to SMB file servers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,9 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the user name that can mount your SMB file server and has permission to
-        /// access the files and folders involved in your transfer.</para><para>For information about choosing a user with the right level of access for your transfer,
-        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
-        /// permissions</a> for SMB locations.</para>
+        /// access the files and folders involved in your transfer. This parameter applies only
+        /// if <c>AuthenticationType</c> is set to <c>NTLM</c>.</para><para>For information about choosing a user with the right level of access for your transfer,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing
+        /// DataSync access to SMB file servers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +288,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             {
                 context.AgentArn = new List<System.String>(this.AgentArn);
             }
+            context.AuthenticationType = this.AuthenticationType;
+            if (this.DnsIpAddress != null)
+            {
+                context.DnsIpAddress = new List<System.String>(this.DnsIpAddress);
+            }
             context.Domain = this.Domain;
+            context.KerberosKeytab = this.KerberosKeytab;
+            context.KerberosKrb5Conf = this.KerberosKrb5Conf;
+            context.KerberosPrincipal = this.KerberosPrincipal;
             context.LocationArn = this.LocationArn;
             #if MODULAR
             if (this.LocationArn == null && ParameterWasBound(nameof(this.LocationArn)))
@@ -238,75 +320,114 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.DataSync.Model.UpdateLocationSmbRequest();
+            System.IO.MemoryStream _KerberosKeytabStream = null;
+            System.IO.MemoryStream _KerberosKrb5ConfStream = null;
             
-            if (cmdletContext.AgentArn != null)
-            {
-                request.AgentArns = cmdletContext.AgentArn;
-            }
-            if (cmdletContext.Domain != null)
-            {
-                request.Domain = cmdletContext.Domain;
-            }
-            if (cmdletContext.LocationArn != null)
-            {
-                request.LocationArn = cmdletContext.LocationArn;
-            }
-            
-             // populate MountOptions
-            var requestMountOptionsIsNull = true;
-            request.MountOptions = new Amazon.DataSync.Model.SmbMountOptions();
-            Amazon.DataSync.SmbVersion requestMountOptions_mountOptions_Version = null;
-            if (cmdletContext.MountOptions_Version != null)
-            {
-                requestMountOptions_mountOptions_Version = cmdletContext.MountOptions_Version;
-            }
-            if (requestMountOptions_mountOptions_Version != null)
-            {
-                request.MountOptions.Version = requestMountOptions_mountOptions_Version;
-                requestMountOptionsIsNull = false;
-            }
-             // determine if request.MountOptions should be set to null
-            if (requestMountOptionsIsNull)
-            {
-                request.MountOptions = null;
-            }
-            if (cmdletContext.Password != null)
-            {
-                request.Password = cmdletContext.Password;
-            }
-            if (cmdletContext.Subdirectory != null)
-            {
-                request.Subdirectory = cmdletContext.Subdirectory;
-            }
-            if (cmdletContext.User != null)
-            {
-                request.User = cmdletContext.User;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.DataSync.Model.UpdateLocationSmbRequest();
+                
+                if (cmdletContext.AgentArn != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.AgentArns = cmdletContext.AgentArn;
+                }
+                if (cmdletContext.AuthenticationType != null)
+                {
+                    request.AuthenticationType = cmdletContext.AuthenticationType;
+                }
+                if (cmdletContext.DnsIpAddress != null)
+                {
+                    request.DnsIpAddresses = cmdletContext.DnsIpAddress;
+                }
+                if (cmdletContext.Domain != null)
+                {
+                    request.Domain = cmdletContext.Domain;
+                }
+                if (cmdletContext.KerberosKeytab != null)
+                {
+                    _KerberosKeytabStream = new System.IO.MemoryStream(cmdletContext.KerberosKeytab);
+                    request.KerberosKeytab = _KerberosKeytabStream;
+                }
+                if (cmdletContext.KerberosKrb5Conf != null)
+                {
+                    _KerberosKrb5ConfStream = new System.IO.MemoryStream(cmdletContext.KerberosKrb5Conf);
+                    request.KerberosKrb5Conf = _KerberosKrb5ConfStream;
+                }
+                if (cmdletContext.KerberosPrincipal != null)
+                {
+                    request.KerberosPrincipal = cmdletContext.KerberosPrincipal;
+                }
+                if (cmdletContext.LocationArn != null)
+                {
+                    request.LocationArn = cmdletContext.LocationArn;
+                }
+                
+                 // populate MountOptions
+                var requestMountOptionsIsNull = true;
+                request.MountOptions = new Amazon.DataSync.Model.SmbMountOptions();
+                Amazon.DataSync.SmbVersion requestMountOptions_mountOptions_Version = null;
+                if (cmdletContext.MountOptions_Version != null)
+                {
+                    requestMountOptions_mountOptions_Version = cmdletContext.MountOptions_Version;
+                }
+                if (requestMountOptions_mountOptions_Version != null)
+                {
+                    request.MountOptions.Version = requestMountOptions_mountOptions_Version;
+                    requestMountOptionsIsNull = false;
+                }
+                 // determine if request.MountOptions should be set to null
+                if (requestMountOptionsIsNull)
+                {
+                    request.MountOptions = null;
+                }
+                if (cmdletContext.Password != null)
+                {
+                    request.Password = cmdletContext.Password;
+                }
+                if (cmdletContext.Subdirectory != null)
+                {
+                    request.Subdirectory = cmdletContext.Subdirectory;
+                }
+                if (cmdletContext.User != null)
+                {
+                    request.User = cmdletContext.User;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _KerberosKeytabStream != null)
+                {
+                    _KerberosKeytabStream.Dispose();
+                }
+                if( _KerberosKrb5ConfStream != null)
+                {
+                    _KerberosKrb5ConfStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -347,7 +468,12 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AgentArn { get; set; }
+            public Amazon.DataSync.SmbAuthenticationType AuthenticationType { get; set; }
+            public List<System.String> DnsIpAddress { get; set; }
             public System.String Domain { get; set; }
+            public byte[] KerberosKeytab { get; set; }
+            public byte[] KerberosKrb5Conf { get; set; }
+            public System.String KerberosPrincipal { get; set; }
             public System.String LocationArn { get; set; }
             public Amazon.DataSync.SmbVersion MountOptions_Version { get; set; }
             public System.String Password { get; set; }

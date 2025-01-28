@@ -1,4 +1,28 @@
-﻿### 4.1.744 (2025-01-27 22:12Z)
+﻿### 4.1.745 (2025-01-28 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.971.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Added cmdlet Get-ADCLimit leveraging the GetLimit service API.
+    * Added cmdlet Get-ADCLimitList leveraging the ListLimits service API.
+    * Added cmdlet Get-ADCQueueLimitAssociation leveraging the GetQueueLimitAssociation service API.
+    * Added cmdlet Get-ADCQueueLimitAssociationList leveraging the ListQueueLimitAssociations service API.
+    * Added cmdlet New-ADCLimit leveraging the CreateLimit service API.
+    * Added cmdlet New-ADCQueueLimitAssociation leveraging the CreateQueueLimitAssociation service API.
+    * Added cmdlet Remove-ADCLimit leveraging the DeleteLimit service API.
+    * Added cmdlet Remove-ADCQueueLimitAssociation leveraging the DeleteQueueLimitAssociation service API.
+    * Added cmdlet Update-ADCLimit leveraging the UpdateLimit service API.
+    * Added cmdlet Update-ADCQueueLimitAssociation leveraging the UpdateQueueLimitAssociation service API.
+    * Modified cmdlet New-ADCJob: added parameter MaxWorkerCount.
+    * Modified cmdlet Update-ADCJob: added parameter MaxWorkerCount.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationSmb: added parameters AuthenticationType, DnsIpAddress, KerberosKeytab, KerberosKrb5Conf and KerberosPrincipal.
+    * Modified cmdlet Update-DSYNLocationSmb: added parameters AuthenticationType, DnsIpAddress, KerberosKeytab, KerberosKrb5Conf and KerberosPrincipal.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters DirectPutSourceConfiguration_ThroughputHintInMBs and IcebergDestinationConfiguration_AppendOnly.
+    * Modified cmdlet Update-KINFDestination: added parameter IcebergDestinationUpdate_AppendOnly.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet Update-TIDBDbInstance: added parameters AllocatedStorage and DbStorageType.
+
+### 4.1.744 (2025-01-27 22:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.970.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.743 (2025-01-24 21:33Z)

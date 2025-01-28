@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCount_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum number of GPUs for the accelerator.</para>
+        /// <para>The maximum number of GPU accelerators in the worker host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Count_Max
         /// <summary>
         /// <para>
-        /// <para>The maximum number of GPUs for the accelerator.</para>
+        /// <para>The maximum number of GPU accelerators in the worker host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,8 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCount_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum number of GPUs for the accelerator. If you set the value to 0, a worker
-        /// will still have 1 GPU.</para>
+        /// <para>The minimum number of GPU accelerators in the worker host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,8 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Count_Min
         /// <summary>
         /// <para>
-        /// <para>The minimum number of GPUs for the accelerator. If you set the value to 0, a worker
-        /// will still have 1 GPU.</para>
+        /// <para>The minimum number of GPU accelerators in the worker host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -437,8 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter AcceleratorCapabilities_Selection
         /// <summary>
         /// <para>
-        /// <para>A list of objects that contain the GPU name of the accelerator and driver for the
-        /// instance types that support the accelerator.</para>
+        /// <para>A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute
+        /// Cloud instances that provide these capabilities will be used. For example, if you
+        /// specify both L4 and T4 chips, Deadline Cloud will use Amazon EC2 instances that have
+        /// either the L4 or the T4 chip installed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

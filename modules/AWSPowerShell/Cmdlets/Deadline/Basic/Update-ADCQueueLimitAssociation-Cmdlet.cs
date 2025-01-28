@@ -28,25 +28,18 @@ using Amazon.Deadline.Model;
 namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
-    /// Updates a job. 
-    /// 
-    ///  
-    /// <para>
-    /// When you change the status of the job to <c>ARCHIVED</c>, the job can't be scheduled
-    /// or archived.
-    /// </para><important><para>
-    /// An archived jobs and its steps and tasks are deleted after 120 days. The job can't
-    /// be recovered.
-    /// </para></important>
+    /// Updates the status of the queue. If you set the status to one of the <c>STOP_LIMIT_USAGE*</c>
+    /// values, there will be a delay before the status transitions to the <c>STOPPED</c>
+    /// state.
     /// </summary>
-    [Cmdlet("Update", "ADCJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "ADCQueueLimitAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWSDeadlineCloud UpdateJob API operation.", Operation = new[] {"UpdateJob"}, SelectReturnType = typeof(Amazon.Deadline.Model.UpdateJobResponse))]
-    [AWSCmdletOutput("None or Amazon.Deadline.Model.UpdateJobResponse",
+    [AWSCmdlet("Calls the AWSDeadlineCloud UpdateQueueLimitAssociation API operation.", Operation = new[] {"UpdateQueueLimitAssociation"}, SelectReturnType = typeof(Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse))]
+    [AWSCmdletOutput("None or Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.UpdateJobResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse) be returned by specifying '-Select *'."
     )]
-    public partial class UpdateADCJobCmdlet : AmazonDeadlineClientCmdlet, IExecutor
+    public partial class UpdateADCQueueLimitAssociationCmdlet : AmazonDeadlineClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -54,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter FarmId
         /// <summary>
         /// <para>
-        /// <para>The farm ID of the job to update.</para>
+        /// <para>The unique identifier of the farm that contains the associated queues and limits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String FarmId { get; set; }
         #endregion
         
-        #region Parameter JobId
+        #region Parameter LimitId
         /// <summary>
         /// <para>
-        /// <para>The job ID to update.</para>
+        /// <para>The unique identifier of the limit associated to the queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,69 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
-        #endregion
-        
-        #region Parameter LifecycleStatus
-        /// <summary>
-        /// <para>
-        /// <para>The status of a job in its lifecycle. When you change the status of the job to <c>ARCHIVED</c>,
-        /// the job can't be scheduled or archived.</para><important><para>An archived jobs and its steps and tasks are deleted after 120 days. The job can't
-        /// be recovered.</para></important>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Deadline.UpdateJobLifecycleStatus")]
-        public Amazon.Deadline.UpdateJobLifecycleStatus LifecycleStatus { get; set; }
-        #endregion
-        
-        #region Parameter MaxFailedTasksCount
-        /// <summary>
-        /// <para>
-        /// <para>The number of task failures before the job stops running and is marked as <c>FAILED</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxFailedTasksCount { get; set; }
-        #endregion
-        
-        #region Parameter MaxRetriesPerTask
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of retries for a job.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxRetriesPerTask { get; set; }
-        #endregion
-        
-        #region Parameter MaxWorkerCount
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of worker hosts that can concurrently process a job. When the <c>maxWorkerCount</c>
-        /// is reached, no more workers will be assigned to process the job, even if the fleets
-        /// assigned to the job's queue has available workers.</para><para>You can't set the <c>maxWorkerCount</c> to 0. If you set it to -1, there is no maximum
-        /// number of workers.</para><para>If you don't specify the <c>maxWorkerCount</c>, the default is -1.</para><para>The maximum number of workers that can process tasks in the job.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? MaxWorkerCount { get; set; }
-        #endregion
-        
-        #region Parameter Priority
-        /// <summary>
-        /// <para>
-        /// <para>The job priority to update.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Priority { get; set; }
+        public System.String LimitId { get; set; }
         #endregion
         
         #region Parameter QueueId
         /// <summary>
         /// <para>
-        /// <para>The queue ID of the job to update.</para>
+        /// <para>The unique identifier of the queue associated to the limit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,31 +95,29 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String QueueId { get; set; }
         #endregion
         
-        #region Parameter TargetTaskRunStatus
+        #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The task status to update the job's tasks to.</para>
+        /// <para>Sets the status of the limit. You can mark the limit active, or you can stop usage
+        /// of the limit and either complete existing tasks or cancel any existing tasks immediately.
+        /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Deadline.JobTargetTaskRunStatus")]
-        public Amazon.Deadline.JobTargetTaskRunStatus TargetTaskRunStatus { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>The unique token which the server uses to recognize retries of the same request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Deadline.UpdateQueueLimitAssociationStatus")]
+        public Amazon.Deadline.UpdateQueueLimitAssociationStatus Status { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.UpdateJobResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ADCJob (UpdateJob)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ADCQueueLimitAssociation (UpdateQueueLimitAssociation)"))
             {
                 return;
             }
@@ -217,10 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.UpdateJobResponse, UpdateADCJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse, UpdateADCQueueLimitAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.ClientToken = this.ClientToken;
             context.FarmId = this.FarmId;
             #if MODULAR
             if (this.FarmId == null && ParameterWasBound(nameof(this.FarmId)))
@@ -228,18 +162,13 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter FarmId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.JobId = this.JobId;
+            context.LimitId = this.LimitId;
             #if MODULAR
-            if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
+            if (this.LimitId == null && ParameterWasBound(nameof(this.LimitId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LimitId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LifecycleStatus = this.LifecycleStatus;
-            context.MaxFailedTasksCount = this.MaxFailedTasksCount;
-            context.MaxRetriesPerTask = this.MaxRetriesPerTask;
-            context.MaxWorkerCount = this.MaxWorkerCount;
-            context.Priority = this.Priority;
             context.QueueId = this.QueueId;
             #if MODULAR
             if (this.QueueId == null && ParameterWasBound(nameof(this.QueueId)))
@@ -247,7 +176,13 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter QueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TargetTaskRunStatus = this.TargetTaskRunStatus;
+            context.Status = this.Status;
+            #if MODULAR
+            if (this.Status == null && ParameterWasBound(nameof(this.Status)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -262,47 +197,23 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Deadline.Model.UpdateJobRequest();
+            var request = new Amazon.Deadline.Model.UpdateQueueLimitAssociationRequest();
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
             if (cmdletContext.FarmId != null)
             {
                 request.FarmId = cmdletContext.FarmId;
             }
-            if (cmdletContext.JobId != null)
+            if (cmdletContext.LimitId != null)
             {
-                request.JobId = cmdletContext.JobId;
-            }
-            if (cmdletContext.LifecycleStatus != null)
-            {
-                request.LifecycleStatus = cmdletContext.LifecycleStatus;
-            }
-            if (cmdletContext.MaxFailedTasksCount != null)
-            {
-                request.MaxFailedTasksCount = cmdletContext.MaxFailedTasksCount.Value;
-            }
-            if (cmdletContext.MaxRetriesPerTask != null)
-            {
-                request.MaxRetriesPerTask = cmdletContext.MaxRetriesPerTask.Value;
-            }
-            if (cmdletContext.MaxWorkerCount != null)
-            {
-                request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
-            }
-            if (cmdletContext.Priority != null)
-            {
-                request.Priority = cmdletContext.Priority.Value;
+                request.LimitId = cmdletContext.LimitId;
             }
             if (cmdletContext.QueueId != null)
             {
                 request.QueueId = cmdletContext.QueueId;
             }
-            if (cmdletContext.TargetTaskRunStatus != null)
+            if (cmdletContext.Status != null)
             {
-                request.TargetTaskRunStatus = cmdletContext.TargetTaskRunStatus;
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -337,15 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         #region AWS Service Operation Call
         
-        private Amazon.Deadline.Model.UpdateJobResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.UpdateJobRequest request)
+        private Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.UpdateQueueLimitAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "UpdateJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "UpdateQueueLimitAssociation");
             try
             {
                 #if DESKTOP
-                return client.UpdateJob(request);
+                return client.UpdateQueueLimitAssociation(request);
                 #elif CORECLR
-                return client.UpdateJobAsync(request).GetAwaiter().GetResult();
+                return client.UpdateQueueLimitAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -365,17 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
             public System.String FarmId { get; set; }
-            public System.String JobId { get; set; }
-            public Amazon.Deadline.UpdateJobLifecycleStatus LifecycleStatus { get; set; }
-            public System.Int32? MaxFailedTasksCount { get; set; }
-            public System.Int32? MaxRetriesPerTask { get; set; }
-            public System.Int32? MaxWorkerCount { get; set; }
-            public System.Int32? Priority { get; set; }
+            public System.String LimitId { get; set; }
             public System.String QueueId { get; set; }
-            public Amazon.Deadline.JobTargetTaskRunStatus TargetTaskRunStatus { get; set; }
-            public System.Func<Amazon.Deadline.Model.UpdateJobResponse, UpdateADCJobCmdlet, object> Select { get; set; } =
+            public Amazon.Deadline.UpdateQueueLimitAssociationStatus Status { get; set; }
+            public System.Func<Amazon.Deadline.Model.UpdateQueueLimitAssociationResponse, UpdateADCQueueLimitAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

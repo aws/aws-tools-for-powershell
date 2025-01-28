@@ -8143,6 +8143,8 @@ Set-Alias -Name Create-ADCJob -Value New-ADCJob
 Set-Alias -Name ADC-CreateJob -Value New-ADCJob
 Set-Alias -Name Create-ADCLicenseEndpoint -Value New-ADCLicenseEndpoint
 Set-Alias -Name ADC-CreateLicenseEndpoint -Value New-ADCLicenseEndpoint
+Set-Alias -Name Create-ADCLimit -Value New-ADCLimit
+Set-Alias -Name ADC-CreateLimit -Value New-ADCLimit
 Set-Alias -Name Create-ADCMonitor -Value New-ADCMonitor
 Set-Alias -Name ADC-CreateMonitor -Value New-ADCMonitor
 Set-Alias -Name Create-ADCQueue -Value New-ADCQueue
@@ -8151,6 +8153,8 @@ Set-Alias -Name Create-ADCQueueEnvironment -Value New-ADCQueueEnvironment
 Set-Alias -Name ADC-CreateQueueEnvironment -Value New-ADCQueueEnvironment
 Set-Alias -Name Create-ADCQueueFleetAssociation -Value New-ADCQueueFleetAssociation
 Set-Alias -Name ADC-CreateQueueFleetAssociation -Value New-ADCQueueFleetAssociation
+Set-Alias -Name Create-ADCQueueLimitAssociation -Value New-ADCQueueLimitAssociation
+Set-Alias -Name ADC-CreateQueueLimitAssociation -Value New-ADCQueueLimitAssociation
 Set-Alias -Name Create-ADCStorageProfile -Value New-ADCStorageProfile
 Set-Alias -Name ADC-CreateStorageProfile -Value New-ADCStorageProfile
 Set-Alias -Name Create-ADCWorker -Value New-ADCWorker
@@ -8163,6 +8167,8 @@ Set-Alias -Name Delete-ADCFleet -Value Remove-ADCFleet
 Set-Alias -Name ADC-DeleteFleet -Value Remove-ADCFleet
 Set-Alias -Name Delete-ADCLicenseEndpoint -Value Remove-ADCLicenseEndpoint
 Set-Alias -Name ADC-DeleteLicenseEndpoint -Value Remove-ADCLicenseEndpoint
+Set-Alias -Name Delete-ADCLimit -Value Remove-ADCLimit
+Set-Alias -Name ADC-DeleteLimit -Value Remove-ADCLimit
 Set-Alias -Name Delete-ADCMeteredProduct -Value Remove-ADCMeteredProduct
 Set-Alias -Name ADC-DeleteMeteredProduct -Value Remove-ADCMeteredProduct
 Set-Alias -Name Delete-ADCMonitor -Value Remove-ADCMonitor
@@ -8173,6 +8179,8 @@ Set-Alias -Name Delete-ADCQueueEnvironment -Value Remove-ADCQueueEnvironment
 Set-Alias -Name ADC-DeleteQueueEnvironment -Value Remove-ADCQueueEnvironment
 Set-Alias -Name Delete-ADCQueueFleetAssociation -Value Remove-ADCQueueFleetAssociation
 Set-Alias -Name ADC-DeleteQueueFleetAssociation -Value Remove-ADCQueueFleetAssociation
+Set-Alias -Name Delete-ADCQueueLimitAssociation -Value Remove-ADCQueueLimitAssociation
+Set-Alias -Name ADC-DeleteQueueLimitAssociation -Value Remove-ADCQueueLimitAssociation
 Set-Alias -Name Delete-ADCStorageProfile -Value Remove-ADCStorageProfile
 Set-Alias -Name ADC-DeleteStorageProfile -Value Remove-ADCStorageProfile
 Set-Alias -Name Delete-ADCWorker -Value Remove-ADCWorker
@@ -8190,10 +8198,12 @@ Set-Alias -Name ADC-GetFarm -Value Get-ADCFarm
 Set-Alias -Name ADC-GetFleet -Value Get-ADCFleet
 Set-Alias -Name ADC-GetJob -Value Get-ADCJob
 Set-Alias -Name ADC-GetLicenseEndpoint -Value Get-ADCLicenseEndpoint
+Set-Alias -Name ADC-GetLimit -Value Get-ADCLimit
 Set-Alias -Name ADC-GetMonitor -Value Get-ADCMonitor
 Set-Alias -Name ADC-GetQueue -Value Get-ADCQueue
 Set-Alias -Name ADC-GetQueueEnvironment -Value Get-ADCQueueEnvironment
 Set-Alias -Name ADC-GetQueueFleetAssociation -Value Get-ADCQueueFleetAssociation
+Set-Alias -Name ADC-GetQueueLimitAssociation -Value Get-ADCQueueLimitAssociation
 Set-Alias -Name ADC-GetSessionAction -Value Get-ADCSessionAction
 Set-Alias -Name ADC-GetSession -Value Get-ADCSession
 Set-Alias -Name ADC-GetSessionsStatisticsAggregation -Value Get-ADCSessionsStatisticsAggregation
@@ -8232,6 +8242,9 @@ Set-Alias -Name ADC-ListJobs -Value Get-ADCJobList
 Set-Alias -Name List-ADCLicenseEndpoints -Value Get-ADCLicenseEndpointList
 Set-Alias -Name List-ADCLicenseEndpointList -Value Get-ADCLicenseEndpointList
 Set-Alias -Name ADC-ListLicenseEndpoints -Value Get-ADCLicenseEndpointList
+Set-Alias -Name List-ADCLimits -Value Get-ADCLimitList
+Set-Alias -Name List-ADCLimitList -Value Get-ADCLimitList
+Set-Alias -Name ADC-ListLimits -Value Get-ADCLimitList
 Set-Alias -Name List-ADCMeteredProducts -Value Get-ADCMeteredProductList
 Set-Alias -Name List-ADCMeteredProductList -Value Get-ADCMeteredProductList
 Set-Alias -Name ADC-ListMeteredProducts -Value Get-ADCMeteredProductList
@@ -8244,6 +8257,9 @@ Set-Alias -Name ADC-ListQueueEnvironments -Value Get-ADCQueueEnvironmentList
 Set-Alias -Name List-ADCQueueFleetAssociations -Value Get-ADCQueueFleetAssociationList
 Set-Alias -Name List-ADCQueueFleetAssociationList -Value Get-ADCQueueFleetAssociationList
 Set-Alias -Name ADC-ListQueueFleetAssociations -Value Get-ADCQueueFleetAssociationList
+Set-Alias -Name List-ADCQueueLimitAssociations -Value Get-ADCQueueLimitAssociationList
+Set-Alias -Name List-ADCQueueLimitAssociationList -Value Get-ADCQueueLimitAssociationList
+Set-Alias -Name ADC-ListQueueLimitAssociations -Value Get-ADCQueueLimitAssociationList
 Set-Alias -Name List-ADCQueueMembers -Value Get-ADCQueueMemberList
 Set-Alias -Name List-ADCQueueMemberList -Value Get-ADCQueueMemberList
 Set-Alias -Name ADC-ListQueueMembers -Value Get-ADCQueueMemberList
@@ -8298,10 +8314,12 @@ Set-Alias -Name ADC-UpdateBudget -Value Update-ADCBudget
 Set-Alias -Name ADC-UpdateFarm -Value Update-ADCFarm
 Set-Alias -Name ADC-UpdateFleet -Value Update-ADCFleet
 Set-Alias -Name ADC-UpdateJob -Value Update-ADCJob
+Set-Alias -Name ADC-UpdateLimit -Value Update-ADCLimit
 Set-Alias -Name ADC-UpdateMonitor -Value Update-ADCMonitor
 Set-Alias -Name ADC-UpdateQueue -Value Update-ADCQueue
 Set-Alias -Name ADC-UpdateQueueEnvironment -Value Update-ADCQueueEnvironment
 Set-Alias -Name ADC-UpdateQueueFleetAssociation -Value Update-ADCQueueFleetAssociation
+Set-Alias -Name ADC-UpdateQueueLimitAssociation -Value Update-ADCQueueLimitAssociation
 Set-Alias -Name ADC-UpdateSession -Value Update-ADCSession
 Set-Alias -Name ADC-UpdateStep -Value Update-ADCStep
 Set-Alias -Name ADC-UpdateStorageProfile -Value Update-ADCStorageProfile

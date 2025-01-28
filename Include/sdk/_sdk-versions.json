@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.970.0",
+    "ProductVersion"    : "3.7.971.0",
     "CoreVersion"       : "3.7.401.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -146,7 +146,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.405.11",
+            "Version" : "3.7.405.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.428.1",
+            "Version" : "3.7.429.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -444,7 +444,7 @@
             "InPreview"               : false
         },
         "KinesisFirehose"           : {
-            "Version" : "3.7.401.38",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -908,7 +908,7 @@
             "InPreview"               : false
         },
         "AppSync"                         : {
-            "Version" : "3.7.404.14",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -1204,7 +1204,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.402.19",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -2964,7 +2964,7 @@
             "InPreview"               : false
         },
         "TimestreamInfluxDB"                  : {
-            "Version" : "3.7.404.23",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -2980,7 +2980,7 @@
             "InPreview"               : false
         },
         "Deadline"                            : {
-            "Version" : "3.7.403.34",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"

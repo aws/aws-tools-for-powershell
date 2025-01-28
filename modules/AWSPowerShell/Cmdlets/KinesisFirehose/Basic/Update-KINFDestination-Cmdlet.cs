@@ -96,6 +96,21 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String SnowflakeDestinationUpdate_AccountUrl { get; set; }
         #endregion
         
+        #region Parameter IcebergDestinationUpdate_AppendOnly
+        /// <summary>
+        /// <para>
+        /// <para> Describes whether all incoming data for this delivery stream will be append only
+        /// (inserts only and not for updates and deletes) for Iceberg delivery. This feature
+        /// is only applicable for Apache Iceberg Tables. </para><para>The default value is false. If you set this value to true, Firehose automatically
+        /// increases the throughput limit of a stream based on the throttling levels of the stream.
+        /// If you set this parameter to true for a stream with updates and deletes, you will
+        /// see out of order delivery. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IcebergDestinationUpdate_AppendOnly { get; set; }
+        #endregion
+        
         #region Parameter CatalogConfiguration_CatalogARN
         /// <summary>
         /// <para>
@@ -321,9 +336,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_DomainARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <c>DescribeDomain</c>,
-        /// <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after assuming the IAM role
-        /// specified in <c>RoleARN</c>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions
+        /// for <c>DescribeDomain</c>, <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after
+        /// assuming the IAM role specified in <c>RoleARN</c>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <c>ClusterEndpoint</c> or <c>DomainARN</c>.</para>
         /// </para>
         /// </summary>
@@ -361,10 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter RetryOptions_DurationInSecond
         /// <summary>
         /// <para>
-        /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
-        /// which Firehose retries delivery (including the first attempt). After this time has
-        /// elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds
-        /// (5 minutes). A value of 0 (zero) results in no retries.</para>
+        /// <para>After an initial failure to deliver to Amazon OpenSearch Service, the total amount
+        /// of time during which Firehose retries delivery (including the first attempt). After
+        /// this time has elapsed, the failed documents are written to Amazon S3. Default value
+        /// is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -526,7 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter SchemaEvolutionConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> Specify whether you want to enable schema evolution. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -537,7 +552,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter TableCreationConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> Specify whether you want to enable automatic table creation. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -648,7 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to <c>IndexName</c>
         /// to facilitate the expiration of old data. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
-        /// Rotation for the Amazon ES Destination</a>. Default value is <c>OneDay</c>.</para>
+        /// Rotation for the Amazon OpenSearch Service Destination</a>. Default value is <c>OneDay</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1004,8 +1019,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling
-        /// the Amazon ES Configuration API and for indexing documents. For more information,
-        /// see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
+        /// the Amazon OpenSearch Service Configuration API and for indexing documents. For more
+        /// information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
         /// Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
@@ -1371,7 +1386,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter CatalogConfiguration_WarehouseLocation
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The warehouse location for Apache Iceberg tables. You must configure this when schema
+        /// evolution and table creation is enabled.</para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1532,6 +1548,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled = this.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled;
             context.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN = this.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN;
             context.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN = this.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN;
+            context.IcebergDestinationUpdate_AppendOnly = this.IcebergDestinationUpdate_AppendOnly;
             context.IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds = this.IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds;
             context.IcebergDestinationConfiguration_BufferingHints_SizeInMBs = this.IcebergDestinationConfiguration_BufferingHints_SizeInMBs;
             context.CatalogConfiguration_CatalogARN = this.CatalogConfiguration_CatalogARN;
@@ -2605,6 +2622,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
              // populate IcebergDestinationUpdate
             var requestIcebergDestinationUpdateIsNull = true;
             request.IcebergDestinationUpdate = new Amazon.KinesisFirehose.Model.IcebergDestinationUpdate();
+            System.Boolean? requestIcebergDestinationUpdate_icebergDestinationUpdate_AppendOnly = null;
+            if (cmdletContext.IcebergDestinationUpdate_AppendOnly != null)
+            {
+                requestIcebergDestinationUpdate_icebergDestinationUpdate_AppendOnly = cmdletContext.IcebergDestinationUpdate_AppendOnly.Value;
+            }
+            if (requestIcebergDestinationUpdate_icebergDestinationUpdate_AppendOnly != null)
+            {
+                request.IcebergDestinationUpdate.AppendOnly = requestIcebergDestinationUpdate_icebergDestinationUpdate_AppendOnly.Value;
+                requestIcebergDestinationUpdateIsNull = false;
+            }
             List<Amazon.KinesisFirehose.Model.DestinationTableConfiguration> requestIcebergDestinationUpdate_icebergDestinationUpdate_DestinationTableConfigurationList = null;
             if (cmdletContext.IcebergDestinationUpdate_DestinationTableConfigurationList != null)
             {
@@ -3376,6 +3403,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.Boolean? HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled { get; set; }
             public System.String HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN { get; set; }
             public System.String HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN { get; set; }
+            public System.Boolean? IcebergDestinationUpdate_AppendOnly { get; set; }
             public System.Int32? IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }
             public System.Int32? IcebergDestinationConfiguration_BufferingHints_SizeInMBs { get; set; }
             public System.String CatalogConfiguration_CatalogARN { get; set; }

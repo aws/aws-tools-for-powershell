@@ -309,6 +309,13 @@ $ADC_Completers = {
             break
         }
 
+        # Amazon.Deadline.UpdateQueueLimitAssociationStatus
+        "Update-ADCQueueLimitAssociation/Status"
+        {
+            $v = "ACTIVE","STOP_LIMIT_USAGE_AND_CANCEL_TASKS","STOP_LIMIT_USAGE_AND_COMPLETE_TASKS"
+            break
+        }
+
 
     }
 
@@ -331,7 +338,7 @@ $ADC_map = @{
     "OsFamily"=@("New-ADCStorageProfile","Update-ADCStorageProfile")
     "Period"=@("Start-ADCSessionsStatisticsAggregation")
     "PrincipalType"=@("Add-ADCMemberToFarm","Add-ADCMemberToFleet","Add-ADCMemberToJob","Add-ADCMemberToQueue")
-    "Status"=@("Get-ADCBudgetList","Get-ADCFleetList","Get-ADCQueueList","Update-ADCBudget","Update-ADCQueueFleetAssociation","Update-ADCWorker")
+    "Status"=@("Get-ADCBudgetList","Get-ADCFleetList","Get-ADCQueueList","Update-ADCBudget","Update-ADCQueueFleetAssociation","Update-ADCQueueLimitAssociation","Update-ADCWorker")
     "TargetLifecycleStatus"=@("Update-ADCSession")
     "TargetRunStatus"=@("Update-ADCTask")
     "TargetTaskRunStatus"=@("New-ADCJob","Update-ADCJob","Update-ADCStep")
@@ -406,21 +413,25 @@ $ADC_SelectMap = @{
                "New-ADCFleet",
                "New-ADCJob",
                "New-ADCLicenseEndpoint",
+               "New-ADCLimit",
                "New-ADCMonitor",
                "New-ADCQueue",
                "New-ADCQueueEnvironment",
                "New-ADCQueueFleetAssociation",
+               "New-ADCQueueLimitAssociation",
                "New-ADCStorageProfile",
                "New-ADCWorker",
                "Remove-ADCBudget",
                "Remove-ADCFarm",
                "Remove-ADCFleet",
                "Remove-ADCLicenseEndpoint",
+               "Remove-ADCLimit",
                "Remove-ADCMeteredProduct",
                "Remove-ADCMonitor",
                "Remove-ADCQueue",
                "Remove-ADCQueueEnvironment",
                "Remove-ADCQueueFleetAssociation",
+               "Remove-ADCQueueLimitAssociation",
                "Remove-ADCStorageProfile",
                "Remove-ADCWorker",
                "Remove-ADCMemberFromFarm",
@@ -432,10 +443,12 @@ $ADC_SelectMap = @{
                "Get-ADCFleet",
                "Get-ADCJob",
                "Get-ADCLicenseEndpoint",
+               "Get-ADCLimit",
                "Get-ADCMonitor",
                "Get-ADCQueue",
                "Get-ADCQueueEnvironment",
                "Get-ADCQueueFleetAssociation",
+               "Get-ADCQueueLimitAssociation",
                "Get-ADCSession",
                "Get-ADCSessionAction",
                "Get-ADCSessionsStatisticsAggregation",
@@ -454,10 +467,12 @@ $ADC_SelectMap = @{
                "Get-ADCJobParameterDefinitionList",
                "Get-ADCJobList",
                "Get-ADCLicenseEndpointList",
+               "Get-ADCLimitList",
                "Get-ADCMeteredProductList",
                "Get-ADCMonitorList",
                "Get-ADCQueueEnvironmentList",
                "Get-ADCQueueFleetAssociationList",
+               "Get-ADCQueueLimitAssociationList",
                "Get-ADCQueueMemberList",
                "Get-ADCQueueList",
                "Get-ADCSessionActionList",
@@ -483,10 +498,12 @@ $ADC_SelectMap = @{
                "Update-ADCFarm",
                "Update-ADCFleet",
                "Update-ADCJob",
+               "Update-ADCLimit",
                "Update-ADCMonitor",
                "Update-ADCQueue",
                "Update-ADCQueueEnvironment",
                "Update-ADCQueueFleetAssociation",
+               "Update-ADCQueueLimitAssociation",
                "Update-ADCSession",
                "Update-ADCStep",
                "Update-ADCStorageProfile",
