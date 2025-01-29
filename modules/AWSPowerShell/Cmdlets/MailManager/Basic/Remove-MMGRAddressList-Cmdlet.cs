@@ -28,27 +28,24 @@ using Amazon.MailManager.Model;
 namespace Amazon.PowerShell.Cmdlets.MMGR
 {
     /// <summary>
-    /// Creates a subscription for an Add On representing the acceptance of its terms of use
-    /// and additional pricing. The subscription can then be used to create an instance for
-    /// use in rule sets or traffic policies.
+    /// Deletes an address list.
     /// </summary>
-    [Cmdlet("New", "MMGRAddonSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon SES Mail Manager CreateAddonSubscription API operation.", Operation = new[] {"CreateAddonSubscription"}, SelectReturnType = typeof(Amazon.MailManager.Model.CreateAddonSubscriptionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.MailManager.Model.CreateAddonSubscriptionResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.MailManager.Model.CreateAddonSubscriptionResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "MMGRAddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon SES Mail Manager DeleteAddressList API operation.", Operation = new[] {"DeleteAddressList"}, SelectReturnType = typeof(Amazon.MailManager.Model.DeleteAddressListResponse))]
+    [AWSCmdletOutput("None or Amazon.MailManager.Model.DeleteAddressListResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.MailManager.Model.DeleteAddressListResponse) be returned by specifying '-Select *'."
     )]
-    public partial class NewMMGRAddonSubscriptionCmdlet : AmazonMailManagerClientCmdlet, IExecutor
+    public partial class RemoveMMGRAddressListCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AddonName
+        #region Parameter AddressListId
         /// <summary>
         /// <para>
-        /// <para>The name of the Add On to subscribe to. You can only have one subscription for each
-        /// Add On name.</para>
+        /// <para>The identifier of an existing address list resource to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,48 +56,25 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AddonName { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags used to organize, track, or control access for the resource. For example,
-        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.MailManager.Model.Tag[] Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String AddressListId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AddonSubscriptionId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MailManager.Model.CreateAddonSubscriptionResponse).
-        /// Specifying the name of a property of type Amazon.MailManager.Model.CreateAddonSubscriptionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MailManager.Model.DeleteAddressListResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AddonSubscriptionId";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AddonName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AddonName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AddressListId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AddressListId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AddonName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AddressListId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AddonName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MMGRAddonSubscription (CreateAddonSubscription)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AddressListId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MMGRAddressList (DeleteAddressList)"))
             {
                 return;
             }
@@ -134,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MailManager.Model.CreateAddonSubscriptionResponse, NewMMGRAddonSubscriptionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MailManager.Model.DeleteAddressListResponse, RemoveMMGRAddressListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,21 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AddonName;
+                context.Select = (response, cmdlet) => this.AddressListId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AddonName = this.AddonName;
+            context.AddressListId = this.AddressListId;
             #if MODULAR
-            if (this.AddonName == null && ParameterWasBound(nameof(this.AddonName)))
+            if (this.AddressListId == null && ParameterWasBound(nameof(this.AddressListId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AddonName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AddressListId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientToken = this.ClientToken;
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.MailManager.Model.Tag>(this.Tag);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MailManager.Model.CreateAddonSubscriptionRequest();
+            var request = new Amazon.MailManager.Model.DeleteAddressListRequest();
             
-            if (cmdletContext.AddonName != null)
+            if (cmdletContext.AddressListId != null)
             {
-                request.AddonName = cmdletContext.AddonName;
-            }
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.AddressListId = cmdletContext.AddressListId;
             }
             
             CmdletOutput output;
@@ -219,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         
         #region AWS Service Operation Call
         
-        private Amazon.MailManager.Model.CreateAddonSubscriptionResponse CallAWSServiceOperation(IAmazonMailManager client, Amazon.MailManager.Model.CreateAddonSubscriptionRequest request)
+        private Amazon.MailManager.Model.DeleteAddressListResponse CallAWSServiceOperation(IAmazonMailManager client, Amazon.MailManager.Model.DeleteAddressListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SES Mail Manager", "CreateAddonSubscription");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SES Mail Manager", "DeleteAddressList");
             try
             {
                 #if DESKTOP
-                return client.CreateAddonSubscription(request);
+                return client.DeleteAddressList(request);
                 #elif CORECLR
-                return client.CreateAddonSubscriptionAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAddressListAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,11 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AddonName { get; set; }
-            public System.String ClientToken { get; set; }
-            public List<Amazon.MailManager.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.MailManager.Model.CreateAddonSubscriptionResponse, NewMMGRAddonSubscriptionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AddonSubscriptionId;
+            public System.String AddressListId { get; set; }
+            public System.Func<Amazon.MailManager.Model.DeleteAddressListResponse, RemoveMMGRAddressListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

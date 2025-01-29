@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.971.0",
+    "ProductVersion"    : "3.7.972.0",
     "CoreVersion"       : "3.7.401.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.412.5",
+            "Version" : "3.7.413.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -492,7 +492,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.406.15",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -1868,7 +1868,7 @@
             "InPreview"               : false
         },
         "ECRPublic"                       : {
-            "Version" : "3.7.402.15",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -3004,7 +3004,7 @@
             "InPreview"               : false
         },
         "MailManager"                         : {
-            "Version" : "3.7.403.28",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"
@@ -3156,7 +3156,7 @@
             "InPreview"               : false
         },
         "BCMPricingCalculator"                : {
-            "Version" : "3.7.402.15",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.5"

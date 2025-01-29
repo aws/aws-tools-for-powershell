@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
     /// Create Compute Savings Plans, EC2 Instance Savings Plans, or EC2 Reserved Instances
-    /// commitments that you want to model in a Bill Scenario.
+    /// commitments that you want to model in a Bill Scenario. 
+    /// 
+    ///  <note><para>
+    /// The <c>BatchCreateBillScenarioCommitmentModification</c> operation doesn't have its
+    /// own IAM permission. To authorize this operation for Amazon Web Services principals,
+    /// include the permission <c>bcm-pricing-calculator:CreateBillScenarioCommitmentModification</c>
+    /// in your policies.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "BCMPCCreateBillScenarioCommitmentModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioCommitmentModificationResponse")]

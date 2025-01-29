@@ -19221,6 +19221,10 @@ Set-Alias -Name Create-MMGRAddonInstance -Value New-MMGRAddonInstance
 Set-Alias -Name MMGR-CreateAddonInstance -Value New-MMGRAddonInstance
 Set-Alias -Name Create-MMGRAddonSubscription -Value New-MMGRAddonSubscription
 Set-Alias -Name MMGR-CreateAddonSubscription -Value New-MMGRAddonSubscription
+Set-Alias -Name Create-MMGRAddressList -Value New-MMGRAddressList
+Set-Alias -Name MMGR-CreateAddressList -Value New-MMGRAddressList
+Set-Alias -Name Create-MMGRAddressListImportJob -Value New-MMGRAddressListImportJob
+Set-Alias -Name MMGR-CreateAddressListImportJob -Value New-MMGRAddressListImportJob
 Set-Alias -Name Create-MMGRArchive -Value New-MMGRArchive
 Set-Alias -Name MMGR-CreateArchive -Value New-MMGRArchive
 Set-Alias -Name Create-MMGRIngressPoint -Value New-MMGRIngressPoint
@@ -19235,6 +19239,8 @@ Set-Alias -Name Delete-MMGRAddonInstance -Value Remove-MMGRAddonInstance
 Set-Alias -Name MMGR-DeleteAddonInstance -Value Remove-MMGRAddonInstance
 Set-Alias -Name Delete-MMGRAddonSubscription -Value Remove-MMGRAddonSubscription
 Set-Alias -Name MMGR-DeleteAddonSubscription -Value Remove-MMGRAddonSubscription
+Set-Alias -Name Delete-MMGRAddressList -Value Remove-MMGRAddressList
+Set-Alias -Name MMGR-DeleteAddressList -Value Remove-MMGRAddressList
 Set-Alias -Name Delete-MMGRArchive -Value Remove-MMGRArchive
 Set-Alias -Name MMGR-DeleteArchive -Value Remove-MMGRArchive
 Set-Alias -Name Delete-MMGRIngressPoint -Value Remove-MMGRIngressPoint
@@ -19245,8 +19251,12 @@ Set-Alias -Name Delete-MMGRRuleSet -Value Remove-MMGRRuleSet
 Set-Alias -Name MMGR-DeleteRuleSet -Value Remove-MMGRRuleSet
 Set-Alias -Name Delete-MMGRTrafficPolicy -Value Remove-MMGRTrafficPolicy
 Set-Alias -Name MMGR-DeleteTrafficPolicy -Value Remove-MMGRTrafficPolicy
+Set-Alias -Name Deregister-MMGRMemberFromAddressList -Value Remove-MMGRMemberFromAddressList
+Set-Alias -Name MMGR-DeregisterMemberFromAddressList -Value Remove-MMGRMemberFromAddressList
 Set-Alias -Name MMGR-GetAddonInstance -Value Get-MMGRAddonInstance
 Set-Alias -Name MMGR-GetAddonSubscription -Value Get-MMGRAddonSubscription
+Set-Alias -Name MMGR-GetAddressList -Value Get-MMGRAddressList
+Set-Alias -Name MMGR-GetAddressListImportJob -Value Get-MMGRAddressListImportJob
 Set-Alias -Name MMGR-GetArchive -Value Get-MMGRArchive
 Set-Alias -Name MMGR-GetArchiveExport -Value Get-MMGRArchiveExport
 Set-Alias -Name MMGR-GetArchiveMessage -Value Get-MMGRArchiveMessage
@@ -19255,6 +19265,7 @@ Set-Alias -Name MMGR-GetArchiveSearch -Value Get-MMGRArchiveSearch
 Set-Alias -Name Get-MMGRArchiveSearchResults -Value Get-MMGRArchiveSearchResult
 Set-Alias -Name MMGR-GetArchiveSearchResults -Value Get-MMGRArchiveSearchResult
 Set-Alias -Name MMGR-GetIngressPoint -Value Get-MMGRIngressPoint
+Set-Alias -Name MMGR-GetMemberOfAddressList -Value Get-MMGRMemberOfAddressList
 Set-Alias -Name MMGR-GetRelay -Value Get-MMGRRelay
 Set-Alias -Name MMGR-GetRuleSet -Value Get-MMGRRuleSet
 Set-Alias -Name MMGR-GetTrafficPolicy -Value Get-MMGRTrafficPolicy
@@ -19264,6 +19275,12 @@ Set-Alias -Name MMGR-ListAddonInstances -Value Get-MMGRAddonInstanceList
 Set-Alias -Name List-MMGRAddonSubscriptions -Value Get-MMGRAddonSubscriptionList
 Set-Alias -Name List-MMGRAddonSubscriptionList -Value Get-MMGRAddonSubscriptionList
 Set-Alias -Name MMGR-ListAddonSubscriptions -Value Get-MMGRAddonSubscriptionList
+Set-Alias -Name List-MMGRAddressListImportJobs -Value Get-MMGRAddressListImportJobList
+Set-Alias -Name List-MMGRAddressListImportJobList -Value Get-MMGRAddressListImportJobList
+Set-Alias -Name MMGR-ListAddressListImportJobs -Value Get-MMGRAddressListImportJobList
+Set-Alias -Name List-MMGRAddressLists -Value Get-MMGRAddressListList
+Set-Alias -Name List-MMGRAddressListList -Value Get-MMGRAddressListList
+Set-Alias -Name MMGR-ListAddressLists -Value Get-MMGRAddressListList
 Set-Alias -Name List-MMGRArchiveExports -Value Get-MMGRArchiveExportList
 Set-Alias -Name List-MMGRArchiveExportList -Value Get-MMGRArchiveExportList
 Set-Alias -Name MMGR-ListArchiveExports -Value Get-MMGRArchiveExportList
@@ -19276,6 +19293,9 @@ Set-Alias -Name MMGR-ListArchiveSearches -Value Get-MMGRArchiveSearchList
 Set-Alias -Name List-MMGRIngressPoints -Value Get-MMGRIngressPointList
 Set-Alias -Name List-MMGRIngressPointList -Value Get-MMGRIngressPointList
 Set-Alias -Name MMGR-ListIngressPoints -Value Get-MMGRIngressPointList
+Set-Alias -Name List-MMGRMembersOfAddressList -Value Get-MMGRMembersOfAddressListList
+Set-Alias -Name List-MMGRMembersOfAddressListList -Value Get-MMGRMembersOfAddressListList
+Set-Alias -Name MMGR-ListMembersOfAddressList -Value Get-MMGRMembersOfAddressListList
 Set-Alias -Name List-MMGRRelays -Value Get-MMGRRelayList
 Set-Alias -Name List-MMGRRelayList -Value Get-MMGRRelayList
 Set-Alias -Name MMGR-ListRelays -Value Get-MMGRRelayList
@@ -19286,8 +19306,12 @@ Set-Alias -Name MMGR-ListTagsForResource -Value Get-MMGRResourceTag
 Set-Alias -Name List-MMGRTrafficPolicies -Value Get-MMGRTrafficPolicyList
 Set-Alias -Name List-MMGRTrafficPolicyList -Value Get-MMGRTrafficPolicyList
 Set-Alias -Name MMGR-ListTrafficPolicies -Value Get-MMGRTrafficPolicyList
+Set-Alias -Name Register-MMGRMemberToAddressList -Value Add-MMGRMemberToAddressList
+Set-Alias -Name MMGR-RegisterMemberToAddressList -Value Add-MMGRMemberToAddressList
+Set-Alias -Name MMGR-StartAddressListImportJob -Value Start-MMGRAddressListImportJob
 Set-Alias -Name MMGR-StartArchiveExport -Value Start-MMGRArchiveExport
 Set-Alias -Name MMGR-StartArchiveSearch -Value Start-MMGRArchiveSearch
+Set-Alias -Name MMGR-StopAddressListImportJob -Value Stop-MMGRAddressListImportJob
 Set-Alias -Name MMGR-StopArchiveExport -Value Stop-MMGRArchiveExport
 Set-Alias -Name MMGR-StopArchiveSearch -Value Stop-MMGRArchiveSearch
 Set-Alias -Name MMGR-TagResource -Value Add-MMGRResourceTag

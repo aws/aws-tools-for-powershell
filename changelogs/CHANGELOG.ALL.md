@@ -1,4 +1,21 @@
-﻿### 4.1.745 (2025-01-28 21:33Z)
+﻿### 4.1.746 (2025-01-29 22:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.972.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SES Mail Manager
+    * Added cmdlet Add-MMGRMemberToAddressList leveraging the RegisterMemberToAddressList service API.
+    * Added cmdlet Get-MMGRAddressList leveraging the GetAddressList service API.
+    * Added cmdlet Get-MMGRAddressListImportJob leveraging the GetAddressListImportJob service API.
+    * Added cmdlet Get-MMGRAddressListImportJobList leveraging the ListAddressListImportJobs service API.
+    * Added cmdlet Get-MMGRAddressListList leveraging the ListAddressLists service API.
+    * Added cmdlet Get-MMGRMemberOfAddressList leveraging the GetMemberOfAddressList service API.
+    * Added cmdlet Get-MMGRMembersOfAddressListList leveraging the ListMembersOfAddressList service API.
+    * Added cmdlet New-MMGRAddressList leveraging the CreateAddressList service API.
+    * Added cmdlet New-MMGRAddressListImportJob leveraging the CreateAddressListImportJob service API.
+    * Added cmdlet Remove-MMGRAddressList leveraging the DeleteAddressList service API.
+    * Added cmdlet Remove-MMGRMemberFromAddressList leveraging the DeregisterMemberFromAddressList service API.
+    * Added cmdlet Start-MMGRAddressListImportJob leveraging the StartAddressListImportJob service API.
+    * Added cmdlet Stop-MMGRAddressListImportJob leveraging the StopAddressListImportJob service API.
+
+### 4.1.745 (2025-01-28 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.971.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Added cmdlet Get-ADCLimit leveraging the GetLimit service API.

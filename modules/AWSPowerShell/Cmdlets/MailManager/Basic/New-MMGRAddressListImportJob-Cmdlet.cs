@@ -22,37 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.BCMPricingCalculator;
-using Amazon.BCMPricingCalculator.Model;
+using Amazon.MailManager;
+using Amazon.MailManager.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BCMPC
+namespace Amazon.PowerShell.Cmdlets.MMGR
 {
     /// <summary>
-    /// Create Amazon Web Services service usage that you want to model in a Bill Scenario.
-    /// 
-    /// 
-    ///  <note><para>
-    /// The <c>BatchCreateBillScenarioUsageModification</c> operation doesn't have its own
-    /// IAM permission. To authorize this operation for Amazon Web Services principals, include
-    /// the permission <c>bcm-pricing-calculator:CreateBillScenarioUsageModification</c> in
-    /// your policies.
-    /// </para></note>
+    /// Creates an import job for an address list.
     /// </summary>
-    [Cmdlet("New", "BCMPCCreateBillScenarioUsageModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse")]
-    [AWSCmdlet("Calls the AWS Pricing Calculator BatchCreateBillScenarioUsageModification API operation.", Operation = new[] {"BatchCreateBillScenarioUsageModification"}, SelectReturnType = typeof(Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse))]
-    [AWSCmdletOutput("Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse",
-        "This cmdlet returns an Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse object containing multiple properties."
+    [Cmdlet("New", "MMGRAddressListImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MailManager.Model.CreateAddressListImportJobResponse")]
+    [AWSCmdlet("Calls the Amazon SES Mail Manager CreateAddressListImportJob API operation.", Operation = new[] {"CreateAddressListImportJob"}, SelectReturnType = typeof(Amazon.MailManager.Model.CreateAddressListImportJobResponse))]
+    [AWSCmdletOutput("Amazon.MailManager.Model.CreateAddressListImportJobResponse",
+        "This cmdlet returns an Amazon.MailManager.Model.CreateAddressListImportJobResponse object containing multiple properties."
     )]
-    public partial class NewBCMPCCreateBillScenarioUsageModificationCmdlet : AmazonBCMPricingCalculatorClientCmdlet, IExecutor
+    public partial class NewMMGRAddressListImportJobCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BillScenarioId
+        #region Parameter AddressListId
         /// <summary>
         /// <para>
-        /// <para> The ID of the Bill Scenario for which you want to create the modeled usage. </para>
+        /// <para>The unique identifier of the address list for importing addresses to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,32 +57,47 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BillScenarioId { get; set; }
+        public System.String AddressListId { get; set; }
         #endregion
         
-        #region Parameter UsageModification
+        #region Parameter ImportDataFormat_ImportDataType
         /// <summary>
         /// <para>
-        /// <para> List of usage that you want to model in the Bill Scenario. </para>
+        /// <para>The type of file that would be passed as an input for the address list import job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("UsageModifications")]
-        public Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationEntry[] UsageModification { get; set; }
+        [AWSConstantClassSource("Amazon.MailManager.ImportDataType")]
+        public Amazon.MailManager.ImportDataType ImportDataFormat_ImportDataType { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>A user-friendly name for the import job.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. </para>
+        /// <para>A unique token that Amazon SES uses to recognize subsequent retries of the same request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse).
-        /// Specifying the name of a property of type Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MailManager.Model.CreateAddressListImportJobResponse).
+        /// Specifying the name of a property of type Amazon.MailManager.Model.CreateAddressListImportJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BillScenarioId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BillScenarioId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AddressListId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AddressListId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BillScenarioId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AddressListId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -131,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BillScenarioId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BCMPCCreateBillScenarioUsageModification (BatchCreateBillScenarioUsageModification)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AddressListId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MMGRAddressListImportJob (CreateAddressListImportJob)"))
             {
                 return;
             }
@@ -145,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse, NewBCMPCCreateBillScenarioUsageModificationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MailManager.Model.CreateAddressListImportJobResponse, NewMMGRAddressListImportJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -154,25 +163,29 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BillScenarioId;
+                context.Select = (response, cmdlet) => this.AddressListId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BillScenarioId = this.BillScenarioId;
+            context.AddressListId = this.AddressListId;
             #if MODULAR
-            if (this.BillScenarioId == null && ParameterWasBound(nameof(this.BillScenarioId)))
+            if (this.AddressListId == null && ParameterWasBound(nameof(this.AddressListId)))
             {
-                WriteWarning("You are passing $null as a value for parameter BillScenarioId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AddressListId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.ClientToken = this.ClientToken;
-            if (this.UsageModification != null)
-            {
-                context.UsageModification = new List<Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationEntry>(this.UsageModification);
-            }
+            context.ImportDataFormat_ImportDataType = this.ImportDataFormat_ImportDataType;
             #if MODULAR
-            if (this.UsageModification == null && ParameterWasBound(nameof(this.UsageModification)))
+            if (this.ImportDataFormat_ImportDataType == null && ParameterWasBound(nameof(this.ImportDataFormat_ImportDataType)))
             {
-                WriteWarning("You are passing $null as a value for parameter UsageModification which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportDataFormat_ImportDataType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -189,19 +202,38 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationRequest();
+            var request = new Amazon.MailManager.Model.CreateAddressListImportJobRequest();
             
-            if (cmdletContext.BillScenarioId != null)
+            if (cmdletContext.AddressListId != null)
             {
-                request.BillScenarioId = cmdletContext.BillScenarioId;
+                request.AddressListId = cmdletContext.AddressListId;
             }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.UsageModification != null)
+            
+             // populate ImportDataFormat
+            var requestImportDataFormatIsNull = true;
+            request.ImportDataFormat = new Amazon.MailManager.Model.ImportDataFormat();
+            Amazon.MailManager.ImportDataType requestImportDataFormat_importDataFormat_ImportDataType = null;
+            if (cmdletContext.ImportDataFormat_ImportDataType != null)
             {
-                request.UsageModifications = cmdletContext.UsageModification;
+                requestImportDataFormat_importDataFormat_ImportDataType = cmdletContext.ImportDataFormat_ImportDataType;
+            }
+            if (requestImportDataFormat_importDataFormat_ImportDataType != null)
+            {
+                request.ImportDataFormat.ImportDataType = requestImportDataFormat_importDataFormat_ImportDataType;
+                requestImportDataFormatIsNull = false;
+            }
+             // determine if request.ImportDataFormat should be set to null
+            if (requestImportDataFormatIsNull)
+            {
+                request.ImportDataFormat = null;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -236,15 +268,15 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         #region AWS Service Operation Call
         
-        private Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse CallAWSServiceOperation(IAmazonBCMPricingCalculator client, Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationRequest request)
+        private Amazon.MailManager.Model.CreateAddressListImportJobResponse CallAWSServiceOperation(IAmazonMailManager client, Amazon.MailManager.Model.CreateAddressListImportJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Pricing Calculator", "BatchCreateBillScenarioUsageModification");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SES Mail Manager", "CreateAddressListImportJob");
             try
             {
                 #if DESKTOP
-                return client.BatchCreateBillScenarioUsageModification(request);
+                return client.CreateAddressListImportJob(request);
                 #elif CORECLR
-                return client.BatchCreateBillScenarioUsageModificationAsync(request).GetAwaiter().GetResult();
+                return client.CreateAddressListImportJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -264,10 +296,11 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BillScenarioId { get; set; }
+            public System.String AddressListId { get; set; }
             public System.String ClientToken { get; set; }
-            public List<Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationEntry> UsageModification { get; set; }
-            public System.Func<Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse, NewBCMPCCreateBillScenarioUsageModificationCmdlet, object> Select { get; set; } =
+            public Amazon.MailManager.ImportDataType ImportDataFormat_ImportDataType { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.MailManager.Model.CreateAddressListImportJobResponse, NewMMGRAddressListImportJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

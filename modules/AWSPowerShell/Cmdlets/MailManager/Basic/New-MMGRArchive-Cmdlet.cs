@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     public partial class NewMMGRArchiveCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ArchiveName
