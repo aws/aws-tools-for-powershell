@@ -23684,6 +23684,8 @@ Set-Alias -Name QBUS-BatchDeleteDocument -Value Remove-QBUSBatchDeleteDocument
 Set-Alias -Name Batch-QBUSPutDocument -Value Set-QBUSBatchPutDocument
 Set-Alias -Name Batch-QBUSBatchPutDocument -Value Set-QBUSBatchPutDocument
 Set-Alias -Name QBUS-BatchPutDocument -Value Set-QBUSBatchPutDocument
+Set-Alias -Name Cancel-QBUSSubscription -Value Stop-QBUSSubscription
+Set-Alias -Name QBUS-CancelSubscription -Value Stop-QBUSSubscription
 Set-Alias -Name Chat-QBUSSync -Value Set-QBUSChatSync
 Set-Alias -Name Chat-QBUSChatSync -Value Set-QBUSChatSync
 Set-Alias -Name QBUS-ChatSync -Value Set-QBUSChatSync
@@ -23699,6 +23701,8 @@ Set-Alias -Name Create-QBUSPlugin -Value New-QBUSPlugin
 Set-Alias -Name QBUS-CreatePlugin -Value New-QBUSPlugin
 Set-Alias -Name Create-QBUSRetriever -Value New-QBUSRetriever
 Set-Alias -Name QBUS-CreateRetriever -Value New-QBUSRetriever
+Set-Alias -Name Create-QBUSSubscription -Value New-QBUSSubscription
+Set-Alias -Name QBUS-CreateSubscription -Value New-QBUSSubscription
 Set-Alias -Name Create-QBUSUser -Value New-QBUSUser
 Set-Alias -Name QBUS-CreateUser -Value New-QBUSUser
 Set-Alias -Name Create-QBUSWebExperience -Value New-QBUSWebExperience
@@ -23784,6 +23788,9 @@ Set-Alias -Name QBUS-ListPluginTypeMetadata -Value Get-QBUSPluginTypeMetadataLis
 Set-Alias -Name List-QBUSRetrievers -Value Get-QBUSRetrieverList
 Set-Alias -Name List-QBUSRetrieverList -Value Get-QBUSRetrieverList
 Set-Alias -Name QBUS-ListRetrievers -Value Get-QBUSRetrieverList
+Set-Alias -Name List-QBUSSubscriptions -Value Get-QBUSSubscriptionList
+Set-Alias -Name List-QBUSSubscriptionList -Value Get-QBUSSubscriptionList
+Set-Alias -Name QBUS-ListSubscriptions -Value Get-QBUSSubscriptionList
 Set-Alias -Name QBUS-ListTagsForResource -Value Get-QBUSResourceTag
 Set-Alias -Name List-QBUSWebExperiences -Value Get-QBUSWebExperienceList
 Set-Alias -Name List-QBUSWebExperienceList -Value Get-QBUSWebExperienceList
@@ -23804,6 +23811,7 @@ Set-Alias -Name QBUS-UpdateDataSource -Value Update-QBUSDataSource
 Set-Alias -Name QBUS-UpdateIndex -Value Update-QBUSIndex
 Set-Alias -Name QBUS-UpdatePlugin -Value Update-QBUSPlugin
 Set-Alias -Name QBUS-UpdateRetriever -Value Update-QBUSRetriever
+Set-Alias -Name QBUS-UpdateSubscription -Value Update-QBUSSubscription
 Set-Alias -Name QBUS-UpdateUser -Value Update-QBUSUser
 Set-Alias -Name QBUS-UpdateWebExperience -Value Update-QBUSWebExperience
 Set-Alias -Name Activate-QCMessageTemplate -Value Enable-QCMessageTemplate

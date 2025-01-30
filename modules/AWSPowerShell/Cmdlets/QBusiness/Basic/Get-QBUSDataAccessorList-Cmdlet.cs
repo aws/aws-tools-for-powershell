@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,9 +28,9 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists the data accessors for a Q Business application. This operation returns a paginated
-    /// list of data accessor summaries, including the friendly name, unique identifier, ARN,
-    /// associated IAM role, and creation/update timestamps for each data accessor.
+    /// Lists the data accessors for a Amazon Q Business application. This operation returns
+    /// a paginated list of data accessor summaries, including the friendly name, unique identifier,
+    /// ARN, associated IAM role, and creation/update timestamps for each data accessor.
     /// </summary>
     [Cmdlet("Get", "QBUSDataAccessorList")]
     [OutputType("Amazon.QBusiness.Model.DataAccessor")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application.</para>
+        /// <para>The unique identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

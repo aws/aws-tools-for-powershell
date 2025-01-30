@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -37,6 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// include their own list of users or people who work in these teams. Only users who
     /// work in research and engineering, and therefore belong in the intellectual property
     /// group, can see top-secret company documents in their Amazon Q Business chat results.
+    /// </para><para>
+    /// There are two options for creating groups, either passing group members inline or
+    /// using an S3 file via the S3PathForGroupMembers field. For inline groups, there is
+    /// a limit of 1000 members per group and for provided S3 files there is a limit of 100
+    /// thousand members. When creating a group using an S3 file, you provide both an S3 file
+    /// and a <c>RoleArn</c> for Amazon Q Buisness to access the file.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "QBUSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -169,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has access to the S3 file that
-        /// contains your list of users that belong to a group.The Amazon Resource Name (ARN)
-        /// of an IAM role that has access to the S3 file that contains your list of users that
-        /// belong to a group.</para>
+        /// contains your list of users that belong to a group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

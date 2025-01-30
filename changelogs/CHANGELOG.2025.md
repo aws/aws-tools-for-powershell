@@ -1,4 +1,21 @@
-﻿### 4.1.746 (2025-01-29 22:24Z)
+﻿### 4.1.747 (2025-01-30 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.973.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter AdConditioningConfiguration_StreamingMediaFileConditioning.
+  * Amazon QBusiness
+    * Added cmdlet Get-QBUSSubscriptionList leveraging the ListSubscriptions service API.
+    * Added cmdlet New-QBUSSubscription leveraging the CreateSubscription service API.
+    * Added cmdlet Stop-QBUSSubscription leveraging the CancelSubscription service API.
+    * Added cmdlet Update-QBUSSubscription leveraging the UpdateSubscription service API.
+  * Amazon S3 Tables
+    * Modified cmdlet New-S3TTable: added parameter Schema_Field.
+  * Amazon Verified Permissions
+    * Modified cmdlet Get-AVPBatchIsAuthorizedWithToken: added parameter Entities_CedarJson.
+    * Modified cmdlet Test-AVPAuthorization: added parameters Context_CedarJson and Entities_CedarJson.
+    * Modified cmdlet Test-AVPBatchAuthorization: added parameter Entities_CedarJson.
+    * Modified cmdlet Test-AVPTokenAuthorization: added parameters Context_CedarJson and Entities_CedarJson.
+
+### 4.1.746 (2025-01-29 22:24Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.972.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SES Mail Manager
     * Added cmdlet Add-MMGRMemberToAddressList leveraging the RegisterMemberToAddressList service API.

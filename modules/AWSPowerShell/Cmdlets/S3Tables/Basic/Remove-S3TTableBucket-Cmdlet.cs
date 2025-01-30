@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,13 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Deletes a table bucket.
+    /// Deletes a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-delete.html">Deleting
+    /// a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:DeleteTableBucket</c> permission to use this operation.
+    /// 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Remove", "S3TTableBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

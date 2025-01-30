@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,13 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Lists the namespaces within a table bucket.
+    /// Lists the namespaces within a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-namespace.html">Table
+    /// namespaces</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:ListNamespaces</c> permission to use this operation.
+    /// 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3TNamespaceList")]
     [OutputType("Amazon.S3Tables.Model.ListNamespacesResponse")]

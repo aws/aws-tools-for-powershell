@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,15 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Updates the metadata location for a table.
+    /// Updates the metadata location for a table. The metadata location of a table must be
+    /// an S3 URI that begins with the table's warehouse location. The metadata location for
+    /// an Apache Iceberg table must end with <c>.metadata.json</c>, or if the metadata file
+    /// is Gzip-compressed, <c>.metadata.json.gz</c>.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:UpdateTableMetadataLocation</c> permission to use this
+    /// operation. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Update", "S3TTableMetadataLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Tables.Model.UpdateTableMetadataLocationResponse")]

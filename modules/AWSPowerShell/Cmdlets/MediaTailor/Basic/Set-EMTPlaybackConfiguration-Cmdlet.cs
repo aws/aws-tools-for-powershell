@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The player parameters and aliases used as dynamic variables during session initialization.
-        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domain.html">Domain
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables-domains.html">Domain
         /// Variables</a>.</para>
         /// </para>
         /// </summary>
@@ -241,6 +241,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String Bumper_StartUrl { get; set; }
         #endregion
         
+        #region Parameter AdConditioningConfiguration_StreamingMediaFileConditioning
+        /// <summary>
+        /// <para>
+        /// <para>For ads that have media files with streaming delivery, indicates what transcoding
+        /// action MediaTailor it first receives these ads from the ADS. <c>TRANSCODE</c> indicates
+        /// that MediaTailor must transcode the ads. <c>NONE</c> indicates that you have already
+        /// transcoded the ads outside of MediaTailor and don't need them transcoded as part of
+        /// the ad insertion workflow. For more information about ad conditioning see <a href="https://docs.aws.amazon.com/precondition-ads.html">https://docs.aws.amazon.com/precondition-ads.html</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.StreamingMediaFileConditioning")]
+        public Amazon.MediaTailor.StreamingMediaFileConditioning AdConditioningConfiguration_StreamingMediaFileConditioning { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -356,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AdConditioningConfiguration_StreamingMediaFileConditioning = this.AdConditioningConfiguration_StreamingMediaFileConditioning;
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
             context.AvailSuppression_FillPolicy = this.AvailSuppression_FillPolicy;
             context.AvailSuppression_Mode = this.AvailSuppression_Mode;
@@ -411,6 +427,25 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             // create request
             var request = new Amazon.MediaTailor.Model.PutPlaybackConfigurationRequest();
             
+            
+             // populate AdConditioningConfiguration
+            var requestAdConditioningConfigurationIsNull = true;
+            request.AdConditioningConfiguration = new Amazon.MediaTailor.Model.AdConditioningConfiguration();
+            Amazon.MediaTailor.StreamingMediaFileConditioning requestAdConditioningConfiguration_adConditioningConfiguration_StreamingMediaFileConditioning = null;
+            if (cmdletContext.AdConditioningConfiguration_StreamingMediaFileConditioning != null)
+            {
+                requestAdConditioningConfiguration_adConditioningConfiguration_StreamingMediaFileConditioning = cmdletContext.AdConditioningConfiguration_StreamingMediaFileConditioning;
+            }
+            if (requestAdConditioningConfiguration_adConditioningConfiguration_StreamingMediaFileConditioning != null)
+            {
+                request.AdConditioningConfiguration.StreamingMediaFileConditioning = requestAdConditioningConfiguration_adConditioningConfiguration_StreamingMediaFileConditioning;
+                requestAdConditioningConfigurationIsNull = false;
+            }
+             // determine if request.AdConditioningConfiguration should be set to null
+            if (requestAdConditioningConfigurationIsNull)
+            {
+                request.AdConditioningConfiguration = null;
+            }
             if (cmdletContext.AdDecisionServerUrl != null)
             {
                 request.AdDecisionServerUrl = cmdletContext.AdDecisionServerUrl;
@@ -647,6 +682,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MediaTailor.StreamingMediaFileConditioning AdConditioningConfiguration_StreamingMediaFileConditioning { get; set; }
             public System.String AdDecisionServerUrl { get; set; }
             public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
             public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }

@@ -33,6 +33,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelSubscription" OutputProperty="*" Verb="Stop" Noun="Subscription" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ChatSync" OutputProperty="*" Verb="Set" Noun="ChatSync" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRetriever" OutputProperty="*" Verb="New" Noun="Retriever" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscription" OutputProperty="*" Verb="New" Noun="Subscription" ShouldProcessTarget="ApplicationId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -238,6 +246,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="SubscriptionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -312,6 +324,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRetriever" Verb="Update" Noun="Retriever" ShouldProcessTarget="RetrieverId" PipelineParameter="RetrieverId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscription" OutputProperty="*" Verb="Update" Noun="Subscription" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

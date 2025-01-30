@@ -125,6 +125,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.StreamingMediaFileConditioning
+        "Set-EMTPlaybackConfiguration/AdConditioningConfiguration_StreamingMediaFileConditioning"
+        {
+            $v = "NONE","TRANSCODE"
+            break
+        }
+
         # Amazon.MediaTailor.Tier
         "New-EMTChannel/Tier"
         {
@@ -142,6 +149,7 @@ $EMT_Completers = {
 
 $EMT_map = @{
     "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
+    "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")

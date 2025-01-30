@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Amazon CloudWatch log settings for a playback configuration.
+    /// Defines where AWS Elemental MediaTailor sends logs for the playback configuration.
     /// </summary>
     [Cmdlet("Add", "EMTLogsForPlaybackConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PercentEnabled
         /// <summary>
         /// <para>
-        /// <para>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.
+        /// <para>The percentage of session logs that MediaTailor sends to your CloudWatch Logs account.
         /// For example, if your playback configuration has 1000 sessions and percentEnabled is
         /// set to <c>60</c>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs.
         /// MediaTailor decides at random which of the playback configuration sessions to send

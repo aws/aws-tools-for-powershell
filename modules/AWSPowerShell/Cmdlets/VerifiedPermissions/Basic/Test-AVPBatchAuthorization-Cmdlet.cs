@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -68,12 +68,24 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Entities_CedarJson
+        /// <summary>
+        /// <para>
+        /// <para>A Cedar JSON string representation of the entities needed to successfully evaluate
+        /// an authorization request.</para><para>Example: <c>{"cedarJson": "[{\"uid\":{\"type\":\"Photo\",\"id\":\"VacationPhoto94.jpg\"},\"attrs\":{\"accessLevel\":\"public\"},\"parents\":[]}]"}</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Entities_CedarJson { get; set; }
+        #endregion
+        
         #region Parameter Entities_EntityList
         /// <summary>
         /// <para>
         /// <para>An array of entities that are needed to successfully evaluate an authorization request.
         /// Each entity in this array must include an identifier for the entity, the attributes
-        /// of the entity, and a list of any parent entities.</para>
+        /// of the entity, and a list of any parent entities.</para><note><para>If you include multiple entities with the same <c>identifier</c>, only the last one
+        /// is processed in the request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 context.Select = (response, cmdlet) => this.PolicyStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Entities_CedarJson = this.Entities_CedarJson;
             if (this.Entities_EntityList != null)
             {
                 context.Entities_EntityList = new List<Amazon.VerifiedPermissions.Model.EntityItem>(this.Entities_EntityList);
@@ -203,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
              // populate Entities
             var requestEntitiesIsNull = true;
             request.Entities = new Amazon.VerifiedPermissions.Model.EntitiesDefinition();
+            System.String requestEntities_entities_CedarJson = null;
+            if (cmdletContext.Entities_CedarJson != null)
+            {
+                requestEntities_entities_CedarJson = cmdletContext.Entities_CedarJson;
+            }
+            if (requestEntities_entities_CedarJson != null)
+            {
+                request.Entities.CedarJson = requestEntities_entities_CedarJson;
+                requestEntitiesIsNull = false;
+            }
             List<Amazon.VerifiedPermissions.Model.EntityItem> requestEntities_entities_EntityList = null;
             if (cmdletContext.Entities_EntityList != null)
             {
@@ -287,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Entities_CedarJson { get; set; }
             public List<Amazon.VerifiedPermissions.Model.EntityItem> Entities_EntityList { get; set; }
             public System.String PolicyStoreId { get; set; }
             public List<Amazon.VerifiedPermissions.Model.BatchIsAuthorizedInputItem> Request { get; set; }
