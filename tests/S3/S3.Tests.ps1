@@ -74,6 +74,7 @@ Describe -Tag "Smoke" "S3" {
             $script:bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
             New-S3Bucket -BucketName $script:bucketName
             
+            $key = "versionTest"
             $void = New-Item -Path temp\bar -Type directory -Force
             $void = New-Item -Path temp\bar\baz -Type directory -Force
             
@@ -85,6 +86,13 @@ Describe -Tag "Smoke" "S3" {
             Write-S3Object -BucketName $script:bucketName -KeyPrefix bar2\ -Folder .\temp\bar -Recurse
             Write-S3Object -BucketName $script:bucketName -Key bar2\foo.txt -Content "foo"
             Write-S3Object -BucketName $script:bucketName -Key basic.txt -File "temp\basic.txt"
+
+            Write-S3BucketVersioning -BucketName $script:bucketName -VersioningConfig_Status Enabled
+
+            Write-S3Object -BucketName $script:bucketName -Key $key -Content "Version 1"
+            Write-S3Object -BucketName $script:bucketName -Key $key -Content "Version 2"
+
+            $s3ObjectVersions = Get-S3Version -BucketName $script:bucketName -Prefix $key
         }
 
         AfterAll {
@@ -128,6 +136,17 @@ Describe -Tag "Smoke" "S3" {
         It "Can read an object into a local file" {
             Read-S3Object -BucketName $script:bucketName -Key "basic.txt" -File "temp\basic2.txt"
             (Get-Content "temp\basic2.txt").Length | Should -BeGreaterThan 0
+        }
+
+        It "Can retrieve a specific version using the VersionId parameter" {
+            $versionId = $s3ObjectVersions.Versions[0].VersionId
+            Read-S3Object -BucketName $script:bucketName -Key $key -VersionId $versionId -File "temp\version-test.txt"
+            (Get-Content "temp\version-test.txt") | Should -Be "Version 2"
+        }
+        It "Can retrieve a specific version using the Version alias" {
+            $versionId = $s3ObjectVersions.Versions[1].VersionId
+            Read-S3Object -BucketName $script:bucketName -Key $key -Version $versionId -File "temp\version-test.txt"
+            (Get-Content "temp\version-test.txt") | Should -Be "Version 1"  
         }
     }
 

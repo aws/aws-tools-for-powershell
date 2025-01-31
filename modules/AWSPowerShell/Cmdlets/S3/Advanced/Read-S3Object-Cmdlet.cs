@@ -133,9 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// If specified, the specific version of the S3 object is returned.
         /// </summary>
+        [Alias("Version")]
         [Parameter(Position = 3, ParameterSetName = ParamSet_ToLocalFile, ValueFromPipelineByPropertyName = true)]
-        public System.String Version { get; set; }
+        public System.String VersionId { get; set; }
         #endregion
+
 
         #endregion
 
@@ -282,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         context.Key = AmazonS3Helper.CleanKey(this.Key);
                         base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
                         context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File);
-                        context.Version = this.Version;
+                        context.VersionId = this.VersionId;
                     }
                     break;
 
@@ -302,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         context.BucketName = this.S3Object.BucketName;
                         context.Key = this.S3Object.Key;
                         var s3ObjectVersion = this.S3Object as S3ObjectVersion;
-                        context.Version = s3ObjectVersion == null ? null : s3ObjectVersion.VersionId;
+                        context.VersionId = s3ObjectVersion == null ? null : s3ObjectVersion.VersionId;
 
                         if (this.ParameterWasBound("File"))
                         {
@@ -359,8 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Key = cmdletContext.Key
             };
 
-            if (!string.IsNullOrEmpty(cmdletContext.Version))
-                request.VersionId = cmdletContext.Version;
+            if (!string.IsNullOrEmpty(cmdletContext.VersionId))
+                request.VersionId = cmdletContext.VersionId;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.ModifiedSinceDate.HasValue)
             {
@@ -449,7 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public String Key { get; set; }
             public String File { get; set; }
-            public string Version { get; set; }
+            public string VersionId { get; set; }
 
             public String OriginalKeyPrefix { get; set; }
             public String KeyPrefix { get; set; }
