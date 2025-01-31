@@ -14007,7 +14007,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBWebhook/BuildType")
         }
         {
-            $v = "BUILD","BUILD_BATCH"
+            $v = "BUILD","BUILD_BATCH","RUNNER_BUILDKITE_BUILD"
             break
         }
 
@@ -33694,6 +33694,13 @@ $GEOR_Completers = {
             break
         }
 
+        # Amazon.GeoRoutes.WaypointOptimizationClusteringAlgorithm
+        "Get-GEOROptimizedWaypoint/Clustering_Algorithm"
+        {
+            $v = "DrivingDistance","TopologySegment"
+            break
+        }
+
         # Amazon.GeoRoutes.WaypointOptimizationSequencingObjective
         "Get-GEOROptimizedWaypoint/OptimizeSequencingFor"
         {
@@ -33732,6 +33739,7 @@ $GEOR_Completers = {
 
 $GEOR_map = @{
     "Car_EngineType"=@("Get-GEORIsoline","Get-GEORRoute")
+    "Clustering_Algorithm"=@("Get-GEOROptimizedWaypoint")
     "DestinationOptions_Matching_Strategy"=@("Get-GEORIsoline","Get-GEORRoute")
     "DestinationOptions_SideOfStreet_UseWith"=@("Get-GEORIsoline","Get-GEORRoute")
     "Driver_TreatServiceTimeAs"=@("Get-GEOROptimizedWaypoint")

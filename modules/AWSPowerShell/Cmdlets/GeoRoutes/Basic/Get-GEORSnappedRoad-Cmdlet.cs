@@ -28,7 +28,7 @@ using Amazon.GeoRoutes.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
-    /// The SnapToRoads action matches GPS trace to roads most likely traveled on.
+    /// <c>SnapToRoads</c> matches GPS trace to roads most likely traveled on.
     /// </summary>
     [Cmdlet("Get", "GEORSnappedRoad")]
     [OutputType("Amazon.GeoRoutes.Model.SnapToRoadsResponse")]

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.973.0",
+    "ProductVersion"    : "3.7.974.0",
     "CoreVersion"       : "3.7.401.6",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.410.23",
+            "Version" : "3.7.410.24",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.6"
@@ -660,7 +660,7 @@
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.408.10",
+            "Version" : "3.7.409.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.6"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.421.5",
+            "Version" : "3.7.422.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.6"
@@ -1940,7 +1940,7 @@
             "InPreview"               : false
         },
         "PrometheusService"               : {
-            "Version" : "3.7.401.42",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.6"
@@ -2868,7 +2868,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "3.7.417.0",
+            "Version" : "3.7.418.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.6"
@@ -3108,7 +3108,7 @@
             "InPreview"               : false
         },
         "GeoRoutes"                           : {
-            "Version" : "3.7.400.43",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.401.6"

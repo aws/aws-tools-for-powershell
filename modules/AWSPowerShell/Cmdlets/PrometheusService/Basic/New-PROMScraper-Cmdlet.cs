@@ -106,6 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public System.String[] EksConfiguration_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter RoleConfiguration_SourceRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>A ARN identifying the source role configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleConfiguration_SourceRoleArn { get; set; }
+        #endregion
+        
         #region Parameter EksConfiguration_SubnetId
         /// <summary>
         /// <para>
@@ -126,6 +136,16 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter RoleConfiguration_TargetRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>A ARN identifying the target role configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleConfiguration_TargetRoleArn { get; set; }
         #endregion
         
         #region Parameter AmpConfiguration_WorkspaceArn
@@ -215,6 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             context.Alias = this.Alias;
             context.ClientToken = this.ClientToken;
             context.AmpConfiguration_WorkspaceArn = this.AmpConfiguration_WorkspaceArn;
+            context.RoleConfiguration_SourceRoleArn = this.RoleConfiguration_SourceRoleArn;
+            context.RoleConfiguration_TargetRoleArn = this.RoleConfiguration_TargetRoleArn;
             context.ScrapeConfiguration_ConfigurationBlob = this.ScrapeConfiguration_ConfigurationBlob;
             context.EksConfiguration_ClusterArn = this.EksConfiguration_ClusterArn;
             if (this.EksConfiguration_SecurityGroupId != null)
@@ -294,6 +316,35 @@ namespace Amazon.PowerShell.Cmdlets.PROM
                 if (requestDestinationIsNull)
                 {
                     request.Destination = null;
+                }
+                
+                 // populate RoleConfiguration
+                var requestRoleConfigurationIsNull = true;
+                request.RoleConfiguration = new Amazon.PrometheusService.Model.RoleConfiguration();
+                System.String requestRoleConfiguration_roleConfiguration_SourceRoleArn = null;
+                if (cmdletContext.RoleConfiguration_SourceRoleArn != null)
+                {
+                    requestRoleConfiguration_roleConfiguration_SourceRoleArn = cmdletContext.RoleConfiguration_SourceRoleArn;
+                }
+                if (requestRoleConfiguration_roleConfiguration_SourceRoleArn != null)
+                {
+                    request.RoleConfiguration.SourceRoleArn = requestRoleConfiguration_roleConfiguration_SourceRoleArn;
+                    requestRoleConfigurationIsNull = false;
+                }
+                System.String requestRoleConfiguration_roleConfiguration_TargetRoleArn = null;
+                if (cmdletContext.RoleConfiguration_TargetRoleArn != null)
+                {
+                    requestRoleConfiguration_roleConfiguration_TargetRoleArn = cmdletContext.RoleConfiguration_TargetRoleArn;
+                }
+                if (requestRoleConfiguration_roleConfiguration_TargetRoleArn != null)
+                {
+                    request.RoleConfiguration.TargetRoleArn = requestRoleConfiguration_roleConfiguration_TargetRoleArn;
+                    requestRoleConfigurationIsNull = false;
+                }
+                 // determine if request.RoleConfiguration should be set to null
+                if (requestRoleConfigurationIsNull)
+                {
+                    request.RoleConfiguration = null;
                 }
                 
                  // populate ScrapeConfiguration
@@ -445,6 +496,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             public System.String Alias { get; set; }
             public System.String ClientToken { get; set; }
             public System.String AmpConfiguration_WorkspaceArn { get; set; }
+            public System.String RoleConfiguration_SourceRoleArn { get; set; }
+            public System.String RoleConfiguration_TargetRoleArn { get; set; }
             public byte[] ScrapeConfiguration_ConfigurationBlob { get; set; }
             public System.String EksConfiguration_ClusterArn { get; set; }
             public List<System.String> EksConfiguration_SecurityGroupId { get; set; }

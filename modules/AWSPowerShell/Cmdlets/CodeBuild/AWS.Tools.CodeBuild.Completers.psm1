@@ -435,7 +435,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBWebhook/BuildType")
         }
         {
-            $v = "BUILD","BUILD_BATCH"
+            $v = "BUILD","BUILD_BATCH","RUNNER_BUILDKITE_BUILD"
             break
         }
 

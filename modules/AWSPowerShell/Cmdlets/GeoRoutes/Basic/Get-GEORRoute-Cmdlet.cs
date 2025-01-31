@@ -28,7 +28,8 @@ using Amazon.GeoRoutes.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
-    /// Calculates a route given the following required parameters: <c>Origin</c> and <c>Destination</c>.
+    /// <c>CalculateRoutes</c> computes routes given the following required parameters: <c>Origin</c>
+    /// and <c>Destination</c>.
     /// </summary>
     [Cmdlet("Get", "GEORRoute")]
     [OutputType("Amazon.GeoRoutes.Model.CalculateRoutesResponse")]
@@ -391,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hot
         /// <summary>
         /// <para>
-        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating the route.</para>
+        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating the route.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hov
         /// <summary>
         /// <para>
-        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</para>
+        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -905,7 +906,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         /// <para>
         /// <para>Type of step returned by the response. Default provides basic steps intended for web
         /// based applications. TurnByTurn provides detailed instructions with more granularity
-        /// intended for a turn based naviagtion system.</para>
+        /// intended for a turn based navigation system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

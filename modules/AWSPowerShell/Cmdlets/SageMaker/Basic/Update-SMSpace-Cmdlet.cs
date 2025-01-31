@@ -375,7 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the image version created on the instance.</para>
+        /// <para>The ARN of the image version created on the instance. To clear the value set for <c>SageMakerImageVersionArn</c>,
+        /// pass <c>None</c> as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,7 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the image version created on the instance.</para>
+        /// <para>The ARN of the image version created on the instance. To clear the value set for <c>SageMakerImageVersionArn</c>,
+        /// pass <c>None</c> as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -397,7 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the image version created on the instance.</para>
+        /// <para>The ARN of the image version created on the instance. To clear the value set for <c>SageMakerImageVersionArn</c>,
+        /// pass <c>None</c> as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,7 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the image version created on the instance.</para>
+        /// <para>The ARN of the image version created on the instance. To clear the value set for <c>SageMakerImageVersionArn</c>,
+        /// pass <c>None</c> as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

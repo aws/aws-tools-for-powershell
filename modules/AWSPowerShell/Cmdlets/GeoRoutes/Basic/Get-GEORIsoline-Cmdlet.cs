@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_CarShuttleTrain
         /// <summary>
         /// <para>
-        /// <para>Avoid car-shuttle-trains while calculating the route.</para>
+        /// <para>Avoid car-shuttle-trains while calculating an isoline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_ControlledAccessHighway
         /// <summary>
         /// <para>
-        /// <para>Avoid controlled access highways while calculating the route.</para>
+        /// <para>Avoid controlled access highways while calculating an isoline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_DirtRoad
         /// <summary>
         /// <para>
-        /// <para>Avoid dirt roads while calculating the route.</para>
+        /// <para>Avoid dirt roads while calculating an isoline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Ferry
         /// <summary>
         /// <para>
-        /// <para>Avoid ferries while calculating the route.</para>
+        /// <para>Avoid ferries while calculating an isoline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hot
         /// <summary>
         /// <para>
-        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating the route.</para>
+        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating an isoline.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hov
         /// <summary>
         /// <para>
-        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</para>
+        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating an isoline.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,7 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter IsolineGranularity_MaxResolution
         /// <summary>
         /// <para>
-        /// <para>Maximum resolution of the returned isoline.</para><para><b>Unit</b>: <c>centimeters</c></para>
+        /// <para>Maximum resolution of the returned isoline.</para><para><b>Unit</b>: <c>meters</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -649,7 +649,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_SeasonalClosure
         /// <summary>
         /// <para>
-        /// <para>Avoid roads that have seasonal closure while calculating the route.</para>
+        /// <para>Avoid roads that have seasonal closure while calculating an isoline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -822,7 +822,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Avoid_Tunnel
         /// <summary>
         /// <para>
-        /// <para>Avoid tunnels while calculating the route.</para>
+        /// <para>Avoid tunnels while calculating an isoline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

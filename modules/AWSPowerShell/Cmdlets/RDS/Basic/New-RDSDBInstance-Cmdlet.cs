@@ -855,7 +855,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageThroughput
         /// <summary>
         /// <para>
-        /// <para>The storage throughput value for the DB instance.</para><para>This setting applies only to the <c>gp3</c> storage type.</para><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para>
+        /// <para>The storage throughput value, in mebibyte per second (MiBps), for the DB instance.</para><para>This setting applies only to the <c>gp3</c> storage type.</para><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
