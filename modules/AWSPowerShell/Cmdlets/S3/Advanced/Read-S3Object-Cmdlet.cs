@@ -135,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// If specified, the specific version of the S3 object is returned.
         /// </summary>
+        [Alias("VersionId")]
         [Parameter(Position = 3, ParameterSetName = ParamSet_ToLocalFile, ValueFromPipelineByPropertyName = true)]
         public System.String Version { get; set; }
         #endregion
