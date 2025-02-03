@@ -41,6 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EnabledLoggingStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor
+        /// to send logs directly to Amazon CloudWatch Logs, choose <c>LEGACY_CLOUDWATCH</c>.
+        /// To configure MediaTailor to send logs to CloudWatch, which then vends the logs to
+        /// your destination of choice, choose <c>VENDED_LOGS</c>. Supported destinations are
+        /// CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream.</para><para>To use vended logs, you must configure the delivery destination in Amazon CloudWatch,
+        /// as described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-vended-logs-permissions-V2">Enable
+        /// logging from AWS services, Logging that requires additional permissions [V2]</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnabledLoggingStrategies")]
+        public System.String[] EnabledLoggingStrategy { get; set; }
+        #endregion
+        
         #region Parameter PercentEnabled
         /// <summary>
         /// <para>
@@ -121,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse, AddEMTLogsForPlaybackConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.EnabledLoggingStrategy != null)
+            {
+                context.EnabledLoggingStrategy = new List<System.String>(this.EnabledLoggingStrategy);
+            }
             context.PercentEnabled = this.PercentEnabled;
             #if MODULAR
             if (this.PercentEnabled == null && ParameterWasBound(nameof(this.PercentEnabled)))
@@ -151,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             // create request
             var request = new Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationRequest();
             
+            if (cmdletContext.EnabledLoggingStrategy != null)
+            {
+                request.EnabledLoggingStrategies = cmdletContext.EnabledLoggingStrategy;
+            }
             if (cmdletContext.PercentEnabled != null)
             {
                 request.PercentEnabled = cmdletContext.PercentEnabled.Value;
@@ -220,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> EnabledLoggingStrategy { get; set; }
             public System.Int32? PercentEnabled { get; set; }
             public System.String PlaybackConfigurationName { get; set; }
             public System.Func<Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse, AddEMTLogsForPlaybackConfigurationCmdlet, object> Select { get; set; } =
