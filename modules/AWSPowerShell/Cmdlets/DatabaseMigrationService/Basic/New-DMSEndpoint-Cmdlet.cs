@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_AuthenticationMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies using Kerberos authentication with Microsoft SQL Server.</para>
+        /// <para>Specifies the authentication method to be used with Microsoft SQL Server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_AuthenticationMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies using Kerberos authentication with Oracle.</para>
+        /// <para>Specifies the authentication method to be used with Oracle.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

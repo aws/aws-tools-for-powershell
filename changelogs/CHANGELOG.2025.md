@@ -1,4 +1,17 @@
-﻿### 4.1.749 (2025-02-03 21:45Z)
+﻿### 4.1.750 (2025-02-04 23:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.976.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSDataMigration: added parameter TargetDataSetting.
+    * Modified cmdlet New-DMSDataMigration: added parameter TargetDataSetting.
+  * Amazon Identity and Access Management
+    * Modified cmdlet New-IAMSAMLProvider: added parameters AddPrivateKey and AssertionEncryptionMode.
+    * Modified cmdlet Update-IAMSAMLProvider: added parameters AddPrivateKey, AssertionEncryptionMode and RemovePrivateKey.
+  * Amazon Neptune Graph
+    * Modified cmdlet Get-NEPTGExportTaskList: added parameters GraphIdentifier and PassThru.
+  * Amazon QBusiness
+    * Modified cmdlet Update-QBUSChatControlsConfiguration: added parameter OrchestrationConfiguration_Control.
+
+### 4.1.749 (2025-02-03 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.975.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaTailor
     * Modified cmdlet Add-EMTLogsForPlaybackConfiguration: added parameter EnabledLoggingStrategy.

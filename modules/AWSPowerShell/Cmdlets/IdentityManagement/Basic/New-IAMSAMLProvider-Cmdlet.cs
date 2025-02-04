@@ -64,7 +64,31 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class NewIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AddPrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>The private key generated from your external identity provider. The private key must
+        /// be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML assertions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AddPrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter AssertionEncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the encryption setting for the SAML provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IdentityManagement.AssertionEncryptionModeType")]
+        public Amazon.IdentityManagement.AssertionEncryptionModeType AssertionEncryptionMode { get; set; }
+        #endregion
         
         #region Parameter Name
         /// <summary>
@@ -183,6 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AddPrivateKey = this.AddPrivateKey;
+            context.AssertionEncryptionMode = this.AssertionEncryptionMode;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -217,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // create request
             var request = new Amazon.IdentityManagement.Model.CreateSAMLProviderRequest();
             
+            if (cmdletContext.AddPrivateKey != null)
+            {
+                request.AddPrivateKey = cmdletContext.AddPrivateKey;
+            }
+            if (cmdletContext.AssertionEncryptionMode != null)
+            {
+                request.AssertionEncryptionMode = cmdletContext.AssertionEncryptionMode;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -290,6 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AddPrivateKey { get; set; }
+            public Amazon.IdentityManagement.AssertionEncryptionModeType AssertionEncryptionMode { get; set; }
             public System.String Name { get; set; }
             public System.String SAMLMetadataDocument { get; set; }
             public List<Amazon.IdentityManagement.Model.Tag> Tag { get; set; }

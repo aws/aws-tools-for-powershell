@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an chat controls configured for an existing Amazon Q Business
+    /// Gets information about chat controls configured for an existing Amazon Q Business
     /// application.
     /// </summary>
     [Cmdlet("Get", "QBUSChatControlsConfiguration")]

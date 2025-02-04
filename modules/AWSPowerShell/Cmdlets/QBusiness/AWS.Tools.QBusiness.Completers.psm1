@@ -185,6 +185,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.OrchestrationControl
+        "Update-QBUSChatControlsConfiguration/OrchestrationConfiguration_Control"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.PersonalizationControlMode
         {
             ($_ -eq "New-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode") -Or
@@ -278,6 +285,7 @@ $QBUS_map = @{
     "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "OrchestrationConfiguration_Control"=@("Update-QBUSChatControlsConfiguration")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")

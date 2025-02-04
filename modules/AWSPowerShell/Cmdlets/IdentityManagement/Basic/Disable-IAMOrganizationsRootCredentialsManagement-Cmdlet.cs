@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Disables the management of privileged root user credentials across member accounts
     /// in your organization. When you disable this feature, the management account and the
-    /// delegated admininstrator for IAM can no longer manage root user credentials for member
+    /// delegated administrator for IAM can no longer manage root user credentials for member
     /// accounts in your organization.
     /// </summary>
     [Cmdlet("Disable", "IAMOrganizationsRootCredentialsManagement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

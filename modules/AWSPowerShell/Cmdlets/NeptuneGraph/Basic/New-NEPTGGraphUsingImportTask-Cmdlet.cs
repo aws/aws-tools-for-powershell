@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for
-        /// the graph. Default: 1024, or the approved upper limit for your account.</para><para> If both the minimum and maximum values are specified, the max of the <c>min-provisioned-memory</c>
-        /// and <c>max-provisioned memory</c> is used to create the graph. If neither value is
-        /// specified 128 m-NCUs are used.</para>
+        /// the graph. Default: 1024, or the approved upper limit for your account.</para><para> If both the minimum and maximum values are specified, the final <c>provisioned-memory</c>
+        /// will be chosen per the actual size of your imported data. If neither value is specified,
+        /// 128 m-NCUs are used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
