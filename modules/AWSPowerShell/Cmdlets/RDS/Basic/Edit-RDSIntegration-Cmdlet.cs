@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Modifies a zero-ETL integration with Amazon Redshift.
-    /// 
-    ///  <note><para>
-    /// Currently, you can only modify integrations that have Aurora MySQL source DB clusters.
-    /// Integrations with Aurora PostgreSQL and RDS sources currently don't support modifying
-    /// the integration.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "RDSIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ModifyIntegrationResponse")]
@@ -51,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A new data filter for the integration. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Zero_ETL_Filtering.html">Data
-        /// filtering for Aurora zero-ETL integrations with Amazon Redshift</a>.</para>
+        /// filtering for Aurora zero-ETL integrations with Amazon Redshift</a> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/zero-etl.filtering.html">Data
+        /// filtering for Amazon RDS zero-ETL integrations with Amazon Redshift</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

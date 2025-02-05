@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether to remove automated backups immediately after the DB cluster is
         /// deleted. This parameter isn't case-sensitive. The default is to remove automated backups
-        /// immediately after the DB cluster is deleted.</para>
+        /// immediately after the DB cluster is deleted, unless the Amazon Web Services Backup
+        /// policy specifies a point-in-time restore rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

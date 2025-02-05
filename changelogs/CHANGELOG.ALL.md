@@ -1,4 +1,7 @@
-﻿### 4.1.750 (2025-02-04 23:33Z)
+﻿### 4.1.751 (2025-02-05 22:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.976.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.750 (2025-02-04 23:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.976.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Modified cmdlet Edit-DMSDataMigration: added parameter TargetDataSetting.
