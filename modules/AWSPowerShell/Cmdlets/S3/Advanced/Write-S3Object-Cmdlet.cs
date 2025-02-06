@@ -246,6 +246,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromContent)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+
         #region Shared Params
 
         #region Parameter ContentType 
@@ -566,6 +578,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             else if (this.PublicReadWrite.IsPresent)
                 context.CannedACL = S3CannedACL.PublicReadWrite;
 
+            if (this.ExpectedBucketOwner != null)
+                context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+
             context.ContentType = this.ContentType;
 
             if (ParameterWasBound("StorageClass"))
@@ -699,6 +714,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
+            if (cmdletContext.ExpectedBucketOwner != null)
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            
 
 #pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
@@ -886,6 +904,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
             }
+            
 
             AmazonS3Helper.SetExtraRequestFields(request, cmdletContext);
 
@@ -964,6 +983,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String ChecksumValue { get; set; }
             public long? MpuObjectSize { get; set; }
 
+            public string ExpectedBucketOwner { get; set;}
             public Hashtable Metadata { get; set; }
             public Hashtable Headers { get; set; }
 
