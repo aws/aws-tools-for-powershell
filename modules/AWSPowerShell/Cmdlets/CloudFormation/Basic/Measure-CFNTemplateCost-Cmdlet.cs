@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TemplateURL
         /// <summary>
         /// <para>
-        /// <para>Location of file containing the template body. The URL must point to a template that's
+        /// <para>The URL of a file containing the template body. The URL must point to a template that's
         /// located in an Amazon S3 bucket or a Systems Manager document. The location for an
         /// Amazon S3 bucket must start with <c>https://</c>.</para><para>Conditional: You must pass <c>TemplateURL</c> or <c>TemplateBody</c>. If both are
         /// passed, only <c>TemplateBody</c> is used.</para>

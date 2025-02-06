@@ -28,43 +28,50 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Creates a template in the Cases domain. This template is used to define the case object
-    /// model (that is, to define what data can be captured on cases) in a Cases domain. A
-    /// template must have a unique name within a domain, and it must reference existing field
-    /// IDs and layout IDs. Additionally, multiple fields with same IDs are not allowed within
-    /// the same Template. A template can be either Active or Inactive, as indicated by its
-    /// status. Inactive templates cannot be used to create cases.
-    /// 
-    ///  
-    /// <para>
-    ///  Other template APIs are: 
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html">GetTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a></para></li></ul>
+    /// Creates a new case rule. In the Amazon Connect admin website, case rules are known
+    /// as <i>case field conditions</i>. For more information about case field conditions,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add
+    /// case field conditions to a case template</a>.
     /// </summary>
-    [Cmdlet("New", "CCASTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ConnectCases.Model.CreateTemplateResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases CreateTemplate API operation.", Operation = new[] {"CreateTemplate"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.CreateTemplateResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.CreateTemplateResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.CreateTemplateResponse object containing multiple properties."
+    [Cmdlet("New", "CCASCaseRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ConnectCases.Model.CreateCaseRuleResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Cases CreateCaseRule API operation.", Operation = new[] {"CreateCaseRule"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.CreateCaseRuleResponse))]
+    [AWSCmdletOutput("Amazon.ConnectCases.Model.CreateCaseRuleResponse",
+        "This cmdlet returns an Amazon.ConnectCases.Model.CreateCaseRuleResponse object containing multiple properties."
     )]
-    public partial class NewCCASTemplateCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class NewCCASCaseRuleCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LayoutConfiguration_DefaultLayout
+        #region Parameter Required_Condition
         /// <summary>
         /// <para>
-        /// <para> Unique identifier of a layout. </para>
+        /// <para>List of conditions for the required rule; the first condition to evaluate to true
+        /// dictates the value of the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LayoutConfiguration_DefaultLayout { get; set; }
+        [Alias("Rule_Required_Conditions")]
+        public Amazon.ConnectCases.Model.BooleanCondition[] Required_Condition { get; set; }
+        #endregion
+        
+        #region Parameter Required_DefaultValue
+        /// <summary>
+        /// <para>
+        /// <para>The value of the rule (that is, whether the field is required) should none of the
+        /// conditions evaluate to true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rule_Required_DefaultValue")]
+        public System.Boolean? Required_DefaultValue { get; set; }
         #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A brief description of the template.</para>
+        /// <para>The description of a case rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,24 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>A name for the template. It must be unique per domain.</para>
+        /// <para>Unique identifier of a Cases domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,49 +92,31 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainId { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>Name of the case rule.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter RequiredField
-        /// <summary>
-        /// <para>
-        /// <para>A list of fields that must contain a value for a case to be successfully created with
-        /// this template.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("RequiredFields")]
-        public Amazon.ConnectCases.Model.RequiredField[] RequiredField { get; set; }
-        #endregion
-        
-        #region Parameter Rule
-        /// <summary>
-        /// <para>
-        /// <para>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case
-        /// field conditions</a>) on a template. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Rules")]
-        public Amazon.ConnectCases.Model.TemplateRule[] Rule { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>The status of the template.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ConnectCases.TemplateStatus")]
-        public Amazon.ConnectCases.TemplateStatus Status { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.CreateTemplateResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.CreateTemplateResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.CreateCaseRuleResponse).
+        /// Specifying the name of a property of type Amazon.ConnectCases.Model.CreateCaseRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,10 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -176,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCASTemplate (CreateTemplate)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCASCaseRule (CreateCaseRule)"))
             {
                 return;
             }
@@ -190,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.CreateTemplateResponse, NewCCASTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.CreateCaseRuleResponse, NewCCASCaseRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -199,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
@@ -210,7 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LayoutConfiguration_DefaultLayout = this.LayoutConfiguration_DefaultLayout;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -218,15 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.RequiredField != null)
+            if (this.Required_Condition != null)
             {
-                context.RequiredField = new List<Amazon.ConnectCases.Model.RequiredField>(this.RequiredField);
+                context.Required_Condition = new List<Amazon.ConnectCases.Model.BooleanCondition>(this.Required_Condition);
             }
-            if (this.Rule != null)
-            {
-                context.Rule = new List<Amazon.ConnectCases.Model.TemplateRule>(this.Rule);
-            }
-            context.Status = this.Status;
+            context.Required_DefaultValue = this.Required_DefaultValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -241,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.CreateTemplateRequest();
+            var request = new Amazon.ConnectCases.Model.CreateCaseRuleRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -251,40 +218,53 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 request.DomainId = cmdletContext.DomainId;
             }
-            
-             // populate LayoutConfiguration
-            var requestLayoutConfigurationIsNull = true;
-            request.LayoutConfiguration = new Amazon.ConnectCases.Model.LayoutConfiguration();
-            System.String requestLayoutConfiguration_layoutConfiguration_DefaultLayout = null;
-            if (cmdletContext.LayoutConfiguration_DefaultLayout != null)
-            {
-                requestLayoutConfiguration_layoutConfiguration_DefaultLayout = cmdletContext.LayoutConfiguration_DefaultLayout;
-            }
-            if (requestLayoutConfiguration_layoutConfiguration_DefaultLayout != null)
-            {
-                request.LayoutConfiguration.DefaultLayout = requestLayoutConfiguration_layoutConfiguration_DefaultLayout;
-                requestLayoutConfigurationIsNull = false;
-            }
-             // determine if request.LayoutConfiguration should be set to null
-            if (requestLayoutConfigurationIsNull)
-            {
-                request.LayoutConfiguration = null;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.RequiredField != null)
+            
+             // populate Rule
+            var requestRuleIsNull = true;
+            request.Rule = new Amazon.ConnectCases.Model.CaseRuleDetails();
+            Amazon.ConnectCases.Model.RequiredCaseRule requestRule_rule_Required = null;
+            
+             // populate Required
+            var requestRule_rule_RequiredIsNull = true;
+            requestRule_rule_Required = new Amazon.ConnectCases.Model.RequiredCaseRule();
+            List<Amazon.ConnectCases.Model.BooleanCondition> requestRule_rule_Required_required_Condition = null;
+            if (cmdletContext.Required_Condition != null)
             {
-                request.RequiredFields = cmdletContext.RequiredField;
+                requestRule_rule_Required_required_Condition = cmdletContext.Required_Condition;
             }
-            if (cmdletContext.Rule != null)
+            if (requestRule_rule_Required_required_Condition != null)
             {
-                request.Rules = cmdletContext.Rule;
+                requestRule_rule_Required.Conditions = requestRule_rule_Required_required_Condition;
+                requestRule_rule_RequiredIsNull = false;
             }
-            if (cmdletContext.Status != null)
+            System.Boolean? requestRule_rule_Required_required_DefaultValue = null;
+            if (cmdletContext.Required_DefaultValue != null)
             {
-                request.Status = cmdletContext.Status;
+                requestRule_rule_Required_required_DefaultValue = cmdletContext.Required_DefaultValue.Value;
+            }
+            if (requestRule_rule_Required_required_DefaultValue != null)
+            {
+                requestRule_rule_Required.DefaultValue = requestRule_rule_Required_required_DefaultValue.Value;
+                requestRule_rule_RequiredIsNull = false;
+            }
+             // determine if requestRule_rule_Required should be set to null
+            if (requestRule_rule_RequiredIsNull)
+            {
+                requestRule_rule_Required = null;
+            }
+            if (requestRule_rule_Required != null)
+            {
+                request.Rule.Required = requestRule_rule_Required;
+                requestRuleIsNull = false;
+            }
+             // determine if request.Rule should be set to null
+            if (requestRuleIsNull)
+            {
+                request.Rule = null;
             }
             
             CmdletOutput output;
@@ -319,15 +299,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.CreateTemplateResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.CreateTemplateRequest request)
+        private Amazon.ConnectCases.Model.CreateCaseRuleResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.CreateCaseRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "CreateTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "CreateCaseRule");
             try
             {
                 #if DESKTOP
-                return client.CreateTemplate(request);
+                return client.CreateCaseRule(request);
                 #elif CORECLR
-                return client.CreateTemplateAsync(request).GetAwaiter().GetResult();
+                return client.CreateCaseRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -349,12 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             public System.String Description { get; set; }
             public System.String DomainId { get; set; }
-            public System.String LayoutConfiguration_DefaultLayout { get; set; }
             public System.String Name { get; set; }
-            public List<Amazon.ConnectCases.Model.RequiredField> RequiredField { get; set; }
-            public List<Amazon.ConnectCases.Model.TemplateRule> Rule { get; set; }
-            public Amazon.ConnectCases.TemplateStatus Status { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.CreateTemplateResponse, NewCCASTemplateCmdlet, object> Select { get; set; } =
+            public List<Amazon.ConnectCases.Model.BooleanCondition> Required_Condition { get; set; }
+            public System.Boolean? Required_DefaultValue { get; set; }
+            public System.Func<Amazon.ConnectCases.Model.CreateCaseRuleResponse, NewCCASCaseRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

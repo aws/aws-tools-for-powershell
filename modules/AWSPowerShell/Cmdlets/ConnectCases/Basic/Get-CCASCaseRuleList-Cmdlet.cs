@@ -28,17 +28,19 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Returns the details for the requested template. Other template APIs are: 
-    /// 
-    ///  <ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a></para></li></ul>
+    /// Lists all case rules in a Cases domain. In the Amazon Connect admin website, case
+    /// rules are known as <i>case field conditions</i>. For more information about case field
+    /// conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add
+    /// case field conditions to a case template</a>.
     /// </summary>
-    [Cmdlet("Get", "CCASTemplate")]
-    [OutputType("Amazon.ConnectCases.Model.GetTemplateResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases GetTemplate API operation.", Operation = new[] {"GetTemplate"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetTemplateResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.GetTemplateResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.GetTemplateResponse object containing multiple properties."
+    [Cmdlet("Get", "CCASCaseRuleList")]
+    [OutputType("Amazon.ConnectCases.Model.CaseRuleSummary")]
+    [AWSCmdlet("Calls the Amazon Connect Cases ListCaseRules API operation.", Operation = new[] {"ListCaseRules"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.ListCaseRulesResponse))]
+    [AWSCmdletOutput("Amazon.ConnectCases.Model.CaseRuleSummary or Amazon.ConnectCases.Model.ListCaseRulesResponse",
+        "This cmdlet returns a collection of Amazon.ConnectCases.Model.CaseRuleSummary objects.",
+        "The service call response (type Amazon.ConnectCases.Model.ListCaseRulesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCCASTemplateCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GetCCASCaseRuleListCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>Unique identifier of a Cases domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,32 +62,37 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
-        #region Parameter TemplateId
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A unique identifier of a template.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateId { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.GetTemplateResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.GetTemplateResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CaseRules'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.ListCaseRulesResponse).
+        /// Specifying the name of a property of type Amazon.ConnectCases.Model.ListCaseRulesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "CaseRules";
         #endregion
         
         #region Parameter PassThru
@@ -111,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.ListCaseRulesResponse, GetCCASCaseRuleListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,13 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TemplateId = this.TemplateId;
-            #if MODULAR
-            if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,15 +153,19 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.GetTemplateRequest();
+            var request = new Amazon.ConnectCases.Model.ListCaseRulesRequest();
             
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
             }
-            if (cmdletContext.TemplateId != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.TemplateId = cmdletContext.TemplateId;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -194,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.GetTemplateResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.GetTemplateRequest request)
+        private Amazon.ConnectCases.Model.ListCaseRulesResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.ListCaseRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "GetTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "ListCaseRules");
             try
             {
                 #if DESKTOP
-                return client.GetTemplate(request);
+                return client.ListCaseRules(request);
                 #elif CORECLR
-                return client.GetTemplateAsync(request).GetAwaiter().GetResult();
+                return client.ListCaseRulesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,9 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainId { get; set; }
-            public System.String TemplateId { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.ConnectCases.Model.ListCaseRulesResponse, GetCCASCaseRuleListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CaseRules;
         }
         
     }

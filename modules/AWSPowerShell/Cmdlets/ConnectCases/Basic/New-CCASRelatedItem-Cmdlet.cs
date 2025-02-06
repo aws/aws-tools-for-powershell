@@ -28,7 +28,19 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Amazon.ConnectCases.IAmazonConnectCases.CreateRelatedItem
+    /// Creates a related item (comments, tasks, and contacts) and associates it with a case.
+    /// 
+    ///  <note><ul><li><para>
+    /// A Related Item is a resource that is associated with a case. It may or may not have
+    /// an external identifier linking it to an external resource (for example, a <c>contactArn</c>).
+    /// All Related Items have their own internal identifier, the <c>relatedItemArn</c>. Examples
+    /// of related items include <c>comments</c> and <c>contacts</c>.
+    /// </para></li><li><para>
+    /// If you provide a value for <c>performedBy.userArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a>
+    /// permission on the ARN of the user that you provide.
+    /// </para></li><li><para>
+    /// The <c>type</c> field is reserved for internal use only.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "CCASRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectCases.Model.CreateRelatedItemResponse")]

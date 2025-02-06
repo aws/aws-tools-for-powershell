@@ -31,10 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// <note><para>
     /// If you provide a value for <c>PerformedBy.UserArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
     /// permission on the User ARN resource that you provide
-    /// </para></note><pre><c> &lt;p&gt;Updates the values of fields on a case. Fields to be updated
-    /// are received as an array of id/value pairs identical to the &lt;code&gt;CreateCase&lt;/code&gt;
-    /// input .&lt;/p&gt; &lt;p&gt;If the action is successful, the service sends back an
-    /// HTTP 200 response with an empty HTTP body.&lt;/p&gt; </c></pre>
+    /// </para></note><para>
+    /// Updates the values of fields on a case. Fields to be updated are received as an array
+    /// of id/value pairs identical to the <c>CreateCase</c> input .
+    /// </para><para>
+    /// If the action is successful, the service sends back an HTTP 200 response with an empty
+    /// HTTP body.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

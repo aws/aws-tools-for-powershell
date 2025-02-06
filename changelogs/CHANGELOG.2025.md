@@ -1,4 +1,21 @@
-﻿### 4.1.751 (2025-02-05 22:21Z)
+﻿### 4.1.752 (2025-02-06 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.977.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNCFNStackRefactor leveraging the DescribeStackRefactor service API.
+    * Added cmdlet Get-CFNCFNStackRefactorActionList leveraging the ListStackRefactorActions service API.
+    * Added cmdlet Get-CFNCFNStackRefactorList leveraging the ListStackRefactors service API.
+    * Added cmdlet New-CFNCFNStackRefactor leveraging the CreateStackRefactor service API.
+    * Added cmdlet Start-CFNCFNStackRefactor leveraging the ExecuteStackRefactor service API.
+  * Amazon Connect Cases
+    * Added cmdlet Get-CCASCaseRuleList leveraging the ListCaseRules service API.
+    * Added cmdlet Group-CCASGetCaseRule leveraging the BatchGetCaseRule service API.
+    * Added cmdlet New-CCASCaseRule leveraging the CreateCaseRule service API.
+    * Added cmdlet Remove-CCASCaseRule leveraging the DeleteCaseRule service API.
+    * Added cmdlet Update-CCASCaseRule leveraging the UpdateCaseRule service API.
+    * Modified cmdlet New-CCASTemplate: added parameter Rule.
+    * Modified cmdlet Update-CCASTemplate: added parameter Rule.
+
+### 4.1.751 (2025-02-05 22:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.976.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.750 (2025-02-04 23:33Z)

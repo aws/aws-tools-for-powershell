@@ -31,11 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// <note><para>
     /// If you provide a value for <c>PerformedBy.UserArn</c> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
     /// permission on the User ARN resource that you provide
-    /// </para></note><pre><c> &lt;p&gt;Creates a case in the specified Cases domain. Case system
-    /// and custom fields are taken as an array id/value pairs with a declared data types.&lt;/p&gt;
-    /// &lt;p&gt;The following fields are required when creating a case:&lt;/p&gt; &lt;ul&gt;
-    /// &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You must provide the full
-    /// customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account
+    /// </para></note><para>
+    /// Creates a case in the specified Cases domain. Case system and custom fields are taken
+    /// as an array id/value pairs with a declared data types.
+    /// </para><para>
+    /// The following fields are required when creating a case:
+    /// </para><pre><c> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;customer_id&lt;/code&gt; - You
+    /// must provide the full customer profile ARN in this format: &lt;code&gt;arn:aws:profile:your_AWS_Region:your_AWS_account
     /// ID:domains/your_profiles_domain_name/profiles/profile_ID&lt;/code&gt; &lt;/p&gt; &lt;/li&gt;
     /// &lt;li&gt; &lt;p&gt; &lt;code&gt;title&lt;/code&gt; &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
     /// </c></pre>

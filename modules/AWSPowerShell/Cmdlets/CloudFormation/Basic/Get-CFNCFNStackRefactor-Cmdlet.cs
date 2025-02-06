@@ -22,31 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectCases;
-using Amazon.ConnectCases.Model;
+using Amazon.CloudFormation;
+using Amazon.CloudFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CCAS
+namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns the details for the requested template. Other template APIs are: 
-    /// 
-    ///  <ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a></para></li></ul>
+    /// Describes the stack refactor status.
     /// </summary>
-    [Cmdlet("Get", "CCASTemplate")]
-    [OutputType("Amazon.ConnectCases.Model.GetTemplateResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases GetTemplate API operation.", Operation = new[] {"GetTemplate"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetTemplateResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.GetTemplateResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.GetTemplateResponse object containing multiple properties."
+    [Cmdlet("Get", "CFNCFNStackRefactor")]
+    [OutputType("Amazon.CloudFormation.Model.DescribeStackRefactorResponse")]
+    [AWSCmdlet("Calls the AWS CloudFormation DescribeStackRefactor API operation.", Operation = new[] {"DescribeStackRefactor"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeStackRefactorResponse))]
+    [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeStackRefactorResponse",
+        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeStackRefactorResponse object containing multiple properties."
     )]
-    public partial class GetCCASTemplateCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GetCFNCFNStackRefactorCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainId
+        #region Parameter StackRefactorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a>
+        /// action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,31 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
-        #endregion
-        
-        #region Parameter TemplateId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier of a template.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateId { get; set; }
+        public System.String StackRefactorId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.GetTemplateResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.GetTemplateResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.DescribeStackRefactorResponse).
+        /// Specifying the name of a property of type Amazon.CloudFormation.Model.DescribeStackRefactorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StackRefactorId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StackRefactorId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StackRefactorId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.DescribeStackRefactorResponse, GetCFNCFNStackRefactorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,21 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainId;
+                context.Select = (response, cmdlet) => this.StackRefactorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainId = this.DomainId;
+            context.StackRefactorId = this.StackRefactorId;
             #if MODULAR
-            if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
+            if (this.StackRefactorId == null && ParameterWasBound(nameof(this.StackRefactorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TemplateId = this.TemplateId;
-            #if MODULAR
-            if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter StackRefactorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.GetTemplateRequest();
+            var request = new Amazon.CloudFormation.Model.DescribeStackRefactorRequest();
             
-            if (cmdletContext.DomainId != null)
+            if (cmdletContext.StackRefactorId != null)
             {
-                request.DomainId = cmdletContext.DomainId;
-            }
-            if (cmdletContext.TemplateId != null)
-            {
-                request.TemplateId = cmdletContext.TemplateId;
+                request.StackRefactorId = cmdletContext.StackRefactorId;
             }
             
             CmdletOutput output;
@@ -194,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.GetTemplateResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.GetTemplateRequest request)
+        private Amazon.CloudFormation.Model.DescribeStackRefactorResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeStackRefactorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "GetTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DescribeStackRefactor");
             try
             {
                 #if DESKTOP
-                return client.GetTemplate(request);
+                return client.DescribeStackRefactor(request);
                 #elif CORECLR
-                return client.GetTemplateAsync(request).GetAwaiter().GetResult();
+                return client.DescribeStackRefactorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,9 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainId { get; set; }
-            public System.String TemplateId { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet, object> Select { get; set; } =
+            public System.String StackRefactorId { get; set; }
+            public System.Func<Amazon.CloudFormation.Model.DescribeStackRefactorResponse, GetCFNCFNStackRefactorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

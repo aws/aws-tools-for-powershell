@@ -28,63 +28,60 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns hook-related information for the change set and a list of changes that CloudFormation
-    /// makes when you run the change set.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the stack refactor actions that will be taken after calling the <a>ExecuteStackRefactor</a>
+    /// action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CFNChangeSetHook")]
-    [OutputType("Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse")]
-    [AWSCmdlet("Calls the AWS CloudFormation DescribeChangeSetHooks API operation.", Operation = new[] {"DescribeChangeSetHooks"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse))]
-    [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse",
-        "This cmdlet returns an Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse object containing multiple properties."
+    [Cmdlet("Get", "CFNCFNStackRefactorActionList")]
+    [OutputType("Amazon.CloudFormation.Model.StackRefactorAction")]
+    [AWSCmdlet("Calls the AWS CloudFormation ListStackRefactorActions API operation.", Operation = new[] {"ListStackRefactorActions"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ListStackRefactorActionsResponse))]
+    [AWSCmdletOutput("Amazon.CloudFormation.Model.StackRefactorAction or Amazon.CloudFormation.Model.ListStackRefactorActionsResponse",
+        "This cmdlet returns a collection of Amazon.CloudFormation.Model.StackRefactorAction objects.",
+        "The service call response (type Amazon.CloudFormation.Model.ListStackRefactorActionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCFNChangeSetHookCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public partial class GetCFNCFNStackRefactorActionListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ChangeSetName
+        #region Parameter StackRefactorId
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the change set that you want to describe.</para>
+        /// <para>The ID associated with the stack refactor created from the <a>CreateStackRefactor</a>
+        /// action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChangeSetName { get; set; }
+        public System.String StackRefactorId { get; set; }
         #endregion
         
-        #region Parameter LogicalResourceId
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>If specified, lists only the Hooks related to the specified <c>LogicalResourceId</c>.</para>
+        /// <para>The maximum number of results to be returned with a single call. If the number of
+        /// available results exceeds this maximum, the response includes a <c>NextToken</c> value
+        /// that you can assign to the <c>NextToken</c> request parameter to get the next set
+        /// of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LogicalResourceId { get; set; }
-        #endregion
-        
-        #region Parameter StackName
-        /// <summary>
-        /// <para>
-        /// <para>If you specified the name of a change set, specify the stack name or stack ID (ARN)
-        /// of the change set you want to describe.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StackName { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A string, provided by the <c>DescribeChangeSetHooks</c> response output, that identifies
-        /// the next page of information that you want to retrieve.</para>
+        /// <para>If the request doesn't return all the remaining results, <c>NextToken</c> is set to
+        /// a token. To retrieve the next set of results, call this action again and assign that
+        /// token to the request object's <c>NextToken</c> parameter. If the request returns all
+        /// results, <c>NextToken</c> is set to <c>null</c>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -97,21 +94,21 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse).
-        /// Specifying the name of a property of type Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'StackRefactorActions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.ListStackRefactorActionsResponse).
+        /// Specifying the name of a property of type Amazon.CloudFormation.Model.ListStackRefactorActionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "StackRefactorActions";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StackName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StackName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StackRefactorId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StackRefactorId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StackName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StackRefactorId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -139,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse, GetCFNChangeSetHookCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.ListStackRefactorActionsResponse, GetCFNCFNStackRefactorActionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,19 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StackName;
+                context.Select = (response, cmdlet) => this.StackRefactorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ChangeSetName = this.ChangeSetName;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.StackRefactorId = this.StackRefactorId;
             #if MODULAR
-            if (this.ChangeSetName == null && ParameterWasBound(nameof(this.ChangeSetName)))
+            if (this.StackRefactorId == null && ParameterWasBound(nameof(this.StackRefactorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChangeSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter StackRefactorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LogicalResourceId = this.LogicalResourceId;
-            context.NextToken = this.NextToken;
-            context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,19 +175,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudFormation.Model.DescribeChangeSetHooksRequest();
+            var request = new Amazon.CloudFormation.Model.ListStackRefactorActionsRequest();
             
-            if (cmdletContext.ChangeSetName != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.ChangeSetName = cmdletContext.ChangeSetName;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.LogicalResourceId != null)
+            if (cmdletContext.StackRefactorId != null)
             {
-                request.LogicalResourceId = cmdletContext.LogicalResourceId;
-            }
-            if (cmdletContext.StackName != null)
-            {
-                request.StackName = cmdletContext.StackName;
+                request.StackRefactorId = cmdletContext.StackRefactorId;
             }
             
             // Initialize loop variant and commence piping
@@ -250,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.DescribeChangeSetHooksRequest request)
+        private Amazon.CloudFormation.Model.ListStackRefactorActionsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListStackRefactorActionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DescribeChangeSetHooks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ListStackRefactorActions");
             try
             {
                 #if DESKTOP
-                return client.DescribeChangeSetHooks(request);
+                return client.ListStackRefactorActions(request);
                 #elif CORECLR
-                return client.DescribeChangeSetHooksAsync(request).GetAwaiter().GetResult();
+                return client.ListStackRefactorActionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -278,12 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChangeSetName { get; set; }
-            public System.String LogicalResourceId { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String StackName { get; set; }
-            public System.Func<Amazon.CloudFormation.Model.DescribeChangeSetHooksResponse, GetCFNChangeSetHookCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String StackRefactorId { get; set; }
+            public System.Func<Amazon.CloudFormation.Model.ListStackRefactorActionsResponse, GetCFNCFNStackRefactorActionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.StackRefactorActions;
         }
         
     }

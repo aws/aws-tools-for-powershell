@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  <note><para><b>Directory buckets </b> - For directory buckets, you must make requests for this
     /// API operation to the Regional endpoint. These endpoints support path-style requests
     /// in the format <c>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. For more information about endpoints
-    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional
     /// and Zonal endpoints for directory buckets in Availability Zones</a> in the <i>Amazon
-    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available
-    /// Local Zone for directory buckets</a> in the <i>Amazon S3 User Guide</i>.
+    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
+    /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><para>
     /// By default, all buckets have a default encryption configuration that uses server-side
     /// encryption with Amazon S3 managed keys (SSE-S3).
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// server-side encryption with KMS for new object uploads</a>.
     /// </para></li><li><para>
     /// Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-    /// managed key</a> per directory bucket for the lifetime of the bucket. The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// managed key</a> per directory bucket's lifetime. The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
     /// Web Services managed key</a> (<c>aws/s3</c>) isn't supported. 
     /// </para></li><li><para>
     /// S3 Bucket Keys are always enabled for <c>GET</c> and <c>PUT</c> operations in a directory

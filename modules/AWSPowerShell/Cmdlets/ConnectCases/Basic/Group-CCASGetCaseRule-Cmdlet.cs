@@ -28,25 +28,44 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Returns the details for the requested template. Other template APIs are: 
-    /// 
-    ///  <ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a></para></li></ul>
+    /// Gets a batch of case rules. In the Amazon Connect admin website, case rules are known
+    /// as <i>case field conditions</i>. For more information about case field conditions,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add
+    /// case field conditions to a case template</a>.
     /// </summary>
-    [Cmdlet("Get", "CCASTemplate")]
-    [OutputType("Amazon.ConnectCases.Model.GetTemplateResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases GetTemplate API operation.", Operation = new[] {"GetTemplate"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetTemplateResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.GetTemplateResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.GetTemplateResponse object containing multiple properties."
+    [Cmdlet("Group", "CCASGetCaseRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ConnectCases.Model.BatchGetCaseRuleResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Cases BatchGetCaseRule API operation.", Operation = new[] {"BatchGetCaseRule"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.BatchGetCaseRuleResponse))]
+    [AWSCmdletOutput("Amazon.ConnectCases.Model.BatchGetCaseRuleResponse",
+        "This cmdlet returns an Amazon.ConnectCases.Model.BatchGetCaseRuleResponse object containing multiple properties."
     )]
-    public partial class GetCCASTemplateCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GroupCCASGetCaseRuleCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CaseRule
+        /// <summary>
+        /// <para>
+        /// <para>List of case rule identifiers.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("CaseRules")]
+        public Amazon.ConnectCases.Model.CaseRuleIdentifier[] CaseRule { get; set; }
+        #endregion
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>Unique identifier of a Cases domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,28 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
-        #region Parameter TemplateId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier of a template.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateId { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.GetTemplateResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.GetTemplateResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.BatchGetCaseRuleResponse).
+        /// Specifying the name of a property of type Amazon.ConnectCases.Model.BatchGetCaseRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +100,26 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Group-CCASGetCaseRule (BatchGetCaseRule)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -111,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.BatchGetCaseRuleResponse, GroupCCASGetCaseRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,18 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 context.Select = (response, cmdlet) => this.DomainId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CaseRule != null)
+            {
+                context.CaseRule = new List<Amazon.ConnectCases.Model.CaseRuleIdentifier>(this.CaseRule);
+            }
+            #if MODULAR
+            if (this.CaseRule == null && ParameterWasBound(nameof(this.CaseRule)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CaseRule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DomainId = this.DomainId;
             #if MODULAR
             if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
             {
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TemplateId = this.TemplateId;
-            #if MODULAR
-            if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.GetTemplateRequest();
+            var request = new Amazon.ConnectCases.Model.BatchGetCaseRuleRequest();
             
+            if (cmdletContext.CaseRule != null)
+            {
+                request.CaseRules = cmdletContext.CaseRule;
+            }
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
-            }
-            if (cmdletContext.TemplateId != null)
-            {
-                request.TemplateId = cmdletContext.TemplateId;
             }
             
             CmdletOutput output;
@@ -194,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.GetTemplateResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.GetTemplateRequest request)
+        private Amazon.ConnectCases.Model.BatchGetCaseRuleResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.BatchGetCaseRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "GetTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "BatchGetCaseRule");
             try
             {
                 #if DESKTOP
-                return client.GetTemplate(request);
+                return client.BatchGetCaseRule(request);
                 #elif CORECLR
-                return client.GetTemplateAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetCaseRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,9 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ConnectCases.Model.CaseRuleIdentifier> CaseRule { get; set; }
             public System.String DomainId { get; set; }
-            public System.String TemplateId { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ConnectCases.Model.BatchGetCaseRuleResponse, GroupCCASGetCaseRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

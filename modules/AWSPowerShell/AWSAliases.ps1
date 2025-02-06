@@ -4298,6 +4298,9 @@ Set-Alias -Name CFN-CreateStack -Value New-CFNStack
 Set-Alias -Name Create-CFNStackInstances -Value New-CFNStackInstance
 Set-Alias -Name Create-CFNStackInstance -Value New-CFNStackInstance
 Set-Alias -Name CFN-CreateStackInstances -Value New-CFNStackInstance
+Set-Alias -Name Create-CFNStackRefactor -Value New-CFNCFNStackRefactor
+Set-Alias -Name Create-CFNCFNStackRefactor -Value New-CFNCFNStackRefactor
+Set-Alias -Name CFN-CreateStackRefactor -Value New-CFNCFNStackRefactor
 Set-Alias -Name Create-CFNStackSet -Value New-CFNStackSet
 Set-Alias -Name CFN-CreateStackSet -Value New-CFNStackSet
 Set-Alias -Name Deactivate-CFNOrganizationsAccess -Value Disable-CFNOrganizationsAccess
@@ -4341,6 +4344,9 @@ Set-Alias -Name Describe-CFNStackEvent -Value Get-CFNStackEvent
 Set-Alias -Name CFN-DescribeStackEvents -Value Get-CFNStackEvent
 Set-Alias -Name Describe-CFNStackInstance -Value Get-CFNStackInstance
 Set-Alias -Name CFN-DescribeStackInstance -Value Get-CFNStackInstance
+Set-Alias -Name Describe-CFNStackRefactor -Value Get-CFNCFNStackRefactor
+Set-Alias -Name Describe-CFNCFNStackRefactor -Value Get-CFNCFNStackRefactor
+Set-Alias -Name CFN-DescribeStackRefactor -Value Get-CFNCFNStackRefactor
 Set-Alias -Name Describe-CFNStackResource -Value Get-CFNStackResource
 Set-Alias -Name CFN-DescribeStackResource -Value Get-CFNStackResource
 Set-Alias -Name Describe-CFNStackResourceDrifts -Value Get-CFNDetectedStackResourceDrift
@@ -4372,6 +4378,9 @@ Set-Alias -Name Estimate-CFNTemplateCost -Value Measure-CFNTemplateCost
 Set-Alias -Name CFN-EstimateTemplateCost -Value Measure-CFNTemplateCost
 Set-Alias -Name Execute-CFNChangeSet -Value Start-CFNChangeSet
 Set-Alias -Name CFN-ExecuteChangeSet -Value Start-CFNChangeSet
+Set-Alias -Name Execute-CFNStackRefactor -Value Start-CFNCFNStackRefactor
+Set-Alias -Name Execute-CFNCFNStackRefactor -Value Start-CFNCFNStackRefactor
+Set-Alias -Name CFN-ExecuteStackRefactor -Value Start-CFNCFNStackRefactor
 Set-Alias -Name CFN-GetGeneratedTemplate -Value Get-CFNGeneratedTemplate
 Set-Alias -Name CFN-GetStackPolicy -Value Get-CFNStackPolicy
 Set-Alias -Name CFN-GetTemplate -Value Get-CFNTemplate
@@ -4407,6 +4416,12 @@ Set-Alias -Name CFN-ListStackInstanceResourceDrifts -Value Get-CFNStackInstanceR
 Set-Alias -Name List-CFNStackInstances -Value Get-CFNStackInstanceList
 Set-Alias -Name List-CFNStackInstanceList -Value Get-CFNStackInstanceList
 Set-Alias -Name CFN-ListStackInstances -Value Get-CFNStackInstanceList
+Set-Alias -Name List-CFNStackRefactorActions -Value Get-CFNCFNStackRefactorActionList
+Set-Alias -Name List-CFNCFNStackRefactorActionList -Value Get-CFNCFNStackRefactorActionList
+Set-Alias -Name CFN-ListStackRefactorActions -Value Get-CFNCFNStackRefactorActionList
+Set-Alias -Name List-CFNStackRefactors -Value Get-CFNCFNStackRefactorList
+Set-Alias -Name List-CFNCFNStackRefactorList -Value Get-CFNCFNStackRefactorList
+Set-Alias -Name CFN-ListStackRefactors -Value Get-CFNCFNStackRefactorList
 Set-Alias -Name List-CFNStackResources -Value Get-CFNStackResourceSummary
 Set-Alias -Name List-CFNStackResourceSummary -Value Get-CFNStackResourceSummary
 Set-Alias -Name CFN-ListStackResources -Value Get-CFNStackResourceSummary
@@ -7169,6 +7184,8 @@ Set-Alias -Name CCS2-UpdateCampaignFlowAssociation -Value Update-CCS2CampaignFlo
 Set-Alias -Name CCS2-UpdateCampaignName -Value Update-CCS2CampaignName
 Set-Alias -Name CCS2-UpdateCampaignSchedule -Value Update-CCS2CampaignSchedule
 Set-Alias -Name CCS2-UpdateCampaignSource -Value Update-CCS2CampaignSource
+Set-Alias -Name Batch-CCASGetCaseRule -Value Group-CCASGetCaseRule
+Set-Alias -Name CCAS-BatchGetCaseRule -Value Group-CCASGetCaseRule
 Set-Alias -Name Batch-CCASGetField -Value Group-CCASGetField
 Set-Alias -Name CCAS-BatchGetField -Value Group-CCASGetField
 Set-Alias -Name Batch-CCASPutFieldOptions -Value Group-CCASPutFieldOption
@@ -7176,6 +7193,8 @@ Set-Alias -Name Batch-CCASPutFieldOption -Value Group-CCASPutFieldOption
 Set-Alias -Name CCAS-BatchPutFieldOptions -Value Group-CCASPutFieldOption
 Set-Alias -Name Create-CCASCase -Value New-CCASCase
 Set-Alias -Name CCAS-CreateCase -Value New-CCASCase
+Set-Alias -Name Create-CCASCaseRule -Value New-CCASCaseRule
+Set-Alias -Name CCAS-CreateCaseRule -Value New-CCASCaseRule
 Set-Alias -Name Create-CCASDomain -Value New-CCASDomain
 Set-Alias -Name CCAS-CreateDomain -Value New-CCASDomain
 Set-Alias -Name Create-CCASField -Value New-CCASField
@@ -7186,6 +7205,8 @@ Set-Alias -Name Create-CCASRelatedItem -Value New-CCASRelatedItem
 Set-Alias -Name CCAS-CreateRelatedItem -Value New-CCASRelatedItem
 Set-Alias -Name Create-CCASTemplate -Value New-CCASTemplate
 Set-Alias -Name CCAS-CreateTemplate -Value New-CCASTemplate
+Set-Alias -Name Delete-CCASCaseRule -Value Remove-CCASCaseRule
+Set-Alias -Name CCAS-DeleteCaseRule -Value Remove-CCASCaseRule
 Set-Alias -Name Delete-CCASDomain -Value Remove-CCASDomain
 Set-Alias -Name CCAS-DeleteDomain -Value Remove-CCASDomain
 Set-Alias -Name Delete-CCASField -Value Remove-CCASField
@@ -7201,6 +7222,9 @@ Set-Alias -Name CCAS-GetCaseEventConfiguration -Value Get-CCASCaseEventConfigura
 Set-Alias -Name CCAS-GetDomain -Value Get-CCASDomain
 Set-Alias -Name CCAS-GetLayout -Value Get-CCASLayout
 Set-Alias -Name CCAS-GetTemplate -Value Get-CCASTemplate
+Set-Alias -Name List-CCASCaseRules -Value Get-CCASCaseRuleList
+Set-Alias -Name List-CCASCaseRuleList -Value Get-CCASCaseRuleList
+Set-Alias -Name CCAS-ListCaseRules -Value Get-CCASCaseRuleList
 Set-Alias -Name List-CCASCasesForContact -Value Get-CCASCasesForContactList
 Set-Alias -Name List-CCASCasesForContactList -Value Get-CCASCasesForContactList
 Set-Alias -Name CCAS-ListCasesForContact -Value Get-CCASCasesForContactList
@@ -7229,6 +7253,7 @@ Set-Alias -Name CCAS-SearchRelatedItems -Value Search-CCASRelatedItem
 Set-Alias -Name CCAS-TagResource -Value Add-CCASResourceTag
 Set-Alias -Name CCAS-UntagResource -Value Remove-CCASResourceTag
 Set-Alias -Name CCAS-UpdateCase -Value Update-CCASCase
+Set-Alias -Name CCAS-UpdateCaseRule -Value Update-CCASCaseRule
 Set-Alias -Name CCAS-UpdateField -Value Update-CCASField
 Set-Alias -Name CCAS-UpdateLayout -Value Update-CCASLayout
 Set-Alias -Name CCAS-UpdateTemplate -Value Update-CCASTemplate

@@ -28,25 +28,27 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Returns the details for the requested template. Other template APIs are: 
-    /// 
-    ///  <ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a></para></li></ul>
+    /// Deletes a case rule. In the Amazon Connect admin website, case rules are known as
+    /// <i>case field conditions</i>. For more information about case field conditions, see
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add
+    /// case field conditions to a case template</a>.
     /// </summary>
-    [Cmdlet("Get", "CCASTemplate")]
-    [OutputType("Amazon.ConnectCases.Model.GetTemplateResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases GetTemplate API operation.", Operation = new[] {"GetTemplate"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.GetTemplateResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.GetTemplateResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.GetTemplateResponse object containing multiple properties."
+    [Cmdlet("Remove", "CCASCaseRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Cases DeleteCaseRule API operation.", Operation = new[] {"DeleteCaseRule"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteCaseRuleResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteCaseRuleResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ConnectCases.Model.DeleteCaseRuleResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetCCASTemplateCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class RemoveCCASCaseRuleCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainId
+        #region Parameter CaseRuleId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>Unique identifier of a case rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,13 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
+        public System.String CaseRuleId { get; set; }
         #endregion
         
-        #region Parameter TemplateId
+        #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier of a template.</para>
+        /// <para>Unique identifier of a Cases domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,14 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateId { get; set; }
+        public System.String DomainId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.GetTemplateResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.GetTemplateResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.DeleteCaseRuleResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,18 +91,34 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CaseRuleId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CaseRuleId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CaseRuleId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CaseRuleId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCASCaseRule (DeleteCaseRule)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -111,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.DeleteCaseRuleResponse, RemoveCCASCaseRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -120,21 +137,21 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainId;
+                context.Select = (response, cmdlet) => this.CaseRuleId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CaseRuleId = this.CaseRuleId;
+            #if MODULAR
+            if (this.CaseRuleId == null && ParameterWasBound(nameof(this.CaseRuleId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CaseRuleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DomainId = this.DomainId;
             #if MODULAR
             if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
             {
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TemplateId = this.TemplateId;
-            #if MODULAR
-            if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.GetTemplateRequest();
+            var request = new Amazon.ConnectCases.Model.DeleteCaseRuleRequest();
             
+            if (cmdletContext.CaseRuleId != null)
+            {
+                request.CaseRuleId = cmdletContext.CaseRuleId;
+            }
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
-            }
-            if (cmdletContext.TemplateId != null)
-            {
-                request.TemplateId = cmdletContext.TemplateId;
             }
             
             CmdletOutput output;
@@ -194,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.GetTemplateResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.GetTemplateRequest request)
+        private Amazon.ConnectCases.Model.DeleteCaseRuleResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.DeleteCaseRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "GetTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "DeleteCaseRule");
             try
             {
                 #if DESKTOP
-                return client.GetTemplate(request);
+                return client.DeleteCaseRule(request);
                 #elif CORECLR
-                return client.GetTemplateAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCaseRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,10 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CaseRuleId { get; set; }
             public System.String DomainId { get; set; }
-            public System.String TemplateId { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.GetTemplateResponse, GetCCASTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.ConnectCases.Model.DeleteCaseRuleResponse, RemoveCCASCaseRuleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
