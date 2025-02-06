@@ -13355,6 +13355,7 @@ $CT_SelectMap = @{
                "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
+               "Search-CTSampleQuery",
                "Start-CTDashboardRefresh",
                "Start-CTEventDataStoreIngestion",
                "Start-CTImport",
@@ -14006,7 +14007,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBWebhook/BuildType")
         }
         {
-            $v = "BUILD","BUILD_BATCH"
+            $v = "BUILD","BUILD_BATCH","RUNNER_BUILDKITE_BUILD"
             break
         }
 
@@ -17624,7 +17625,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNContactFlow/Type")
         }
         {
-            $v = "AGENT_HOLD","AGENT_TRANSFER","AGENT_WHISPER","CONTACT_FLOW","CUSTOMER_HOLD","CUSTOMER_QUEUE","CUSTOMER_WHISPER","OUTBOUND_WHISPER","QUEUE_TRANSFER"
+            $v = "AGENT_HOLD","AGENT_TRANSFER","AGENT_WHISPER","CAMPAIGN","CONTACT_FLOW","CUSTOMER_HOLD","CUSTOMER_QUEUE","CUSTOMER_WHISPER","OUTBOUND_WHISPER","QUEUE_TRANSFER"
             break
         }
 
@@ -18270,6 +18271,7 @@ $CONN_SelectMap = @{
                "Remove-CONNContactEvaluation",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",
+               "Remove-CONNContactFlowVersion",
                "Remove-CONNEmailAddress",
                "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
@@ -20457,6 +20459,16 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.SmbAuthenticationType
+        {
+            ($_ -eq "New-DSYNLocationSmb/AuthenticationType") -Or
+            ($_ -eq "Update-DSYNLocationSmb/AuthenticationType")
+        }
+        {
+            $v = "KERBEROS","NTLM"
+            break
+        }
+
         # Amazon.DataSync.SmbVersion
         {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
@@ -20488,7 +20500,7 @@ $DSYN_Completers = {
 
 $DSYN_map = @{
     "AccessTier"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
-    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
+    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","New-DSYNLocationSmb","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf","Update-DSYNLocationSmb")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "InTransitEncryption"=@("New-DSYNLocationEfs","Update-DSYNLocationEfs")
@@ -21713,6 +21725,13 @@ $ADC_Completers = {
             break
         }
 
+        # Amazon.Deadline.UpdateQueueLimitAssociationStatus
+        "Update-ADCQueueLimitAssociation/Status"
+        {
+            $v = "ACTIVE","STOP_LIMIT_USAGE_AND_CANCEL_TASKS","STOP_LIMIT_USAGE_AND_COMPLETE_TASKS"
+            break
+        }
+
 
     }
 
@@ -21735,7 +21754,7 @@ $ADC_map = @{
     "OsFamily"=@("New-ADCStorageProfile","Update-ADCStorageProfile")
     "Period"=@("Start-ADCSessionsStatisticsAggregation")
     "PrincipalType"=@("Add-ADCMemberToFarm","Add-ADCMemberToFleet","Add-ADCMemberToJob","Add-ADCMemberToQueue")
-    "Status"=@("Get-ADCBudgetList","Get-ADCFleetList","Get-ADCQueueList","Update-ADCBudget","Update-ADCQueueFleetAssociation","Update-ADCWorker")
+    "Status"=@("Get-ADCBudgetList","Get-ADCFleetList","Get-ADCQueueList","Update-ADCBudget","Update-ADCQueueFleetAssociation","Update-ADCQueueLimitAssociation","Update-ADCWorker")
     "TargetLifecycleStatus"=@("Update-ADCSession")
     "TargetRunStatus"=@("Update-ADCTask")
     "TargetTaskRunStatus"=@("New-ADCJob","Update-ADCJob","Update-ADCStep")
@@ -21810,21 +21829,25 @@ $ADC_SelectMap = @{
                "New-ADCFleet",
                "New-ADCJob",
                "New-ADCLicenseEndpoint",
+               "New-ADCLimit",
                "New-ADCMonitor",
                "New-ADCQueue",
                "New-ADCQueueEnvironment",
                "New-ADCQueueFleetAssociation",
+               "New-ADCQueueLimitAssociation",
                "New-ADCStorageProfile",
                "New-ADCWorker",
                "Remove-ADCBudget",
                "Remove-ADCFarm",
                "Remove-ADCFleet",
                "Remove-ADCLicenseEndpoint",
+               "Remove-ADCLimit",
                "Remove-ADCMeteredProduct",
                "Remove-ADCMonitor",
                "Remove-ADCQueue",
                "Remove-ADCQueueEnvironment",
                "Remove-ADCQueueFleetAssociation",
+               "Remove-ADCQueueLimitAssociation",
                "Remove-ADCStorageProfile",
                "Remove-ADCWorker",
                "Remove-ADCMemberFromFarm",
@@ -21836,10 +21859,12 @@ $ADC_SelectMap = @{
                "Get-ADCFleet",
                "Get-ADCJob",
                "Get-ADCLicenseEndpoint",
+               "Get-ADCLimit",
                "Get-ADCMonitor",
                "Get-ADCQueue",
                "Get-ADCQueueEnvironment",
                "Get-ADCQueueFleetAssociation",
+               "Get-ADCQueueLimitAssociation",
                "Get-ADCSession",
                "Get-ADCSessionAction",
                "Get-ADCSessionsStatisticsAggregation",
@@ -21858,10 +21883,12 @@ $ADC_SelectMap = @{
                "Get-ADCJobParameterDefinitionList",
                "Get-ADCJobList",
                "Get-ADCLicenseEndpointList",
+               "Get-ADCLimitList",
                "Get-ADCMeteredProductList",
                "Get-ADCMonitorList",
                "Get-ADCQueueEnvironmentList",
                "Get-ADCQueueFleetAssociationList",
+               "Get-ADCQueueLimitAssociationList",
                "Get-ADCQueueMemberList",
                "Get-ADCQueueList",
                "Get-ADCSessionActionList",
@@ -21887,10 +21914,12 @@ $ADC_SelectMap = @{
                "Update-ADCFarm",
                "Update-ADCFleet",
                "Update-ADCJob",
+               "Update-ADCLimit",
                "Update-ADCMonitor",
                "Update-ADCQueue",
                "Update-ADCQueueEnvironment",
                "Update-ADCQueueFleetAssociation",
+               "Update-ADCQueueLimitAssociation",
                "Update-ADCSession",
                "Update-ADCStep",
                "Update-ADCStorageProfile",
@@ -25651,7 +25680,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.metal","c5n.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.32xlarge","c6a.48xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.metal","c6a.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.metal","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.metal","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.32xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.metal","c6i.xlarge","c6id.12xlarge","c6id.16xlarge","c6id.24xlarge","c6id.2xlarge","c6id.32xlarge","c6id.4xlarge","c6id.8xlarge","c6id.large","c6id.metal","c6id.xlarge","c6in.12xlarge","c6in.16xlarge","c6in.24xlarge","c6in.2xlarge","c6in.32xlarge","c6in.4xlarge","c6in.8xlarge","c6in.large","c6in.metal","c6in.xlarge","c7a.12xlarge","c7a.16xlarge","c7a.24xlarge","c7a.2xlarge","c7a.32xlarge","c7a.48xlarge","c7a.4xlarge","c7a.8xlarge","c7a.large","c7a.medium","c7a.metal-48xl","c7a.xlarge","c7g.12xlarge","c7g.16xlarge","c7g.2xlarge","c7g.4xlarge","c7g.8xlarge","c7g.large","c7g.medium","c7g.metal","c7g.xlarge","c7gd.12xlarge","c7gd.16xlarge","c7gd.2xlarge","c7gd.4xlarge","c7gd.8xlarge","c7gd.large","c7gd.medium","c7gd.metal","c7gd.xlarge","c7gn.12xlarge","c7gn.16xlarge","c7gn.2xlarge","c7gn.4xlarge","c7gn.8xlarge","c7gn.large","c7gn.medium","c7gn.metal","c7gn.xlarge","c7i-flex.2xlarge","c7i-flex.4xlarge","c7i-flex.8xlarge","c7i-flex.large","c7i-flex.xlarge","c7i.12xlarge","c7i.16xlarge","c7i.24xlarge","c7i.2xlarge","c7i.48xlarge","c7i.4xlarge","c7i.8xlarge","c7i.large","c7i.metal-24xl","c7i.metal-48xl","c7i.xlarge","c8g.12xlarge","c8g.16xlarge","c8g.24xlarge","c8g.2xlarge","c8g.48xlarge","c8g.4xlarge","c8g.8xlarge","c8g.large","c8g.medium","c8g.metal-24xl","c8g.metal-48xl","c8g.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","d3.2xlarge","d3.4xlarge","d3.8xlarge","d3.xlarge","d3en.12xlarge","d3en.2xlarge","d3en.4xlarge","d3en.6xlarge","d3en.8xlarge","d3en.xlarge","dl1.24xlarge","dl2q.24xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4ad.16xlarge","g4ad.2xlarge","g4ad.4xlarge","g4ad.8xlarge","g4ad.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.metal","g4dn.xlarge","g5.12xlarge","g5.16xlarge","g5.24xlarge","g5.2xlarge","g5.48xlarge","g5.4xlarge","g5.8xlarge","g5.xlarge","g5g.16xlarge","g5g.2xlarge","g5g.4xlarge","g5g.8xlarge","g5g.metal","g5g.xlarge","g6.12xlarge","g6.16xlarge","g6.24xlarge","g6.2xlarge","g6.48xlarge","g6.4xlarge","g6.8xlarge","g6.xlarge","g6e.12xlarge","g6e.16xlarge","g6e.24xlarge","g6e.2xlarge","g6e.48xlarge","g6e.4xlarge","g6e.8xlarge","g6e.xlarge","gr6.4xlarge","gr6.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hpc6a.48xlarge","hpc6id.32xlarge","hpc7a.12xlarge","hpc7a.24xlarge","hpc7a.48xlarge","hpc7a.96xlarge","hpc7g.16xlarge","hpc7g.4xlarge","hpc7g.8xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","i4g.16xlarge","i4g.2xlarge","i4g.4xlarge","i4g.8xlarge","i4g.large","i4g.xlarge","i4i.12xlarge","i4i.16xlarge","i4i.24xlarge","i4i.2xlarge","i4i.32xlarge","i4i.4xlarge","i4i.8xlarge","i4i.large","i4i.metal","i4i.xlarge","i7ie.12xlarge","i7ie.18xlarge","i7ie.24xlarge","i7ie.2xlarge","i7ie.3xlarge","i7ie.48xlarge","i7ie.6xlarge","i7ie.large","i7ie.xlarge","i8g.12xlarge","i8g.16xlarge","i8g.24xlarge","i8g.2xlarge","i8g.4xlarge","i8g.8xlarge","i8g.large","i8g.metal-24xl","i8g.xlarge","im4gn.16xlarge","im4gn.2xlarge","im4gn.4xlarge","im4gn.8xlarge","im4gn.large","im4gn.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","inf2.24xlarge","inf2.48xlarge","inf2.8xlarge","inf2.xlarge","is4gen.2xlarge","is4gen.4xlarge","is4gen.8xlarge","is4gen.large","is4gen.medium","is4gen.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.metal","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.metal","m5n.xlarge","m5zn.12xlarge","m5zn.2xlarge","m5zn.3xlarge","m5zn.6xlarge","m5zn.large","m5zn.metal","m5zn.xlarge","m6a.12xlarge","m6a.16xlarge","m6a.24xlarge","m6a.2xlarge","m6a.32xlarge","m6a.48xlarge","m6a.4xlarge","m6a.8xlarge","m6a.large","m6a.metal","m6a.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.metal","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.metal","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.metal","m6i.xlarge","m6id.12xlarge","m6id.16xlarge","m6id.24xlarge","m6id.2xlarge","m6id.32xlarge","m6id.4xlarge","m6id.8xlarge","m6id.large","m6id.metal","m6id.xlarge","m6idn.12xlarge","m6idn.16xlarge","m6idn.24xlarge","m6idn.2xlarge","m6idn.32xlarge","m6idn.4xlarge","m6idn.8xlarge","m6idn.large","m6idn.metal","m6idn.xlarge","m6in.12xlarge","m6in.16xlarge","m6in.24xlarge","m6in.2xlarge","m6in.32xlarge","m6in.4xlarge","m6in.8xlarge","m6in.large","m6in.metal","m6in.xlarge","m7a.12xlarge","m7a.16xlarge","m7a.24xlarge","m7a.2xlarge","m7a.32xlarge","m7a.48xlarge","m7a.4xlarge","m7a.8xlarge","m7a.large","m7a.medium","m7a.metal-48xl","m7a.xlarge","m7g.12xlarge","m7g.16xlarge","m7g.2xlarge","m7g.4xlarge","m7g.8xlarge","m7g.large","m7g.medium","m7g.metal","m7g.xlarge","m7gd.12xlarge","m7gd.16xlarge","m7gd.2xlarge","m7gd.4xlarge","m7gd.8xlarge","m7gd.large","m7gd.medium","m7gd.metal","m7gd.xlarge","m7i-flex.2xlarge","m7i-flex.4xlarge","m7i-flex.8xlarge","m7i-flex.large","m7i-flex.xlarge","m7i.12xlarge","m7i.16xlarge","m7i.24xlarge","m7i.2xlarge","m7i.48xlarge","m7i.4xlarge","m7i.8xlarge","m7i.large","m7i.metal-24xl","m7i.metal-48xl","m7i.xlarge","m8g.12xlarge","m8g.16xlarge","m8g.24xlarge","m8g.2xlarge","m8g.48xlarge","m8g.4xlarge","m8g.8xlarge","m8g.large","m8g.medium","m8g.metal-24xl","m8g.metal-48xl","m8g.xlarge","mac1.metal","mac2-m1ultra.metal","mac2-m2.metal","mac2-m2pro.metal","mac2.metal","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","p4d.24xlarge","p4de.24xlarge","p5.48xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5b.12xlarge","r5b.16xlarge","r5b.24xlarge","r5b.2xlarge","r5b.4xlarge","r5b.8xlarge","r5b.large","r5b.metal","r5b.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.metal","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.metal","r5n.xlarge","r6a.12xlarge","r6a.16xlarge","r6a.24xlarge","r6a.2xlarge","r6a.32xlarge","r6a.48xlarge","r6a.4xlarge","r6a.8xlarge","r6a.large","r6a.metal","r6a.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.metal","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.metal","r6gd.xlarge","r6i.12xlarge","r6i.16xlarge","r6i.24xlarge","r6i.2xlarge","r6i.32xlarge","r6i.4xlarge","r6i.8xlarge","r6i.large","r6i.metal","r6i.xlarge","r6id.12xlarge","r6id.16xlarge","r6id.24xlarge","r6id.2xlarge","r6id.32xlarge","r6id.4xlarge","r6id.8xlarge","r6id.large","r6id.metal","r6id.xlarge","r6idn.12xlarge","r6idn.16xlarge","r6idn.24xlarge","r6idn.2xlarge","r6idn.32xlarge","r6idn.4xlarge","r6idn.8xlarge","r6idn.large","r6idn.metal","r6idn.xlarge","r6in.12xlarge","r6in.16xlarge","r6in.24xlarge","r6in.2xlarge","r6in.32xlarge","r6in.4xlarge","r6in.8xlarge","r6in.large","r6in.metal","r6in.xlarge","r7a.12xlarge","r7a.16xlarge","r7a.24xlarge","r7a.2xlarge","r7a.32xlarge","r7a.48xlarge","r7a.4xlarge","r7a.8xlarge","r7a.large","r7a.medium","r7a.metal-48xl","r7a.xlarge","r7g.12xlarge","r7g.16xlarge","r7g.2xlarge","r7g.4xlarge","r7g.8xlarge","r7g.large","r7g.medium","r7g.metal","r7g.xlarge","r7gd.12xlarge","r7gd.16xlarge","r7gd.2xlarge","r7gd.4xlarge","r7gd.8xlarge","r7gd.large","r7gd.medium","r7gd.metal","r7gd.xlarge","r7i.12xlarge","r7i.16xlarge","r7i.24xlarge","r7i.2xlarge","r7i.48xlarge","r7i.4xlarge","r7i.8xlarge","r7i.large","r7i.metal-24xl","r7i.metal-48xl","r7i.xlarge","r7iz.12xlarge","r7iz.16xlarge","r7iz.2xlarge","r7iz.32xlarge","r7iz.4xlarge","r7iz.8xlarge","r7iz.large","r7iz.metal-16xl","r7iz.metal-32xl","r7iz.xlarge","r8g.12xlarge","r8g.16xlarge","r8g.24xlarge","r8g.2xlarge","r8g.48xlarge","r8g.4xlarge","r8g.8xlarge","r8g.large","r8g.medium","r8g.metal-24xl","r8g.metal-48xl","r8g.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","t4g.2xlarge","t4g.large","t4g.medium","t4g.micro","t4g.nano","t4g.small","t4g.xlarge","trn1.2xlarge","trn1.32xlarge","trn1n.32xlarge","u-12tb1.112xlarge","u-12tb1.metal","u-18tb1.112xlarge","u-18tb1.metal","u-24tb1.112xlarge","u-24tb1.metal","u-3tb1.56xlarge","u-6tb1.112xlarge","u-6tb1.56xlarge","u-6tb1.metal","u-9tb1.112xlarge","u-9tb1.metal","u7i-12tb.224xlarge","u7ib-12tb.224xlarge","u7in-16tb.224xlarge","u7in-24tb.224xlarge","u7in-32tb.224xlarge","vt1.24xlarge","vt1.3xlarge","vt1.6xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","x2gd.12xlarge","x2gd.16xlarge","x2gd.2xlarge","x2gd.4xlarge","x2gd.8xlarge","x2gd.large","x2gd.medium","x2gd.metal","x2gd.xlarge","x2idn.16xlarge","x2idn.24xlarge","x2idn.32xlarge","x2idn.metal","x2iedn.16xlarge","x2iedn.24xlarge","x2iedn.2xlarge","x2iedn.32xlarge","x2iedn.4xlarge","x2iedn.8xlarge","x2iedn.metal","x2iedn.xlarge","x2iezn.12xlarge","x2iezn.2xlarge","x2iezn.4xlarge","x2iezn.6xlarge","x2iezn.8xlarge","x2iezn.metal","x8g.12xlarge","x8g.16xlarge","x8g.24xlarge","x8g.2xlarge","x8g.48xlarge","x8g.4xlarge","x8g.8xlarge","x8g.large","x8g.medium","x8g.metal-24xl","x8g.metal-48xl","x8g.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.metal","c5n.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.32xlarge","c6a.48xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.metal","c6a.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.metal","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.metal","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.32xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.metal","c6i.xlarge","c6id.12xlarge","c6id.16xlarge","c6id.24xlarge","c6id.2xlarge","c6id.32xlarge","c6id.4xlarge","c6id.8xlarge","c6id.large","c6id.metal","c6id.xlarge","c6in.12xlarge","c6in.16xlarge","c6in.24xlarge","c6in.2xlarge","c6in.32xlarge","c6in.4xlarge","c6in.8xlarge","c6in.large","c6in.metal","c6in.xlarge","c7a.12xlarge","c7a.16xlarge","c7a.24xlarge","c7a.2xlarge","c7a.32xlarge","c7a.48xlarge","c7a.4xlarge","c7a.8xlarge","c7a.large","c7a.medium","c7a.metal-48xl","c7a.xlarge","c7g.12xlarge","c7g.16xlarge","c7g.2xlarge","c7g.4xlarge","c7g.8xlarge","c7g.large","c7g.medium","c7g.metal","c7g.xlarge","c7gd.12xlarge","c7gd.16xlarge","c7gd.2xlarge","c7gd.4xlarge","c7gd.8xlarge","c7gd.large","c7gd.medium","c7gd.metal","c7gd.xlarge","c7gn.12xlarge","c7gn.16xlarge","c7gn.2xlarge","c7gn.4xlarge","c7gn.8xlarge","c7gn.large","c7gn.medium","c7gn.metal","c7gn.xlarge","c7i-flex.2xlarge","c7i-flex.4xlarge","c7i-flex.8xlarge","c7i-flex.large","c7i-flex.xlarge","c7i.12xlarge","c7i.16xlarge","c7i.24xlarge","c7i.2xlarge","c7i.48xlarge","c7i.4xlarge","c7i.8xlarge","c7i.large","c7i.metal-24xl","c7i.metal-48xl","c7i.xlarge","c8g.12xlarge","c8g.16xlarge","c8g.24xlarge","c8g.2xlarge","c8g.48xlarge","c8g.4xlarge","c8g.8xlarge","c8g.large","c8g.medium","c8g.metal-24xl","c8g.metal-48xl","c8g.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","d3.2xlarge","d3.4xlarge","d3.8xlarge","d3.xlarge","d3en.12xlarge","d3en.2xlarge","d3en.4xlarge","d3en.6xlarge","d3en.8xlarge","d3en.xlarge","dl1.24xlarge","dl2q.24xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","f2.12xlarge","f2.48xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4ad.16xlarge","g4ad.2xlarge","g4ad.4xlarge","g4ad.8xlarge","g4ad.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.metal","g4dn.xlarge","g5.12xlarge","g5.16xlarge","g5.24xlarge","g5.2xlarge","g5.48xlarge","g5.4xlarge","g5.8xlarge","g5.xlarge","g5g.16xlarge","g5g.2xlarge","g5g.4xlarge","g5g.8xlarge","g5g.metal","g5g.xlarge","g6.12xlarge","g6.16xlarge","g6.24xlarge","g6.2xlarge","g6.48xlarge","g6.4xlarge","g6.8xlarge","g6.xlarge","g6e.12xlarge","g6e.16xlarge","g6e.24xlarge","g6e.2xlarge","g6e.48xlarge","g6e.4xlarge","g6e.8xlarge","g6e.xlarge","gr6.4xlarge","gr6.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hpc6a.48xlarge","hpc6id.32xlarge","hpc7a.12xlarge","hpc7a.24xlarge","hpc7a.48xlarge","hpc7a.96xlarge","hpc7g.16xlarge","hpc7g.4xlarge","hpc7g.8xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","i4g.16xlarge","i4g.2xlarge","i4g.4xlarge","i4g.8xlarge","i4g.large","i4g.xlarge","i4i.12xlarge","i4i.16xlarge","i4i.24xlarge","i4i.2xlarge","i4i.32xlarge","i4i.4xlarge","i4i.8xlarge","i4i.large","i4i.metal","i4i.xlarge","i7ie.12xlarge","i7ie.18xlarge","i7ie.24xlarge","i7ie.2xlarge","i7ie.3xlarge","i7ie.48xlarge","i7ie.6xlarge","i7ie.large","i7ie.xlarge","i8g.12xlarge","i8g.16xlarge","i8g.24xlarge","i8g.2xlarge","i8g.4xlarge","i8g.8xlarge","i8g.large","i8g.metal-24xl","i8g.xlarge","im4gn.16xlarge","im4gn.2xlarge","im4gn.4xlarge","im4gn.8xlarge","im4gn.large","im4gn.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","inf2.24xlarge","inf2.48xlarge","inf2.8xlarge","inf2.xlarge","is4gen.2xlarge","is4gen.4xlarge","is4gen.8xlarge","is4gen.large","is4gen.medium","is4gen.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.metal","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.metal","m5n.xlarge","m5zn.12xlarge","m5zn.2xlarge","m5zn.3xlarge","m5zn.6xlarge","m5zn.large","m5zn.metal","m5zn.xlarge","m6a.12xlarge","m6a.16xlarge","m6a.24xlarge","m6a.2xlarge","m6a.32xlarge","m6a.48xlarge","m6a.4xlarge","m6a.8xlarge","m6a.large","m6a.metal","m6a.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.metal","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.metal","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.metal","m6i.xlarge","m6id.12xlarge","m6id.16xlarge","m6id.24xlarge","m6id.2xlarge","m6id.32xlarge","m6id.4xlarge","m6id.8xlarge","m6id.large","m6id.metal","m6id.xlarge","m6idn.12xlarge","m6idn.16xlarge","m6idn.24xlarge","m6idn.2xlarge","m6idn.32xlarge","m6idn.4xlarge","m6idn.8xlarge","m6idn.large","m6idn.metal","m6idn.xlarge","m6in.12xlarge","m6in.16xlarge","m6in.24xlarge","m6in.2xlarge","m6in.32xlarge","m6in.4xlarge","m6in.8xlarge","m6in.large","m6in.metal","m6in.xlarge","m7a.12xlarge","m7a.16xlarge","m7a.24xlarge","m7a.2xlarge","m7a.32xlarge","m7a.48xlarge","m7a.4xlarge","m7a.8xlarge","m7a.large","m7a.medium","m7a.metal-48xl","m7a.xlarge","m7g.12xlarge","m7g.16xlarge","m7g.2xlarge","m7g.4xlarge","m7g.8xlarge","m7g.large","m7g.medium","m7g.metal","m7g.xlarge","m7gd.12xlarge","m7gd.16xlarge","m7gd.2xlarge","m7gd.4xlarge","m7gd.8xlarge","m7gd.large","m7gd.medium","m7gd.metal","m7gd.xlarge","m7i-flex.2xlarge","m7i-flex.4xlarge","m7i-flex.8xlarge","m7i-flex.large","m7i-flex.xlarge","m7i.12xlarge","m7i.16xlarge","m7i.24xlarge","m7i.2xlarge","m7i.48xlarge","m7i.4xlarge","m7i.8xlarge","m7i.large","m7i.metal-24xl","m7i.metal-48xl","m7i.xlarge","m8g.12xlarge","m8g.16xlarge","m8g.24xlarge","m8g.2xlarge","m8g.48xlarge","m8g.4xlarge","m8g.8xlarge","m8g.large","m8g.medium","m8g.metal-24xl","m8g.metal-48xl","m8g.xlarge","mac1.metal","mac2-m1ultra.metal","mac2-m2.metal","mac2-m2pro.metal","mac2.metal","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","p4d.24xlarge","p4de.24xlarge","p5.48xlarge","p5e.48xlarge","p5en.48xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5b.12xlarge","r5b.16xlarge","r5b.24xlarge","r5b.2xlarge","r5b.4xlarge","r5b.8xlarge","r5b.large","r5b.metal","r5b.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.metal","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.metal","r5n.xlarge","r6a.12xlarge","r6a.16xlarge","r6a.24xlarge","r6a.2xlarge","r6a.32xlarge","r6a.48xlarge","r6a.4xlarge","r6a.8xlarge","r6a.large","r6a.metal","r6a.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.metal","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.metal","r6gd.xlarge","r6i.12xlarge","r6i.16xlarge","r6i.24xlarge","r6i.2xlarge","r6i.32xlarge","r6i.4xlarge","r6i.8xlarge","r6i.large","r6i.metal","r6i.xlarge","r6id.12xlarge","r6id.16xlarge","r6id.24xlarge","r6id.2xlarge","r6id.32xlarge","r6id.4xlarge","r6id.8xlarge","r6id.large","r6id.metal","r6id.xlarge","r6idn.12xlarge","r6idn.16xlarge","r6idn.24xlarge","r6idn.2xlarge","r6idn.32xlarge","r6idn.4xlarge","r6idn.8xlarge","r6idn.large","r6idn.metal","r6idn.xlarge","r6in.12xlarge","r6in.16xlarge","r6in.24xlarge","r6in.2xlarge","r6in.32xlarge","r6in.4xlarge","r6in.8xlarge","r6in.large","r6in.metal","r6in.xlarge","r7a.12xlarge","r7a.16xlarge","r7a.24xlarge","r7a.2xlarge","r7a.32xlarge","r7a.48xlarge","r7a.4xlarge","r7a.8xlarge","r7a.large","r7a.medium","r7a.metal-48xl","r7a.xlarge","r7g.12xlarge","r7g.16xlarge","r7g.2xlarge","r7g.4xlarge","r7g.8xlarge","r7g.large","r7g.medium","r7g.metal","r7g.xlarge","r7gd.12xlarge","r7gd.16xlarge","r7gd.2xlarge","r7gd.4xlarge","r7gd.8xlarge","r7gd.large","r7gd.medium","r7gd.metal","r7gd.xlarge","r7i.12xlarge","r7i.16xlarge","r7i.24xlarge","r7i.2xlarge","r7i.48xlarge","r7i.4xlarge","r7i.8xlarge","r7i.large","r7i.metal-24xl","r7i.metal-48xl","r7i.xlarge","r7iz.12xlarge","r7iz.16xlarge","r7iz.2xlarge","r7iz.32xlarge","r7iz.4xlarge","r7iz.8xlarge","r7iz.large","r7iz.metal-16xl","r7iz.metal-32xl","r7iz.xlarge","r8g.12xlarge","r8g.16xlarge","r8g.24xlarge","r8g.2xlarge","r8g.48xlarge","r8g.4xlarge","r8g.8xlarge","r8g.large","r8g.medium","r8g.metal-24xl","r8g.metal-48xl","r8g.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","t4g.2xlarge","t4g.large","t4g.medium","t4g.micro","t4g.nano","t4g.small","t4g.xlarge","trn1.2xlarge","trn1.32xlarge","trn1n.32xlarge","trn2.48xlarge","u-12tb1.112xlarge","u-12tb1.metal","u-18tb1.112xlarge","u-18tb1.metal","u-24tb1.112xlarge","u-24tb1.metal","u-3tb1.56xlarge","u-6tb1.112xlarge","u-6tb1.56xlarge","u-6tb1.metal","u-9tb1.112xlarge","u-9tb1.metal","u7i-12tb.224xlarge","u7i-6tb.112xlarge","u7i-8tb.112xlarge","u7ib-12tb.224xlarge","u7in-16tb.224xlarge","u7in-24tb.224xlarge","u7in-32tb.224xlarge","u7inh-32tb.480xlarge","vt1.24xlarge","vt1.3xlarge","vt1.6xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","x2gd.12xlarge","x2gd.16xlarge","x2gd.2xlarge","x2gd.4xlarge","x2gd.8xlarge","x2gd.large","x2gd.medium","x2gd.metal","x2gd.xlarge","x2idn.16xlarge","x2idn.24xlarge","x2idn.32xlarge","x2idn.metal","x2iedn.16xlarge","x2iedn.24xlarge","x2iedn.2xlarge","x2iedn.32xlarge","x2iedn.4xlarge","x2iedn.8xlarge","x2iedn.metal","x2iedn.xlarge","x2iezn.12xlarge","x2iezn.2xlarge","x2iezn.4xlarge","x2iezn.6xlarge","x2iezn.8xlarge","x2iezn.metal","x8g.12xlarge","x8g.16xlarge","x8g.24xlarge","x8g.2xlarge","x8g.48xlarge","x8g.4xlarge","x8g.8xlarge","x8g.large","x8g.medium","x8g.metal-24xl","x8g.metal-48xl","x8g.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
             break
         }
 
@@ -27855,6 +27884,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.NodegroupUpdateStrategies
+        {
+            ($_ -eq "New-EKSNodegroup/UpdateConfig_UpdateStrategy") -Or
+            ($_ -eq "Update-EKSNodegroupConfig/UpdateConfig_UpdateStrategy")
+        }
+        {
+            $v = "DEFAULT","MINIMAL"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflict") -Or
@@ -27894,6 +27933,7 @@ $EKS_map = @{
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
 }
 
@@ -32931,6 +32971,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.PlacementFallbackStrategy
+        "Start-GMLGameSessionPlacement/PriorityConfigurationOverride_PlacementFallbackStrategy"
+        {
+            $v = "DEFAULT_AFTER_SINGLE_PASS","NONE"
+            break
+        }
+
         # Amazon.GameLift.PlayerSessionCreationPolicy
         "Update-GMLGameSession/PlayerSessionCreationPolicy"
         {
@@ -32990,6 +33037,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.TerminationMode
+        "Stop-GMLGameSession/TerminationMode"
+        {
+            $v = "FORCE_TERMINATE","TRIGGER_ON_PROCESS_TERMINATE"
+            break
+        }
+
 
     }
 
@@ -33023,6 +33077,7 @@ $GML_map = @{
     "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition","Update-GMLContainerGroupDefinition")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
+    "PriorityConfigurationOverride_PlacementFallbackStrategy"=@("Start-GMLGameSessionPlacement")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
@@ -33030,6 +33085,7 @@ $GML_map = @{
     "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
+    "TerminationMode"=@("Stop-GMLGameSession")
     "UtilizationStatus"=@("Update-GMLGameServer")
 }
 
@@ -33183,6 +33239,7 @@ $GML_SelectMap = @{
                "Stop-GMLMatchmaking",
                "Suspend-GMLGameServerGroup",
                "Add-GMLResourceTag",
+               "Stop-GMLGameSession",
                "Remove-GMLResourceTag",
                "Update-GMLAlias",
                "Update-GMLBuild",
@@ -33637,6 +33694,13 @@ $GEOR_Completers = {
             break
         }
 
+        # Amazon.GeoRoutes.WaypointOptimizationClusteringAlgorithm
+        "Get-GEOROptimizedWaypoint/Clustering_Algorithm"
+        {
+            $v = "DrivingDistance","TopologySegment"
+            break
+        }
+
         # Amazon.GeoRoutes.WaypointOptimizationSequencingObjective
         "Get-GEOROptimizedWaypoint/OptimizeSequencingFor"
         {
@@ -33675,6 +33739,7 @@ $GEOR_Completers = {
 
 $GEOR_map = @{
     "Car_EngineType"=@("Get-GEORIsoline","Get-GEORRoute")
+    "Clustering_Algorithm"=@("Get-GEOROptimizedWaypoint")
     "DestinationOptions_Matching_Strategy"=@("Get-GEORIsoline","Get-GEORRoute")
     "DestinationOptions_SideOfStreet_UseWith"=@("Get-GEORIsoline","Get-GEORRoute")
     "Driver_TreatServiceTimeAs"=@("Get-GEOROptimizedWaypoint")
@@ -35775,7 +35840,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.AuthorizationStrategy
         "New-AHLFHIRDatastore/IdentityProviderConfiguration_AuthorizationStrategy"
         {
-            $v = "AWS_AUTH","SMART_ON_FHIR_V1"
+            $v = "AWS_AUTH","SMART_ON_FHIR","SMART_ON_FHIR_V1"
             break
         }
 
@@ -35806,7 +35871,7 @@ $AHL_Completers = {
             ($_ -eq "Get-AHLFHIRImportJobList/JobStatus")
         }
         {
-            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","SUBMITTED"
+            $v = "CANCEL_COMPLETED","CANCEL_FAILED","CANCEL_IN_PROGRESS","CANCEL_SUBMITTED","COMPLETED","COMPLETED_WITH_ERRORS","FAILED","IN_PROGRESS","QUEUED","SUBMITTED"
             break
         }
 
@@ -35915,6 +35980,16 @@ $IAM_Completers = {
             break
         }
 
+        # Amazon.IdentityManagement.AssertionEncryptionModeType
+        {
+            ($_ -eq "New-IAMSAMLProvider/AssertionEncryptionMode") -Or
+            ($_ -eq "Update-IAMSAMLProvider/AssertionEncryptionMode")
+        }
+        {
+            $v = "Allowed","Required"
+            break
+        }
+
         # Amazon.IdentityManagement.AssignmentStatusType
         "Get-IAMVirtualMFADevice/AssignmentStatus"
         {
@@ -35988,6 +36063,7 @@ $IAM_Completers = {
 }
 
 $IAM_map = @{
+    "AssertionEncryptionMode"=@("New-IAMSAMLProvider","Update-IAMSAMLProvider")
     "AssignmentStatus"=@("Get-IAMVirtualMFADevice")
     "Encoding"=@("Get-IAMSSHPublicKey")
     "EntityFilter"=@("Get-IAMEntitiesForPolicy")
@@ -36548,6 +36624,7 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBWorkflowExecution",
                "Get-EC2IBWorkflowStepExecution",
                "Import-EC2IBComponent",
+               "Import-EC2IBDiskImage",
                "Import-EC2IBVmImage",
                "Get-EC2IBComponentBuildVersionList",
                "Get-EC2IBComponentList",
@@ -41110,8 +41187,10 @@ $MSKC_SelectMap = @{
                "Remove-MSKCCustomPlugin",
                "Remove-MSKCWorkerConfiguration",
                "Get-MSKCConnector",
+               "Get-MSKCConnectorOperation",
                "Get-MSKCCustomPlugin",
                "Get-MSKCWorkerConfiguration",
+               "Get-MSKCConnectorOperationList",
                "Get-MSKCConnectorList",
                "Get-MSKCCustomPluginList",
                "Get-MSKCResourceTag",
@@ -46171,6 +46250,13 @@ $MMGR_Completers = {
             break
         }
 
+        # Amazon.MailManager.ImportDataType
+        "New-MMGRAddressListImportJob/ImportDataFormat_ImportDataType"
+        {
+            $v = "CSV","JSON"
+            break
+        }
+
         # Amazon.MailManager.IngressPointStatusToUpdate
         "Update-MMGRIngressPoint/StatusToUpdate"
         {
@@ -46205,6 +46291,7 @@ $MMGR_Completers = {
 
 $MMGR_map = @{
     "DefaultAction"=@("New-MMGRTrafficPolicy","Update-MMGRTrafficPolicy")
+    "ImportDataFormat_ImportDataType"=@("New-MMGRAddressListImportJob")
     "Retention_RetentionPeriod"=@("New-MMGRArchive","Update-MMGRArchive")
     "StatusToUpdate"=@("Update-MMGRIngressPoint")
     "Type"=@("New-MMGRIngressPoint")
@@ -46262,6 +46349,8 @@ $MMGR_SelectCompleters = {
 $MMGR_SelectMap = @{
     "Select"=@("New-MMGRAddonInstance",
                "New-MMGRAddonSubscription",
+               "New-MMGRAddressList",
+               "New-MMGRAddressListImportJob",
                "New-MMGRArchive",
                "New-MMGRIngressPoint",
                "New-MMGRRelay",
@@ -46269,13 +46358,17 @@ $MMGR_SelectMap = @{
                "New-MMGRTrafficPolicy",
                "Remove-MMGRAddonInstance",
                "Remove-MMGRAddonSubscription",
+               "Remove-MMGRAddressList",
                "Remove-MMGRArchive",
                "Remove-MMGRIngressPoint",
                "Remove-MMGRRelay",
                "Remove-MMGRRuleSet",
                "Remove-MMGRTrafficPolicy",
+               "Remove-MMGRMemberFromAddressList",
                "Get-MMGRAddonInstance",
                "Get-MMGRAddonSubscription",
+               "Get-MMGRAddressList",
+               "Get-MMGRAddressListImportJob",
                "Get-MMGRArchive",
                "Get-MMGRArchiveExport",
                "Get-MMGRArchiveMessage",
@@ -46283,21 +46376,28 @@ $MMGR_SelectMap = @{
                "Get-MMGRArchiveSearch",
                "Get-MMGRArchiveSearchResult",
                "Get-MMGRIngressPoint",
+               "Get-MMGRMemberOfAddressList",
                "Get-MMGRRelay",
                "Get-MMGRRuleSet",
                "Get-MMGRTrafficPolicy",
                "Get-MMGRAddonInstanceList",
                "Get-MMGRAddonSubscriptionList",
+               "Get-MMGRAddressListImportJobList",
+               "Get-MMGRAddressListList",
                "Get-MMGRArchiveExportList",
                "Get-MMGRArchiveList",
                "Get-MMGRArchiveSearchList",
                "Get-MMGRIngressPointList",
+               "Get-MMGRMembersOfAddressListList",
                "Get-MMGRRelayList",
                "Get-MMGRRuleSetList",
                "Get-MMGRResourceTag",
                "Get-MMGRTrafficPolicyList",
+               "Add-MMGRMemberToAddressList",
+               "Start-MMGRAddressListImportJob",
                "Start-MMGRArchiveExport",
                "Start-MMGRArchiveSearch",
+               "Stop-MMGRAddressListImportJob",
                "Stop-MMGRArchiveExport",
                "Stop-MMGRArchiveSearch",
                "Add-MMGRResourceTag",
@@ -47107,6 +47207,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.ContentQualityAnalysisState
+        {
+            ($_ -eq "New-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState") -Or
+            ($_ -eq "Update-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.MediaConnect.DesiredState
         "Update-EMCNBridgeState/DesiredState"
         {
@@ -47236,6 +47346,7 @@ $EMCN_map = @{
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
+    "SourceMonitoringConfig_ContentQualityAnalysisState"=@("New-EMCNFlow","Update-EMCNFlow")
     "SourceMonitoringConfig_ThumbnailState"=@("New-EMCNFlow","Update-EMCNFlow")
 }
 
@@ -48655,6 +48766,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.StreamingMediaFileConditioning
+        "Set-EMTPlaybackConfiguration/AdConditioningConfiguration_StreamingMediaFileConditioning"
+        {
+            $v = "NONE","TRANSCODE"
+            break
+        }
+
         # Amazon.MediaTailor.Tier
         "New-EMTChannel/Tier"
         {
@@ -48672,6 +48790,7 @@ $EMT_Completers = {
 
 $EMT_map = @{
     "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
+    "AdConditioningConfiguration_StreamingMediaFileConditioning"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
@@ -52438,6 +52557,16 @@ $UNO_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Notifications.AccountContactType
+        {
+            ($_ -eq "Add-UNOManagedNotificationAccountContact/ContactIdentifier") -Or
+            ($_ -eq "Remove-UNOManagedNotificationAccountContact/ContactIdentifier")
+        }
+        {
+            $v = "ACCOUNT_ALTERNATE_BILLING","ACCOUNT_ALTERNATE_OPERATIONS","ACCOUNT_ALTERNATE_SECURITY","ACCOUNT_PRIMARY"
+            break
+        }
+
         # Amazon.Notifications.AggregationDuration
         {
             ($_ -eq "New-UNONotificationConfiguration/AggregationDuration") -Or
@@ -52450,6 +52579,10 @@ $UNO_Completers = {
 
         # Amazon.Notifications.LocaleCode
         {
+            ($_ -eq "Get-UNOManagedNotificationChildEvent/Locale") -Or
+            ($_ -eq "Get-UNOManagedNotificationChildEventList/Locale") -Or
+            ($_ -eq "Get-UNOManagedNotificationEvent/Locale") -Or
+            ($_ -eq "Get-UNOManagedNotificationEventList/Locale") -Or
             ($_ -eq "Get-UNONotificationEvent/Locale") -Or
             ($_ -eq "Get-UNONotificationEventList/Locale")
         }
@@ -52475,7 +52608,8 @@ $UNO_Completers = {
 
 $UNO_map = @{
     "AggregationDuration"=@("New-UNONotificationConfiguration","Update-UNONotificationConfiguration")
-    "Locale"=@("Get-UNONotificationEvent","Get-UNONotificationEventList")
+    "ContactIdentifier"=@("Add-UNOManagedNotificationAccountContact","Remove-UNOManagedNotificationAccountContact")
+    "Locale"=@("Get-UNOManagedNotificationChildEvent","Get-UNOManagedNotificationChildEventList","Get-UNOManagedNotificationEvent","Get-UNOManagedNotificationEventList","Get-UNONotificationEvent","Get-UNONotificationEventList")
     "Status"=@("Get-UNONotificationConfigurationList")
 }
 
@@ -52530,17 +52664,31 @@ $UNO_SelectCompleters = {
 
 $UNO_SelectMap = @{
     "Select"=@("Add-UNOChannel",
+               "Add-UNOManagedNotificationAccountContact",
+               "Add-UNOManagedNotificationAdditionalChannel",
                "New-UNOEventRule",
                "New-UNONotificationConfiguration",
                "Remove-UNOEventRule",
                "Remove-UNONotificationConfiguration",
                "Remove-UNONotificationHub",
+               "Disable-UNONotificationsAccessForOrganization",
                "Remove-UNOChannel",
+               "Remove-UNOManagedNotificationAccountContact",
+               "Remove-UNOManagedNotificationAdditionalChannel",
+               "Enable-UNONotificationsAccessForOrganization",
                "Get-UNOEventRule",
+               "Get-UNOManagedNotificationChildEvent",
+               "Get-UNOManagedNotificationConfiguration",
+               "Get-UNOManagedNotificationEvent",
                "Get-UNONotificationConfiguration",
                "Get-UNONotificationEvent",
+               "Get-UNONotificationsAccessForOrganization",
                "Get-UNOChannelList",
                "Get-UNOEventRuleList",
+               "Get-UNOManagedNotificationChannelAssociationList",
+               "Get-UNOManagedNotificationChildEventList",
+               "Get-UNOManagedNotificationConfigurationList",
+               "Get-UNOManagedNotificationEventList",
                "Get-UNONotificationConfigurationList",
                "Get-UNONotificationEventList",
                "Get-UNONotificationHubList",
@@ -55143,6 +55291,7 @@ $PC_SelectMap = @{
                "Get-PCResourceSnapshotJobList",
                "Get-PCResourceSnapshotList",
                "Get-PCSolutionList",
+               "Get-PCResourceTag",
                "Write-PCSellingSystemSetting",
                "Invoke-PCRejectEngagementInvitation",
                "Invoke-PCStartEngagementByAcceptingInvitationTask",
@@ -55150,6 +55299,8 @@ $PC_SelectMap = @{
                "Start-PCResourceSnapshotJob",
                "Stop-PCResourceSnapshotJob",
                "Submit-PCOpportunity",
+               "Add-PCResourceTag",
+               "Remove-PCResourceTag",
                "Update-PCOpportunity")
 }
 
@@ -58588,6 +58739,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.OrchestrationControl
+        "Update-QBUSChatControlsConfiguration/OrchestrationConfiguration_Control"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.PersonalizationControlMode
         {
             ($_ -eq "New-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode") -Or
@@ -58640,7 +58798,11 @@ $QBUS_Completers = {
         }
 
         # Amazon.QBusiness.SubscriptionType
-        "Update-QBUSApplication/AutoSubscriptionConfiguration_DefaultSubscriptionType"
+        {
+            ($_ -eq "Update-QBUSApplication/AutoSubscriptionConfiguration_DefaultSubscriptionType") -Or
+            ($_ -eq "New-QBUSSubscription/Type") -Or
+            ($_ -eq "Update-QBUSSubscription/Type")
+        }
         {
             $v = "Q_BUSINESS","Q_LITE"
             break
@@ -58677,6 +58839,7 @@ $QBUS_map = @{
     "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "OrchestrationConfiguration_Control"=@("Update-QBUSChatControlsConfiguration")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
@@ -58684,7 +58847,7 @@ $QBUS_map = @{
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
     "State"=@("Update-QBUSPlugin")
     "StatusFilter"=@("Get-QBUSDataSourceSyncJobList")
-    "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
+    "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","New-QBUSSubscription","Update-QBUSSubscription","Write-QBUSGroup")
 }
 
 _awsArgumentCompleterRegistration $QBUS_Completers $QBUS_map
@@ -58740,6 +58903,7 @@ $QBUS_SelectMap = @{
     "Select"=@("Add-QBUSPermission",
                "Remove-QBUSBatchDeleteDocument",
                "Set-QBUSBatchPutDocument",
+               "Stop-QBUSSubscription",
                "Set-QBUSChatSync",
                "New-QBUSApplication",
                "New-QBUSDataAccessor",
@@ -58747,6 +58911,7 @@ $QBUS_SelectMap = @{
                "New-QBUSIndex",
                "New-QBUSPlugin",
                "New-QBUSRetriever",
+               "New-QBUSSubscription",
                "New-QBUSUser",
                "New-QBUSWebExperience",
                "Remove-QBUSApplication",
@@ -58788,6 +58953,7 @@ $QBUS_SelectMap = @{
                "Get-QBUSPluginTypeActionList",
                "Get-QBUSPluginTypeMetadataList",
                "Get-QBUSRetrieverList",
+               "Get-QBUSSubscriptionList",
                "Get-QBUSResourceTag",
                "Get-QBUSWebExperienceList",
                "Write-QBUSFeedback",
@@ -58804,6 +58970,7 @@ $QBUS_SelectMap = @{
                "Update-QBUSIndex",
                "Update-QBUSPlugin",
                "Update-QBUSRetriever",
+               "Update-QBUSSubscription",
                "Update-QBUSUser",
                "Update-QBUSWebExperience")
 }
@@ -62654,7 +62821,7 @@ $R53_Completers = {
             ($_ -eq "Update-R53HealthCheck/AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -62730,7 +62897,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ap-southeast-7","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","mx-central-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -64063,7 +64230,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3ObjectTagSet/ChecksumAlgorithm")
         }
         {
-            $v = "CRC32","CRC32C","SHA1","SHA256"
+            $v = "CRC32","CRC32C","CRC64NVME","SHA1","SHA256"
             break
         }
 
@@ -66173,7 +66340,7 @@ $SM_Completers = {
         # Amazon.SageMaker.ReservedCapacityInstanceType
         "Search-SMTrainingPlanOffering/InstanceType"
         {
-            $v = "ml.p4d.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.trn2.48xlarge"
+            $v = "ml.p4d.24xlarge","ml.p5.48xlarge","ml.p5e.48xlarge","ml.p5en.48xlarge","ml.trn1.32xlarge","ml.trn2.48xlarge"
             break
         }
 
@@ -73471,7 +73638,10 @@ $TIDB_Completers = {
         }
 
         # Amazon.TimestreamInfluxDB.DbStorageType
-        "New-TIDBDbInstance/DbStorageType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DbStorageType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DbStorageType")
+        }
         {
             $v = "InfluxIOIncludedT1","InfluxIOIncludedT2","InfluxIOIncludedT3"
             break
@@ -73534,7 +73704,7 @@ $TIDB_Completers = {
 
 $TIDB_map = @{
     "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DbStorageType"=@("New-TIDBDbInstance")
+    "DbStorageType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")
@@ -77263,7 +77433,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName")
         }
         {
-            $v = "GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
+            $v = "GENERALPURPOSE_4XLARGE","GENERALPURPOSE_8XLARGE","GRAPHICS","GRAPHICSPRO","GRAPHICSPRO_G4DN","GRAPHICS_G4DN","PERFORMANCE","POWER","POWERPRO","STANDARD","VALUE"
             break
         }
 

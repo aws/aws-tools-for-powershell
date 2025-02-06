@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -51,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <summary>
         /// <para>
         /// <para>The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type
-        /// of data that the custom source will send to Security Lake. The supported event classes
-        /// are:</para><ul><li><para><c>ACCESS_ACTIVITY</c></para></li><li><para><c>FILE_ACTIVITY</c></para></li><li><para><c>KERNEL_ACTIVITY</c></para></li><li><para><c>KERNEL_EXTENSION</c></para></li><li><para><c>MEMORY_ACTIVITY</c></para></li><li><para><c>MODULE_ACTIVITY</c></para></li><li><para><c>PROCESS_ACTIVITY</c></para></li><li><para><c>REGISTRY_KEY_ACTIVITY</c></para></li><li><para><c>REGISTRY_VALUE_ACTIVITY</c></para></li><li><para><c>RESOURCE_ACTIVITY</c></para></li><li><para><c>SCHEDULED_JOB_ACTIVITY</c></para></li><li><para><c>SECURITY_FINDING</c></para></li><li><para><c>ACCOUNT_CHANGE</c></para></li><li><para><c>AUTHENTICATION</c></para></li><li><para><c>AUTHORIZATION</c></para></li><li><para><c>ENTITY_MANAGEMENT_AUDIT</c></para></li><li><para><c>DHCP_ACTIVITY</c></para></li><li><para><c>NETWORK_ACTIVITY</c></para></li><li><para><c>DNS_ACTIVITY</c></para></li><li><para><c>FTP_ACTIVITY</c></para></li><li><para><c>HTTP_ACTIVITY</c></para></li><li><para><c>RDP_ACTIVITY</c></para></li><li><para><c>SMB_ACTIVITY</c></para></li><li><para><c>SSH_ACTIVITY</c></para></li><li><para><c>CONFIG_STATE</c></para></li><li><para><c>INVENTORY_INFO</c></para></li><li><para><c>EMAIL_ACTIVITY</c></para></li><li><para><c>API_ACTIVITY</c></para></li><li><para><c>CLOUD_API</c></para></li></ul>
+        /// of data that the custom source will send to Security Lake. For the list of supported
+        /// event classes, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/adding-custom-sources.html#ocsf-eventclass">Amazon
+        /// Security Lake User Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

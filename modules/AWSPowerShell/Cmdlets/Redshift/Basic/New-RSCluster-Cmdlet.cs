@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -259,7 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Encrypted
         /// <summary>
         /// <para>
-        /// <para>If <c>true</c>, the data in the cluster is encrypted at rest. </para><para>Default: false</para>
+        /// <para>If <c>true</c>, the data in the cluster is encrypted at rest. If you set the value
+        /// on this parameter to <c>false</c>, the request will fail.</para><para>Default: true</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -504,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>If <c>true</c>, the cluster can be accessed from a public network. </para>
+        /// <para>If <c>true</c>, the cluster can be accessed from a public network. </para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

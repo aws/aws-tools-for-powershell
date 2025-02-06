@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -51,6 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// bucket. To separate log data for each export task, specify a prefix to be used as
     /// the Amazon S3 key prefix for all exported objects.
     /// </para><note><para>
+    /// We recommend that you don't regularly export to Amazon S3 as a way to continuously
+    /// archive your logs. For that use case, we instaed recommend that you use subscriptions.
+    /// For more information about subscriptions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions.html">Real-time
+    /// processing of log data with subscriptions</a>.
+    /// </para></note><note><para>
     /// Time-based sorting on chunks of log data inside an exported file is not guaranteed.
     /// You can sort the exported log field data by using Linux utilities.
     /// </para></note>

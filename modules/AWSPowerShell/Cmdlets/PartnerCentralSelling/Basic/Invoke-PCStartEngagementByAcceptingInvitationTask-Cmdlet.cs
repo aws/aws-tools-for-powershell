@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Identifier { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of objects specifying each tag name and value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.PartnerCentralSelling.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -170,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.PartnerCentralSelling.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -262,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             public System.String Catalog { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Identifier { get; set; }
+            public List<Amazon.PartnerCentralSelling.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.PartnerCentralSelling.Model.StartEngagementByAcceptingInvitationTaskResponse, InvokePCStartEngagementByAcceptingInvitationTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Notifications module of AWS Tools for PowerShell lets developers and administrators manage AWS User Notifications from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -87,21 +87,35 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-UNOChannel', 
+        'Add-UNOManagedNotificationAccountContact', 
+        'Add-UNOManagedNotificationAdditionalChannel', 
         'Add-UNOResourceTag', 
+        'Disable-UNONotificationsAccessForOrganization', 
+        'Enable-UNONotificationsAccessForOrganization', 
         'Get-UNOChannelList', 
         'Get-UNOEventRule', 
         'Get-UNOEventRuleList', 
+        'Get-UNOManagedNotificationChannelAssociationList', 
+        'Get-UNOManagedNotificationChildEvent', 
+        'Get-UNOManagedNotificationChildEventList', 
+        'Get-UNOManagedNotificationConfiguration', 
+        'Get-UNOManagedNotificationConfigurationList', 
+        'Get-UNOManagedNotificationEvent', 
+        'Get-UNOManagedNotificationEventList', 
         'Get-UNONotificationConfiguration', 
         'Get-UNONotificationConfigurationList', 
         'Get-UNONotificationEvent', 
         'Get-UNONotificationEventList', 
         'Get-UNONotificationHubList', 
+        'Get-UNONotificationsAccessForOrganization', 
         'Get-UNOResourceTag', 
         'New-UNOEventRule', 
         'New-UNONotificationConfiguration', 
         'Register-UNONotificationHub', 
         'Remove-UNOChannel', 
         'Remove-UNOEventRule', 
+        'Remove-UNOManagedNotificationAccountContact', 
+        'Remove-UNOManagedNotificationAdditionalChannel', 
         'Remove-UNONotificationConfiguration', 
         'Remove-UNONotificationHub', 
         'Remove-UNOResourceTag', 

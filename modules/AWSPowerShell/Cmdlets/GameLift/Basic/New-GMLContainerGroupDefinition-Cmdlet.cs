@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Creates a <c>ContainerGroupDefinition</c> that describes a set of containers for hosting
     /// your game server with Amazon GameLift managed containers hosting. An Amazon GameLift
     /// container group is similar to a container task or pod. Use container group definitions
-    /// when you create a container fleet with <a>CreateContainerFleet</a>. 
+    /// when you create a container fleet with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html">CreateContainerFleet</a>.
+    /// 
     /// 
     ///  
     /// <para>
@@ -92,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// At least one <c>SupportContainerDefinition</c></para><ul><li><para><c>ContainerName</c></para></li><li><para><c>ImageUrl</c></para></li></ul></li></ul></li></ul><para><b>Results</b></para><para>
     /// If successful, this request creates a <c>ContainerGroupDefinition</c> resource and
     /// assigns a unique ARN value. You can update most properties of a container group definition
-    /// by calling <a>UpdateContainerGroupDefinition</a>, and optionally save the update as
-    /// a new version.
+    /// by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html">UpdateContainerGroupDefinition</a>,
+    /// and optionally save the update as a new version.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

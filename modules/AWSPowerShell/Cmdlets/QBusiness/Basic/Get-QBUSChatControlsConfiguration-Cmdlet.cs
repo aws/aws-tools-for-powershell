@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an chat controls configured for an existing Amazon Q Business
+    /// Gets information about chat controls configured for an existing Amazon Q Business
     /// application.
     /// </summary>
     [Cmdlet("Get", "QBUSChatControlsConfiguration")]

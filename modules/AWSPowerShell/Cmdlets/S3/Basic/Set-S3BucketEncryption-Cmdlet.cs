@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// <para>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
+        /// <para>The Base64 encoded 128-bit <c>MD5</c> digest of the server-side encryption configuration.</para><para>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon
         /// Web Services SDKs, this field is calculated automatically.</para><para>This functionality is not supported for directory buckets.</para>
         /// </para>
         /// </summary>

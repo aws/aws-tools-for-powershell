@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor
         /// and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</para><para>The regex used to validate this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
-        /// underscores or any of the following characters: =,.@-. You cannot use a value that
+        /// underscores or any of the following characters: +=,.@-. You cannot use a value that
         /// begins with the text <c>aws:</c>. This prefix is reserved for Amazon Web Services
         /// internal use.</para>
         /// </para>

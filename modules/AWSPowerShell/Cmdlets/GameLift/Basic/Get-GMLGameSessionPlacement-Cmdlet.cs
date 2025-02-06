@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// This operation is not designed to be continually called to track game session status.
     /// This practice can cause you to exceed your API limit, which results in errors. Instead,
-    /// you must configure configure an Amazon Simple Notification Service (SNS) topic to
-    /// receive notifications from FlexMatch or queues. Continuously polling with <c>DescribeGameSessionPlacement</c>
+    /// you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications
+    /// from FlexMatch or queues. Continuously polling with <c>DescribeGameSessionPlacement</c>
     /// should only be used for games in development with low game session usage. 
     /// </para>
     /// </summary>

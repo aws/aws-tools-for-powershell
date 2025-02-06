@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -63,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the dataset. If the namespace is <i>asc</i>, the name must be one of the
-        /// supported <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">data
-        /// entities </a>.</para>
+        /// <para>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported
+        /// data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the dataset. The available values are:</para><ul><li><para>asc: for <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">
-        /// AWS Supply Chain supported datasets </a>.</para></li><li><para>default: for datasets with custom user-defined schemas.</para></li></ul>
+        /// <para>The name space of the dataset. The available values are:</para><ul><li><para><b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets
+        /// see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para></li><li><para><b>default</b> - For datasets with custom user-defined schemas.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

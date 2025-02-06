@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterId { get; set; }
+        #endregion
+        
+        #region Parameter HsmType
+        /// <summary>
+        /// <para>
+        /// <para>The desired HSM type of the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HsmType { get; set; }
         #endregion
         
         #region Parameter BackupRetentionPolicy_Type
@@ -138,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HsmType = this.HsmType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.ClusterId != null)
             {
                 request.ClusterId = cmdletContext.ClusterId;
+            }
+            if (cmdletContext.HsmType != null)
+            {
+                request.HsmType = cmdletContext.HsmType;
             }
             
             CmdletOutput output;
@@ -251,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             public Amazon.CloudHSMV2.BackupRetentionType BackupRetentionPolicy_Type { get; set; }
             public System.String BackupRetentionPolicy_Value { get; set; }
             public System.String ClusterId { get; set; }
+            public System.String HsmType { get; set; }
             public System.Func<Amazon.CloudHSMV2.Model.ModifyClusterResponse, EditHSM2ClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

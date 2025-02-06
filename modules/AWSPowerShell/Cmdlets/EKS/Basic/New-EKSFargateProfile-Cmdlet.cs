@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <para>
     /// The Fargate profile allows an administrator to declare which pods run on Fargate and
     /// specify which pods run on which Fargate profile. This declaration is done through
-    /// the profile’s selectors. Each profile can have up to five selectors that contain a
+    /// the profile's selectors. Each profile can have up to five selectors that contain a
     /// namespace and labels. A namespace is required for every selector. The label field
     /// consists of multiple optional key-value pairs. Pods that match the selectors are scheduled
     /// on Fargate. If a to-be-scheduled pod matches any of the selectors in the Fargate profile,

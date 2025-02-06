@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you
     /// can associate an Incident Manager incident or analysis with an OpsItem. Incident Manager
-    /// and OpsCenter are capabilities of Amazon Web Services Systems Manager.
+    /// and OpsCenter are tools in Amazon Web Services Systems Manager.
     /// </summary>
     [Cmdlet("Register", "SSMOpsItemRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

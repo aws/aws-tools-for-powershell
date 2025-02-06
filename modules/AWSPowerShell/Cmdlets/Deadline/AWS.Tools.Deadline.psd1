@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Deadline module of AWS Tools for PowerShell lets developers and administrators manage AWSDeadlineCloud from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -106,6 +106,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ADCJobParameterDefinitionList', 
         'Get-ADCLicenseEndpoint', 
         'Get-ADCLicenseEndpointList', 
+        'Get-ADCLimit', 
+        'Get-ADCLimitList', 
         'Get-ADCMeteredProductList', 
         'Get-ADCMonitor', 
         'Get-ADCMonitorList', 
@@ -114,6 +116,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ADCQueueEnvironmentList', 
         'Get-ADCQueueFleetAssociation', 
         'Get-ADCQueueFleetAssociationList', 
+        'Get-ADCQueueLimitAssociation', 
+        'Get-ADCQueueLimitAssociationList', 
         'Get-ADCQueueList', 
         'Get-ADCQueueMemberList', 
         'Get-ADCQueueRoleForRead', 
@@ -143,16 +147,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ADCFleet', 
         'New-ADCJob', 
         'New-ADCLicenseEndpoint', 
+        'New-ADCLimit', 
         'New-ADCMonitor', 
         'New-ADCQueue', 
         'New-ADCQueueEnvironment', 
         'New-ADCQueueFleetAssociation', 
+        'New-ADCQueueLimitAssociation', 
         'New-ADCStorageProfile', 
         'New-ADCWorker', 
         'Remove-ADCBudget', 
         'Remove-ADCFarm', 
         'Remove-ADCFleet', 
         'Remove-ADCLicenseEndpoint', 
+        'Remove-ADCLimit', 
         'Remove-ADCMemberFromFarm', 
         'Remove-ADCMemberFromFleet', 
         'Remove-ADCMemberFromJob', 
@@ -162,6 +169,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ADCQueue', 
         'Remove-ADCQueueEnvironment', 
         'Remove-ADCQueueFleetAssociation', 
+        'Remove-ADCQueueLimitAssociation', 
         'Remove-ADCResourceTag', 
         'Remove-ADCStorageProfile', 
         'Remove-ADCWorker', 
@@ -174,10 +182,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-ADCFarm', 
         'Update-ADCFleet', 
         'Update-ADCJob', 
+        'Update-ADCLimit', 
         'Update-ADCMonitor', 
         'Update-ADCQueue', 
         'Update-ADCQueueEnvironment', 
         'Update-ADCQueueFleetAssociation', 
+        'Update-ADCQueueLimitAssociation', 
         'Update-ADCSession', 
         'Update-ADCStep', 
         'Update-ADCStorageProfile', 

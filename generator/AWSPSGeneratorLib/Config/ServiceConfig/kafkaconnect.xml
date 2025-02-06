@@ -47,11 +47,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectorOperation" OutputProperty="*" Verb="Get" Noun="ConnectorOperation" PipelineParameter="ConnectorOperationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCustomPlugin" OutputProperty="*" Verb="Get" Noun="CustomPlugin" PipelineParameter="CustomPluginArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkerConfiguration" OutputProperty="*" Verb="Get" Noun="WorkerConfiguration" PipelineParameter="WorkerConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectorOperations" OutputProperty="ConnectorOperations" Verb="Get" Noun="ConnectorOperationList" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

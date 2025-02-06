@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog related to the request. </para>
+        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para>AWS: Stops the request from the production AWS environment.</para></li><li><para>Sandbox: Stops the request from a sandbox environment used for testing or development
+        /// purposes.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceSnapshotJobIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the job to stop. </para>
+        /// <para>The identifier of the job to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

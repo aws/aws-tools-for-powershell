@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -168,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TargetDataSetting
+        /// <summary>
+        /// <para>
+        /// <para>Specifies information about the target data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetDataSettings")]
+        public Amazon.DatabaseMigrationService.Model.TargetDataSetting[] TargetDataSetting { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DataMigration'.
@@ -243,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 context.Tag = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
             }
+            if (this.TargetDataSetting != null)
+            {
+                context.TargetDataSetting = new List<Amazon.DatabaseMigrationService.Model.TargetDataSetting>(this.TargetDataSetting);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -294,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TargetDataSetting != null)
+            {
+                request.TargetDataSettings = cmdletContext.TargetDataSetting;
             }
             
             CmdletOutput output;
@@ -365,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ServiceAccessRoleArn { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.SourceDataSetting> SourceDataSetting { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }
+            public List<Amazon.DatabaseMigrationService.Model.TargetDataSetting> TargetDataSetting { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.CreateDataMigrationResponse, NewDMSDataMigrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DataMigration;
         }

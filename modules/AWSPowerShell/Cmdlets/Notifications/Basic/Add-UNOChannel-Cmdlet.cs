@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
     /// Associates a delivery <a href="https://docs.aws.amazon.com/notifications/latest/userguide/managing-delivery-channels.html">Channel</a>
-    /// with a particular NotificationConfiguration. Supported Channels include AWS Chatbot,
-    /// the AWS Console Mobile Application, and emails (notifications-contacts).
+    /// with a particular <c>NotificationConfiguration</c>. Supported Channels include Chatbot,
+    /// the Console Mobile Application, and emails (notifications-contacts).
     /// </summary>
     [Cmdlet("Add", "UNOChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the NotificationConfiguration.</para><para>Supported ARNs include AWS Chatbot, the Console Mobile Application, and notifications-contacts.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Channel to associate with the <c>NotificationConfiguration</c>.</para><para>Supported ARNs include Chatbot, the Console Mobile Application, and notifications-contacts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the NotificationConfiguration to associate with the Channel.</para>
+        /// <para>The ARN of the <c>NotificationConfiguration</c> to associate with the Channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

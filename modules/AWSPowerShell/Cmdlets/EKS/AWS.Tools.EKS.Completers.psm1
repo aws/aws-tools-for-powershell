@@ -149,6 +149,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.NodegroupUpdateStrategies
+        {
+            ($_ -eq "New-EKSNodegroup/UpdateConfig_UpdateStrategy") -Or
+            ($_ -eq "Update-EKSNodegroupConfig/UpdateConfig_UpdateStrategy")
+        }
+        {
+            $v = "DEFAULT","MINIMAL"
+            break
+        }
+
         # Amazon.EKS.ResolveConflicts
         {
             ($_ -eq "New-EKSAddon/ResolveConflict") -Or
@@ -188,6 +198,7 @@ $EKS_map = @{
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Status"=@("Get-EKSClusterVersion")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
 }
 

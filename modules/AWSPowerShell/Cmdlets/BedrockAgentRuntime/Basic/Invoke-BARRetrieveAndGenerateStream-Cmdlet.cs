@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// 
     ///  <note><para>
     /// The CLI doesn't support streaming operations in Amazon Bedrock, including <c>InvokeModelWithResponseStream</c>.
-    /// </para></note>
+    /// </para></note><para>
+    /// This operation requires permission for the <c> bedrock:RetrieveAndGenerate</c> action.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "BARRetrieveAndGenerateStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateStreamResponse")]

@@ -91,7 +91,10 @@ $TIDB_Completers = {
         }
 
         # Amazon.TimestreamInfluxDB.DbStorageType
-        "New-TIDBDbInstance/DbStorageType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DbStorageType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DbStorageType")
+        }
         {
             $v = "InfluxIOIncludedT1","InfluxIOIncludedT2","InfluxIOIncludedT3"
             break
@@ -154,7 +157,7 @@ $TIDB_Completers = {
 
 $TIDB_map = @{
     "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DbStorageType"=@("New-TIDBDbInstance")
+    "DbStorageType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")

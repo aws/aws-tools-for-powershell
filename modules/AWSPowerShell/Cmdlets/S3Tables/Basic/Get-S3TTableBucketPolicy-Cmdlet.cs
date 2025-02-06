@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,13 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Gets details about a table bucket policy.
+    /// Gets details about a table bucket policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-bucket-policy.html#table-bucket-policy-get">Viewing
+    /// a table bucket policy</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:GetTableBucketPolicy</c> permission to use this operation.
+    /// 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3TTableBucketPolicy")]
     [OutputType("System.String")]
@@ -45,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #region Parameter TableBucketARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the table bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of the table bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

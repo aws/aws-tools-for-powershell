@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Removes a permission policy from a Q Business application, revoking the cross-account
+    /// Removes a permission policy from a Amazon Q Business application, revoking the cross-account
     /// access that was previously granted to an ISV. This operation deletes the specified
     /// policy statement from the application's permission policy.
     /// </summary>
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application.</para>
+        /// <para>The unique identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

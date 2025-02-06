@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnableTrace { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the current flow execution. If you don't provide a value,
+        /// Amazon Bedrock creates the identifier for you. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionId { get; set; }
         #endregion
         
         #region Parameter FlowAliasIdentifier
@@ -169,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EnableTrace = this.EnableTrace;
+            context.ExecutionId = this.ExecutionId;
             context.FlowAliasIdentifier = this.FlowAliasIdentifier;
             #if MODULAR
             if (this.FlowAliasIdentifier == null && ParameterWasBound(nameof(this.FlowAliasIdentifier)))
@@ -213,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.EnableTrace != null)
             {
                 request.EnableTrace = cmdletContext.EnableTrace.Value;
+            }
+            if (cmdletContext.ExecutionId != null)
+            {
+                request.ExecutionId = cmdletContext.ExecutionId;
             }
             if (cmdletContext.FlowAliasIdentifier != null)
             {
@@ -322,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? EnableTrace { get; set; }
+            public System.String ExecutionId { get; set; }
             public System.String FlowAliasIdentifier { get; set; }
             public System.String FlowIdentifier { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.FlowInput> Input { get; set; }

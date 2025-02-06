@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Updates a NotificationConfiguration.
+    /// Updates a <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("Update", "UNONotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter AggregationDuration
         /// <summary>
         /// <para>
-        /// <para>The status of this NotificationConfiguration.</para><para>The status should always be <c>INACTIVE</c> when part of the CreateNotificationConfiguration
-        /// response.</para><ul><li><para>Values:</para><ul><li><para><c>ACTIVE</c></para><ul><li><para>All EventRules are <c>ACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>PARTIALLY_ACTIVE</c></para><ul><li><para>Some EventRules are <c>ACTIVE</c> and some are <c>INACTIVE</c>. Any call can be run.</para></li><li><para>Any call can be run.</para></li></ul></li><li><para><c>INACTIVE</c></para><ul><li><para>All EventRules are <c>INACTIVE</c> and any call can be run.</para></li></ul></li><li><para><c>DELETING</c></para><ul><li><para>This NotificationConfiguration is being deleted.</para></li><li><para>Only <c>GET</c> and <c>LIST</c> calls can be run.</para></li></ul></li></ul></li></ul>
+        /// <para>The aggregation preference of the <c>NotificationConfiguration</c>.</para><ul><li><para>Values:</para><ul><li><para><c>LONG</c></para><ul><li><para>Aggregate notifications for long periods of time (12 hours).</para></li></ul></li><li><para><c>SHORT</c></para><ul><li><para>Aggregate notifications for short periods of time (5 minutes).</para></li></ul></li><li><para><c>NONE</c></para><ul><li><para>Don't aggregate notifications.</para></li></ul></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) used to update the NotificationConfiguration.</para>
+        /// <para>The Amazon Resource Name (ARN) used to update the <c>NotificationConfiguration</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the NotificationConfiguration.</para>
+        /// <para>The description of the <c>NotificationConfiguration</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the NotificationConfiguration.</para>
+        /// <para>The name of the <c>NotificationConfiguration</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

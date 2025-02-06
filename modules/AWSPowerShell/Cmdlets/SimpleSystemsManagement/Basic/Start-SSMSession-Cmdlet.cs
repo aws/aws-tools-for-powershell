@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -72,7 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The values you want to specify for the parameters defined in the Session document.</para>
+        /// <para>The values you want to specify for the parameters defined in the Session document.
+        /// For more information about these parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-create-preferences-cli.html">Create
+        /// a Session Manager preferences document</a> in the <i>Amazon Web Services Systems Manager
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

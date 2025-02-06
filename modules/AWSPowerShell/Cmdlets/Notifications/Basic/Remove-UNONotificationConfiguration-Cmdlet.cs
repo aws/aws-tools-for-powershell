@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Deletes a NotificationConfiguration.
+    /// Deletes a <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("Remove", "UNONotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationConfiguration to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationConfiguration</c> to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

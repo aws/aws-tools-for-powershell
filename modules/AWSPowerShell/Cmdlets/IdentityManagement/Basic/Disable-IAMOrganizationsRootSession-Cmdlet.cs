@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Disables root user sessions for privileged tasks across member accounts in your organization.
-    /// When you disable this feature, the management account and the delegated admininstrator
+    /// When you disable this feature, the management account and the delegated administrator
     /// for IAM can no longer perform privileged tasks on member accounts in your organization.
     /// </summary>
     [Cmdlet("Disable", "IAMOrganizationsRootSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

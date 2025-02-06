@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
     /// Update a newly added or existing usage lines. You can update the usage amounts, usage
-    /// hour, and usage group based on a usage ID and a Bill scenario ID.
+    /// hour, and usage group based on a usage ID and a Bill scenario ID. 
+    /// 
+    ///  <note><para>
+    /// The <c>BatchUpdateBillScenarioUsageModification</c> operation doesn't have its own
+    /// IAM permission. To authorize this operation for Amazon Web Services principals, include
+    /// the permission <c>bcm-pricing-calculator:UpdateBillScenarioUsageModification</c> in
+    /// your policies.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "BCMPCUpdateBillScenarioUsageModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchUpdateBillScenarioUsageModificationResponse")]

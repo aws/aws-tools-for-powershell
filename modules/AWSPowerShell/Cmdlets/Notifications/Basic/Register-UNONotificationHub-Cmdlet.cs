@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,12 +28,12 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Registers a NotificationHub in the specified Region.
+    /// Registers a <c>NotificationConfiguration</c> in the specified Region.
     /// 
     ///  
     /// <para>
-    /// There is a maximum of one NotificationHub per Region. You can have a maximum of 3
-    /// NotificationHubs at a time.
+    /// There is a maximum of one <c>NotificationConfiguration</c> per Region. You can have
+    /// a maximum of 3 <c>NotificationHub</c> resources at a time.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "UNONotificationHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationHubRegion
         /// <summary>
         /// <para>
-        /// <para>The Region of the NotificationHub.</para>
+        /// <para>The Region of the <c>NotificationHub</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

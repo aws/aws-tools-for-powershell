@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -361,6 +361,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Fleet_FleetArn { get; set; }
         #endregion
         
+        #region Parameter Restrictions_FleetsAllowed
+        /// <summary>
+        /// <para>
+        /// <para>An array of strings that specify the fleets that are allowed for the batch build.
+        /// See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html">Run
+        /// builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more
+        /// information. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BuildBatchConfig_Restrictions_FleetsAllowed")]
+        public System.String[] Restrictions_FleetsAllowed { get; set; }
+        #endregion
+        
         #region Parameter Source_GitCloneDepth
         /// <summary>
         /// <para>
@@ -702,8 +716,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> Set to true to report the status of a build's start and finish to your source provider.
         /// This option is valid only when your source provider is GitHub, GitHub Enterprise,
-        /// GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different
-        /// source provider, an <c>invalidInputException</c> is thrown. </para><para>To be able to report the build status to the source provider, the user associated
+        /// GitLab, GitLab Self Managed, GitLab, GitLab Self Managed, or Bitbucket. If this is
+        /// set and you use a different source provider, an <c>invalidInputException</c> is thrown.
+        /// </para><para>To be able to report the build status to the source provider, the user associated
         /// with the source provider must have write access to the repo. If the user does not
         /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
         /// provider access</a> in the <i>CodeBuild User Guide</i>.</para><para>The status of a build triggered by a webhook is always reported to your source provider.
@@ -1109,6 +1124,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.Restrictions_ComputeTypesAllowed = new List<System.String>(this.Restrictions_ComputeTypesAllowed);
             }
+            if (this.Restrictions_FleetsAllowed != null)
+            {
+                context.Restrictions_FleetsAllowed = new List<System.String>(this.Restrictions_FleetsAllowed);
+            }
             context.Restrictions_MaximumBuildsAllowed = this.Restrictions_MaximumBuildsAllowed;
             context.BuildBatchConfig_ServiceRole = this.BuildBatchConfig_ServiceRole;
             context.BuildBatchConfig_TimeoutInMin = this.BuildBatchConfig_TimeoutInMin;
@@ -1417,6 +1436,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_ComputeTypesAllowed != null)
             {
                 requestBuildBatchConfig_buildBatchConfig_Restrictions.ComputeTypesAllowed = requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_ComputeTypesAllowed;
+                requestBuildBatchConfig_buildBatchConfig_RestrictionsIsNull = false;
+            }
+            List<System.String> requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_FleetsAllowed = null;
+            if (cmdletContext.Restrictions_FleetsAllowed != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_FleetsAllowed = cmdletContext.Restrictions_FleetsAllowed;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_FleetsAllowed != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions.FleetsAllowed = requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_FleetsAllowed;
                 requestBuildBatchConfig_buildBatchConfig_RestrictionsIsNull = false;
             }
             System.Int32? requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_MaximumBuildsAllowed = null;
@@ -2127,6 +2156,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.BatchReportModeType BuildBatchConfig_BatchReportMode { get; set; }
             public System.Boolean? BuildBatchConfig_CombineArtifact { get; set; }
             public List<System.String> Restrictions_ComputeTypesAllowed { get; set; }
+            public List<System.String> Restrictions_FleetsAllowed { get; set; }
             public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
             public System.String BuildBatchConfig_ServiceRole { get; set; }
             public System.Int32? BuildBatchConfig_TimeoutInMin { get; set; }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -39,6 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// a Flow. For example, <c>arn:aws:.../contact-flow/{id}:$SAVED</c>. After a flow is
     /// published, <c>$SAVED</c> needs to be supplied to view saved content that has not been
     /// published.
+    /// </para><para>
+    /// Use <c>arn:aws:.../contact-flow/{id}:{version}</c> to retrieve the content of a specific
+    /// flow version.
     /// </para><para>
     /// In the response, <b>Status</b> indicates the flow status as either <c>SAVED</c> or
     /// <c>PUBLISHED</c>. The <c>PUBLISHED</c> status will initiate validation on the content.

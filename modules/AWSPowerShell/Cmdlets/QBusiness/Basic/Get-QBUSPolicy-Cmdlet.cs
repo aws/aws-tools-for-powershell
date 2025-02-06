@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,9 +28,9 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Retrieves the current permission policy for a Q Business application. The policy is
-    /// returned as a JSON-formatted string and defines the IAM actions that are allowed or
-    /// denied for the application's resources.
+    /// Retrieves the current permission policy for a Amazon Q Business application. The policy
+    /// is returned as a JSON-formatted string and defines the IAM actions that are allowed
+    /// or denied for the application's resources.
     /// </summary>
     [Cmdlet("Get", "QBUSPolicy")]
     [OutputType("System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application.</para>
+        /// <para>The unique identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

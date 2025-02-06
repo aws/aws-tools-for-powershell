@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,9 +28,9 @@ using Amazon.GeoRoutes.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
-    /// Calculates the optimal order to travel between a set of waypoints to minimize either
-    /// the travel time or the distance travelled during the journey, based on road network
-    /// restrictions and the traffic pattern data.
+    /// <c>OptimizeWaypoints</c> calculates the optimal order to travel between a set of
+    /// waypoints to minimize either the travel time or the distance travelled during the
+    /// journey, based on road network restrictions and the traffic pattern data.
     /// </summary>
     [Cmdlet("Get", "GEOROptimizedWaypoint")]
     [OutputType("Amazon.GeoRoutes.Model.OptimizeWaypointsResponse")]
@@ -46,6 +46,20 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Clustering_Algorithm
+        /// <summary>
+        /// <para>
+        /// <para>The algorithm to be used. <c>DrivingDistance</c> assigns all the waypoints that are
+        /// within driving distance of each other into a single cluster. <c>TopologySegment</c>
+        /// assigns all the waypoints that are within the same topology segment into a single
+        /// cluster. A Topology segment is a linear stretch of road between two junctions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoRoutes.WaypointOptimizationClusteringAlgorithm")]
+        public Amazon.GeoRoutes.WaypointOptimizationClusteringAlgorithm Clustering_Algorithm { get; set; }
+        #endregion
         
         #region Parameter DestinationOptions_AppointmentTime
         /// <summary>
@@ -155,6 +169,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Avoid_DirtRoads")]
         public System.Boolean? Avoid_DirtRoad { get; set; }
+        #endregion
+        
+        #region Parameter DrivingDistanceOptions_DrivingDistance
+        /// <summary>
+        /// <para>
+        /// <para>DrivingDistance assigns all the waypoints that are within driving distance of each
+        /// other into a single cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Clustering_DrivingDistanceOptions_DrivingDistance")]
+        public System.Int64? DrivingDistanceOptions_DrivingDistance { get; set; }
         #endregion
         
         #region Parameter Avoid_Ferry
@@ -580,6 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             context.Avoid_TollRoad = this.Avoid_TollRoad;
             context.Avoid_Tunnel = this.Avoid_Tunnel;
             context.Avoid_UTurn = this.Avoid_UTurn;
+            context.Clustering_Algorithm = this.Clustering_Algorithm;
+            context.DrivingDistanceOptions_DrivingDistance = this.DrivingDistanceOptions_DrivingDistance;
             context.DepartureTime = this.DepartureTime;
             if (this.Destination != null)
             {
@@ -744,6 +772,50 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             if (requestAvoidIsNull)
             {
                 request.Avoid = null;
+            }
+            
+             // populate Clustering
+            var requestClusteringIsNull = true;
+            request.Clustering = new Amazon.GeoRoutes.Model.WaypointOptimizationClusteringOptions();
+            Amazon.GeoRoutes.WaypointOptimizationClusteringAlgorithm requestClustering_clustering_Algorithm = null;
+            if (cmdletContext.Clustering_Algorithm != null)
+            {
+                requestClustering_clustering_Algorithm = cmdletContext.Clustering_Algorithm;
+            }
+            if (requestClustering_clustering_Algorithm != null)
+            {
+                request.Clustering.Algorithm = requestClustering_clustering_Algorithm;
+                requestClusteringIsNull = false;
+            }
+            Amazon.GeoRoutes.Model.WaypointOptimizationDrivingDistanceOptions requestClustering_clustering_DrivingDistanceOptions = null;
+            
+             // populate DrivingDistanceOptions
+            var requestClustering_clustering_DrivingDistanceOptionsIsNull = true;
+            requestClustering_clustering_DrivingDistanceOptions = new Amazon.GeoRoutes.Model.WaypointOptimizationDrivingDistanceOptions();
+            System.Int64? requestClustering_clustering_DrivingDistanceOptions_drivingDistanceOptions_DrivingDistance = null;
+            if (cmdletContext.DrivingDistanceOptions_DrivingDistance != null)
+            {
+                requestClustering_clustering_DrivingDistanceOptions_drivingDistanceOptions_DrivingDistance = cmdletContext.DrivingDistanceOptions_DrivingDistance.Value;
+            }
+            if (requestClustering_clustering_DrivingDistanceOptions_drivingDistanceOptions_DrivingDistance != null)
+            {
+                requestClustering_clustering_DrivingDistanceOptions.DrivingDistance = requestClustering_clustering_DrivingDistanceOptions_drivingDistanceOptions_DrivingDistance.Value;
+                requestClustering_clustering_DrivingDistanceOptionsIsNull = false;
+            }
+             // determine if requestClustering_clustering_DrivingDistanceOptions should be set to null
+            if (requestClustering_clustering_DrivingDistanceOptionsIsNull)
+            {
+                requestClustering_clustering_DrivingDistanceOptions = null;
+            }
+            if (requestClustering_clustering_DrivingDistanceOptions != null)
+            {
+                request.Clustering.DrivingDistanceOptions = requestClustering_clustering_DrivingDistanceOptions;
+                requestClusteringIsNull = false;
+            }
+             // determine if request.Clustering should be set to null
+            if (requestClusteringIsNull)
+            {
+                request.Clustering = null;
             }
             if (cmdletContext.DepartureTime != null)
             {
@@ -1351,6 +1423,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             public System.Boolean? Avoid_TollRoad { get; set; }
             public System.Boolean? Avoid_Tunnel { get; set; }
             public System.Boolean? Avoid_UTurn { get; set; }
+            public Amazon.GeoRoutes.WaypointOptimizationClusteringAlgorithm Clustering_Algorithm { get; set; }
+            public System.Int64? DrivingDistanceOptions_DrivingDistance { get; set; }
             public System.String DepartureTime { get; set; }
             public List<System.Double> Destination { get; set; }
             public Amazon.GeoRoutes.DayOfWeek From_DayOfWeek { get; set; }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CertificateConfiguration_CertificateType
         /// <summary>
         /// <para>
-        /// <para>Indicates whether a TLS/SSL certificate is generated for a fleet. </para><para>Valid values include: </para><ul><li><para><b>GENERATED</b> -- Generate a TLS/SSL certificate for this fleet.</para></li><li><para><b>DISABLED</b> -- (default) Do not generate a TLS/SSL certificate for this fleet.
+        /// <para>Indicates whether a TLS/SSL certificate is generated for a fleet. </para><para>Valid values include: </para><ul><li><para><b>GENERATED</b> - Generate a TLS/SSL certificate for this fleet.</para></li><li><para><b>DISABLED</b> - (default) Do not generate a TLS/SSL certificate for this fleet.
         /// </para></li></ul>
         /// </para>
         /// </summary>
@@ -112,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The type of compute resource used to host your game servers. </para><ul><li><para><c>EC2</c> – The game server build is deployed to Amazon EC2 instances for cloud
-        /// hosting. This is the default setting.</para></li><li><para><c>ANYWHERE</c> – Your game server and supporting software is deployed to compute
-        /// resources that are provided and managed by you. With this compute type, you can also
-        /// set the <c>AnywhereConfiguration</c> parameter.</para></li></ul>
+        /// hosting. This is the default setting.</para></li><li><para><c>ANYWHERE</c> – Game servers and supporting software are deployed to compute resources
+        /// that you provide and manage. With this compute type, you can also set the <c>AnywhereConfiguration</c>
+        /// parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,10 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The IP address ranges and port settings that allow inbound traffic to access game
         /// server processes and other processes on this fleet. Set this parameter for managed
         /// EC2 fleets. You can leave this parameter empty when creating the fleet, but you must
-        /// call <a>UpdateFleetPortSettings</a> to set it before players can connect to game sessions.
-        /// As a best practice, we recommend opening ports for remote access only when you need
-        /// them and closing them when you're finished. For Realtime Servers fleets, Amazon GameLift
-        /// automatically sets TCP and UDP ranges.</para>
+        /// call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetPortSettings">https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetPortSettings</a>
+        /// to set it before players can connect to game sessions. As a best practice, we recommend
+        /// opening ports for remote access only when you need them and closing them when you're
+        /// finished. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and
+        /// UDP ranges.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,9 +275,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance. This
-        /// setting limits the instance resources that can be used for new game activations at
-        /// any one time.</para>
+        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance or
+        /// compute. This setting limits the instance resources that can be used for new game
+        /// activations at any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

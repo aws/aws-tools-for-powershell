@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><note><para>
     /// When you enable versioning on a bucket for the first time, it might take a short amount
     /// of time for the change to be fully propagated. While this change is propagating, you
-    /// may encounter intermittent <c>HTTP 404 NoSuchKey</c> errors for requests to objects
+    /// might encounter intermittent <c>HTTP 404 NoSuchKey</c> errors for requests to objects
     /// created or updated after enabling versioning. We recommend that you wait for 15 minutes
     /// after enabling versioning before issuing write operations (<c>PUT</c> or <c>DELETE</c>)
     /// on objects in the bucket. 

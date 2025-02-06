@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -76,7 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <para>The new authentication type for the <c>GraphqlApi</c> object.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AppSync.AuthenticationType")]
         public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
         #endregion
@@ -397,6 +403,12 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.AuthenticationType = this.AuthenticationType;
+            #if MODULAR
+            if (this.AuthenticationType == null && ParameterWasBound(nameof(this.AuthenticationType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AuthenticationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.EnhancedMetricsConfig_DataSourceLevelMetricsBehavior = this.EnhancedMetricsConfig_DataSourceLevelMetricsBehavior;
             context.EnhancedMetricsConfig_OperationLevelMetricsConfig = this.EnhancedMetricsConfig_OperationLevelMetricsConfig;
             context.EnhancedMetricsConfig_ResolverLevelMetricsBehavior = this.EnhancedMetricsConfig_ResolverLevelMetricsBehavior;

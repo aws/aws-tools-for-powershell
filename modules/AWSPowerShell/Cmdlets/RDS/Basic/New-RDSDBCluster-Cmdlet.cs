@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -300,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// <para>The list of log types that need to be enabled for exporting to CloudWatch Logs.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>The following values are valid for each DB engine:</para><ul><li><para>Aurora MySQL - <c>audit | error | general | instance | slowquery</c></para></li><li><para>Aurora PostgreSQL - <c>instance | postgresql</c></para></li><li><para>RDS for MySQL - <c>error | general | slowquery</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the
         /// HTTP endpoint isn't enabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data
         /// API) for running SQL queries on the DB cluster. You can also query your database from
-        /// inside the RDS console with the RDS query editor.</para><para>RDS Data API is supported with the following DB clusters:</para><ul><li><para>Aurora PostgreSQL Serverless v2 and provisioned</para></li><li><para>Aurora PostgreSQL and Aurora MySQL Serverless v1</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+        /// inside the RDS console with the RDS query editor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
         /// RDS Data API</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
         /// </para>
         /// </summary>

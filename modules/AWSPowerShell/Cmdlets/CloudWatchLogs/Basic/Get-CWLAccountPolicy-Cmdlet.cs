@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,25 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns a list of all CloudWatch Logs account policies in the account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all CloudWatch Logs account policies in the account.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must be signed on with the correct permissions depending
+    /// on the type of policy that you are retrieving information for.
+    /// </para><ul><li><para>
+    /// To see data protection policies, you must have the <c>logs:GetDataProtectionPolicy</c>
+    /// and <c>logs:DescribeAccountPolicies</c> permissions.
+    /// </para></li><li><para>
+    /// To see subscription filter policies, you must have the <c>logs:DescrubeSubscriptionFilters</c>
+    /// and <c>logs:DescribeAccountPolicies</c> permissions.
+    /// </para></li><li><para>
+    /// To see transformer policies, you must have the <c>logs:GetTransformer</c> and <c>logs:DescribeAccountPolicies</c>
+    /// permissions.
+    /// </para></li><li><para>
+    /// To see field index policies, you must have the <c>logs:DescribeIndexPolicies</c> and
+    /// <c>logs:DescribeAccountPolicies</c> permissions.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLAccountPolicy")]
     [OutputType("Amazon.CloudWatchLogs.Model.AccountPolicy")]

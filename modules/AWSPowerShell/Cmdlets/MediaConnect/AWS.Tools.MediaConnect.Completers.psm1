@@ -94,6 +94,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.ContentQualityAnalysisState
+        {
+            ($_ -eq "New-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState") -Or
+            ($_ -eq "Update-EMCNFlow/SourceMonitoringConfig_ContentQualityAnalysisState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.MediaConnect.DesiredState
         "Update-EMCNBridgeState/DesiredState"
         {
@@ -223,6 +233,7 @@ $EMCN_map = @{
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
+    "SourceMonitoringConfig_ContentQualityAnalysisState"=@("New-EMCNFlow","Update-EMCNFlow")
     "SourceMonitoringConfig_ThumbnailState"=@("New-EMCNFlow","Update-EMCNFlow")
 }
 

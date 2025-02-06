@@ -48,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public class WriteS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         const string ParamSet_FromLocalFile = "UploadSingleFile";
+        const string ParamSet_FromLocalFileChecksum = "UploadSingleFileChecksum";
         const string ParamSet_FromContent = "UploadFromContent";
         const string ParamSet_FromLocalFolder = "UploadFolder";
         const string ParamSet_FromStream = "UploadFromStream";
@@ -113,6 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// and the object key can be inferred from the filename value supplied to the -File parameter.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFile, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFileChecksum, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromContent, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromStream, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         [Amazon.PowerShell.Common.AWSRequiredParameter(ParameterSets = new[] { ParamSet_FromContent, ParamSet_FromStream })]
@@ -124,6 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The full path to the local file to be uploaded.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFile, Mandatory = true, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFileChecksum, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String File { get; set; }
         #endregion
@@ -397,8 +400,35 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFile)]
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromContent)]
         [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromStream)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFileChecksum, Mandatory = true)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFolder)]
+        [AWSRequiredParameter(ParameterSets = new[] { ParamSet_FromLocalFileChecksum })]
         [AWSConstantClassSource("Amazon.S3.ChecksumAlgorithm")]
         public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+        #endregion
+
+        #region Parameter ChecksumValue
+        /// <summary>
+        /// The checksum of the object base64 encoded with the alorithm specified in the <code>ChecksumAlgorithm</code> parameter. This checksum is only present if the checksum was uploaded
+        /// with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. 
+        /// Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated
+        /// with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+        /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>."
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFileChecksum)]
+        public String ChecksumValue { get; set; }
+        #endregion
+
+        #region Parameter MpuObjectSize
+        /// <summary>
+        /// The expected total object size of the multipart upload request. If there's a mismatch
+        /// between the specified object size value and the actual object size value, it results in an
+        /// <code>HTTP 400 InvalidRequest</code> error. This value is ignored if the operation is not a
+        /// multipart upload.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFile)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_FromLocalFileChecksum)]
+        public long? MpuObjectSize { get; set; }
         #endregion
 
         #region Parameter RequestPayer
@@ -434,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// This property determines whether the Content-MD5 header should be calculated for upload.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
+        [Obsolete("This parameter is redundant in the latest version of the S3 module, which automatically calculates a checksum to verify data integrity")]
         public bool CalculateContentMD5Header { get; set; }
         #endregion
 
@@ -494,7 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
             }
 
-            if (this.ParameterSetName == ParamSet_FromLocalFile)
+            if (this.ParameterSetName == ParamSet_FromLocalFile || this.ParameterSetName == ParamSet_FromLocalFileChecksum)
             {
                 context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File.Trim());
                 if (string.IsNullOrEmpty(context.Key))
@@ -565,11 +596,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Metadata = this.Metadata;
             context.Headers = this.HeaderCollection;
             context.TagSet = this.TagSet;
+
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             context.CalculateContentMD5Header = this.CalculateContentMD5Header;
-            
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
+
             if (this.ChecksumAlgorithm != null)
             {
                 context.ChecksumAlgorithm = this.ChecksumAlgorithm;
+            }
+
+            if (!string.IsNullOrEmpty(this.ChecksumValue))
+                context.ChecksumValue = this.ChecksumValue;
+
+            if (this.MpuObjectSize != null)
+            {
+                long mpuObjectSize = this.MpuObjectSize.Value;
+                context.MpuObjectSize = mpuObjectSize;
             }
 
             if (this.PartSize != null)
@@ -653,7 +696,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
 
             if (cmdletContext.RequestPayer != null)
             {
@@ -721,10 +766,41 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.TagSet = new List<Tag>(cmdletContext.TagSet);
                 if (cmdletContext.ChecksumAlgorithm != null)
                     request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+
+                if (!string.IsNullOrEmpty(cmdletContext.ChecksumValue))
+                {
+                    switch (cmdletContext.ChecksumAlgorithm.Value)
+                    {
+                        case "CRC32":
+                            request.ChecksumCRC32 = cmdletContext.ChecksumValue;
+                            break;
+                        case "CRC32C":
+                            request.ChecksumCRC32C = cmdletContext.ChecksumValue;
+                            break;
+                        case "CRC64NVME":
+                            request.ChecksumCRC64NVME = cmdletContext.ChecksumValue;
+                            break;
+                        case "SHA1":
+                            request.ChecksumSHA1 = cmdletContext.ChecksumValue;
+                            break;
+                        case "SHA256":
+                            request.ChecksumSHA256 = cmdletContext.ChecksumValue;
+                            break;
+                    }
+                }
+
+                if (cmdletContext.MpuObjectSize != null)
+                {
+                    long mpuObjectSize = cmdletContext.MpuObjectSize.Value;
+                    request.MpuObjectSize = mpuObjectSize;
+                }
+
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
                 request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
 
                 if (cmdletContext.PartSize != null)
                     request.PartSize = cmdletContext.PartSize.Value;
@@ -793,7 +869,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.TagSet != null)
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
+#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
+
+            if (cmdletContext.ChecksumAlgorithm != null)
+            {
+                request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            }
 
             if (cmdletContext.RequestPayer != null)
             {
@@ -874,6 +957,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
 
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+            public String ChecksumValue { get; set; }
+            public long? MpuObjectSize { get; set; }
 
             public Hashtable Metadata { get; set; }
             public Hashtable Headers { get; set; }

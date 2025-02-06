@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -118,6 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.Int32? MaxRetriesPerTask { get; set; }
         #endregion
         
+        #region Parameter MaxWorkerCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of worker hosts that can concurrently process a job. When the <c>maxWorkerCount</c>
+        /// is reached, no more workers will be assigned to process the job, even if the fleets
+        /// assigned to the job's queue has available workers.</para><para>You can't set the <c>maxWorkerCount</c> to 0. If you set it to -1, there is no maximum
+        /// number of workers.</para><para>If you don't specify the <c>maxWorkerCount</c>, the default is -1.</para><para>The maximum number of workers that can process tasks in the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxWorkerCount { get; set; }
+        #endregion
+        
         #region Parameter Priority
         /// <summary>
         /// <para>
@@ -225,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.LifecycleStatus = this.LifecycleStatus;
             context.MaxFailedTasksCount = this.MaxFailedTasksCount;
             context.MaxRetriesPerTask = this.MaxRetriesPerTask;
+            context.MaxWorkerCount = this.MaxWorkerCount;
             context.Priority = this.Priority;
             context.QueueId = this.QueueId;
             #if MODULAR
@@ -273,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.MaxRetriesPerTask != null)
             {
                 request.MaxRetriesPerTask = cmdletContext.MaxRetriesPerTask.Value;
+            }
+            if (cmdletContext.MaxWorkerCount != null)
+            {
+                request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
             }
             if (cmdletContext.Priority != null)
             {
@@ -353,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public Amazon.Deadline.UpdateJobLifecycleStatus LifecycleStatus { get; set; }
             public System.Int32? MaxFailedTasksCount { get; set; }
             public System.Int32? MaxRetriesPerTask { get; set; }
+            public System.Int32? MaxWorkerCount { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String QueueId { get; set; }
             public Amazon.Deadline.JobTargetTaskRunStatus TargetTaskRunStatus { get; set; }

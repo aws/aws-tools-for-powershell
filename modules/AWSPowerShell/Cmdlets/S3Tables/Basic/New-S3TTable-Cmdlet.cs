@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,16 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Creates a new table associated with the given namespace in a table bucket.
+    /// Creates a new table associated with the given namespace in a table bucket. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html">Creating
+    /// an Amazon S3 table</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:CreateTable</c> permission to use this operation. 
+    /// </para><note><para>
+    /// Additionally, you must have the <c>s3tables:PutTableData</c> permission to use this
+    /// operation with the optional <c>metadata</c> request parameter. 
+    /// </para></note></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3TTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Tables.Model.CreateTableResponse")]
@@ -40,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Schema_Field
+        /// <summary>
+        /// <para>
+        /// <para>The schema fields for the table</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metadata_Iceberg_Schema_Fields")]
+        public Amazon.S3Tables.Model.SchemaField[] Schema_Field { get; set; }
+        #endregion
         
         #region Parameter Format
         /// <summary>
@@ -158,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 WriteWarning("You are passing $null as a value for parameter Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Schema_Field != null)
+            {
+                context.Schema_Field = new List<Amazon.S3Tables.Model.SchemaField>(this.Schema_Field);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -198,6 +222,55 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             if (cmdletContext.Format != null)
             {
                 request.Format = cmdletContext.Format;
+            }
+            
+             // populate Metadata
+            var requestMetadataIsNull = true;
+            request.Metadata = new Amazon.S3Tables.Model.TableMetadata();
+            Amazon.S3Tables.Model.IcebergMetadata requestMetadata_metadata_Iceberg = null;
+            
+             // populate Iceberg
+            var requestMetadata_metadata_IcebergIsNull = true;
+            requestMetadata_metadata_Iceberg = new Amazon.S3Tables.Model.IcebergMetadata();
+            Amazon.S3Tables.Model.IcebergSchema requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema = null;
+            
+             // populate Schema
+            var requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaIsNull = true;
+            requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema = new Amazon.S3Tables.Model.IcebergSchema();
+            List<Amazon.S3Tables.Model.SchemaField> requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema_schema_Field = null;
+            if (cmdletContext.Schema_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema_schema_Field = cmdletContext.Schema_Field;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema_schema_Field != null)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema.Fields = requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema_schema_Field;
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaIsNull = false;
+            }
+             // determine if requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema should be set to null
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_SchemaIsNull)
+            {
+                requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema = null;
+            }
+            if (requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema != null)
+            {
+                requestMetadata_metadata_Iceberg.Schema = requestMetadata_metadata_Iceberg_metadata_Iceberg_Schema;
+                requestMetadata_metadata_IcebergIsNull = false;
+            }
+             // determine if requestMetadata_metadata_Iceberg should be set to null
+            if (requestMetadata_metadata_IcebergIsNull)
+            {
+                requestMetadata_metadata_Iceberg = null;
+            }
+            if (requestMetadata_metadata_Iceberg != null)
+            {
+                request.Metadata.Iceberg = requestMetadata_metadata_Iceberg;
+                requestMetadataIsNull = false;
+            }
+             // determine if request.Metadata should be set to null
+            if (requestMetadataIsNull)
+            {
+                request.Metadata = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -273,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.S3Tables.OpenTableFormat Format { get; set; }
+            public List<Amazon.S3Tables.Model.SchemaField> Schema_Field { get; set; }
             public System.String Name { get; set; }
             public System.String Namespace { get; set; }
             public System.String TableBucketARN { get; set; }

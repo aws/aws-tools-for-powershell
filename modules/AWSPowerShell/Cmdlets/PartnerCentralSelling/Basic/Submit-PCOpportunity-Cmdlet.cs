@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,8 +28,8 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Use this action to submit an opportunity that was previously created by partner for
-    /// AWS review. After you perform this action, the opportunity becomes non-editable until
+    /// Use this action to submit an Opportunity that was previously created by partner for
+    /// AWS review. After you perform this action, the Opportunity becomes non-editable until
     /// it is reviewed by AWS and has <c> LifeCycle.ReviewStatus </c> as either <c>Approved</c>
     /// or <c>Action Required</c>.
     /// </summary>
@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog related to the request. </para>
+        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para>AWS: Submits the opportunity request from the production AWS environment.</para></li><li><para>Sandbox: Submits the opportunity request from a sandbox environment used for testing
+        /// or development purposes.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para> The identifier of the opportunity previously created by partner and needs to be submitted.
-        /// </para>
+        /// <para>The identifier of the Opportunity previously created by partner and needs to be submitted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter InvolvementType
         /// <summary>
         /// <para>
-        /// <para> Specifies the level of AWS sellers' involvement on the opportunity. </para>
+        /// <para>Specifies the level of AWS sellers' involvement on the opportunity. Valid values:</para><ul><li><para><c>Co-sell</c>: Indicates the user wants to co-sell with AWS. Share the opportunity
+        /// with AWS to receive deal assistance and support.</para></li><li><para><c>For Visibility Only</c>: Indicates that the user does not need support from AWS
+        /// Sales Rep. Share this opportunity with AWS for visibility only, you will not receive
+        /// deal assistance and support.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Visibility
         /// <summary>
         /// <para>
-        /// <para> Determines whether to restrict visibility of the opportunity from AWS sales. Default
-        /// value is Full. </para>
+        /// <para>Determines whether to restrict visibility of the opportunity from AWS sales. Default
+        /// value is Full. Valid values:</para><ul><li><para><c>Full</c>: The opportunity is fully visible to AWS sales.</para></li><li><para><c>Limited</c>: The opportunity has restricted visibility to AWS sales.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

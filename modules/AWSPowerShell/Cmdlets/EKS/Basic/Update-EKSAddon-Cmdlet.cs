@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// maps a Kubernetes service account to an IAM Role. If this value is left blank, no
         /// change. If an empty array is provided, existing Pod Identity Assocations owned by
         /// the Addon are deleted.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach
-        /// an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</para>
+        /// an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the <i>Amazon EKS User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of the IAM role that grants Amazon Web Services
-        /// DMS access to the secret containing key cache file for the replication instance.</para>
+        /// DMS access to the secret containing key cache file for the kerberos authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KerberosAuthenticationSettings_KeyCacheSecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret ID of the key cache for the replication instance.</para>
+        /// <para>Specifies the ID of the secret that stores the key cache file required for kerberos
+        /// authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,8 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KerberosAuthenticationSettings_Krb5FileContent
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the secret that stores the key cache file required for kerberos
-        /// authentication of the replication instance.</para>
+        /// <para>Specifies the contents of krb5 configuration file required for kerberos authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Creates a new NotificationConfiguration.
+    /// Creates a new <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("New", "UNONotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Notifications.Model.CreateNotificationConfigurationResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter AggregationDuration
         /// <summary>
         /// <para>
-        /// <para>The aggregation preference of the NotificationConfiguration.</para><ul><li><para>Values:</para><ul><li><para><c>LONG</c></para><ul><li><para>Aggregate notifications for long periods of time (12 hours).</para></li></ul></li><li><para><c>SHORT</c></para><ul><li><para>Aggregate notifications for short periods of time (5 minutes).</para></li></ul></li><li><para><c>NONE</c></para><ul><li><para>Don't aggregate notifications.</para><para>No delay in delivery.</para></li></ul></li></ul></li></ul>
+        /// <para>The aggregation preference of the <c>NotificationConfiguration</c>.</para><ul><li><para>Values:</para><ul><li><para><c>LONG</c></para><ul><li><para>Aggregate notifications for long periods of time (12 hours).</para></li></ul></li><li><para><c>SHORT</c></para><ul><li><para>Aggregate notifications for short periods of time (5 minutes).</para></li></ul></li><li><para><c>NONE</c></para><ul><li><para>Don't aggregate notifications.</para></li></ul></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the NotificationConfiguration.</para>
+        /// <para>The description of the <c>NotificationConfiguration</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the NotificationConfiguration. Supports RFC 3986's unreserved characters.</para>
+        /// <para>The name of the <c>NotificationConfiguration</c>. Supports RFC 3986's unreserved characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -272,6 +272,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("GitSubmodulesConfigOverride_FetchSubmodules")]
         public System.Boolean? GitSubmodulesConfigOverride_FetchSubmodule { get; set; }
+        #endregion
+        
+        #region Parameter Restrictions_FleetsAllowed
+        /// <summary>
+        /// <para>
+        /// <para>An array of strings that specify the fleets that are allowed for the batch build.
+        /// See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/fleets.html">Run
+        /// builds on reserved capacity fleets</a> in the <i>CodeBuild User Guide</i> for more
+        /// information. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BuildBatchConfigOverride_Restrictions_FleetsAllowed")]
+        public System.String[] Restrictions_FleetsAllowed { get; set; }
         #endregion
         
         #region Parameter GitCloneDepthOverride
@@ -800,6 +814,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.Restrictions_ComputeTypesAllowed = new List<System.String>(this.Restrictions_ComputeTypesAllowed);
             }
+            if (this.Restrictions_FleetsAllowed != null)
+            {
+                context.Restrictions_FleetsAllowed = new List<System.String>(this.Restrictions_FleetsAllowed);
+            }
             context.Restrictions_MaximumBuildsAllowed = this.Restrictions_MaximumBuildsAllowed;
             context.BuildBatchConfigOverride_ServiceRole = this.BuildBatchConfigOverride_ServiceRole;
             context.BuildBatchConfigOverride_TimeoutInMin = this.BuildBatchConfigOverride_TimeoutInMin;
@@ -1045,6 +1063,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_ComputeTypesAllowed != null)
             {
                 requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions.ComputeTypesAllowed = requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_ComputeTypesAllowed;
+                requestBuildBatchConfigOverride_buildBatchConfigOverride_RestrictionsIsNull = false;
+            }
+            List<System.String> requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_FleetsAllowed = null;
+            if (cmdletContext.Restrictions_FleetsAllowed != null)
+            {
+                requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_FleetsAllowed = cmdletContext.Restrictions_FleetsAllowed;
+            }
+            if (requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_FleetsAllowed != null)
+            {
+                requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions.FleetsAllowed = requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_FleetsAllowed;
                 requestBuildBatchConfigOverride_buildBatchConfigOverride_RestrictionsIsNull = false;
             }
             System.Int32? requestBuildBatchConfigOverride_buildBatchConfigOverride_Restrictions_restrictions_MaximumBuildsAllowed = null;
@@ -1467,6 +1495,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.BatchReportModeType BuildBatchConfigOverride_BatchReportMode { get; set; }
             public System.Boolean? BuildBatchConfigOverride_CombineArtifact { get; set; }
             public List<System.String> Restrictions_ComputeTypesAllowed { get; set; }
+            public List<System.String> Restrictions_FleetsAllowed { get; set; }
             public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
             public System.String BuildBatchConfigOverride_ServiceRole { get; set; }
             public System.Int32? BuildBatchConfigOverride_TimeoutInMin { get; set; }

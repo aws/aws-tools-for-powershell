@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,8 +28,8 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of NotificationEvents according to specified filters, in reverse chronological
-    /// order (newest first).
+    /// Returns a list of <c>NotificationEvents</c> according to specified filters, in reverse
+    /// chronological order (newest first).
     /// 
     ///  <important><para>
     /// User Notifications stores notifications in the individual Regions you register as
@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
     /// User Notifications doesn't backfill notifications to new Regions selected as notification
     /// hubs. For this reason, we recommend that you make calls in your oldest registered
     /// notification hub. For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification
-    /// hubs</a> in the <i>AWS User Notifications User Guide</i>.
+    /// hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "UNONotificationEventList")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter AggregateNotificationEventArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the aggregatedNotificationEventArn to match.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>aggregatedNotificationEventArn</c> to match.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale code of the language used for the retrieved NotificationEvent. The default
-        /// locale is English <c>(en_US)</c>.</para>
+        /// <para>The locale code of the language used for the retrieved <c>NotificationEvent</c>. The
+        /// default locale is English <c>(en_US)</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only AWS service sourced events are
-        /// supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
-        /// delivery from AWS services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only Amazon Web Services service
+        /// sourced events are supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
+        /// delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The start token for paginated calls. Retrieved from the response of a previous ListEventRules
+        /// <para>The start token for paginated calls. Retrieved from the response of a previous <c>ListEventRules</c>
         /// call. Next token uses Base64 encoding.</para>
         /// </para>
         /// </summary>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Requests authorization to remotely connect to an instance in an Amazon GameLift managed
     /// fleet. Use this operation to connect to instances with game servers that use Amazon
     /// GameLift server SDK 4.x or earlier. To connect to instances with game servers that
-    /// use server SDK 5.x or later, call <a>GetComputeAccess</a>.
+    /// use server SDK 5.x or later, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.
     /// 
     ///  
     /// <para>

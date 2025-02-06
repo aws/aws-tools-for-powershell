@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Amazon.com, Inc")]
 [assembly: AssemblyProduct("AWSPowerShellGenerator")]
-[assembly: AssemblyCopyright("Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
+[assembly: AssemblyCopyright("Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
     /// Gets the location of the table metadata.
+    /// 
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:GetTableMetadataLocation</c> permission to use this
+    /// operation. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Get", "S3TTableMetadataLocation")]
     [OutputType("Amazon.S3Tables.Model.GetTableMetadataLocationResponse")]

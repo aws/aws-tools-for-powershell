@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -186,7 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used.</para><para><b>RDS for MySQL</b></para><para>Possible values are <c>error</c>, <c>general</c>, and <c>slowquery</c>.</para><para><b>RDS for PostgreSQL</b></para><para>Possible values are <c>postgresql</c> and <c>upgrade</c>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <c>audit</c>, <c>error</c>, <c>general</c>, and <c>slowquery</c>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <c>postgresql</c>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// values in the list depend on the DB engine being used.</para><para><b>RDS for MySQL</b></para><para>Possible values are <c>error</c>, <c>general</c>, and <c>slowquery</c>.</para><para><b>RDS for PostgreSQL</b></para><para>Possible values are <c>postgresql</c> and <c>upgrade</c>.</para><para><b>Aurora MySQL</b></para><para>Possible values are <c>audit</c>, <c>error</c>, <c>general</c>, <c>instance</c>, and
+        /// <c>slowquery</c>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value are <c>instance</c> and <c>postgresql</c>.</para><para>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
@@ -247,7 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// depending on the type of the cluster you are creating. You can create an Aurora Serverless
         /// v1 clone from a provisioned cluster, or a provisioned clone from an Aurora Serverless
         /// v1 cluster. To create a clone that is an Aurora Serverless v1 cluster, the original
-        /// cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster.</para><para>Valid for: Aurora DB clusters only</para>
+        /// cluster must be an Aurora Serverless v1 cluster or an encrypted provisioned cluster.
+        /// To create a full copy that is an Aurora Serverless v1 cluster, specify the engine
+        /// mode <c>serverless</c>.</para><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

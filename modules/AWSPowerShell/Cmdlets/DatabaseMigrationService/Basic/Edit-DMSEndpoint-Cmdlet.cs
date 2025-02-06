@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_AuthenticationMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies using Kerberos authentication with Microsoft SQL Server.</para>
+        /// <para>Specifies the authentication method to be used with Microsoft SQL Server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_AuthenticationMethod
         /// <summary>
         /// <para>
-        /// <para>Specifies using Kerberos authentication with Oracle.</para>
+        /// <para>Specifies the authentication method to be used with Oracle.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

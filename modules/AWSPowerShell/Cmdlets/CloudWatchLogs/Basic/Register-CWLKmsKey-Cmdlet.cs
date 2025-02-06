@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// or the <c>resourceIdentifier</c> parameter. You can't specify both of those parameters
     /// in the same operation.
     /// </para><ul><li><para>
-    /// Specify the <c>logGroupName</c> parameter to cause all log events stored in the log
+    /// Specify the <c>logGroupName</c> parameter to cause log events ingested into that log
     /// group to be encrypted with that key. Only the log events ingested after the key is
     /// associated are encrypted with that key.
     /// </para><para>

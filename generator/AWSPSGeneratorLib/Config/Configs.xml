@@ -84,8 +84,6 @@
     <Library Name="AWSSDK.CloudSearchDomain" AddAsReference="true" />
 
     <!-- Not used. These libraries were previously included in the AWSPowerShell distribution, so we need to keep them for backward compatibility -->
-    <Library Name="AWSSDK.IoT1ClickDevicesService" />
-    <Library Name="AWSSDK.IoT1ClickProjects" />
     <Library Name="AWSSDK.IoTAnalytics" />
     <Library Name="AWSSDK.IotData" />
     <Library Name="AWSSDK.KinesisVideoArchivedMedia" />

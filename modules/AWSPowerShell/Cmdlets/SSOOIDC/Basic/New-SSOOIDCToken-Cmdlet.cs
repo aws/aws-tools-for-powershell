@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
 {
     /// <summary>
     /// Creates and returns access and refresh tokens for clients that are authenticated using
-    /// client secrets. The access token can be used to fetch short-term credentials for the
-    /// assigned AWS accounts or to access application APIs using <c>bearer</c> authentication.
+    /// client secrets. The access token can be used to fetch short-lived credentials for
+    /// the assigned AWS accounts or to access application APIs using <c>bearer</c> authentication.
     /// </summary>
     [Cmdlet("New", "SSOOIDCToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SSOOIDC.Model.CreateTokenResponse")]
@@ -82,9 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter Code
         /// <summary>
         /// <para>
-        /// <para>Used only when calling this API for the Authorization Code grant type. The short-term
-        /// code is used to identify this authorization request. This grant type is currently
-        /// unsupported for the <a>CreateToken</a> API.</para>
+        /// <para>Used only when calling this API for the Authorization Code grant type. The short-lived
+        /// code is used to identify this authorization request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter DeviceCode
         /// <summary>
         /// <para>
-        /// <para>Used only when calling this API for the Device Code grant type. This short-term code
+        /// <para>Used only when calling this API for the Device Code grant type. This short-lived code
         /// is used to identify this authorization request. This comes from the result of the
         /// <a>StartDeviceAuthorization</a> API.</para>
         /// </para>
@@ -118,9 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter GrantType
         /// <summary>
         /// <para>
-        /// <para>Supports the following OAuth grant types: Device Code and Refresh Token. Specify either
-        /// of the following values, depending on the grant type that you want:</para><para>* Device Code - <c>urn:ietf:params:oauth:grant-type:device_code</c></para><para>* Refresh Token - <c>refresh_token</c></para><para>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a>
-        /// topic.</para>
+        /// <para>Supports the following OAuth grant types: Authorization Code, Device Code, and Refresh
+        /// Token. Specify one of the following values, depending on the grant type that you want:</para><para>* Authorization Code - <c>authorization_code</c></para><para>* Device Code - <c>urn:ietf:params:oauth:grant-type:device_code</c></para><para>* Refresh Token - <c>refresh_token</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         /// <summary>
         /// <para>
         /// <para>Used only when calling this API for the Refresh Token grant type. This token is used
-        /// to refresh short-term tokens, such as the access token, that might expire.</para><para>For more information about the features and limitations of the current IAM Identity
+        /// to refresh short-lived tokens, such as the access token, that might expire.</para><para>For more information about the features and limitations of the current IAM Identity
         /// Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the
         /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM
         /// Identity Center OIDC API Reference</a>.</para>

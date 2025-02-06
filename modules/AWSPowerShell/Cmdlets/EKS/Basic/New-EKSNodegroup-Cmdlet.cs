@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -404,6 +404,27 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.Taint[] Taint { get; set; }
         #endregion
         
+        #region Parameter UpdateConfig_UpdateStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for the behavior to follow during a node group version update of
+        /// this managed node group. You choose between two possible strategies for replacing
+        /// nodes during an <a href="https://docs.aws.amazon.com/latest/APIReference/API_UpdateNodegroupVersion.html">UpdateNodegroupVersion</a>
+        /// action.</para><para>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer
+        /// AMI versions in parallel. The <i>update strategy</i> changes the managed node update
+        /// behavior of the managed node group for each quantity. The <i>default</i> strategy
+        /// has guardrails to protect you from misconfiguration and launches the new instances
+        /// first, before terminating the old instances. The <i>minimal</i> strategy removes the
+        /// guardrails and terminates the old instances before launching the new instances. This
+        /// minimal strategy is useful in scenarios where you are constrained to resources or
+        /// costs (for example, with hardware accelerators such as GPUs).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.NodegroupUpdateStrategies")]
+        public Amazon.EKS.NodegroupUpdateStrategies UpdateConfig_UpdateStrategy { get; set; }
+        #endregion
+        
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
@@ -546,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             context.UpdateConfig_MaxUnavailable = this.UpdateConfig_MaxUnavailable;
             context.UpdateConfig_MaxUnavailablePercentage = this.UpdateConfig_MaxUnavailablePercentage;
+            context.UpdateConfig_UpdateStrategy = this.UpdateConfig_UpdateStrategy;
             context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
@@ -765,6 +787,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.UpdateConfig.MaxUnavailablePercentage = requestUpdateConfig_updateConfig_MaxUnavailablePercentage.Value;
                 requestUpdateConfigIsNull = false;
             }
+            Amazon.EKS.NodegroupUpdateStrategies requestUpdateConfig_updateConfig_UpdateStrategy = null;
+            if (cmdletContext.UpdateConfig_UpdateStrategy != null)
+            {
+                requestUpdateConfig_updateConfig_UpdateStrategy = cmdletContext.UpdateConfig_UpdateStrategy;
+            }
+            if (requestUpdateConfig_updateConfig_UpdateStrategy != null)
+            {
+                request.UpdateConfig.UpdateStrategy = requestUpdateConfig_updateConfig_UpdateStrategy;
+                requestUpdateConfigIsNull = false;
+            }
              // determine if request.UpdateConfig should be set to null
             if (requestUpdateConfigIsNull)
             {
@@ -859,6 +891,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public List<Amazon.EKS.Model.Taint> Taint { get; set; }
             public System.Int32? UpdateConfig_MaxUnavailable { get; set; }
             public System.Int32? UpdateConfig_MaxUnavailablePercentage { get; set; }
+            public Amazon.EKS.NodegroupUpdateStrategies UpdateConfig_UpdateStrategy { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.EKS.Model.CreateNodegroupResponse, NewEKSNodegroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Nodegroup;

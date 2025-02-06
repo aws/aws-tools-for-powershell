@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <c>ACTIVE</c> status, it cannot
+        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><c>NoProtection</c> -- The game session can be terminated during a scale-down event.</para></li><li><para><c>FullProtection</c> -- If the game session is in an <c>ACTIVE</c> status, it cannot
         /// be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -41,8 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Create a delivery source, which is a logical object that represents the resource that
     /// is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.
     /// </para></li><li><para>
-    /// Use <c>PutDeliveryDestination</c> to create a <i>delivery destination</i>, which is
-    /// a logical object that represents the actual delivery destination. 
+    /// Use <c>PutDeliveryDestination</c> to create a <i>delivery destination</i> in the same
+    /// account of the actual delivery destination. The delivery destination that you create
+    /// is a logical object that represents the actual delivery destination. 
     /// </para></li><li><para>
     /// If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>
     /// in the destination account to assign an IAM policy to the destination. This policy

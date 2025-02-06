@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> The <c>CatalogType</c> parameter specifies the catalog associated with the engagement
+        /// <para>The <c>CatalogType</c> parameter specifies the catalog associated with the engagement
         /// invitation. Accepted values are <c>AWS</c> and <c>Sandbox</c>, which determine the
-        /// environment in which the engagement invitation is managed. </para>
+        /// environment in which the engagement invitation is managed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

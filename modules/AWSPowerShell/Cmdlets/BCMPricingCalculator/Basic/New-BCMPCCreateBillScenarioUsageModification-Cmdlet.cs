@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
     /// Create Amazon Web Services service usage that you want to model in a Bill Scenario.
+    /// 
+    /// 
+    ///  <note><para>
+    /// The <c>BatchCreateBillScenarioUsageModification</c> operation doesn't have its own
+    /// IAM permission. To authorize this operation for Amazon Web Services principals, include
+    /// the permission <c>bcm-pricing-calculator:CreateBillScenarioUsageModification</c> in
+    /// your policies.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "BCMPCCreateBillScenarioUsageModification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.BatchCreateBillScenarioUsageModificationResponse")]

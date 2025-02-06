@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.GeoRoutes.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
-    /// The SnapToRoads action matches GPS trace to roads most likely traveled on.
+    /// <c>SnapToRoads</c> matches GPS trace to roads most likely traveled on.
     /// </summary>
     [Cmdlet("Get", "GEORSnappedRoad")]
     [OutputType("Amazon.GeoRoutes.Model.SnapToRoadsResponse")]

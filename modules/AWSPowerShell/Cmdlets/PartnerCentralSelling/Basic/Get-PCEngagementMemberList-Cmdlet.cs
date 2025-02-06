@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,10 +28,10 @@ using Amazon.PartnerCentralSelling.Model;
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
-    /// Retrieves the details of member partners in an engagement. This operation can only
-    /// be invoked by members of the engagement. The <c>ListEngagementMembers</c> operation
-    /// allows you to fetch information about the members of a specific engagement. This action
-    /// is restricted to members of the engagement being queried.
+    /// Retrieves the details of member partners in an Engagement. This operation can only
+    /// be invoked by members of the Engagement. The <c>ListEngagementMembers</c> operation
+    /// allows you to fetch information about the members of a specific Engagement. This action
+    /// is restricted to members of the Engagement being queried.
     /// </summary>
     [Cmdlet("Get", "PCEngagementMemberList")]
     [OutputType("Amazon.PartnerCentralSelling.Model.EngagementMember")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> The catalog related to the request. </para>
+        /// <para>The catalog related to the request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para> Identifier of the engagement record to retrieve members from. </para>
+        /// <para>Identifier of the Engagement record to retrieve members from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return in a single call. </para>
+        /// <para>The maximum number of results to return in a single call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token for the next set of results. </para>
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

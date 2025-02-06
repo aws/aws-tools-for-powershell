@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -102,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InferenceSpecification_Containers")]
         public Amazon.SageMaker.Model.ModelPackageContainerDefinition[] InferenceSpecification_Container { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalS3DataSource_ETag
+        /// <summary>
+        /// <para>
+        /// <para>The ETag associated with S3 URI.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingSpecification_AdditionalS3DataSource_ETag")]
+        public System.String AdditionalS3DataSource_ETag { get; set; }
         #endregion
         
         #region Parameter TrainingSpecification_MetricDefinition
@@ -397,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
             context.AdditionalS3DataSource_CompressionType = this.AdditionalS3DataSource_CompressionType;
+            context.AdditionalS3DataSource_ETag = this.AdditionalS3DataSource_ETag;
             context.AdditionalS3DataSource_S3DataType = this.AdditionalS3DataSource_S3DataType;
             context.AdditionalS3DataSource_S3Uri = this.AdditionalS3DataSource_S3Uri;
             if (this.TrainingSpecification_MetricDefinition != null)
@@ -635,6 +647,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource.CompressionType = requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_CompressionType;
                 requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull = false;
             }
+            System.String requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_ETag = null;
+            if (cmdletContext.AdditionalS3DataSource_ETag != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_ETag = cmdletContext.AdditionalS3DataSource_ETag;
+            }
+            if (requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_ETag != null)
+            {
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource.ETag = requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_ETag;
+                requestTrainingSpecification_trainingSpecification_AdditionalS3DataSourceIsNull = false;
+            }
             Amazon.SageMaker.AdditionalS3DataSourceDataType requestTrainingSpecification_trainingSpecification_AdditionalS3DataSource_additionalS3DataSource_S3DataType = null;
             if (cmdletContext.AdditionalS3DataSource_S3DataType != null)
             {
@@ -770,6 +792,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> InferenceSpecification_SupportedTransformInstanceType { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public Amazon.SageMaker.CompressionType AdditionalS3DataSource_CompressionType { get; set; }
+            public System.String AdditionalS3DataSource_ETag { get; set; }
             public Amazon.SageMaker.AdditionalS3DataSourceDataType AdditionalS3DataSource_S3DataType { get; set; }
             public System.String AdditionalS3DataSource_S3Uri { get; set; }
             public List<Amazon.SageMaker.Model.MetricDefinition> TrainingSpecification_MetricDefinition { get; set; }

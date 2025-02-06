@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog related to the request. Valid values are: </para><ul><li><para> AWS: Retrieves the snapshot job from the production AWS environment. </para></li><li><para> Sandbox: Retrieves the snapshot job from a sandbox environment used for testing or
+        /// <para>Specifies the catalog related to the request. Valid values are:</para><ul><li><para> AWS: Retrieves the snapshot job from the production AWS environment. </para></li><li><para> Sandbox: Retrieves the snapshot job from a sandbox environment used for testing or
         /// development purposes. </para></li></ul>
         /// </para>
         /// </summary>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceSnapshotJobIdentifier
         /// <summary>
         /// <para>
-        /// <para> The unique identifier of the resource snapshot job to be retrieved. This identifier
+        /// <para>The unique identifier of the resource snapshot job to be retrieved. This identifier
         /// is crucial for pinpointing the specific job you want to query. </para>
         /// </para>
         /// </summary>

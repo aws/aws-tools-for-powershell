@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The amount of storage to allocate for your DB storage type (in gibibytes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AllocatedStorage { get; set; }
+        #endregion
+        
         #region Parameter S3Configuration_BucketName
         /// <summary>
         /// <para>
@@ -73,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DbParameterGroupIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter DbStorageType
+        /// <summary>
+        /// <para>
+        /// <para>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamInfluxDB.DbStorageType")]
+        public Amazon.TimestreamInfluxDB.DbStorageType DbStorageType { get; set; }
         #endregion
         
         #region Parameter DeploymentType
@@ -136,6 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -162,13 +193,25 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceResponse, UpdateTIDBDbInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Identifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllocatedStorage = this.AllocatedStorage;
             context.DbInstanceType = this.DbInstanceType;
             context.DbParameterGroupIdentifier = this.DbParameterGroupIdentifier;
+            context.DbStorageType = this.DbStorageType;
             context.DeploymentType = this.DeploymentType;
             context.Identifier = this.Identifier;
             #if MODULAR
@@ -196,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             // create request
             var request = new Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceRequest();
             
+            if (cmdletContext.AllocatedStorage != null)
+            {
+                request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
+            }
             if (cmdletContext.DbInstanceType != null)
             {
                 request.DbInstanceType = cmdletContext.DbInstanceType;
@@ -203,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             if (cmdletContext.DbParameterGroupIdentifier != null)
             {
                 request.DbParameterGroupIdentifier = cmdletContext.DbParameterGroupIdentifier;
+            }
+            if (cmdletContext.DbStorageType != null)
+            {
+                request.DbStorageType = cmdletContext.DbStorageType;
             }
             if (cmdletContext.DeploymentType != null)
             {
@@ -321,8 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? AllocatedStorage { get; set; }
             public Amazon.TimestreamInfluxDB.DbInstanceType DbInstanceType { get; set; }
             public System.String DbParameterGroupIdentifier { get; set; }
+            public Amazon.TimestreamInfluxDB.DbStorageType DbStorageType { get; set; }
             public Amazon.TimestreamInfluxDB.DeploymentType DeploymentType { get; set; }
             public System.String Identifier { get; set; }
             public System.String S3Configuration_BucketName { get; set; }

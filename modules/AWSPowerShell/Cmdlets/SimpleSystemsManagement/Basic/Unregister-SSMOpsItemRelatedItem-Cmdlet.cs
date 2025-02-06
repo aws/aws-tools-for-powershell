@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Deletes the association between an OpsItem and a related item. For example, this API
     /// operation can delete an Incident Manager incident from an OpsItem. Incident Manager
-    /// is a capability of Amazon Web Services Systems Manager.
+    /// is a tool in Amazon Web Services Systems Manager.
     /// </summary>
     [Cmdlet("Unregister", "SSMOpsItemRelatedItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

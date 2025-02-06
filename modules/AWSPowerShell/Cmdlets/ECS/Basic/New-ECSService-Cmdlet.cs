@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -675,7 +675,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -739,7 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

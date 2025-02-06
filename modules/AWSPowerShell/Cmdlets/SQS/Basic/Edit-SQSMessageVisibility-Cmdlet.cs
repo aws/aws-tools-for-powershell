@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// number of queues you use to process your messages. To request a limit increase, <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sqs">file
     /// a support request</a>.
     /// </para><para>
-    /// For FIFO queues, there can be a maximum of 20,000 in flight messages (received from
+    /// For FIFO queues, there can be a maximum of 120,000 in flight messages (received from
     /// a queue by a consumer, but not yet deleted from the queue). If you reach this limit,
     /// Amazon SQS returns no error messages.
     /// </para><important><para>

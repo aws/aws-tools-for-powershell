@@ -185,6 +185,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.OrchestrationControl
+        "Update-QBUSChatControlsConfiguration/OrchestrationConfiguration_Control"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.PersonalizationControlMode
         {
             ($_ -eq "New-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode") -Or
@@ -237,7 +244,11 @@ $QBUS_Completers = {
         }
 
         # Amazon.QBusiness.SubscriptionType
-        "Update-QBUSApplication/AutoSubscriptionConfiguration_DefaultSubscriptionType"
+        {
+            ($_ -eq "Update-QBUSApplication/AutoSubscriptionConfiguration_DefaultSubscriptionType") -Or
+            ($_ -eq "New-QBUSSubscription/Type") -Or
+            ($_ -eq "Update-QBUSSubscription/Type")
+        }
         {
             $v = "Q_BUSINESS","Q_LITE"
             break
@@ -274,6 +285,7 @@ $QBUS_map = @{
     "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "OrchestrationConfiguration_Control"=@("Update-QBUSChatControlsConfiguration")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "PluginType"=@("Get-QBUSPluginTypeActionList")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
@@ -281,7 +293,7 @@ $QBUS_map = @{
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
     "State"=@("Update-QBUSPlugin")
     "StatusFilter"=@("Get-QBUSDataSourceSyncJobList")
-    "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
+    "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","New-QBUSSubscription","Update-QBUSSubscription","Write-QBUSGroup")
 }
 
 _awsArgumentCompleterRegistration $QBUS_Completers $QBUS_map
@@ -337,6 +349,7 @@ $QBUS_SelectMap = @{
     "Select"=@("Add-QBUSPermission",
                "Remove-QBUSBatchDeleteDocument",
                "Set-QBUSBatchPutDocument",
+               "Stop-QBUSSubscription",
                "Set-QBUSChatSync",
                "New-QBUSApplication",
                "New-QBUSDataAccessor",
@@ -344,6 +357,7 @@ $QBUS_SelectMap = @{
                "New-QBUSIndex",
                "New-QBUSPlugin",
                "New-QBUSRetriever",
+               "New-QBUSSubscription",
                "New-QBUSUser",
                "New-QBUSWebExperience",
                "Remove-QBUSApplication",
@@ -385,6 +399,7 @@ $QBUS_SelectMap = @{
                "Get-QBUSPluginTypeActionList",
                "Get-QBUSPluginTypeMetadataList",
                "Get-QBUSRetrieverList",
+               "Get-QBUSSubscriptionList",
                "Get-QBUSResourceTag",
                "Get-QBUSWebExperienceList",
                "Write-QBUSFeedback",
@@ -401,6 +416,7 @@ $QBUS_SelectMap = @{
                "Update-QBUSIndex",
                "Update-QBUSPlugin",
                "Update-QBUSRetriever",
+               "Update-QBUSSubscription",
                "Update-QBUSUser",
                "Update-QBUSWebExperience")
 }

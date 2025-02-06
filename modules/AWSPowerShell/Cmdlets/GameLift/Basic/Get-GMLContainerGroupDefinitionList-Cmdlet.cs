@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// This operation returns only the latest version of each definition. To retrieve all
-    /// versions of a container group definition, use <a>ListContainerGroupDefinitionVersions</a>.
+    /// versions of a container group definition, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html">ListContainerGroupDefinitionVersions</a>.
     /// </para><para><b>Request options:</b></para><ul><li><para>
     /// Retrieve the most recent versions of all container group definitions. 
     /// </para></li><li><para>
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><note><para>
     /// This operation returns the list of container group definitions in no particular order.
     /// 
-    /// </para></note><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage
-    /// a container group definition</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLContainerGroupDefinitionList")]
     [OutputType("Amazon.GameLift.Model.ContainerGroupDefinition")]

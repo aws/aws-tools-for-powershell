@@ -80,6 +80,16 @@ $UNO_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Notifications.AccountContactType
+        {
+            ($_ -eq "Add-UNOManagedNotificationAccountContact/ContactIdentifier") -Or
+            ($_ -eq "Remove-UNOManagedNotificationAccountContact/ContactIdentifier")
+        }
+        {
+            $v = "ACCOUNT_ALTERNATE_BILLING","ACCOUNT_ALTERNATE_OPERATIONS","ACCOUNT_ALTERNATE_SECURITY","ACCOUNT_PRIMARY"
+            break
+        }
+
         # Amazon.Notifications.AggregationDuration
         {
             ($_ -eq "New-UNONotificationConfiguration/AggregationDuration") -Or
@@ -92,6 +102,10 @@ $UNO_Completers = {
 
         # Amazon.Notifications.LocaleCode
         {
+            ($_ -eq "Get-UNOManagedNotificationChildEvent/Locale") -Or
+            ($_ -eq "Get-UNOManagedNotificationChildEventList/Locale") -Or
+            ($_ -eq "Get-UNOManagedNotificationEvent/Locale") -Or
+            ($_ -eq "Get-UNOManagedNotificationEventList/Locale") -Or
             ($_ -eq "Get-UNONotificationEvent/Locale") -Or
             ($_ -eq "Get-UNONotificationEventList/Locale")
         }
@@ -117,7 +131,8 @@ $UNO_Completers = {
 
 $UNO_map = @{
     "AggregationDuration"=@("New-UNONotificationConfiguration","Update-UNONotificationConfiguration")
-    "Locale"=@("Get-UNONotificationEvent","Get-UNONotificationEventList")
+    "ContactIdentifier"=@("Add-UNOManagedNotificationAccountContact","Remove-UNOManagedNotificationAccountContact")
+    "Locale"=@("Get-UNOManagedNotificationChildEvent","Get-UNOManagedNotificationChildEventList","Get-UNOManagedNotificationEvent","Get-UNOManagedNotificationEventList","Get-UNONotificationEvent","Get-UNONotificationEventList")
     "Status"=@("Get-UNONotificationConfigurationList")
 }
 
@@ -172,17 +187,31 @@ $UNO_SelectCompleters = {
 
 $UNO_SelectMap = @{
     "Select"=@("Add-UNOChannel",
+               "Add-UNOManagedNotificationAccountContact",
+               "Add-UNOManagedNotificationAdditionalChannel",
                "New-UNOEventRule",
                "New-UNONotificationConfiguration",
                "Remove-UNOEventRule",
                "Remove-UNONotificationConfiguration",
                "Remove-UNONotificationHub",
+               "Disable-UNONotificationsAccessForOrganization",
                "Remove-UNOChannel",
+               "Remove-UNOManagedNotificationAccountContact",
+               "Remove-UNOManagedNotificationAdditionalChannel",
+               "Enable-UNONotificationsAccessForOrganization",
                "Get-UNOEventRule",
+               "Get-UNOManagedNotificationChildEvent",
+               "Get-UNOManagedNotificationConfiguration",
+               "Get-UNOManagedNotificationEvent",
                "Get-UNONotificationConfiguration",
                "Get-UNONotificationEvent",
+               "Get-UNONotificationsAccessForOrganization",
                "Get-UNOChannelList",
                "Get-UNOEventRuleList",
+               "Get-UNOManagedNotificationChannelAssociationList",
+               "Get-UNOManagedNotificationChildEventList",
+               "Get-UNOManagedNotificationConfigurationList",
+               "Get-UNOManagedNotificationEventList",
                "Get-UNONotificationConfigurationList",
                "Get-UNONotificationEventList",
                "Get-UNONotificationHubList",

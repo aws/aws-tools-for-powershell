@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,13 +28,13 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Creates a new data accessor for an ISV to access data from a Q Business application.
-    /// The data accessor is an entity that represents the ISV's access to the Q Business
+    /// Creates a new data accessor for an ISV to access data from a Amazon Q Business application.
+    /// The data accessor is an entity that represents the ISV's access to the Amazon Q Business
     /// application's data. It includes the IAM role ARN for the ISV, a friendly name, and
     /// a set of action configurations that define the specific actions the ISV is allowed
     /// to perform and any associated data filters. When the data accessor is created, an
-    /// AWS IAM Identity Center application is also created to manage the ISV's identity and
-    /// authentication for accessing the Q Business application.
+    /// IAM Identity Center application is also created to manage the ISV's identity and authentication
+    /// for accessing the Amazon Q Business application.
     /// </summary>
     [Cmdlet("New", "QBUSDataAccessor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreateDataAccessorResponse")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application.</para>
+        /// <para>The unique identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
