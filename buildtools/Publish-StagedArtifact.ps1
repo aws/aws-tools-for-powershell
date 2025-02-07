@@ -131,17 +131,16 @@ if (-not $DryRun -and $PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
     $ApiKey = ((Get-SECSecretValue -SecretId $SecretId -Region $SecretRegion -ProfileName $SecretReaderProfile).SecretString | ConvertFrom-Json).$SecretKey
 }
 
-if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
-    $commonArgs = @{
-        'ApiKey' = $ApiKey
-        'Repository'  = "PSGallery"
-    }
+$commonArgs = @{
+    'ApiKey'                     = $LocalRepositoryNuGetApiKey
+    'SkipDependenciesCheck'      = $true
+    'SkipModuleManifestValidate' = $true
+    'Repository'                 = $LocalRepositoryName
 }
-else {
-    $commonArgs = @{        
-        'ApiKey' = $LocalRepositoryNuGetApiKey
-        'Repository'  = $LocalRepositoryName
-    }
+
+if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
+    $commonArgs.ApiKey = $ApiKey
+    $commonArgs.Repository = "PSGallery"
 }
 
 function PublishRecursive([string]$modulePath) {
@@ -159,6 +158,10 @@ function PublishRecursive([string]$modulePath) {
 
     if ($alreadyImportedModules.Add($manifest.Name)) {
         $manifestData = Import-PowerShellDataFile $manifest.FullName
+        $prereleaseLabel = ''
+        if($manifestData.PrivateData.PSData.ContainsKey('Prerelease')){
+            $prereleaseLabel = '-' + $manifestData.PrivateData.PSData.Prerelease
+        }
         
         foreach ($dependency in $manifestData.RequiredModules.ModuleName) {
             if ($dependency -like 'AWS.Tools.*') {
@@ -188,8 +191,9 @@ function PublishRecursive([string]$modulePath) {
                 #We could have failed because the module was already published (possible in case we run this script multiple times)
                 if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
                     try {
-                        Find-Module ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -RequiredVersion $manifestData.ModuleVersion
-                        Write-Host "Successfully found module $modulePath version $($manifestData.ModuleVersion) already on the gallery"
+                        $findVersion = $manifestData.ModuleVersion + $prereleaseLabel
+                        Find-PSResource -Repository 'PSGallery' -Type 'Module' -Name ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -Version $findVersion
+                        Write-Host "Successfully found module $modulePath version $findVersion already on the gallery"
                         if ($DryRun) {
                             Write-Host "-DryRun specified, skipped PackageVersions update of $modulePath in catch."
                         }
