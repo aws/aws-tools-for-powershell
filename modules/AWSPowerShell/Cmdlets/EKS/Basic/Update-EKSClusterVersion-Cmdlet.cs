@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues
     /// to function during the update. The response output includes an update ID that you
-    /// can use to track the status of your cluster update with the <a>DescribeUpdate</a>
-    /// API operation.
+    /// can use to track the status of your cluster update with the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html"><c>DescribeUpdate</c></a> API operation.
     /// 
     ///  
     /// <para>

@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the response. If more items exist than the
-        /// specified <c>MaxRecords</c> value, a pagination token is included in the response
-        /// so that the remaining results can be retrieved. </para>
+        /// <para>The maximum number of items to return in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -83,15 +83,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Boolean? IncludeAll { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter VersionStatus
         /// <summary>
         /// <para>
         /// <para>Filter versions by their current status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.EKS.ClusterVersionStatus")]
-        public Amazon.EKS.ClusterVersionStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.EKS.VersionStatus")]
+        public Amazon.EKS.VersionStatus VersionStatus { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -117,6 +117,20 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <important><para>This field is deprecated. Use <c>versionStatus</c> instead, as that field matches
+        /// for input and output of this action.</para></important><para>Filter versions by their current status.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("status has been replaced by versionStatus")]
+        [AWSConstantClassSource("Amazon.EKS.ClusterVersionStatus")]
+        public Amazon.EKS.ClusterVersionStatus Status { get; set; }
         #endregion
         
         #region Parameter Select
@@ -164,7 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.IncludeAll = this.IncludeAll;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Status = this.Status;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.VersionStatus = this.VersionStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -203,9 +220,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.VersionStatus != null)
+            {
+                request.VersionStatus = cmdletContext.VersionStatus;
             }
             
             // Initialize loop variant and commence piping
@@ -298,7 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Boolean? IncludeAll { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            [System.ObsoleteAttribute]
             public Amazon.EKS.ClusterVersionStatus Status { get; set; }
+            public Amazon.EKS.VersionStatus VersionStatus { get; set; }
             public System.Func<Amazon.EKS.Model.DescribeClusterVersionsResponse, GetEKSClusterVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterVersions;
         }

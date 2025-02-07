@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// 
     ///  
     /// <para>
-    /// When the status of the update is <c>Succeeded</c>, the update is complete. If an update
-    /// fails, the status is <c>Failed</c>, and an error detail explains the reason for the
-    /// failure.
+    /// When the status of the update is <c>Successful</c>, the update is complete. If an
+    /// update fails, the status is <c>Failed</c>, and an error detail explains the reason
+    /// for the failure.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EKSUpdate")]

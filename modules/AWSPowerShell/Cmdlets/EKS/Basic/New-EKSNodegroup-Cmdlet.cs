@@ -409,8 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The configuration for the behavior to follow during a node group version update of
         /// this managed node group. You choose between two possible strategies for replacing
-        /// nodes during an <a href="https://docs.aws.amazon.com/latest/APIReference/API_UpdateNodegroupVersion.html">UpdateNodegroupVersion</a>
-        /// action.</para><para>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer
+        /// nodes during an <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateNodegroupVersion.html"><c>UpdateNodegroupVersion</c></a> action.</para><para>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer
         /// AMI versions in parallel. The <i>update strategy</i> changes the managed node update
         /// behavior of the managed node group for each quantity. The <i>default</i> strategy
         /// has guardrails to protect you from misconfiguration and launches the new instances

@@ -1,4 +1,11 @@
-﻿### 4.1.752 (2025-02-06 21:23Z)
+﻿### 4.1.753 (2025-02-07 22:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.978.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet Get-EKSClusterVersion: added parameter VersionStatus.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSMedicalScribeJob: added parameter ClinicalNoteGenerationSettings_NoteTemplate.
+
+### 4.1.752 (2025-02-06 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.977.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Added cmdlet Get-CFNCFNStackRefactor leveraging the DescribeStackRefactor service API.

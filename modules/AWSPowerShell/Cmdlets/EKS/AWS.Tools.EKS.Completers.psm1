@@ -179,6 +179,13 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.VersionStatus
+        "Get-EKSClusterVersion/VersionStatus"
+        {
+            $v = "EXTENDED_SUPPORT","STANDARD_SUPPORT","UNSUPPORTED"
+            break
+        }
+
 
     }
 
@@ -200,6 +207,7 @@ $EKS_map = @{
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
     "UpdateConfig_UpdateStrategy"=@("New-EKSNodegroup","Update-EKSNodegroupConfig")
     "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
+    "VersionStatus"=@("Get-EKSClusterVersion")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map

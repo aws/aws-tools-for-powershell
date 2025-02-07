@@ -179,6 +179,22 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String MedicalScribeJobName { get; set; }
         #endregion
         
+        #region Parameter ClinicalNoteGenerationSettings_NoteTemplate
+        /// <summary>
+        /// <para>
+        /// <para>Specify one of the following templates to use for the clinical note summary. The default
+        /// is <c>HISTORY_AND_PHYSICAL</c>.</para><ul><li><para>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation.
+        /// Sections include Chief Complaint, History of Present Illness, Review of Systems, Past
+        /// Medical History, Assessment, and Plan.</para></li><li><para>GIRPP: Provides summaries based on the patients progress toward goals. Sections include
+        /// Goal, Intervention, Response, Progress, and Plan.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_ClinicalNoteGenerationSettings_NoteTemplate")]
+        [AWSConstantClassSource("Amazon.TranscribeService.MedicalScribeNoteTemplate")]
+        public Amazon.TranscribeService.MedicalScribeNoteTemplate ClinicalNoteGenerationSettings_NoteTemplate { get; set; }
+        #endregion
+        
         #region Parameter OutputBucketName
         /// <summary>
         /// <para>
@@ -387,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             #endif
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;
             context.Settings_ChannelIdentification = this.Settings_ChannelIdentification;
+            context.ClinicalNoteGenerationSettings_NoteTemplate = this.ClinicalNoteGenerationSettings_NoteTemplate;
             context.Settings_MaxSpeakerLabel = this.Settings_MaxSpeakerLabel;
             context.Settings_ShowSpeakerLabel = this.Settings_ShowSpeakerLabel;
             context.Settings_VocabularyFilterMethod = this.Settings_VocabularyFilterMethod;
@@ -529,6 +546,31 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 request.Settings.VocabularyName = requestSettings_settings_VocabularyName;
                 requestSettingsIsNull = false;
             }
+            Amazon.TranscribeService.Model.ClinicalNoteGenerationSettings requestSettings_settings_ClinicalNoteGenerationSettings = null;
+            
+             // populate ClinicalNoteGenerationSettings
+            var requestSettings_settings_ClinicalNoteGenerationSettingsIsNull = true;
+            requestSettings_settings_ClinicalNoteGenerationSettings = new Amazon.TranscribeService.Model.ClinicalNoteGenerationSettings();
+            Amazon.TranscribeService.MedicalScribeNoteTemplate requestSettings_settings_ClinicalNoteGenerationSettings_clinicalNoteGenerationSettings_NoteTemplate = null;
+            if (cmdletContext.ClinicalNoteGenerationSettings_NoteTemplate != null)
+            {
+                requestSettings_settings_ClinicalNoteGenerationSettings_clinicalNoteGenerationSettings_NoteTemplate = cmdletContext.ClinicalNoteGenerationSettings_NoteTemplate;
+            }
+            if (requestSettings_settings_ClinicalNoteGenerationSettings_clinicalNoteGenerationSettings_NoteTemplate != null)
+            {
+                requestSettings_settings_ClinicalNoteGenerationSettings.NoteTemplate = requestSettings_settings_ClinicalNoteGenerationSettings_clinicalNoteGenerationSettings_NoteTemplate;
+                requestSettings_settings_ClinicalNoteGenerationSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_ClinicalNoteGenerationSettings should be set to null
+            if (requestSettings_settings_ClinicalNoteGenerationSettingsIsNull)
+            {
+                requestSettings_settings_ClinicalNoteGenerationSettings = null;
+            }
+            if (requestSettings_settings_ClinicalNoteGenerationSettings != null)
+            {
+                request.Settings.ClinicalNoteGenerationSettings = requestSettings_settings_ClinicalNoteGenerationSettings;
+                requestSettingsIsNull = false;
+            }
              // determine if request.Settings should be set to null
             if (requestSettingsIsNull)
             {
@@ -608,6 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String OutputBucketName { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }
             public System.Boolean? Settings_ChannelIdentification { get; set; }
+            public Amazon.TranscribeService.MedicalScribeNoteTemplate ClinicalNoteGenerationSettings_NoteTemplate { get; set; }
             public System.Int32? Settings_MaxSpeakerLabel { get; set; }
             public System.Boolean? Settings_ShowSpeakerLabel { get; set; }
             public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }

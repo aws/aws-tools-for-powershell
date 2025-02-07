@@ -150,6 +150,13 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.MedicalScribeNoteTemplate
+        "Start-TRSMedicalScribeJob/ClinicalNoteGenerationSettings_NoteTemplate"
+        {
+            $v = "GIRPP","HISTORY_AND_PHYSICAL"
+            break
+        }
+
         # Amazon.TranscribeService.ModelStatus
         "Get-TRSLanguageModelList/StatusEqual"
         {
@@ -232,6 +239,7 @@ $TRS_Completers = {
 
 $TRS_map = @{
     "BaseModelName"=@("New-TRSLanguageModel")
+    "ClinicalNoteGenerationSettings_NoteTemplate"=@("Start-TRSMedicalScribeJob")
     "ContentIdentificationType"=@("Start-TRSMedicalTranscriptionJob")
     "ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
     "ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
