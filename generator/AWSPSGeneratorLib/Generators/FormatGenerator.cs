@@ -32,6 +32,8 @@ namespace AWSPowerShellGenerator.Generators
         private ConfigModelCollection ConfigCollection { get; set; }
 
         private const string AwsToolsPrefix = "AWS.Tools.";
+
+        private const string SensitiveDataRedactionMessage = "*** sensitive data redacted from host ***";
         #endregion
 
 
@@ -329,7 +331,7 @@ namespace AWSPowerShellGenerator.Generators
                                                 writer.WriteElementString("Label", column.PropertyName);
 
                                             string scriptBlockValue =
-                                                $"if((Test-Path variable:AWSPowerShell_Show_Sensitive_Data) -and $true.Equals((Get-Variable AWSPowerShell_Show_Sensitive_Data).Value)){{$_.{column.PropertyName}}} elseif($_.{column.PropertyName}){{'{{sensitive data redacted from display}}'}}";
+                                                $"if((Test-Path variable:AWSPowerShell_Show_Sensitive_Data) -and $true.Equals((Get-Variable AWSPowerShell_Show_Sensitive_Data).Value)){{$_.{column.PropertyName}}} else{{'{SensitiveDataRedactionMessage}'}}";
                                             writer.WriteElementString("ScriptBlock", scriptBlockValue);
                                         }
                                         else if (!string.IsNullOrEmpty(column.PropertyName))

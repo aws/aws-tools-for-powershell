@@ -574,25 +574,31 @@ namespace Amazon.PowerShell.Common
 
     /// <summary>
     /// Returns the current configuration value that controls how sensitive data is displayed in the PowerShell console.
-    /// This cmdlet returns a Boolean value indicating whether sensitive data is shown or redacted in console output.
+    /// This cmdlet returns a Boolean value for ShowSensitiveData indicating whether sensitive data is shown or redacted in console output.
     /// </summary>
     [Cmdlet("Get", "AWSSensitiveDataConfiguration")]
     [AWSCmdlet("Gets the current configuration settings for sensitive data display in PowerShell output.")]
-    [OutputType("Boolean")]
+    [OutputType("PSObject")]
     public class GetAWSSensitiveDataConfigurationCmdlet : PSCmdlet
     {
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
             var showSensitiveData = this.SessionState.PSVariable.Get(SessionKeys.AWSShowSensitiveData);
+            var result = new PSObject();
+
+            // in v5 default ShowSensitiveData is false
+            const bool defaultShowSensitiveData = false;
+
+            var noteProperty = new PSNoteProperty("ShowSensitiveData", defaultShowSensitiveData);
+
             if (showSensitiveData != null)
             {
-                WriteObject((bool)showSensitiveData.Value);
+                noteProperty.Value = (bool)showSensitiveData.Value;
             }
-            else
-            {
-                WriteObject(false);
-            }
+            
+            result.Properties.Add(noteProperty);
+            WriteObject(result);
         }
     }
 }

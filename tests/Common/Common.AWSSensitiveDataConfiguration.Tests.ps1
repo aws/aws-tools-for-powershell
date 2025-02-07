@@ -7,7 +7,7 @@ BeforeAll {
   $script:region = 'us-west-2'
   $script:secretName = 'integrationtests-sensitive-data-redaction-' + [DateTime]::Now.ToFileTime()
   $script:secretValue = 'testvalue'
-  $script:redactedValue = '{sensitive data redacted from display}'
+  $script:redactedValue = [Regex]::Escape('*** sensitive data redacted from host ***')
   $null = New-SECSecret -Name $script:secretName -SecretString $script:secretValue -Region $script:region }
 
 AfterAll {
@@ -30,13 +30,13 @@ Describe -Tag "Smoke" "AWSSensitiveDataConfiguration Default" {
       $secretInHost | Should -MatchExactly $script:redactedValue
     }
 
-    It "Null Sensitive data not redacted in the host" {
+    It "Null Sensitive data redacted in the host" {
       $secretInHost = ($secret | Out-String -Stream).Where({ $_ -like "SecretBinary*" })[0]
-      $secretInHost | Should -Not -MatchExactly $script:redactedValue
+      $secretInHost | Should -MatchExactly $script:redactedValue
     }
 
     It 'Get-AWSSensitiveDataConfiguration should be $false' {
-      (Get-AWSSensitiveDataConfiguration) | Should -BeExactly $false
+      (Get-AWSSensitiveDataConfiguration).ShowSensitiveData | Should -BeExactly $false
     }
   }
   Context "Sensitive data redaction ShowSensitiveData" {
@@ -60,7 +60,7 @@ Describe -Tag "Smoke" "AWSSensitiveDataConfiguration Default" {
     }
 
     It 'Get-AWSSensitiveDataConfiguration should be $true' {
-      (Get-AWSSensitiveDataConfiguration) | Should -BeExactly $true
+      (Get-AWSSensitiveDataConfiguration).ShowSensitiveData | Should -BeExactly $true
     }
   }
   Context 'Sensitive data redaction ShowSensitiveData to $false' {
@@ -78,13 +78,13 @@ Describe -Tag "Smoke" "AWSSensitiveDataConfiguration Default" {
       $secretInHost | Should -MatchExactly $script:redactedValue
     }
 
-    It "Null Sensitive data not redacted in the host" {
+    It "Null Sensitive data redacted in the host" {
       $secretInHost = ($secret | Out-String -Stream).Where({ $_ -like "SecretBinary*" })[0]
-      $secretInHost | Should -Not -MatchExactly $script:redactedValue
+      $secretInHost | Should -MatchExactly $script:redactedValue
     }
 
     It 'Get-AWSSensitiveDataConfiguration should be $false' {
-      (Get-AWSSensitiveDataConfiguration) | Should -BeExactly $false
+      (Get-AWSSensitiveDataConfiguration).ShowSensitiveData | Should -BeExactly $false
     }
   }
 }
