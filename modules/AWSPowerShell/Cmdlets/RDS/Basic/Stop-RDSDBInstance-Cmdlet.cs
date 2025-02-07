@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,10 +28,11 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the
-    /// DB instance's metadata, including its endpoint, DB parameter group, and option group
-    /// membership. Amazon RDS also retains the transaction logs so you can do a point-in-time
-    /// restore if necessary.
+    /// Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS
+    /// retains the DB instance's metadata, including its endpoint, DB parameter group, and
+    /// option group membership. Amazon RDS also retains the transaction logs so you can do
+    /// a point-in-time restore if necessary. The instance restarts automatically after 7
+    /// days.
     /// 
     ///  
     /// <para>

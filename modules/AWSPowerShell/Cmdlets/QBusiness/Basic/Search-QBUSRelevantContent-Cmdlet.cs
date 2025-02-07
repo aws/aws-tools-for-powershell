@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,12 +28,12 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Searches for relevant content in a Q Business application based on a query. This operation
-    /// takes a search query text, the Q Business application identifier, and optional filters
-    /// (such as content source and maximum results) as input. It returns a list of relevant
-    /// content items, where each item includes the content text, the unique document identifier,
-    /// the document title, the document URI, any relevant document attributes, and score
-    /// attributes indicating the confidence level of the relevance.
+    /// Searches for relevant content in a Amazon Q Business application based on a query.
+    /// This operation takes a search query text, the Amazon Q Business application identifier,
+    /// and optional filters (such as content source and maximum results) as input. It returns
+    /// a list of relevant content items, where each item includes the content text, the unique
+    /// document identifier, the document title, the document URI, any relevant document attributes,
+    /// and score attributes indicating the confidence level of the relevance.
     /// </summary>
     [Cmdlet("Search", "QBUSRelevantContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.RelevantContent")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application to search.</para>
+        /// <para>The unique identifier of the Amazon Q Business application to search.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -87,6 +87,16 @@ $IAM_Completers = {
             break
         }
 
+        # Amazon.IdentityManagement.AssertionEncryptionModeType
+        {
+            ($_ -eq "New-IAMSAMLProvider/AssertionEncryptionMode") -Or
+            ($_ -eq "Update-IAMSAMLProvider/AssertionEncryptionMode")
+        }
+        {
+            $v = "Allowed","Required"
+            break
+        }
+
         # Amazon.IdentityManagement.AssignmentStatusType
         "Get-IAMVirtualMFADevice/AssignmentStatus"
         {
@@ -160,6 +170,7 @@ $IAM_Completers = {
 }
 
 $IAM_map = @{
+    "AssertionEncryptionMode"=@("New-IAMSAMLProvider","Update-IAMSAMLProvider")
     "AssignmentStatus"=@("Get-IAMVirtualMFADevice")
     "Encoding"=@("Get-IAMSSHPublicKey")
     "EntityFilter"=@("Get-IAMEntitiesForPolicy")

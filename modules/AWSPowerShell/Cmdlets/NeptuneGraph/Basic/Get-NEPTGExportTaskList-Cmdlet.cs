@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter GraphIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the Neptune Analytics graph.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String GraphIdentifier { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -74,6 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         public string Select { get; set; } = "Tasks";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the GraphIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -84,11 +104,22 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.ListExportTasksResponse, GetNEPTGExportTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.GraphIdentifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.GraphIdentifier = this.GraphIdentifier;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -107,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             // create request
             var request = new Amazon.NeptuneGraph.Model.ListExportTasksRequest();
             
+            if (cmdletContext.GraphIdentifier != null)
+            {
+                request.GraphIdentifier = cmdletContext.GraphIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -176,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GraphIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.NeptuneGraph.Model.ListExportTasksResponse, GetNEPTGExportTaskListCmdlet, object> Select { get; set; } =

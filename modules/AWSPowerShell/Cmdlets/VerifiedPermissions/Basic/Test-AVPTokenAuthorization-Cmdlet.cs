@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -91,6 +91,29 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String Action_ActionType { get; set; }
         #endregion
         
+        #region Parameter Context_CedarJson
+        /// <summary>
+        /// <para>
+        /// <para>A Cedar JSON string representation of the context needed to successfully evaluate
+        /// an authorization request.</para><para>Example: <c>{"cedarJson":"{\"&lt;KeyName1&gt;\": true, \"&lt;KeyName2&gt;\": 1234}"
+        /// }</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context_CedarJson { get; set; }
+        #endregion
+        
+        #region Parameter Entities_CedarJson
+        /// <summary>
+        /// <para>
+        /// <para>A Cedar JSON string representation of the entities needed to successfully evaluate
+        /// an authorization request.</para><para>Example: <c>{"cedarJson": "[{\"uid\":{\"type\":\"Photo\",\"id\":\"VacationPhoto94.jpg\"},\"attrs\":{\"accessLevel\":\"public\"},\"parents\":[]}]"}</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Entities_CedarJson { get; set; }
+        #endregion
+        
         #region Parameter Context_ContextMap
         /// <summary>
         /// <para>
@@ -117,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <para>
         /// <para>An array of entities that are needed to successfully evaluate an authorization request.
         /// Each entity in this array must include an identifier for the entity, the attributes
-        /// of the entity, and a list of any parent entities.</para>
+        /// of the entity, and a list of any parent entities.</para><note><para>If you include multiple entities with the same <c>identifier</c>, only the last one
+        /// is processed in the request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             context.AccessToken = this.AccessToken;
             context.Action_ActionId = this.Action_ActionId;
             context.Action_ActionType = this.Action_ActionType;
+            context.Context_CedarJson = this.Context_CedarJson;
             if (this.Context_ContextMap != null)
             {
                 context.Context_ContextMap = new Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue>(StringComparer.Ordinal);
@@ -202,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                     context.Context_ContextMap.Add((String)hashKey, (Amazon.VerifiedPermissions.Model.AttributeValue)(this.Context_ContextMap[hashKey]));
                 }
             }
+            context.Entities_CedarJson = this.Entities_CedarJson;
             if (this.Entities_EntityList != null)
             {
                 context.Entities_EntityList = new List<Amazon.VerifiedPermissions.Model.EntityItem>(this.Entities_EntityList);
@@ -269,6 +295,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
              // populate Context
             var requestContextIsNull = true;
             request.Context = new Amazon.VerifiedPermissions.Model.ContextDefinition();
+            System.String requestContext_context_CedarJson = null;
+            if (cmdletContext.Context_CedarJson != null)
+            {
+                requestContext_context_CedarJson = cmdletContext.Context_CedarJson;
+            }
+            if (requestContext_context_CedarJson != null)
+            {
+                request.Context.CedarJson = requestContext_context_CedarJson;
+                requestContextIsNull = false;
+            }
             Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue> requestContext_context_ContextMap = null;
             if (cmdletContext.Context_ContextMap != null)
             {
@@ -288,6 +324,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
              // populate Entities
             var requestEntitiesIsNull = true;
             request.Entities = new Amazon.VerifiedPermissions.Model.EntitiesDefinition();
+            System.String requestEntities_entities_CedarJson = null;
+            if (cmdletContext.Entities_CedarJson != null)
+            {
+                requestEntities_entities_CedarJson = cmdletContext.Entities_CedarJson;
+            }
+            if (requestEntities_entities_CedarJson != null)
+            {
+                request.Entities.CedarJson = requestEntities_entities_CedarJson;
+                requestEntitiesIsNull = false;
+            }
             List<Amazon.VerifiedPermissions.Model.EntityItem> requestEntities_entities_EntityList = null;
             if (cmdletContext.Entities_EntityList != null)
             {
@@ -404,7 +450,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             public System.String AccessToken { get; set; }
             public System.String Action_ActionId { get; set; }
             public System.String Action_ActionType { get; set; }
+            public System.String Context_CedarJson { get; set; }
             public Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue> Context_ContextMap { get; set; }
+            public System.String Entities_CedarJson { get; set; }
             public List<Amazon.VerifiedPermissions.Model.EntityItem> Entities_EntityList { get; set; }
             public System.String IdentityToken { get; set; }
             public System.String PolicyStoreId { get; set; }

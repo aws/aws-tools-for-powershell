@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Updates an set of chat controls configured for an existing Amazon Q Business application.
+    /// Updates a set of chat controls configured for an existing Amazon Q Business application.
     /// </summary>
     [Cmdlet("Update", "QBUSChatControlsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -77,6 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] BlockedPhrasesConfigurationUpdate_BlockedPhrasesToDelete { get; set; }
+        #endregion
+        
+        #region Parameter OrchestrationConfiguration_Control
+        /// <summary>
+        /// <para>
+        /// <para> Status information about whether chat orchestration is activated or deactivated for
+        /// your Amazon Q Business application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.OrchestrationControl")]
+        public Amazon.QBusiness.OrchestrationControl OrchestrationConfiguration_Control { get; set; }
         #endregion
         
         #region Parameter CreatorModeConfiguration_CreatorModeControl
@@ -206,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.BlockedPhrasesConfigurationUpdate_SystemMessageOverride = this.BlockedPhrasesConfigurationUpdate_SystemMessageOverride;
             context.ClientToken = this.ClientToken;
             context.CreatorModeConfiguration_CreatorModeControl = this.CreatorModeConfiguration_CreatorModeControl;
+            context.OrchestrationConfiguration_Control = this.OrchestrationConfiguration_Control;
             context.ResponseScope = this.ResponseScope;
             if (this.TopicConfigurationsToCreateOrUpdate != null)
             {
@@ -297,6 +310,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.CreatorModeConfiguration = null;
             }
+            
+             // populate OrchestrationConfiguration
+            var requestOrchestrationConfigurationIsNull = true;
+            request.OrchestrationConfiguration = new Amazon.QBusiness.Model.OrchestrationConfiguration();
+            Amazon.QBusiness.OrchestrationControl requestOrchestrationConfiguration_orchestrationConfiguration_Control = null;
+            if (cmdletContext.OrchestrationConfiguration_Control != null)
+            {
+                requestOrchestrationConfiguration_orchestrationConfiguration_Control = cmdletContext.OrchestrationConfiguration_Control;
+            }
+            if (requestOrchestrationConfiguration_orchestrationConfiguration_Control != null)
+            {
+                request.OrchestrationConfiguration.Control = requestOrchestrationConfiguration_orchestrationConfiguration_Control;
+                requestOrchestrationConfigurationIsNull = false;
+            }
+             // determine if request.OrchestrationConfiguration should be set to null
+            if (requestOrchestrationConfigurationIsNull)
+            {
+                request.OrchestrationConfiguration = null;
+            }
             if (cmdletContext.ResponseScope != null)
             {
                 request.ResponseScope = cmdletContext.ResponseScope;
@@ -376,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String BlockedPhrasesConfigurationUpdate_SystemMessageOverride { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.QBusiness.CreatorModeControl CreatorModeConfiguration_CreatorModeControl { get; set; }
+            public Amazon.QBusiness.OrchestrationControl OrchestrationConfiguration_Control { get; set; }
             public Amazon.QBusiness.ResponseScope ResponseScope { get; set; }
             public List<Amazon.QBusiness.Model.TopicConfiguration> TopicConfigurationsToCreateOrUpdate { get; set; }
             public List<Amazon.QBusiness.Model.TopicConfiguration> TopicConfigurationsToDelete { get; set; }

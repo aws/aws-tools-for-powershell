@@ -26,6 +26,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAddressList" OutputProperty="AddressListId" Verb="New" Noun="AddressList" AnonymousShouldProcessTarget="true" PipelineParameter="AddressListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAddressListImportJob" OutputProperty="*" Verb="New" Noun="AddressListImportJob" ShouldProcessTarget="AddressListId" PipelineParameter="AddressListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateArchive" OutputProperty="ArchiveId" Verb="New" Noun="Archive" ShouldProcessTarget="ArchiveName" PipelineParameter="ArchiveName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -54,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAddressList" Verb="Remove" Noun="AddressList" ShouldProcessTarget="AddressListId" PipelineParameter="AddressListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteArchive" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -74,11 +86,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterMemberFromAddressList" Verb="Remove" Noun="MemberFromAddressList" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAddonInstance" OutputProperty="*" Verb="Get" Noun="AddonInstance" PipelineParameter="AddonInstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAddonSubscription" OutputProperty="*" Verb="Get" Noun="AddonSubscription" PipelineParameter="AddonSubscriptionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAddressList" OutputProperty="*" Verb="Get" Noun="AddressList" PipelineParameter="AddressListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAddressListImportJob" OutputProperty="*" Verb="Get" Noun="AddressListImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +134,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMemberOfAddressList" OutputProperty="*" Verb="Get" Noun="MemberOfAddressList" PipelineParameter="Address" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRelay" OutputProperty="*" Verb="Get" Noun="Relay" PipelineParameter="RelayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +158,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAddressListImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="AddressListImportJobList" PipelineParameter="AddressListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAddressLists" OutputProperty="AddressLists" Verb="Get" Noun="AddressListList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListArchiveExports" OutputProperty="Exports" Verb="Get" Noun="ArchiveExportList" PipelineParameter="ArchiveId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -143,6 +179,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIngressPoints" OutputProperty="IngressPoints" Verb="Get" Noun="IngressPointList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMembersOfAddressList" OutputProperty="Addresses" Verb="Get" Noun="MembersOfAddressListList" PipelineParameter="AddressListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -162,11 +202,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterMemberToAddressList" Verb="Add" Noun="MemberToAddressList" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAddressListImportJob" Verb="Start" Noun="AddressListImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartArchiveExport" OutputProperty="ExportId" Verb="Start" Noun="ArchiveExport" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartArchiveSearch" OutputProperty="SearchId" Verb="Start" Noun="ArchiveSearch" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAddressListImportJob" Verb="Stop" Noun="AddressListImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

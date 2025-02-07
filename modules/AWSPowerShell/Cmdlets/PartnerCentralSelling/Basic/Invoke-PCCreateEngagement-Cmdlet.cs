@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> The <c>CreateEngagementRequest$Catalog</c> parameter specifies the catalog related
+        /// <para>The <c>CreateEngagementRequest$Catalog</c> parameter specifies the catalog related
         /// to the engagement. Accepted values are <c>AWS</c> and <c>Sandbox</c>, which determine
-        /// the environment in which the engagement is managed. </para>
+        /// the environment in which the engagement is managed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Context
         /// <summary>
         /// <para>
-        /// <para> The <c>Contexts</c> field is a required array of objects, with a maximum of 5 contexts
+        /// <para>The <c>Contexts</c> field is a required array of objects, with a maximum of 5 contexts
         /// allowed, specifying detailed information about customer projects associated with the
         /// Engagement. Each context object contains a <c>Type</c> field indicating the context
         /// type, which must be <c>CustomerProject</c> in this version, and a <c>Payload</c> field
@@ -79,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         /// object contains <c>Title</c>, <c>BusinessProblem</c>, and <c>TargetCompletionDate</c>,
         /// offering insights into the specific project associated with the customer. This structure
         /// allows comprehensive context to be included within the Engagement, facilitating effective
-        /// collaboration between parties by providing relevant customer and project information.
-        /// </para>
+        /// collaboration between parties by providing relevant customer and project information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> Provides a description of the <c>Engagement</c>. </para>
+        /// <para>Provides a description of the <c>Engagement</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para> Specifies the title of the <c>Engagement</c>. </para>
+        /// <para>Specifies the title of the <c>Engagement</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> The <c>CreateEngagementRequest$ClientToken</c> parameter specifies a unique, case-sensitive
+        /// <para>The <c>CreateEngagementRequest$ClientToken</c> parameter specifies a unique, case-sensitive
         /// identifier to ensure that the request is handled exactly once. The value must not
-        /// exceed sixty-four alphanumeric characters. </para>
+        /// exceed sixty-four alphanumeric characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

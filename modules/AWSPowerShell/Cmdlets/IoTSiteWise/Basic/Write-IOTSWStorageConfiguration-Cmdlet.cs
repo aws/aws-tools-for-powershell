@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter DisallowIngestNullNaN
+        /// <summary>
+        /// <para>
+        /// <para>Describes the configuration for ingesting NULL and NaN data. By default the feature
+        /// is allowed. The feature is disallowed if the value is <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisallowIngestNullNaN { get; set; }
+        #endregion
         
         #region Parameter DisassociatedDataStorage
         /// <summary>
@@ -171,6 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the StorageType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StorageType' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StorageType' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -197,11 +218,22 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.PutStorageConfigurationResponse, WriteIOTSWStorageConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.StorageType;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DisallowIngestNullNaN = this.DisallowIngestNullNaN;
             context.DisassociatedDataStorage = this.DisassociatedDataStorage;
             context.CustomerManagedS3Storage_RoleArn = this.CustomerManagedS3Storage_RoleArn;
             context.CustomerManagedS3Storage_S3ResourceArn = this.CustomerManagedS3Storage_S3ResourceArn;
@@ -233,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request
             var request = new Amazon.IoTSiteWise.Model.PutStorageConfigurationRequest();
             
+            if (cmdletContext.DisallowIngestNullNaN != null)
+            {
+                request.DisallowIngestNullNaN = cmdletContext.DisallowIngestNullNaN.Value;
+            }
             if (cmdletContext.DisassociatedDataStorage != null)
             {
                 request.DisassociatedDataStorage = cmdletContext.DisassociatedDataStorage;
@@ -408,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DisallowIngestNullNaN { get; set; }
             public Amazon.IoTSiteWise.DisassociatedDataStorageState DisassociatedDataStorage { get; set; }
             public System.String CustomerManagedS3Storage_RoleArn { get; set; }
             public System.String CustomerManagedS3Storage_S3ResourceArn { get; set; }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.SLK
     /// Automatically enables Amazon Security Lake for new member accounts in your organization.
     /// Security Lake is not automatically enabled for any existing member accounts in your
     /// organization.
+    /// 
+    ///  
+    /// <para>
+    /// This operation merges the new data lake organization configuration with the existing
+    /// configuration for Security Lake in your organization. If you want to create a new
+    /// data lake organization configuration, you must delete the existing one using <a href="https://docs.aws.amazon.com/security-lake/latest/APIReference/API_DeleteDataLakeOrganizationConfiguration.html">DeleteDataLakeOrganizationConfiguration</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SLKDataLakeOrganizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

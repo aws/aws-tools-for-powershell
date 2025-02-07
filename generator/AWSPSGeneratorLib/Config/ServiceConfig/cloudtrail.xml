@@ -205,6 +205,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchSampleQueries" OutputProperty="SearchResults" Verb="Search" Noun="SampleQuery" ShouldProcessTarget="SearchPhrase" PipelineParameter="SearchPhrase" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartDashboardRefresh" OutputProperty="RefreshId" Verb="Start" Noun="DashboardRefresh" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

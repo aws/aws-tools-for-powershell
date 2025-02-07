@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -122,6 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DisconnectOnSessionTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the client VPN session is disconnected after the maximum timeout
+        /// specified in <c>SessionTimeoutHours</c> is reached. If <c>true</c>, users are prompted
+        /// to reconnect client VPN. If <c>false</c>, client VPN attempts to reconnect automatically.
+        /// The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisconnectOnSessionTimeout { get; set; }
         #endregion
         
         #region Parameter DnsServer
@@ -365,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ConnectionLogOptions_CloudwatchLogStream = this.ConnectionLogOptions_CloudwatchLogStream;
             context.ConnectionLogOptions_Enabled = this.ConnectionLogOptions_Enabled;
             context.Description = this.Description;
+            context.DisconnectOnSessionTimeout = this.DisconnectOnSessionTimeout;
             if (this.DnsServer != null)
             {
                 context.DnsServer = new List<System.String>(this.DnsServer);
@@ -519,6 +533,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.DisconnectOnSessionTimeout != null)
+            {
+                request.DisconnectOnSessionTimeout = cmdletContext.DisconnectOnSessionTimeout.Value;
+            }
             if (cmdletContext.DnsServer != null)
             {
                 request.DnsServers = cmdletContext.DnsServer;
@@ -631,6 +649,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ConnectionLogOptions_CloudwatchLogStream { get; set; }
             public System.Boolean? ConnectionLogOptions_Enabled { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DisconnectOnSessionTimeout { get; set; }
             public List<System.String> DnsServer { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public Amazon.EC2.SelfServicePortal SelfServicePortal { get; set; }

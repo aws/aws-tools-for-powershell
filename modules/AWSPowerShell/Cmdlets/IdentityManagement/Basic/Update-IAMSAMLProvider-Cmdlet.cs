@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,12 +28,9 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Updates the metadata document for an existing SAML provider resource object.
-    /// 
-    ///  <note><para>
-    /// This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-    /// Version 4</a>.
-    /// </para></note>
+    /// Updates the metadata document, SAML encryption settings, and private keys for an existing
+    /// SAML provider. To rotate private keys, add your new private key and then remove the
+    /// old key in a separate request.
     /// </summary>
     [Cmdlet("Update", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +42,42 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class UpdateIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AddPrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the new private key from your external identity provider. The private key
+        /// must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML
+        /// assertions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AddPrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter AssertionEncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the encryption setting for the SAML provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IdentityManagement.AssertionEncryptionModeType")]
+        public Amazon.IdentityManagement.AssertionEncryptionModeType AssertionEncryptionMode { get; set; }
+        #endregion
+        
+        #region Parameter RemovePrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>The Key ID of the private key to remove.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RemovePrivateKey { get; set; }
+        #endregion
         
         #region Parameter SAMLMetadataDocument
         /// <summary>
@@ -54,17 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// document includes the issuer's name, expiration information, and keys that can be
         /// used to validate the SAML authentication response (assertions) that are received from
         /// the IdP. You must generate the metadata document using the identity management software
-        /// that is used as your organization's IdP.</para>
+        /// that is used as your IdP.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SAMLMetadataDocument { get; set; }
         #endregion
         
@@ -97,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public string Select { get; set; } = "SAMLProviderArn";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SAMLProviderArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SAMLProviderArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SAMLProviderArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -123,18 +158,25 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse, UpdateIAMSAMLProviderCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.SAMLMetadataDocument = this.SAMLMetadataDocument;
-            #if MODULAR
-            if (this.SAMLMetadataDocument == null && ParameterWasBound(nameof(this.SAMLMetadataDocument)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter SAMLMetadataDocument which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.SAMLProviderArn;
             }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AddPrivateKey = this.AddPrivateKey;
+            context.AssertionEncryptionMode = this.AssertionEncryptionMode;
+            context.RemovePrivateKey = this.RemovePrivateKey;
+            context.SAMLMetadataDocument = this.SAMLMetadataDocument;
             context.SAMLProviderArn = this.SAMLProviderArn;
             #if MODULAR
             if (this.SAMLProviderArn == null && ParameterWasBound(nameof(this.SAMLProviderArn)))
@@ -158,6 +200,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             // create request
             var request = new Amazon.IdentityManagement.Model.UpdateSAMLProviderRequest();
             
+            if (cmdletContext.AddPrivateKey != null)
+            {
+                request.AddPrivateKey = cmdletContext.AddPrivateKey;
+            }
+            if (cmdletContext.AssertionEncryptionMode != null)
+            {
+                request.AssertionEncryptionMode = cmdletContext.AssertionEncryptionMode;
+            }
+            if (cmdletContext.RemovePrivateKey != null)
+            {
+                request.RemovePrivateKey = cmdletContext.RemovePrivateKey;
+            }
             if (cmdletContext.SAMLMetadataDocument != null)
             {
                 request.SAMLMetadataDocument = cmdletContext.SAMLMetadataDocument;
@@ -227,6 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AddPrivateKey { get; set; }
+            public Amazon.IdentityManagement.AssertionEncryptionModeType AssertionEncryptionMode { get; set; }
+            public System.String RemovePrivateKey { get; set; }
             public System.String SAMLMetadataDocument { get; set; }
             public System.String SAMLProviderArn { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse, UpdateIAMSAMLProviderCmdlet, object> Select { get; set; } =

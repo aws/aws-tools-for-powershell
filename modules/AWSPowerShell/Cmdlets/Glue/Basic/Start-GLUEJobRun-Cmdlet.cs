@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -178,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// overrides the timeout value set in the parent job. </para><para>Jobs must have timeout values less than 7 days or 10080 minutes. Otherwise, the jobs
         /// will throw an exception.</para><para>When the value is left blank, the timeout is defaulted to 2880 minutes.</para><para>Any existing Glue jobs that had a timeout value greater than 7 days will be defaulted
         /// to 7 days. For instance if you have specified a timeout of 20 days for a batch job,
-        /// it will be stopped on the 7th day.</para>
+        /// it will be stopped on the 7th day.</para><para>For streaming jobs, if you have set up a maintenance window, it will be restarted
+        /// during the maintenance window after 7 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

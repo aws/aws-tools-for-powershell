@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// to any point in time within <c>EarliestRestorableDateTime</c> and <c>LatestRestorableDateTime</c>.
     /// 
     /// </para><para><c>LatestRestorableDateTime</c> is typically 5 minutes before the current time. You
-    /// can restore your table to any point in time during the last 35 days. 
+    /// can restore your table to any point in time in the last 35 days. You can set the recovery
+    /// period to any value between 1 and 35 days. 
     /// </para><para>
     /// You can call <c>DescribeContinuousBackups</c> at a maximum rate of 10 times per second.
     /// </para>

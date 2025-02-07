@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -148,8 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>This string allows re-configuring the S3 object prefix to contain either static or
         /// variable sections. The valid variables to use in the suffix path will vary by each
-        /// log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what
-        /// values are supported in the suffix path for each log source.</para>
+        /// log source. To find the values supported for the suffix path for each log source,
+        /// use the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html">DescribeConfigurationTemplates</a>
+        /// operation and check the <c>allowedSuffixPathFields</c> field in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

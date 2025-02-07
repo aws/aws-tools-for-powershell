@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// <summary>
     /// Retrieves information about a specified data accessor. This operation returns details
     /// about the data accessor, including its display name, unique identifier, Amazon Resource
-    /// Name (ARN), the associated Q Business application and AWS IAM Identity Center application,
+    /// Name (ARN), the associated Amazon Q Business application and IAM Identity Center application,
     /// the IAM role for the ISV, the action configurations, and the timestamps for when the
     /// data accessor was created and last updated.
     /// </summary>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application.</para>
+        /// <para>The unique identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

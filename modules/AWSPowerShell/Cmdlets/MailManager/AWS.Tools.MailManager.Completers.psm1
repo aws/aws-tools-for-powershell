@@ -90,6 +90,13 @@ $MMGR_Completers = {
             break
         }
 
+        # Amazon.MailManager.ImportDataType
+        "New-MMGRAddressListImportJob/ImportDataFormat_ImportDataType"
+        {
+            $v = "CSV","JSON"
+            break
+        }
+
         # Amazon.MailManager.IngressPointStatusToUpdate
         "Update-MMGRIngressPoint/StatusToUpdate"
         {
@@ -124,6 +131,7 @@ $MMGR_Completers = {
 
 $MMGR_map = @{
     "DefaultAction"=@("New-MMGRTrafficPolicy","Update-MMGRTrafficPolicy")
+    "ImportDataFormat_ImportDataType"=@("New-MMGRAddressListImportJob")
     "Retention_RetentionPeriod"=@("New-MMGRArchive","Update-MMGRArchive")
     "StatusToUpdate"=@("Update-MMGRIngressPoint")
     "Type"=@("New-MMGRIngressPoint")
@@ -181,6 +189,8 @@ $MMGR_SelectCompleters = {
 $MMGR_SelectMap = @{
     "Select"=@("New-MMGRAddonInstance",
                "New-MMGRAddonSubscription",
+               "New-MMGRAddressList",
+               "New-MMGRAddressListImportJob",
                "New-MMGRArchive",
                "New-MMGRIngressPoint",
                "New-MMGRRelay",
@@ -188,13 +198,17 @@ $MMGR_SelectMap = @{
                "New-MMGRTrafficPolicy",
                "Remove-MMGRAddonInstance",
                "Remove-MMGRAddonSubscription",
+               "Remove-MMGRAddressList",
                "Remove-MMGRArchive",
                "Remove-MMGRIngressPoint",
                "Remove-MMGRRelay",
                "Remove-MMGRRuleSet",
                "Remove-MMGRTrafficPolicy",
+               "Remove-MMGRMemberFromAddressList",
                "Get-MMGRAddonInstance",
                "Get-MMGRAddonSubscription",
+               "Get-MMGRAddressList",
+               "Get-MMGRAddressListImportJob",
                "Get-MMGRArchive",
                "Get-MMGRArchiveExport",
                "Get-MMGRArchiveMessage",
@@ -202,21 +216,28 @@ $MMGR_SelectMap = @{
                "Get-MMGRArchiveSearch",
                "Get-MMGRArchiveSearchResult",
                "Get-MMGRIngressPoint",
+               "Get-MMGRMemberOfAddressList",
                "Get-MMGRRelay",
                "Get-MMGRRuleSet",
                "Get-MMGRTrafficPolicy",
                "Get-MMGRAddonInstanceList",
                "Get-MMGRAddonSubscriptionList",
+               "Get-MMGRAddressListImportJobList",
+               "Get-MMGRAddressListList",
                "Get-MMGRArchiveExportList",
                "Get-MMGRArchiveList",
                "Get-MMGRArchiveSearchList",
                "Get-MMGRIngressPointList",
+               "Get-MMGRMembersOfAddressListList",
                "Get-MMGRRelayList",
                "Get-MMGRRuleSetList",
                "Get-MMGRResourceTag",
                "Get-MMGRTrafficPolicyList",
+               "Add-MMGRMemberToAddressList",
+               "Start-MMGRAddressListImportJob",
                "Start-MMGRArchiveExport",
                "Start-MMGRArchiveSearch",
+               "Stop-MMGRAddressListImportJob",
                "Stop-MMGRArchiveExport",
                "Stop-MMGRArchiveSearch",
                "Add-MMGRResourceTag",

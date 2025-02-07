@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <c>1.10.1</c> or later of the Amazon VPC CNI add-on. If you specify <c>ipv6</c>, then
         /// ensure that your VPC meets the requirements listed in the considerations listed in
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
-        /// IPv6 addresses to pods and services</a> in the Amazon EKS User Guide. Kubernetes assigns
-        /// services <c>IPv6</c> addresses from the unique local address range <c>(fc00::/7)</c>.
+        /// IPv6 addresses to pods and services</a> in the <i>Amazon EKS User Guide</i>. Kubernetes
+        /// assigns services <c>IPv6</c> addresses from the unique local address range <c>(fc00::/7)</c>.
         /// You can't specify a custom <c>IPv6</c> CIDR block. Pod addresses are assigned from
         /// the subnet's <c>IPv6</c> CIDR.</para>
         /// </para>
@@ -201,7 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Configuration for node pools that defines the compute resources for your EKS Auto
-        /// Mode cluster. For more information, see EKS Auto Mode Node Pools in the EKS User Guide.</para>
+        /// Mode cluster. For more information, see EKS Auto Mode Node Pools in the <i>Amazon
+        /// EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto
         /// Mode cluster. This value cannot be changed after the compute capability of EKS Auto
-        /// Mode is enabled. For more information, see the IAM Reference in the EKS User Guide.</para>
+        /// Mode is enabled. For more information, see the IAM Reference in the <i>Amazon EKS
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>If the cluster is set to <c>EXTENDED</c>, it will enter extended support at the end
         /// of standard support. If the cluster is set to <c>STANDARD</c>, it will be automatically
         /// upgraded at the end of standard support.</para><para><a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn
-        /// more about EKS Extended Support in the EKS User Guide.</a></para>
+        /// more about EKS Extended Support in the <i>Amazon EKS User Guide</i>.</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,8 +28,8 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Disassociates a Channel from a specified NotificationConfiguration. Supported Channels
-    /// include AWS Chatbot, the AWS Console Mobile Application, and emails (notifications-contacts).
+    /// Disassociates a Channel from a specified <c>NotificationConfiguration</c>. Supported
+    /// Channels include Chatbot, the Console Mobile Application, and emails (notifications-contacts).
     /// </summary>
     [Cmdlet("Remove", "UNOChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the NotificationConfiguration to disassociate.</para>
+        /// <para>The ARN of the <c>NotificationConfiguration</c> to disassociate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

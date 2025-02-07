@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// eventually consistent). When the update is complete (either <c>Failed</c> or <c>Successful</c>),
     /// the cluster status moves to <c>Active</c>.
     /// </para><para>
-    /// If your cluster has managed node groups attached to it, all of your node groups’ Kubernetes
-    /// versions must match the cluster’s Kubernetes version in order to update the cluster
+    /// If your cluster has managed node groups attached to it, all of your node groups' Kubernetes
+    /// versions must match the cluster's Kubernetes version in order to update the cluster
     /// to a new Kubernetes version.
     /// </para>
     /// </summary>

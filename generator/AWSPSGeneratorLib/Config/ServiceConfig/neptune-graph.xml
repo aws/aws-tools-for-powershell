@@ -90,7 +90,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExportTasks" OutputProperty="Tasks" Verb="Get" Noun="ExportTaskList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExportTasks" OutputProperty="Tasks" Verb="Get" Noun="ExportTaskList" PipelineParameter="GraphIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

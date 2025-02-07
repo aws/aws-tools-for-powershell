@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         /// <para>
         /// <para>The data payload of the event. For more information on the data schema to use, see
         /// <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data
-        /// entities supported in AWS Supply Chain </a>.</para>
+        /// entities supported in AWS Supply Chain</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

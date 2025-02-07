@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,16 +28,16 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a specified NotificationEvent.
+    /// Returns a specified <c>NotificationEvent</c>.
     /// 
     ///  <important><para>
     /// User Notifications stores notifications in the individual Regions you register as
-    /// notification hubs and the Region of the source event rule. GetNotificationEvent only
-    /// returns notifications stored in the same Region in which the action is called. User
-    /// Notifications doesn't backfill notifications to new Regions selected as notification
+    /// notification hubs and the Region of the source event rule. <c>GetNotificationEvent</c>
+    /// only returns notifications stored in the same Region in which the action is called.
+    /// User Notifications doesn't backfill notifications to new Regions selected as notification
     /// hubs. For this reason, we recommend that you make calls in your oldest registered
     /// notification hub. For more information, see <a href="https://docs.aws.amazon.com/notifications/latest/userguide/notification-hubs.html">Notification
-    /// hubs</a> in the <i>AWS User Notifications User Guide</i>.
+    /// hubs</a> in the <i>Amazon Web Services User Notifications User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "UNONotificationEvent")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationEvent to return.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationEvent</c> to return.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>The locale code of the language used for the retrieved NotificationEvent. The default
-        /// locale is English <c>en_US</c>.</para>
+        /// <para>The locale code of the language used for the retrieved <c>NotificationEvent</c>. The
+        /// default locale is English <c>en_US</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

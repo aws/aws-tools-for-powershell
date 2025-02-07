@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The QBusiness module of AWS Tools for PowerShell lets developers and administrators manage Amazon QBusiness from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QBUSResourceTag', 
         'Get-QBUSRetriever', 
         'Get-QBUSRetrieverList', 
+        'Get-QBUSSubscriptionList', 
         'Get-QBUSUser', 
         'Get-QBUSWebExperience', 
         'Get-QBUSWebExperienceList', 
@@ -119,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-QBUSIndex', 
         'New-QBUSPlugin', 
         'New-QBUSRetriever', 
+        'New-QBUSSubscription', 
         'New-QBUSUser', 
         'New-QBUSWebExperience', 
         'Remove-QBUSApplication', 
@@ -140,6 +142,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Set-QBUSChatSync', 
         'Start-QBUSDataSourceSyncJob', 
         'Stop-QBUSDataSourceSyncJob', 
+        'Stop-QBUSSubscription', 
         'Update-QBUSApplication', 
         'Update-QBUSChatControlsConfiguration', 
         'Update-QBUSDataAccessor', 
@@ -147,6 +150,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-QBUSIndex', 
         'Update-QBUSPlugin', 
         'Update-QBUSRetriever', 
+        'Update-QBUSSubscription', 
         'Update-QBUSUser', 
         'Update-QBUSWebExperience', 
         'Write-QBUSFeedback', 

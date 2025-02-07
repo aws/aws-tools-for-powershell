@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -43,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter SourceMonitoringConfig_AudioMonitoringSetting
+        /// <summary>
+        /// <para>
+        /// Contains the settings for audio
+        /// stream metrics monitoring.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceMonitoringConfig_AudioMonitoringSettings")]
+        public Amazon.MediaConnect.Model.AudioMonitoringSetting[] SourceMonitoringConfig_AudioMonitoringSetting { get; set; }
+        #endregion
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
@@ -53,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter SourceMonitoringConfig_ContentQualityAnalysisState
+        /// <summary>
+        /// <para>
+        /// Indicates whether content
+        /// quality analysis is enabled or disabled.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.ContentQualityAnalysisState")]
+        public Amazon.MediaConnect.ContentQualityAnalysisState SourceMonitoringConfig_ContentQualityAnalysisState { get; set; }
         #endregion
         
         #region Parameter Entitlement
@@ -199,6 +223,18 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.ThumbnailState SourceMonitoringConfig_ThumbnailState { get; set; }
         #endregion
         
+        #region Parameter SourceMonitoringConfig_VideoMonitoringSetting
+        /// <summary>
+        /// <para>
+        /// Contains the settings for video
+        /// stream metrics monitoring.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceMonitoringConfig_VideoMonitoringSettings")]
+        public Amazon.MediaConnect.Model.VideoMonitoringSetting[] SourceMonitoringConfig_VideoMonitoringSetting { get; set; }
+        #endregion
+        
         #region Parameter VpcInterface
         /// <summary>
         /// <para>
@@ -278,7 +314,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SourceFailoverConfig_RecoveryWindow = this.SourceFailoverConfig_RecoveryWindow;
             context.SourcePriority_PrimarySource = this.SourcePriority_PrimarySource;
             context.SourceFailoverConfig_State = this.SourceFailoverConfig_State;
+            if (this.SourceMonitoringConfig_AudioMonitoringSetting != null)
+            {
+                context.SourceMonitoringConfig_AudioMonitoringSetting = new List<Amazon.MediaConnect.Model.AudioMonitoringSetting>(this.SourceMonitoringConfig_AudioMonitoringSetting);
+            }
+            context.SourceMonitoringConfig_ContentQualityAnalysisState = this.SourceMonitoringConfig_ContentQualityAnalysisState;
             context.SourceMonitoringConfig_ThumbnailState = this.SourceMonitoringConfig_ThumbnailState;
+            if (this.SourceMonitoringConfig_VideoMonitoringSetting != null)
+            {
+                context.SourceMonitoringConfig_VideoMonitoringSetting = new List<Amazon.MediaConnect.Model.VideoMonitoringSetting>(this.SourceMonitoringConfig_VideoMonitoringSetting);
+            }
             if (this.Source != null)
             {
                 context.Source = new List<Amazon.MediaConnect.Model.SetSourceRequest>(this.Source);
@@ -420,6 +465,26 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
              // populate SourceMonitoringConfig
             var requestSourceMonitoringConfigIsNull = true;
             request.SourceMonitoringConfig = new Amazon.MediaConnect.Model.MonitoringConfig();
+            List<Amazon.MediaConnect.Model.AudioMonitoringSetting> requestSourceMonitoringConfig_sourceMonitoringConfig_AudioMonitoringSetting = null;
+            if (cmdletContext.SourceMonitoringConfig_AudioMonitoringSetting != null)
+            {
+                requestSourceMonitoringConfig_sourceMonitoringConfig_AudioMonitoringSetting = cmdletContext.SourceMonitoringConfig_AudioMonitoringSetting;
+            }
+            if (requestSourceMonitoringConfig_sourceMonitoringConfig_AudioMonitoringSetting != null)
+            {
+                request.SourceMonitoringConfig.AudioMonitoringSettings = requestSourceMonitoringConfig_sourceMonitoringConfig_AudioMonitoringSetting;
+                requestSourceMonitoringConfigIsNull = false;
+            }
+            Amazon.MediaConnect.ContentQualityAnalysisState requestSourceMonitoringConfig_sourceMonitoringConfig_ContentQualityAnalysisState = null;
+            if (cmdletContext.SourceMonitoringConfig_ContentQualityAnalysisState != null)
+            {
+                requestSourceMonitoringConfig_sourceMonitoringConfig_ContentQualityAnalysisState = cmdletContext.SourceMonitoringConfig_ContentQualityAnalysisState;
+            }
+            if (requestSourceMonitoringConfig_sourceMonitoringConfig_ContentQualityAnalysisState != null)
+            {
+                request.SourceMonitoringConfig.ContentQualityAnalysisState = requestSourceMonitoringConfig_sourceMonitoringConfig_ContentQualityAnalysisState;
+                requestSourceMonitoringConfigIsNull = false;
+            }
             Amazon.MediaConnect.ThumbnailState requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState = null;
             if (cmdletContext.SourceMonitoringConfig_ThumbnailState != null)
             {
@@ -428,6 +493,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState != null)
             {
                 request.SourceMonitoringConfig.ThumbnailState = requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState;
+                requestSourceMonitoringConfigIsNull = false;
+            }
+            List<Amazon.MediaConnect.Model.VideoMonitoringSetting> requestSourceMonitoringConfig_sourceMonitoringConfig_VideoMonitoringSetting = null;
+            if (cmdletContext.SourceMonitoringConfig_VideoMonitoringSetting != null)
+            {
+                requestSourceMonitoringConfig_sourceMonitoringConfig_VideoMonitoringSetting = cmdletContext.SourceMonitoringConfig_VideoMonitoringSetting;
+            }
+            if (requestSourceMonitoringConfig_sourceMonitoringConfig_VideoMonitoringSetting != null)
+            {
+                request.SourceMonitoringConfig.VideoMonitoringSettings = requestSourceMonitoringConfig_sourceMonitoringConfig_VideoMonitoringSetting;
                 requestSourceMonitoringConfigIsNull = false;
             }
              // determine if request.SourceMonitoringConfig should be set to null
@@ -515,7 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }
             public System.String SourcePriority_PrimarySource { get; set; }
             public Amazon.MediaConnect.State SourceFailoverConfig_State { get; set; }
+            public List<Amazon.MediaConnect.Model.AudioMonitoringSetting> SourceMonitoringConfig_AudioMonitoringSetting { get; set; }
+            public Amazon.MediaConnect.ContentQualityAnalysisState SourceMonitoringConfig_ContentQualityAnalysisState { get; set; }
             public Amazon.MediaConnect.ThumbnailState SourceMonitoringConfig_ThumbnailState { get; set; }
+            public List<Amazon.MediaConnect.Model.VideoMonitoringSetting> SourceMonitoringConfig_VideoMonitoringSetting { get; set; }
             public List<Amazon.MediaConnect.Model.SetSourceRequest> Source { get; set; }
             public List<Amazon.MediaConnect.Model.VpcInterfaceRequest> VpcInterface { get; set; }
             public System.Func<Amazon.MediaConnect.Model.CreateFlowResponse, NewEMCNFlowCmdlet, object> Select { get; set; } =

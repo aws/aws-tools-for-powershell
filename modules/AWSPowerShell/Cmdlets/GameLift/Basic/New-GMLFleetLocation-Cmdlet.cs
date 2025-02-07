@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,9 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Adds remote locations to a managed EC2 fleet or managed container fleet and begins
-    /// populating the new locations with instances. The new instances conform to the fleet's
-    /// instance type, auto-scaling, and other configuration settings.
+    /// Adds remote locations to an EC2 and begins populating the new locations with instances.
+    /// The new instances conform to the fleet's instance type, auto-scaling, and other configuration
+    /// settings.
     /// 
     ///  <note><para>
     /// You can't add remote locations to a fleet that resides in an Amazon Web Services Region

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// A service deployment happens when you release a softwre update for the service. You
+    /// A service deployment happens when you release a software update for the service. You
     /// route traffic from the running service revisions to the new service revison and control
     /// the number of running tasks. 
     /// </para><para>

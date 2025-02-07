@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Starts a data source packages for the behavior graph.
+    /// Starts a data source package for the Detective behavior graph.
     /// </summary>
     [Cmdlet("Update", "DTCTDatasourcePackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter DatasourcePackage
         /// <summary>
         /// <para>
-        /// <para>The data source package start for the behavior graph.</para>
+        /// <para>The data source package to start for the behavior graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

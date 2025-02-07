@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The MailManager module of AWS Tools for PowerShell lets developers and administrators manage Amazon SES Mail Manager from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -82,11 +82,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-MMGRMemberToAddressList', 
         'Add-MMGRResourceTag', 
         'Get-MMGRAddonInstance', 
         'Get-MMGRAddonInstanceList', 
         'Get-MMGRAddonSubscription', 
         'Get-MMGRAddonSubscriptionList', 
+        'Get-MMGRAddressList', 
+        'Get-MMGRAddressListImportJob', 
+        'Get-MMGRAddressListImportJobList', 
+        'Get-MMGRAddressListList', 
         'Get-MMGRArchive', 
         'Get-MMGRArchiveExport', 
         'Get-MMGRArchiveExportList', 
@@ -98,6 +103,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MMGRArchiveSearchResult', 
         'Get-MMGRIngressPoint', 
         'Get-MMGRIngressPointList', 
+        'Get-MMGRMemberOfAddressList', 
+        'Get-MMGRMembersOfAddressListList', 
         'Get-MMGRRelay', 
         'Get-MMGRRelayList', 
         'Get-MMGRResourceTag', 
@@ -107,6 +114,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MMGRTrafficPolicyList', 
         'New-MMGRAddonInstance', 
         'New-MMGRAddonSubscription', 
+        'New-MMGRAddressList', 
+        'New-MMGRAddressListImportJob', 
         'New-MMGRArchive', 
         'New-MMGRIngressPoint', 
         'New-MMGRRelay', 
@@ -114,14 +123,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-MMGRTrafficPolicy', 
         'Remove-MMGRAddonInstance', 
         'Remove-MMGRAddonSubscription', 
+        'Remove-MMGRAddressList', 
         'Remove-MMGRArchive', 
         'Remove-MMGRIngressPoint', 
+        'Remove-MMGRMemberFromAddressList', 
         'Remove-MMGRRelay', 
         'Remove-MMGRResourceTag', 
         'Remove-MMGRRuleSet', 
         'Remove-MMGRTrafficPolicy', 
+        'Start-MMGRAddressListImportJob', 
         'Start-MMGRArchiveExport', 
         'Start-MMGRArchiveSearch', 
+        'Stop-MMGRAddressListImportJob', 
         'Stop-MMGRArchiveExport', 
         'Stop-MMGRArchiveSearch', 
         'Update-MMGRArchive', 

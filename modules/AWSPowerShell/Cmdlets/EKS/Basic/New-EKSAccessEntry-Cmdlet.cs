@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -116,11 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The ARN of the IAM principal for the <c>AccessEntry</c>. You can specify one ARN for
         /// each access entry. You can't specify the same ARN in more than one access entry. This
         /// value can't be changed after access entry creation.</para><para>The valid principals differ depending on the type of the access entry in the <c>type</c>
-        /// field. The only valid ARN is IAM roles for the types of access entries for nodes:
-        /// <code /><code />. You can use every IAM principal type for <c>STANDARD</c> access entries.
-        /// You can't use the STS session principal type with access entries because this is a
-        /// temporary principal for each session and not a permanent identity that can be assigned
-        /// permissions.</para><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM
+        /// field. For <c>STANDARD</c> access entries, you can use every IAM principal type. For
+        /// nodes (<c>EC2</c> (for EKS Auto Mode), <c>EC2_LINUX</c>, <c>EC2_WINDOWS</c>, <c>FARGATE_LINUX</c>,
+        /// and <c>HYBRID_LINUX</c>), the only valid ARN is IAM roles. You can't use the STS session
+        /// principal type with access entries because this is a temporary principal for each
+        /// session and not a permanent identity that can be assigned permissions.</para><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM
         /// best practices</a> recommend using IAM roles with temporary credentials, rather than
         /// IAM users with long-term credentials. </para>
         /// </para>
@@ -152,15 +152,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the new access entry. Valid values are <c>Standard</c>, <c>FARGATE_LINUX</c>,
-        /// <c>EC2_LINUX</c>, and <c>EC2_WINDOWS</c>.</para><para>If the <c>principalArn</c> is for an IAM role that's used for self-managed Amazon
+        /// <para>The type of the new access entry. Valid values are <c>STANDARD</c>, <c>FARGATE_LINUX</c>,
+        /// <c>EC2_LINUX</c>, <c>EC2_WINDOWS</c>, <c>EC2</c> (for EKS Auto Mode), <c>HYBRID_LINUX</c>,
+        /// and <c>HYPERPOD_LINUX</c>. </para><para>If the <c>principalArn</c> is for an IAM role that's used for self-managed Amazon
         /// EC2 nodes, specify <c>EC2_LINUX</c> or <c>EC2_WINDOWS</c>. Amazon EKS grants the necessary
         /// permissions to the node for you. If the <c>principalArn</c> is for any other purpose,
         /// specify <c>STANDARD</c>. If you don't specify a value, Amazon EKS sets the value to
-        /// <c>STANDARD</c>. It's unnecessary to create access entries for IAM roles used with
-        /// Fargate profiles or managed Amazon EC2 nodes, because Amazon EKS creates entries in
-        /// the <c>aws-auth</c><c>ConfigMap</c> for the roles. You can't change this value once
-        /// you've created the access entry.</para><para>If you set the value to <c>EC2_LINUX</c> or <c>EC2_WINDOWS</c>, you can't specify
+        /// <c>STANDARD</c>. If you have the access mode of the cluster set to <c>API_AND_CONFIG_MAP</c>,
+        /// it's unnecessary to create access entries for IAM roles used with Fargate profiles
+        /// or managed Amazon EC2 nodes, because Amazon EKS creates entries in the <c>aws-auth</c><c>ConfigMap</c> for the roles. You can't change this value once you've created the
+        /// access entry.</para><para>If you set the value to <c>EC2_LINUX</c> or <c>EC2_WINDOWS</c>, you can't specify
         /// values for <c>kubernetesGroups</c>, or associate an <c>AccessPolicy</c> to the access
         /// entry.</para>
         /// </para>

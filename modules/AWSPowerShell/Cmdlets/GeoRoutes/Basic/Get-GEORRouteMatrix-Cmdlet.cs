@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.GeoRoutes.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
-    /// Calculates route matrix containing the results for all pairs of Origins to Destinations.
+    /// Use <c>CalculateRouteMatrix</c> to compute results for all pairs of Origins to Destinations.
     /// Each row corresponds to one entry in Origins. Each entry in the row corresponds to
     /// the route from that entry in Origins to an entry in Destinations positions.
     /// </summary>
@@ -151,7 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>List of destinations for the route.</para>
+        /// <para>List of destinations for the route.</para><note><para>Route calculations are billed for each origin and destination pair. If you use a large
+        /// matrix of origins and destinations, your costs will increase accordingly. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
+        /// Amazon Location's pricing page</a> for more information.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -238,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hot
         /// <summary>
         /// <para>
-        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating the route.</para>
+        /// <para>Allow Hot (High Occupancy Toll) lanes while calculating the route.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Allow_Hov
         /// <summary>
         /// <para>
-        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</para>
+        /// <para>Allow Hov (High Occupancy vehicle) lanes while calculating the route.</para><para>Default value: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,7 +422,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// <para>The position in longitude and latitude for the origin.</para>
+        /// <para>The position in longitude and latitude for the origin.</para><note><para>Route calculations are billed for each origin and destination pair. Using a large
+        /// amount of Origins in a request can lead you to incur unexpected charges. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/routes-pricing.html`">
+        /// Amazon Location's pricing page</a> for more information.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

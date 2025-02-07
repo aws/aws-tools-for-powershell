@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,10 +28,11 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Adds or updates a permission policy for a Q Business application, allowing cross-account
-    /// access for an ISV. This operation creates a new policy statement for the specified
-    /// Q Business application. The policy statement defines the IAM actions that the ISV
-    /// is allowed to perform on the Q Business application's resources.
+    /// Adds or updates a permission policy for a Amazon Q Business application, allowing
+    /// cross-account access for an ISV. This operation creates a new policy statement for
+    /// the specified Amazon Q Business application. The policy statement defines the IAM
+    /// actions that the ISV is allowed to perform on the Amazon Q Business application's
+    /// resources.
     /// </summary>
     [Cmdlet("Add", "QBUSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The list of Q Business actions that the ISV is allowed to perform.</para>
+        /// <para>The list of Amazon Q Business actions that the ISV is allowed to perform.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Q Business application.</para>
+        /// <para>The unique identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role for the ISV that is being granted permission.</para>
+        /// <para>The Amazon Resource Name of the IAM role for the ISV that is being granted permission.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

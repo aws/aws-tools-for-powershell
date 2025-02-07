@@ -272,6 +272,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.PlacementFallbackStrategy
+        "Start-GMLGameSessionPlacement/PriorityConfigurationOverride_PlacementFallbackStrategy"
+        {
+            $v = "DEFAULT_AFTER_SINGLE_PASS","NONE"
+            break
+        }
+
         # Amazon.GameLift.PlayerSessionCreationPolicy
         "Update-GMLGameSession/PlayerSessionCreationPolicy"
         {
@@ -331,6 +338,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.TerminationMode
+        "Stop-GMLGameSession/TerminationMode"
+        {
+            $v = "FORCE_TERMINATE","TRIGGER_ON_PROCESS_TERMINATE"
+            break
+        }
+
 
     }
 
@@ -364,6 +378,7 @@ $GML_map = @{
     "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition","Update-GMLContainerGroupDefinition")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
+    "PriorityConfigurationOverride_PlacementFallbackStrategy"=@("Start-GMLGameSessionPlacement")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
@@ -371,6 +386,7 @@ $GML_map = @{
     "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
+    "TerminationMode"=@("Stop-GMLGameSession")
     "UtilizationStatus"=@("Update-GMLGameServer")
 }
 
@@ -524,6 +540,7 @@ $GML_SelectMap = @{
                "Stop-GMLMatchmaking",
                "Suspend-GMLGameServerGroup",
                "Add-GMLResourceTag",
+               "Stop-GMLGameSession",
                "Remove-GMLResourceTag",
                "Update-GMLAlias",
                "Update-GMLBuild",

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Returns a list of Channels for a NotificationConfiguration.
+    /// Returns a list of Channels for a <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("Get", "UNOChannelList")]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationConfiguration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationConfiguration</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         /// <summary>
         /// <para>
         /// <para>The start token for paginated calls. Retrieved from the response of a previous ListNotificationEvents
-        /// call. NextToken uses Base64 encoding.</para>
+        /// call. <c>NextToken</c> uses Base64 encoding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

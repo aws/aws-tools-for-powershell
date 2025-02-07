@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     public partial class UpdateMSKCConnectorCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ConnectorArn
@@ -56,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ConnectorArn { get; set; }
+        #endregion
+        
+        #region Parameter ConnectorConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A map of keys to values that represent the configuration for the connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ConnectorConfiguration { get; set; }
         #endregion
         
         #region Parameter ScaleInPolicy_CpuUtilizationPercentage
@@ -212,6 +224,14 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                 WriteWarning("You are passing $null as a value for parameter ConnectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ConnectorConfiguration != null)
+            {
+                context.ConnectorConfiguration = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ConnectorConfiguration.Keys)
+                {
+                    context.ConnectorConfiguration.Add((String)hashKey, (System.String)(this.ConnectorConfiguration[hashKey]));
+                }
+            }
             context.CurrentVersion = this.CurrentVersion;
             #if MODULAR
             if (this.CurrentVersion == null && ParameterWasBound(nameof(this.CurrentVersion)))
@@ -378,6 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             {
                 request.ConnectorArn = cmdletContext.ConnectorArn;
             }
+            if (cmdletContext.ConnectorConfiguration != null)
+            {
+                request.ConnectorConfiguration = cmdletContext.ConnectorConfiguration;
+            }
             if (cmdletContext.CurrentVersion != null)
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion;
@@ -451,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             public System.Int32? ProvisionedCapacity_McuCount { get; set; }
             public System.Int32? ProvisionedCapacity_WorkerCount { get; set; }
             public System.String ConnectorArn { get; set; }
+            public Dictionary<System.String, System.String> ConnectorConfiguration { get; set; }
             public System.String CurrentVersion { get; set; }
             public System.Func<Amazon.KafkaConnect.Model.UpdateConnectorResponse, UpdateMSKCConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.Deadline.Model;
 namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
-    /// Creates a job. A job is a set of instructions that AWS Deadline Cloud uses to schedule
+    /// Creates a job. A job is a set of instructions that Deadline Cloud uses to schedule
     /// and run work on available workers. For more information, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html">Deadline
     /// Cloud jobs</a>.
     /// </summary>
@@ -101,6 +101,20 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MaxRetriesPerTask { get; set; }
+        #endregion
+        
+        #region Parameter MaxWorkerCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of worker hosts that can concurrently process a job. When the <c>maxWorkerCount</c>
+        /// is reached, no more workers will be assigned to process the job, even if the fleets
+        /// assigned to the job's queue has available workers.</para><para>You can't set the <c>maxWorkerCount</c> to 0. If you set it to -1, there is no maximum
+        /// number of workers.</para><para>If you don't specify the <c>maxWorkerCount</c>, Deadline Cloud won't throttle the
+        /// number of workers used to process the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxWorkerCount { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -268,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             #endif
             context.MaxFailedTasksCount = this.MaxFailedTasksCount;
             context.MaxRetriesPerTask = this.MaxRetriesPerTask;
+            context.MaxWorkerCount = this.MaxWorkerCount;
             if (this.Parameter != null)
             {
                 context.Parameter = new Dictionary<System.String, Amazon.Deadline.Model.JobParameter>(StringComparer.Ordinal);
@@ -355,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (cmdletContext.MaxRetriesPerTask != null)
             {
                 request.MaxRetriesPerTask = cmdletContext.MaxRetriesPerTask.Value;
+            }
+            if (cmdletContext.MaxWorkerCount != null)
+            {
+                request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
             }
             if (cmdletContext.Parameter != null)
             {
@@ -455,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String FarmId { get; set; }
             public System.Int32? MaxFailedTasksCount { get; set; }
             public System.Int32? MaxRetriesPerTask { get; set; }
+            public System.Int32? MaxWorkerCount { get; set; }
             public Dictionary<System.String, Amazon.Deadline.Model.JobParameter> Parameter { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String QueueId { get; set; }

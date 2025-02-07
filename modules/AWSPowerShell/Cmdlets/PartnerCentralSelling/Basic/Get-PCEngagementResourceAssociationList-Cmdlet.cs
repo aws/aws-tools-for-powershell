@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para> Specifies the catalog in which to search for engagement-resource associations. </para>
+        /// <para>Specifies the catalog in which to search for engagement-resource associations. Valid
+        /// Values: "AWS" or "Sandbox"</para><ul><li><para><c>AWS</c> for production environments.</para></li><li><para><c>Sandbox</c> for testing and development purposes.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter CreatedBy
         /// <summary>
         /// <para>
-        /// <para> Filters the results to include only associations with resources owned by the specified
-        /// AWS account. Use this when you want to find associations related to resources owned
+        /// <para>Filters the response to include only snapshots of resources owned by the specified
+        /// AWS account ID. Use this when you want to find associations related to resources owned
         /// by a particular account. </para>
         /// </para>
         /// </summary>
@@ -79,9 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter EngagementIdentifier
         /// <summary>
         /// <para>
-        /// <para> Filters the results to include only associations related to the specified engagement.
-        /// Use this when you want to find all resources associated with a specific engagement.
-        /// </para>
+        /// <para>Filters the results to include only associations related to the specified engagement.
+        /// Use this when you want to find all resources associated with a specific engagement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para> Filters the results to include only associations with the specified resource. Varies
+        /// <para>Filters the results to include only associations with the specified resource. Varies
         /// depending on the resource type. Use this when you want to find all engagements associated
-        /// with a specific resource. </para>
+        /// with a specific resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Limits the number of results returned in a single call. Use this to control the number
-        /// of results returned, especially useful for pagination. </para>
+        /// <para>Limits the number of results returned in a single call. Use this to control the number
+        /// of results returned, especially useful for pagination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.PC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token used for pagination of results. Include this token in subsequent requests
-        /// to retrieve the next set of results. </para>
+        /// <para>A token used for pagination of results. Include this token in subsequent requests
+        /// to retrieve the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

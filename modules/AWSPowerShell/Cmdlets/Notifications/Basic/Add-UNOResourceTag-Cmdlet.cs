@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -33,9 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
-    /// your AWS resources</a> in the <i>Tagging AWS Resources User Guide</i>.
+    /// your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources
+    /// User Guide</i>.
     /// </para><note><para>
-    /// This is only supported for NotificationConfigurations.
+    /// This is only supported for <c>NotificationConfigurations</c>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "UNOResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

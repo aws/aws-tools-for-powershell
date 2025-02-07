@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,36 +28,33 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates an Amazon GameLift build resource for your game server software and stores
-    /// the software for deployment to hosting resources. Combine game server binaries and
-    /// dependencies into a single .zip file 
+    /// Creates a new Amazon GameLift build resource for your game server binary files. Combine
+    /// game server binaries into a zip file for use with Amazon GameLift. 
     /// 
     ///  <important><para>
-    /// Use the CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b> to quickly and simply create a new build and upload your game build .zip file
-    /// to Amazon GameLift Amazon S3. This helper command eliminates the need to explicitly
-    /// manage access permissions.
+    /// When setting up a new game build for Amazon GameLift, we recommend using the CLI command
+    /// <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
+    /// a file directory to an Amazon GameLift Amazon S3 location, and (2) it creates a new
+    /// build resource.
     /// </para></important><para>
-    /// Alternatively, use the <c>CreateBuild</c> action for the following scenarios:
+    /// You can use the <c>CreateBuild</c> operation in the following scenarios:
     /// </para><ul><li><para>
-    /// You want to create a build and upload a game build zip file from in an Amazon S3 location
-    /// that you control. In this scenario, you need to give Amazon GameLift permission to
-    /// access to the Amazon S3 bucket. With permission in place, call <c>CreateBuild</c>
-    /// and specify a build name, the build's runtime operating system, and the Amazon S3
-    /// storage location where the build file is stored.
+    /// Create a new game build with build files that are in an Amazon S3 location under an
+    /// Amazon Web Services account that you control. To use this option, you give Amazon
+    /// GameLift access to the Amazon S3 bucket. With permissions in place, specify a build
+    /// name, operating system, and the Amazon S3 storage location of your game build.
     /// </para></li><li><para>
-    /// You want to create a build and upload a local game build zip file to an Amazon S3
-    /// location that's controlled by Amazon GameLift. (See the <c>upload-build</c> CLI command
-    /// for this scenario.) In this scenario, you need to request temporary access credentials
-    /// to the Amazon GameLift Amazon S3 location. Specify a build name and the build's runtime
-    /// operating system. The response provides an Amazon S3 location and a set of temporary
-    /// access credentials. Use the credentials to upload your build files to the specified
-    /// Amazon S3 location (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
-    /// Objects</a> in the <i>Amazon S3 Developer Guide</i>). You can't update build files
-    /// after uploading them to Amazon GameLift Amazon S3.
+    /// Upload your build files to a Amazon GameLift Amazon S3 location. To use this option,
+    /// specify a build name and operating system. This operation creates a new build resource
+    /// and also returns an Amazon S3 location with temporary access credentials. Use the
+    /// credentials to manually upload your build files to the specified Amazon S3 location.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
+    /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. After you upload build files
+    /// to the Amazon GameLift Amazon S3 location, you can't update them. 
     /// </para></li></ul><para>
-    /// If successful, this action creates a new build resource with a unique build ID and
-    /// places it in <c>INITIALIZED</c> status. When the build reaches <c>READY</c> status,
-    /// you can create fleets with it.
+    /// If successful, this operation creates a new build resource with a unique build ID
+    /// and places it in <c>INITIALIZED</c> status. A build must be in <c>READY</c> status
+    /// before you can create fleets with it.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
     /// Your Game</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
     /// Create a Build with Files in Amazon S3</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
@@ -122,10 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter OperatingSystem
         /// <summary>
         /// <para>
-        /// <para>The environment that your game server binaries run on. This value determines the type
-        /// of fleet resources that you use for this build. If your game build contains multiple
-        /// executables, they all must run on the same operating system. This parameter is required,
-        /// and there's no default value. You can't change a build's operating system later.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
+        /// <para>The operating system that your game server binaries run on. This value determines
+        /// the type of fleet resources that you use for this build. If your game build contains
+        /// multiple executables, they all must run on the same operating system. You must specify
+        /// a valid operating system in this request. There is no default value. You can't change
+        /// a build's operating system later.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
         /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
         /// game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first
         /// update the game server build to server SDK 5.x, and then deploy to AL2023 instances.

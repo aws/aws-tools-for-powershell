@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,7 +28,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes s <i>delivery</i>. A delivery is a connection between a logical <i>delivery
+    /// Deletes a <i>delivery</i>. A delivery is a connection between a logical <i>delivery
     /// source</i> and a logical <i>delivery destination</i>. Deleting a delivery only deletes
     /// the connection between the delivery source and delivery destination. It does not delete
     /// the delivery destination or the delivery source.

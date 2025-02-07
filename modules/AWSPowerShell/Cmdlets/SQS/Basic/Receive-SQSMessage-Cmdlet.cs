@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -35,12 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     ///  
     /// <para>
     /// Short poll is the default behavior where a weighted random set of machines is sampled
-    /// on a <c>ReceiveMessage</c> call. Thus, only the messages on the sampled machines are
-    /// returned. If the number of messages in the queue is small (fewer than 1,000), you
-    /// most likely get fewer messages than you requested per <c>ReceiveMessage</c> call.
+    /// on a <c>ReceiveMessage</c> call. Therefore, only the messages on the sampled machines
+    /// are returned. If the number of messages in the queue is small (fewer than 1,000),
+    /// you most likely get fewer messages than you requested per <c>ReceiveMessage</c> call.
     /// If the number of messages in the queue is extremely small, you might not receive any
     /// messages in a particular <c>ReceiveMessage</c> response. If this happens, repeat the
-    /// request. 
+    /// request.
     /// </para><para>
     /// For each message returned, the response includes the following:
     /// </para><ul><li><para>
@@ -63,12 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// You can provide the <c>VisibilityTimeout</c> parameter in your request. The parameter
     /// is applied to the messages that Amazon SQS returns in the response. If you don't include
     /// the parameter, the overall visibility timeout for the queue is used for the returned
-    /// messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-    /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.
-    /// </para><para>
-    /// A message that isn't deleted or a message whose visibility isn't extended before the
-    /// visibility timeout expires counts as a failed receive. Depending on the configuration
-    /// of the queue, the message might be sent to the dead-letter queue.
+    /// messages. The default visibility timeout for a queue is 30 seconds. 
     /// </para><note><para>
     /// In the future, new attributes might be added. If you write code that calls this action,
     /// we recommend that you structure your code so that it can handle new attributes gracefully.
@@ -192,7 +187,20 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The duration (in seconds) that the received messages are hidden from subsequent retrieve
-        /// requests after being retrieved by a <c>ReceiveMessage</c> request.</para>
+        /// requests after being retrieved by a <c>ReceiveMessage</c> request. If not specified,
+        /// the default visibility timeout for the queue is used, which is 30 seconds.</para><para>Understanding <c>VisibilityTimeout</c>:</para><ul><li><para>When a message is received from a queue, it becomes temporarily invisible to other
+        /// consumers for the duration of the visibility timeout. This prevents multiple consumers
+        /// from processing the same message simultaneously. If the message is not deleted or
+        /// its visibility timeout is not extended before the timeout expires, it becomes visible
+        /// again and can be retrieved by other consumers.</para></li><li><para>Setting an appropriate visibility timeout is crucial. If it's too short, the message
+        /// might become visible again before processing is complete, leading to duplicate processing.
+        /// If it's too long, it delays the reprocessing of messages if the initial processing
+        /// fails.</para></li><li><para>You can adjust the visibility timeout using the <c>--visibility-timeout</c> parameter
+        /// in the <c>receive-message</c> command to match the processing time required by your
+        /// application.</para></li><li><para>A message that isn't deleted or a message whose visibility isn't extended before the
+        /// visibility timeout expires counts as a failed receive. Depending on the configuration
+        /// of the queue, the message might be sent to the dead-letter queue.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
+        /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -205,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>The duration (in seconds) for which the call waits for a message to arrive in the
         /// queue before returning. If a message is available, the call returns sooner than <c>WaitTimeSeconds</c>.
         /// If no messages are available and the wait time expires, the call does not return a
-        /// message list.</para><important><para>To avoid HTTP errors, ensure that the HTTP response timeout for <c>ReceiveMessage</c>
+        /// message list. If you are using the Java SDK, it returns a <c>ReceiveMessageResponse</c>
+        /// object, which has a empty list instead of a Null object.</para><important><para>To avoid HTTP errors, ensure that the HTTP response timeout for <c>ReceiveMessage</c>
         /// requests is longer than the <c>WaitTimeSeconds</c> parameter. For example, with the
         /// Java SDK, you can set HTTP transport settings using the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html">
         /// NettyNioAsyncHttpClient</a> for asynchronous clients, or the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html">
@@ -220,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <important><para> This parameter has been deprecated but will be supported for backward compatibility.
+        /// <important><para>This parameter has been discontinued but will be supported for backward compatibility.
         /// To provide attribute names, you are encouraged to use <c>MessageSystemAttributeNames</c>.
         /// </para></important><para>A list of attributes that need to be returned along with each message. These attributes
         /// include:</para><ul><li><para><c>All</c> – Returns all values.</para></li><li><para><c>ApproximateFirstReceiveTimestamp</c> – Returns the time the message was first

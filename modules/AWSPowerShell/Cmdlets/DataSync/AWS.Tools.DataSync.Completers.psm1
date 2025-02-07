@@ -279,6 +279,16 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.SmbAuthenticationType
+        {
+            ($_ -eq "New-DSYNLocationSmb/AuthenticationType") -Or
+            ($_ -eq "Update-DSYNLocationSmb/AuthenticationType")
+        }
+        {
+            $v = "KERBEROS","NTLM"
+            break
+        }
+
         # Amazon.DataSync.SmbVersion
         {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
@@ -310,7 +320,7 @@ $DSYN_Completers = {
 
 $DSYN_map = @{
     "AccessTier"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
-    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
+    "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","New-DSYNLocationSmb","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf","Update-DSYNLocationSmb")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "InTransitEncryption"=@("New-DSYNLocationEfs","Update-DSYNLocationEfs")

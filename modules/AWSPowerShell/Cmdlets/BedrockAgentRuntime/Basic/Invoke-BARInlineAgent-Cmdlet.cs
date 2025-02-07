@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -48,9 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// </para></li><li><para>
     /// The agent instructions will not be honored if your agent has only one knowledge base,
     /// uses default prompts, has no action group, and user input is disabled.
-    /// </para></li></ul><note><para>
-    /// The CLI doesn't support streaming operations in Amazon Bedrock, including <c>InvokeInlineAgent</c>.
-    /// </para></note>
+    /// </para></li></ul><note></note>
     /// </summary>
     [Cmdlet("Invoke", "BARInlineAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.InvokeInlineAgentResponse")]
@@ -75,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ActionGroups")]
         public Amazon.BedrockAgentRuntime.Model.AgentActionGroup[] ActionGroup { get; set; }
+        #endregion
+        
+        #region Parameter StreamingConfigurations_ApplyGuardrailInterval
+        /// <summary>
+        /// <para>
+        /// <para> The guardrail interval to apply as response is generated. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
         #endregion
         
         #region Parameter CustomerEncryptionKeyArn
@@ -321,6 +329,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String SessionId { get; set; }
         #endregion
         
+        #region Parameter StreamingConfigurations_StreamFinalResponse
+        /// <summary>
+        /// <para>
+        /// <para> Specifies whether to enable streaming for the final response. This is set to <c>false</c>
+        /// by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StreamingConfigurations_StreamFinalResponse { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -450,6 +469,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamingConfigurations_ApplyGuardrailInterval = this.StreamingConfigurations_ApplyGuardrailInterval;
+            context.StreamingConfigurations_StreamFinalResponse = this.StreamingConfigurations_StreamFinalResponse;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -658,6 +679,35 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 request.SessionId = cmdletContext.SessionId;
             }
             
+             // populate StreamingConfigurations
+            var requestStreamingConfigurationsIsNull = true;
+            request.StreamingConfigurations = new Amazon.BedrockAgentRuntime.Model.StreamingConfigurations();
+            System.Int32? requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval = null;
+            if (cmdletContext.StreamingConfigurations_ApplyGuardrailInterval != null)
+            {
+                requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval = cmdletContext.StreamingConfigurations_ApplyGuardrailInterval.Value;
+            }
+            if (requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval != null)
+            {
+                request.StreamingConfigurations.ApplyGuardrailInterval = requestStreamingConfigurations_streamingConfigurations_ApplyGuardrailInterval.Value;
+                requestStreamingConfigurationsIsNull = false;
+            }
+            System.Boolean? requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse = null;
+            if (cmdletContext.StreamingConfigurations_StreamFinalResponse != null)
+            {
+                requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse = cmdletContext.StreamingConfigurations_StreamFinalResponse.Value;
+            }
+            if (requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse != null)
+            {
+                request.StreamingConfigurations.StreamFinalResponse = requestStreamingConfigurations_streamingConfigurations_StreamFinalResponse.Value;
+                requestStreamingConfigurationsIsNull = false;
+            }
+             // determine if request.StreamingConfigurations should be set to null
+            if (requestStreamingConfigurationsIsNull)
+            {
+                request.StreamingConfigurations = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -738,6 +788,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.PromptConfiguration> PromptOverrideConfiguration_PromptConfiguration { get; set; }
             public System.String SessionId { get; set; }
+            public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
+            public System.Boolean? StreamingConfigurations_StreamFinalResponse { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.InvokeInlineAgentResponse, InvokeBARInlineAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

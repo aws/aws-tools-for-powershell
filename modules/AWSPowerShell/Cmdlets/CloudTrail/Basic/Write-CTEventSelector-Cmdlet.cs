@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para><para>
     /// If you want your trail to log Insights events, be sure the event selector or advanced
     /// event selector enables logging of the Insights event types you want configured for
-    /// your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging
-    /// Insights events</a> in the <i>CloudTrail User Guide</i>. By default, trails created
-    /// without specific event selectors are configured to log all read and write management
-    /// events, and no data events or network activity events.
+    /// your trail. For more information about logging Insights events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Working
+    /// with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>. By default, trails
+    /// created without specific event selectors are configured to log all read and write
+    /// management events, and no data events or network activity events.
     /// </para><para>
     /// When an event occurs in your account, CloudTrail evaluates the event selectors or
     /// advanced event selectors in all trails. For each trail, if the event matches any event

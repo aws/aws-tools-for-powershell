@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Choose the parameter that will define how your automation will branch out. This target
         /// is required for associations that use an Automation runbook and target resources by
-        /// using rate controls. Automation is a capability of Amazon Web Services Systems Manager.</para>
+        /// using rate controls. Automation is a tool in Amazon Web Services Systems Manager.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The parameters you want to update for the association. If you create a parameter using
-        /// Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference
+        /// Parameter Store, a tool in Amazon Web Services Systems Manager, you can reference
         /// the parameter using <c>{{ssm:parameter-name}}</c>.</para>
         /// </para>
         /// </summary>
@@ -351,8 +351,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// is <c>COMPLIANT</c>. If the association execution doesn't run successfully, the association
         /// is <c>NON-COMPLIANT</c>.</para><para>In <c>MANUAL</c> mode, you must specify the <c>AssociationId</c> as a parameter for
         /// the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't managed
-        /// by State Manager, a capability of Amazon Web Services Systems Manager. It is managed
-        /// by your direct call to the <a>PutComplianceItems</a> API operation.</para><para>By default, all associations use <c>AUTO</c> mode.</para>
+        /// by State Manager, a tool in Amazon Web Services Systems Manager. It is managed by
+        /// your direct call to the <a>PutComplianceItems</a> API operation.</para><para>By default, all associations use <c>AUTO</c> mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

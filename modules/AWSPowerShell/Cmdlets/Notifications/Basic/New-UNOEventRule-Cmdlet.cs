@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -28,8 +28,7 @@ using Amazon.Notifications.Model;
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
-    /// Creates an <a href="https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html">EventRule</a>
-    /// that is associated with a specified Notification Configuration.
+    /// Creates an <a href="https://docs.aws.amazon.com/notifications/latest/userguide/glossary.html"><c>EventRule</c></a> that is associated with a specified <c>NotificationConfiguration</c>.
     /// </summary>
     [Cmdlet("New", "UNOEventRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Notifications.Model.CreateEventRuleResponse")]
@@ -45,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>An additional event pattern used to further filter the events this EventRule receives.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon
+        /// <para>An additional event pattern used to further filter the events this <c>EventRule</c>
+        /// receives.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon
         /// EventBridge event patterns</a> in the <i>Amazon EventBridge User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         /// <summary>
         /// <para>
         /// <para>The event type to match.</para><para>Must match one of the valid Amazon EventBridge event types. For example, EC2 Instance
-        /// State-change Notification and AWS CloudWatch Alarm State Change. For more information,
+        /// State-change Notification and Amazon CloudWatch Alarm State Change. For more information,
         /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
-        /// delivery from AWS services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter NotificationConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the NotificationConfiguration associated with this
-        /// EventRule.</para>
+        /// <para>The Amazon Resource Name (ARN) of the <c>NotificationConfiguration</c> associated
+        /// with this <c>EventRule</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter EventRuleRegion
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Regions that send events to this EventRule.</para>
+        /// <para>A list of Amazon Web Services Regions that send events to this <c>EventRule</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,10 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only AWS service sourced events are
-        /// supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
-        /// delivery from AWS services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// <para>The matched event source.</para><para>Must match one of the valid EventBridge sources. Only Amazon Web Services service
+        /// sourced events are supported. For example, <c>aws.ec2</c> and <c>aws.cloudwatch</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level">Event
+        /// delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

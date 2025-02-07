@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -130,6 +130,21 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String SnowflakeDestinationConfiguration_AccountUrl { get; set; }
         #endregion
         
+        #region Parameter IcebergDestinationConfiguration_AppendOnly
+        /// <summary>
+        /// <para>
+        /// <para> Describes whether all incoming data for this delivery stream will be append only
+        /// (inserts only and not for updates and deletes) for Iceberg delivery. This feature
+        /// is only applicable for Apache Iceberg Tables.</para><para>The default value is false. If you set this value to true, Firehose automatically
+        /// increases the throughput limit of a stream based on the throttling levels of the stream.
+        /// If you set this parameter to true for a stream with updates and deletes, you will
+        /// see out of order delivery. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IcebergDestinationConfiguration_AppendOnly { get; set; }
+        #endregion
+        
         #region Parameter CatalogConfiguration_CatalogARN
         /// <summary>
         /// <para>
@@ -201,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter SnowflakeDestinationConfiguration_ContentColumnName
         /// <summary>
         /// <para>
-        /// <para>The name of the record content column</para>
+        /// <para>The name of the record content column.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -344,9 +359,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_DomainARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <c>DescribeDomain</c>,
-        /// <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after assuming the role specified
-        /// in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions
+        /// for <c>DescribeDomain</c>, <c>DescribeDomains</c>, and <c>DescribeDomainConfig</c> after
+        /// assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <c>ClusterEndpoint</c> or <c>DomainARN</c>.</para>
         /// </para>
         /// </summary>
@@ -384,10 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter RetryOptions_DurationInSecond
         /// <summary>
         /// <para>
-        /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
-        /// which Firehose retries delivery (including the first attempt). After this time has
-        /// elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds
-        /// (5 minutes). A value of 0 (zero) results in no retries.</para>
+        /// <para>After an initial failure to deliver to Amazon OpenSearch Service, the total amount
+        /// of time during which Firehose retries delivery (including the first attempt). After
+        /// this time has elapsed, the failed documents are written to Amazon S3. Default value
+        /// is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -561,7 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter SchemaEvolutionConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> Specify whether you want to enable schema evolution. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -572,7 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter TableCreationConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> Specify whether you want to enable automatic table creation. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -627,7 +642,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceConfiguration_Endpoint
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The endpoint of the database server. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -637,7 +652,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Columns_Exclude
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The list of column patterns in source database to be excluded for Firehose to read
+        /// from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -648,7 +664,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Databases_Exclude
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The list of database patterns in source database endpoint to be excluded for Firehose
+        /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -659,7 +676,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Tables_Exclude
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The list of table patterns in source database endpoint to be excluded for Firehose
+        /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -680,7 +698,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Columns_Include
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The list of column patterns in source database to be included for Firehose to read
+        /// from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -691,7 +710,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Databases_Include
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The list of database patterns in source database endpoint to be included for Firehose
+        /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -702,7 +722,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Tables_Include
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The list of table patterns in source database endpoint to be included for Firehose
+        /// to read from. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -758,7 +779,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
         /// <c>IndexName</c> to facilitate the expiration of old data. For more information, see
         /// <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
-        /// Rotation for the Amazon ES Destination</a>. The default value is <c>OneDay</c>.</para>
+        /// Rotation for the Amazon OpenSearch Service Destination</a>. The default value is <c>OneDay</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1032,7 +1053,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter SnowflakeDestinationConfiguration_MetaDataColumnName
         /// <summary>
         /// <para>
-        /// <para>The name of the record metadata column</para>
+        /// <para>Specify a column name in the table, where the metadata information has to be loaded.
+        /// When you enable this field, you will see the following column in the snowflake table,
+        /// which differs based on the source type.</para><para>For Direct PUT as source </para><para><c>{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }</c></para><para>For Kinesis Data Stream as source </para><para><c> "kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey"
+        /// : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime"
+        /// : "timestamp" }</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1063,7 +1088,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceConfiguration_Port
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The port of the database. This can be one of the following values.</para><ul><li><para>3306 for MySQL database type</para></li><li><para>5432 for PostgreSQL database type</para></li></ul><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1254,8 +1279,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling
-        /// the Amazon ES Configuration API and for indexing documents. For more information,
-        /// see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
+        /// the Amazon OpenSearch Service Configuration API and for indexing documents. For more
+        /// information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
         /// Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
@@ -1402,7 +1427,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// When set to <c>AllDocuments</c>, Firehose delivers all incoming records to Amazon
         /// S3, and also writes failed documents with <c>AmazonOpenSearchService-failed/</c> appended
         /// to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
-        /// S3 Backup for the Amazon ES Destination</a>. Default value is <c>FailedDocumentsOnly</c>.</para><para>You can't change this backup mode after you create the Firehose stream. </para>
+        /// S3 Backup for the Amazon OpenSearch Service Destination</a>. Default value is <c>FailedDocumentsOnly</c>.</para><para>You can't change this backup mode after you create the Firehose stream. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1562,13 +1587,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups that you want Firehose to use when it creates ENIs
-        /// in the VPC of the Amazon ES destination. You can use the same security group that
-        /// the Amazon ES domain uses or different ones. If you specify different security groups
-        /// here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
-        /// group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic
-        /// from the security groups specified here. If you use the same security group for both
-        /// your delivery stream and the Amazon ES domain, make sure the security group inbound
-        /// rule allows HTTPS traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// in the VPC of the Amazon OpenSearch Service destination. You can use the same security
+        /// group that the Amazon OpenSearch Service domain uses or different ones. If you specify
+        /// different security groups here, ensure that they allow outbound HTTPS traffic to the
+        /// Amazon OpenSearch Service domain's security group. Also ensure that the Amazon OpenSearch
+        /// Service domain's security group allows HTTPS traffic from the security groups specified
+        /// here. If you use the same security group for both your delivery stream and the Amazon
+        /// OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
+        /// traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para>
         /// </para>
         /// </summary>
@@ -1580,13 +1606,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups that you want Firehose to use when it creates ENIs
-        /// in the VPC of the Amazon ES destination. You can use the same security group that
-        /// the Amazon ES domain uses or different ones. If you specify different security groups
-        /// here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
-        /// group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic
-        /// from the security groups specified here. If you use the same security group for both
-        /// your delivery stream and the Amazon ES domain, make sure the security group inbound
-        /// rule allows HTTPS traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// in the VPC of the Amazon OpenSearch Service destination. You can use the same security
+        /// group that the Amazon OpenSearch Service domain uses or different ones. If you specify
+        /// different security groups here, ensure that they allow outbound HTTPS traffic to the
+        /// Amazon OpenSearch Service domain's security group. Also ensure that the Amazon OpenSearch
+        /// Service domain's security group allows HTTPS traffic from the security groups specified
+        /// here. If you use the same security group for both your delivery stream and the Amazon
+        /// OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
+        /// traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para>
         /// </para>
         /// </summary>
@@ -1598,13 +1625,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups that you want Firehose to use when it creates ENIs
-        /// in the VPC of the Amazon ES destination. You can use the same security group that
-        /// the Amazon ES domain uses or different ones. If you specify different security groups
-        /// here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
-        /// group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic
-        /// from the security groups specified here. If you use the same security group for both
-        /// your delivery stream and the Amazon ES domain, make sure the security group inbound
-        /// rule allows HTTPS traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// in the VPC of the Amazon OpenSearch Service destination. You can use the same security
+        /// group that the Amazon OpenSearch Service domain uses or different ones. If you specify
+        /// different security groups here, ensure that they allow outbound HTTPS traffic to the
+        /// Amazon OpenSearch Service domain's security group. Also ensure that the Amazon OpenSearch
+        /// Service domain's security group allows HTTPS traffic from the security groups specified
+        /// here. If you use the same security group for both your delivery stream and the Amazon
+        /// OpenSearch Service domain, make sure the security group inbound rule allows HTTPS
+        /// traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para>
         /// </para>
         /// </summary>
@@ -1694,7 +1722,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceConfiguration_SnapshotWatermarkTable
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The fully qualified name of the table in source database endpoint that Firehose uses
+        /// to track snapshot progress. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1725,7 +1754,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceConfiguration_SSLMode
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The mode to enable or disable SSL when Firehose connects to the database endpoint.
+        /// </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1737,10 +1767,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets that you want Firehose to use to create ENIs in the VPC of
-        /// the Amazon ES destination. Make sure that the routing tables and inbound and outbound
-        /// rules allow traffic to flow from the subnets whose IDs are specified here to the subnets
-        /// that have the destination Amazon ES endpoints. Firehose creates at least one ENI in
-        /// each of the subnets that are specified here. Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
+        /// the Amazon OpenSearch Service destination. Make sure that the routing tables and inbound
+        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
+        /// here to the subnets that have the destination Amazon OpenSearch Service endpoints.
+        /// Firehose creates at least one ENI in each of the subnets that are specified here.
+        /// Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
         /// down automatically based on throughput. To enable Firehose to scale up the number
         /// of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate
         /// the quota you need, assume that Firehose can create up to three ENIs for this Firehose
@@ -1757,10 +1788,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets that you want Firehose to use to create ENIs in the VPC of
-        /// the Amazon ES destination. Make sure that the routing tables and inbound and outbound
-        /// rules allow traffic to flow from the subnets whose IDs are specified here to the subnets
-        /// that have the destination Amazon ES endpoints. Firehose creates at least one ENI in
-        /// each of the subnets that are specified here. Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
+        /// the Amazon OpenSearch Service destination. Make sure that the routing tables and inbound
+        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
+        /// here to the subnets that have the destination Amazon OpenSearch Service endpoints.
+        /// Firehose creates at least one ENI in each of the subnets that are specified here.
+        /// Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
         /// down automatically based on throughput. To enable Firehose to scale up the number
         /// of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate
         /// the quota you need, assume that Firehose can create up to three ENIs for this Firehose
@@ -1777,10 +1809,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets that you want Firehose to use to create ENIs in the VPC of
-        /// the Amazon ES destination. Make sure that the routing tables and inbound and outbound
-        /// rules allow traffic to flow from the subnets whose IDs are specified here to the subnets
-        /// that have the destination Amazon ES endpoints. Firehose creates at least one ENI in
-        /// each of the subnets that are specified here. Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
+        /// the Amazon OpenSearch Service destination. Make sure that the routing tables and inbound
+        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
+        /// here to the subnets that have the destination Amazon OpenSearch Service endpoints.
+        /// Firehose creates at least one ENI in each of the subnets that are specified here.
+        /// Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
         /// down automatically based on throughput. To enable Firehose to scale up the number
         /// of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate
         /// the quota you need, assume that Firehose can create up to three ENIs for this Firehose
@@ -1797,7 +1830,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceConfiguration_SurrogateKey
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The optional list of table and column names used as unique key columns when taking
+        /// snapshot if the tables don’t have primary keys configured. </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1827,8 +1861,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// Guide.</para><para>You can specify up to 50 tags when creating a Firehose stream.</para><para>If you specify tags in the <c>CreateDeliveryStream</c> action, Amazon Data Firehose
         /// performs an additional authorization on the <c>firehose:TagDeliveryStream</c> action
         /// to verify if users have permissions to create tags. If you do not provide this permission,
-        /// requests to create new Firehose Firehose streams with IAM resource tags will fail
-        /// with an <c>AccessDeniedException</c> such as following.</para><para><b>AccessDeniedException</b></para><para>User: arn:aws:sts::x:assumed-role/x/x is not authorized to perform: firehose:TagDeliveryStream
+        /// requests to create new Firehose streams with IAM resource tags will fail with an <c>AccessDeniedException</c>
+        /// such as following.</para><para><b>AccessDeniedException</b></para><para>User: arn:aws:sts::x:assumed-role/x/x is not authorized to perform: firehose:TagDeliveryStream
         /// on resource: arn:aws:firehose:us-east-1:x:deliverystream/x with an explicit deny in
         /// an identity-based policy.</para><para>For an example IAM policy, see <a href="https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples">Tag
         /// example.</a></para>
@@ -1837,6 +1871,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.KinesisFirehose.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter DirectPutSourceConfiguration_ThroughputHintInMBs
+        /// <summary>
+        /// <para>
+        /// <para> The value that you configure for this parameter is for information purpose only and
+        /// does not affect Firehose delivery throughput limit. You can use the <a href="https://support.console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase%26limitType=kinesis-firehose-limits">Firehose
+        /// Limits form</a> to request a throughput limit increase. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DirectPutSourceConfiguration_ThroughputHintInMBs { get; set; }
         #endregion
         
         #region Parameter MSKSourceConfiguration_TopicName
@@ -1852,7 +1898,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The type of database engine. This can be one of the following values. </para><ul><li><para>MySQL</para></li><li><para>PostgreSQL</para></li></ul><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1909,7 +1955,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DatabaseSourceVPCConfiguration_VpcEndpointServiceName
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para> The VPC endpoint service name which Firehose uses to create a PrivateLink to the
+        /// database. The endpoint service must have the Firehose service principle <c>firehose.amazonaws.com</c>
+        /// as an allowed principal on the VPC endpoint service. The VPC endpoint service name
+        /// is a string that looks like <c>com.amazonaws.vpce.&lt;region&gt;.&lt;vpc-endpoint-service-id&gt;</c>.
+        /// </para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1920,7 +1970,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter CatalogConfiguration_WarehouseLocation
         /// <summary>
         /// <para>
-        /// <para>Amazon Data Firehose is in preview release and is subject to change.</para>
+        /// <para>The warehouse location for Apache Iceberg tables. You must configure this when schema
+        /// evolution and table creation is enabled.</para><para>Amazon Data Firehose is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2083,6 +2134,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             }
             #endif
             context.DeliveryStreamType = this.DeliveryStreamType;
+            context.DirectPutSourceConfiguration_ThroughputHintInMBs = this.DirectPutSourceConfiguration_ThroughputHintInMBs;
             context.BufferingHints_IntervalInSecond = this.BufferingHints_IntervalInSecond;
             context.BufferingHints_SizeInMBs = this.BufferingHints_SizeInMBs;
             context.CloudWatchLoggingOptions_Enabled = this.CloudWatchLoggingOptions_Enabled;
@@ -2138,6 +2190,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_Enabled = this.HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_Enabled;
             context.HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_RoleARN = this.HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_RoleARN;
             context.HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_SecretARN = this.HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_SecretARN;
+            context.IcebergDestinationConfiguration_AppendOnly = this.IcebergDestinationConfiguration_AppendOnly;
             context.IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds = this.IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds;
             context.IcebergDestinationConfiguration_BufferingHints_SizeInMBs = this.IcebergDestinationConfiguration_BufferingHints_SizeInMBs;
             context.CatalogConfiguration_CatalogARN = this.CatalogConfiguration_CatalogARN;
@@ -3062,6 +3115,25 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.DeliveryStreamType = cmdletContext.DeliveryStreamType;
             }
             
+             // populate DirectPutSourceConfiguration
+            var requestDirectPutSourceConfigurationIsNull = true;
+            request.DirectPutSourceConfiguration = new Amazon.KinesisFirehose.Model.DirectPutSourceConfiguration();
+            System.Int32? requestDirectPutSourceConfiguration_directPutSourceConfiguration_ThroughputHintInMBs = null;
+            if (cmdletContext.DirectPutSourceConfiguration_ThroughputHintInMBs != null)
+            {
+                requestDirectPutSourceConfiguration_directPutSourceConfiguration_ThroughputHintInMBs = cmdletContext.DirectPutSourceConfiguration_ThroughputHintInMBs.Value;
+            }
+            if (requestDirectPutSourceConfiguration_directPutSourceConfiguration_ThroughputHintInMBs != null)
+            {
+                request.DirectPutSourceConfiguration.ThroughputHintInMBs = requestDirectPutSourceConfiguration_directPutSourceConfiguration_ThroughputHintInMBs.Value;
+                requestDirectPutSourceConfigurationIsNull = false;
+            }
+             // determine if request.DirectPutSourceConfiguration should be set to null
+            if (requestDirectPutSourceConfigurationIsNull)
+            {
+                request.DirectPutSourceConfiguration = null;
+            }
+            
              // populate ElasticsearchDestinationConfiguration
             var requestElasticsearchDestinationConfigurationIsNull = true;
             request.ElasticsearchDestinationConfiguration = new Amazon.KinesisFirehose.Model.ElasticsearchDestinationConfiguration();
@@ -3672,6 +3744,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
              // populate IcebergDestinationConfiguration
             var requestIcebergDestinationConfigurationIsNull = true;
             request.IcebergDestinationConfiguration = new Amazon.KinesisFirehose.Model.IcebergDestinationConfiguration();
+            System.Boolean? requestIcebergDestinationConfiguration_icebergDestinationConfiguration_AppendOnly = null;
+            if (cmdletContext.IcebergDestinationConfiguration_AppendOnly != null)
+            {
+                requestIcebergDestinationConfiguration_icebergDestinationConfiguration_AppendOnly = cmdletContext.IcebergDestinationConfiguration_AppendOnly.Value;
+            }
+            if (requestIcebergDestinationConfiguration_icebergDestinationConfiguration_AppendOnly != null)
+            {
+                request.IcebergDestinationConfiguration.AppendOnly = requestIcebergDestinationConfiguration_icebergDestinationConfiguration_AppendOnly.Value;
+                requestIcebergDestinationConfigurationIsNull = false;
+            }
             List<Amazon.KinesisFirehose.Model.DestinationTableConfiguration> requestIcebergDestinationConfiguration_icebergDestinationConfiguration_DestinationTableConfigurationList = null;
             if (cmdletContext.IcebergDestinationConfiguration_DestinationTableConfigurationList != null)
             {
@@ -4564,6 +4646,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.KeyType DeliveryStreamEncryptionConfigurationInput_KeyType { get; set; }
             public System.String DeliveryStreamName { get; set; }
             public Amazon.KinesisFirehose.DeliveryStreamType DeliveryStreamType { get; set; }
+            public System.Int32? DirectPutSourceConfiguration_ThroughputHintInMBs { get; set; }
             public System.Int32? BufferingHints_IntervalInSecond { get; set; }
             public System.Int32? BufferingHints_SizeInMBs { get; set; }
             public System.Boolean? CloudWatchLoggingOptions_Enabled { get; set; }
@@ -4604,6 +4687,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.Boolean? HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_Enabled { get; set; }
             public System.String HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_RoleARN { get; set; }
             public System.String HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_SecretARN { get; set; }
+            public System.Boolean? IcebergDestinationConfiguration_AppendOnly { get; set; }
             public System.Int32? IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }
             public System.Int32? IcebergDestinationConfiguration_BufferingHints_SizeInMBs { get; set; }
             public System.String CatalogConfiguration_CatalogARN { get; set; }
