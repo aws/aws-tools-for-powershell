@@ -22,6 +22,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.S3.Model;
 using Amazon.S3;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -55,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private const string ParamSet_WithKeyVersionCollection = "WithKeyVersionCollection";
         private const string ParamSet_WithS3ObjectCollection = "WithS3ObjectCollection";
         private const string ParamSet_WithKeyCollection = "WithKeyCollection";
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 
         #region Parameter BucketName
         /// <summary>
@@ -244,6 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #endregion
 
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -444,13 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             try
             {
-#if DESKTOP
-                return client.DeleteObject(request);
-#elif CORECLR
-                return client.DeleteObjectAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.DeleteObjectAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -470,13 +473,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             try
             {
-#if DESKTOP
-                return client.DeleteObjects(request);
-#elif CORECLR
-                return client.DeleteObjectsAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+
+                return client.DeleteObjectsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

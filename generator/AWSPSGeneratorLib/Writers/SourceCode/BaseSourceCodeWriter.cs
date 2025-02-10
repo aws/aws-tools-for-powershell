@@ -26,7 +26,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             "System.Management.Automation",
             "System.Text",
             "Amazon.PowerShell.Common",
-            "Amazon.Runtime"
+            "Amazon.Runtime",
+            "System.Threading"
         };
 
         public static void WriteSourceLicenseHeader(TextWriter writer)

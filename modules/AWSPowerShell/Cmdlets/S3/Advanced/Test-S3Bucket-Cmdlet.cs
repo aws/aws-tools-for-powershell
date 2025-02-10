@@ -17,6 +17,7 @@
 
 using System;
 using System.Management.Automation;
+using System.Threading;
 using Amazon.PowerShell.Common;
 using Amazon.S3.Util;
 
@@ -61,13 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3");
 
-#if DESKTOP
-                var exists = AmazonS3Util.DoesS3BucketExistV2(client, cmdletContext.BucketName);
-#elif CORECLR
                 var exists = AmazonS3Util.DoesS3BucketExistV2Async(client, cmdletContext.BucketName).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
                 var output = new CmdletOutput
                 {
                     PipelineOutput = exists

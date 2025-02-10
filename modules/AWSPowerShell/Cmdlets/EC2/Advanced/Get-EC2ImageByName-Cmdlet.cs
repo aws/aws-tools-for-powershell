@@ -24,6 +24,7 @@ using Amazon.EC2.Model;
 using Amazon.EC2.Util;
 using Amazon.EC2;
 using Amazon.Runtime;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -64,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 #endif
     public class GetEC2ImageByNameCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 #region Parameter Name
         /// <summary>
         /// <para>
@@ -146,6 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_STANDARD_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2008_KEY);
             DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_WEB_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2008_KEY);
         }
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
 
         protected override void ProcessRecord()
         {
@@ -296,13 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
         ImageUtilities.ImageDescriptor LookupDescriptorByKey(string key)
         {
-#if DESKTOP
-            return ImageUtilities.DescriptorFromKey(key, Client);
-#elif CORECLR
             return ImageUtilities.DescriptorFromKeyAsync(key, Client).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
         }
 
         ImageUtilities.ImageDescriptor LookupDescriptorByName(string name)
@@ -333,13 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
             try
             {
-#if DESKTOP
-                return client.DescribeImages(request);
-#elif CORECLR
-                return client.DescribeImagesAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.DescribeImagesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -70,6 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private const long OneGigabyte = 1024 * 1024 * 1024;
         private const long FiveGigabytes = 5 * OneGigabyte;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
         #region Parameter BucketName
         /// <summary>
@@ -541,6 +542,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
 
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -669,7 +676,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (!string.IsNullOrEmpty(cmdletContext.KeyPrefix))
                 return CopyS3ObjectsToLocalFolder(context);
-            
+
             // S3 requires multi-part operation for objects > 5GB
             var objectSize = GetSourceObjectData(cmdletContext).ContentLength;
             return objectSize > FiveGigabytes ? MultipartCopyS3ObjectToS3(context, objectSize) : CopyS3ObjectToS3(context);
@@ -743,7 +750,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // But ListObjectsV2 is only supported for prefix that end with the delimiter.
             // To overcome this limitation without introducing a breaking change, we will convert the result of GetObjectMetadata call to S3Object
             // Only few documented properties will be converted and any future additions to S3Object will not be maintained.
-            
+
             var metadataRequest = new GetObjectMetadataRequest
             {
                 BucketName = bucketName,
@@ -875,7 +882,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var initiateResponse = CallAWSServiceOperation(Client, initiateRequest);
             var uploadId = initiateResponse.UploadId;
 
-            var copyController = new MultiPartObjectCopyController(Client, uploadId, objectSize, cmdletContext);
+            var copyController = new MultiPartObjectCopyController(Client, uploadId, objectSize, cmdletContext, _cancellationTokenSource.Token);
 
             try
             {
@@ -1102,13 +1109,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
-#if DESKTOP
-                return client.CopyObject(request);
-#elif CORECLR
-                return client.CopyObjectAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.CopyObjectAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1122,13 +1123,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
-#if DESKTOP
-                return client.ListObjects(request);
-#elif CORECLR
-                return client.ListObjectsAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.ListObjectsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1142,13 +1137,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
-#if DESKTOP
-                return client.ListObjectsV2(request);
-#elif CORECLR
-                return client.ListObjectsV2Async(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.ListObjectsV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1162,13 +1151,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
-#if DESKTOP
-                return client.GetObjectMetadata(request);
-#elif CORECLR
-                return client.GetObjectMetadataAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.GetObjectMetadataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1182,13 +1165,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
-#if DESKTOP
-                return client.InitiateMultipartUpload(request);
-#elif CORECLR
-                return client.InitiateMultipartUploadAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.InitiateMultipartUploadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1202,26 +1179,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             // not testing for name resolution error here since it would have already
             // failed during the init call
-#if DESKTOP
-            return client.CompleteMultipartUpload(request);
-#elif CORECLR
-            return client.CompleteMultipartUploadAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+            return client.CompleteMultipartUploadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
         }
 
         private Amazon.S3.Model.AbortMultipartUploadResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.AbortMultipartUploadRequest request)
         {
             // not testing for name resolution error here since it would have already
             // failed during the init call
-#if DESKTOP
-            return client.AbortMultipartUpload(request);
-#elif CORECLR
-            return client.AbortMultipartUploadAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+            return client.AbortMultipartUploadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
         }
 
         private void TestForNameResolutionException(IAmazonS3 client, Exception exc)
@@ -1298,6 +1263,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             private readonly IAmazonS3 _s3Client;
             private int _nextPartToUpload = -1;
             private Exception _errorException;
+            private readonly CancellationToken _cancellationToken;
 
             /// <summary>
             /// Byte range for each part and the service's etag value
@@ -1381,7 +1347,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 }
             }
 
-            public MultiPartObjectCopyController(IAmazonS3 s3Client, string uploadId, long objectSize, CmdletContext context)
+            public MultiPartObjectCopyController(IAmazonS3 s3Client, string uploadId, long objectSize, CmdletContext context, CancellationToken cancellationToken)
             {
                 _s3Client = s3Client;
                 _uploadId = uploadId;
@@ -1560,13 +1526,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 // not testing for name resolution error here, since it would have already failed
                 // in the init call
-#if DESKTOP
-                return client.CopyPart(request);
-#elif CORECLR
-                return client.CopyPartAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.CopyPartAsync(request, _cancellationToken).GetAwaiter().GetResult();
             }
         }
     }

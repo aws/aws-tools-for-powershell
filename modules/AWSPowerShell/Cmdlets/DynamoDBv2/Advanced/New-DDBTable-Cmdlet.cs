@@ -25,6 +25,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 
 using Amazon.PowerShell.Cmdlets.DDB.Model;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
@@ -46,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class NewDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         #region Parameter TableName
         /// <summary>
         /// <para>
@@ -145,6 +148,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         public string Select { get; set; } = "TableDescription";
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -361,16 +370,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         private Amazon.DynamoDBv2.Model.CreateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.CreateTableRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "CreateTable");
-
             try
             {
-#if DESKTOP
-                return client.CreateTable(request);
-#elif CORECLR
-                return client.CreateTableAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.CreateTableAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

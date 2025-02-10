@@ -26,6 +26,7 @@ using Amazon.EC2;
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement.Internal;
 using Amazon.Runtime.CredentialManagement;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -62,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         private const string AutoInspectForPemFile = "AutoInspectForPemFile";
         private const string ManuallySupplyPemFile = "ManuallySupplyPemFile";
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 
         #region Parameter InstanceId
         /// <summary>
@@ -102,6 +105,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PemFile { get; set; }
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -296,13 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
             try
             {
-#if DESKTOP
-                return client.GetPasswordData(request);
-#elif CORECLR
-                return client.GetPasswordDataAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.GetPasswordDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -319,13 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         private Amazon.EC2.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstancesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "DescribeInstances");
-#if DESKTOP
-            return client.DescribeInstances(request);
-#elif CORECLR
-            return client.DescribeInstancesAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+            return client.DescribeInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
         }
 
 #endregion

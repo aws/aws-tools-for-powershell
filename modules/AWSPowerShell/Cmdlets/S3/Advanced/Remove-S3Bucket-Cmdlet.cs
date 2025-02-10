@@ -22,6 +22,7 @@ using Amazon.Runtime;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using Amazon.S3;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -39,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class RemoveS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         #region Parameter BucketName
         /// <summary>
         /// <para>
@@ -97,6 +100,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "*";
         #endregion
 
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -130,23 +139,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.DeleteObjects)
             {
                 output = null;
-#if DESKTOP
-                AmazonS3Util.DeleteS3BucketWithObjects(Client,
-                                                       cmdletContext.BucketName, 
-                                                       new S3DeleteBucketWithObjectsOptions 
-                                                       { 
-                                                           ContinueOnError = false 
-                                                       });
-#elif CORECLR
                 AmazonS3Util.DeleteS3BucketWithObjectsAsync(Client,
                                                              cmdletContext.BucketName,
                                                              new S3DeleteBucketWithObjectsOptions
                                                              {
                                                                  ContinueOnError = false
-                                                             }).Wait();
-#else
-#error "Unknown build edition"
-#endif
+                                                             }, _cancellationTokenSource.Token).Wait();
             }
             else
             {
@@ -190,13 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             try
             {
-#if DESKTOP
-                return client.DeleteBucket(request);
-#elif CORECLR
-                return client.DeleteBucketAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.DeleteBucketAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -23,6 +23,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.ECR;
 using Amazon.ECR.Model;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
@@ -59,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     )]
     public class GetECRLoginCommandCmdlet : AmazonECRClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         #region Parameter RegistryId
         /// <summary>
         /// <para>
@@ -69,6 +72,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String[] RegistryId { get; set; }
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -152,13 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "GetAuthorizationToken");
             try
             {
-#if DESKTOP
-                return client.GetAuthorizationToken(request);
-#elif CORECLR
-                return client.GetAuthorizationTokenAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.GetAuthorizationTokenAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

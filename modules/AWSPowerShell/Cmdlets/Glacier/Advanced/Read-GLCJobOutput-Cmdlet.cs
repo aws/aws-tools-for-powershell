@@ -130,12 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
 
                 var output = runner.SafeRun(() =>
                 {
-#if DESKTOP
-                    transferManager.DownloadJob(cmdletContext.VaultName, cmdletContext.JobId, cmdletContext.FilePath, downloadOptions);
-#else
                     transferManager.DownloadJobAsync(cmdletContext.VaultName, cmdletContext.JobId, cmdletContext.FilePath, downloadOptions).Wait();
-#endif
-
                 }, tracker);
 
                 return output;

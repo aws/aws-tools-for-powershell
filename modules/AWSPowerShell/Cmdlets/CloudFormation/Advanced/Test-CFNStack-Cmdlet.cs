@@ -23,6 +23,7 @@ using Amazon.PowerShell.Common;
 using Amazon.CloudFormation;
 using Amazon.CloudFormation.Model;
 using Amazon.Runtime;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             StackStatus.ROLLBACK_COMPLETE,
             StackStatus.UPDATE_COMPLETE
         };
-
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         #region Parameter StackName
         /// <summary>
         /// The name or unique stack ID of the of the CloudFormation stack whose status will be monitored.
@@ -94,6 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             ProcessOutput(output);
         }
 
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
         #region IExecutor Members
 
         public object Execute(ExecutorContext context)
@@ -111,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
                 output = new CmdletOutput
                 {
-                    PipelineOutput = IsStackInState(client, cmdletContext.StackName, cmdletContext.Status, false)
+                    PipelineOutput = IsStackInState(client, cmdletContext.StackName, cmdletContext.Status, false, _cancellationTokenSource)
                 };
             }
             catch (Exception e)
@@ -129,19 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
         #endregion
 
-        internal static bool IsStackInState(IAmazonCloudFormation client, string stackName, HashSet<StackStatus> desiredStates, bool throwOnError)
+        internal static bool IsStackInState(IAmazonCloudFormation client, string stackName, HashSet<StackStatus> desiredStates, bool throwOnError, CancellationTokenSource cancellationTokenSource)
         {
             try
             {
                 var request = new DescribeStacksRequest { StackName = stackName };
-
-#if DESKTOP
-                var response = client.DescribeStacks(request);
-#elif CORECLR
-                var response = client.DescribeStacksAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                var response = client.DescribeStacksAsync(request, cancellationTokenSource.Token).GetAwaiter().GetResult();
 
                 return IsStackInState(response.Stacks[0].StackStatus, desiredStates);
             }

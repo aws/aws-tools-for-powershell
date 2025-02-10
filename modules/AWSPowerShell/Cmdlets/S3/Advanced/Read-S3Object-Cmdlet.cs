@@ -24,6 +24,7 @@ using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 using System.IO;
 using Amazon.PowerShell.Utils;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         // try and anticipate all the ways a user might mean 'get everything from root'
         internal static readonly string[] rootIndicators = new string[] { "/", @"\", "*", "/*", @"\*" };
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
         #region Bucket Params
 
@@ -268,6 +270,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -387,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var runner = new ProgressRunner(this);
                 var tracker = new DownloadFileProgressTracker(runner, handler => request.WriteObjectProgressEvent += handler, cmdletContext.Key);
 
-                output = runner.SafeRun(() => tu.Download(request), tracker);
+                output = runner.SafeRun(() => tu.DownloadAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
                 if (output.ErrorResponse == null)
                     output.PipelineOutput = new FileInfo(cmdletContext.File);
             }
@@ -424,7 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var runner = new ProgressRunner(this);
                 var tracker = new DownloadFolderProgressTracker(runner, handler => request.DownloadedDirectoryProgressEvent += handler);
 
-                output = runner.SafeRun(() => tu.DownloadDirectory(request), tracker);
+                output = runner.SafeRun(() => tu.DownloadDirectoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult(), tracker);
                 if (output.ErrorResponse == null)
                     output.PipelineOutput = new DirectoryInfo(cmdletContext.Folder);
 

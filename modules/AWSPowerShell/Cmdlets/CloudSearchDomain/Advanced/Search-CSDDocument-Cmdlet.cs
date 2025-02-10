@@ -22,6 +22,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.CloudSearchDomain;
 using Amazon.CloudSearchDomain.Model;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.CSD
 {
@@ -59,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     )]
     public class SearchCSDDocumentCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         #region Parameter ServiceUrl
         /// <summary>
         /// Specifies the Search or Document service endpoint.
@@ -492,6 +495,13 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         [System.Management.Automation.Parameter]
         public string Select { get; set; } = "*";
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
         protected override void ProcessRecord()
         {
             this._ExecuteWithAnonymousCredentials =
@@ -626,13 +636,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
 
             try
             {
-#if DESKTOP
-                return client.Search(request);
-#elif CORECLR
-                return client.SearchAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.SearchAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

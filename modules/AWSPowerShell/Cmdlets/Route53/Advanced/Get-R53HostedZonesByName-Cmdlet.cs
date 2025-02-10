@@ -24,6 +24,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Route53;
 using Amazon.Route53.Model;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.R53
 {
@@ -85,6 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public partial class GetR53HostedZonesByNameCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 
         #region Parameter HostedZoneId
         /// <summary>
@@ -167,6 +170,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -396,13 +405,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "ListHostedZonesByName");
             try
             {
-#if DESKTOP
-                return client.ListHostedZonesByName(request);
-#elif CORECLR
-                return client.ListHostedZonesByNameAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.ListHostedZonesByNameAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+
             }
             catch (AmazonServiceException exc)
             {

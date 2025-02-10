@@ -22,6 +22,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.CloudSearchDomain;
 using Amazon.CloudSearchDomain.Model;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.CSD
 {
@@ -63,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     {
         const string ParamSet_FromLocalFile = "FromLocalFile";
         const string ParamSet_FromStream = "FromStream";
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 
         #region Parameter ServiceUrl
         /// <summary>
@@ -139,6 +142,12 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         [System.Management.Automation.Parameter]
         public string Select { get; set; } = "*";
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -225,16 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         private Amazon.CloudSearchDomain.Model.UploadDocumentsResponse CallAWSServiceOperation(IAmazonCloudSearchDomain client, Amazon.CloudSearchDomain.Model.UploadDocumentsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudSearchDomain", "UploadDocuments");
-
             try
             {
-#if DESKTOP
-                return client.UploadDocuments(request);
-#elif CORECLR
-                return client.UploadDocumentsAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.UploadDocumentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

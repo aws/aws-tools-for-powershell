@@ -106,6 +106,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                     WriteGeneratedCmdletFlag(writer);
 
+                    writer.WriteLine("private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();");
+
                     // create cmdlet parameters
 
                     // we emit the 'real' parameters in alpha order to allow for consistent tabbing
@@ -151,6 +153,14 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                     writer.WriteLine();
 
+                    writer.WriteLine("protected override void StopProcessing()");
+                    writer.OpenRegion();
+                    {
+                        writer.WriteLine("base.StopProcessing();");
+                        writer.WriteLine("_cancellationTokenSource.Cancel();");
+                    }
+                    writer.CloseRegion();
+
                     writer.WriteLine("protected override void ProcessRecord()");
                     writer.OpenRegion();
                     {
@@ -158,7 +168,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("this._ExecuteWithAnonymousCredentials = this.UseAnonymousCredentials;");
                         if (awsSignerAttributeTypeValue == "bearer")
                         {
-                            writer.WriteLine("this._ExecuteWithAnonymousCredentials = true;");                            
+                            writer.WriteLine("this._ExecuteWithAnonymousCredentials = true;");
                         }
                         writer.WriteLine("this._AWSSignerType = \"{0}\";", awsSignerAttributeTypeValue);
 
@@ -264,34 +274,24 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine($"private {MethodAnalysis.ResponseType} CallAWSServiceOperation({ServiceConfig.ServiceClientInterface} client, {MethodAnalysis.RequestType} request)");
             writer.OpenRegion();
 
-                writer.WriteLine($"Utils.Common.WriteVerboseEndpointMessage(this, client.Config, \"{ServiceConfig.ServiceName}\", \"{Operation.MethodName}\");");
+            writer.WriteLine($"Utils.Common.WriteVerboseEndpointMessage(this, client.Config, \"{ServiceConfig.ServiceName}\", \"{Operation.MethodName}\");");
 
-                writer.WriteLine("try");
-                writer.OpenRegion();
-                    writer.WriteLine("#if DESKTOP");
+            writer.WriteLine("try");
+            writer.OpenRegion();
 
-                    writer.WriteLine($"return client.{Operation.MethodName}(request);");
+            writer.WriteLine($"return client.{Operation.MethodName}Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();");
 
-                    writer.WriteLine("#elif CORECLR");
-
-                    writer.WriteLine($"return client.{Operation.MethodName}Async(request).GetAwaiter().GetResult();");
-
-                    writer.WriteLine("#else");
-
-                    writer.WriteLine("        #error \"Unknown build edition\"");
-
-                    writer.WriteLine("#endif");
             writer.CloseRegion();
-                writer.WriteLine("catch (AmazonServiceException exc)");
-                writer.OpenRegion();
-                    writer.WriteLine("var webException = exc.InnerException as System.Net.WebException;");
-                    writer.WriteLine("if (webException != null)");
-                    writer.OpenRegion();
-                        writer.WriteLine(
-                            "throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);");
-                    writer.CloseRegion();
-                    writer.WriteLine("throw;");
-                writer.CloseRegion();
+            writer.WriteLine("catch (AmazonServiceException exc)");
+            writer.OpenRegion();
+            writer.WriteLine("var webException = exc.InnerException as System.Net.WebException;");
+            writer.WriteLine("if (webException != null)");
+            writer.OpenRegion();
+            writer.WriteLine(
+                "throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);");
+            writer.CloseRegion();
+            writer.WriteLine("throw;");
+            writer.CloseRegion();
             writer.CloseRegion();
 
             writer.WriteLine();

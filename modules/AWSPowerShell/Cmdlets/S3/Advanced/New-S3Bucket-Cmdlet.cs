@@ -17,6 +17,7 @@
 
 using System;
 using System.Management.Automation;
+using System.Threading;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.S3;
@@ -36,6 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class NewS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         #region Parameter BucketName
         /// <summary>
         /// <para>
@@ -128,6 +131,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         public string Select { get; set; } = "*";
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
 
         protected override void ProcessRecord()
         {
@@ -228,13 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             try
             {
-#if DESKTOP
-                return client.PutBucket(request);
-#elif CORECLR
-                return client.PutBucketAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.PutBucketAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
 using System.Text;
+using System.Threading;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.S3;
@@ -41,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public partial class GetMultipartUploadCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         #region Parameter BucketName
         /// <summary>
         /// <para>
@@ -207,6 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         
         protected override void ProcessRecord()
         {
@@ -484,13 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "ListMultipartUploads");
             try
             {
-                #if DESKTOP
-                return client.ListMultipartUploads(request);
-                #elif CORECLR
-                return client.ListMultipartUploadsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListMultipartUploadsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

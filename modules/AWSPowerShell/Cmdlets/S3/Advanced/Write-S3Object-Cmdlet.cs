@@ -27,6 +27,7 @@ using Amazon.S3.Model;
 using Amazon.Runtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -52,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         const string ParamSet_FromContent = "UploadFromContent";
         const string ParamSet_FromLocalFolder = "UploadFolder";
         const string ParamSet_FromStream = "UploadFromStream";
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 
         // Part size range in bytes (refer https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html)
         const long MinPartSize = 5L * 1024 * 1024;
@@ -507,6 +510,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
 
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -910,13 +919,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             try
             {
-#if DESKTOP
-                return client.PutObject(request);
-#elif CORECLR
-                return client.PutObjectAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.PutObjectAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

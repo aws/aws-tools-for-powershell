@@ -22,6 +22,7 @@ using Amazon.Runtime;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using Amazon.S3.Transfer;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         private const string AbsoluteParameterSetName = "Absolute";
         private const string RelativeParameterSetName = "Relative";
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
         #region Parameter BucketName
         /// <summary>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     {
         private const int DefaultTimeoutInSeconds = 120;
         private const int PollSleepInSeconds = 2;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 
         #region Parameter StackName
         /// <summary>
@@ -87,6 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             base.BeginProcessing();
             _startTime = DateTime.UtcNow;
+        }
+
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
         }
 
         protected override void ProcessRecord()
@@ -219,13 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
             try
             {
-#if DESKTOP
-                return client.DescribeStacks(request);
-#elif CORECLR
-                return client.DescribeStacksAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                return client.DescribeStacksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
