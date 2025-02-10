@@ -157,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The list of resources that a security profile applies tag restrictions to in Amazon
-        /// Connect. Following are acceptable ResourceNames: <c>User</c> | <c>SecurityProfile</c>
-        /// | <c>Queue</c> | <c>RoutingProfile</c></para>
+        /// Connect. For a list of Amazon Connect resources that you can tag, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Add
+        /// tags to resources in Amazon Connect</a> in the <i>Amazon Connect Administrator Guide</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

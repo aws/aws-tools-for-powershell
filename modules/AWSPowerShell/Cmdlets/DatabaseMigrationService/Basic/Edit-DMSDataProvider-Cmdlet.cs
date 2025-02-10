@@ -111,6 +111,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DocDbSettings_CertificateArn { get; set; }
         #endregion
         
+        #region Parameter IbmDb2LuwSettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2LuwSettings_CertificateArn")]
+        public System.String IbmDb2LuwSettings_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2zOsSettings_CertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2zOsSettings_CertificateArn")]
+        public System.String IbmDb2zOsSettings_CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter MariaDbSettings_CertificateArn
         /// <summary>
         /// <para>
@@ -186,6 +208,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_DocDbSettings_DatabaseName")]
         public System.String DocDbSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2LuwSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name on the DB2 LUW data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2LuwSettings_DatabaseName")]
+        public System.String IbmDb2LuwSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2zOsSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name on the DB2 for z/OS data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2zOsSettings_DatabaseName")]
+        public System.String IbmDb2zOsSettings_DatabaseName { get; set; }
         #endregion
         
         #region Parameter MicrosoftSqlServerSettings_DatabaseName
@@ -287,8 +331,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The type of database engine for the data provider. Valid values include <c>"aurora"</c>,
         /// <c>"aurora-postgresql"</c>, <c>"mysql"</c>, <c>"oracle"</c>, <c>"postgres"</c>, <c>"sqlserver"</c>,
-        /// <c>redshift</c>, <c>mariadb</c>, <c>mongodb</c>, and <c>docdb</c>. A value of <c>"aurora"</c>
-        /// represents Amazon Aurora MySQL-Compatible Edition.</para>
+        /// <c>redshift</c>, <c>mariadb</c>, <c>mongodb</c>, <c>db2</c>, <c>db2-zos</c> and <c>docdb</c>.
+        /// A value of <c>"aurora"</c> represents Amazon Aurora MySQL-Compatible Edition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,6 +364,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Settings_DocDbSettings_Port")]
         public System.Int32? DocDbSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2LuwSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the DB2 LUW data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2LuwSettings_Port")]
+        public System.Int32? IbmDb2LuwSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2zOsSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port value for the DB2 for z/OS data provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2zOsSettings_Port")]
+        public System.Int32? IbmDb2zOsSettings_Port { get; set; }
         #endregion
         
         #region Parameter MariaDbSettings_Port
@@ -459,6 +525,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DocDbSettings_ServerName { get; set; }
         #endregion
         
+        #region Parameter IbmDb2LuwSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB2 LUW server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2LuwSettings_ServerName")]
+        public System.String IbmDb2LuwSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2zOsSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB2 for z/OS server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2zOsSettings_ServerName")]
+        public System.String IbmDb2zOsSettings_ServerName { get; set; }
+        #endregion
+        
         #region Parameter MariaDbSettings_ServerName
         /// <summary>
         /// <para>
@@ -547,6 +635,32 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [Alias("Settings_DocDbSettings_SslMode")]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
         public Amazon.DatabaseMigrationService.DmsSslModeValue DocDbSettings_SslMode { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2LuwSettings_SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode used to connect to the DB2 LUW data provider. The default value is <c>none</c>.
+        /// Valid Values: <c>none</c> and <c>verify-ca</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2LuwSettings_SslMode")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue IbmDb2LuwSettings_SslMode { get; set; }
+        #endregion
+        
+        #region Parameter IbmDb2zOsSettings_SslMode
+        /// <summary>
+        /// <para>
+        /// <para>The SSL mode used to connect to the DB2 for z/OS data provider. The default value
+        /// is <c>none</c>. Valid Values: <c>none</c> and <c>verify-ca</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_IbmDb2zOsSettings_SslMode")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
+        public Amazon.DatabaseMigrationService.DmsSslModeValue IbmDb2zOsSettings_SslMode { get; set; }
         #endregion
         
         #region Parameter MariaDbSettings_SslMode
@@ -701,6 +815,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.DocDbSettings_Port = this.DocDbSettings_Port;
             context.DocDbSettings_ServerName = this.DocDbSettings_ServerName;
             context.DocDbSettings_SslMode = this.DocDbSettings_SslMode;
+            context.IbmDb2LuwSettings_CertificateArn = this.IbmDb2LuwSettings_CertificateArn;
+            context.IbmDb2LuwSettings_DatabaseName = this.IbmDb2LuwSettings_DatabaseName;
+            context.IbmDb2LuwSettings_Port = this.IbmDb2LuwSettings_Port;
+            context.IbmDb2LuwSettings_ServerName = this.IbmDb2LuwSettings_ServerName;
+            context.IbmDb2LuwSettings_SslMode = this.IbmDb2LuwSettings_SslMode;
+            context.IbmDb2zOsSettings_CertificateArn = this.IbmDb2zOsSettings_CertificateArn;
+            context.IbmDb2zOsSettings_DatabaseName = this.IbmDb2zOsSettings_DatabaseName;
+            context.IbmDb2zOsSettings_Port = this.IbmDb2zOsSettings_Port;
+            context.IbmDb2zOsSettings_ServerName = this.IbmDb2zOsSettings_ServerName;
+            context.IbmDb2zOsSettings_SslMode = this.IbmDb2zOsSettings_SslMode;
             context.MariaDbSettings_CertificateArn = this.MariaDbSettings_CertificateArn;
             context.MariaDbSettings_Port = this.MariaDbSettings_Port;
             context.MariaDbSettings_ServerName = this.MariaDbSettings_ServerName;
@@ -998,6 +1122,136 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestSettings_settings_DocDbSettings != null)
             {
                 request.Settings.DocDbSettings = requestSettings_settings_DocDbSettings;
+                requestSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings requestSettings_settings_IbmDb2LuwSettings = null;
+            
+             // populate IbmDb2LuwSettings
+            var requestSettings_settings_IbmDb2LuwSettingsIsNull = true;
+            requestSettings_settings_IbmDb2LuwSettings = new Amazon.DatabaseMigrationService.Model.IbmDb2LuwDataProviderSettings();
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn = null;
+            if (cmdletContext.IbmDb2LuwSettings_CertificateArn != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn = cmdletContext.IbmDb2LuwSettings_CertificateArn;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.CertificateArn = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_CertificateArn;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName = null;
+            if (cmdletContext.IbmDb2LuwSettings_DatabaseName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName = cmdletContext.IbmDb2LuwSettings_DatabaseName;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.DatabaseName = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_DatabaseName;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port = null;
+            if (cmdletContext.IbmDb2LuwSettings_Port != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port = cmdletContext.IbmDb2LuwSettings_Port.Value;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.Port = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_Port.Value;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName = null;
+            if (cmdletContext.IbmDb2LuwSettings_ServerName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName = cmdletContext.IbmDb2LuwSettings_ServerName;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.ServerName = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_ServerName;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode = null;
+            if (cmdletContext.IbmDb2LuwSettings_SslMode != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode = cmdletContext.IbmDb2LuwSettings_SslMode;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode != null)
+            {
+                requestSettings_settings_IbmDb2LuwSettings.SslMode = requestSettings_settings_IbmDb2LuwSettings_ibmDb2LuwSettings_SslMode;
+                requestSettings_settings_IbmDb2LuwSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_IbmDb2LuwSettings should be set to null
+            if (requestSettings_settings_IbmDb2LuwSettingsIsNull)
+            {
+                requestSettings_settings_IbmDb2LuwSettings = null;
+            }
+            if (requestSettings_settings_IbmDb2LuwSettings != null)
+            {
+                request.Settings.IbmDb2LuwSettings = requestSettings_settings_IbmDb2LuwSettings;
+                requestSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.Model.IbmDb2zOsDataProviderSettings requestSettings_settings_IbmDb2zOsSettings = null;
+            
+             // populate IbmDb2zOsSettings
+            var requestSettings_settings_IbmDb2zOsSettingsIsNull = true;
+            requestSettings_settings_IbmDb2zOsSettings = new Amazon.DatabaseMigrationService.Model.IbmDb2zOsDataProviderSettings();
+            System.String requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_CertificateArn = null;
+            if (cmdletContext.IbmDb2zOsSettings_CertificateArn != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_CertificateArn = cmdletContext.IbmDb2zOsSettings_CertificateArn;
+            }
+            if (requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_CertificateArn != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings.CertificateArn = requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_CertificateArn;
+                requestSettings_settings_IbmDb2zOsSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_DatabaseName = null;
+            if (cmdletContext.IbmDb2zOsSettings_DatabaseName != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_DatabaseName = cmdletContext.IbmDb2zOsSettings_DatabaseName;
+            }
+            if (requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_DatabaseName != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings.DatabaseName = requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_DatabaseName;
+                requestSettings_settings_IbmDb2zOsSettingsIsNull = false;
+            }
+            System.Int32? requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_Port = null;
+            if (cmdletContext.IbmDb2zOsSettings_Port != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_Port = cmdletContext.IbmDb2zOsSettings_Port.Value;
+            }
+            if (requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_Port != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings.Port = requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_Port.Value;
+                requestSettings_settings_IbmDb2zOsSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_ServerName = null;
+            if (cmdletContext.IbmDb2zOsSettings_ServerName != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_ServerName = cmdletContext.IbmDb2zOsSettings_ServerName;
+            }
+            if (requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_ServerName != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings.ServerName = requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_ServerName;
+                requestSettings_settings_IbmDb2zOsSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DmsSslModeValue requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_SslMode = null;
+            if (cmdletContext.IbmDb2zOsSettings_SslMode != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_SslMode = cmdletContext.IbmDb2zOsSettings_SslMode;
+            }
+            if (requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_SslMode != null)
+            {
+                requestSettings_settings_IbmDb2zOsSettings.SslMode = requestSettings_settings_IbmDb2zOsSettings_ibmDb2zOsSettings_SslMode;
+                requestSettings_settings_IbmDb2zOsSettingsIsNull = false;
+            }
+             // determine if requestSettings_settings_IbmDb2zOsSettings should be set to null
+            if (requestSettings_settings_IbmDb2zOsSettingsIsNull)
+            {
+                requestSettings_settings_IbmDb2zOsSettings = null;
+            }
+            if (requestSettings_settings_IbmDb2zOsSettings != null)
+            {
+                request.Settings.IbmDb2zOsSettings = requestSettings_settings_IbmDb2zOsSettings;
                 requestSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.Model.MicrosoftSqlServerDataProviderSettings requestSettings_settings_MicrosoftSqlServerSettings = null;
@@ -1416,6 +1670,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? DocDbSettings_Port { get; set; }
             public System.String DocDbSettings_ServerName { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue DocDbSettings_SslMode { get; set; }
+            public System.String IbmDb2LuwSettings_CertificateArn { get; set; }
+            public System.String IbmDb2LuwSettings_DatabaseName { get; set; }
+            public System.Int32? IbmDb2LuwSettings_Port { get; set; }
+            public System.String IbmDb2LuwSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue IbmDb2LuwSettings_SslMode { get; set; }
+            public System.String IbmDb2zOsSettings_CertificateArn { get; set; }
+            public System.String IbmDb2zOsSettings_DatabaseName { get; set; }
+            public System.Int32? IbmDb2zOsSettings_Port { get; set; }
+            public System.String IbmDb2zOsSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.DmsSslModeValue IbmDb2zOsSettings_SslMode { get; set; }
             public System.String MariaDbSettings_CertificateArn { get; set; }
             public System.Int32? MariaDbSettings_Port { get; set; }
             public System.String MariaDbSettings_ServerName { get; set; }

@@ -28,7 +28,12 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Creates a new contact.
+    /// <important><para>
+    /// Only the EMAIL channel is supported. The supported initiation methods are: OUTBOUND,
+    /// AGENT_REPLY, and FLOW.
+    /// </para></important><para>
+    /// Creates a new EMAIL contact. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateContactResponse")]
@@ -59,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// <para>The channel for the contact</para>
+        /// <para>The channel for the contact</para><important><para>CreateContact only supports the EMAIL channel. The following information that states
+        /// other channels are supported is incorrect. We are working to update this topic.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitiationMethod
         /// <summary>
         /// <para>
-        /// <para>Indicates how the contact was initiated.</para>
+        /// <para>Indicates how the contact was initiated. </para><important><para>CreateContact only supports the following initiation methods: OUTBOUND, AGENT_REPLY,
+        /// and FLOW. The following information that states other initiation methods are supported
+        /// is incorrect. We are working to update this topic.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

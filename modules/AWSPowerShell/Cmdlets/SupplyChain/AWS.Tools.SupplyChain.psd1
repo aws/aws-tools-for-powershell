@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The SupplyChain module of AWS Tools for PowerShell lets developers and administrators manage AWS Supply Chain from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -34,6 +34,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Name of the PowerShell host required by this module
     PowerShellHostName = ''
+
+
 
     # Minimum version of the PowerShell host required by this module
     PowerShellHostVersion = ''

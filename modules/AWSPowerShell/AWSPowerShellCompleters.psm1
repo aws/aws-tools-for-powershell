@@ -23225,6 +23225,10 @@ $DMS_Completers = {
         {
             ($_ -eq "Edit-DMSDataProvider/DocDbSettings_SslMode") -Or
             ($_ -eq "New-DMSDataProvider/DocDbSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/IbmDb2LuwSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/IbmDb2LuwSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/IbmDb2zOsSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/IbmDb2zOsSettings_SslMode") -Or
             ($_ -eq "Edit-DMSDataProvider/MariaDbSettings_SslMode") -Or
             ($_ -eq "New-DMSDataProvider/MariaDbSettings_SslMode") -Or
             ($_ -eq "Edit-DMSDataProvider/MicrosoftSqlServerSettings_SslMode") -Or
@@ -23503,6 +23507,8 @@ $DMS_map = @{
     "DocDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "GcpMySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "IbmDb2LuwSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "IbmDb2zOsSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SaslMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
