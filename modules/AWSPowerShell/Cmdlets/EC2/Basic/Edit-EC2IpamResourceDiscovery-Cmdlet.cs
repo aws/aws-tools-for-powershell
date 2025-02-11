@@ -64,7 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion,
         /// IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a
         /// limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas
-        /// for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para><note><para>The resulting set of exclusions must not result in "overlap", meaning two or more
+        /// OU exclusions must not exclude the same OU. For more information and examples, see
+        /// the Amazon Web Services CLI request process in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete">Add
+        /// or remove OU exclusions </a> in the <i>Amazon VPC User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion,
         /// IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a
         /// limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas
-        /// for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para><note><para>The resulting set of exclusions must not result in "overlap", meaning two or more
+        /// OU exclusions must not exclude the same OU. For more information and examples, see
+        /// the Amazon Web Services CLI request process in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/exclude-ous.html#exclude-ous-create-delete">Add
+        /// or remove OU exclusions </a> in the <i>Amazon VPC User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

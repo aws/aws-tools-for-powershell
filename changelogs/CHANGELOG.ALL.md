@@ -1,4 +1,10 @@
-﻿### 4.1.754 (2025-02-10 21:58Z)
+﻿### 4.1.755 (2025-02-11 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.980.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Copy-S3Object: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Write-S3Object: added parameter ExpectedBucketOwner.
+
+### 4.1.754 (2025-02-10 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.979.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Modified cmdlet Edit-DMSDataProvider: added parameters IbmDb2LuwSettings_CertificateArn, IbmDb2LuwSettings_DatabaseName, IbmDb2LuwSettings_Port, IbmDb2LuwSettings_ServerName, IbmDb2LuwSettings_SslMode, IbmDb2zOsSettings_CertificateArn, IbmDb2zOsSettings_DatabaseName, IbmDb2zOsSettings_Port, IbmDb2zOsSettings_ServerName and IbmDb2zOsSettings_SslMode.
