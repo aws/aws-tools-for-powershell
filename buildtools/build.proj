@@ -223,7 +223,8 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Runtime.CompilerServices.Unsafe.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Text.Json.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Threading.Tasks.Extensions.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.Text.Encodings.Web.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)/net472/System.ValueTuple.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="copy-coreclr-artifacts" DependsOnTargets="build-netcore-module">
@@ -263,7 +264,7 @@
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Text.Json.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Threading.Tasks.Extensions.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-
+        <Copy SourceFiles="$(SDKAssembliesFolder)/netstandard2.0/System.Text.Encodings.Web.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
     </Target>
 
     <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
