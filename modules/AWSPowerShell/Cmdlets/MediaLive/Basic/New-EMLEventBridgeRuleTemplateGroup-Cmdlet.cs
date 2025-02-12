@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RequestId
+        /// <summary>
+        /// <para>
+        /// An ID that you assign to a create request. This
+        /// ID ensures idempotency when creating resources.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequestId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -151,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RequestId = this.RequestId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RequestId != null)
+            {
+                request.RequestId = cmdletContext.RequestId;
             }
             if (cmdletContext.Tag != null)
             {
@@ -250,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         {
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.String RequestId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaLive.Model.CreateEventBridgeRuleTemplateGroupResponse, NewEMLEventBridgeRuleTemplateGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

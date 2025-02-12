@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// For FSx for Windows File Server file systems, you can update the following properties:
     /// </para><ul><li><para><c>AuditLogConfiguration</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>SelfManagedActiveDirectoryConfiguration</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>StorageType</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for Lustre file systems, you can update the following properties:
-    /// </para><ul><li><para><c>AutoImportPolicy</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DataCompressionType</c></para></li><li><para><c>LogConfiguration</c></para></li><li><para><c>LustreRootSquashConfiguration</c></para></li><li><para><c>MetadataConfiguration</c></para></li><li><para><c>PerUnitStorageThroughput</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
+    /// </para><ul><li><para><c>AutoImportPolicy</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DataCompressionType</c></para></li><li><para><c>FileSystemTypeVersion</c></para></li><li><para><c>LogConfiguration</c></para></li><li><para><c>LustreRootSquashConfiguration</c></para></li><li><para><c>MetadataConfiguration</c></para></li><li><para><c>PerUnitStorageThroughput</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for ONTAP file systems, you can update the following properties:
     /// </para><ul><li><para><c>AddRouteTableIds</c></para></li><li><para><c>AutomaticBackupRetentionDays</c></para></li><li><para><c>DailyAutomaticBackupStartTime</c></para></li><li><para><c>DiskIopsConfiguration</c></para></li><li><para><c>FsxAdminPassword</c></para></li><li><para><c>HAPairs</c></para></li><li><para><c>RemoveRouteTableIds</c></para></li><li><para><c>StorageCapacity</c></para></li><li><para><c>ThroughputCapacity</c></para></li><li><para><c>ThroughputCapacityPerHAPair</c></para></li><li><para><c>WeeklyMaintenanceStartTime</c></para></li></ul><para>
     /// For FSx for OpenZFS file systems, you can update the following properties:
@@ -186,13 +186,25 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String FileSystemId { get; set; }
         #endregion
         
+        #region Parameter FileSystemTypeVersion
+        /// <summary>
+        /// <para>
+        /// <para>The Lustre version you are updating an FSx for Lustre file system to. Valid values
+        /// are <c>2.12</c> and <c>2.15</c>. The value you choose must be newer than the file
+        /// system's current Lustre version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileSystemTypeVersion { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_FsxAdminPassword
         /// <summary>
         /// <para>
         /// <para>Update the password for the <c>fsxadmin</c> user by entering a new password. You use
         /// the <c>fsxadmin</c> user to access the NetApp ONTAP CLI and REST API to manage your
         /// file system resources. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html">Managing
-        /// resources using NetApp Applicaton</a>.</para>
+        /// resources using NetApp Application</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FileSystemTypeVersion = this.FileSystemTypeVersion;
             context.LustreConfiguration = this.LustreConfiguration;
             if (this.OntapConfiguration_AddRouteTableId != null)
             {
@@ -576,6 +589,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
+            }
+            if (cmdletContext.FileSystemTypeVersion != null)
+            {
+                request.FileSystemTypeVersion = cmdletContext.FileSystemTypeVersion;
             }
             if (cmdletContext.LustreConfiguration != null)
             {
@@ -949,6 +966,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
+            public System.String FileSystemTypeVersion { get; set; }
             public Amazon.FSx.Model.UpdateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public List<System.String> OntapConfiguration_AddRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }

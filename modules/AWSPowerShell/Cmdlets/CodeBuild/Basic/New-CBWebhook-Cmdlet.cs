@@ -70,7 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter BuildType
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of build this webhook will trigger.</para>
+        /// <para>Specifies the type of build this webhook will trigger.</para><note><para><c>RUNNER_BUILDKITE_BUILD</c> is only available for <c>NO_SOURCE</c> source type
+        /// projects configured for Buildkite runner builds. For more information about CodeBuild-hosted
+        /// Buildkite runner builds, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-runner-buildkite.html">Tutorial:
+        /// Configure a CodeBuild-hosted Buildkite runner</a> in the <i>CodeBuild user guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

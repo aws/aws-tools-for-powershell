@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
     /// Retrieves all the documents contained in a data source that is connected to a knowledge
-    /// base. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html">Ingest
-    /// documents into a knowledge base in real-time</a> in the Amazon Bedrock User Guide.
+    /// base. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html">Ingest
+    /// changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Get", "AABKnowledgeBaseDocumentList")]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBaseDocumentDetail")]

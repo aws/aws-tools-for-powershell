@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SamlOptions_OpenSearchServerlessEntityId
+        /// <summary>
+        /// <para>
+        /// <para>Custom entity id attribute to override default entity id for this saml integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SamlOptions_OpenSearchServerlessEntityId { get; set; }
+        #endregion
+        
         #region Parameter SamlOptions_SessionTimeout
         /// <summary>
         /// <para>
@@ -226,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             #endif
             context.SamlOptions_GroupAttribute = this.SamlOptions_GroupAttribute;
             context.SamlOptions_Metadata = this.SamlOptions_Metadata;
+            context.SamlOptions_OpenSearchServerlessEntityId = this.SamlOptions_OpenSearchServerlessEntityId;
             context.SamlOptions_SessionTimeout = this.SamlOptions_SessionTimeout;
             context.SamlOptions_UserAttribute = this.SamlOptions_UserAttribute;
             context.Type = this.Type;
@@ -326,6 +337,16 @@ namespace Amazon.PowerShell.Cmdlets.OSS
                 request.SamlOptions.Metadata = requestSamlOptions_samlOptions_Metadata;
                 requestSamlOptionsIsNull = false;
             }
+            System.String requestSamlOptions_samlOptions_OpenSearchServerlessEntityId = null;
+            if (cmdletContext.SamlOptions_OpenSearchServerlessEntityId != null)
+            {
+                requestSamlOptions_samlOptions_OpenSearchServerlessEntityId = cmdletContext.SamlOptions_OpenSearchServerlessEntityId;
+            }
+            if (requestSamlOptions_samlOptions_OpenSearchServerlessEntityId != null)
+            {
+                request.SamlOptions.OpenSearchServerlessEntityId = requestSamlOptions_samlOptions_OpenSearchServerlessEntityId;
+                requestSamlOptionsIsNull = false;
+            }
             System.Int32? requestSamlOptions_samlOptions_SessionTimeout = null;
             if (cmdletContext.SamlOptions_SessionTimeout != null)
             {
@@ -424,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             public System.String Name { get; set; }
             public System.String SamlOptions_GroupAttribute { get; set; }
             public System.String SamlOptions_Metadata { get; set; }
+            public System.String SamlOptions_OpenSearchServerlessEntityId { get; set; }
             public System.Int32? SamlOptions_SessionTimeout { get; set; }
             public System.String SamlOptions_UserAttribute { get; set; }
             public Amazon.OpenSearchServerless.SecurityConfigType Type { get; set; }

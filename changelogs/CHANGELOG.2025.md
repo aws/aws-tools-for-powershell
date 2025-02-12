@@ -1,4 +1,19 @@
-﻿### 4.1.755 (2025-02-11 22:18Z)
+﻿### 4.1.756 (2025-02-12 22:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.981.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLCloudWatchAlarmTemplate: added parameter RequestId.
+    * Modified cmdlet New-EMLCloudWatchAlarmTemplateGroup: added parameter RequestId.
+    * Modified cmdlet New-EMLEventBridgeRuleTemplate: added parameter RequestId.
+    * Modified cmdlet New-EMLEventBridgeRuleTemplateGroup: added parameter RequestId.
+    * Modified cmdlet New-EMLSignalMap: added parameter RequestId.
+    * Modified cmdlet Start-EMLMonitorDeployment: added parameter RequestId.
+  * Amazon FSx
+    * Modified cmdlet Update-FSXFileSystem: added parameter FileSystemTypeVersion.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSSecurityConfig: added parameter SamlOptions_OpenSearchServerlessEntityId.
+    * Modified cmdlet Update-OSSSecurityConfig: added parameter SamlOptions_OpenSearchServerlessEntityId.
+
+### 4.1.755 (2025-02-11 22:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.980.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Storage Service (S3)
     * Modified cmdlet Copy-S3Object: added parameter ExpectedBucketOwner.
