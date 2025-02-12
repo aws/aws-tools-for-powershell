@@ -35,6 +35,7 @@ Param (
 
     # By default all modules AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools modules are imported in pwsh on linux and (pwsh and windows powershell) on windows.
     # Get-S3Bucket ran for AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools.S3.
+    # Get-SFNStateMachineList ran for AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools.StepFunctions.
     # $AdditionalModuleChecks test the following.
     # test module manifest,
     # test module manifest version,
@@ -312,7 +313,7 @@ if ($BuildType -eq 'PREVIEW') {
 
 $validateModules | ForEach-Object {
     try {
-        ValidateModule $_ $verifyChangeLog $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner } $testCmdlets ""
+        ValidateModule $_ $verifyChangeLog $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner; Get-SFNStateMachineList -Region us-west-2 -ProfileName test-runner } $testCmdlets ""
         Write-Host "PASSED validation for module $_"
     }
     catch {
@@ -340,11 +341,14 @@ if ($BuildType -ne 'PREVIEW') {
 
     $awstoolsModules = Get-ChildItem $awsToolsDeploymentPath -Directory
     $awstoolsModules | ForEach-Object {
-        # Only test module import module and cmdlet for S3. 
+        # Only test module import and cmdlet for S3 and StepFunctions.
         # All other AWS Tools modules will be tested with TestImportModule to speed up testing
         try {
             if ($_.Name -eq 'AWS.Tools.S3') {
                 ValidateModule $_ $false $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner } $testCmdlets $importCommonModuleCmd
+            }
+            elseif ($_.Name -eq 'AWS.Tools.StepFunctions') {
+                ValidateModule $_ $false $testVersion $signingCheck { Get-SFNStateMachineList -Region us-west-2 -ProfileName test-runner } $testCmdlets $importCommonModuleCmd
             }
             elseif ($_.Name -eq 'AWS.Tools.Installer') {
                 ValidateModule $_ $false $false $signingCheck { } $false $importCommonModuleCmd
