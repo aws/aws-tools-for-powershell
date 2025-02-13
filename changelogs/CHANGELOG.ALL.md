@@ -1,4 +1,15 @@
-﻿### 4.1.756 (2025-02-12 22:43Z)
+﻿### 4.1.757 (2025-02-13 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.982.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Get-IAMAAFindingsStatistic leveraging the GetFindingsStatistics service API.
+  * Amazon Storage Gateway
+    * Added cmdlet Get-SGCacheReport leveraging the DescribeCacheReport service API.
+    * Added cmdlet Get-SGCacheReportList leveraging the ListCacheReports service API.
+    * Added cmdlet Remove-SGCacheReport leveraging the DeleteCacheReport service API.
+    * Added cmdlet Start-SGCacheReport leveraging the StartCacheReport service API.
+    * Added cmdlet Stop-SGCacheReport leveraging the CancelCacheReport service API.
+
+### 4.1.756 (2025-02-12 22:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.981.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaLive
     * Modified cmdlet New-EMLCloudWatchAlarmTemplate: added parameter RequestId.

@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IAMAAFinding', 
         'Get-IAMAAFindingList', 
         'Get-IAMAAFindingRecommendation', 
+        'Get-IAMAAFindingsStatistic', 
         'Get-IAMAAFindingsV2List', 
         'Get-IAMAAFindingV2', 
         'Get-IAMAAGeneratedPolicy', 

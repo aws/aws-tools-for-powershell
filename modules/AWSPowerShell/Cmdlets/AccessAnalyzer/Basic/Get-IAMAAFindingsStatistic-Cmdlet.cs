@@ -22,44 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.StorageGateway;
-using Amazon.StorageGateway.Model;
+using Amazon.AccessAnalyzer;
+using Amazon.AccessAnalyzer.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SG
+namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
-    /// Sends you notification through Amazon EventBridge when all files written to your file
-    /// share have been uploaded to Amazon S3.
-    /// 
-    ///  
-    /// <para>
-    /// Storage Gateway can send a notification through Amazon EventBridge when all files
-    /// written to your file share up to that point in time have been uploaded to Amazon S3.
-    /// These files include files written to the file share up to the time that you make a
-    /// request for notification. When the upload is done, Storage Gateway sends you notification
-    /// through EventBridge. You can configure EventBridge to send the notification through
-    /// event targets such as Amazon SNS or Lambda function. This operation is only supported
-    /// for S3 File Gateways.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
-    /// file upload notification</a> in the <i>Amazon S3 File Gateway User Guide</i>.
-    /// </para>
+    /// Retrieves a list of aggregated finding statistics for an external access or unused
+    /// access analyzer.
     /// </summary>
-    [Cmdlet("Send", "SGUploadedNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse")]
-    [AWSCmdlet("Calls the AWS Storage Gateway NotifyWhenUploaded API operation.", Operation = new[] {"NotifyWhenUploaded"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.NotifyWhenUploadedResponse))]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.NotifyWhenUploadedResponse object containing multiple properties."
+    [Cmdlet("Get", "IAMAAFindingsStatistic")]
+    [OutputType("Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse")]
+    [AWSCmdlet("Calls the AWS IAM Access Analyzer GetFindingsStatistics API operation.", Operation = new[] {"GetFindingsStatistics"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse))]
+    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse",
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse object containing multiple properties."
     )]
-    public partial class SendSGUploadedNotificationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetIAMAAFindingsStatisticCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FileShareARN
+        #region Parameter AnalyzerArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+        /// of the analyzer</a> used to generate the statistics.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,14 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileShareARN { get; set; }
+        public System.String AnalyzerArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StorageGateway.Model.NotifyWhenUploadedResponse).
-        /// Specifying the name of a property of type Amazon.StorageGateway.Model.NotifyWhenUploadedResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse).
+        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,34 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FileShareARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FileShareARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AnalyzerArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AnalyzerArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileShareARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnalyzerArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileShareARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SGUploadedNotification (NotifyWhenUploaded)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -123,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StorageGateway.Model.NotifyWhenUploadedResponse, SendSGUploadedNotificationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse, GetIAMAAFindingsStatisticCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FileShareARN;
+                context.Select = (response, cmdlet) => this.AnalyzerArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FileShareARN = this.FileShareARN;
+            context.AnalyzerArn = this.AnalyzerArn;
             #if MODULAR
-            if (this.FileShareARN == null && ParameterWasBound(nameof(this.FileShareARN)))
+            if (this.AnalyzerArn == null && ParameterWasBound(nameof(this.AnalyzerArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter FileShareARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnalyzerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -156,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.NotifyWhenUploadedRequest();
+            var request = new Amazon.AccessAnalyzer.Model.GetFindingsStatisticsRequest();
             
-            if (cmdletContext.FileShareARN != null)
+            if (cmdletContext.AnalyzerArn != null)
             {
-                request.FileShareARN = cmdletContext.FileShareARN;
+                request.AnalyzerArn = cmdletContext.AnalyzerArn;
             }
             
             CmdletOutput output;
@@ -195,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private Amazon.StorageGateway.Model.NotifyWhenUploadedResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.NotifyWhenUploadedRequest request)
+        private Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.GetFindingsStatisticsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "NotifyWhenUploaded");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "GetFindingsStatistics");
             try
             {
                 #if DESKTOP
-                return client.NotifyWhenUploaded(request);
+                return client.GetFindingsStatistics(request);
                 #elif CORECLR
-                return client.NotifyWhenUploadedAsync(request).GetAwaiter().GetResult();
+                return client.GetFindingsStatisticsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileShareARN { get; set; }
-            public System.Func<Amazon.StorageGateway.Model.NotifyWhenUploadedResponse, SendSGUploadedNotificationCmdlet, object> Select { get; set; } =
+            public System.String AnalyzerArn { get; set; }
+            public System.Func<Amazon.AccessAnalyzer.Model.GetFindingsStatisticsResponse, GetIAMAAFindingsStatisticCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

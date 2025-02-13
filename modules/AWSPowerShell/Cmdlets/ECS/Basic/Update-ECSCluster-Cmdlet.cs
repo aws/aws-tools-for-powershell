@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify the Key Management Service key ID for the Fargate ephemeral storage.</para>
+        /// <para>Specify the Key Management Service key ID for the Fargate ephemeral storage.</para><para>The key must be a single Region key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedStorageConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>Specify a Key Management Service key ID to encrypt the managed storage.</para>
+        /// <para>Specify a Key Management Service key ID to encrypt the managed storage.</para><para>The key must be a single Region key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

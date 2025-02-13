@@ -28,38 +28,28 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Sends you notification through Amazon EventBridge when all files written to your file
-    /// share have been uploaded to Amazon S3.
-    /// 
-    ///  
-    /// <para>
-    /// Storage Gateway can send a notification through Amazon EventBridge when all files
-    /// written to your file share up to that point in time have been uploaded to Amazon S3.
-    /// These files include files written to the file share up to the time that you make a
-    /// request for notification. When the upload is done, Storage Gateway sends you notification
-    /// through EventBridge. You can configure EventBridge to send the notification through
-    /// event targets such as Amazon SNS or Lambda function. This operation is only supported
-    /// for S3 File Gateways.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
-    /// file upload notification</a> in the <i>Amazon S3 File Gateway User Guide</i>.
-    /// </para>
+    /// Cancels generation of a specified cache report. You can use this operation to manually
+    /// cancel an IN-PROGRESS report for any reason. This action changes the report status
+    /// from IN-PROGRESS to CANCELLED. You can only cancel in-progress reports. If the the
+    /// report you attempt to cancel is in FAILED, ERROR, or COMPLETED state, the cancel operation
+    /// returns an error.
     /// </summary>
-    [Cmdlet("Send", "SGUploadedNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse")]
-    [AWSCmdlet("Calls the AWS Storage Gateway NotifyWhenUploaded API operation.", Operation = new[] {"NotifyWhenUploaded"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.NotifyWhenUploadedResponse))]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.NotifyWhenUploadedResponse",
-        "This cmdlet returns an Amazon.StorageGateway.Model.NotifyWhenUploadedResponse object containing multiple properties."
+    [Cmdlet("Stop", "SGCacheReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Storage Gateway CancelCacheReport API operation.", Operation = new[] {"CancelCacheReport"}, SelectReturnType = typeof(Amazon.StorageGateway.Model.CancelCacheReportResponse))]
+    [AWSCmdletOutput("System.String or Amazon.StorageGateway.Model.CancelCacheReportResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.StorageGateway.Model.CancelCacheReportResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class SendSGUploadedNotificationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class StopSGCacheReportCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FileShareARN
+        #region Parameter CacheReportARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the cache report you want to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,26 +60,26 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileShareARN { get; set; }
+        public System.String CacheReportARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StorageGateway.Model.NotifyWhenUploadedResponse).
-        /// Specifying the name of a property of type Amazon.StorageGateway.Model.NotifyWhenUploadedResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CacheReportARN'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StorageGateway.Model.CancelCacheReportResponse).
+        /// Specifying the name of a property of type Amazon.StorageGateway.Model.CancelCacheReportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "CacheReportARN";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FileShareARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FileShareARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CacheReportARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CacheReportARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FileShareARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CacheReportARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileShareARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SGUploadedNotification (NotifyWhenUploaded)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CacheReportARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SGCacheReport (CancelCacheReport)"))
             {
                 return;
             }
@@ -123,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StorageGateway.Model.NotifyWhenUploadedResponse, SendSGUploadedNotificationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.StorageGateway.Model.CancelCacheReportResponse, StopSGCacheReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,14 +122,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FileShareARN;
+                context.Select = (response, cmdlet) => this.CacheReportARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FileShareARN = this.FileShareARN;
+            context.CacheReportARN = this.CacheReportARN;
             #if MODULAR
-            if (this.FileShareARN == null && ParameterWasBound(nameof(this.FileShareARN)))
+            if (this.CacheReportARN == null && ParameterWasBound(nameof(this.CacheReportARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter FileShareARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CacheReportARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -156,11 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.NotifyWhenUploadedRequest();
+            var request = new Amazon.StorageGateway.Model.CancelCacheReportRequest();
             
-            if (cmdletContext.FileShareARN != null)
+            if (cmdletContext.CacheReportARN != null)
             {
-                request.FileShareARN = cmdletContext.FileShareARN;
+                request.CacheReportARN = cmdletContext.CacheReportARN;
             }
             
             CmdletOutput output;
@@ -195,15 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private Amazon.StorageGateway.Model.NotifyWhenUploadedResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.NotifyWhenUploadedRequest request)
+        private Amazon.StorageGateway.Model.CancelCacheReportResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.CancelCacheReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "NotifyWhenUploaded");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "CancelCacheReport");
             try
             {
                 #if DESKTOP
-                return client.NotifyWhenUploaded(request);
+                return client.CancelCacheReport(request);
                 #elif CORECLR
-                return client.NotifyWhenUploadedAsync(request).GetAwaiter().GetResult();
+                return client.CancelCacheReportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -223,9 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileShareARN { get; set; }
-            public System.Func<Amazon.StorageGateway.Model.NotifyWhenUploadedResponse, SendSGUploadedNotificationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String CacheReportARN { get; set; }
+            public System.Func<Amazon.StorageGateway.Model.CancelCacheReportResponse, StopSGCacheReportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CacheReportARN;
         }
         
     }

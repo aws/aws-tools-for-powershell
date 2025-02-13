@@ -26,6 +26,8 @@ Set-Alias -Name IAMAA-GetAnalyzer -Value Get-IAMAAAnalyzer
 Set-Alias -Name IAMAA-GetArchiveRule -Value Get-IAMAAArchiveRule
 Set-Alias -Name IAMAA-GetFinding -Value Get-IAMAAFinding
 Set-Alias -Name IAMAA-GetFindingRecommendation -Value Get-IAMAAFindingRecommendation
+Set-Alias -Name Get-IAMAAFindingsStatistics -Value Get-IAMAAFindingsStatistic
+Set-Alias -Name IAMAA-GetFindingsStatistics -Value Get-IAMAAFindingsStatistic
 Set-Alias -Name IAMAA-GetFindingV2 -Value Get-IAMAAFindingV2
 Set-Alias -Name IAMAA-GetGeneratedPolicy -Value Get-IAMAAGeneratedPolicy
 Set-Alias -Name List-IAMAAAccessPreviewFindings -Value Get-IAMAAAccessPreviewFindingList
@@ -29575,6 +29577,8 @@ Set-Alias -Name Attach-SGVolume -Value Mount-SGVolume
 Set-Alias -Name SG-AttachVolume -Value Mount-SGVolume
 Set-Alias -Name Cancel-SGArchival -Value Stop-SGArchival
 Set-Alias -Name SG-CancelArchival -Value Stop-SGArchival
+Set-Alias -Name Cancel-SGCacheReport -Value Stop-SGCacheReport
+Set-Alias -Name SG-CancelCacheReport -Value Stop-SGCacheReport
 Set-Alias -Name Cancel-SGRetrieval -Value Stop-SGRetrieval
 Set-Alias -Name SG-CancelRetrieval -Value Stop-SGRetrieval
 Set-Alias -Name Create-SGCachediSCSIVolume -Value New-SGCachediSCSIVolume
@@ -29600,6 +29604,8 @@ Set-Alias -Name Delete-SGAutomaticTapeCreationPolicy -Value Remove-SGAutomaticTa
 Set-Alias -Name SG-DeleteAutomaticTapeCreationPolicy -Value Remove-SGAutomaticTapeCreationPolicy
 Set-Alias -Name Delete-SGBandwidthRateLimit -Value Remove-SGBandwidthRateLimit
 Set-Alias -Name SG-DeleteBandwidthRateLimit -Value Remove-SGBandwidthRateLimit
+Set-Alias -Name Delete-SGCacheReport -Value Remove-SGCacheReport
+Set-Alias -Name SG-DeleteCacheReport -Value Remove-SGCacheReport
 Set-Alias -Name Delete-SGChapCredentials -Value Remove-SGChapCredential
 Set-Alias -Name Delete-SGChapCredential -Value Remove-SGChapCredential
 Set-Alias -Name SG-DeleteChapCredentials -Value Remove-SGChapCredential
@@ -29628,6 +29634,8 @@ Set-Alias -Name SG-DescribeCache -Value Get-SGCache
 Set-Alias -Name Describe-SGCachediSCSIVolumes -Value Get-SGCachediSCSIVolume
 Set-Alias -Name Describe-SGCachediSCSIVolume -Value Get-SGCachediSCSIVolume
 Set-Alias -Name SG-DescribeCachediSCSIVolumes -Value Get-SGCachediSCSIVolume
+Set-Alias -Name Describe-SGCacheReport -Value Get-SGCacheReport
+Set-Alias -Name SG-DescribeCacheReport -Value Get-SGCacheReport
 Set-Alias -Name Describe-SGChapCredentials -Value Get-SGChapCredential
 Set-Alias -Name Describe-SGChapCredential -Value Get-SGChapCredential
 Set-Alias -Name SG-DescribeChapCredentials -Value Get-SGChapCredential
@@ -29678,6 +29686,9 @@ Set-Alias -Name SG-JoinDomain -Value Join-SGDomain
 Set-Alias -Name List-SGAutomaticTapeCreationPolicies -Value Get-SGAutomaticTapeCreationPolicy
 Set-Alias -Name List-SGAutomaticTapeCreationPolicy -Value Get-SGAutomaticTapeCreationPolicy
 Set-Alias -Name SG-ListAutomaticTapeCreationPolicies -Value Get-SGAutomaticTapeCreationPolicy
+Set-Alias -Name List-SGCacheReports -Value Get-SGCacheReportList
+Set-Alias -Name List-SGCacheReportList -Value Get-SGCacheReportList
+Set-Alias -Name SG-ListCacheReports -Value Get-SGCacheReportList
 Set-Alias -Name List-SGFileShares -Value Get-SGFileShareList
 Set-Alias -Name List-SGFileShareList -Value Get-SGFileShareList
 Set-Alias -Name SG-ListFileShares -Value Get-SGFileShareList
@@ -29724,6 +29735,7 @@ Set-Alias -Name SG-SetSMBGuestPassword -Value Set-SGSMBGuestPassword
 Set-Alias -Name Shutdown-SGGateway -Value Stop-SGGateway
 Set-Alias -Name SG-ShutdownGateway -Value Stop-SGGateway
 Set-Alias -Name SG-StartAvailabilityMonitorTest -Value Start-SGAvailabilityMonitorTest
+Set-Alias -Name SG-StartCacheReport -Value Start-SGCacheReport
 Set-Alias -Name SG-StartGateway -Value Start-SGGateway
 Set-Alias -Name SG-UpdateAutomaticTapeCreationPolicy -Value Update-SGAutomaticTapeCreationPolicy
 Set-Alias -Name SG-UpdateBandwidthRateLimit -Value Update-SGBandwidthRateLimit
