@@ -883,6 +883,7 @@ $CONN_SelectMap = @{
                "Import-CONNPhoneNumber",
                "Get-CONNAgentStatusList",
                "Get-CONNAnalyticsDataAssociationList",
+               "Get-CONNAnalyticsDataLakeDataSetList",
                "Get-CONNApprovedOriginList",
                "Get-CONNAssociatedContactList",
                "Get-CONNAuthenticationProfileList",

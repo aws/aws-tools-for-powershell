@@ -100,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String LexRegion { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -148,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter BotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -181,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.BotName != null)
             {
                 request.BotName = cmdletContext.BotName;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -252,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BotName { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String InstanceId { get; set; }
             public System.String LexRegion { get; set; }
             public System.Func<Amazon.Connect.Model.DisassociateLexBotResponse, RemoveCONNLexBotCmdlet, object> Select { get; set; } =

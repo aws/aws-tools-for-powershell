@@ -6830,6 +6830,9 @@ Set-Alias -Name CONN-ListAgentStatuses -Value Get-CONNAgentStatusList
 Set-Alias -Name List-CONNAnalyticsDataAssociations -Value Get-CONNAnalyticsDataAssociationList
 Set-Alias -Name List-CONNAnalyticsDataAssociationList -Value Get-CONNAnalyticsDataAssociationList
 Set-Alias -Name CONN-ListAnalyticsDataAssociations -Value Get-CONNAnalyticsDataAssociationList
+Set-Alias -Name List-CONNAnalyticsDataLakeDataSets -Value Get-CONNAnalyticsDataLakeDataSetList
+Set-Alias -Name List-CONNAnalyticsDataLakeDataSetList -Value Get-CONNAnalyticsDataLakeDataSetList
+Set-Alias -Name CONN-ListAnalyticsDataLakeDataSets -Value Get-CONNAnalyticsDataLakeDataSetList
 Set-Alias -Name List-CONNApprovedOrigins -Value Get-CONNApprovedOriginList
 Set-Alias -Name List-CONNApprovedOriginList -Value Get-CONNApprovedOriginList
 Set-Alias -Name CONN-ListApprovedOrigins -Value Get-CONNApprovedOriginList

@@ -28,8 +28,8 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources
-    /// that are associated with the specified web ACL. 
+    /// Retrieves an array of the Amazon Resource Names (ARNs) for the resources that are
+    /// associated with the specified web ACL. 
     /// 
     ///  
     /// <para>
@@ -57,10 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Used for web ACLs that are scoped for regional applications. A regional application
-        /// can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
-        /// GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web
-        /// Services Verified Access instance. </para><note><para>If you don't provide a resource type, the call uses the resource type <c>APPLICATION_LOAD_BALANCER</c>.
+        /// <para>Retrieves the web ACLs that are used by the specified resource type. </para><para>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call <c>ListDistributionsByWebACLId</c>.
+        /// For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
+        /// in the <i>Amazon CloudFront API Reference</i>. </para><note><para>If you don't provide a resource type, the call uses the resource type <c>APPLICATION_LOAD_BALANCER</c>.
         /// </para></note><para>Default: <c>APPLICATION_LOAD_BALANCER</c></para>
         /// </para>
         /// </summary>

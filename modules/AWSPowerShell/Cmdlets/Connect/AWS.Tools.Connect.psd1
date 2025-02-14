@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNAgentStatus', 
         'Get-CONNAgentStatusList', 
         'Get-CONNAnalyticsDataAssociationList', 
+        'Get-CONNAnalyticsDataLakeDataSetList', 
         'Get-CONNApprovedOriginList', 
         'Get-CONNAssociatedContactList', 
         'Get-CONNAttachedFile', 

@@ -31,7 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL,
     /// according to the configuration provided. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// If you configure data protection for the web ACL, the protection applies to the data
+    /// that WAF sends to the logs. 
+    /// </para><note><para>
     /// This operation completely replaces any mutable specifications that you already have
     /// for a logging configuration with the ones that you provide to this call. 
     /// </para><para>
@@ -176,12 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want to keep out of the logs.</para><para>For example, if you redact the <c>SingleHeader</c> field, the <c>HEADER</c> field
-        /// in the logs will be <c>REDACTED</c> for all rules that use the <c>SingleHeader</c><c>FieldToMatch</c> setting. </para><para>Redaction applies only to the component that's specified in the rule's <c>FieldToMatch</c>
+        /// in the logs will be <c>REDACTED</c> for all rules that use the <c>SingleHeader</c><c>FieldToMatch</c> setting. </para><para>If you configure data protection for the web ACL, the protection applies to the data
+        /// that WAF sends to the logs. </para><para>Redaction applies only to the component that's specified in the rule's <c>FieldToMatch</c>
         /// setting, so the <c>SingleHeader</c> redaction doesn't apply to rules that use the
         /// <c>Headers</c><c>FieldToMatch</c>.</para><note><para>You can specify only the following fields for redaction: <c>UriPath</c>, <c>QueryString</c>,
-        /// <c>SingleHeader</c>, and <c>Method</c>.</para></note><note><para>This setting has no impact on request sampling. With request sampling, the only way
-        /// to exclude fields is by disabling sampling in the web ACL visibility configuration.
-        /// </para></note>
+        /// <c>SingleHeader</c>, and <c>Method</c>.</para></note><note><para>This setting has no impact on request sampling. You can only exclude fields from request
+        /// sampling by disabling sampling in the web ACL visibility configuration or by configuring
+        /// data protection for the web ACL.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

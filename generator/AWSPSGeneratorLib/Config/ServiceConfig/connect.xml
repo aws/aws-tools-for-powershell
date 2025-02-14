@@ -564,6 +564,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAnalyticsDataLakeDataSets" OutputProperty="Results" Verb="Get" Noun="AnalyticsDataLakeDataSetList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListApprovedOrigins" OutputProperty="Origins" Verb="Get" Noun="ApprovedOriginList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

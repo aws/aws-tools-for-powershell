@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.982.0",
+    "ProductVersion"    : "3.7.983.0",
     "CoreVersion"       : "3.7.402.1",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.414.5",
+            "Version" : "3.7.415.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.405.3",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"
@@ -660,7 +660,7 @@
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.409.9",
+            "Version" : "3.7.410.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.417.12",
+            "Version" : "3.7.418.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"
@@ -1172,7 +1172,7 @@
             "InPreview"               : false
         },
         "RDSDataService"                  : {
-            "Version" : "3.7.401.42",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"
@@ -1556,7 +1556,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.402.59",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"
@@ -2852,7 +2852,7 @@
             "InPreview"               : false
         },
         "WorkSpacesThinClient"                : {
-            "Version" : "3.7.401.15",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.1"

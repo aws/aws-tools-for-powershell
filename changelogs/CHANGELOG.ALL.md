@@ -1,4 +1,29 @@
-﻿### 4.1.757 (2025-02-13 21:47Z)
+﻿### 4.1.758 (2025-02-14 21:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.983.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNAnalyticsDataLakeDataSetList leveraging the ListAnalyticsDataLakeDataSets service API.
+    * Modified cmdlet Add-CONNApprovedOrigin: added parameter ClientToken.
+    * Modified cmdlet Add-CONNBot: added parameter ClientToken.
+    * Modified cmdlet Add-CONNInstanceStorageConfig: added parameter ClientToken.
+    * Modified cmdlet Add-CONNLambdaFunction: added parameter ClientToken.
+    * Modified cmdlet Add-CONNLexBot: added parameter ClientToken.
+    * Modified cmdlet Add-CONNSecurityKey: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNApprovedOrigin: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNBot: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNInstance: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNInstanceStorageConfig: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNLambdaFunction: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNLexBot: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNSecurityKey: added parameter ClientToken.
+    * Modified cmdlet Update-CONNInstanceAttribute: added parameter ClientToken.
+    * Modified cmdlet Update-CONNInstanceStorageConfig: added parameter ClientToken.
+  * Amazon Database Migration Service
+    * Modified cmdlet Start-DMSReplication: added parameter PremigrationAssessmentSetting.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter DataProtectionConfig_DataProtection.
+    * Modified cmdlet Update-WAF2WebACL: added parameter DataProtectionConfig_DataProtection.
+
+### 4.1.757 (2025-02-13 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.982.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IAM Access Analyzer
     * Added cmdlet Get-IAMAAFindingsStatistic leveraging the GetFindingsStatistics service API.

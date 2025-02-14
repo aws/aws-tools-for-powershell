@@ -28,35 +28,20 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
-    /// Allows the specified Amazon Connect instance to access the specified Amazon Lex or
-    /// Amazon Lex V2 bot.
-    /// </para>
+    /// Lists the data lake datasets available to associate with for a given Amazon Connect
+    /// instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Add", "CONNBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service AssociateBot API operation.", Operation = new[] {"AssociateBot"}, SelectReturnType = typeof(Amazon.Connect.Model.AssociateBotResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.AssociateBotResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.AssociateBotResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "CONNAnalyticsDataLakeDataSetList")]
+    [OutputType("Amazon.Connect.Model.AnalyticsDataSetsResult")]
+    [AWSCmdlet("Calls the Amazon Connect Service ListAnalyticsDataLakeDataSets API operation.", Operation = new[] {"ListAnalyticsDataLakeDataSets"}, SelectReturnType = typeof(Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.AnalyticsDataSetsResult or Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse",
+        "This cmdlet returns a collection of Amazon.Connect.Model.AnalyticsDataSetsResult objects.",
+        "The service call response (type Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddCONNBotCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCONNAnalyticsDataLakeDataSetListCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter LexV2Bot_AliasArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LexV2Bot_AliasArn { get; set; }
-        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -76,47 +61,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter LexBot_LexRegion
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Region where the Amazon Lex bot was created.</para>
+        /// <para>The maximum number of results to return per page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LexBot_LexRegion { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter LexBot_Name
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon Lex bot.</para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LexBot_Name { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
-        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
-        /// retries safe with idempotent APIs</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.AssociateBotResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Results'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Results";
         #endregion
         
         #region Parameter PassThru
@@ -129,26 +108,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter NoAutoIteration
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CONNBot (AssociateBot)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -158,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateBotResponse, AddCONNBotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse, GetCONNAnalyticsDataLakeDataSetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -170,7 +143,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -178,9 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LexBot_LexRegion = this.LexBot_LexRegion;
-            context.LexBot_Name = this.LexBot_Name;
-            context.LexV2Bot_AliasArn = this.LexV2Bot_AliasArn;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,87 +165,67 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.Connect.Model.AssociateBotRequest();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
+            // create request and set iteration invariants
+            var request = new Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsRequest();
+            
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            
-             // populate LexBot
-            var requestLexBotIsNull = true;
-            request.LexBot = new Amazon.Connect.Model.LexBot();
-            System.String requestLexBot_lexBot_LexRegion = null;
-            if (cmdletContext.LexBot_LexRegion != null)
+            if (cmdletContext.MaxResult != null)
             {
-                requestLexBot_lexBot_LexRegion = cmdletContext.LexBot_LexRegion;
-            }
-            if (requestLexBot_lexBot_LexRegion != null)
-            {
-                request.LexBot.LexRegion = requestLexBot_lexBot_LexRegion;
-                requestLexBotIsNull = false;
-            }
-            System.String requestLexBot_lexBot_Name = null;
-            if (cmdletContext.LexBot_Name != null)
-            {
-                requestLexBot_lexBot_Name = cmdletContext.LexBot_Name;
-            }
-            if (requestLexBot_lexBot_Name != null)
-            {
-                request.LexBot.Name = requestLexBot_lexBot_Name;
-                requestLexBotIsNull = false;
-            }
-             // determine if request.LexBot should be set to null
-            if (requestLexBotIsNull)
-            {
-                request.LexBot = null;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
-             // populate LexV2Bot
-            var requestLexV2BotIsNull = true;
-            request.LexV2Bot = new Amazon.Connect.Model.LexV2Bot();
-            System.String requestLexV2Bot_lexV2Bot_AliasArn = null;
-            if (cmdletContext.LexV2Bot_AliasArn != null)
-            {
-                requestLexV2Bot_lexV2Bot_AliasArn = cmdletContext.LexV2Bot_AliasArn;
-            }
-            if (requestLexV2Bot_lexV2Bot_AliasArn != null)
-            {
-                request.LexV2Bot.AliasArn = requestLexV2Bot_lexV2Bot_AliasArn;
-                requestLexV2BotIsNull = false;
-            }
-             // determine if request.LexV2Bot should be set to null
-            if (requestLexV2BotIsNull)
-            {
-                request.LexV2Bot = null;
-            }
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            CmdletOutput output;
-            
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -286,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.AssociateBotResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.AssociateBotRequest request)
+        private Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateBot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListAnalyticsDataLakeDataSets");
             try
             {
                 #if DESKTOP
-                return client.AssociateBot(request);
+                return client.ListAnalyticsDataLakeDataSets(request);
                 #elif CORECLR
-                return client.AssociateBotAsync(request).GetAwaiter().GetResult();
+                return client.ListAnalyticsDataLakeDataSetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -314,13 +265,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String LexBot_LexRegion { get; set; }
-            public System.String LexBot_Name { get; set; }
-            public System.String LexV2Bot_AliasArn { get; set; }
-            public System.Func<Amazon.Connect.Model.AssociateBotResponse, AddCONNBotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.Connect.Model.ListAnalyticsDataLakeDataSetsResponse, GetCONNAnalyticsDataLakeDataSetListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Results;
         }
         
     }
