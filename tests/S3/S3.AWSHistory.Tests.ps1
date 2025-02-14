@@ -2,6 +2,7 @@ BeforeAll {
     . (Join-Path (Join-Path (Get-Location) "Include") "TestIncludes.ps1")
     . (Join-Path (Join-Path (Get-Location) "Include") "TestHelper.ps1")
     . (Join-Path (Join-Path (Get-Location) "Include") "ServiceTestHelper.ps1")
+    . (Join-Path (Join-Path (Get-Location) "Include") "RetryHelper.ps1")
     $helper = New-Object ServiceTestHelper
     $helper.BeforeAll()
 }
@@ -16,6 +17,13 @@ Describe -Tag "Smoke" "S3 AWSHistory Advanced Cmdlet" {
         $bucketName = "pstest-" + [DateTime]::Now.ToFileTime()
         $bucket = New-S3Bucket -BucketName $bucketName
         $kmsKey = New-KMSKey -KeySpec SYMMETRIC_DEFAULT -KeyUsage ENCRYPT_DECRYPT
+
+        $enabledKey = Invoke-WithRetry `
+            -ScriptBlock { Get-KMSKey -KeyId $kmsKey.KeyId } `
+            -ValidateBlock { param($result) $result.KeyState -eq 'Enabled' } `
+            -OperationName "KMS key creation" `
+            -Verbose
+
         $writeObjectParams = @{
             'BucketName'                                    = $bucketName
             'Key'                                           = 'test.txt'
