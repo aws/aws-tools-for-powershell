@@ -80,9 +80,18 @@ $TIDB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamInfluxDB.ClusterDeploymentType
+        "New-TIDBDbCluster/DeploymentType"
+        {
+            $v = "MULTI_NODE_READ_REPLICAS"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.DbInstanceType
         {
+            ($_ -eq "New-TIDBDbCluster/DbInstanceType") -Or
             ($_ -eq "New-TIDBDbInstance/DbInstanceType") -Or
+            ($_ -eq "Update-TIDBDbCluster/DbInstanceType") -Or
             ($_ -eq "Update-TIDBDbInstance/DbInstanceType")
         }
         {
@@ -92,6 +101,7 @@ $TIDB_Completers = {
 
         # Amazon.TimestreamInfluxDB.DbStorageType
         {
+            ($_ -eq "New-TIDBDbCluster/DbStorageType") -Or
             ($_ -eq "New-TIDBDbInstance/DbStorageType") -Or
             ($_ -eq "Update-TIDBDbInstance/DbStorageType")
         }
@@ -126,6 +136,16 @@ $TIDB_Completers = {
             break
         }
 
+        # Amazon.TimestreamInfluxDB.FailoverMode
+        {
+            ($_ -eq "New-TIDBDbCluster/FailoverMode") -Or
+            ($_ -eq "Update-TIDBDbCluster/FailoverMode")
+        }
+        {
+            $v = "AUTOMATIC","NO_FAILOVER"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.LogLevel
         "New-TIDBDbParameterGroup/InfluxDBv2_LogLevel"
         {
@@ -134,7 +154,10 @@ $TIDB_Completers = {
         }
 
         # Amazon.TimestreamInfluxDB.NetworkType
-        "New-TIDBDbInstance/NetworkType"
+        {
+            ($_ -eq "New-TIDBDbCluster/NetworkType") -Or
+            ($_ -eq "New-TIDBDbInstance/NetworkType")
+        }
         {
             $v = "DUAL","IPV4"
             break
@@ -156,16 +179,17 @@ $TIDB_Completers = {
 }
 
 $TIDB_map = @{
-    "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DbStorageType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
-    "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
+    "DbInstanceType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbCluster","Update-TIDBDbInstance")
+    "DbStorageType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbCluster","New-TIDBDbInstance","Update-TIDBDbInstance")
+    "FailoverMode"=@("New-TIDBDbCluster","Update-TIDBDbCluster")
     "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpReadTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "HttpWriteTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
-    "NetworkType"=@("New-TIDBDbInstance")
+    "NetworkType"=@("New-TIDBDbCluster","New-TIDBDbInstance")
     "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
     "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
@@ -222,16 +246,22 @@ $TIDB_SelectCompleters = {
 }
 
 $TIDB_SelectMap = @{
-    "Select"=@("New-TIDBDbInstance",
+    "Select"=@("New-TIDBDbCluster",
+               "New-TIDBDbInstance",
                "New-TIDBDbParameterGroup",
+               "Remove-TIDBDbCluster",
                "Remove-TIDBDbInstance",
+               "Get-TIDBDbCluster",
                "Get-TIDBDbInstance",
                "Get-TIDBDbParameterGroup",
+               "Get-TIDBDbClusterList",
                "Get-TIDBDbInstanceList",
+               "Get-TIDBDbInstancesForClusterList",
                "Get-TIDBDbParameterGroupList",
                "Get-TIDBResourceTag",
                "Add-TIDBResourceTag",
                "Remove-TIDBResourceTag",
+               "Update-TIDBDbCluster",
                "Update-TIDBDbInstance")
 }
 

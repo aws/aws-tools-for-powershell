@@ -114,6 +114,20 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String BuildSpec { get; set; }
         #endregion
         
+        #region Parameter ComputeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app.
+        /// The SSR Compute role allows the Amplify Hosting compute service to securely access
+        /// specific Amazon Web Services resources based on the role's permissions. For more information
+        /// about the SSR Compute role, see <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding
+        /// an SSR Compute role</a> in the <i>Amplify User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -328,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             }
             #endif
             context.BuildSpec = this.BuildSpec;
+            context.ComputeRoleArn = this.ComputeRoleArn;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.EnableAutoBuild = this.EnableAutoBuild;
@@ -401,6 +416,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.BuildSpec != null)
             {
                 request.BuildSpec = cmdletContext.BuildSpec;
+            }
+            if (cmdletContext.ComputeRoleArn != null)
+            {
+                request.ComputeRoleArn = cmdletContext.ComputeRoleArn;
             }
             if (cmdletContext.Description != null)
             {
@@ -517,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.String BasicAuthCredential { get; set; }
             public System.String BranchName { get; set; }
             public System.String BuildSpec { get; set; }
+            public System.String ComputeRoleArn { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.Boolean? EnableAutoBuild { get; set; }

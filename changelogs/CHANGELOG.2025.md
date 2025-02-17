@@ -1,4 +1,21 @@
-﻿### 4.1.758 (2025-02-14 21:50Z)
+﻿### 4.1.759 (2025-02-17 21:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.984.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPApp: added parameter ComputeRoleArn.
+    * Modified cmdlet New-AMPBranch: added parameter ComputeRoleArn.
+    * Modified cmdlet Update-AMPApp: added parameter ComputeRoleArn.
+    * Modified cmdlet Update-AMPBranch: added parameter ComputeRoleArn.
+  * Amazon Database Migration Service
+    * Modified cmdlet Get-DMSApplicableIndividualAssessment: added parameter ReplicationConfigArn.
+  * Amazon Timestream InfluxDB
+    * Added cmdlet Get-TIDBDbCluster leveraging the GetDbCluster service API.
+    * Added cmdlet Get-TIDBDbClusterList leveraging the ListDbClusters service API.
+    * Added cmdlet Get-TIDBDbInstancesForClusterList leveraging the ListDbInstancesForCluster service API.
+    * Added cmdlet New-TIDBDbCluster leveraging the CreateDbCluster service API.
+    * Added cmdlet Remove-TIDBDbCluster leveraging the DeleteDbCluster service API.
+    * Added cmdlet Update-TIDBDbCluster leveraging the UpdateDbCluster service API.
+
+### 4.1.758 (2025-02-14 21:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.983.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNAnalyticsDataLakeDataSetList leveraging the ListAnalyticsDataLakeDataSets service API.
