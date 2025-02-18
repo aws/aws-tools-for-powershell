@@ -1,4 +1,12 @@
-﻿### 4.1.759 (2025-02-17 21:35Z)
+﻿### 4.1.760 (2025-02-18 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.985.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * [Breaking Change] Modified cmdlet Start-EMLMonitorDeployment: removed parameter RequestId.
+  * Amazon EMR Containers
+    * Modified cmdlet New-EMRCManagedEndpoint: added parameters ManagedLogs_AllowAWSToRetainLog and ManagedLogs_EncryptionKeyArn.
+    * Modified cmdlet Start-EMRCJobRun: added parameters ManagedLogs_AllowAWSToRetainLog and ManagedLogs_EncryptionKeyArn.
+
+### 4.1.759 (2025-02-17 21:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.984.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPApp: added parameter ComputeRoleArn.

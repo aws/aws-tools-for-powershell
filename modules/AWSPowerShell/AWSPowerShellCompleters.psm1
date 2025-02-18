@@ -29669,6 +29669,16 @@ $EMRC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EMRContainers.AllowAWSToRetainLogs
+        {
+            ($_ -eq "New-EMRCManagedEndpoint/ManagedLogs_AllowAWSToRetainLog") -Or
+            ($_ -eq "Start-EMRCJobRun/ManagedLogs_AllowAWSToRetainLog")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.EMRContainers.CertificateProviderType
         "New-EMRCSecurityConfiguration/TlsCertificateConfiguration_CertificateProviderType"
         {
@@ -29707,6 +29717,7 @@ $EMRC_Completers = {
 $EMRC_map = @{
     "ContainerProvider_Type"=@("New-EMRCVirtualCluster")
     "ContainerProviderType"=@("Get-EMRCVirtualClusterList")
+    "ManagedLogs_AllowAWSToRetainLog"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "TlsCertificateConfiguration_CertificateProviderType"=@("New-EMRCSecurityConfiguration")
 }
@@ -47793,7 +47804,7 @@ $EML_Completers = {
             ($_ -eq "Update-EMLCloudWatchAlarmTemplate/TargetResourceType")
         }
         {
-            $v = "CLOUDFRONT_DISTRIBUTION","MEDIACONNECT_FLOW","MEDIALIVE_CHANNEL","MEDIALIVE_INPUT_DEVICE","MEDIALIVE_MULTIPLEX","MEDIAPACKAGE_CHANNEL","MEDIAPACKAGE_ORIGIN_ENDPOINT","S3_BUCKET"
+            $v = "CLOUDFRONT_DISTRIBUTION","MEDIACONNECT_FLOW","MEDIALIVE_CHANNEL","MEDIALIVE_INPUT_DEVICE","MEDIALIVE_MULTIPLEX","MEDIAPACKAGE_CHANNEL","MEDIAPACKAGE_ORIGIN_ENDPOINT","MEDIATAILOR_PLAYBACK_CONFIGURATION","S3_BUCKET"
             break
         }
 

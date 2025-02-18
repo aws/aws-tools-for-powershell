@@ -411,8 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><c>--memory-swap</c> details</a> in the Docker documentation.</para><para>If a <c>maxSwap</c> value of <c>0</c> is specified, the container doesn't use swap.
         /// Accepted values are <c>0</c> or any positive integer. If the <c>maxSwap</c> parameter
         /// is omitted, the container doesn't use the swap configuration for the container instance
-        /// that it's running on. A <c>maxSwap</c> value must be set for the <c>swappiness</c>
-        /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// on which it runs. A <c>maxSwap</c> value must be set for the <c>swappiness</c> parameter
+        /// to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
         /// </summary>
@@ -616,7 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The scheduling priority for jobs that are submitted with this job definition. This
-        /// only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling
+        /// only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling
         /// priority are scheduled before jobs with a lower scheduling priority.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
         /// </para>
         /// </summary>
