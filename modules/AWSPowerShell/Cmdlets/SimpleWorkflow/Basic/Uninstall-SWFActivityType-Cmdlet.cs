@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SimpleWorkflow;
 using Amazon.SimpleWorkflow.Model;
 
@@ -68,6 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Domain
         /// <summary>
@@ -140,6 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -269,13 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Simple Workflow Service (SWF)", "DeleteActivityType");
             try
             {
-                #if DESKTOP
-                return client.DeleteActivityType(request);
-                #elif CORECLR
-                return client.DeleteActivityTypeAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteActivityTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

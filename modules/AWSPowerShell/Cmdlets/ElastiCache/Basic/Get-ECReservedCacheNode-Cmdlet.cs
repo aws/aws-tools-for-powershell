@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ElastiCache;
 using Amazon.ElastiCache.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CacheNodeType
         /// <summary>
@@ -191,6 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -438,13 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "DescribeReservedCacheNodes");
             try
             {
-                #if DESKTOP
-                return client.DescribeReservedCacheNodes(request);
-                #elif CORECLR
-                return client.DescribeReservedCacheNodesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeReservedCacheNodesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

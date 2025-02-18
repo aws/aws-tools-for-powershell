@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ElasticLoadBalancing;
 using Amazon.ElasticLoadBalancing.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter LoadBalancerName
         /// <summary>
@@ -108,6 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -320,13 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing", "DescribeLoadBalancers");
             try
             {
-                #if DESKTOP
-                return client.DescribeLoadBalancers(request);
-                #elif CORECLR
-                return client.DescribeLoadBalancersAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeLoadBalancersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

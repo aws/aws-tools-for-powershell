@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SimpleEmailV2;
 using Amazon.SimpleEmailV2.Model;
 
@@ -53,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ConfigurationSetName
         /// <summary>
@@ -120,6 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -222,13 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "SendCustomVerificationEmail");
             try
             {
-                #if DESKTOP
-                return client.SendCustomVerificationEmail(request);
-                #elif CORECLR
-                return client.SendCustomVerificationEmailAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.SendCustomVerificationEmailAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

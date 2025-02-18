@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BedrockAgent;
 using Amazon.BedrockAgent.Model;
 
@@ -44,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     public partial class AddAABKnowledgeBaseDocumentCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DataSourceId
         /// <summary>
@@ -135,6 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -251,13 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Agents for Amazon Bedrock", "IngestKnowledgeBaseDocuments");
             try
             {
-                #if DESKTOP
-                return client.IngestKnowledgeBaseDocuments(request);
-                #elif CORECLR
-                return client.IngestKnowledgeBaseDocumentsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.IngestKnowledgeBaseDocumentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

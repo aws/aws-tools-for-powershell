@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Glue;
 using Amazon.Glue.Model;
 
@@ -55,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter FindMatchesParameters_AccuracyCostTradeoff
         /// <summary>
@@ -359,6 +361,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -659,13 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "CreateMLTransform");
             try
             {
-                #if DESKTOP
-                return client.CreateMLTransform(request);
-                #elif CORECLR
-                return client.CreateMLTransformAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateMLTransformAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

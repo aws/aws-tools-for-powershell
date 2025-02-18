@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Comprehend;
 using Amazon.Comprehend.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClientRequestToken
         /// <summary>
@@ -157,6 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -282,13 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "CreateEndpoint");
             try
             {
-                #if DESKTOP
-                return client.CreateEndpoint(request);
-                #elif CORECLR
-                return client.CreateEndpointAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

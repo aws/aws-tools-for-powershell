@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -67,6 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BucketName
         /// <summary>
@@ -143,6 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3";
@@ -279,13 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutBucketMetricsConfiguration");
             try
             {
-                #if DESKTOP
-                return client.PutBucketMetricsConfiguration(request);
-                #elif CORECLR
-                return client.PutBucketMetricsConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutBucketMetricsConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Transfer;
 using Amazon.Transfer.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AgreementId
         /// <summary>
@@ -88,6 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public string Select { get; set; } = "Agreement";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -179,13 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "DescribeAgreement");
             try
             {
-                #if DESKTOP
-                return client.DescribeAgreement(request);
-                #elif CORECLR
-                return client.DescribeAgreementAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeAgreementAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

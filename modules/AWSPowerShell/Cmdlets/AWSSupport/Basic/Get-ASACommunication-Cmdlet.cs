@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AWSSupport;
 using Amazon.AWSSupport.Model;
 
@@ -61,6 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AfterTime
         /// <summary>
@@ -153,6 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -386,13 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support", "DescribeCommunications");
             try
             {
-                #if DESKTOP
-                return client.DescribeCommunications(request);
-                #elif CORECLR
-                return client.DescribeCommunicationsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeCommunicationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QConnect;
 using Amazon.QConnect.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AssistantId
         /// <summary>
@@ -179,6 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -359,13 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "QueryAssistant");
             try
             {
-                #if DESKTOP
-                return client.QueryAssistant(request);
-                #elif CORECLR
-                return client.QueryAssistantAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.QueryAssistantAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

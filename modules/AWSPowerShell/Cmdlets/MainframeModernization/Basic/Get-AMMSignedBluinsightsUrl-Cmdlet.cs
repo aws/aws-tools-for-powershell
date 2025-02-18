@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MainframeModernization;
 using Amazon.MainframeModernization.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -53,6 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public string Select { get; set; } = "SignedBiUrl";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -122,13 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "M2", "GetSignedBluinsightsUrl");
             try
             {
-                #if DESKTOP
-                return client.GetSignedBluinsightsUrl(request);
-                #elif CORECLR
-                return client.GetSignedBluinsightsUrlAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetSignedBluinsightsUrlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AutoScalingPlans;
 using Amazon.AutoScalingPlans.Model;
 
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationSource_CloudFormationStackARN
         /// <summary>
@@ -135,6 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -274,13 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling Plans", "UpdateScalingPlan");
             try
             {
-                #if DESKTOP
-                return client.UpdateScalingPlan(request);
-                #elif CORECLR
-                return client.UpdateScalingPlanAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateScalingPlanAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

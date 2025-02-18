@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ECR;
 using Amazon.ECR.Model;
 
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AcceptedMediaType
         /// <summary>
@@ -118,6 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -225,13 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchGetImage");
             try
             {
-                #if DESKTOP
-                return client.BatchGetImage(request);
-                #elif CORECLR
-                return client.BatchGetImageAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.BatchGetImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

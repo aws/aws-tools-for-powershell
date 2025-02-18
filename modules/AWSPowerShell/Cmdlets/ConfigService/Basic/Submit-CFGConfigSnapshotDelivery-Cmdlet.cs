@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ConfigService;
 using Amazon.ConfigService.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DeliveryChannelName
         /// <summary>
@@ -90,6 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -176,13 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "DeliverConfigSnapshot");
             try
             {
-                #if DESKTOP
-                return client.DeliverConfigSnapshot(request);
-                #elif CORECLR
-                return client.DeliverConfigSnapshotAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeliverConfigSnapshotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

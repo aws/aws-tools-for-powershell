@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.B2bi;
 using Amazon.B2bi.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter InterchangeControlHeaders_AcknowledgmentRequestedCode
         /// <summary>
@@ -268,6 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -620,13 +627,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS B2B Data Interchange", "UpdatePartnership");
             try
             {
-                #if DESKTOP
-                return client.UpdatePartnership(request);
-                #elif CORECLR
-                return client.UpdatePartnershipAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdatePartnershipAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

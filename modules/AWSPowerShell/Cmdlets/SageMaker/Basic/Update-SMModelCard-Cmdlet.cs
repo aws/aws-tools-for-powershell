@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SageMaker;
 using Amazon.SageMaker.Model;
 
@@ -45,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Content
         /// <summary>
@@ -109,6 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -205,13 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateModelCard");
             try
             {
-                #if DESKTOP
-                return client.UpdateModelCard(request);
-                #elif CORECLR
-                return client.UpdateModelCardAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateModelCardAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

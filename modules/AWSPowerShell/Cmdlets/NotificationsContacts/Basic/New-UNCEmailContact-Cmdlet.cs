@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.NotificationsContacts;
 using Amazon.NotificationsContacts.Model;
 
@@ -40,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.UNC
     public partial class NewUNCEmailContactCmdlet : AmazonNotificationsContactsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EmailAddress
         /// <summary>
@@ -112,6 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.UNC
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -221,13 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.UNC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS User Notifications Contacts", "CreateEmailContact");
             try
             {
-                #if DESKTOP
-                return client.CreateEmailContact(request);
-                #elif CORECLR
-                return client.CreateEmailContactAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateEmailContactAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

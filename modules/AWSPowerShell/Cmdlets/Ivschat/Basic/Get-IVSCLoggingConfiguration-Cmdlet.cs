@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Ivschat;
 using Amazon.Ivschat.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Identifier
         /// <summary>
@@ -69,6 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -149,13 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service Chat", "GetLoggingConfiguration");
             try
             {
-                #if DESKTOP
-                return client.GetLoggingConfiguration(request);
-                #elif CORECLR
-                return client.GetLoggingConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetLoggingConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

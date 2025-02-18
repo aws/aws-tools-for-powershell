@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ElasticInference;
 using Amazon.ElasticInference.Model;
 
@@ -46,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AcceleratorType
         /// <summary>
@@ -90,6 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.EI
         public string Select { get; set; } = "AcceleratorTypeOfferings";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -178,13 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Inference", "DescribeAcceleratorOfferings");
             try
             {
-                #if DESKTOP
-                return client.DescribeAcceleratorOfferings(request);
-                #elif CORECLR
-                return client.DescribeAcceleratorOfferingsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeAcceleratorOfferingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

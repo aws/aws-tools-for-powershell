@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ServiceQuotas;
 using Amazon.ServiceQuotas.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AwsRegion
         /// <summary>
@@ -108,6 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         public string Select { get; set; } = "ServiceQuotaIncreaseRequestInTemplate";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Quotas", "GetServiceQuotaIncreaseRequestFromTemplate");
             try
             {
-                #if DESKTOP
-                return client.GetServiceQuotaIncreaseRequestFromTemplate(request);
-                #elif CORECLR
-                return client.GetServiceQuotaIncreaseRequestFromTemplateAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetServiceQuotaIncreaseRequestFromTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

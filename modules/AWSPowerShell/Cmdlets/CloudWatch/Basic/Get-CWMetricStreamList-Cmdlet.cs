@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CloudWatch;
 using Amazon.CloudWatch.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -89,6 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -190,13 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "ListMetricStreams");
             try
             {
-                #if DESKTOP
-                return client.ListMetricStreams(request);
-                #elif CORECLR
-                return client.ListMetricStreamsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListMetricStreamsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Pricing;
 using Amazon.Pricing.Model;
 
@@ -53,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CurrencyCode
         /// <summary>
@@ -172,6 +174,11 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -311,13 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Price List Service", "ListPriceLists");
             try
             {
-                #if DESKTOP
-                return client.ListPriceLists(request);
-                #elif CORECLR
-                return client.ListPriceListsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListPriceListsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

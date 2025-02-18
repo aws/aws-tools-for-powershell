@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Deadline;
 using Amazon.Deadline.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter FarmId
         /// <summary>
@@ -115,16 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public string Select { get; set; } = "QueueLimitAssociations";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FarmId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FarmId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FarmId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -135,21 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Deadline.Model.ListQueueLimitAssociationsResponse, GetADCQueueLimitAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.FarmId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FarmId = this.FarmId;
             #if MODULAR
             if (this.FarmId == null && ParameterWasBound(nameof(this.FarmId)))
@@ -235,13 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "ListQueueLimitAssociations");
             try
             {
-                #if DESKTOP
-                return client.ListQueueLimitAssociations(request);
-                #elif CORECLR
-                return client.ListQueueLimitAssociationsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListQueueLimitAssociationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

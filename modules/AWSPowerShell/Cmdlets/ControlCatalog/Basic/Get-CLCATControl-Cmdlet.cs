@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ControlCatalog;
 using Amazon.ControlCatalog.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ControlArn
         /// <summary>
@@ -81,6 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -161,13 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CLCAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Catalog", "GetControl");
             try
             {
-                #if DESKTOP
-                return client.GetControl(request);
-                #elif CORECLR
-                return client.GetControlAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetControlAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

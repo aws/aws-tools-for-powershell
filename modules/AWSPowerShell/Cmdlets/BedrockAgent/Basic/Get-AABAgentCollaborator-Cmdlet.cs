@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BedrockAgent;
 using Amazon.BedrockAgent.Model;
 
@@ -40,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     public partial class GetAABAgentCollaboratorCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AgentId
         /// <summary>
@@ -106,16 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public string Select { get; set; } = "AgentCollaborator";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AgentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AgentId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgentId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -126,21 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.GetAgentCollaboratorResponse, GetAABAgentCollaboratorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AgentId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AgentId = this.AgentId;
             #if MODULAR
             if (this.AgentId == null && ParameterWasBound(nameof(this.AgentId)))
@@ -228,13 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Agents for Amazon Bedrock", "GetAgentCollaborator");
             try
             {
-                #if DESKTOP
-                return client.GetAgentCollaborator(request);
-                #elif CORECLR
-                return client.GetAgentCollaboratorAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetAgentCollaboratorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

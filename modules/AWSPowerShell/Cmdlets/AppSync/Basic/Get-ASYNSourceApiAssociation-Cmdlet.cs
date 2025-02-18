@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AppSync;
 using Amazon.AppSync.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AssociationId
         /// <summary>
@@ -90,6 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public string Select { get; set; } = "SourceApiAssociation";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -181,13 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "GetSourceApiAssociation");
             try
             {
-                #if DESKTOP
-                return client.GetSourceApiAssociation(request);
-                #elif CORECLR
-                return client.GetSourceApiAssociationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetSourceApiAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

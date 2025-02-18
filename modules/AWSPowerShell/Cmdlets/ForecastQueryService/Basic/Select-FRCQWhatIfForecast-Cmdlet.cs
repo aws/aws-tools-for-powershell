@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ForecastQueryService;
 using Amazon.ForecastQueryService.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EndDate
         /// <summary>
@@ -134,6 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -253,13 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Forecast Query Service", "QueryWhatIfForecast");
             try
             {
-                #if DESKTOP
-                return client.QueryWhatIfForecast(request);
-                #elif CORECLR
-                return client.QueryWhatIfForecastAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.QueryWhatIfForecastAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

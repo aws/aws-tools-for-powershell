@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ControlTower;
 using Amazon.ControlTower.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EnabledBaselineIdentifier
         /// <summary>
@@ -82,6 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -168,13 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "ResetEnabledBaseline");
             try
             {
-                #if DESKTOP
-                return client.ResetEnabledBaseline(request);
-                #elif CORECLR
-                return client.ResetEnabledBaselineAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ResetEnabledBaselineAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

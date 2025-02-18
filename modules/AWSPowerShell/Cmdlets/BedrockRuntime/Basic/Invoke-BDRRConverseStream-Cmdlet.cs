@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BedrockRuntime;
 using Amazon.BedrockRuntime.Model;
 
@@ -90,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     public partial class InvokeBDRRConverseStreamCmdlet : AmazonBedrockRuntimeClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AdditionalModelRequestField
         /// <summary>
@@ -373,6 +373,11 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -727,13 +732,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Runtime", "ConverseStream");
             try
             {
-                #if DESKTOP
-                return client.ConverseStream(request);
-                #elif CORECLR
-                return client.ConverseStreamAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ConverseStreamAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

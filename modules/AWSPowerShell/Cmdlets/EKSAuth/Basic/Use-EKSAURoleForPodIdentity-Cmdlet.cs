@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EKSAuth;
 using Amazon.EKSAuth.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClusterName
         /// <summary>
@@ -94,6 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -185,13 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EKS Auth", "AssumeRoleForPodIdentity");
             try
             {
-                #if DESKTOP
-                return client.AssumeRoleForPodIdentity(request);
-                #elif CORECLR
-                return client.AssumeRoleForPodIdentityAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.AssumeRoleForPodIdentityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

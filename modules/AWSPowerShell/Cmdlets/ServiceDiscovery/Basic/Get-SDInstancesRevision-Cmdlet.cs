@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ServiceDiscovery;
 using Amazon.ServiceDiscovery.Model;
 
@@ -34,13 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.SD
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the AWS Cloud Map DiscoverInstancesRevision API operation.", Operation = new[] {"DiscoverInstancesRevision"}, SelectReturnType = typeof(Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse",
-        "This cmdlet returns a System.Int64 object.",
+        "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.ServiceDiscovery.Model.DiscoverInstancesRevisionResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetSDInstancesRevisionCmdlet : AmazonServiceDiscoveryClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter NamespaceName
         /// <summary>
@@ -88,6 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         public string Select { get; set; } = "InstancesRevision";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -179,13 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Map", "DiscoverInstancesRevision");
             try
             {
-                #if DESKTOP
-                return client.DiscoverInstancesRevision(request);
-                #elif CORECLR
-                return client.DiscoverInstancesRevisionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DiscoverInstancesRevisionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.StepFunctions;
 using Amazon.StepFunctions.Model;
 
@@ -54,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EncryptionConfiguration_KmsDataKeyReusePeriodSecond
         /// <summary>
@@ -148,6 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -284,13 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "CreateActivity");
             try
             {
-                #if DESKTOP
-                return client.CreateActivity(request);
-                #elif CORECLR
-                return client.CreateActivityAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateActivityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

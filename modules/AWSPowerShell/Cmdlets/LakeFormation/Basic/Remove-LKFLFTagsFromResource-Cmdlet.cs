@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LakeFormation;
 using Amazon.LakeFormation.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CatalogId
         /// <summary>
@@ -407,6 +409,11 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -969,13 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "RemoveLFTagsFromResource");
             try
             {
-                #if DESKTOP
-                return client.RemoveLFTagsFromResource(request);
-                #elif CORECLR
-                return client.RemoveLFTagsFromResourceAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RemoveLFTagsFromResourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

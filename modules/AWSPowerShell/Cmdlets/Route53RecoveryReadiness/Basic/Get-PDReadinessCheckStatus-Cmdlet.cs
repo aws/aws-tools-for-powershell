@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Route53RecoveryReadiness;
 using Amazon.Route53RecoveryReadiness.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ReadinessCheckName
         /// <summary>
@@ -92,6 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.PD
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -182,13 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.PD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route53 Recovery Readiness", "GetReadinessCheckStatus");
             try
             {
-                #if DESKTOP
-                return client.GetReadinessCheckStatus(request);
-                #elif CORECLR
-                return client.GetReadinessCheckStatusAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetReadinessCheckStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

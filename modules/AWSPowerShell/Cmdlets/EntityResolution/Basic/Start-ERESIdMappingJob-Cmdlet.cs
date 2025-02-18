@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EntityResolution;
 using Amazon.EntityResolution.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter OutputSourceConfig
         /// <summary>
@@ -91,6 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -185,13 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "StartIdMappingJob");
             try
             {
-                #if DESKTOP
-                return client.StartIdMappingJob(request);
-                #elif CORECLR
-                return client.StartIdMappingJobAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartIdMappingJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

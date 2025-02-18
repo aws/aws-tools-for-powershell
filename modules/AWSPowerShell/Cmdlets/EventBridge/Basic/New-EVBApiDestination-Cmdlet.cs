@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EventBridge;
 using Amazon.EventBridge.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ConnectionArn
         /// <summary>
@@ -160,6 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -289,13 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EventBridge", "CreateApiDestination");
             try
             {
-                #if DESKTOP
-                return client.CreateApiDestination(request);
-                #elif CORECLR
-                return client.CreateApiDestinationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateApiDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

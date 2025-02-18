@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CodeDeploy;
 using Amazon.CodeDeploy.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DeploymentId
         /// <summary>
@@ -78,6 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public string Select { get; set; } = "DeploymentInfo";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -158,13 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeDeploy", "GetDeployment");
             try
             {
-                #if DESKTOP
-                return client.GetDeployment(request);
-                #elif CORECLR
-                return client.GetDeploymentAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetDeploymentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Account;
 using Amazon.Account.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccountId
         /// <summary>
@@ -93,6 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         public string Select { get; set; } = "RegionOptStatus";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -178,13 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetRegionOptStatus");
             try
             {
-                #if DESKTOP
-                return client.GetRegionOptStatus(request);
-                #elif CORECLR
-                return client.GetRegionOptStatusAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetRegionOptStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

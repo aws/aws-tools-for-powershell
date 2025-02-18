@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkSpacesWeb;
 using Amazon.WorkSpacesWeb.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AdditionalEncryptionContext
         /// <summary>
@@ -147,6 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -276,13 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "CreateIpAccessSettings");
             try
             {
-                #if DESKTOP
-                return client.CreateIpAccessSettings(request);
-                #elif CORECLR
-                return client.CreateIpAccessSettingsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateIpAccessSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkMailMessageFlow;
 using Amazon.WorkMailMessageFlow.Model;
 
@@ -54,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter S3Reference_Bucket
         /// <summary>
@@ -139,6 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -294,13 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkMail Message Flow", "PutRawMessageContent");
             try
             {
-                #if DESKTOP
-                return client.PutRawMessageContent(request);
-                #elif CORECLR
-                return client.PutRawMessageContentAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutRawMessageContentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

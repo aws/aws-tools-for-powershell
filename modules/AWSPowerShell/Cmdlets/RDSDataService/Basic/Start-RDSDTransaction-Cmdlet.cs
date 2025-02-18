@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.RDSDataService;
 using Amazon.RDSDataService.Model;
 
@@ -53,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Database
         /// <summary>
@@ -129,6 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -236,13 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS RDS DataService", "BeginTransaction");
             try
             {
-                #if DESKTOP
-                return client.BeginTransaction(request);
-                #elif CORECLR
-                return client.BeginTransactionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.BeginTransactionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

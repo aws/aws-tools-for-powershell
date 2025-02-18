@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ECRPublic;
 using Amazon.ECRPublic.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter RegistryId
         /// <summary>
@@ -111,6 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         public string Select { get; set; } = "Repositories";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -203,13 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry Public", "DescribeRepositories");
             try
             {
-                #if DESKTOP
-                return client.DescribeRepositories(request);
-                #elif CORECLR
-                return client.DescribeRepositoriesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeRepositoriesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

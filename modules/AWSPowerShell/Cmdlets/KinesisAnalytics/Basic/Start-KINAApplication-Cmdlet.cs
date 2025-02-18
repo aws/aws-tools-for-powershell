@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.KinesisAnalytics;
 using Amazon.KinesisAnalytics.Model;
 
@@ -63,6 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationName
         /// <summary>
@@ -122,6 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -222,13 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "StartApplication");
             try
             {
-                #if DESKTOP
-                return client.StartApplication(request);
-                #elif CORECLR
-                return client.StartApplicationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartApplicationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

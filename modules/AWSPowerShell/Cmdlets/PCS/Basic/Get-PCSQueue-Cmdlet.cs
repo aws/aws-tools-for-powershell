@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PCS;
 using Amazon.PCS.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClusterIdentifier
         /// <summary>
@@ -88,6 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         public string Select { get; set; } = "Queue";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -179,13 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.PCS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "GetQueue");
             try
             {
-                #if DESKTOP
-                return client.GetQueue(request);
-                #elif CORECLR
-                return client.GetQueueAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetQueueAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -29,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// This implementation of the <c>GET</c> action uses the <c>acl</c> subresource to return
     /// the access control list (ACL) of a bucket. To use <c>GET</c> to return the ACL of
@@ -60,12 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) GetBucketAcl API operation.", Operation = new[] {"GetBucketAcl"}, SelectReturnType = typeof(Amazon.S3.Model.GetBucketAclResponse))]
     [AWSCmdletOutput("Amazon.S3.Model.S3Grant or Amazon.S3.Model.GetBucketAclResponse",
         "This cmdlet returns a collection of Amazon.S3.Model.S3Grant objects.",
-        "The service call response (type Amazon.S3.Model.GetBucketAclResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketAclResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetS3BucketACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BucketName
         /// <summary>
@@ -105,6 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "Grants";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3";
@@ -184,13 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetBucketAcl");
             try
             {
-                #if DESKTOP
-                return client.GetBucketAcl(request);
-                #elif CORECLR
-                return client.GetBucketAclAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetBucketAclAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

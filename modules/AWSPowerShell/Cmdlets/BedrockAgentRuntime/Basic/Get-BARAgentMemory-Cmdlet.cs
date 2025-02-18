@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BedrockAgentRuntime;
 using Amazon.BedrockAgentRuntime.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AgentAliasId
         /// <summary>
@@ -146,6 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public string Select { get; set; } = "MemoryContents";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -269,13 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Runtime", "GetAgentMemory");
             try
             {
-                #if DESKTOP
-                return client.GetAgentMemory(request);
-                #elif CORECLR
-                return client.GetAgentMemoryAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetAgentMemoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

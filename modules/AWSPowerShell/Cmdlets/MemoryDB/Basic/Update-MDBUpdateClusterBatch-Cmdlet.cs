@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MemoryDB;
 using Amazon.MemoryDB.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClusterName
         /// <summary>
@@ -92,6 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -201,13 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MemoryDB", "BatchUpdateCluster");
             try
             {
-                #if DESKTOP
-                return client.BatchUpdateCluster(request);
-                #elif CORECLR
-                return client.BatchUpdateClusterAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.BatchUpdateClusterAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

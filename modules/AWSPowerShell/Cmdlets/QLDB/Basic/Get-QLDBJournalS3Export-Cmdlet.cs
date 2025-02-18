@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QLDB;
 using Amazon.QLDB.Model;
 
@@ -53,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ExportId
         /// <summary>
@@ -99,6 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         public string Select { get; set; } = "ExportDescription";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -190,13 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QLDB", "DescribeJournalS3Export");
             try
             {
-                #if DESKTOP
-                return client.DescribeJournalS3Export(request);
-                #elif CORECLR
-                return client.DescribeJournalS3ExportAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeJournalS3ExportAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

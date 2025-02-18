@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Proton;
 using Amazon.Proton.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Filter
         /// <summary>
@@ -121,6 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public string Select { get; set; } = "ServiceInstances";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -223,13 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "ListServiceInstances");
             try
             {
-                #if DESKTOP
-                return client.ListServiceInstances(request);
-                #elif CORECLR
-                return client.ListServiceInstancesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListServiceInstancesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

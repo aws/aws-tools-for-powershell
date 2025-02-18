@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.RDS;
 using Amazon.RDS.Model;
 
@@ -57,6 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AllocatedStorage
         /// <summary>
@@ -461,14 +463,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
-        #region Parameter UtcRestoreTime
+        #region Parameter RestoreTime
         /// <summary>
         /// <para>
         /// <para>The date and time to restore from.</para><para>Constraints:</para><ul><li><para>Must be a time in Universal Coordinated Time (UTC) format.</para></li><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Can't be specified if the <c>UseLatestRestorableTime</c> parameter is enabled.</para></li></ul><para>Example: <c>2009-09-07T23:45:00Z</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? UtcRestoreTime { get; set; }
+        public System.DateTime? RestoreTime { get; set; }
         #endregion
         
         #region Parameter SourceDBInstanceAutomatedBackupsArn
@@ -605,23 +607,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] VpcSecurityGroupId { get; set; }
         #endregion
         
-        #region Parameter RestoreTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use RestoreTimeUtc instead. Setting either RestoreTime
-        /// or RestoreTimeUtc results in both RestoreTime and RestoreTimeUtc being assigned, the
-        /// latest assignment to either one of the two property is reflected in the value of both.
-        /// RestoreTime is provided for backwards compatibility only and assigning a non-Utc DateTime
-        /// to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore from.</para><para>Constraints:</para><ul><li><para>Must be a time in Universal Coordinated Time (UTC) format.</para></li><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Can't be specified if the <c>UseLatestRestorableTime</c> parameter is enabled.</para></li></ul><para>Example: <c>2009-09-07T23:45:00Z</c></para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcRestoreTime instead.")]
-        public System.DateTime? RestoreTime { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DBInstance'.
@@ -643,6 +628,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -706,7 +696,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.ProcessorFeature = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
             }
             context.PubliclyAccessible = this.PubliclyAccessible;
-            context.UtcRestoreTime = this.UtcRestoreTime;
+            context.RestoreTime = this.RestoreTime;
             context.SourceDBInstanceAutomatedBackupsArn = this.SourceDBInstanceAutomatedBackupsArn;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
             context.SourceDbiResourceId = this.SourceDbiResourceId;
@@ -731,9 +721,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RestoreTime = this.RestoreTime;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -882,9 +869,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
-            if (cmdletContext.UtcRestoreTime != null)
+            if (cmdletContext.RestoreTime != null)
             {
-                request.RestoreTimeUtc = cmdletContext.UtcRestoreTime.Value;
+                request.RestoreTime = cmdletContext.RestoreTime.Value;
             }
             if (cmdletContext.SourceDBInstanceAutomatedBackupsArn != null)
             {
@@ -934,16 +921,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.RestoreTime != null)
-            {
-                if (cmdletContext.UtcRestoreTime != null)
-                {
-                    throw new System.ArgumentException("Parameters RestoreTime and UtcRestoreTime are mutually exclusive.", nameof(this.RestoreTime));
-                }
-                request.RestoreTime = cmdletContext.RestoreTime.Value;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -982,13 +959,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RestoreDBInstanceToPointInTime");
             try
             {
-                #if DESKTOP
-                return client.RestoreDBInstanceToPointInTime(request);
-                #elif CORECLR
-                return client.RestoreDBInstanceToPointInTimeAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RestoreDBInstanceToPointInTimeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1038,7 +1009,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
-            public System.DateTime? UtcRestoreTime { get; set; }
+            public System.DateTime? RestoreTime { get; set; }
             public System.String SourceDBInstanceAutomatedBackupsArn { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
             public System.String SourceDbiResourceId { get; set; }
@@ -1051,8 +1022,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? UseDefaultProcessorFeature { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
-            [System.ObsoleteAttribute]
-            public System.DateTime? RestoreTime { get; set; }
             public System.Func<Amazon.RDS.Model.RestoreDBInstanceToPointInTimeResponse, RestoreRDSDBInstanceToPointInTimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBInstance;
         }

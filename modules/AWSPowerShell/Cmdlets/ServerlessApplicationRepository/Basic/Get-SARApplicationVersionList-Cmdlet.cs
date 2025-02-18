@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ServerlessApplicationRepository;
 using Amazon.ServerlessApplicationRepository.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationId
         /// <summary>
@@ -110,6 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -325,13 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Serverless Application Repository", "ListApplicationVersions");
             try
             {
-                #if DESKTOP
-                return client.ListApplicationVersions(request);
-                #elif CORECLR
-                return client.ListApplicationVersionsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListApplicationVersionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

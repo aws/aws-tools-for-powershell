@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MediaStoreData;
 using Amazon.MediaStoreData.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Body
         /// <summary>
@@ -157,6 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -287,13 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaStore Data Plane", "PutObject");
             try
             {
-                #if DESKTOP
-                return client.PutObject(request);
-                #elif CORECLR
-                return client.PutObjectAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutObjectAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

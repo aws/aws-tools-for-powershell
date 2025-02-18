@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkSpacesWeb;
 using Amazon.WorkSpacesWeb.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter NetworkSettingsArn
         /// <summary>
@@ -70,6 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public string Select { get; set; } = "NetworkSettings";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -150,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "GetNetworkSettings");
             try
             {
-                #if DESKTOP
-                return client.GetNetworkSettings(request);
-                #elif CORECLR
-                return client.GetNetworkSettingsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetNetworkSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

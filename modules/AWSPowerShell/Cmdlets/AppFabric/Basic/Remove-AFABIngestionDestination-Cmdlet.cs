@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AppFabric;
 using Amazon.AppFabric.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AppBundleIdentifier
         /// <summary>
@@ -124,6 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -232,13 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Web Services AppFabric", "DeleteIngestionDestination");
             try
             {
-                #if DESKTOP
-                return client.DeleteIngestionDestination(request);
-                #elif CORECLR
-                return client.DeleteIngestionDestinationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteIngestionDestinationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

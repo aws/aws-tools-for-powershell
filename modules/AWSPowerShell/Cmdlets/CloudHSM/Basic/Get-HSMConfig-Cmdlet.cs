@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CloudHSM;
 using Amazon.CloudHSM.Model;
 
@@ -54,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClientArn
         /// <summary>
@@ -118,6 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -223,13 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudHSM", "GetConfig");
             try
             {
-                #if DESKTOP
-                return client.GetConfig(request);
-                #elif CORECLR
-                return client.GetConfigAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

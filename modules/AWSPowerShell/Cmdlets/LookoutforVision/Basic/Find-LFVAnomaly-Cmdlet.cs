@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LookoutforVision;
 using Amazon.LookoutforVision.Model;
 
@@ -60,6 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Body
         /// <summary>
@@ -141,6 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.LFV
         public string Select { get; set; } = "DetectAnomalyResult";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -267,13 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Vision", "DetectAnomalies");
             try
             {
-                #if DESKTOP
-                return client.DetectAnomalies(request);
-                #elif CORECLR
-                return client.DetectAnomaliesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DetectAnomaliesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

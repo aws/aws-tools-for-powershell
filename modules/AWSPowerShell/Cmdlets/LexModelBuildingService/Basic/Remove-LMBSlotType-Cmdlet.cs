@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LexModelBuildingService;
 using Amazon.LexModelBuildingService.Model;
 
@@ -57,6 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Name
         /// <summary>
@@ -95,6 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -181,13 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex Model Building Service", "DeleteSlotType");
             try
             {
-                #if DESKTOP
-                return client.DeleteSlotType(request);
-                #elif CORECLR
-                return client.DeleteSlotTypeAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteSlotTypeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

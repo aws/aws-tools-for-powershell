@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PcaConnectorAd;
 using Amazon.PcaConnectorAd.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Definition_TemplateV3_PrivateKeyAttributes_Algorithm
         /// <summary>
@@ -1409,6 +1411,11 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -3568,13 +3575,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Pca Connector Ad", "CreateTemplate");
             try
             {
-                #if DESKTOP
-                return client.CreateTemplate(request);
-                #elif CORECLR
-                return client.CreateTemplateAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateTemplateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

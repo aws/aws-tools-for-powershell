@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Neptunedata;
 using Amazon.Neptunedata.Model;
 
@@ -50,6 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter NeptuneIamRoleArn
         /// <summary>
@@ -84,6 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         public string Select { get; set; } = "Ids";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -163,13 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon NeptuneData", "ListMLEndpoints");
             try
             {
-                #if DESKTOP
-                return client.ListMLEndpoints(request);
-                #elif CORECLR
-                return client.ListMLEndpointsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListMLEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

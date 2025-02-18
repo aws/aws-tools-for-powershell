@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.KeyManagementService;
 using Amazon.KeyManagementService.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter KeyId
         /// <summary>
@@ -92,6 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public string Select { get; set; } = "Policy";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -177,13 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "GetKeyPolicy");
             try
             {
-                #if DESKTOP
-                return client.GetKeyPolicy(request);
-                #elif CORECLR
-                return client.GetKeyPolicyAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetKeyPolicyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Repostspace;
 using Amazon.Repostspace.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Description
         /// <summary>
@@ -160,6 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.RESP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -295,13 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.RESP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS re:Post Private", "CreateSpace");
             try
             {
-                #if DESKTOP
-                return client.CreateSpace(request);
-                #elif CORECLR
-                return client.CreateSpaceAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateSpaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

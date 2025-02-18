@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -29,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported by directory buckets.
+    /// This operation is not supported for directory buckets.
     /// </para></note><para>
     /// Uses the <c>acl</c> subresource to set the access control list (ACL) permissions for
     /// a new or existing object in an S3 bucket. You must have the <c>WRITE_ACP</c> permission
@@ -154,12 +155,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutObjectAcl API operation.", Operation = new[] {"PutObjectAcl"}, SelectReturnType = typeof(Amazon.S3.Model.PutObjectAclResponse))]
     [AWSCmdletOutput("Amazon.S3.RequestCharged or Amazon.S3.Model.PutObjectAclResponse",
         "This cmdlet returns an Amazon.S3.RequestCharged object.",
-        "The service call response (type Amazon.S3.Model.PutObjectAclResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.PutObjectAclResponse) can be returned by specifying '-Select *'."
     )]
     public partial class SetS3ObjectACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ACL
         /// <summary>
@@ -382,6 +384,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3";
@@ -588,13 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "PutObjectAcl");
             try
             {
-                #if DESKTOP
-                return client.PutObjectAcl(request);
-                #elif CORECLR
-                return client.PutObjectAclAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutObjectAclAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

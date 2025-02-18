@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.GlobalAccelerator;
 using Amazon.GlobalAccelerator.Model;
 
@@ -56,6 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EndpointConfiguration
         /// <summary>
@@ -113,6 +115,11 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -213,13 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Global Accelerator", "AddCustomRoutingEndpoints");
             try
             {
-                #if DESKTOP
-                return client.AddCustomRoutingEndpoints(request);
-                #elif CORECLR
-                return client.AddCustomRoutingEndpointsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.AddCustomRoutingEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

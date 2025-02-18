@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.FMS;
 using Amazon.FMS.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MemberAccount
         /// <summary>
@@ -96,6 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         public string Select { get; set; } = "PolicyComplianceDetail";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -187,13 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "GetComplianceDetail");
             try
             {
-                #if DESKTOP
-                return client.GetComplianceDetail(request);
-                #elif CORECLR
-                return client.GetComplianceDetailAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetComplianceDetailAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

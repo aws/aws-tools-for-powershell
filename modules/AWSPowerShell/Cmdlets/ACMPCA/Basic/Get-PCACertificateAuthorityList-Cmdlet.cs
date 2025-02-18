@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ACMPCA;
 using Amazon.ACMPCA.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ResourceOwner
         /// <summary>
@@ -111,6 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -320,13 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager Private Certificate Authority", "ListCertificateAuthorities");
             try
             {
-                #if DESKTOP
-                return client.ListCertificateAuthorities(request);
-                #elif CORECLR
-                return client.ListCertificateAuthoritiesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListCertificateAuthoritiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

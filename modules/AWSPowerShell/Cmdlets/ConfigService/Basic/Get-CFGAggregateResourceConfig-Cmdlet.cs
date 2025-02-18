@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ConfigService;
 using Amazon.ConfigService.Model;
 
@@ -46,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ConfigurationAggregatorName
         /// <summary>
@@ -153,6 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public string Select { get; set; } = "ConfigurationItem";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -321,13 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "GetAggregateResourceConfig");
             try
             {
-                #if DESKTOP
-                return client.GetAggregateResourceConfig(request);
-                #elif CORECLR
-                return client.GetAggregateResourceConfigAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetAggregateResourceConfigAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Schemas;
 using Amazon.Schemas.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DiscovererId
         /// <summary>
@@ -79,6 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -165,13 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EventBridge Schema Registry", "StartDiscoverer");
             try
             {
-                #if DESKTOP
-                return client.StartDiscoverer(request);
-                #elif CORECLR
-                return client.StartDiscovererAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartDiscovererAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

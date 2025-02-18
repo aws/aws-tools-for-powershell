@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.InternetMonitor;
 using Amazon.InternetMonitor.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter LinkedAccountId
         /// <summary>
@@ -85,6 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -170,13 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Internet Monitor", "GetMonitor");
             try
             {
-                #if DESKTOP
-                return client.GetMonitor(request);
-                #elif CORECLR
-                return client.GetMonitorAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetMonitorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

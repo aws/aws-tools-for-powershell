@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Artifact;
 using Amazon.Artifact.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ART
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -74,6 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.ART
         public string Select { get; set; } = "Reports";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -153,13 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.ART
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Artifact", "ListReports");
             try
             {
-                #if DESKTOP
-                return client.ListReports(request);
-                #elif CORECLR
-                return client.ListReportsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListReportsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

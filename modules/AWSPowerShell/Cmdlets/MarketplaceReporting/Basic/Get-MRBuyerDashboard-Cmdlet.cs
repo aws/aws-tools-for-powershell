@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MarketplaceReporting;
 using Amazon.MarketplaceReporting.Model;
 
@@ -54,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.MR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DashboardIdentifier
         /// <summary>
@@ -104,16 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.MR
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DashboardIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DashboardIdentifier' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DashboardIdentifier' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -124,21 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.MR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse, GetMRBuyerDashboardCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.DashboardIdentifier;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DashboardIdentifier = this.DashboardIdentifier;
             #if MODULAR
             if (this.DashboardIdentifier == null && ParameterWasBound(nameof(this.DashboardIdentifier)))
@@ -218,13 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.MR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Reporting Service", "GetBuyerDashboard");
             try
             {
-                #if DESKTOP
-                return client.GetBuyerDashboard(request);
-                #elif CORECLR
-                return client.GetBuyerDashboardAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetBuyerDashboardAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

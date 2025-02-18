@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AppSync;
 using Amazon.AppSync.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApiId
         /// <summary>
@@ -256,6 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -507,13 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "UpdateDataSource");
             try
             {
-                #if DESKTOP
-                return client.UpdateDataSource(request);
-                #elif CORECLR
-                return client.UpdateDataSourceAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateDataSourceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

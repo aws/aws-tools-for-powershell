@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LookoutMetrics;
 using Amazon.LookoutMetrics.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AnomalyDetectorArn
         /// <summary>
@@ -112,6 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -228,13 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Metrics", "UpdateAnomalyDetector");
             try
             {
-                #if DESKTOP
-                return client.UpdateAnomalyDetector(request);
-                #elif CORECLR
-                return client.UpdateAnomalyDetectorAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateAnomalyDetectorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BillingConductor;
 using Amazon.BillingConductor.Model;
 
@@ -44,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccountId
         /// <summary>
@@ -102,6 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -202,13 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSBillingConductor", "AssociateAccounts");
             try
             {
-                #if DESKTOP
-                return client.AssociateAccounts(request);
-                #elif CORECLR
-                return client.AssociateAccountsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.AssociateAccountsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

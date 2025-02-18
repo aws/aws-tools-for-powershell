@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.GeoRoutes;
 using Amazon.GeoRoutes.Model;
 
@@ -40,11 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
     public partial class GetGEORRouteCmdlet : AmazonGeoRoutesClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Tolls_AllTransponder
         /// <summary>
@@ -1095,6 +1093,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -2425,13 +2428,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service Routes V2", "CalculateRoutes");
             try
             {
-                #if DESKTOP
-                return client.CalculateRoutes(request);
-                #elif CORECLR
-                return client.CalculateRoutesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CalculateRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

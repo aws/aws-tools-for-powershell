@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Kafka;
 using Amazon.Kafka.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClusterOperationArn
         /// <summary>
@@ -70,6 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public string Select { get; set; } = "ClusterOperationInfo";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -150,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "DescribeClusterOperationV2");
             try
             {
-                #if DESKTOP
-                return client.DescribeClusterOperationV2(request);
-                #elif CORECLR
-                return client.DescribeClusterOperationV2Async(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeClusterOperationV2Async(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

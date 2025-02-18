@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Invoicing;
 using Amazon.Invoicing.Model;
 
@@ -41,9 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.INV
     public partial class GetINVBatchInvoiceProfileCmdlet : AmazonInvoicingClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccountId
         /// <summary>
@@ -74,6 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.INV
         public string Select { get; set; } = "Profiles";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -157,13 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Invoicing", "BatchGetInvoiceProfile");
             try
             {
-                #if DESKTOP
-                return client.BatchGetInvoiceProfile(request);
-                #elif CORECLR
-                return client.BatchGetInvoiceProfileAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.BatchGetInvoiceProfileAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

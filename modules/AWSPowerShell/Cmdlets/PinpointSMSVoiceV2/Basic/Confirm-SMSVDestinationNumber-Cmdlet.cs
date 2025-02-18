@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PinpointSMSVoiceV2;
 using Amazon.PinpointSMSVoiceV2.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter VerificationCode
         /// <summary>
@@ -97,6 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -194,13 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "VerifyDestinationNumber");
             try
             {
-                #if DESKTOP
-                return client.VerifyDestinationNumber(request);
-                #elif CORECLR
-                return client.VerifyDestinationNumberAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.VerifyDestinationNumberAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

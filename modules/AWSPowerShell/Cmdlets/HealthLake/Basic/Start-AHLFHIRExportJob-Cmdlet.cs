@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.HealthLake;
 using Amazon.HealthLake.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DataAccessRoleArn
         /// <summary>
@@ -140,6 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.AHL
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -293,13 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.AHL
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon HealthLake", "StartFHIRExportJob");
             try
             {
-                #if DESKTOP
-                return client.StartFHIRExportJob(request);
-                #elif CORECLR
-                return client.StartFHIRExportJobAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartFHIRExportJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

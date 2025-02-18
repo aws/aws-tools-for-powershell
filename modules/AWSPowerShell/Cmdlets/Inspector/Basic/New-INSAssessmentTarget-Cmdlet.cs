@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Inspector;
 using Amazon.Inspector.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AssessmentTargetName
         /// <summary>
@@ -101,6 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.INS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -192,13 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "CreateAssessmentTarget");
             try
             {
-                #if DESKTOP
-                return client.CreateAssessmentTarget(request);
-                #elif CORECLR
-                return client.CreateAssessmentTargetAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateAssessmentTargetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

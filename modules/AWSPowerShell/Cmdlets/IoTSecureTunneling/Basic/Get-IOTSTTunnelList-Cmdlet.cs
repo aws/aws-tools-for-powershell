@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTSecureTunneling;
 using Amazon.IoTSecureTunneling.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ThingName
         /// <summary>
@@ -106,6 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -212,13 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Secure Tunneling", "ListTunnels");
             try
             {
-                #if DESKTOP
-                return client.ListTunnels(request);
-                #elif CORECLR
-                return client.ListTunnelsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListTunnelsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

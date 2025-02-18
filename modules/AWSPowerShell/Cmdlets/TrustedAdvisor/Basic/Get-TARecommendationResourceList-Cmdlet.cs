@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.TrustedAdvisor;
 using Amazon.TrustedAdvisor.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ExclusionStatus
         /// <summary>
@@ -124,6 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.TA
         public string Select { get; set; } = "RecommendationResourceSummaries";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -229,13 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Trusted Advisor", "ListRecommendationResources");
             try
             {
-                #if DESKTOP
-                return client.ListRecommendationResources(request);
-                #elif CORECLR
-                return client.ListRecommendationResourcesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListRecommendationResourcesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

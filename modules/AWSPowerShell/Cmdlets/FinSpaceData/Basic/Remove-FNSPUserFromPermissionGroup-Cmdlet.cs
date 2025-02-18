@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.FinSpaceData;
 using Amazon.FinSpaceData.Model;
 
@@ -34,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the FinSpace Public API DisassociateUserFromPermissionGroup API operation.", Operation = new[] {"DisassociateUserFromPermissionGroup"}, SelectReturnType = typeof(Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse",
-        "This cmdlet returns a System.Int32 object.",
+        "This cmdlet returns a collection of System.Int32 objects.",
         "The service call response (type Amazon.FinSpaceData.Model.DisassociateUserFromPermissionGroupResponse) can be returned by specifying '-Select *'."
     )]
     [System.ObsoleteAttribute("This method will be discontinued.")]
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter PermissionGroupId
         /// <summary>
@@ -108,6 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "FinSpace Public API", "DisassociateUserFromPermissionGroup");
             try
             {
-                #if DESKTOP
-                return client.DisassociateUserFromPermissionGroup(request);
-                #elif CORECLR
-                return client.DisassociateUserFromPermissionGroupAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DisassociateUserFromPermissionGroupAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

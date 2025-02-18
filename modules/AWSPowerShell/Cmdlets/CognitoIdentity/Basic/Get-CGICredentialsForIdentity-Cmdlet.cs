@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CognitoIdentity;
 using Amazon.CognitoIdentity.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CustomRoleArn
         /// <summary>
@@ -106,6 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -203,13 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "GetCredentialsForIdentity");
             try
             {
-                #if DESKTOP
-                return client.GetCredentialsForIdentity(request);
-                #elif CORECLR
-                return client.GetCredentialsForIdentityAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetCredentialsForIdentityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

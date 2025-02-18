@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Omics;
 using Amazon.Omics.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter PartNumber
         /// <summary>
@@ -148,6 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -291,13 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "UploadReadSetPart");
             try
             {
-                #if DESKTOP
-                return client.UploadReadSetPart(request);
-                #elif CORECLR
-                return client.UploadReadSetPartAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UploadReadSetPartAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

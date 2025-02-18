@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkSpacesWeb;
 using Amazon.WorkSpacesWeb.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter PortalArn
         /// <summary>
@@ -91,6 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public string Select { get; set; } = "IdentityProviders";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -181,13 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "ListIdentityProviders");
             try
             {
-                #if DESKTOP
-                return client.ListIdentityProviders(request);
-                #elif CORECLR
-                return client.ListIdentityProvidersAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListIdentityProvidersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

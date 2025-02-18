@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PrometheusService;
 using Amazon.PrometheusService.Model;
 
@@ -46,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Alias
         /// <summary>
@@ -139,16 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ScraperId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ScraperId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScraperId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -159,6 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -175,21 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.UpdateScraperResponse, UpdatePROMScraperCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ScraperId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Alias = this.Alias;
             context.ClientToken = this.ClientToken;
             context.AmpConfiguration_WorkspaceArn = this.AmpConfiguration_WorkspaceArn;
@@ -364,13 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "UpdateScraper");
             try
             {
-                #if DESKTOP
-                return client.UpdateScraper(request);
-                #elif CORECLR
-                return client.UpdateScraperAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateScraperAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

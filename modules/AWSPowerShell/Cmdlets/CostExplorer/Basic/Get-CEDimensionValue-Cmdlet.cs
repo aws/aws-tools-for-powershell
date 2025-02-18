@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CostExplorer;
 using Amazon.CostExplorer.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BillingViewArn
         /// <summary>
@@ -210,16 +212,6 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TimePeriod parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TimePeriod' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TimePeriod' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter NoAutoIteration
         #if MODULAR
         /// <summary>
@@ -232,6 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #endif
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -242,21 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.GetDimensionValuesResponse, GetCEDimensionValueCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.TimePeriod;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BillingViewArn = this.BillingViewArn;
             context.Context = this.Context;
             context.Dimension = this.Dimension;
@@ -295,9 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
             var request = new Amazon.CostExplorer.Model.GetDimensionValuesRequest();
@@ -463,13 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "GetDimensionValues");
             try
             {
-                #if DESKTOP
-                return client.GetDimensionValues(request);
-                #elif CORECLR
-                return client.GetDimensionValuesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetDimensionValuesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

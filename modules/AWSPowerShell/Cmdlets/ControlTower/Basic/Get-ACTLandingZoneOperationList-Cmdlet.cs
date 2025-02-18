@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ControlTower;
 using Amazon.ControlTower.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Filter_Status
         /// <summary>
@@ -97,6 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         public string Select { get; set; } = "LandingZoneOperations";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -213,13 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "ListLandingZoneOperations");
             try
             {
-                #if DESKTOP
-                return client.ListLandingZoneOperations(request);
-                #elif CORECLR
-                return client.ListLandingZoneOperationsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListLandingZoneOperationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

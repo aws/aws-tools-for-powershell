@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CodeBuild;
 using Amazon.CodeBuild.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter NumOfReport
         /// <summary>
@@ -98,6 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -194,13 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "GetReportGroupTrend");
             try
             {
-                #if DESKTOP
-                return client.GetReportGroupTrend(request);
-                #elif CORECLR
-                return client.GetReportGroupTrendAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetReportGroupTrendAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

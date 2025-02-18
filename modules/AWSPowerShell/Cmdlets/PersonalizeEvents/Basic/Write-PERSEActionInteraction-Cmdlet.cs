@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PersonalizeEvents;
 using Amazon.PersonalizeEvents.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ActionInteraction
         /// <summary>
@@ -110,6 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Personalize Events", "PutActionInteractions");
             try
             {
-                #if DESKTOP
-                return client.PutActionInteractions(request);
-                #elif CORECLR
-                return client.PutActionInteractionsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutActionInteractionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

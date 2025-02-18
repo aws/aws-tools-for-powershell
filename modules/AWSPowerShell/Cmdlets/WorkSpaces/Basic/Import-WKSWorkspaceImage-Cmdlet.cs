@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkSpaces;
 using Amazon.WorkSpaces.Model;
 
@@ -45,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Application
         /// <summary>
@@ -171,6 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -306,13 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "ImportWorkspaceImage");
             try
             {
-                #if DESKTOP
-                return client.ImportWorkspaceImage(request);
-                #elif CORECLR
-                return client.ImportWorkspaceImageAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ImportWorkspaceImageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

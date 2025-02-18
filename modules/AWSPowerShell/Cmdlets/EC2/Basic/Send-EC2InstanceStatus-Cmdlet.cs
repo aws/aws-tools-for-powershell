@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 
@@ -49,18 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class SendEC2InstanceStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter UtcEndTime
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The time at which the reported instance health state ended.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? UtcEndTime { get; set; }
+        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? EndTime { get; set; }
         #endregion
         
         #region Parameter Instance
@@ -102,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] ReasonCode { get; set; }
         #endregion
         
-        #region Parameter UtcStartTime
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The time at which the reported instance health state began.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? UtcStartTime { get; set; }
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartTime { get; set; }
         #endregion
         
         #region Parameter Status
@@ -141,40 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
-        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
-        /// one of the two property is reflected in the value of both. EndTime is provided for
-        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The time at which the reported instance health state ended.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead.")]
-        public System.DateTime? EndTime { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
-        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. StartTime
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The time at which the reported instance health state began.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead.")]
-        public System.DateTime? StartTime { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -183,16 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Instance parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Instance' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Instance' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -205,6 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -221,25 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.ReportInstanceStatusResponse, SendEC2InstanceStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Instance;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.UtcEndTime = this.UtcEndTime;
+            context.EndTime = this.EndTime;
             if (this.Instance != null)
             {
                 context.Instance = new List<System.String>(this.Instance);
@@ -260,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ReasonCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UtcStartTime = this.UtcStartTime;
+            context.StartTime = this.StartTime;
             context.Status = this.Status;
             #if MODULAR
             if (this.Status == null && ParameterWasBound(nameof(this.Status)))
@@ -268,12 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EndTime = this.EndTime;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.StartTime = this.StartTime;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -296,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Description = cmdletContext.Description;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.UtcEndTime != null)
+            if (cmdletContext.EndTime != null)
             {
-                request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
+                request.EndTime = cmdletContext.EndTime.Value;
             }
             if (cmdletContext.Instance != null)
             {
@@ -308,34 +253,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ReasonCodes = cmdletContext.ReasonCode;
             }
-            if (cmdletContext.UtcStartTime != null)
+            if (cmdletContext.StartTime != null)
             {
-                request.StartTimeUtc = cmdletContext.UtcStartTime.Value;
+                request.StartTime = cmdletContext.StartTime.Value;
             }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.EndTime != null)
-            {
-                if (cmdletContext.UtcEndTime != null)
-                {
-                    throw new System.ArgumentException("Parameters EndTime and UtcEndTime are mutually exclusive.", nameof(this.EndTime));
-                }
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.StartTime != null)
-            {
-                if (cmdletContext.UtcStartTime != null)
-                {
-                    throw new System.ArgumentException("Parameters StartTime and UtcStartTime are mutually exclusive.", nameof(this.StartTime));
-                }
-                request.StartTime = cmdletContext.StartTime.Value;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -374,13 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ReportInstanceStatus");
             try
             {
-                #if DESKTOP
-                return client.ReportInstanceStatus(request);
-                #elif CORECLR
-                return client.ReportInstanceStatusAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ReportInstanceStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -399,15 +318,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             [System.ObsoleteAttribute]
             public System.String Description { get; set; }
-            public System.DateTime? UtcEndTime { get; set; }
+            public System.DateTime? EndTime { get; set; }
             public List<System.String> Instance { get; set; }
             public List<System.String> ReasonCode { get; set; }
-            public System.DateTime? UtcStartTime { get; set; }
-            public Amazon.EC2.ReportStatusType Status { get; set; }
-            [System.ObsoleteAttribute]
-            public System.DateTime? EndTime { get; set; }
-            [System.ObsoleteAttribute]
             public System.DateTime? StartTime { get; set; }
+            public Amazon.EC2.ReportStatusType Status { get; set; }
             public System.Func<Amazon.EC2.Model.ReportInstanceStatusResponse, SendEC2InstanceStatusCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

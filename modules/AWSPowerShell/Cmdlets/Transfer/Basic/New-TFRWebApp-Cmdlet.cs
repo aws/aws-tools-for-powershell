@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Transfer;
 using Amazon.Transfer.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccessEndpoint
         /// <summary>
@@ -112,16 +114,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public string Select { get; set; } = "WebAppId";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccessEndpoint parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccessEndpoint' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccessEndpoint' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -132,6 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -148,21 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Transfer.Model.CreateWebAppResponse, NewTFRWebAppCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AccessEndpoint;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccessEndpoint = this.AccessEndpoint;
             context.IdentityCenterConfig_InstanceArn = this.IdentityCenterConfig_InstanceArn;
             context.IdentityCenterConfig_Role = this.IdentityCenterConfig_Role;
@@ -296,13 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "CreateWebApp");
             try
             {
-                #if DESKTOP
-                return client.CreateWebApp(request);
-                #elif CORECLR
-                return client.CreateWebAppAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateWebAppAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

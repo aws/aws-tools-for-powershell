@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AppConfigData;
 using Amazon.AppConfigData.Model;
 
@@ -44,6 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationIdentifier
         /// <summary>
@@ -130,6 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.ACD
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -243,13 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig Data", "StartConfigurationSession");
             try
             {
-                #if DESKTOP
-                return client.StartConfigurationSession(request);
-                #elif CORECLR
-                return client.StartConfigurationSessionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartConfigurationSessionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

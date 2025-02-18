@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTFleetWise;
 using Amazon.IoTFleetWise.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -86,6 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         public string Select { get; set; } = "Summaries";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -165,13 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT FleetWise", "ListSignalCatalogs");
             try
             {
-                #if DESKTOP
-                return client.ListSignalCatalogs(request);
-                #elif CORECLR
-                return client.ListSignalCatalogsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListSignalCatalogsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

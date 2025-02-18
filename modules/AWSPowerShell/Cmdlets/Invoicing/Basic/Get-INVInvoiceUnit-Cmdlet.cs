@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Invoicing;
 using Amazon.Invoicing.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AsOf
         /// <summary>
@@ -82,16 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.INV
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InvoiceUnitArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InvoiceUnitArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InvoiceUnitArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -102,21 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.INV
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Invoicing.Model.GetInvoiceUnitResponse, GetINVInvoiceUnitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.InvoiceUnitArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AsOf = this.AsOf;
             context.InvoiceUnitArn = this.InvoiceUnitArn;
             #if MODULAR
@@ -187,13 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.INV
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Invoicing", "GetInvoiceUnit");
             try
             {
-                #if DESKTOP
-                return client.GetInvoiceUnit(request);
-                #elif CORECLR
-                return client.GetInvoiceUnitAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetInvoiceUnitAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

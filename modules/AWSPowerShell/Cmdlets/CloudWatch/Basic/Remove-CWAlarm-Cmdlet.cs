@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CloudWatch;
 using Amazon.CloudWatch.Model;
 
@@ -66,6 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AlarmName
         /// <summary>
@@ -105,6 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -194,13 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "DeleteAlarms");
             try
             {
-                #if DESKTOP
-                return client.DeleteAlarms(request);
-                #elif CORECLR
-                return client.DeleteAlarmsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteAlarmsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

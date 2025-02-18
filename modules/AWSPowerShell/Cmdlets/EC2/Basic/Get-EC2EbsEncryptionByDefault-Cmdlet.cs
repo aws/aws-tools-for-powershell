@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 
@@ -41,13 +42,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetEbsEncryptionByDefault API operation.", Operation = new[] {"GetEbsEncryptionByDefault"}, SelectReturnType = typeof(Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse",
-        "This cmdlet returns a System.Boolean object.",
+        "This cmdlet returns a collection of System.Boolean objects.",
         "The service call response (type Amazon.EC2.Model.GetEbsEncryptionByDefaultResponse) can be returned by specifying '-Select *'."
     )]
     public partial class GetEC2EbsEncryptionByDefaultCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -60,6 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public string Select { get; set; } = "EbsEncryptionByDefault";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -129,13 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetEbsEncryptionByDefault");
             try
             {
-                #if DESKTOP
-                return client.GetEbsEncryptionByDefault(request);
-                #elif CORECLR
-                return client.GetEbsEncryptionByDefaultAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetEbsEncryptionByDefaultAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Batch;
 using Amazon.Batch.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Metadata_Annotation
         /// <summary>
@@ -916,6 +918,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -1848,13 +1855,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "RegisterJobDefinition");
             try
             {
-                #if DESKTOP
-                return client.RegisterJobDefinition(request);
-                #elif CORECLR
-                return client.RegisterJobDefinitionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RegisterJobDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

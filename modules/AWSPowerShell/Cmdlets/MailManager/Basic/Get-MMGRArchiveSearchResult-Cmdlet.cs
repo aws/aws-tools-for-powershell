@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MailManager;
 using Amazon.MailManager.Model;
 
@@ -40,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
     public partial class GetMMGRArchiveSearchResultCmdlet : AmazonMailManagerClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter SearchId
         /// <summary>
@@ -72,6 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         public string Select { get; set; } = "Rows";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -152,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SES Mail Manager", "GetArchiveSearchResults");
             try
             {
-                #if DESKTOP
-                return client.GetArchiveSearchResults(request);
-                #elif CORECLR
-                return client.GetArchiveSearchResultsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetArchiveSearchResultsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

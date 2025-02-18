@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.TranscribeService;
 using Amazon.TranscribeService.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ModelName
         /// <summary>
@@ -81,6 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public string Select { get; set; } = "LanguageModel";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -161,13 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Transcribe Service", "DescribeLanguageModel");
             try
             {
-                #if DESKTOP
-                return client.DescribeLanguageModel(request);
-                #elif CORECLR
-                return client.DescribeLanguageModelAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeLanguageModelAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

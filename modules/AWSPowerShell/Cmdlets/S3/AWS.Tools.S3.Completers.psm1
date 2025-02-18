@@ -95,7 +95,9 @@ $S3_Completers = {
             ($_ -eq "Remove-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Restore-S3Object/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3ACL/ChecksumAlgorithm") -Or
+            ($_ -eq "Set-S3BucketACL/ChecksumAlgorithm") -Or
             ($_ -eq "Set-S3BucketEncryption/ChecksumAlgorithm") -Or
+            ($_ -eq "Set-S3ObjectACL/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
@@ -246,6 +248,7 @@ $S3_Completers = {
             ($_ -eq "Copy-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3BucketAccelerateConfiguration/RequestPayer") -Or
             ($_ -eq "Get-S3Object/RequestPayer") -Or
+            ($_ -eq "Get-S3ObjectACL/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectMetadata/RequestPayer") -Or
@@ -255,6 +258,7 @@ $S3_Completers = {
             ($_ -eq "Get-S3Version/RequestPayer") -Or
             ($_ -eq "Remove-S3Object/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
+            ($_ -eq "Set-S3ObjectACL/RequestPayer") -Or
             ($_ -eq "Write-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
@@ -275,6 +279,8 @@ $S3_Completers = {
 
         # Amazon.S3.S3CannedACL
         {
+            ($_ -eq "Set-S3BucketACL/ACL") -Or
+            ($_ -eq "Set-S3ObjectACL/ACL") -Or
             ($_ -eq "Set-S3ACL/CannedACL") -Or
             ($_ -eq "Copy-S3Object/CannedACLName") -Or
             ($_ -eq "New-S3Bucket/CannedACLName") -Or
@@ -364,9 +370,10 @@ $S3_Completers = {
 
 $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
+    "ACL"=@("Set-S3BucketACL","Set-S3ObjectACL")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketACL","Set-S3BucketEncryption","Set-S3ObjectACL","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
@@ -383,7 +390,7 @@ $S3_map = @{
     "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectACL","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Set-S3ObjectACL","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -471,6 +478,8 @@ $S3_SelectMap = @{
                "Remove-S3ObjectTagSet",
                "Remove-S3PublicAccessBlock",
                "Get-S3ACL",
+               "Get-S3BucketACL",
+               "Get-S3ObjectACL",
                "Get-S3BucketAccelerateConfiguration",
                "Get-S3BucketAnalyticsConfiguration",
                "Get-S3BucketEncryption",
@@ -508,6 +517,8 @@ $S3_SelectMap = @{
                "Get-S3ObjectV2",
                "Get-S3Version",
                "Set-S3ACL",
+               "Set-S3BucketACL",
+               "Set-S3ObjectACL",
                "Write-S3BucketAccelerateConfiguration",
                "Write-S3BucketAnalyticsConfiguration",
                "Set-S3BucketEncryption",

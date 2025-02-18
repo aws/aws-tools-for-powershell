@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PinpointSMSVoiceV2;
 using Amazon.PinpointSMSVoiceV2.Model;
 

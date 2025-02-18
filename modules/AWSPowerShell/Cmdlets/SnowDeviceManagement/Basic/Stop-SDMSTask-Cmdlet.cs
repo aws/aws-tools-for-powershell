@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SnowDeviceManagement;
 using Amazon.SnowDeviceManagement.Model;
 
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter TaskId
         /// <summary>
@@ -87,6 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -173,13 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Snow Device Management", "CancelTask");
             try
             {
-                #if DESKTOP
-                return client.CancelTask(request);
-                #elif CORECLR
-                return client.CancelTaskAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CancelTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QConnect;
 using Amazon.QConnect.Model;
 
@@ -40,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
     public partial class GetQCMessageListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AssistantId
         /// <summary>
@@ -111,16 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public string Select { get; set; } = "Messages";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SessionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -131,21 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.QConnect.Model.ListMessagesResponse, GetQCMessageListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.SessionId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssistantId = this.AssistantId;
             #if MODULAR
             if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
@@ -232,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "ListMessages");
             try
             {
-                #if DESKTOP
-                return client.ListMessages(request);
-                #elif CORECLR
-                return client.ListMessagesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListMessagesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

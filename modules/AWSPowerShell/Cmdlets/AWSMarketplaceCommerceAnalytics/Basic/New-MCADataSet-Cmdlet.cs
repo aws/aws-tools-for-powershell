@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AWSMarketplaceCommerceAnalytics;
 using Amazon.AWSMarketplaceCommerceAnalytics.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CustomerDefinedValue
         /// <summary>
@@ -190,6 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         public string Select { get; set; } = "DataSetRequestId";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -331,13 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Commerce Analytics", "GenerateDataSet");
             try
             {
-                #if DESKTOP
-                return client.GenerateDataSet(request);
-                #elif CORECLR
-                return client.GenerateDataSetAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GenerateDataSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

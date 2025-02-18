@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AppStream;
 using Amazon.AppStream.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -62,6 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -137,13 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AppStream", "DeleteUsageReportSubscription");
             try
             {
-                #if DESKTOP
-                return client.DeleteUsageReportSubscription(request);
-                #elif CORECLR
-                return client.DeleteUsageReportSubscriptionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteUsageReportSubscriptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

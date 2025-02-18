@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoT;
 using Amazon.IoT.Model;
 
@@ -55,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CompletedTimeFilter_After
         /// <summary>
@@ -193,6 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public string Select { get; set; } = "CommandExecutions";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -359,13 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListCommandExecutions");
             try
             {
-                #if DESKTOP
-                return client.ListCommandExecutions(request);
-                #elif CORECLR
-                return client.ListCommandExecutionsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListCommandExecutionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

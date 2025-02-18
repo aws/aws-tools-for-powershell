@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MainframeModernization;
 using Amazon.MainframeModernization.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationId
         /// <summary>
@@ -79,6 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -165,13 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "M2", "StartApplication");
             try
             {
-                #if DESKTOP
-                return client.StartApplication(request);
-                #elif CORECLR
-                return client.StartApplicationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartApplicationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

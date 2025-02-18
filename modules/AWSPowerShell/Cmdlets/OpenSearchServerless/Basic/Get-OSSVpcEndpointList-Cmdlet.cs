@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.OpenSearchServerless;
 using Amazon.OpenSearchServerless.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter VpcEndpointFilters_Status
         /// <summary>
@@ -90,6 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public string Select { get; set; } = "VpcEndpointSummaries";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -189,13 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "ListVpcEndpoints");
             try
             {
-                #if DESKTOP
-                return client.ListVpcEndpoints(request);
-                #elif CORECLR
-                return client.ListVpcEndpointsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListVpcEndpointsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

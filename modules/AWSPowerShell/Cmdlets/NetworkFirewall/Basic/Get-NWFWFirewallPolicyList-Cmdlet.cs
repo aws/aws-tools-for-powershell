@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.NetworkFirewall;
 using Amazon.NetworkFirewall.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -82,6 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public string Select { get; set; } = "FirewallPolicies";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -161,13 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "ListFirewallPolicies");
             try
             {
-                #if DESKTOP
-                return client.ListFirewallPolicies(request);
-                #elif CORECLR
-                return client.ListFirewallPoliciesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListFirewallPoliciesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

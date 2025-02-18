@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Cloud9;
 using Amazon.Cloud9.Model;
 
@@ -46,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EnvironmentId
         /// <summary>
@@ -76,6 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.C9
         public string Select { get; set; } = "Environments";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -159,13 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud9", "DescribeEnvironments");
             try
             {
-                #if DESKTOP
-                return client.DescribeEnvironments(request);
-                #elif CORECLR
-                return client.DescribeEnvironmentsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeEnvironmentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.PinpointSMSVoiceV2;
 using Amazon.PinpointSMSVoiceV2.Model;
 
@@ -38,13 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DeleteMediaMessageSpendLimitOverride API operation.", Operation = new[] {"DeleteMediaMessageSpendLimitOverride"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DeleteMediaMessageSpendLimitOverrideResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.PinpointSMSVoiceV2.Model.DeleteMediaMessageSpendLimitOverrideResponse",
-        "This cmdlet returns a System.Int64 object.",
+        "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.PinpointSMSVoiceV2.Model.DeleteMediaMessageSpendLimitOverrideResponse) can be returned by specifying '-Select *'."
     )]
     public partial class RemoveSMSVMediaMessageSpendLimitOverrideCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -67,6 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -142,13 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "DeleteMediaMessageSpendLimitOverride");
             try
             {
-                #if DESKTOP
-                return client.DeleteMediaMessageSpendLimitOverride(request);
-                #elif CORECLR
-                return client.DeleteMediaMessageSpendLimitOverrideAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteMediaMessageSpendLimitOverrideAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.FSx;
 using Amazon.FSx.Model;
 
@@ -67,6 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BackupId
         /// <summary>
@@ -148,6 +150,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -372,13 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "DescribeBackups");
             try
             {
-                #if DESKTOP
-                return client.DescribeBackups(request);
-                #elif CORECLR
-                return client.DescribeBackupsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeBackupsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MigrationHubRefactorSpaces;
 using Amazon.MigrationHubRefactorSpaces.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationIdentifier
         /// <summary>
@@ -109,6 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         public string Select { get; set; } = "RouteSummaryList";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub Refactor Spaces", "ListRoutes");
             try
             {
-                #if DESKTOP
-                return client.ListRoutes(request);
-                #elif CORECLR
-                return client.ListRoutesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListRoutesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

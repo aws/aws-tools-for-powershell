@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Connect;
 using Amazon.Connect.Model;
 
@@ -46,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Filters_Channel
         /// <summary>
@@ -222,6 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -534,13 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "GetCurrentMetricData");
             try
             {
-                #if DESKTOP
-                return client.GetCurrentMetricData(request);
-                #elif CORECLR
-                return client.GetCurrentMetricDataAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetCurrentMetricDataAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

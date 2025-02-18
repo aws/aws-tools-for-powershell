@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QLDB;
 using Amazon.QLDB.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -103,6 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -303,13 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QLDB", "ListLedgers");
             try
             {
-                #if DESKTOP
-                return client.ListLedgers(request);
-                #elif CORECLR
-                return client.ListLedgersAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListLedgersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

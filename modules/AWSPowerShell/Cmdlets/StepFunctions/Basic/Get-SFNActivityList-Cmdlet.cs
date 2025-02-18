@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.StepFunctions;
 using Amazon.StepFunctions.Model;
 
@@ -53,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -112,6 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -312,13 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "ListActivities");
             try
             {
-                #if DESKTOP
-                return client.ListActivities(request);
-                #elif CORECLR
-                return client.ListActivitiesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListActivitiesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

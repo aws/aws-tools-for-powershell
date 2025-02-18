@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Backup;
 using Amazon.Backup.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ReportJobId
         /// <summary>
@@ -71,6 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public string Select { get; set; } = "ReportJob";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -151,13 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "DescribeReportJob");
             try
             {
-                #if DESKTOP
-                return client.DescribeReportJob(request);
-                #elif CORECLR
-                return client.DescribeReportJobAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeReportJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

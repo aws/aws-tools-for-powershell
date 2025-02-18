@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SecurityToken;
 using Amazon.SecurityToken.Model;
 
@@ -54,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     public partial class UseSTSRootCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter TaskPolicyArn_Arn
         /// <summary>
@@ -112,16 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.STS
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TargetPrincipal parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TargetPrincipal' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TargetPrincipal' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -132,6 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -148,21 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.SecurityToken.Model.AssumeRootResponse, UseSTSRootCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.TargetPrincipal;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DurationInSeconds = this.DurationInSeconds;
             context.TargetPrincipal = this.TargetPrincipal;
             #if MODULAR
@@ -253,13 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service (STS)", "AssumeRoot");
             try
             {
-                #if DESKTOP
-                return client.AssumeRoot(request);
-                #elif CORECLR
-                return client.AssumeRootAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.AssumeRootAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

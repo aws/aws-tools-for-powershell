@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MediaPackage;
 using Amazon.MediaPackage.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Id
         /// <summary>
@@ -79,6 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -165,13 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage", "DeleteOriginEndpoint");
             try
             {
-                #if DESKTOP
-                return client.DeleteOriginEndpoint(request);
-                #elif CORECLR
-                return client.DeleteOriginEndpointAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteOriginEndpointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

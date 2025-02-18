@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Ipv6CidrBlock
         /// <summary>
@@ -110,6 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -211,13 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateSubnetCidrBlock");
             try
             {
-                #if DESKTOP
-                return client.AssociateSubnetCidrBlock(request);
-                #elif CORECLR
-                return client.AssociateSubnetCidrBlockAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.AssociateSubnetCidrBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

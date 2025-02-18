@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SecurityIR;
 using Amazon.SecurityIR.Model;
 
@@ -39,9 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
     public partial class GetSecurityIRCaseListCmdlet : AmazonSecurityIRClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -75,6 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -154,13 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Security Incident Response", "ListCases");
             try
             {
-                #if DESKTOP
-                return client.ListCases(request);
-                #elif CORECLR
-                return client.ListCasesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListCasesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

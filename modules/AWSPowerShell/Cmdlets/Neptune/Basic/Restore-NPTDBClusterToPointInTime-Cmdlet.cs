@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Neptune;
 using Amazon.Neptune.Model;
 
@@ -53,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DBClusterIdentifier
         /// <summary>
@@ -188,14 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Int32? Port { get; set; }
         #endregion
         
-        #region Parameter RestoreToTimeUtc
+        #region Parameter RestoreToTime
         /// <summary>
         /// <para>
         /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <c>UseLatestRestorableTime</c> parameter is not provided</para></li><li><para>Cannot be specified if <c>UseLatestRestorableTime</c> parameter is true</para></li><li><para>Cannot be specified if <c>RestoreType</c> parameter is <c>copy-on-write</c></para></li></ul><para>Example: <c>2015-03-07T23:45:00Z</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? RestoreToTimeUtc { get; set; }
+        public System.DateTime? RestoreToTime { get; set; }
         #endregion
         
         #region Parameter RestoreType
@@ -271,23 +273,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String[] VpcSecurityGroupId { get; set; }
         #endregion
         
-        #region Parameter RestoreToTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime
-        /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
-        /// the latest assignment to either one of the two property is reflected in the value
-        /// of both. RestoreToTime is provided for backwards compatibility only and assigning
-        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <c>UseLatestRestorableTime</c> parameter is not provided</para></li><li><para>Cannot be specified if <c>UseLatestRestorableTime</c> parameter is true</para></li><li><para>Cannot be specified if <c>RestoreType</c> parameter is <c>copy-on-write</c></para></li></ul><para>Example: <c>2015-03-07T23:45:00Z</c></para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("Setting this property results in non-UTC DateTimes not being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned, the latest assignment to either one of the two property is reflected in the value of both. RestoreToTime is provided for backwards compatibility only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed to the service.")]
-        public System.DateTime? RestoreToTime { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DBCluster'.
@@ -309,6 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -348,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             context.Port = this.Port;
-            context.RestoreToTimeUtc = this.RestoreToTimeUtc;
+            context.RestoreToTime = this.RestoreToTime;
             context.RestoreType = this.RestoreType;
             context.ServerlessV2ScalingConfiguration_MaxCapacity = this.ServerlessV2ScalingConfiguration_MaxCapacity;
             context.ServerlessV2ScalingConfiguration_MinCapacity = this.ServerlessV2ScalingConfiguration_MinCapacity;
@@ -369,9 +359,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RestoreToTime = this.RestoreToTime;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -424,9 +411,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.Port = cmdletContext.Port.Value;
             }
-            if (cmdletContext.RestoreToTimeUtc != null)
+            if (cmdletContext.RestoreToTime != null)
             {
-                request.RestoreToTimeUtc = cmdletContext.RestoreToTimeUtc.Value;
+                request.RestoreToTime = cmdletContext.RestoreToTime.Value;
             }
             if (cmdletContext.RestoreType != null)
             {
@@ -481,12 +468,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.RestoreToTime != null)
-            {
-                request.RestoreToTime = cmdletContext.RestoreToTime.Value;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -525,13 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune", "RestoreDBClusterToPointInTime");
             try
             {
-                #if DESKTOP
-                return client.RestoreDBClusterToPointInTime(request);
-                #elif CORECLR
-                return client.RestoreDBClusterToPointInTimeAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RestoreDBClusterToPointInTimeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -557,7 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
-            public System.DateTime? RestoreToTimeUtc { get; set; }
+            public System.DateTime? RestoreToTime { get; set; }
             public System.String RestoreType { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MaxCapacity { get; set; }
             public System.Double? ServerlessV2ScalingConfiguration_MinCapacity { get; set; }
@@ -566,8 +541,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public List<Amazon.Neptune.Model.Tag> Tag { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
-            [System.ObsoleteAttribute]
-            public System.DateTime? RestoreToTime { get; set; }
             public System.Func<Amazon.Neptune.Model.RestoreDBClusterToPointInTimeResponse, RestoreNPTDBClusterToPointInTimeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DBCluster;
         }

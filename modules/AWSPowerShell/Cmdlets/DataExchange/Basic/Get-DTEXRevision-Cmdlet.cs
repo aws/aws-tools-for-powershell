@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.DataExchange;
 using Amazon.DataExchange.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DataSetId
         /// <summary>
@@ -86,6 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -177,13 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Exchange", "GetRevision");
             try
             {
-                #if DESKTOP
-                return client.GetRevision(request);
-                #elif CORECLR
-                return client.GetRevisionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetRevisionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

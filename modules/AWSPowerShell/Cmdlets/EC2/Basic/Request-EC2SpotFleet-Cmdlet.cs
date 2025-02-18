@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EC2;
 using Amazon.EC2.Model;
 
@@ -70,6 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter SpotFleetRequestConfig_AllocationStrategy
         /// <summary>
@@ -464,7 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }
         #endregion
         
-        #region Parameter SpotFleetRequestConfig_UtcValidFrom
+        #region Parameter SpotFleetRequestConfig_ValidFrom
         /// <summary>
         /// <para>
         /// <para>The start date and time of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -472,10 +474,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? SpotFleetRequestConfig_UtcValidFrom { get; set; }
+        public System.DateTime? SpotFleetRequestConfig_ValidFrom { get; set; }
         #endregion
         
-        #region Parameter SpotFleetRequestConfig_UtcValidUntil
+        #region Parameter SpotFleetRequestConfig_ValidUntil
         /// <summary>
         /// <para>
         /// <para>The end date and time of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -485,44 +487,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? SpotFleetRequestConfig_UtcValidUntil { get; set; }
-        #endregion
-        
-        #region Parameter SpotFleetRequestConfig_ValidFrom
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use ValidFromUtc instead. Setting either ValidFrom or
-        /// ValidFromUtc results in both ValidFrom and ValidFromUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. ValidFrom
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The start date and time of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// By default, Amazon EC2 starts fulfilling the request immediately.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidFrom instead.")]
-        public System.DateTime? SpotFleetRequestConfig_ValidFrom { get; set; }
-        #endregion
-        
-        #region Parameter SpotFleetRequestConfig_ValidUntil
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use ValidUntilUtc instead. Setting either ValidUntil or
-        /// ValidUntilUtc results in both ValidUntil and ValidUntilUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. ValidUntil
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The end date and time of the request, in UTC format (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// After the end date and time, no new Spot Instance requests are placed or able to fulfill
-        /// the request. If no value is specified, the Spot Fleet request remains until you cancel
-        /// it.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidUntil instead.")]
         public System.DateTime? SpotFleetRequestConfig_ValidUntil { get; set; }
         #endregion
         
@@ -547,6 +511,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -621,14 +590,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestConfig_TargetCapacityUnitType = this.SpotFleetRequestConfig_TargetCapacityUnitType;
             context.SpotFleetRequestConfig_TerminateInstancesWithExpiration = this.SpotFleetRequestConfig_TerminateInstancesWithExpiration;
             context.SpotFleetRequestConfig_Type = this.SpotFleetRequestConfig_Type;
-            context.SpotFleetRequestConfig_UtcValidFrom = this.SpotFleetRequestConfig_UtcValidFrom;
-            context.SpotFleetRequestConfig_UtcValidUntil = this.SpotFleetRequestConfig_UtcValidUntil;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SpotFleetRequestConfig_ValidFrom = this.SpotFleetRequestConfig_ValidFrom;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SpotFleetRequestConfig_ValidUntil = this.SpotFleetRequestConfig_ValidUntil;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -869,34 +832,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.Type = requestSpotFleetRequestConfig_spotFleetRequestConfig_Type;
                 requestSpotFleetRequestConfigIsNull = false;
             }
-            System.DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidFrom = null;
-            if (cmdletContext.SpotFleetRequestConfig_UtcValidFrom != null)
-            {
-                requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidFrom = cmdletContext.SpotFleetRequestConfig_UtcValidFrom.Value;
-            }
-            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidFrom != null)
-            {
-                request.SpotFleetRequestConfig.ValidFromUtc = requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidFrom.Value;
-                requestSpotFleetRequestConfigIsNull = false;
-            }
-            System.DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidUntil = null;
-            if (cmdletContext.SpotFleetRequestConfig_UtcValidUntil != null)
-            {
-                requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidUntil = cmdletContext.SpotFleetRequestConfig_UtcValidUntil.Value;
-            }
-            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidUntil != null)
-            {
-                request.SpotFleetRequestConfig.ValidUntilUtc = requestSpotFleetRequestConfig_spotFleetRequestConfig_UtcValidUntil.Value;
-                requestSpotFleetRequestConfigIsNull = false;
-            }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom = null;
             if (cmdletContext.SpotFleetRequestConfig_ValidFrom != null)
             {
-                if (cmdletContext.SpotFleetRequestConfig_UtcValidFrom != null)
-                {
-                    throw new System.ArgumentException("Parameters SpotFleetRequestConfig_ValidFrom and SpotFleetRequestConfig_UtcValidFrom are mutually exclusive.", nameof(this.SpotFleetRequestConfig_ValidFrom));
-                }
                 requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom = cmdletContext.SpotFleetRequestConfig_ValidFrom.Value;
             }
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom != null)
@@ -904,15 +842,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.ValidFrom = requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom.Value;
                 requestSpotFleetRequestConfigIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil = null;
             if (cmdletContext.SpotFleetRequestConfig_ValidUntil != null)
             {
-                if (cmdletContext.SpotFleetRequestConfig_UtcValidUntil != null)
-                {
-                    throw new System.ArgumentException("Parameters SpotFleetRequestConfig_ValidUntil and SpotFleetRequestConfig_UtcValidUntil are mutually exclusive.", nameof(this.SpotFleetRequestConfig_ValidUntil));
-                }
                 requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil = cmdletContext.SpotFleetRequestConfig_ValidUntil.Value;
             }
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil != null)
@@ -920,7 +852,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.ValidUntil = requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil.Value;
                 requestSpotFleetRequestConfigIsNull = false;
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.EC2.Model.SpotMaintenanceStrategies requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotMaintenanceStrategies = null;
             
              // populate SpotMaintenanceStrategies
@@ -1079,13 +1010,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "RequestSpotFleet");
             try
             {
-                #if DESKTOP
-                return client.RequestSpotFleet(request);
-                #elif CORECLR
-                return client.RequestSpotFleetAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RequestSpotFleetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -1128,11 +1053,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.TargetCapacityUnitType SpotFleetRequestConfig_TargetCapacityUnitType { get; set; }
             public System.Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
             public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }
-            public System.DateTime? SpotFleetRequestConfig_UtcValidFrom { get; set; }
-            public System.DateTime? SpotFleetRequestConfig_UtcValidUntil { get; set; }
-            [System.ObsoleteAttribute]
             public System.DateTime? SpotFleetRequestConfig_ValidFrom { get; set; }
-            [System.ObsoleteAttribute]
             public System.DateTime? SpotFleetRequestConfig_ValidUntil { get; set; }
             public System.Func<Amazon.EC2.Model.RequestSpotFleetResponse, RequestEC2SpotFleetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

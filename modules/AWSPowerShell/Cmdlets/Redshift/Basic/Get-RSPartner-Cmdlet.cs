@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Redshift;
 using Amazon.Redshift.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccountId
         /// <summary>
@@ -109,6 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public string Select { get; set; } = "PartnerIntegrationInfoList";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "DescribePartners");
             try
             {
-                #if DESKTOP
-                return client.DescribePartners(request);
-                #elif CORECLR
-                return client.DescribePartnersAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribePartnersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

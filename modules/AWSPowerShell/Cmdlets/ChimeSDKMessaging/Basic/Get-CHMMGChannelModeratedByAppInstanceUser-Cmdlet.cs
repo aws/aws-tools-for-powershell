@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ChimeSDKMessaging;
 using Amazon.ChimeSDKMessaging.Model;
 
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AppInstanceUserArn
         /// <summary>
@@ -111,6 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public string Select { get; set; } = "Channel";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -213,13 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "DescribeChannelModeratedByAppInstanceUser");
             try
             {
-                #if DESKTOP
-                return client.DescribeChannelModeratedByAppInstanceUser(request);
-                #elif CORECLR
-                return client.DescribeChannelModeratedByAppInstanceUserAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeChannelModeratedByAppInstanceUserAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

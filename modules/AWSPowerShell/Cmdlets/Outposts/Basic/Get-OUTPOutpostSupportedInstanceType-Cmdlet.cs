@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Outposts;
 using Amazon.Outposts.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter OrderId
         /// <summary>
@@ -117,6 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -234,13 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "GetOutpostSupportedInstanceTypes");
             try
             {
-                #if DESKTOP
-                return client.GetOutpostSupportedInstanceTypes(request);
-                #elif CORECLR
-                return client.GetOutpostSupportedInstanceTypesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetOutpostSupportedInstanceTypesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

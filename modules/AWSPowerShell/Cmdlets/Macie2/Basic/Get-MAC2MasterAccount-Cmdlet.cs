@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Macie2;
 using Amazon.Macie2.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -55,6 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         public string Select { get; set; } = "Master";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -124,13 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Macie 2", "GetMasterAccount");
             try
             {
-                #if DESKTOP
-                return client.GetMasterAccount(request);
-                #elif CORECLR
-                return client.GetMasterAccountAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetMasterAccountAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

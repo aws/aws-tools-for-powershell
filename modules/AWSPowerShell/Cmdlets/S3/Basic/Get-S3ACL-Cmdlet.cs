@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -29,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <note><para>
-    /// This operation is not supported for directory buckets.
+    /// This operation is not supported by directory buckets.
     /// </para></note><para>
     /// This implementation of the <c>GET</c> action uses the <c>acl</c> subresource to return
     /// the access control list (ACL) of a bucket. To use <c>GET</c> to return the ACL of
@@ -67,6 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BucketName
         /// <summary>
@@ -127,6 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string Select { get; set; } = "AccessControlList";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3";
@@ -216,13 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service (S3)", "GetACL");
             try
             {
-                #if DESKTOP
-                return client.GetACL(request);
-                #elif CORECLR
-                return client.GetACLAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetACLAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

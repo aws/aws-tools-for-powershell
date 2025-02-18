@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.AmplifyUIBuilder;
 using Amazon.AmplifyUIBuilder.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AppId
         /// <summary>
@@ -108,6 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public string Select { get; set; } = "Entities";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -209,13 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Amplify UI Builder", "ListThemes");
             try
             {
-                #if DESKTOP
-                return client.ListThemes(request);
-                #elif CORECLR
-                return client.ListThemesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListThemesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

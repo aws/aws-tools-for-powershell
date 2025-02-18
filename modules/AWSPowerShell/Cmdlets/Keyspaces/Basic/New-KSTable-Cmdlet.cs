@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Keyspaces;
 using Amazon.Keyspaces.Model;
 
@@ -52,6 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter SchemaDefinition_AllColumn
         /// <summary>
@@ -492,6 +494,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -1093,13 +1100,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Keyspaces", "CreateTable");
             try
             {
-                #if DESKTOP
-                return client.CreateTable(request);
-                #elif CORECLR
-                return client.CreateTableAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateTableAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

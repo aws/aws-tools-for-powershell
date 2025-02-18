@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3Control;
 using Amazon.S3Control.Model;
 
@@ -51,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccountId
         /// <summary>
@@ -116,6 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public string Select { get; set; } = "Jobs";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3v4";
@@ -214,13 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListJobs");
             try
             {
-                #if DESKTOP
-                return client.ListJobs(request);
-                #elif CORECLR
-                return client.ListJobsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

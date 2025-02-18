@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Polly;
 using Amazon.Polly.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Status
         /// <summary>
@@ -108,6 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.POL
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -328,13 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Polly", "ListSpeechSynthesisTasks");
             try
             {
-                #if DESKTOP
-                return client.ListSpeechSynthesisTasks(request);
-                #elif CORECLR
-                return client.ListSpeechSynthesisTasksAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListSpeechSynthesisTasksAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

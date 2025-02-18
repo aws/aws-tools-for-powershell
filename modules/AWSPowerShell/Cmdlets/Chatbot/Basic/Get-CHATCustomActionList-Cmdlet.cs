@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Chatbot;
 using Amazon.Chatbot.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -78,6 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         public string Select { get; set; } = "CustomActions";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -157,13 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Chatbot", "ListCustomActions");
             try
             {
-                #if DESKTOP
-                return client.ListCustomActions(request);
-                #elif CORECLR
-                return client.ListCustomActionsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListCustomActionsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

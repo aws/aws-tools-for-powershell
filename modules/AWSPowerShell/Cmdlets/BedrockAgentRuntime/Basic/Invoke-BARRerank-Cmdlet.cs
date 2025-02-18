@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BedrockAgentRuntime;
 using Amazon.BedrockAgentRuntime.Model;
 
@@ -40,11 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     public partial class InvokeBARRerankCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ModelConfiguration_AdditionalModelRequestField
         /// <summary>
@@ -174,6 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -384,13 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Runtime", "Rerank");
             try
             {
-                #if DESKTOP
-                return client.Rerank(request);
-                #elif CORECLR
-                return client.RerankAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RerankAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

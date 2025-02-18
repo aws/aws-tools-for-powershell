@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ConnectWisdomService;
 using Amazon.ConnectWisdomService.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AssistantAssociationId
         /// <summary>
@@ -89,6 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         public string Select { get; set; } = "AssistantAssociation";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -180,13 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Wisdom Service", "GetAssistantAssociation");
             try
             {
-                #if DESKTOP
-                return client.GetAssistantAssociation(request);
-                #elif CORECLR
-                return client.GetAssistantAssociationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetAssistantAssociationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

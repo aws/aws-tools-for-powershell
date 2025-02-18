@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IVSRealTime;
 using Amazon.IVSRealTime.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Video_Bitrate
         /// <summary>
@@ -132,6 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -277,13 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "CreateEncoderConfiguration");
             try
             {
-                #if DESKTOP
-                return client.CreateEncoderConfiguration(request);
-                #elif CORECLR
-                return client.CreateEncoderConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateEncoderConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

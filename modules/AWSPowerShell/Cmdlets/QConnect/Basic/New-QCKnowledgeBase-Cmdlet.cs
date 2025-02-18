@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QConnect;
 using Amazon.QConnect.Model;
 
@@ -59,11 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
     public partial class NewQCKnowledgeBaseCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AppIntegrations_AppIntegrationArn
         /// <summary>
@@ -426,6 +424,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -996,13 +999,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "CreateKnowledgeBase");
             try
             {
-                #if DESKTOP
-                return client.CreateKnowledgeBase(request);
-                #elif CORECLR
-                return client.CreateKnowledgeBaseAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateKnowledgeBaseAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.StorageGateway;
 using Amazon.StorageGateway.Model;
 
@@ -55,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AverageDownloadRateLimitInBitsPerSec
         /// <summary>
@@ -114,6 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "UpdateBandwidthRateLimit");
             try
             {
-                #if DESKTOP
-                return client.UpdateBandwidthRateLimit(request);
-                #elif CORECLR
-                return client.UpdateBandwidthRateLimitAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateBandwidthRateLimitAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

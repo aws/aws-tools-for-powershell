@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ChimeSDKMediaPipelines;
 using Amazon.ChimeSDKMediaPipelines.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter KinesisVideoStreamSourceTaskConfiguration_ChannelId
         /// <summary>
@@ -146,6 +148,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -290,13 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "StartSpeakerSearchTask");
             try
             {
-                #if DESKTOP
-                return client.StartSpeakerSearchTask(request);
-                #elif CORECLR
-                return client.StartSpeakerSearchTaskAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.StartSpeakerSearchTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

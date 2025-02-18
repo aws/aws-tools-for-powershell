@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LookoutEquipment;
 using Amazon.LookoutEquipment.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DatasetName
         /// <summary>
@@ -111,6 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -222,13 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lookout for Equipment", "ListDataIngestionJobs");
             try
             {
-                #if DESKTOP
-                return client.ListDataIngestionJobs(request);
-                #elif CORECLR
-                return client.ListDataIngestionJobsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListDataIngestionJobsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

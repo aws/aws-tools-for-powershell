@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SupportApp;
 using Amazon.SupportApp.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter NextToken
         /// <summary>
@@ -67,6 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.SUP
         public string Select { get; set; } = "SlackWorkspaceConfigurations";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -141,13 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support App", "ListSlackWorkspaceConfigurations");
             try
             {
-                #if DESKTOP
-                return client.ListSlackWorkspaceConfigurations(request);
-                #elif CORECLR
-                return client.ListSlackWorkspaceConfigurationsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListSlackWorkspaceConfigurationsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

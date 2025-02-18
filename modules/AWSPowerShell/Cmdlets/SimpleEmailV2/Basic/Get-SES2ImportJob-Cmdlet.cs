@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SimpleEmailV2;
 using Amazon.SimpleEmailV2.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter JobId
         /// <summary>
@@ -69,6 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -149,13 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetImportJob");
             try
             {
-                #if DESKTOP
-                return client.GetImportJob(request);
-                #elif CORECLR
-                return client.GetImportJobAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetImportJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

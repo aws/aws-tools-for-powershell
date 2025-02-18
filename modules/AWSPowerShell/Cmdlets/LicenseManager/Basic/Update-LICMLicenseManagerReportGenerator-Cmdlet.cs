@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LicenseManager;
 using Amazon.LicenseManager.Model;
 
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Description
         /// <summary>
@@ -190,6 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -377,13 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS License Manager", "UpdateLicenseManagerReportGenerator");
             try
             {
-                #if DESKTOP
-                return client.UpdateLicenseManagerReportGenerator(request);
-                #elif CORECLR
-                return client.UpdateLicenseManagerReportGeneratorAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateLicenseManagerReportGeneratorAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

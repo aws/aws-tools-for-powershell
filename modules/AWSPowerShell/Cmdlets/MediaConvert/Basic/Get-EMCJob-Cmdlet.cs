@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MediaConvert;
 using Amazon.MediaConvert.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Id
         /// <summary>
@@ -70,6 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public string Select { get; set; } = "Job";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -150,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaConvert", "GetJob");
             try
             {
-                #if DESKTOP
-                return client.GetJob(request);
-                #elif CORECLR
-                return client.GetJobAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetJobAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

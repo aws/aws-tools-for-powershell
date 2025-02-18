@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Imagebuilder;
 using Amazon.Imagebuilder.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ImageRecipeArn
         /// <summary>
@@ -79,6 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -165,13 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EC2 Image Builder", "DeleteImageRecipe");
             try
             {
-                #if DESKTOP
-                return client.DeleteImageRecipe(request);
-                #elif CORECLR
-                return client.DeleteImageRecipeAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteImageRecipeAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

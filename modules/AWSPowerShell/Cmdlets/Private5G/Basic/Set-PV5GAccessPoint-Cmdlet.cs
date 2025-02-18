@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Private5G;
 using Amazon.Private5G.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccessPointArn
         /// <summary>
@@ -182,6 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -352,13 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Private 5G", "ConfigureAccessPoint");
             try
             {
-                #if DESKTOP
-                return client.ConfigureAccessPoint(request);
-                #elif CORECLR
-                return client.ConfigureAccessPointAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ConfigureAccessPointAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

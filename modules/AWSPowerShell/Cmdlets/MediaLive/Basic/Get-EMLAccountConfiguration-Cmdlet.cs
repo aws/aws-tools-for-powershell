@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MediaLive;
 using Amazon.MediaLive.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Select
         /// <summary>
@@ -53,6 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public string Select { get; set; } = "AccountConfiguration";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -122,13 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "DescribeAccountConfiguration");
             try
             {
-                #if DESKTOP
-                return client.DescribeAccountConfiguration(request);
-                #elif CORECLR
-                return client.DescribeAccountConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeAccountConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

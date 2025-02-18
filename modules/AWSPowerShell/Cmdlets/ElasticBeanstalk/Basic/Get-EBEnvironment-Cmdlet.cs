@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.ElasticBeanstalk;
 using Amazon.ElasticBeanstalk.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ApplicationName
         /// <summary>
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String[] EnvironmentName { get; set; }
         #endregion
         
-        #region Parameter UtcIncludedDeletedBackTo
+        #region Parameter IncludedDeletedBackTo
         /// <summary>
         /// <para>
         /// <para> If specified when <c>IncludeDeleted</c> is set to <c>true</c>, then environments
@@ -85,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? UtcIncludedDeletedBackTo { get; set; }
+        public System.DateTime? IncludedDeletedBackTo { get; set; }
         #endregion
         
         #region Parameter IncludeDeleted
@@ -108,25 +110,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
-        #endregion
-        
-        #region Parameter IncludedDeletedBackTo
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use IncludedDeletedBackToUtc instead. Setting either IncludedDeletedBackTo
-        /// or IncludedDeletedBackToUtc results in both IncludedDeletedBackTo and IncludedDeletedBackToUtc
-        /// being assigned, the latest assignment to either one of the two property is reflected
-        /// in the value of both. IncludedDeletedBackTo is provided for backwards compatibility
-        /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
-        /// to the service.</para><para> If specified when <c>IncludeDeleted</c> is set to <c>true</c>, then environments
-        /// deleted after this date are displayed. </para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcIncludedDeletedBackTo instead.")]
-        public System.DateTime? IncludedDeletedBackTo { get; set; }
         #endregion
         
         #region Parameter MaxRecord
@@ -185,6 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -209,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 context.EnvironmentName = new List<System.String>(this.EnvironmentName);
             }
-            context.UtcIncludedDeletedBackTo = this.UtcIncludedDeletedBackTo;
+            context.IncludedDeletedBackTo = this.IncludedDeletedBackTo;
             context.IncludeDeleted = this.IncludeDeleted;
             context.MaxRecord = this.MaxRecord;
             #if MODULAR
@@ -230,9 +218,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             #endif
             context.NextToken = this.NextToken;
             context.VersionLabel = this.VersionLabel;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IncludedDeletedBackTo = this.IncludedDeletedBackTo;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -264,9 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.EnvironmentNames = cmdletContext.EnvironmentName;
             }
-            if (cmdletContext.UtcIncludedDeletedBackTo != null)
+            if (cmdletContext.IncludedDeletedBackTo != null)
             {
-                request.IncludedDeletedBackToUtc = cmdletContext.UtcIncludedDeletedBackTo.Value;
+                request.IncludedDeletedBackTo = cmdletContext.IncludedDeletedBackTo.Value;
             }
             if (cmdletContext.IncludeDeleted != null)
             {
@@ -280,16 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.VersionLabel = cmdletContext.VersionLabel;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.IncludedDeletedBackTo != null)
-            {
-                if (cmdletContext.UtcIncludedDeletedBackTo != null)
-                {
-                    throw new System.ArgumentException("Parameters IncludedDeletedBackTo and UtcIncludedDeletedBackTo are mutually exclusive.", nameof(this.IncludedDeletedBackTo));
-                }
-                request.IncludedDeletedBackTo = cmdletContext.IncludedDeletedBackTo.Value;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -357,9 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.EnvironmentNames = cmdletContext.EnvironmentName;
             }
-            if (cmdletContext.UtcIncludedDeletedBackTo != null)
+            if (cmdletContext.IncludedDeletedBackTo != null)
             {
-                request.IncludedDeletedBackToUtc = cmdletContext.UtcIncludedDeletedBackTo.Value;
+                request.IncludedDeletedBackTo = cmdletContext.IncludedDeletedBackTo.Value;
             }
             if (cmdletContext.IncludeDeleted != null)
             {
@@ -369,16 +344,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.VersionLabel = cmdletContext.VersionLabel;
             }
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.IncludedDeletedBackTo != null)
-            {
-                if (cmdletContext.UtcIncludedDeletedBackTo != null)
-                {
-                    throw new System.ArgumentException("Parameters IncludedDeletedBackTo and UtcIncludedDeletedBackTo are mutually exclusive.", nameof(this.IncludedDeletedBackTo));
-                }
-                request.IncludedDeletedBackTo = cmdletContext.IncludedDeletedBackTo.Value;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -479,13 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeEnvironments");
             try
             {
-                #if DESKTOP
-                return client.DescribeEnvironments(request);
-                #elif CORECLR
-                return client.DescribeEnvironmentsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeEnvironmentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
@@ -505,13 +464,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String ApplicationName { get; set; }
             public List<System.String> EnvironmentId { get; set; }
             public List<System.String> EnvironmentName { get; set; }
-            public System.DateTime? UtcIncludedDeletedBackTo { get; set; }
+            public System.DateTime? IncludedDeletedBackTo { get; set; }
             public System.Boolean? IncludeDeleted { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.String VersionLabel { get; set; }
-            [System.ObsoleteAttribute]
-            public System.DateTime? IncludedDeletedBackTo { get; set; }
             public System.Func<Amazon.ElasticBeanstalk.Model.DescribeEnvironmentsResponse, GetEBEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Environments;
         }

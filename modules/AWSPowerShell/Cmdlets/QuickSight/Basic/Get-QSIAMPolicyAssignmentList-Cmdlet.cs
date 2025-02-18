@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QuickSight;
 using Amazon.QuickSight.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AssignmentStatus
         /// <summary>
@@ -139,6 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -389,13 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "ListIAMPolicyAssignments");
             try
             {
-                #if DESKTOP
-                return client.ListIAMPolicyAssignments(request);
-                #elif CORECLR
-                return client.ListIAMPolicyAssignmentsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListIAMPolicyAssignmentsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

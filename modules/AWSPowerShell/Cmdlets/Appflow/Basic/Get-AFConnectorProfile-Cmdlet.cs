@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Appflow;
 using Amazon.Appflow.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ConnectorLabel
         /// <summary>
@@ -118,6 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public string Select { get; set; } = "ConnectorProfileDetails";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -215,13 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Appflow", "DescribeConnectorProfiles");
             try
             {
-                #if DESKTOP
-                return client.DescribeConnectorProfiles(request);
-                #elif CORECLR
-                return client.DescribeConnectorProfilesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeConnectorProfilesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

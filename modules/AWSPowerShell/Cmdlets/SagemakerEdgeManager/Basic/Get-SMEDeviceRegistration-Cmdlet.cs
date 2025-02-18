@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SagemakerEdgeManager;
 using Amazon.SagemakerEdgeManager.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SME
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DeviceFleetName
         /// <summary>
@@ -86,6 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.SME
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -177,13 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SME
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Sagemaker Edge Manager", "GetDeviceRegistration");
             try
             {
-                #if DESKTOP
-                return client.GetDeviceRegistration(request);
-                #elif CORECLR
-                return client.GetDeviceRegistrationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetDeviceRegistrationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.LexModelsV2;
 using Amazon.LexModelsV2.Model;
 
@@ -69,6 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter FulfillmentCodeHook_Active
         /// <summary>
@@ -3457,6 +3459,11 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -9869,13 +9876,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex Model Building V2", "CreateIntent");
             try
             {
-                #if DESKTOP
-                return client.CreateIntent(request);
-                #elif CORECLR
-                return client.CreateIntentAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateIntentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.OpenSearchServerless;
 using Amazon.OpenSearchServerless.Model;
 
@@ -43,6 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CapacityLimits_MaxIndexingCapacityInOCU
         /// <summary>
@@ -85,6 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -191,13 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "OpenSearch Serverless", "UpdateAccountSettings");
             try
             {
-                #if DESKTOP
-                return client.UpdateAccountSettings(request);
-                #elif CORECLR
-                return client.UpdateAccountSettingsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateAccountSettingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

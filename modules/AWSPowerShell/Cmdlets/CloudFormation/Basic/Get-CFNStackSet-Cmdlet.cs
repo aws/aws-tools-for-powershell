@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CloudFormation;
 using Amazon.CloudFormation.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter CallAs
         /// <summary>
@@ -86,6 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public string Select { get; set; } = "StackSet";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -171,13 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "DescribeStackSet");
             try
             {
-                #if DESKTOP
-                return client.DescribeStackSet(request);
-                #elif CORECLR
-                return client.DescribeStackSetAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeStackSetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

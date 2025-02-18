@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.BCMDataExports;
 using Amazon.BCMDataExports.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ExecutionId
         /// <summary>
@@ -86,6 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -177,13 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSBillingAndCostManagementDataExports", "GetExecution");
             try
             {
-                #if DESKTOP
-                return client.GetExecution(request);
-                #elif CORECLR
-                return client.GetExecutionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetExecutionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

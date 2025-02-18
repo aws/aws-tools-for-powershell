@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Kafka;
 using Amazon.Kafka.Model;
 
@@ -45,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ClusterArn
         /// <summary>
@@ -74,6 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public string Select { get; set; } = "BootstrapBrokerString";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -154,13 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "GetBootstrapBrokers");
             try
             {
-                #if DESKTOP
-                return client.GetBootstrapBrokers(request);
-                #elif CORECLR
-                return client.GetBootstrapBrokersAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetBootstrapBrokersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SageMakerFeatureStoreRuntime;
 using Amazon.SageMakerFeatureStoreRuntime.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ExpirationTimeResponse
         /// <summary>
@@ -85,6 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -173,13 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Feature Store Runtime", "BatchGetRecord");
             try
             {
-                #if DESKTOP
-                return client.BatchGetRecord(request);
-                #elif CORECLR
-                return client.BatchGetRecordAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.BatchGetRecordAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

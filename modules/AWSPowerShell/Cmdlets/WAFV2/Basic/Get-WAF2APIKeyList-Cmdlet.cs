@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WAFV2;
 using Amazon.WAFV2.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Scope
         /// <summary>
@@ -123,6 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -235,13 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "ListAPIKeys");
             try
             {
-                #if DESKTOP
-                return client.ListAPIKeys(request);
-                #elif CORECLR
-                return client.ListAPIKeysAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListAPIKeysAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

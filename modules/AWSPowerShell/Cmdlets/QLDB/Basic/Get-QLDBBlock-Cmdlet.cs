@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.QLDB;
 using Amazon.QLDB.Model;
 
@@ -54,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter BlockAddress_IonText
         /// <summary>
@@ -103,6 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -223,13 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QLDB", "GetBlock");
             try
             {
-                #if DESKTOP
-                return client.GetBlock(request);
-                #elif CORECLR
-                return client.GetBlockAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetBlockAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Macie2;
 using Amazon.Macie2.Model;
 
@@ -34,13 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
     [OutputType("System.Int32")]
     [AWSCmdlet("Calls the Amazon Macie 2 TestCustomDataIdentifier API operation.", Operation = new[] {"TestCustomDataIdentifier"}, SelectReturnType = typeof(Amazon.Macie2.Model.TestCustomDataIdentifierResponse))]
     [AWSCmdletOutput("System.Int32 or Amazon.Macie2.Model.TestCustomDataIdentifierResponse",
-        "This cmdlet returns a System.Int32 object.",
+        "This cmdlet returns a collection of System.Int32 objects.",
         "The service call response (type Amazon.Macie2.Model.TestCustomDataIdentifierResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestMAC2CustomDataIdentifierCmdlet : AmazonMacie2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter IgnoreWord
         /// <summary>
@@ -131,6 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         public string Select { get; set; } = "MatchCount";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -243,13 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Macie 2", "TestCustomDataIdentifier");
             try
             {
-                #if DESKTOP
-                return client.TestCustomDataIdentifier(request);
-                #elif CORECLR
-                return client.TestCustomDataIdentifierAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.TestCustomDataIdentifierAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

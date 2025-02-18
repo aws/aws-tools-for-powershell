@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WAFRegional;
 using Amazon.WAFRegional.Model;
 
@@ -55,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ChangeToken
         /// <summary>
@@ -85,6 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         public string Select { get; set; } = "ChangeTokenStatus";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -165,13 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "GetChangeTokenStatus");
             try
             {
-                #if DESKTOP
-                return client.GetChangeTokenStatus(request);
-                #elif CORECLR
-                return client.GetChangeTokenStatusAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetChangeTokenStatusAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

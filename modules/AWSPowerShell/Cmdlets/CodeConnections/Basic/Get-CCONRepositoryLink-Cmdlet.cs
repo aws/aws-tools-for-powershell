@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CodeConnections;
 using Amazon.CodeConnections.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter RepositoryLinkId
         /// <summary>
@@ -71,6 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CCON
         public string Select { get; set; } = "RepositoryLinkInfo";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -151,13 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeConnections", "GetRepositoryLink");
             try
             {
-                #if DESKTOP
-                return client.GetRepositoryLink(request);
-                #elif CORECLR
-                return client.GetRepositoryLinkAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetRepositoryLinkAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkDocs;
 using Amazon.WorkDocs.Model;
 
@@ -49,6 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AuthenticationToken
         /// <summary>
@@ -78,6 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.WD
         public string Select { get; set; } = "User";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -158,13 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetCurrentUser");
             try
             {
-                #if DESKTOP
-                return client.GetCurrentUser(request);
-                #elif CORECLR
-                return client.GetCurrentUserAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetCurrentUserAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

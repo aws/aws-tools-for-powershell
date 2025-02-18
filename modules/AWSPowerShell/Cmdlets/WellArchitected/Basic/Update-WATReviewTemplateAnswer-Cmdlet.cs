@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WellArchitected;
 using Amazon.WellArchitected.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ChoiceUpdate
         /// <summary>
@@ -167,6 +169,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -310,13 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "UpdateReviewTemplateAnswer");
             try
             {
-                #if DESKTOP
-                return client.UpdateReviewTemplateAnswer(request);
-                #elif CORECLR
-                return client.UpdateReviewTemplateAnswerAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateReviewTemplateAnswerAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

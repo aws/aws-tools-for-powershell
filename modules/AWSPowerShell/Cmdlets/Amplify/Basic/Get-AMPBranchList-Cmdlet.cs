@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Amplify;
 using Amazon.Amplify.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AppId
         /// <summary>
@@ -112,6 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -327,13 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Amplify", "ListBranches");
             try
             {
-                #if DESKTOP
-                return client.ListBranches(request);
-                #elif CORECLR
-                return client.ListBranchesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListBranchesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

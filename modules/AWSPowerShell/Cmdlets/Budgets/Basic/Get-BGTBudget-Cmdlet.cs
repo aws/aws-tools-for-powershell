@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Budgets;
 using Amazon.Budgets.Model;
 
@@ -47,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AccountId
         /// <summary>
@@ -94,6 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public string Select { get; set; } = "Budget";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -185,13 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DescribeBudget");
             try
             {
-                #if DESKTOP
-                return client.DescribeBudget(request);
-                #elif CORECLR
-                return client.DescribeBudgetAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeBudgetAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

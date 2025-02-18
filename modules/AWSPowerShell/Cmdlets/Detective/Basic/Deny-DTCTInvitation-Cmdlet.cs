@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Detective;
 using Amazon.Detective.Model;
 
@@ -48,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter GraphArn
         /// <summary>
@@ -86,6 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -172,13 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Detective", "RejectInvitation");
             try
             {
-                #if DESKTOP
-                return client.RejectInvitation(request);
-                #elif CORECLR
-                return client.RejectInvitationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.RejectInvitationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

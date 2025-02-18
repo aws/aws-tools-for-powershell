@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTWireless;
 using Amazon.IoTWireless.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Id
         /// <summary>
@@ -102,6 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -197,13 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Wireless", "ListDevicesForWirelessDeviceImportTask");
             try
             {
-                #if DESKTOP
-                return client.ListDevicesForWirelessDeviceImportTask(request);
-                #elif CORECLR
-                return client.ListDevicesForWirelessDeviceImportTaskAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListDevicesForWirelessDeviceImportTaskAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

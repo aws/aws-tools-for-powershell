@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.KinesisAnalytics;
 using Amazon.KinesisAnalytics.Model;
 
@@ -59,6 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter S3Configuration_BucketARN
         /// <summary>
@@ -163,6 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -350,13 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DiscoverInputSchema");
             try
             {
-                #if DESKTOP
-                return client.DiscoverInputSchema(request);
-                #elif CORECLR
-                return client.DiscoverInputSchemaAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DiscoverInputSchemaAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

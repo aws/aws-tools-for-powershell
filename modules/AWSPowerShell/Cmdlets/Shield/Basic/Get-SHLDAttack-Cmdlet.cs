@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.Shield;
 using Amazon.Shield.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AttackId
         /// <summary>
@@ -70,6 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         public string Select { get; set; } = "Attack";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -150,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Shield", "DescribeAttack");
             try
             {
-                #if DESKTOP
-                return client.DescribeAttack(request);
-                #elif CORECLR
-                return client.DescribeAttackAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeAttackAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

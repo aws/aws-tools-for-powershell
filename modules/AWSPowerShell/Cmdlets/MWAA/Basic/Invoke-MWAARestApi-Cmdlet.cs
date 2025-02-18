@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.MWAA;
 using Amazon.MWAA.Model;
 
@@ -41,11 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public partial class InvokeMWAARestApiCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Body
         /// <summary>
@@ -144,6 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -262,13 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AmazonMWAA", "InvokeRestApi");
             try
             {
-                #if DESKTOP
-                return client.InvokeRestApi(request);
-                #elif CORECLR
-                return client.InvokeRestApiAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.InvokeRestApiAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

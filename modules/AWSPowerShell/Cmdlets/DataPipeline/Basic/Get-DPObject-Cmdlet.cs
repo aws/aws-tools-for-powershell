@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.DataPipeline;
 using Amazon.DataPipeline.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter EvaluateExpression
         /// <summary>
@@ -129,6 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.DP
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -255,13 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "DescribeObjects");
             try
             {
-                #if DESKTOP
-                return client.DescribeObjects(request);
-                #elif CORECLR
-                return client.DescribeObjectsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeObjectsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTEventsData;
 using Amazon.IoTEventsData.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AlarmModelName
         /// <summary>
@@ -81,6 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
         public string Select { get; set; } = "Alarm";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -166,13 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT Events Data", "DescribeAlarm");
             try
             {
-                #if DESKTOP
-                return client.DescribeAlarm(request);
-                #elif CORECLR
-                return client.DescribeAlarmAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeAlarmAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

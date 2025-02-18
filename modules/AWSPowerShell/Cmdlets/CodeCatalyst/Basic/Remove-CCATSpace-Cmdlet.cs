@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CodeCatalyst;
 using Amazon.CodeCatalyst.Model;
 
@@ -45,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Name
         /// <summary>
@@ -84,6 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._ExecuteWithAnonymousCredentials = true;
@@ -171,13 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCatalyst", "DeleteSpace");
             try
             {
-                #if DESKTOP
-                return client.DeleteSpace(request);
-                #elif CORECLR
-                return client.DeleteSpaceAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DeleteSpaceAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

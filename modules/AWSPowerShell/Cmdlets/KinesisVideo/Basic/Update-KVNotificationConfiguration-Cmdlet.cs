@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.KinesisVideo;
 using Amazon.KinesisVideo.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter NotificationConfiguration_Status
         /// <summary>
@@ -107,6 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.KV
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -238,13 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Video Streams", "UpdateNotificationConfiguration");
             try
             {
-                #if DESKTOP
-                return client.UpdateNotificationConfiguration(request);
-                #elif CORECLR
-                return client.UpdateNotificationConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateNotificationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.EMRContainers;
 using Amazon.EMRContainers.Model;
 
@@ -45,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ContainerProviderId
         /// <summary>
@@ -143,6 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public string Select { get; set; } = "VirtualClusters";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -255,13 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EMR Containers", "ListVirtualClusters");
             try
             {
-                #if DESKTOP
-                return client.ListVirtualClusters(request);
-                #elif CORECLR
-                return client.ListVirtualClustersAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListVirtualClustersAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

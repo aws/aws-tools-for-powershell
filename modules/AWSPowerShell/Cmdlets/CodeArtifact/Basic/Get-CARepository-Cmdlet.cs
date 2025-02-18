@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CodeArtifact;
 using Amazon.CodeArtifact.Model;
 
@@ -42,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Domain
         /// <summary>
@@ -99,6 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public string Select { get; set; } = "Repository";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -195,13 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "DescribeRepository");
             try
             {
-                #if DESKTOP
-                return client.DescribeRepository(request);
-                #elif CORECLR
-                return client.DescribeRepositoryAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.DescribeRepositoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

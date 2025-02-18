@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WAFV2;
 using Amazon.WAFV2.Model;
 
@@ -47,13 +48,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the AWS WAF V2 CheckCapacity API operation.", Operation = new[] {"CheckCapacity"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CheckCapacityResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.WAFV2.Model.CheckCapacityResponse",
-        "This cmdlet returns a System.Int64 object.",
+        "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.WAFV2.Model.CheckCapacityResponse) can be returned by specifying '-Select *'."
     )]
     public partial class TestWAF2CapacityCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Rule
         /// <summary>
@@ -107,16 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public string Select { get; set; } = "Capacity";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Scope parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -127,21 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.CheckCapacityResponse, TestWAF2CapacityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Scope;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.WAFV2.Model.Rule>(this.Rule);
@@ -221,13 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CheckCapacity");
             try
             {
-                #if DESKTOP
-                return client.CheckCapacity(request);
-                #elif CORECLR
-                return client.CheckCapacityAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CheckCapacityAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

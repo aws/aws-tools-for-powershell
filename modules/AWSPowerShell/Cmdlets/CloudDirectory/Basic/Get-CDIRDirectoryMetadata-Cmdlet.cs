@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.CloudDirectory;
 using Amazon.CloudDirectory.Model;
 
@@ -41,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DirectoryArn
         /// <summary>
@@ -70,6 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public string Select { get; set; } = "Directory";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -150,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cloud Directory", "GetDirectory");
             try
             {
-                #if DESKTOP
-                return client.GetDirectory(request);
-                #elif CORECLR
-                return client.GetDirectoryAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetDirectoryAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

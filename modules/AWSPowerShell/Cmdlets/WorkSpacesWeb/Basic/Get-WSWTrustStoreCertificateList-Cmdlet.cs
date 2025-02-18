@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.WorkSpacesWeb;
 using Amazon.WorkSpacesWeb.Model;
 
@@ -40,6 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter TrustStoreArn
         /// <summary>
@@ -90,6 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public string Select { get; set; } = "*";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -180,13 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "ListTrustStoreCertificates");
             try
             {
-                #if DESKTOP
-                return client.ListTrustStoreCertificates(request);
-                #elif CORECLR
-                return client.ListTrustStoreCertificatesAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListTrustStoreCertificatesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {
