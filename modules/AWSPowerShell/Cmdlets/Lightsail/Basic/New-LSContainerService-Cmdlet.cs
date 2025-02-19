@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// A Lightsail container service is a compute resource to which you can deploy containers.
-    /// For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container
+    /// For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-container-services">Container
     /// services in Amazon Lightsail</a> in the <i>Lightsail Dev Guide</i>.
     /// </para>
     /// </summary>
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys and optional values to add to the container service during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon
+        /// <para>The tag keys and optional values to add to the container service during create.</para><para>Use the <c>TagResource</c> action to tag a resource after it's created.</para><para>For more information about tags in Lightsail, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-tags">Amazon
         /// Lightsail Developer Guide</a>.</para>
         /// </para>
         /// </summary>

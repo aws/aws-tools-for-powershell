@@ -22,71 +22,72 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Lightsail;
-using Amazon.Lightsail.Model;
+using Amazon.SimpleEmailV2;
+using Amazon.SimpleEmailV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LS
+namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Deletes a contact method.
-    /// 
-    ///  
-    /// <para>
-    /// A contact method is used to send you notifications about your Amazon Lightsail resources.
-    /// You can add one email address and one mobile phone number contact method in each Amazon
-    /// Web Services Region. However, SMS text messaging is not supported in some Amazon Web
-    /// Services Regions, and SMS text messages cannot be sent to some countries/regions.
-    /// For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications
-    /// in Amazon Lightsail</a>.
-    /// </para>
+    /// Associate the configuration set with a MailManager archive. When you send email using
+    /// the <c>SendEmail</c> or <c>SendBulkEmail</c> operations the message as it will be
+    /// given to the receiving SMTP server will be archived, along with the recipient information.
     /// </summary>
-    [Cmdlet("Remove", "LSContactMethod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Calls the Amazon Lightsail DeleteContactMethod API operation.", Operation = new[] {"DeleteContactMethod"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteContactMethodResponse))]
-    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteContactMethodResponse",
-        "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteContactMethodResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Write", "SES2ConfigurationSetArchivingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) PutConfigurationSetArchivingOptions API operation.", Operation = new[] {"PutConfigurationSetArchivingOptions"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse))]
+    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveLSContactMethodCmdlet : AmazonLightsailClientCmdlet, IExecutor
+    public partial class WriteSES2ConfigurationSetArchivingOptionCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Protocol
+        #region Parameter ArchiveArn
         /// <summary>
         /// <para>
-        /// <para>The protocol that will be deleted, such as <c>Email</c> or <c>SMS</c> (text messaging).</para><note><para>To delete an <c>Email</c> and an <c>SMS</c> contact method if you added both, you
-        /// must run separate <c>DeleteContactMethod</c> actions to delete each protocol.</para></note>
+        /// <para>The Amazon Resource Name (ARN) of the MailManager archive that the Amazon SES API
+        /// v2 sends email to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ArchiveArn { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the configuration set to associate with a MailManager archive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Lightsail.ContactProtocol")]
-        public Amazon.Lightsail.ContactProtocol Protocol { get; set; }
+        public System.String ConfigurationSetName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Operations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.DeleteContactMethodResponse).
-        /// Specifying the name of a property of type Amazon.Lightsail.Model.DeleteContactMethodResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Operations";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Protocol parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Protocol' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConfigurationSetName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConfigurationSetName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Protocol' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConfigurationSetName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Protocol), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LSContactMethod (DeleteContactMethod)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfigurationSetName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SES2ConfigurationSetArchivingOption (PutConfigurationSetArchivingOptions)"))
             {
                 return;
             }
@@ -120,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.DeleteContactMethodResponse, RemoveLSContactMethodCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse, WriteSES2ConfigurationSetArchivingOptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,14 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Protocol;
+                context.Select = (response, cmdlet) => this.ConfigurationSetName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Protocol = this.Protocol;
+            context.ArchiveArn = this.ArchiveArn;
+            context.ConfigurationSetName = this.ConfigurationSetName;
             #if MODULAR
-            if (this.Protocol == null && ParameterWasBound(nameof(this.Protocol)))
+            if (this.ConfigurationSetName == null && ParameterWasBound(nameof(this.ConfigurationSetName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Protocol which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConfigurationSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,11 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lightsail.Model.DeleteContactMethodRequest();
+            var request = new Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsRequest();
             
-            if (cmdletContext.Protocol != null)
+            if (cmdletContext.ArchiveArn != null)
             {
-                request.Protocol = cmdletContext.Protocol;
+                request.ArchiveArn = cmdletContext.ArchiveArn;
+            }
+            if (cmdletContext.ConfigurationSetName != null)
+            {
+                request.ConfigurationSetName = cmdletContext.ConfigurationSetName;
             }
             
             CmdletOutput output;
@@ -192,15 +198,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private Amazon.Lightsail.Model.DeleteContactMethodResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteContactMethodRequest request)
+        private Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "DeleteContactMethod");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "PutConfigurationSetArchivingOptions");
             try
             {
                 #if DESKTOP
-                return client.DeleteContactMethod(request);
+                return client.PutConfigurationSetArchivingOptions(request);
                 #elif CORECLR
-                return client.DeleteContactMethodAsync(request).GetAwaiter().GetResult();
+                return client.PutConfigurationSetArchivingOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,9 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Lightsail.ContactProtocol Protocol { get; set; }
-            public System.Func<Amazon.Lightsail.Model.DeleteContactMethodResponse, RemoveLSContactMethodCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Operations;
+            public System.String ArchiveArn { get; set; }
+            public System.String ConfigurationSetName { get; set; }
+            public System.Func<Amazon.SimpleEmailV2.Model.PutConfigurationSetArchivingOptionsResponse, WriteSES2ConfigurationSetArchivingOptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

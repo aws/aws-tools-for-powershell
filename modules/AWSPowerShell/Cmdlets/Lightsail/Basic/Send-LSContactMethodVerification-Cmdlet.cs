@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// You can add one email address and one mobile phone number contact method in each Amazon
     /// Web Services Region. However, SMS text messaging is not supported in some Amazon Web
     /// Services Regions, and SMS text messages cannot be sent to some countries/regions.
-    /// For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications
+    /// For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications
     /// in Amazon Lightsail</a>.
     /// </para><para>
     /// A verification request is sent to the contact method when you initially create it.

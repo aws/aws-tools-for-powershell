@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-NWFWResourceTag', 
+        'Get-NWFWAnalysisReportList', 
+        'Get-NWFWAnalysisReportResult', 
         'Get-NWFWFirewall', 
         'Get-NWFWFirewallList', 
         'Get-NWFWFirewallPolicy', 
@@ -113,7 +115,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-NWFWResourceTag', 
         'Remove-NWFWRuleGroup', 
         'Remove-NWFWTLSInspectionConfiguration', 
+        'Start-NWFWAnalysisReport', 
         'Unregister-NWFWSubnet', 
+        'Update-NWFWFirewallAnalysisSetting', 
         'Update-NWFWFirewallDeleteProtection', 
         'Update-NWFWFirewallDescription', 
         'Update-NWFWFirewallEncryptionConfiguration', 

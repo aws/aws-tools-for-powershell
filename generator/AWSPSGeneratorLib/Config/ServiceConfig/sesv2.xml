@@ -291,6 +291,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationSetArchivingOptions" Verb="Write" Noun="ConfigurationSetArchivingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutConfigurationSetDeliveryOptions" Verb="Write" Noun="ConfigurationSetDeliveryOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

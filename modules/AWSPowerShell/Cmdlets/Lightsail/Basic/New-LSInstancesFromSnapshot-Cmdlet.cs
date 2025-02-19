@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// The <c>create instances from snapshot</c> operation supports tag-based access control
     /// via request tags and resource tags applied to the resource identified by <c>instance
-    /// snapshot name</c>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// snapshot name</c>. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// snapshots</c> operation to identify the dates of the available automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <c>YYYY-MM-DD</c> format.</para></li><li><para>This parameter cannot be defined together with the <c>use latest restorable auto snapshot</c>
         /// parameter. The <c>restore date</c> and <c>use latest restorable auto snapshot</c>
         /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
-        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon
+        /// For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon
         /// Lightsail Developer Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>The name of the source instance from which the source automatic snapshot was created.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <c>instance snapshot name</c> parameter.
         /// The <c>source instance name</c> and <c>instance snapshot name</c> parameters are mutually
         /// exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
-        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon
+        /// For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon
         /// Lightsail Developer Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <c>restore date</c> parameter.
         /// The <c>use latest restorable auto snapshot</c> and <c>restore date</c> parameters
         /// are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
-        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon
+        /// For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon
         /// Lightsail Developer Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>You can create a launch script that configures a server with additional user data.
         /// For example, <c>apt-get -y update</c>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
         /// varies. Amazon Linux and CentOS use <c>yum</c>, Debian and Ubuntu use <c>apt-get</c>,
-        /// and FreeBSD uses <c>pkg</c>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/compare-options-choose-lightsail-instance-image">Amazon
+        /// and FreeBSD uses <c>pkg</c>. For a complete list, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/compare-options-choose-lightsail-instance-image">Amazon
         /// Lightsail Developer Guide</a>.</para></note>
         /// </para>
         /// </summary>

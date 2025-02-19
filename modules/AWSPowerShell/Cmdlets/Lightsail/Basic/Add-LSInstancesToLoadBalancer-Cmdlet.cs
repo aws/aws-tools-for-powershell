@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </para><para>
     /// The <c>attach instances to load balancer</c> operation supports tag-based access control
     /// via resource tags applied to the resource identified by <c>load balancer name</c>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Lightsail
     /// Developer Guide</a>.
     /// </para>
     /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// The <c>create disk</c> operation supports tag-based access control via request tags.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ArchivingOptions_ArchiveArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the MailManager archive where the Amazon SES API
+        /// v2 will archive sent emails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ArchivingOptions_ArchiveArn { get; set; }
+        #endregion
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
@@ -271,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = (response, cmdlet) => this.ConfigurationSetName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ArchivingOptions_ArchiveArn = this.ArchivingOptions_ArchiveArn;
             context.ConfigurationSetName = this.ConfigurationSetName;
             #if MODULAR
             if (this.ConfigurationSetName == null && ParameterWasBound(nameof(this.ConfigurationSetName)))
@@ -312,6 +324,25 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             // create request
             var request = new Amazon.SimpleEmailV2.Model.CreateConfigurationSetRequest();
             
+            
+             // populate ArchivingOptions
+            var requestArchivingOptionsIsNull = true;
+            request.ArchivingOptions = new Amazon.SimpleEmailV2.Model.ArchivingOptions();
+            System.String requestArchivingOptions_archivingOptions_ArchiveArn = null;
+            if (cmdletContext.ArchivingOptions_ArchiveArn != null)
+            {
+                requestArchivingOptions_archivingOptions_ArchiveArn = cmdletContext.ArchivingOptions_ArchiveArn;
+            }
+            if (requestArchivingOptions_archivingOptions_ArchiveArn != null)
+            {
+                request.ArchivingOptions.ArchiveArn = requestArchivingOptions_archivingOptions_ArchiveArn;
+                requestArchivingOptionsIsNull = false;
+            }
+             // determine if request.ArchivingOptions should be set to null
+            if (requestArchivingOptionsIsNull)
+            {
+                request.ArchivingOptions = null;
+            }
             if (cmdletContext.ConfigurationSetName != null)
             {
                 request.ConfigurationSetName = cmdletContext.ConfigurationSetName;
@@ -575,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ArchivingOptions_ArchiveArn { get; set; }
             public System.String ConfigurationSetName { get; set; }
             public System.Int64? DeliveryOptions_MaxDeliverySecond { get; set; }
             public System.String DeliveryOptions_SendingPoolName { get; set; }

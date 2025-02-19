@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// CPU units (for example, <c>1024</c>) or as a string using vCPUs (for example, <c>1
         /// vCPU</c> or <c>1 vcpu</c>) in a task definition. String values are converted to an
         /// integer indicating the CPU units when the task definition is registered.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
-        /// specifying container-level resources for Windows containers.</para></note><para>If you're using the EC2 launch type, this field is optional. Supported values are
-        /// between <c>128</c> CPU units (<c>0.125</c> vCPUs) and <c>10240</c> CPU units (<c>10</c>
-        /// vCPUs). If you do not specify a value, the parameter is ignored.</para><para>If you're using the Fargate launch type, this field is required and you must use one
+        /// specifying container-level resources for Windows containers.</para></note><para>If you're using the EC2 launch type or external launch type, this field is optional.
+        /// Supported values are between <c>128</c> CPU units (<c>0.125</c> vCPUs) and <c>196608</c>
+        /// CPU units (<c>192</c> vCPUs). If you do not specify a value, the parameter is ignored.</para><para>If you're using the Fargate launch type, this field is required and you must use one
         /// of the following values, which determines your range of supported values for the <c>memory</c>
         /// parameter:</para><para>The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.</para><ul><li><para>256 (.25 vCPU) - Available <c>memory</c> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2
         /// GB)</para></li><li><para>512 (.5 vCPU) - Available <c>memory</c> values: 1024 (1 GB), 2048 (2 GB), 3072 (3

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     /// operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.
     /// </para><para>
     /// To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.
+    /// </para><para>
+    /// To generate a report on the last 30 days of traffic monitored by a firewall, use <a>StartAnalysisReport</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "NWFWFirewall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -83,6 +85,18 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter EnabledAnalysisType
+        /// <summary>
+        /// <para>
+        /// <para>An optional setting indicating the specific traffic analysis types to enable on the
+        /// firewall. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnabledAnalysisTypes")]
+        public System.String[] EnabledAnalysisType { get; set; }
         #endregion
         
         #region Parameter FirewallName
@@ -169,14 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// in each subnet. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SubnetMappings")]
         public Amazon.NetworkFirewall.Model.SubnetMapping[] SubnetMapping { get; set; }
         #endregion
@@ -211,14 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// </para><para>You can't change this setting after you create the firewall. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VpcId { get; set; }
         #endregion
         
@@ -286,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DeleteProtection = this.DeleteProtection;
             context.Description = this.Description;
+            if (this.EnabledAnalysisType != null)
+            {
+                context.EnabledAnalysisType = new List<System.String>(this.EnabledAnalysisType);
+            }
             context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             context.FirewallName = this.FirewallName;
@@ -308,23 +312,11 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 context.SubnetMapping = new List<Amazon.NetworkFirewall.Model.SubnetMapping>(this.SubnetMapping);
             }
-            #if MODULAR
-            if (this.SubnetMapping == null && ParameterWasBound(nameof(this.SubnetMapping)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubnetMapping which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
             }
             context.VpcId = this.VpcId;
-            #if MODULAR
-            if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VpcId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -348,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnabledAnalysisType != null)
+            {
+                request.EnabledAnalysisTypes = cmdletContext.EnabledAnalysisType;
             }
             
              // populate EncryptionConfiguration
@@ -469,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             public System.Boolean? DeleteProtection { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> EnabledAnalysisType { get; set; }
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public System.String FirewallName { get; set; }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  
     /// <para>
-    /// For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets
+    /// For more information about buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail">Buckets
     /// in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

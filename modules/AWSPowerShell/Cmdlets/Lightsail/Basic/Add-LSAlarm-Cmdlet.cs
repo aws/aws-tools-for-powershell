@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// An alarm is used to monitor a single metric for one of your resources. When a metric
     /// condition is met, the alarm can notify you by email, SMS text message, and a banner
-    /// displayed on the Amazon Lightsail console. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
+    /// displayed on the Amazon Lightsail console. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-alarms">Alarms
     /// in Amazon Lightsail</a>.
     /// </para><para>
     /// When this action creates an alarm, the alarm state is immediately set to <c>INSUFFICIENT_DATA</c>.
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <c>HTTPCode_Instance_2XX_Count</c>, <c>HTTPCode_Instance_3XX_Count</c>, <c>HTTPCode_Instance_4XX_Count</c>,
         /// <c>HTTPCode_Instance_5XX_Count</c>, <c>InstanceResponseTime</c>, <c>RejectedConnectionCount</c>,
         /// and <c>RequestCount</c>.</para></li><li><para><b>Relational databases</b>: <c>CPUUtilization</c>, <c>DatabaseConnections</c>, <c>DiskQueueDepth</c>,
-        /// <c>FreeStorageSpace</c>, <c>NetworkReceiveThroughput</c>, and <c>NetworkTransmitThroughput</c>.</para></li></ul><para>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics
+        /// <c>FreeStorageSpace</c>, <c>NetworkReceiveThroughput</c>, and <c>NetworkTransmitThroughput</c>.</para></li></ul><para>For more information about these metrics, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-resource-health-metrics#available-metrics">Metrics
         /// available in Lightsail</a>.</para>
         /// </para>
         /// </summary>

@@ -51956,6 +51956,13 @@ $NWFW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NetworkFirewall.EnabledAnalysisType
+        "Start-NWFWAnalysisReport/AnalysisType"
+        {
+            $v = "HTTP_HOST","TLS_SNI"
+            break
+        }
+
         # Amazon.NetworkFirewall.EncryptionType
         {
             ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
@@ -52041,6 +52048,7 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
+    "AnalysisType"=@("Start-NWFWAnalysisReport")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
@@ -52120,14 +52128,18 @@ $NWFW_SelectMap = @{
                "Get-NWFWRuleGroupMetadata",
                "Get-NWFWTLSInspectionConfiguration",
                "Unregister-NWFWSubnet",
+               "Get-NWFWAnalysisReportResult",
+               "Get-NWFWAnalysisReportList",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",
                "Write-NWFWResourcePolicy",
+               "Start-NWFWAnalysisReport",
                "Add-NWFWResourceTag",
                "Remove-NWFWResourceTag",
+               "Update-NWFWFirewallAnalysisSetting",
                "Update-NWFWFirewallDeleteProtection",
                "Update-NWFWFirewallDescription",
                "Update-NWFWFirewallEncryptionConfiguration",
@@ -69935,6 +69947,7 @@ $SES2_SelectMap = @{
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
                "Write-SES2AccountVdmAttribute",
+               "Write-SES2ConfigurationSetArchivingOption",
                "Write-SES2ConfigurationSetDeliveryOption",
                "Write-SES2ConfigurationSetReputationOption",
                "Write-SES2ConfigurationSetSendingOption",

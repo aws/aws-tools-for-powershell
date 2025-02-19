@@ -1,4 +1,16 @@
-﻿### 4.1.760 (2025-02-18 21:41Z)
+﻿### 4.1.761 (2025-02-19 21:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.986.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWAnalysisReportList leveraging the ListAnalysisReports service API.
+    * Added cmdlet Get-NWFWAnalysisReportResult leveraging the GetAnalysisReportResults service API.
+    * Added cmdlet Start-NWFWAnalysisReport leveraging the StartAnalysisReport service API.
+    * Added cmdlet Update-NWFWFirewallAnalysisSetting leveraging the UpdateFirewallAnalysisSettings service API.
+    * Modified cmdlet New-NWFWFirewall: added parameter EnabledAnalysisType.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Write-SES2ConfigurationSetArchivingOption leveraging the PutConfigurationSetArchivingOptions service API.
+    * Modified cmdlet New-SES2ConfigurationSet: added parameter ArchivingOptions_ArchiveArn.
+
+### 4.1.760 (2025-02-18 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.985.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaLive
     * [Breaking Change] Modified cmdlet Start-EMLMonitorDeployment: removed parameter RequestId.

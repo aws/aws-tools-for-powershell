@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// <para>An array of individual stateful rules inspection criteria to be used together in a
         /// stateful rule group. Use this option to specify simple Suricata rules with protocol,
         /// source and destination, ports, direction, and rule options. For information about
-        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html">Rules
+        /// the Suricata <c>Rules</c> format, see <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html">Rules
         /// Format</a>. </para>
         /// </para>
         /// </summary>

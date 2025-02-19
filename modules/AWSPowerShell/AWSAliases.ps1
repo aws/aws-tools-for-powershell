@@ -21259,6 +21259,11 @@ Set-Alias -Name NWFW-DescribeTLSInspectionConfiguration -Value Get-NWFWTLSInspec
 Set-Alias -Name Disassociate-NWFWSubnets -Value Unregister-NWFWSubnet
 Set-Alias -Name Disassociate-NWFWSubnet -Value Unregister-NWFWSubnet
 Set-Alias -Name NWFW-DisassociateSubnets -Value Unregister-NWFWSubnet
+Set-Alias -Name Get-NWFWAnalysisReportResults -Value Get-NWFWAnalysisReportResult
+Set-Alias -Name NWFW-GetAnalysisReportResults -Value Get-NWFWAnalysisReportResult
+Set-Alias -Name List-NWFWAnalysisReports -Value Get-NWFWAnalysisReportList
+Set-Alias -Name List-NWFWAnalysisReportList -Value Get-NWFWAnalysisReportList
+Set-Alias -Name NWFW-ListAnalysisReports -Value Get-NWFWAnalysisReportList
 Set-Alias -Name List-NWFWFirewallPolicies -Value Get-NWFWFirewallPolicyList
 Set-Alias -Name List-NWFWFirewallPolicyList -Value Get-NWFWFirewallPolicyList
 Set-Alias -Name NWFW-ListFirewallPolicies -Value Get-NWFWFirewallPolicyList
@@ -21274,8 +21279,11 @@ Set-Alias -Name List-NWFWTLSInspectionConfigurationList -Value Get-NWFWTLSInspec
 Set-Alias -Name NWFW-ListTLSInspectionConfigurations -Value Get-NWFWTLSInspectionConfigurationList
 Set-Alias -Name Put-NWFWResourcePolicy -Value Write-NWFWResourcePolicy
 Set-Alias -Name NWFW-PutResourcePolicy -Value Write-NWFWResourcePolicy
+Set-Alias -Name NWFW-StartAnalysisReport -Value Start-NWFWAnalysisReport
 Set-Alias -Name NWFW-TagResource -Value Add-NWFWResourceTag
 Set-Alias -Name NWFW-UntagResource -Value Remove-NWFWResourceTag
+Set-Alias -Name Update-NWFWFirewallAnalysisSettings -Value Update-NWFWFirewallAnalysisSetting
+Set-Alias -Name NWFW-UpdateFirewallAnalysisSettings -Value Update-NWFWFirewallAnalysisSetting
 Set-Alias -Name NWFW-UpdateFirewallDeleteProtection -Value Update-NWFWFirewallDeleteProtection
 Set-Alias -Name NWFW-UpdateFirewallDescription -Value Update-NWFWFirewallDescription
 Set-Alias -Name NWFW-UpdateFirewallEncryptionConfiguration -Value Update-NWFWFirewallEncryptionConfiguration
@@ -28415,6 +28423,9 @@ Set-Alias -Name SES2-PutAccountSuppressionAttributes -Value Write-SES2AccountSup
 Set-Alias -Name Put-SES2AccountVdmAttributes -Value Write-SES2AccountVdmAttribute
 Set-Alias -Name Put-SES2AccountVdmAttribute -Value Write-SES2AccountVdmAttribute
 Set-Alias -Name SES2-PutAccountVdmAttributes -Value Write-SES2AccountVdmAttribute
+Set-Alias -Name Put-SES2ConfigurationSetArchivingOptions -Value Write-SES2ConfigurationSetArchivingOption
+Set-Alias -Name Put-SES2ConfigurationSetArchivingOption -Value Write-SES2ConfigurationSetArchivingOption
+Set-Alias -Name SES2-PutConfigurationSetArchivingOptions -Value Write-SES2ConfigurationSetArchivingOption
 Set-Alias -Name Put-SES2ConfigurationSetDeliveryOptions -Value Write-SES2ConfigurationSetDeliveryOption
 Set-Alias -Name Put-SES2ConfigurationSetDeliveryOption -Value Write-SES2ConfigurationSetDeliveryOption
 Set-Alias -Name SES2-PutConfigurationSetDeliveryOptions -Value Write-SES2ConfigurationSetDeliveryOption

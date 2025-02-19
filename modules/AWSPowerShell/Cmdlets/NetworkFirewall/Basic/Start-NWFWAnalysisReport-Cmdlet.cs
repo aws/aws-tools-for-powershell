@@ -22,41 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Lightsail;
-using Amazon.Lightsail.Model;
+using Amazon.NetworkFirewall;
+using Amazon.NetworkFirewall.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LS
+namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Deletes a contact method.
+    /// Generates a traffic analysis report for the timeframe and traffic type you specify.
     /// 
     ///  
     /// <para>
-    /// A contact method is used to send you notifications about your Amazon Lightsail resources.
-    /// You can add one email address and one mobile phone number contact method in each Amazon
-    /// Web Services Region. However, SMS text messaging is not supported in some Amazon Web
-    /// Services Regions, and SMS text messages cannot be sent to some countries/regions.
-    /// For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-notifications">Notifications
-    /// in Amazon Lightsail</a>.
+    /// For information on the contents of a traffic analysis report, see <a>AnalysisReport</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "LSContactMethod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Calls the Amazon Lightsail DeleteContactMethod API operation.", Operation = new[] {"DeleteContactMethod"}, SelectReturnType = typeof(Amazon.Lightsail.Model.DeleteContactMethodResponse))]
-    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation or Amazon.Lightsail.Model.DeleteContactMethodResponse",
-        "This cmdlet returns a collection of Amazon.Lightsail.Model.Operation objects.",
-        "The service call response (type Amazon.Lightsail.Model.DeleteContactMethodResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Start", "NWFWAnalysisReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Network Firewall StartAnalysisReport API operation.", Operation = new[] {"StartAnalysisReport"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.StartAnalysisReportResponse))]
+    [AWSCmdletOutput("System.String or Amazon.NetworkFirewall.Model.StartAnalysisReportResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.NetworkFirewall.Model.StartAnalysisReportResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveLSContactMethodCmdlet : AmazonLightsailClientCmdlet, IExecutor
+    public partial class StartNWFWAnalysisReportCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Protocol
+        #region Parameter AnalysisType
         /// <summary>
         /// <para>
-        /// <para>The protocol that will be deleted, such as <c>Email</c> or <c>SMS</c> (text messaging).</para><note><para>To delete an <c>Email</c> and an <c>SMS</c> contact method if you added both, you
-        /// must run separate <c>DeleteContactMethod</c> actions to delete each protocol.</para></note>
+        /// <para>The type of traffic that will be used to generate a report. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,27 +60,48 @@ namespace Amazon.PowerShell.Cmdlets.LS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Lightsail.ContactProtocol")]
-        public Amazon.Lightsail.ContactProtocol Protocol { get; set; }
+        [AWSConstantClassSource("Amazon.NetworkFirewall.EnabledAnalysisType")]
+        public Amazon.NetworkFirewall.EnabledAnalysisType AnalysisType { get; set; }
+        #endregion
+        
+        #region Parameter FirewallArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the firewall.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallArn { get; set; }
+        #endregion
+        
+        #region Parameter FirewallName
+        /// <summary>
+        /// <para>
+        /// <para>The descriptive name of the firewall. You can't change the name of a firewall after
+        /// you create it.</para><para>You must specify the ARN or the name, and you can specify both. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Operations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lightsail.Model.DeleteContactMethodResponse).
-        /// Specifying the name of a property of type Amazon.Lightsail.Model.DeleteContactMethodResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnalysisReportId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.StartAnalysisReportResponse).
+        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.StartAnalysisReportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Operations";
+        public string Select { get; set; } = "AnalysisReportId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Protocol parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Protocol' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AnalysisType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AnalysisType' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Protocol' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnalysisType' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Protocol), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LSContactMethod (DeleteContactMethod)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-NWFWAnalysisReport (StartAnalysisReport)"))
             {
                 return;
             }
@@ -120,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.DeleteContactMethodResponse, RemoveLSContactMethodCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.StartAnalysisReportResponse, StartNWFWAnalysisReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,16 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Protocol;
+                context.Select = (response, cmdlet) => this.AnalysisType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Protocol = this.Protocol;
+            context.AnalysisType = this.AnalysisType;
             #if MODULAR
-            if (this.Protocol == null && ParameterWasBound(nameof(this.Protocol)))
+            if (this.AnalysisType == null && ParameterWasBound(nameof(this.AnalysisType)))
             {
-                WriteWarning("You are passing $null as a value for parameter Protocol which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnalysisType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FirewallArn = this.FirewallArn;
+            context.FirewallName = this.FirewallName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,11 +170,19 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lightsail.Model.DeleteContactMethodRequest();
+            var request = new Amazon.NetworkFirewall.Model.StartAnalysisReportRequest();
             
-            if (cmdletContext.Protocol != null)
+            if (cmdletContext.AnalysisType != null)
             {
-                request.Protocol = cmdletContext.Protocol;
+                request.AnalysisType = cmdletContext.AnalysisType;
+            }
+            if (cmdletContext.FirewallArn != null)
+            {
+                request.FirewallArn = cmdletContext.FirewallArn;
+            }
+            if (cmdletContext.FirewallName != null)
+            {
+                request.FirewallName = cmdletContext.FirewallName;
             }
             
             CmdletOutput output;
@@ -192,15 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #region AWS Service Operation Call
         
-        private Amazon.Lightsail.Model.DeleteContactMethodResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteContactMethodRequest request)
+        private Amazon.NetworkFirewall.Model.StartAnalysisReportResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.StartAnalysisReportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "DeleteContactMethod");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "StartAnalysisReport");
             try
             {
                 #if DESKTOP
-                return client.DeleteContactMethod(request);
+                return client.StartAnalysisReport(request);
                 #elif CORECLR
-                return client.DeleteContactMethodAsync(request).GetAwaiter().GetResult();
+                return client.StartAnalysisReportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,9 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.Lightsail.ContactProtocol Protocol { get; set; }
-            public System.Func<Amazon.Lightsail.Model.DeleteContactMethodResponse, RemoveLSContactMethodCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Operations;
+            public Amazon.NetworkFirewall.EnabledAnalysisType AnalysisType { get; set; }
+            public System.String FirewallArn { get; set; }
+            public System.String FirewallName { get; set; }
+            public System.Func<Amazon.NetworkFirewall.Model.StartAnalysisReportResponse, StartNWFWAnalysisReportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnalysisReportId;
         }
         
     }

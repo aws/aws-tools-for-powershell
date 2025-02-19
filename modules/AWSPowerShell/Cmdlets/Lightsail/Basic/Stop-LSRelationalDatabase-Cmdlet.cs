@@ -30,11 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Stops a specific database that is currently running in Amazon Lightsail.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// If you don't manually start your database instance after it has been stopped for seven
+    /// consecutive days, Amazon Lightsail automatically starts it for you. This action helps
+    /// ensure that your database instance doesn't fall behind on any required maintenance
+    /// updates.
+    /// </para></note><para>
     /// The <c>stop relational database</c> operation supports tag-based access control via
     /// resource tags applied to the resource identified by relationalDatabaseName. For more
-    /// information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>
