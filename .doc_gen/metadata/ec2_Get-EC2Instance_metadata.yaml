@@ -91,6 +91,38 @@ ec2_DescribeInstances:
             i-01af...82cf180e19 t2.medium    Windows  10.0.0.98                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
             i-0374...7e9d5b0c45 t2.xlarge    Windows  10.0.0.53                        ...            subnet-1a2b3c4d vpc-1a2b3c4d</programlisting>
           snippet_files: []
+        - description: '<emphasis role="bold">Example 4: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Instance.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
+            ----------          ------------ -------- ---------------- --------------- -------------- --------        -----
+            i-05a9...f6c5f46e18 t3.medium             10.0.1.7                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
+            i-02cf...945c4fdd07 t3.medium    Windows  10.0.1.8                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
+            i-0ac0...c037f9f3a1 t3.xlarge    Windows  10.0.1.10                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
+            i-066b...57b7b08888 t3.medium    Windows  10.0.1.11                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
+            i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
+            i-0a68...274cc5043b t3.medium    Windows  10.0.1.6                         ...            subnet-1a2b3c4d vpc-1a2b3c4d</programlisting>
+        - description: '<emphasis role="bold">Example 5: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped and using the Select-Object cmdlet for choosing specific values to output.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Instance.5.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId          InstanceType Platform PrivateIpAddress Name         State
+            ----------          ------------ -------- ---------------- ----         -----
+            i-05a9...f6c5f46e18 t3.medium             10.0.1.7         ec2-name-01  running
+            i-02cf...945c4fdd07 t3.medium    Windows  10.0.1.8         ec2-name-02  stopped
+            i-0ac0...c037f9f3a1 t3.xlarge    Windows  10.0.1.10        ec2-name-03  running
+            i-066b...57b7b08888 t3.medium    Windows  10.0.1.11        ec2-name-04  stopped
+            i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5         ec2-name-05  running
+            i-0a68...274cc5043b t3.medium    Windows  10.0.1.6         ec2-name-06  stopped</programlisting>
   services:
     ec2:
       DescribeInstances:
