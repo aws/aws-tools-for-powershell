@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
         #endregion
         
+        #region Parameter InstanceGroupsToDelete
+        /// <summary>
+        /// <para>
+        /// <para>Specify the names of the instance groups to delete. Use a single <c>,</c> as the separator
+        /// between multiple names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] InstanceGroupsToDelete { get; set; }
+        #endregion
+        
         #region Parameter NodeRecovery
         /// <summary>
         /// <para>
@@ -167,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InstanceGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.InstanceGroupsToDelete != null)
+            {
+                context.InstanceGroupsToDelete = new List<System.String>(this.InstanceGroupsToDelete);
+            }
             context.NodeRecovery = this.NodeRecovery;
             
             // allow further manipulation of loaded context prior to processing
@@ -191,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceGroup != null)
             {
                 request.InstanceGroups = cmdletContext.InstanceGroup;
+            }
+            if (cmdletContext.InstanceGroupsToDelete != null)
+            {
+                request.InstanceGroupsToDelete = cmdletContext.InstanceGroupsToDelete;
             }
             if (cmdletContext.NodeRecovery != null)
             {
@@ -259,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String ClusterName { get; set; }
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
+            public List<System.String> InstanceGroupsToDelete { get; set; }
             public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterArn;

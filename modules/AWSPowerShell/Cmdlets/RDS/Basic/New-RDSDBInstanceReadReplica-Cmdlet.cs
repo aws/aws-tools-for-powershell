@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DatabaseInsightsMode
         /// <summary>
         /// <para>
-        /// <para>The mode of Database Insights to enable for the read replica.</para><note><para>Currently, this setting is not supported.</para></note>
+        /// <para>The mode of Database Insights to enable for the read replica.</para><note><para>This setting isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

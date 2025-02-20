@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         /// <summary>
         /// <para>
         /// <para>The name of the user-based subscription product.</para><para>Valid values: <c>VISUAL_STUDIO_ENTERPRISE</c> | <c>VISUAL_STUDIO_PROFESSIONAL</c>
-        /// | <c>OFFICE_PROFESSIONAL_PLUS</c></para>
+        /// | <c>OFFICE_PROFESSIONAL_PLUS</c> | <c>REMOTE_DESKTOP_SERVICES</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

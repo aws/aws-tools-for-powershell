@@ -130,6 +130,16 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.MaxDisplayResolution
+        {
+            ($_ -eq "New-WSWUserSetting/ToolbarConfiguration_MaxDisplayResolution") -Or
+            ($_ -eq "Update-WSWUserSetting/ToolbarConfiguration_MaxDisplayResolution")
+        }
+        {
+            $v = "size1024X768","size1280X720","size1920X1080","size2560X1440","size3440X1440","size3840X2160","size4096X2160","size800X600"
+            break
+        }
+
         # Amazon.WorkSpacesWeb.SessionSortBy
         "Get-WSWSessionList/SortBy"
         {
@@ -141,6 +151,26 @@ $WSW_Completers = {
         "Get-WSWSessionList/Status"
         {
             $v = "Active","Terminated"
+            break
+        }
+
+        # Amazon.WorkSpacesWeb.ToolbarType
+        {
+            ($_ -eq "New-WSWUserSetting/ToolbarConfiguration_ToolbarType") -Or
+            ($_ -eq "Update-WSWUserSetting/ToolbarConfiguration_ToolbarType")
+        }
+        {
+            $v = "Docked","Floating"
+            break
+        }
+
+        # Amazon.WorkSpacesWeb.VisualMode
+        {
+            ($_ -eq "New-WSWUserSetting/ToolbarConfiguration_VisualMode") -Or
+            ($_ -eq "Update-WSWUserSetting/ToolbarConfiguration_VisualMode")
+        }
+        {
+            $v = "Dark","Light"
             break
         }
 
@@ -163,6 +193,9 @@ $WSW_map = @{
     "PrintAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "SortBy"=@("Get-WSWSessionList")
     "Status"=@("Get-WSWSessionList")
+    "ToolbarConfiguration_MaxDisplayResolution"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "ToolbarConfiguration_ToolbarType"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "ToolbarConfiguration_VisualMode"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
 }
 
