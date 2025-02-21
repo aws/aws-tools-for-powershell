@@ -1,4 +1,10 @@
-﻿### 4.1.762 (2025-02-20 21:43Z)
+﻿### 4.1.763 (2025-02-21 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.988.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABDataSource: added parameter CrawlerConfiguration_UserAgentHeader.
+    * Modified cmdlet Update-AABDataSource: added parameter CrawlerConfiguration_UserAgentHeader.
+
+### 4.1.762 (2025-02-20 21:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.987.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet Update-SMCluster: added parameter InstanceGroupsToDelete.

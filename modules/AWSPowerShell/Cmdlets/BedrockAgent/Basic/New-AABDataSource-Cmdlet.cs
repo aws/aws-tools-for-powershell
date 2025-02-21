@@ -419,8 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter BedrockFoundationModelConfiguration_ModelArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference
-        /// profile</a> to use for parsing.</para>
+        /// <para>The ARN of the foundation model to use for parsing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -657,15 +656,27 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter CrawlerConfiguration_UserAgent
         /// <summary>
         /// <para>
-        /// <para>A string used for identifying the crawler or a bot when it accesses a web server.
-        /// By default, this is set to <c>bedrockbot_UUID</c> for your crawler. You can optionally
-        /// append a custom string to <c>bedrockbot_UUID</c> to allowlist a specific user agent
-        /// permitted to access your source URLs. </para>
+        /// <para>Returns the user agent suffix for your web crawler.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgent")]
         public System.String CrawlerConfiguration_UserAgent { get; set; }
+        #endregion
+        
+        #region Parameter CrawlerConfiguration_UserAgentHeader
+        /// <summary>
+        /// <para>
+        /// <para>A string used for identifying the crawler or bot when it accesses a web server. The
+        /// user agent header value consists of the <c>bedrockbot</c>, UUID, and a user agent
+        /// suffix for your crawler (if one is provided). By default, it is set to <c>bedrockbot_UUID</c>.
+        /// You can optionally append a custom suffix to <c>bedrockbot_UUID</c> to allowlist a
+        /// specific user agent permitted to access your source URLs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader")]
+        public System.String CrawlerConfiguration_UserAgentHeader { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -801,6 +812,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             context.CrawlerConfiguration_Scope = this.CrawlerConfiguration_Scope;
             context.CrawlerConfiguration_UserAgent = this.CrawlerConfiguration_UserAgent;
+            context.CrawlerConfiguration_UserAgentHeader = this.CrawlerConfiguration_UserAgentHeader;
             if (this.UrlConfiguration_SeedUrl != null)
             {
                 context.UrlConfiguration_SeedUrl = new List<Amazon.BedrockAgent.Model.SeedUrl>(this.UrlConfiguration_SeedUrl);
@@ -1385,6 +1397,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration.UserAgent = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgent;
                 requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfigurationIsNull = false;
             }
+            System.String requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgentHeader = null;
+            if (cmdletContext.CrawlerConfiguration_UserAgentHeader != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgentHeader = cmdletContext.CrawlerConfiguration_UserAgentHeader;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgentHeader != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration.UserAgentHeader = requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_crawlerConfiguration_UserAgentHeader;
+                requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.WebCrawlerLimits requestDataSourceConfiguration_dataSourceConfiguration_WebConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_dataSourceConfiguration_WebConfiguration_CrawlerConfiguration_CrawlerLimits = null;
             
              // populate CrawlerLimits
@@ -1937,6 +1959,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public List<System.String> CrawlerConfiguration_InclusionFilter { get; set; }
             public Amazon.BedrockAgent.WebScopeType CrawlerConfiguration_Scope { get; set; }
             public System.String CrawlerConfiguration_UserAgent { get; set; }
+            public System.String CrawlerConfiguration_UserAgentHeader { get; set; }
             public List<Amazon.BedrockAgent.Model.SeedUrl> UrlConfiguration_SeedUrl { get; set; }
             public System.String Description { get; set; }
             public System.String KnowledgeBaseId { get; set; }
