@@ -1,0 +1,1 @@
+(Get-EC2Instance -Filter @{Name="instance-state-name";Values=@("running","stopped")}).Instances
