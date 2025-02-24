@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// group is created. To enable encryption at rest on a replication group you must set
         /// <c>AtRestEncryptionEnabled</c> to <c>true</c> when you create the replication group.
         /// </para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
-        /// using Redis OSS version <c>3.2.6</c>, <c>4.x</c> or later.</para><para>Default: <c>false</c></para>
+        /// using Valkey 7.2 and later, Redis OSS version <c>3.2.6</c>, or Redis OSS <c>4.x</c>
+        /// and later.</para><para>Default: <c>true</c> when using Valkey, <c>false</c> when using Redis OSS</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of the cache engine to be used for the clusters in this replication group.
-        /// The value must be set to <c>Redis</c>.</para>
+        /// The value must be set to <c>valkey</c> or <c>redis</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The network type you choose when creating a replication group, either <c>ipv4</c>
         /// | <c>ipv6</c>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS
-        /// engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances
+        /// engine version 6.2 to 7.1 or Memcached engine version 1.6.6 and above on all instances
         /// built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
         /// </para>
         /// </summary>
@@ -319,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
-        /// workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached
+        /// workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached
         /// engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
         /// </para>

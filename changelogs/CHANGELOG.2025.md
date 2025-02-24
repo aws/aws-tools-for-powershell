@@ -1,4 +1,8 @@
-﻿### 4.1.763 (2025-02-21 21:27Z)
+﻿### 4.1.764 (2025-02-24 23:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.989.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Elastic Inference
+
+### 4.1.763 (2025-02-21 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.988.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABDataSource: added parameter CrawlerConfiguration_UserAgentHeader.

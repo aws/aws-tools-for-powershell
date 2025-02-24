@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Creates a user group.
+    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user group.
     /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>
     /// </summary>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The current supported value is Redis user. </para>
+        /// <para>Sets the engine listed in a user group. The options are valkey or redis.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
