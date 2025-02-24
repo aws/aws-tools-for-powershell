@@ -1579,14 +1579,6 @@
             },
             "InPreview"               : false
         },
-        "ElasticInference"                : {
-            "Version" : "3.7.400.100",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.402.5"
-            },
-            "InPreview"               : false
-        },
         "Imagebuilder"                    : {
             "Version" : "3.7.403.25",
             "AssemblyVersionOverride" : "3.3",

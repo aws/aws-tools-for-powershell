@@ -487,9 +487,6 @@
     <Reference Include="AWSSDK.ElasticFileSystem">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.ElasticInference">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticInference.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ElasticLoadBalancing.dll</HintPath>
     </Reference>
@@ -1682,9 +1679,6 @@
     </Reference>
     <Reference Include="AWSSDK.ElasticFileSystem">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElasticFileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.ElasticInference">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElasticInference.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ElasticLoadBalancing.dll</HintPath>

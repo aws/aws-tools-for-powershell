@@ -199,7 +199,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ElastiCache.dll',
         'AWSSDK.ElasticBeanstalk.dll',
         'AWSSDK.ElasticFileSystem.dll',
-        'AWSSDK.ElasticInference.dll',
         'AWSSDK.ElasticLoadBalancing.dll',
         'AWSSDK.ElasticLoadBalancingV2.dll',
         'AWSSDK.ElasticMapReduce.dll',
