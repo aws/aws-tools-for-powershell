@@ -36,6 +36,7 @@ Param (
     # By default all modules AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools modules are imported in pwsh on linux and (pwsh and windows powershell) on windows.
     # Get-S3Bucket ran for AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools.S3.
     # Get-SFNStateMachineList ran for AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools.StepFunctions.
+    # Get-SSMLatestEC2Image ran for AWSPowerShell, AWSPowerShell.NetCore and AWS.Tools.SimpleSystemsManagement
     # $AdditionalModuleChecks test the following.
     # test module manifest,
     # test module manifest version,
@@ -313,7 +314,7 @@ if ($BuildType -eq 'PREVIEW') {
 
 $validateModules | ForEach-Object {
     try {
-        ValidateModule $_ $verifyChangeLog $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner; Get-SFNStateMachineList -Region us-west-2 -ProfileName test-runner } $testCmdlets ""
+        ValidateModule $_ $verifyChangeLog $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner; Get-SFNStateMachineList -Region us-west-2 -ProfileName test-runner; Get-SSMLatestEC2Image -Path ami-amazon-linux-latest -Region us-west-2 -ProfileName test-runner } $testCmdlets ""
         Write-Host "PASSED validation for module $_"
     }
     catch {
@@ -349,6 +350,9 @@ if ($BuildType -ne 'PREVIEW') {
             }
             elseif ($_.Name -eq 'AWS.Tools.StepFunctions') {
                 ValidateModule $_ $false $testVersion $signingCheck { Get-SFNStateMachineList -Region us-west-2 -ProfileName test-runner } $testCmdlets $importCommonModuleCmd
+            }
+            elseif ($_.Name -eq 'AWS.Tools.SimpleSystemsManagement') {
+                ValidateModule $_ $false $testVersion $signingCheck { Get-SSMLatestEC2Image -Path ami-amazon-linux-latest -Region us-west-2 -ProfileName test-runner } $testCmdlets $importCommonModuleCmd
             }
             elseif ($_.Name -eq 'AWS.Tools.Installer') {
                 ValidateModule $_ $false $false $signingCheck { } $false $importCommonModuleCmd

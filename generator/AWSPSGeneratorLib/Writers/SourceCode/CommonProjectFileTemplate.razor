@@ -56,6 +56,11 @@
     <PackageReference Include="PowerShellStandard.Library" Version="5.1.0" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <!-- If Powershell (pwsh) has a preloaded System.Text.Json that is older than the version specified below
+      then it cannot load the version specified here. So we compile with an older version but ship the newer version that .NET SDK ships.
+    -->
+    <PackageReference Include="System.Text.Json" Version="6.0.11" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <Reference Include="AWSSDK.Core">

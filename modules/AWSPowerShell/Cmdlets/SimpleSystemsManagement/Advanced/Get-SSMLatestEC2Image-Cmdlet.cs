@@ -25,7 +25,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
-using ThirdParty.Json.LitJson;
+using System.Text.Json;
 
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
@@ -117,11 +117,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     {
                         try
                         {
-                            var jsonData = JsonMapper.ToObject(value);
-                            var imageId = jsonData["image_id"];
-                            if (imageId?.IsString ?? false)
+                            JsonDocument document = null;
+                            try
                             {
-                                value = (string)imageId;
+                                document = JsonDocument.Parse(value);
+                                if (document.RootElement.TryGetProperty("image_id", out JsonElement imageIdElement))
+                                {
+                                    if (imageIdElement.ValueKind == JsonValueKind.String)
+                                    {
+                                        value = imageIdElement.GetString();
+                                    }
+                                }
+                            }
+                            finally
+                            {
+                                if (document != null)
+                                {
+                                    document.Dispose();
+                                }
                             }
                         }
                         catch
