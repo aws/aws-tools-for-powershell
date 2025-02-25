@@ -28,7 +28,7 @@ using Amazon.TaxSettings.Model;
 namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
-    /// Get supported tax exemption types.
+    /// Get supported tax exemption types. The IAM action is <c>tax:GetExemptions</c>.
     /// </summary>
     [Cmdlet("Get", "TSATaxExemptionType")]
     [OutputType("Amazon.TaxSettings.Model.TaxExemptionType")]

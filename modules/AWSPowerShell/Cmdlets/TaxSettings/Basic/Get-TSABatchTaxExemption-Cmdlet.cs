@@ -28,7 +28,7 @@ using Amazon.TaxSettings.Model;
 namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
-    /// Get the active tax exemptions for a given list of accounts.
+    /// Get the active tax exemptions for a given list of accounts. The IAM action is <c>tax:GetExemptions</c>.
     /// </summary>
     [Cmdlet("Get", "TSABatchTaxExemption")]
     [OutputType("Amazon.TaxSettings.Model.BatchGetTaxExemptionsResponse")]

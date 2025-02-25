@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
     /// Adds the tax exemption for a single account or all accounts listed in a consolidated
-    /// billing family.
+    /// billing family. The IAM action is <c>tax:UpdateExemptions</c>.
     /// </summary>
     [Cmdlet("Write", "TSATaxExemption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

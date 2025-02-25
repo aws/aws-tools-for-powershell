@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LoadBalancerOptions_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets.</para>
+        /// <para>The IDs of the subnets. You can specify only one subnet per Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RdsOptions_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets.</para>
+        /// <para>The IDs of the subnets. You can specify only one subnet per Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
