@@ -556,8 +556,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The maximum number of vCPUs for an unmanaged compute environment. This parameter is
-        /// only used for fair-share scheduling to reserve vCPU capacity for new share identifiers.
-        /// If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</para><note><para>This parameter is only supported when the <c>type</c> parameter is set to <c>UNMANAGED</c>.</para></note>
+        /// only used for fair share scheduling to reserve vCPU capacity for new share identifiers.
+        /// If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</para><note><para>This parameter is only supported when the <c>type</c> parameter is set to <c>UNMANAGED</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

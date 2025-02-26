@@ -42,6 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AutoRollbackConfiguration_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>List of CloudWatch alarms in your account that are configured to monitor metrics on
+        /// an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the
+        /// deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_AutoRollbackConfiguration_Alarms")]
+        public Amazon.SageMaker.Model.Alarm[] AutoRollbackConfiguration_Alarm { get; set; }
+        #endregion
+        
         #region Parameter Container_ArtifactUrl
         /// <summary>
         /// <para>
@@ -139,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String InferenceComponentName { get; set; }
         #endregion
         
+        #region Parameter RollingUpdatePolicy_MaximumExecutionTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The time limit for the total deployment. Exceeding this limit causes a timeout.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_RollingUpdatePolicy_MaximumExecutionTimeoutInSeconds")]
+        public System.Int32? RollingUpdatePolicy_MaximumExecutionTimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter ComputeResourceRequirements_MaxMemoryRequiredInMb
         /// <summary>
         /// <para>
@@ -211,6 +235,66 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Single? ComputeResourceRequirements_NumberOfCpuCoresRequired { get; set; }
         #endregion
         
+        #region Parameter MaximumBatchSize_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint capacity type.</para><dl><dt>COPY_COUNT</dt><dd><para>The endpoint activates based on the number of inference component copies.</para></dd><dt>CAPACITY_PERCENT</dt><dd><para>The endpoint activates based on the specified percentage of capacity.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.InferenceComponentCapacitySizeType")]
+        public Amazon.SageMaker.InferenceComponentCapacitySizeType MaximumBatchSize_Type { get; set; }
+        #endregion
+        
+        #region Parameter RollbackMaximumBatchSize_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint capacity type.</para><dl><dt>COPY_COUNT</dt><dd><para>The endpoint activates based on the number of inference component copies.</para></dd><dt>CAPACITY_PERCENT</dt><dd><para>The endpoint activates based on the specified percentage of capacity.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.InferenceComponentCapacitySizeType")]
+        public Amazon.SageMaker.InferenceComponentCapacitySizeType RollbackMaximumBatchSize_Type { get; set; }
+        #endregion
+        
+        #region Parameter MaximumBatchSize_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the capacity size, either as a number of inference component copies or a capacity
+        /// percentage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Value")]
+        public System.Int32? MaximumBatchSize_Value { get; set; }
+        #endregion
+        
+        #region Parameter RollbackMaximumBatchSize_Value
+        /// <summary>
+        /// <para>
+        /// <para>Defines the capacity size, either as a number of inference component copies or a capacity
+        /// percentage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Value")]
+        public System.Int32? RollbackMaximumBatchSize_Value { get; set; }
+        #endregion
+        
+        #region Parameter RollingUpdatePolicy_WaitIntervalInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The length of the baking period, during which SageMaker AI monitors alarms for each
+        /// batch on the new fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfig_RollingUpdatePolicy_WaitIntervalInSeconds")]
+        public System.Int32? RollingUpdatePolicy_WaitIntervalInSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'InferenceComponentArn'.
@@ -273,6 +357,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.InferenceComponentName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AutoRollbackConfiguration_Alarm != null)
+            {
+                context.AutoRollbackConfiguration_Alarm = new List<Amazon.SageMaker.Model.Alarm>(this.AutoRollbackConfiguration_Alarm);
+            }
+            context.MaximumBatchSize_Type = this.MaximumBatchSize_Type;
+            context.MaximumBatchSize_Value = this.MaximumBatchSize_Value;
+            context.RollingUpdatePolicy_MaximumExecutionTimeoutInSecond = this.RollingUpdatePolicy_MaximumExecutionTimeoutInSecond;
+            context.RollbackMaximumBatchSize_Type = this.RollbackMaximumBatchSize_Type;
+            context.RollbackMaximumBatchSize_Value = this.RollbackMaximumBatchSize_Value;
+            context.RollingUpdatePolicy_WaitIntervalInSecond = this.RollingUpdatePolicy_WaitIntervalInSecond;
             context.InferenceComponentName = this.InferenceComponentName;
             #if MODULAR
             if (this.InferenceComponentName == null && ParameterWasBound(nameof(this.InferenceComponentName)))
@@ -315,6 +409,145 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateInferenceComponentRequest();
             
+            
+             // populate DeploymentConfig
+            var requestDeploymentConfigIsNull = true;
+            request.DeploymentConfig = new Amazon.SageMaker.Model.InferenceComponentDeploymentConfig();
+            Amazon.SageMaker.Model.AutoRollbackConfig requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration = null;
+            
+             // populate AutoRollbackConfiguration
+            var requestDeploymentConfig_deploymentConfig_AutoRollbackConfigurationIsNull = true;
+            requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration = new Amazon.SageMaker.Model.AutoRollbackConfig();
+            List<Amazon.SageMaker.Model.Alarm> requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm = null;
+            if (cmdletContext.AutoRollbackConfiguration_Alarm != null)
+            {
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm = cmdletContext.AutoRollbackConfiguration_Alarm;
+            }
+            if (requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm != null)
+            {
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration.Alarms = requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration_autoRollbackConfiguration_Alarm;
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfigurationIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration should be set to null
+            if (requestDeploymentConfig_deploymentConfig_AutoRollbackConfigurationIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration != null)
+            {
+                request.DeploymentConfig.AutoRollbackConfiguration = requestDeploymentConfig_deploymentConfig_AutoRollbackConfiguration;
+                requestDeploymentConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentRollingUpdatePolicy requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy = null;
+            
+             // populate RollingUpdatePolicy
+            var requestDeploymentConfig_deploymentConfig_RollingUpdatePolicyIsNull = true;
+            requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy = new Amazon.SageMaker.Model.InferenceComponentRollingUpdatePolicy();
+            System.Int32? requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_MaximumExecutionTimeoutInSecond = null;
+            if (cmdletContext.RollingUpdatePolicy_MaximumExecutionTimeoutInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_MaximumExecutionTimeoutInSecond = cmdletContext.RollingUpdatePolicy_MaximumExecutionTimeoutInSecond.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_MaximumExecutionTimeoutInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy.MaximumExecutionTimeoutInSeconds = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_MaximumExecutionTimeoutInSecond.Value;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicyIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_WaitIntervalInSecond = null;
+            if (cmdletContext.RollingUpdatePolicy_WaitIntervalInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_WaitIntervalInSecond = cmdletContext.RollingUpdatePolicy_WaitIntervalInSecond.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_WaitIntervalInSecond != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy.WaitIntervalInSeconds = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_rollingUpdatePolicy_WaitIntervalInSecond.Value;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicyIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentCapacitySize requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize = null;
+            
+             // populate MaximumBatchSize
+            var requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSizeIsNull = true;
+            requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize = new Amazon.SageMaker.Model.InferenceComponentCapacitySize();
+            Amazon.SageMaker.InferenceComponentCapacitySizeType requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Type = null;
+            if (cmdletContext.MaximumBatchSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Type = cmdletContext.MaximumBatchSize_Type;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize.Type = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Type;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSizeIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Value = null;
+            if (cmdletContext.MaximumBatchSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Value = cmdletContext.MaximumBatchSize_Value.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize.Value = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize_maximumBatchSize_Value.Value;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSizeIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize should be set to null
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSizeIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy.MaximumBatchSize = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_MaximumBatchSize;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicyIsNull = false;
+            }
+            Amazon.SageMaker.Model.InferenceComponentCapacitySize requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize = null;
+            
+             // populate RollbackMaximumBatchSize
+            var requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSizeIsNull = true;
+            requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize = new Amazon.SageMaker.Model.InferenceComponentCapacitySize();
+            Amazon.SageMaker.InferenceComponentCapacitySizeType requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Type = null;
+            if (cmdletContext.RollbackMaximumBatchSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Type = cmdletContext.RollbackMaximumBatchSize_Type;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Type != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize.Type = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Type;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSizeIsNull = false;
+            }
+            System.Int32? requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Value = null;
+            if (cmdletContext.RollbackMaximumBatchSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Value = cmdletContext.RollbackMaximumBatchSize_Value.Value;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Value != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize.Value = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_rollbackMaximumBatchSize_Value.Value;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSizeIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize should be set to null
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSizeIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize != null)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy.RollbackMaximumBatchSize = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy_deploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize;
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicyIsNull = false;
+            }
+             // determine if requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy should be set to null
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicyIsNull)
+            {
+                requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy = null;
+            }
+            if (requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy != null)
+            {
+                request.DeploymentConfig.RollingUpdatePolicy = requestDeploymentConfig_deploymentConfig_RollingUpdatePolicy;
+                requestDeploymentConfigIsNull = false;
+            }
+             // determine if request.DeploymentConfig should be set to null
+            if (requestDeploymentConfigIsNull)
+            {
+                request.DeploymentConfig = null;
+            }
             if (cmdletContext.InferenceComponentName != null)
             {
                 request.InferenceComponentName = cmdletContext.InferenceComponentName;
@@ -563,6 +796,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.Alarm> AutoRollbackConfiguration_Alarm { get; set; }
+            public Amazon.SageMaker.InferenceComponentCapacitySizeType MaximumBatchSize_Type { get; set; }
+            public System.Int32? MaximumBatchSize_Value { get; set; }
+            public System.Int32? RollingUpdatePolicy_MaximumExecutionTimeoutInSecond { get; set; }
+            public Amazon.SageMaker.InferenceComponentCapacitySizeType RollbackMaximumBatchSize_Type { get; set; }
+            public System.Int32? RollbackMaximumBatchSize_Value { get; set; }
+            public System.Int32? RollingUpdatePolicy_WaitIntervalInSecond { get; set; }
             public System.String InferenceComponentName { get; set; }
             public System.Int32? RuntimeConfig_CopyCount { get; set; }
             public System.String Specification_BaseInferenceComponentName { get; set; }

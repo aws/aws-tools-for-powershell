@@ -22,40 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Deletes the streaming configurations of an <c>AppInstance</c>.
-    /// 
-    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
-    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceStreamingConfigurations.html">DeleteAppInstanceStreamingConfigurations</a>,
-    /// in the Amazon Chime SDK.
-    /// </para><para>
-    /// Using the latest version requires migrating to a dedicated namespace. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
-    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// Returns a description of the specified consumable resource.
     /// </summary>
-    [Cmdlet("Remove", "CHMAppInstanceStreamingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Chime DeleteAppInstanceStreamingConfigurations API operation.", Operation = new[] {"DeleteAppInstanceStreamingConfigurations"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse))]
-    [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BATConsumableResource")]
+    [OutputType("Amazon.Batch.Model.DescribeConsumableResourceResponse")]
+    [AWSCmdlet("Calls the AWS Batch DescribeConsumableResource API operation.", Operation = new[] {"DescribeConsumableResource"}, SelectReturnType = typeof(Amazon.Batch.Model.DescribeConsumableResourceResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.DescribeConsumableResourceResponse",
+        "This cmdlet returns an Amazon.Batch.Model.DescribeConsumableResourceResponse object containing multiple properties."
     )]
-    [System.ObsoleteAttribute("Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
-    public partial class RemoveCHMAppInstanceStreamingConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class GetBATConsumableResourceCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppInstanceArn
+        #region Parameter ConsumableResource
         /// <summary>
         /// <para>
-        /// <para>The ARN of the streaming configurations being deleted.</para>
+        /// <para>The name or ARN of the consumable resource whose description will be returned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,13 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppInstanceArn { get; set; }
+        public System.String ConsumableResource { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DescribeConsumableResourceResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.DescribeConsumableResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,34 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppInstanceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppInstanceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConsumableResource parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppInstanceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppInstanceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CHMAppInstanceStreamingConfiguration (DeleteAppInstanceStreamingConfigurations)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -118,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse, RemoveCHMAppInstanceStreamingConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DescribeConsumableResourceResponse, GetBATConsumableResourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AppInstanceArn;
+                context.Select = (response, cmdlet) => this.ConsumableResource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppInstanceArn = this.AppInstanceArn;
+            context.ConsumableResource = this.ConsumableResource;
             #if MODULAR
-            if (this.AppInstanceArn == null && ParameterWasBound(nameof(this.AppInstanceArn)))
+            if (this.ConsumableResource == null && ParameterWasBound(nameof(this.ConsumableResource)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppInstanceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConsumableResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsRequest();
+            var request = new Amazon.Batch.Model.DescribeConsumableResourceRequest();
             
-            if (cmdletContext.AppInstanceArn != null)
+            if (cmdletContext.ConsumableResource != null)
             {
-                request.AppInstanceArn = cmdletContext.AppInstanceArn;
+                request.ConsumableResource = cmdletContext.ConsumableResource;
             }
             
             CmdletOutput output;
@@ -190,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsRequest request)
+        private Amazon.Batch.Model.DescribeConsumableResourceResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DescribeConsumableResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "DeleteAppInstanceStreamingConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DescribeConsumableResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteAppInstanceStreamingConfigurations(request);
+                return client.DescribeConsumableResource(request);
                 #elif CORECLR
-                return client.DeleteAppInstanceStreamingConfigurationsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeConsumableResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppInstanceArn { get; set; }
-            public System.Func<Amazon.Chime.Model.DeleteAppInstanceStreamingConfigurationsResponse, RemoveCHMAppInstanceStreamingConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ConsumableResource { get; set; }
+            public System.Func<Amazon.Batch.Model.DescribeConsumableResourceResponse, GetBATConsumableResourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

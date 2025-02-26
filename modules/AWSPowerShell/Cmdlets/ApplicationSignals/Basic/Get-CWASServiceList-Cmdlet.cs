@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Web Services Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
@@ -58,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? EndTime { get; set; }
+        #endregion
+        
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// Amazon.ApplicationSignals.Model.ListServicesRequest.IncludeLinkedAccounts
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -160,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 context.Select = (response, cmdlet) => this.StartTime;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AwsAccountId = this.AwsAccountId;
             context.EndTime = this.EndTime;
             #if MODULAR
             if (this.EndTime == null && ParameterWasBound(nameof(this.EndTime)))
@@ -167,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.StartTime = this.StartTime;
@@ -196,9 +219,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request and set iteration invariants
             var request = new Amazon.ApplicationSignals.Model.ListServicesRequest();
             
+            if (cmdletContext.AwsAccountId != null)
+            {
+                request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -293,7 +324,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AwsAccountId { get; set; }
             public System.DateTime? EndTime { get; set; }
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartTime { get; set; }

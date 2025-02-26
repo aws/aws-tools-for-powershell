@@ -103,6 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String[] ContainerProperties_Command { get; set; }
         #endregion
         
+        #region Parameter ConsumableResourceProperties_ConsumableResourceList
+        /// <summary>
+        /// <para>
+        /// <para>The list of consumable resources required by a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ConsumableResourceRequirement[] ConsumableResourceProperties_ConsumableResourceList { get; set; }
+        #endregion
+        
         #region Parameter PodProperties_Container
         /// <summary>
         /// <para>
@@ -411,8 +421,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><c>--memory-swap</c> details</a> in the Docker documentation.</para><para>If a <c>maxSwap</c> value of <c>0</c> is specified, the container doesn't use swap.
         /// Accepted values are <c>0</c> or any positive integer. If the <c>maxSwap</c> parameter
         /// is omitted, the container doesn't use the swap configuration for the container instance
-        /// on which it runs. A <c>maxSwap</c> value must be set for the <c>swappiness</c> parameter
-        /// to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// that it's running on. A <c>maxSwap</c> value must be set for the <c>swappiness</c>
+        /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
         /// </summary>
@@ -616,7 +626,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The scheduling priority for jobs that are submitted with this job definition. This
-        /// only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling
+        /// only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling
         /// priority are scheduled before jobs with a lower scheduling priority.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
         /// </para>
         /// </summary>
@@ -957,6 +967,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Select = (response, cmdlet) => this.JobDefinitionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ConsumableResourceProperties_ConsumableResourceList != null)
+            {
+                context.ConsumableResourceProperties_ConsumableResourceList = new List<Amazon.Batch.Model.ConsumableResourceRequirement>(this.ConsumableResourceProperties_ConsumableResourceList);
+            }
             if (this.ContainerProperties_Command != null)
             {
                 context.ContainerProperties_Command = new List<System.String>(this.ContainerProperties_Command);
@@ -1134,6 +1148,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // create request
             var request = new Amazon.Batch.Model.RegisterJobDefinitionRequest();
             
+            
+             // populate ConsumableResourceProperties
+            var requestConsumableResourcePropertiesIsNull = true;
+            request.ConsumableResourceProperties = new Amazon.Batch.Model.ConsumableResourceProperties();
+            List<Amazon.Batch.Model.ConsumableResourceRequirement> requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList = null;
+            if (cmdletContext.ConsumableResourceProperties_ConsumableResourceList != null)
+            {
+                requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList = cmdletContext.ConsumableResourceProperties_ConsumableResourceList;
+            }
+            if (requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList != null)
+            {
+                request.ConsumableResourceProperties.ConsumableResourceList = requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList;
+                requestConsumableResourcePropertiesIsNull = false;
+            }
+             // determine if request.ConsumableResourceProperties should be set to null
+            if (requestConsumableResourcePropertiesIsNull)
+            {
+                request.ConsumableResourceProperties = null;
+            }
             
              // populate ContainerProperties
             var requestContainerPropertiesIsNull = true;
@@ -1891,6 +1924,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Batch.Model.ConsumableResourceRequirement> ConsumableResourceProperties_ConsumableResourceList { get; set; }
             public List<System.String> ContainerProperties_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
             public System.Int32? EphemeralStorage_SizeInGiB { get; set; }

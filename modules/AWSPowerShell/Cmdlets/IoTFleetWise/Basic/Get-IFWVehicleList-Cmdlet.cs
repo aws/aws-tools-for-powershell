@@ -86,6 +86,19 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         public System.String[] AttributeValue { get; set; }
         #endregion
         
+        #region Parameter ListResponseScope
+        /// <summary>
+        /// <para>
+        /// <para>When you set the <c>listResponseScope</c> parameter to <c>METADATA_ONLY</c>, the list
+        /// response includes: vehicle name, Amazon Resource Name (ARN), creation time, and last
+        /// modification time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTFleetWise.ListResponseScope")]
+        public Amazon.IoTFleetWise.ListResponseScope ListResponseScope { get; set; }
+        #endregion
+        
         #region Parameter ModelManifestArn
         /// <summary>
         /// <para>
@@ -177,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             {
                 context.AttributeValue = new List<System.String>(this.AttributeValue);
             }
+            context.ListResponseScope = this.ListResponseScope;
             context.MaxResult = this.MaxResult;
             context.ModelManifestArn = this.ModelManifestArn;
             context.NextToken = this.NextToken;
@@ -203,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             if (cmdletContext.AttributeValue != null)
             {
                 request.AttributeValues = cmdletContext.AttributeValue;
+            }
+            if (cmdletContext.ListResponseScope != null)
+            {
+                request.ListResponseScope = cmdletContext.ListResponseScope;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -279,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         {
             public List<System.String> AttributeName { get; set; }
             public List<System.String> AttributeValue { get; set; }
+            public Amazon.IoTFleetWise.ListResponseScope ListResponseScope { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String ModelManifestArn { get; set; }
             public System.String NextToken { get; set; }

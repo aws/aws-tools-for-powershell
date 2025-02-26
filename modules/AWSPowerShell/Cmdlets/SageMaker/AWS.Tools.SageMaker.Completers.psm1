@@ -637,6 +637,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.InferenceComponentCapacitySizeType
+        {
+            ($_ -eq "Update-SMInferenceComponent/MaximumBatchSize_Type") -Or
+            ($_ -eq "Update-SMInferenceComponent/RollbackMaximumBatchSize_Type")
+        }
+        {
+            $v = "CAPACITY_PERCENT","COPY_COUNT"
+            break
+        }
+
         # Amazon.SageMaker.InferenceComponentSortKey
         "Get-SMInferenceComponentList/SortBy"
         {
@@ -1726,7 +1736,7 @@ $SM_map = @{
     "InstanceType"=@("New-SMNotebookInstance","Search-SMTrainingPlanOffering","Update-SMNotebookInstance")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
-    "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint","Update-SMInferenceComponent")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
@@ -1745,7 +1755,7 @@ $SM_map = @{
     "ResourceSharingConfig_Strategy"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
-    "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint","Update-SMInferenceComponent")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "S3DataSource_S3DataType"=@("New-SMTransformJob")
     "SchedulerConfig_FairShare"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")

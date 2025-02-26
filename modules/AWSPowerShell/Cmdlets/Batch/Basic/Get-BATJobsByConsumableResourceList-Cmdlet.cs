@@ -22,51 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// List all the messages in a channel. Returns a paginated list of <c>ChannelMessages</c>.
-    /// By default, sorted by creation timestamp in descending order.
-    /// 
-    ///  <note><para>
-    /// Redacted messages appear in the results as empty, since they are only redacted, not
-    /// deleted. Deleted messages do not appear in the results. This action always returns
-    /// the latest version of an edited message.
-    /// </para><para>
-    /// Also, the x-amz-chime-bearer request header is mandatory. Use the <c>AppInstanceUserArn</c>
-    /// of the user that makes the API call as the value in the header.
-    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
-    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html">ListChannelMessages</a>,
-    /// in the Amazon Chime SDK.
-    /// </para><para>
-    /// Using the latest version requires migrating to a dedicated namespace. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
-    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
+    /// Returns a list of Batch jobs that require a specific consumable resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CHMChannelMessageList")]
-    [OutputType("Amazon.Chime.Model.ListChannelMessagesResponse")]
-    [AWSCmdlet("Calls the Amazon Chime ListChannelMessages API operation.", Operation = new[] {"ListChannelMessages"}, SelectReturnType = typeof(Amazon.Chime.Model.ListChannelMessagesResponse))]
-    [AWSCmdletOutput("Amazon.Chime.Model.ListChannelMessagesResponse",
-        "This cmdlet returns an Amazon.Chime.Model.ListChannelMessagesResponse object containing multiple properties."
+    [Cmdlet("Get", "BATJobsByConsumableResourceList")]
+    [OutputType("Amazon.Batch.Model.ListJobsByConsumableResourceSummary")]
+    [AWSCmdlet("Calls the AWS Batch ListJobsByConsumableResource API operation.", Operation = new[] {"ListJobsByConsumableResource"}, SelectReturnType = typeof(Amazon.Batch.Model.ListJobsByConsumableResourceResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.ListJobsByConsumableResourceSummary or Amazon.Batch.Model.ListJobsByConsumableResourceResponse",
+        "This cmdlet returns a collection of Amazon.Batch.Model.ListJobsByConsumableResourceSummary objects.",
+        "The service call response (type Amazon.Batch.Model.ListJobsByConsumableResourceResponse) can be returned by specifying '-Select *'."
     )]
-    [System.ObsoleteAttribute("Replaced by ListChannelMessages in the Amazon Chime SDK Messaging Namespace")]
-    public partial class GetCHMChannelMessageListCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class GetBATJobsByConsumableResourceListCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ChannelArn
+        #region Parameter ConsumableResource
         /// <summary>
         /// <para>
-        /// <para>The ARN of the channel.</para>
+        /// <para>The name or ARN of the consumable resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,55 +56,33 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
+        public System.String ConsumableResource { get; set; }
         #endregion
         
-        #region Parameter ChimeBearer
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
+        /// <para>The filters to apply to the job list query. If used, only those jobs requiring the
+        /// specified consumable resource (<c>consumableResource</c>) and that match the value
+        /// of the filters are listed. The filter names and values can be:</para><ul><li><para>name: <c>JOB_STATUS</c></para><para>values: <c>SUBMITTED | PENDING | RUNNABLE | STARTING | RUNNING | SUCCEEDED | FAILED</c></para></li><li><para>name: <c>JOB_NAME </c></para><para>The values are case-insensitive matches for the job name. If a filter value ends with
+        /// an asterisk (*), it matches any job name that begins with the string before the '*'.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ChimeBearer { get; set; }
-        #endregion
-        
-        #region Parameter NotAfter
-        /// <summary>
-        /// <para>
-        /// <para>The final or ending time stamp for your requested messages.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? NotAfter { get; set; }
-        #endregion
-        
-        #region Parameter NotBefore
-        /// <summary>
-        /// <para>
-        /// <para>The initial or starting time stamp for your requested messages.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? NotBefore { get; set; }
-        #endregion
-        
-        #region Parameter SortOrder
-        /// <summary>
-        /// <para>
-        /// <para>The order in which you want messages sorted. Default is Descending, based on time
-        /// created.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Chime.SortOrder")]
-        public Amazon.Chime.SortOrder SortOrder { get; set; }
+        [Alias("Filters")]
+        public Amazon.Batch.Model.KeyValuesPair[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of messages that you want returned.</para>
+        /// <para>The maximum number of results returned by <c>ListJobsByConsumableResource</c> in paginated
+        /// output. When this parameter is used, <c>ListJobsByConsumableResource</c> only returns
+        /// <c>maxResults</c> results in a single page and a <c>nextToken</c> response element.
+        /// The remaining results of the initial request can be seen by sending another <c>ListJobsByConsumableResource</c>
+        /// request with the returned <c>nextToken</c> value. This value can be between 1 and
+        /// 100. If this parameter isn't used, then <c>ListJobsByConsumableResource</c> returns
+        /// up to 100 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +93,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token passed by previous API calls until all requested messages are returned.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListJobsByConsumableResource</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -149,21 +111,21 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.ListChannelMessagesResponse).
-        /// Specifying the name of a property of type Amazon.Chime.Model.ListChannelMessagesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Jobs'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.ListJobsByConsumableResourceResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.ListJobsByConsumableResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Jobs";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ChannelArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConsumableResource parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -191,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.ListChannelMessagesResponse, GetCHMChannelMessageListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.ListJobsByConsumableResourceResponse, GetBATJobsByConsumableResourceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -200,22 +162,22 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ChannelArn;
+                context.Select = (response, cmdlet) => this.ConsumableResource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ChannelArn = this.ChannelArn;
+            context.ConsumableResource = this.ConsumableResource;
             #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
+            if (this.ConsumableResource == null && ParameterWasBound(nameof(this.ConsumableResource)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConsumableResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ChimeBearer = this.ChimeBearer;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.Batch.Model.KeyValuesPair>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.NotAfter = this.NotAfter;
-            context.NotBefore = this.NotBefore;
-            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -234,31 +196,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Chime.Model.ListChannelMessagesRequest();
+            var request = new Amazon.Batch.Model.ListJobsByConsumableResourceRequest();
             
-            if (cmdletContext.ChannelArn != null)
+            if (cmdletContext.ConsumableResource != null)
             {
-                request.ChannelArn = cmdletContext.ChannelArn;
+                request.ConsumableResource = cmdletContext.ConsumableResource;
             }
-            if (cmdletContext.ChimeBearer != null)
+            if (cmdletContext.Filter != null)
             {
-                request.ChimeBearer = cmdletContext.ChimeBearer;
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NotAfter != null)
-            {
-                request.NotAfter = cmdletContext.NotAfter.Value;
-            }
-            if (cmdletContext.NotBefore != null)
-            {
-                request.NotBefore = cmdletContext.NotBefore.Value;
-            }
-            if (cmdletContext.SortOrder != null)
-            {
-                request.SortOrder = cmdletContext.SortOrder;
             }
             
             // Initialize loop variant and commence piping
@@ -317,15 +267,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.ListChannelMessagesResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.ListChannelMessagesRequest request)
+        private Amazon.Batch.Model.ListJobsByConsumableResourceResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.ListJobsByConsumableResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "ListChannelMessages");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "ListJobsByConsumableResource");
             try
             {
                 #if DESKTOP
-                return client.ListChannelMessages(request);
+                return client.ListJobsByConsumableResource(request);
                 #elif CORECLR
-                return client.ListChannelMessagesAsync(request).GetAwaiter().GetResult();
+                return client.ListJobsByConsumableResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -345,15 +295,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
-            public System.String ChimeBearer { get; set; }
+            public System.String ConsumableResource { get; set; }
+            public List<Amazon.Batch.Model.KeyValuesPair> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.DateTime? NotAfter { get; set; }
-            public System.DateTime? NotBefore { get; set; }
-            public Amazon.Chime.SortOrder SortOrder { get; set; }
-            public System.Func<Amazon.Chime.Model.ListChannelMessagesResponse, GetCHMChannelMessageListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Batch.Model.ListJobsByConsumableResourceResponse, GetBATJobsByConsumableResourceListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Jobs;
         }
         
     }

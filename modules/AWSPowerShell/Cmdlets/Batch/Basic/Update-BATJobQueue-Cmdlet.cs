@@ -108,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter SchedulingPolicyArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the fair-share scheduling policy. Once a job queue is
-        /// created, the fair-share scheduling policy can be replaced but not removed. The format
+        /// <para>Amazon Resource Name (ARN) of the fair share scheduling policy. Once a job queue is
+        /// created, the fair share scheduling policy can be replaced but not removed. The format
         /// is <c>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i></c>. For example, <c>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</c>.</para>
         /// </para>
         /// </summary>

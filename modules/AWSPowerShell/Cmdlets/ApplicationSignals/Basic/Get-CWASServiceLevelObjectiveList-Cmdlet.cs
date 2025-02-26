@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// Amazon.ApplicationSignals.Model.ListServiceLevelObjectivesRequest.IncludeLinkedAccounts
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
+        #endregion
+        
         #region Parameter KeyAttribute
         /// <summary>
         /// <para>
@@ -66,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String OperationName { get; set; }
+        #endregion
+        
+        #region Parameter SloOwnerAwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para>SLO's Amazon Web Services account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SloOwnerAwsAccountId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -151,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 context.Select = (response, cmdlet) => this.OperationName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             if (this.KeyAttribute != null)
             {
                 context.KeyAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -162,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.OperationName = this.OperationName;
+            context.SloOwnerAwsAccountId = this.SloOwnerAwsAccountId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // create request and set iteration invariants
             var request = new Amazon.ApplicationSignals.Model.ListServiceLevelObjectivesRequest();
             
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
             if (cmdletContext.KeyAttribute != null)
             {
                 request.KeyAttributes = cmdletContext.KeyAttribute;
@@ -193,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             if (cmdletContext.OperationName != null)
             {
                 request.OperationName = cmdletContext.OperationName;
+            }
+            if (cmdletContext.SloOwnerAwsAccountId != null)
+            {
+                request.SloOwnerAwsAccountId = cmdletContext.SloOwnerAwsAccountId;
             }
             
             // Initialize loop variant and commence piping
@@ -279,10 +310,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public Dictionary<System.String, System.String> KeyAttribute { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OperationName { get; set; }
+            public System.String SloOwnerAwsAccountId { get; set; }
             public System.Func<Amazon.ApplicationSignals.Model.ListServiceLevelObjectivesResponse, GetCWASServiceLevelObjectiveListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SloSummaries;
         }

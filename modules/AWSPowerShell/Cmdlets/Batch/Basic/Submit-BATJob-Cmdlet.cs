@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// object that's included in the <c>containerOverrides</c> parameter.
     /// 
     ///  <note><para>
-    /// Job queues with a scheduling policy are limited to 500 active share identifiers at
-    /// a time. 
+    /// Job queues with a scheduling policy are limited to 500 active fair share identifiers
+    /// at a time. 
     /// </para></note><important><para>
     /// Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
     /// This is because, after 14 days, Fargate resources might become unavailable and job
@@ -97,6 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String[] ContainerOverrides_Command { get; set; }
         #endregion
         
+        #region Parameter ConsumableResourcePropertiesOverride_ConsumableResourceList
+        /// <summary>
+        /// <para>
+        /// <para>The list of consumable resources required by a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ConsumableResourceRequirement[] ConsumableResourcePropertiesOverride_ConsumableResourceList { get; set; }
+        #endregion
+        
         #region Parameter PodProperties_Container
         /// <summary>
         /// <para>
@@ -152,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The overrides for the <c>initContainers</c> defined in the Amazon EKS pod. These containers
-        /// run before application containers, always run to completion, and must complete successfully
+        /// run before application containers, always runs to completion, and must complete successfully
         /// before the next container starts. These containers are registered with the Amazon
         /// EKS Connector agent and persists the registration information in the Kubernetes backend
         /// data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
@@ -338,9 +348,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter SchedulingPriorityOverride
         /// <summary>
         /// <para>
-        /// <para>The scheduling priority for the job. This only affects jobs in job queues with a fair-share
-        /// policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
-        /// scheduling priority. This overrides any scheduling priority in the job definition
+        /// <para>The scheduling priority for the job. This only affects jobs in job queues with a fair
+        /// share policy. Jobs with a higher scheduling priority are scheduled before jobs with
+        /// a lower scheduling priority. This overrides any scheduling priority in the job definition
         /// and works only within a single share identifier.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
         /// </para>
         /// </summary>
@@ -352,8 +362,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The share identifier for the job. Don't specify this parameter if the job queue doesn't
-        /// have a fair-share scheduling policy. If the job queue has a fair-share scheduling
-        /// policy, then this parameter must be specified.</para><para>This string is limited to 255 alphanumeric characters, and can be followed by an asterisk
+        /// have a scheduling policy. If the job queue has a scheduling policy, then this parameter
+        /// must be specified.</para><para>This string is limited to 255 alphanumeric characters, and can be followed by an asterisk
         /// (*).</para>
         /// </para>
         /// </summary>
@@ -517,6 +527,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ArrayProperties_Size = this.ArrayProperties_Size;
+            if (this.ConsumableResourcePropertiesOverride_ConsumableResourceList != null)
+            {
+                context.ConsumableResourcePropertiesOverride_ConsumableResourceList = new List<Amazon.Batch.Model.ConsumableResourceRequirement>(this.ConsumableResourcePropertiesOverride_ConsumableResourceList);
+            }
             if (this.ContainerOverrides_Command != null)
             {
                 context.ContainerOverrides_Command = new List<System.String>(this.ContainerOverrides_Command);
@@ -654,6 +668,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestArrayPropertiesIsNull)
             {
                 request.ArrayProperties = null;
+            }
+            
+             // populate ConsumableResourcePropertiesOverride
+            var requestConsumableResourcePropertiesOverrideIsNull = true;
+            request.ConsumableResourcePropertiesOverride = new Amazon.Batch.Model.ConsumableResourceProperties();
+            List<Amazon.Batch.Model.ConsumableResourceRequirement> requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList = null;
+            if (cmdletContext.ConsumableResourcePropertiesOverride_ConsumableResourceList != null)
+            {
+                requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList = cmdletContext.ConsumableResourcePropertiesOverride_ConsumableResourceList;
+            }
+            if (requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList != null)
+            {
+                request.ConsumableResourcePropertiesOverride.ConsumableResourceList = requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList;
+                requestConsumableResourcePropertiesOverrideIsNull = false;
+            }
+             // determine if request.ConsumableResourcePropertiesOverride should be set to null
+            if (requestConsumableResourcePropertiesOverrideIsNull)
+            {
+                request.ConsumableResourcePropertiesOverride = null;
             }
             
              // populate ContainerOverrides
@@ -996,6 +1029,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? ArrayProperties_Size { get; set; }
+            public List<Amazon.Batch.Model.ConsumableResourceRequirement> ConsumableResourcePropertiesOverride_ConsumableResourceList { get; set; }
             public List<System.String> ContainerOverrides_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerOverrides_Environment { get; set; }
             public System.String ContainerOverrides_InstanceType { get; set; }

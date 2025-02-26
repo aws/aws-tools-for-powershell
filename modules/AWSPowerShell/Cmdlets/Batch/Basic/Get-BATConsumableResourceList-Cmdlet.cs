@@ -22,44 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Lists all Amazon Chime <c>AppInstance</c>s created under a single AWS account.
-    /// 
-    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
-    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html">ListAppInstances</a>,
-    /// in the Amazon Chime SDK.
-    /// </para><para>
-    /// Using the latest version requires migrating to a dedicated namespace. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
-    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
+    /// Returns a list of Batch consumable resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CHMAppInstanceList")]
-    [OutputType("Amazon.Chime.Model.AppInstanceSummary")]
-    [AWSCmdlet("Calls the Amazon Chime ListAppInstances API operation.", Operation = new[] {"ListAppInstances"}, SelectReturnType = typeof(Amazon.Chime.Model.ListAppInstancesResponse))]
-    [AWSCmdletOutput("Amazon.Chime.Model.AppInstanceSummary or Amazon.Chime.Model.ListAppInstancesResponse",
-        "This cmdlet returns a collection of Amazon.Chime.Model.AppInstanceSummary objects.",
-        "The service call response (type Amazon.Chime.Model.ListAppInstancesResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BATConsumableResourceList")]
+    [OutputType("Amazon.Batch.Model.ConsumableResourceSummary")]
+    [AWSCmdlet("Calls the AWS Batch ListConsumableResources API operation.", Operation = new[] {"ListConsumableResources"}, SelectReturnType = typeof(Amazon.Batch.Model.ListConsumableResourcesResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.ConsumableResourceSummary or Amazon.Batch.Model.ListConsumableResourcesResponse",
+        "This cmdlet returns a collection of Amazon.Batch.Model.ConsumableResourceSummary objects.",
+        "The service call response (type Amazon.Batch.Model.ListConsumableResourcesResponse) can be returned by specifying '-Select *'."
     )]
-    [System.ObsoleteAttribute("Replaced by ListAppInstances in the Amazon Chime SDK Identity Namespace")]
-    public partial class GetCHMAppInstanceListCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class GetBATConsumableResourceListCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filters to apply to the consumable resource list query. If used, only those consumable
+        /// resources that match the filter are listed. Filter names and values can be:</para><ul><li><para>name: <c>CONSUMABLE_RESOURCE_NAME </c></para><para>values: case-insensitive matches for the consumable resource name. If a filter value
+        /// ends with an asterisk (*), it matches any consumable resource name that begins with
+        /// the string before the '*'.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.Batch.Model.KeyValuesPair[] Filter { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of <c>AppInstance</c>s that you want to return.</para>
+        /// <para>The maximum number of results returned by <c>ListConsumableResources</c> in paginated
+        /// output. When this parameter is used, <c>ListConsumableResources</c> only returns <c>maxResults</c>
+        /// results in a single page and a <c>nextToken</c> response element. The remaining results
+        /// of the initial request can be seen by sending another <c>ListConsumableResources</c>
+        /// request with the returned <c>nextToken</c> value. This value can be between 1 and
+        /// 100. If this parameter isn't used, then <c>ListConsumableResources</c> returns up
+        /// to 100 results and a <c>nextToken</c> value if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token passed by previous API requests until you reach the maximum number of <c>AppInstance</c>s.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>ListConsumableResources</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,13 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AppInstances'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.ListAppInstancesResponse).
-        /// Specifying the name of a property of type Amazon.Chime.Model.ListAppInstancesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConsumableResources'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.ListConsumableResourcesResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.ListConsumableResourcesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AppInstances";
+        public string Select { get; set; } = "ConsumableResources";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -114,8 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.ListAppInstancesResponse, GetCHMAppInstanceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.ListConsumableResourcesResponse, GetBATConsumableResourceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.Batch.Model.KeyValuesPair>(this.Filter);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -135,8 +150,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Chime.Model.ListAppInstancesRequest();
+            var request = new Amazon.Batch.Model.ListConsumableResourcesRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -198,15 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.ListAppInstancesResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.ListAppInstancesRequest request)
+        private Amazon.Batch.Model.ListConsumableResourcesResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.ListConsumableResourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "ListAppInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "ListConsumableResources");
             try
             {
                 #if DESKTOP
-                return client.ListAppInstances(request);
+                return client.ListConsumableResources(request);
                 #elif CORECLR
-                return client.ListAppInstancesAsync(request).GetAwaiter().GetResult();
+                return client.ListConsumableResourcesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -226,10 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Batch.Model.KeyValuesPair> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Chime.Model.ListAppInstancesResponse, GetCHMAppInstanceListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AppInstances;
+            public System.Func<Amazon.Batch.Model.ListConsumableResourcesResponse, GetBATConsumableResourceListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConsumableResources;
         }
         
     }

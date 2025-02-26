@@ -926,7 +926,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// charges from CloudFront.</para></li><li><para><c>static-ip</c> - Do not specify this value unless your distribution has been enabled
         /// for this feature by the CloudFront team. If you have a use case that requires static
         /// IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">Amazon
-        /// Web Services Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>,
+        /// Web ServicesSupport Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>,
         /// don't set a value for this field.</para>
         /// </para>
         /// </summary>

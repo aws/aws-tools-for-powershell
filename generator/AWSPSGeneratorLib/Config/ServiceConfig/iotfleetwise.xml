@@ -158,7 +158,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetSummaries" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetSummaries" Verb="Get" Noun="FleetList" PipelineParameter="ListResponseScope" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -182,7 +182,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStateTemplates" OutputProperty="Summaries" Verb="Get" Noun="StateTemplateList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStateTemplates" OutputProperty="Summaries" Verb="Get" Noun="StateTemplateList" PipelineParameter="ListResponseScope" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

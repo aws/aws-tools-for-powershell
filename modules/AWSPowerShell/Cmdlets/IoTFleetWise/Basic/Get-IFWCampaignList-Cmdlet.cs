@@ -47,6 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ListResponseScope
+        /// <summary>
+        /// <para>
+        /// <para>When you set the <c>listResponseScope</c> parameter to <c>METADATA_ONLY</c>, the list
+        /// response includes: campaign name, Amazon Resource Name (ARN), creation time, and last
+        /// modification time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTFleetWise.ListResponseScope")]
+        public Amazon.IoTFleetWise.ListResponseScope ListResponseScope { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -130,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
                 context.Select = (response, cmdlet) => this.Status;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ListResponseScope = this.ListResponseScope;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.Status = this.Status;
@@ -149,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             // create request
             var request = new Amazon.IoTFleetWise.Model.ListCampaignsRequest();
             
+            if (cmdletContext.ListResponseScope != null)
+            {
+                request.ListResponseScope = cmdletContext.ListResponseScope;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -222,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoTFleetWise.ListResponseScope ListResponseScope { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String Status { get; set; }

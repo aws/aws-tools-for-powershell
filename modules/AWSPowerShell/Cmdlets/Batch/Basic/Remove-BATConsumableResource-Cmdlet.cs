@@ -22,59 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Deletes the specified SIP credentials used by your equipment to authenticate during
-    /// call termination.
-    /// 
-    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
-    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTerminationCredentials.html">DeleteVoiceConnectorTerminationCredentials</a>,
-    /// in the Amazon Chime SDK.
-    /// </para><para>
-    /// Using the latest version requires migrating to a dedicated namespace. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
-    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// Deletes the specified consumable resource.
     /// </summary>
-    [Cmdlet("Remove", "CHMVoiceConnectorTerminationCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "BATConsumableResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Chime DeleteVoiceConnectorTerminationCredentials API operation.", Operation = new[] {"DeleteVoiceConnectorTerminationCredentials"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse))]
-    [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse",
+    [AWSCmdlet("Calls the AWS Batch DeleteConsumableResource API operation.", Operation = new[] {"DeleteConsumableResource"}, SelectReturnType = typeof(Amazon.Batch.Model.DeleteConsumableResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.Batch.Model.DeleteConsumableResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Batch.Model.DeleteConsumableResourceResponse) be returned by specifying '-Select *'."
     )]
-    [System.ObsoleteAttribute("Replaced by DeleteVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
-    public partial class RemoveCHMVoiceConnectorTerminationCredentialCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class RemoveBATConsumableResourceCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Username
+        #region Parameter ConsumableResource
         /// <summary>
         /// <para>
-        /// <para>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Usernames")]
-        public System.String[] Username { get; set; }
-        #endregion
-        
-        #region Parameter VoiceConnectorId
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Chime Voice Connector ID.</para>
+        /// <para>The name or ARN of the consumable resource that will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,13 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VoiceConnectorId { get; set; }
+        public System.String ConsumableResource { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.DeleteConsumableResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VoiceConnectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VoiceConnectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConsumableResource parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VoiceConnectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VoiceConnectorId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CHMVoiceConnectorTerminationCredential (DeleteVoiceConnectorTerminationCredentials)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConsumableResource), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BATConsumableResource (DeleteConsumableResource)"))
             {
                 return;
             }
@@ -137,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse, RemoveCHMVoiceConnectorTerminationCredentialCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.DeleteConsumableResourceResponse, RemoveBATConsumableResourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,24 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VoiceConnectorId;
+                context.Select = (response, cmdlet) => this.ConsumableResource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Username != null)
-            {
-                context.Username = new List<System.String>(this.Username);
-            }
+            context.ConsumableResource = this.ConsumableResource;
             #if MODULAR
-            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            if (this.ConsumableResource == null && ParameterWasBound(nameof(this.ConsumableResource)))
             {
-                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.VoiceConnectorId = this.VoiceConnectorId;
-            #if MODULAR
-            if (this.VoiceConnectorId == null && ParameterWasBound(nameof(this.VoiceConnectorId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VoiceConnectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConsumableResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -180,15 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsRequest();
+            var request = new Amazon.Batch.Model.DeleteConsumableResourceRequest();
             
-            if (cmdletContext.Username != null)
+            if (cmdletContext.ConsumableResource != null)
             {
-                request.Usernames = cmdletContext.Username;
-            }
-            if (cmdletContext.VoiceConnectorId != null)
-            {
-                request.VoiceConnectorId = cmdletContext.VoiceConnectorId;
+                request.ConsumableResource = cmdletContext.ConsumableResource;
             }
             
             CmdletOutput output;
@@ -223,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsRequest request)
+        private Amazon.Batch.Model.DeleteConsumableResourceResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.DeleteConsumableResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "DeleteVoiceConnectorTerminationCredentials");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "DeleteConsumableResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteVoiceConnectorTerminationCredentials(request);
+                return client.DeleteConsumableResource(request);
                 #elif CORECLR
-                return client.DeleteVoiceConnectorTerminationCredentialsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteConsumableResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,9 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Username { get; set; }
-            public System.String VoiceConnectorId { get; set; }
-            public System.Func<Amazon.Chime.Model.DeleteVoiceConnectorTerminationCredentialsResponse, RemoveCHMVoiceConnectorTerminationCredentialCmdlet, object> Select { get; set; } =
+            public System.String ConsumableResource { get; set; }
+            public System.Func<Amazon.Batch.Model.DeleteConsumableResourceResponse, RemoveBATConsumableResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

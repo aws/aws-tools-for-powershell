@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConsumableResource" OutputProperty="*" Verb="New" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResourceName" PipelineParameter="ConsumableResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateJobQueue" OutputProperty="*" Verb="New" Noun="JobQueue" ShouldProcessTarget="JobQueueName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -38,6 +42,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteComputeEnvironment" Verb="Remove" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConsumableResource" Verb="Remove" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +62,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeComputeEnvironments" OutputProperty="ComputeEnvironments" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConsumableResource" OutputProperty="*" Verb="Get" Noun="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,7 +89,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConsumableResources" OutputProperty="ConsumableResources" Verb="Get" Noun="ConsumableResourceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobsByConsumableResource" OutputProperty="Jobs" Verb="Get" Noun="JobsByConsumableResourceList" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +130,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComputeEnvironment" OutputProperty="*" Verb="Update" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConsumableResource" OutputProperty="*" Verb="Update" Noun="ConsumableResource" ShouldProcessTarget="ConsumableResource" PipelineParameter="ConsumableResource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

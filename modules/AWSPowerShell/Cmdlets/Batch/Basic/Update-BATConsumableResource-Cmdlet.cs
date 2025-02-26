@@ -22,42 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Updates the details of an <c>AppInstanceUser</c>. You can update names and metadata.
-    /// 
-    ///  <important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
-    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html">UpdateAppInstanceUser</a>,
-    /// in the Amazon Chime SDK.
-    /// </para><para>
-    /// Using the latest version requires migrating to a dedicated namespace. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
-    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// Updates a consumable resource.
     /// </summary>
-    [Cmdlet("Update", "CHMAppInstanceUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Chime UpdateAppInstanceUser API operation.", Operation = new[] {"UpdateAppInstanceUser"}, SelectReturnType = typeof(Amazon.Chime.Model.UpdateAppInstanceUserResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Chime.Model.UpdateAppInstanceUserResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Chime.Model.UpdateAppInstanceUserResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "BATConsumableResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.UpdateConsumableResourceResponse")]
+    [AWSCmdlet("Calls the AWS Batch UpdateConsumableResource API operation.", Operation = new[] {"UpdateConsumableResource"}, SelectReturnType = typeof(Amazon.Batch.Model.UpdateConsumableResourceResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.UpdateConsumableResourceResponse",
+        "This cmdlet returns an Amazon.Batch.Model.UpdateConsumableResourceResponse object containing multiple properties."
     )]
-    [System.ObsoleteAttribute("Replaced by UpdateAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
-    public partial class UpdateCHMAppInstanceUserCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class UpdateBATConsumableResourceCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppInstanceUserArn
+        #region Parameter ConsumableResource
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <c>AppInstanceUser</c>.</para>
+        /// <para>The name or ARN of the consumable resource to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,53 +55,65 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppInstanceUserArn { get; set; }
+        public System.String ConsumableResource { get; set; }
         #endregion
         
-        #region Parameter Metadata
+        #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>The metadata of the <c>AppInstanceUser</c>.</para>
+        /// <para>Indicates how the quantity of the consumable resource will be updated. Must be one
+        /// of:</para><ul><li><para><c>SET</c></para><para>Sets the quantity of the resource to the value specified by the <c>quantity</c> parameter.</para></li><li><para><c>ADD</c></para><para>Increases the quantity of the resource by the value specified by the <c>quantity</c>
+        /// parameter.</para></li><li><para><c>REMOVE</c></para><para>Reduces the quantity of the resource by the value specified by the <c>quantity</c>
+        /// parameter.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Metadata { get; set; }
+        public System.String Operation { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Quantity
         /// <summary>
         /// <para>
-        /// <para>The name of the <c>AppInstanceUser</c>.</para>
+        /// <para>The change in the total quantity of the consumable resource. The <c>operation</c>
+        /// parameter determines whether the value specified here will be the new total quantity,
+        /// or the amount by which the total quantity will be increased or reduced. Must be a
+        /// non-negative value.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.Int64? Quantity { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is specified and two update requests with identical payloads and
+        /// <c>clientToken</c>s are received, these requests are considered the same request and
+        /// the second request is rejected. A <c>clientToken</c> is valid for 8 hours or until
+        /// one hour after the consumable resource is deleted, whichever is less.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AppInstanceUserArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.UpdateAppInstanceUserResponse).
-        /// Specifying the name of a property of type Amazon.Chime.Model.UpdateAppInstanceUserResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.UpdateConsumableResourceResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.UpdateConsumableResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AppInstanceUserArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AppInstanceUserArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AppInstanceUserArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConsumableResource parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppInstanceUserArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConsumableResource' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppInstanceUserArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMAppInstanceUser (UpdateAppInstanceUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConsumableResource), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-BATConsumableResource (UpdateConsumableResource)"))
             {
                 return;
             }
@@ -148,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.UpdateAppInstanceUserResponse, UpdateCHMAppInstanceUserCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.UpdateConsumableResourceResponse, UpdateBATConsumableResourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,24 +156,19 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AppInstanceUserArn;
+                context.Select = (response, cmdlet) => this.ConsumableResource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppInstanceUserArn = this.AppInstanceUserArn;
+            context.ClientToken = this.ClientToken;
+            context.ConsumableResource = this.ConsumableResource;
             #if MODULAR
-            if (this.AppInstanceUserArn == null && ParameterWasBound(nameof(this.AppInstanceUserArn)))
+            if (this.ConsumableResource == null && ParameterWasBound(nameof(this.ConsumableResource)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppInstanceUserArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConsumableResource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Metadata = this.Metadata;
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Operation = this.Operation;
+            context.Quantity = this.Quantity;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,19 +183,23 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Chime.Model.UpdateAppInstanceUserRequest();
+            var request = new Amazon.Batch.Model.UpdateConsumableResourceRequest();
             
-            if (cmdletContext.AppInstanceUserArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.AppInstanceUserArn = cmdletContext.AppInstanceUserArn;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Metadata != null)
+            if (cmdletContext.ConsumableResource != null)
             {
-                request.Metadata = cmdletContext.Metadata;
+                request.ConsumableResource = cmdletContext.ConsumableResource;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Operation != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Operation = cmdletContext.Operation;
+            }
+            if (cmdletContext.Quantity != null)
+            {
+                request.Quantity = cmdletContext.Quantity.Value;
             }
             
             CmdletOutput output;
@@ -236,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.UpdateAppInstanceUserResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.UpdateAppInstanceUserRequest request)
+        private Amazon.Batch.Model.UpdateConsumableResourceResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.UpdateConsumableResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "UpdateAppInstanceUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "UpdateConsumableResource");
             try
             {
                 #if DESKTOP
-                return client.UpdateAppInstanceUser(request);
+                return client.UpdateConsumableResource(request);
                 #elif CORECLR
-                return client.UpdateAppInstanceUserAsync(request).GetAwaiter().GetResult();
+                return client.UpdateConsumableResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -264,11 +262,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppInstanceUserArn { get; set; }
-            public System.String Metadata { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.Chime.Model.UpdateAppInstanceUserResponse, UpdateCHMAppInstanceUserCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AppInstanceUserArn;
+            public System.String ClientToken { get; set; }
+            public System.String ConsumableResource { get; set; }
+            public System.String Operation { get; set; }
+            public System.Int64? Quantity { get; set; }
+            public System.Func<Amazon.Batch.Model.UpdateConsumableResourceResponse, UpdateBATConsumableResourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

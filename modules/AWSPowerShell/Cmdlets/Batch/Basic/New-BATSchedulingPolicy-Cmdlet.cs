@@ -44,14 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter FairsharePolicy_ComputeReservation
         /// <summary>
         /// <para>
-        /// <para>A value used to reserve some of the available maximum vCPU for share identifiers that
-        /// aren't already used.</para><para>The reserved ratio is <c>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i></c>
-        /// where <c><i>ActiveFairShares</i></c> is the number of active share identifiers.</para><para>For example, a <c>computeReservation</c> value of 50 indicates that Batch reserves
-        /// 50% of the maximum available vCPU if there's only one share identifier. It reserves
-        /// 25% if there are two share identifiers. It reserves 12.5% if there are three share
-        /// identifiers. A <c>computeReservation</c> value of 25 indicates that Batch should reserve
-        /// 25% of the maximum available vCPU if there's only one share identifier, 6.25% if there
-        /// are two fair share identifiers, and 1.56% if there are three share identifiers.</para><para>The minimum value is 0 and the maximum value is 99.</para>
+        /// <para>A value used to reserve some of the available maximum vCPU for fair share identifiers
+        /// that aren't already used.</para><para>The reserved ratio is <c>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i></c>
+        /// where <c><i>ActiveFairShares</i></c> is the number of active fair share identifiers.</para><para>For example, a <c>computeReservation</c> value of 50 indicates that Batch reserves
+        /// 50% of the maximum available vCPU if there's only one fair share identifier. It reserves
+        /// 25% if there are two fair share identifiers. It reserves 12.5% if there are three
+        /// fair share identifiers. A <c>computeReservation</c> value of 25 indicates that Batch
+        /// should reserve 25% of the maximum available vCPU if there's only one fair share identifier,
+        /// 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share
+        /// identifiers.</para><para>The minimum value is 0 and the maximum value is 99.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,9 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the fair-share scheduling policy. It can be up to 128 letters long. It
-        /// can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores
-        /// (_).</para>
+        /// <para>The name of the scheduling policy. It can be up to 128 letters long. It can contain
+        /// uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter FairsharePolicy_ShareDecaySecond
         /// <summary>
         /// <para>
-        /// <para>The amount of time (in seconds) to use to calculate a fair-share percentage for each
-        /// share identifier in use. A value of zero (0) indicates the default minimum time window
-        /// (600 seconds). The maximum supported value is 604800 (1 week).</para><para>The decay allows for more recently run jobs to have more weight than jobs that ran
+        /// <para>The amount of time (in seconds) to use to calculate a fair share percentage for each
+        /// fair share identifier in use. A value of zero (0) indicates the default minimum time
+        /// window (600 seconds). The maximum supported value is 604800 (1 week).</para><para>The decay allows for more recently run jobs to have more weight than jobs that ran
         /// earlier. Consider adjusting this number if you have jobs that (on average) run longer
         /// than ten minutes, or a large difference in job count or job run times between share
         /// identifiers, and the allocation of resources doesn’t meet your needs.</para>
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter FairsharePolicy_ShareDistribution
         /// <summary>
         /// <para>
-        /// <para>An array of <c>SharedIdentifier</c> objects that contain the weights for the share
-        /// identifiers for the fair-share policy. Share identifiers that aren't included have
-        /// a default weight of <c>1.0</c>.</para>
+        /// <para>An array of <c>SharedIdentifier</c> objects that contain the weights for the fair
+        /// share identifiers for the fair share policy. Fair share identifiers that aren't included
+        /// have a default weight of <c>1.0</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

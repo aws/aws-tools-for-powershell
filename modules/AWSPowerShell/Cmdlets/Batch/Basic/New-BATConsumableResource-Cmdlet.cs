@@ -22,44 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Immediately makes a channel and its memberships inaccessible and marks them for deletion.
-    /// This is an irreversible process.
-    /// 
-    ///  <note><para>
-    /// The <c>x-amz-chime-bearer</c> request header is mandatory. Use the <c>AppInstanceUserArn</c>
-    /// of the user that makes the API call as the value in the header.
-    /// </para></note><important><para><b>This API is is no longer supported and will not be updated.</b> We recommend using
-    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.html">DeleteChannel</a>,
-    /// in the Amazon Chime SDK.
-    /// </para><para>
-    /// Using the latest version requires migrating to a dedicated namespace. For more information,
-    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
-    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// Creates an Batch consumable resource.
     /// </summary>
-    [Cmdlet("Remove", "CHMChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Chime DeleteChannel API operation.", Operation = new[] {"DeleteChannel"}, SelectReturnType = typeof(Amazon.Chime.Model.DeleteChannelResponse))]
-    [AWSCmdletOutput("None or Amazon.Chime.Model.DeleteChannelResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chime.Model.DeleteChannelResponse) be returned by specifying '-Select *'."
+    [Cmdlet("New", "BATConsumableResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Batch.Model.CreateConsumableResourceResponse")]
+    [AWSCmdlet("Calls the AWS Batch CreateConsumableResource API operation.", Operation = new[] {"CreateConsumableResource"}, SelectReturnType = typeof(Amazon.Batch.Model.CreateConsumableResourceResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.CreateConsumableResourceResponse",
+        "This cmdlet returns an Amazon.Batch.Model.CreateConsumableResourceResponse object containing multiple properties."
     )]
-    [System.ObsoleteAttribute("Replaced by DeleteChannel in the Amazon Chime SDK Messaging Namespace")]
-    public partial class RemoveCHMChannelCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class NewBATConsumableResourceCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ChannelArn
+        #region Parameter ConsumableResourceName
         /// <summary>
         /// <para>
-        /// <para>The ARN of the channel being deleted.</para>
+        /// <para>The name of the consumable resource. Must be unique.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,23 +55,49 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
+        public System.String ConsumableResourceName { get; set; }
         #endregion
         
-        #region Parameter ChimeBearer
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The <c>AppInstanceUserArn</c> of the user that makes the API call.</para>
+        /// <para>Indicates whether the resource is available to be re-used after a job completes. Can
+        /// be one of: </para><ul><li><para><c>REPLENISHABLE</c> (default)</para></li><li><para><c>NON_REPLENISHABLE</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ChimeBearer { get; set; }
+        public System.String ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags that you apply to the consumable resource to help you categorize and organize
+        /// your resources. Each tag consists of a key and an optional value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging
+        /// your Batch resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter TotalQuantity
+        /// <summary>
+        /// <para>
+        /// <para>The total amount of the consumable resource that is available. Must be non-negative.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? TotalQuantity { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.DeleteChannelResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.CreateConsumableResourceResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.CreateConsumableResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ChannelArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConsumableResourceName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConsumableResourceName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConsumableResourceName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CHMChannel (DeleteChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConsumableResourceName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BATConsumableResource (CreateConsumableResource)"))
             {
                 return;
             }
@@ -132,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.DeleteChannelResponse, RemoveCHMChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.CreateConsumableResourceResponse, NewBATConsumableResourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,17 +152,26 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ChannelArn;
+                context.Select = (response, cmdlet) => this.ConsumableResourceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ChannelArn = this.ChannelArn;
+            context.ConsumableResourceName = this.ConsumableResourceName;
             #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
+            if (this.ConsumableResourceName == null && ParameterWasBound(nameof(this.ConsumableResourceName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConsumableResourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ChimeBearer = this.ChimeBearer;
+            context.ResourceType = this.ResourceType;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
+            context.TotalQuantity = this.TotalQuantity;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,15 +186,23 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Chime.Model.DeleteChannelRequest();
+            var request = new Amazon.Batch.Model.CreateConsumableResourceRequest();
             
-            if (cmdletContext.ChannelArn != null)
+            if (cmdletContext.ConsumableResourceName != null)
             {
-                request.ChannelArn = cmdletContext.ChannelArn;
+                request.ConsumableResourceName = cmdletContext.ConsumableResourceName;
             }
-            if (cmdletContext.ChimeBearer != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.ChimeBearer = cmdletContext.ChimeBearer;
+                request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TotalQuantity != null)
+            {
+                request.TotalQuantity = cmdletContext.TotalQuantity.Value;
             }
             
             CmdletOutput output;
@@ -209,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.DeleteChannelResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.DeleteChannelRequest request)
+        private Amazon.Batch.Model.CreateConsumableResourceResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.CreateConsumableResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "DeleteChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "CreateConsumableResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteChannel(request);
+                return client.CreateConsumableResource(request);
                 #elif CORECLR
-                return client.DeleteChannelAsync(request).GetAwaiter().GetResult();
+                return client.CreateConsumableResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +265,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
-            public System.String ChimeBearer { get; set; }
-            public System.Func<Amazon.Chime.Model.DeleteChannelResponse, RemoveCHMChannelCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ConsumableResourceName { get; set; }
+            public System.String ResourceType { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Int64? TotalQuantity { get; set; }
+            public System.Func<Amazon.Batch.Model.CreateConsumableResourceResponse, NewBATConsumableResourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
