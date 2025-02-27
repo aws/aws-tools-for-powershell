@@ -130,6 +130,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-QBUSUser', 
         'New-QBUSWebExperience', 
         'Remove-QBUSApplication', 
+        'Remove-QBUSAttachment', 
         'Remove-QBUSBatchDeleteDocument', 
         'Remove-QBUSChatControlsConfiguration', 
         'Remove-QBUSConversation', 

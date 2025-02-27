@@ -361,6 +361,7 @@ $QBUS_SelectMap = @{
                "New-QBUSUser",
                "New-QBUSWebExperience",
                "Remove-QBUSApplication",
+               "Remove-QBUSAttachment",
                "Remove-QBUSChatControlsConfiguration",
                "Remove-QBUSConversation",
                "Remove-QBUSDataAccessor",

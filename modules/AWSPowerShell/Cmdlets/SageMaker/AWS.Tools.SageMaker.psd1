@@ -420,6 +420,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SMFeatureGroup', 
         'Update-SMFeatureMetadata', 
         'Update-SMHub', 
+        'Update-SMHubContent', 
+        'Update-SMHubContentReference', 
         'Update-SMImage', 
         'Update-SMImageVersion', 
         'Update-SMInferenceComponent', 

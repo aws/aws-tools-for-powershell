@@ -258,6 +258,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EvictFilesFailingUpload" OutputProperty="NotificationId" Verb="Invoke" Noun="EvictFilesFailingUpload" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="JoinDomain" OutputProperty="GatewayARN" Verb="Join" Noun="Domain" ShouldProcessTarget="DomainName" PositionalParameters="GatewayARN" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

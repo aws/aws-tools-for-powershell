@@ -1,4 +1,35 @@
-﻿### 4.1.766 (2025-02-26 21:54Z)
+﻿### 4.1.767 (2025-02-27 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.992.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Add-BARResourceTag leveraging the TagResource service API.
+    * Added cmdlet Close-BARSession leveraging the EndSession service API.
+    * Added cmdlet Get-BARInvocationList leveraging the ListInvocations service API.
+    * Added cmdlet Get-BARInvocationStep leveraging the GetInvocationStep service API.
+    * Added cmdlet Get-BARInvocationStepList leveraging the ListInvocationSteps service API.
+    * Added cmdlet Get-BARResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-BARSession leveraging the GetSession service API.
+    * Added cmdlet Get-BARSessionList leveraging the ListSessions service API.
+    * Added cmdlet New-BARInvocation leveraging the CreateInvocation service API.
+    * Added cmdlet New-BARSession leveraging the CreateSession service API.
+    * Added cmdlet Remove-BARResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-BARSession leveraging the DeleteSession service API.
+    * Added cmdlet Update-BARSession leveraging the UpdateSession service API.
+    * Added cmdlet Write-BARInvocationStep leveraging the PutInvocationStep service API.
+  * Amazon QBusiness
+    * Added cmdlet Remove-QBUSAttachment leveraging the DeleteAttachment service API.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSTrack leveraging the GetTrack service API.
+    * Added cmdlet Get-RSSTrackList leveraging the ListTracks service API.
+    * Modified cmdlet New-RSSWorkgroup: added parameter TrackName.
+    * Modified cmdlet Update-RSSWorkgroup: added parameter TrackName.
+  * Amazon SageMaker Service
+    * Added cmdlet Update-SMHubContent leveraging the UpdateHubContent service API.
+    * Added cmdlet Update-SMHubContentReference leveraging the UpdateHubContentReference service API.
+    * Modified cmdlet Import-SMHubContent: added parameter SupportStatus.
+  * Amazon Storage Gateway
+    * Added cmdlet Invoke-SGEvictFilesFailingUpload leveraging the EvictFilesFailingUpload service API.
+
+### 4.1.766 (2025-02-26 21:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.991.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Added cmdlet Get-BATConsumableResource leveraging the DescribeConsumableResource service API.

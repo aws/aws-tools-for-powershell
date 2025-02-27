@@ -273,6 +273,7 @@ $SG_SelectMap = @{
                "Dismount-SGVolume",
                "Disable-SGGateway",
                "Remove-SGSGFileSystemAssociation",
+               "Invoke-SGEvictFilesFailingUpload",
                "Join-SGDomain",
                "Get-SGAutomaticTapeCreationPolicy",
                "Get-SGCacheReportList",

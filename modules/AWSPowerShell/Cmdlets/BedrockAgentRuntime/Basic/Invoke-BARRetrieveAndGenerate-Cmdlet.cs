@@ -749,8 +749,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <summary>
         /// <para>
         /// <para>The type of resource that contains your data for retrieving information and generating
-        /// responses.</para><para>If you choose ot use <c>EXTERNAL_SOURCES</c>, then currently only Claude 3 Sonnet
-        /// models for knowledge bases are supported.</para>
+        /// responses.</para><para>If you choose to use <c>EXTERNAL_SOURCES</c>, then currently only Anthropic Claude
+        /// 3 Sonnet models for knowledge bases are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -88,8 +88,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-BARResourceTag', 
+        'Close-BARSession', 
         'Get-BARAgentMemory', 
+        'Get-BARInvocationList', 
+        'Get-BARInvocationStep', 
+        'Get-BARInvocationStepList', 
         'Get-BAROptimizePrompt', 
+        'Get-BARResourceTag', 
+        'Get-BARSession', 
+        'Get-BARSessionList', 
         'Invoke-BARAgent', 
         'Invoke-BARFlow', 
         'Invoke-BARGenerateQuery', 
@@ -98,7 +106,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-BARRetrieve', 
         'Invoke-BARRetrieveAndGenerate', 
         'Invoke-BARRetrieveAndGenerateStream', 
-        'Remove-BARAgentMemory')
+        'New-BARInvocation', 
+        'New-BARSession', 
+        'Remove-BARAgentMemory', 
+        'Remove-BARResourceTag', 
+        'Remove-BARSession', 
+        'Update-BARSession', 
+        'Write-BARInvocationStep')
 
     # Variables to export from this module
     VariablesToExport = '*'

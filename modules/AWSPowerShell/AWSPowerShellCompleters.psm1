@@ -7593,17 +7593,31 @@ $BAR_SelectCompleters = {
 }
 
 $BAR_SelectMap = @{
-    "Select"=@("Remove-BARAgentMemory",
+    "Select"=@("New-BARInvocation",
+               "New-BARSession",
+               "Remove-BARAgentMemory",
+               "Remove-BARSession",
+               "Close-BARSession",
                "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
+               "Get-BARInvocationStep",
+               "Get-BARSession",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
                "Invoke-BARInlineAgent",
+               "Get-BARInvocationList",
+               "Get-BARInvocationStepList",
+               "Get-BARSessionList",
+               "Get-BARResourceTag",
                "Get-BAROptimizePrompt",
+               "Write-BARInvocationStep",
                "Invoke-BARRerank",
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate",
-               "Invoke-BARRetrieveAndGenerateStream")
+               "Invoke-BARRetrieveAndGenerateStream",
+               "Add-BARResourceTag",
+               "Remove-BARResourceTag",
+               "Update-BARSession")
 }
 
 _awsArgumentCompleterRegistration $BAR_SelectCompleters $BAR_SelectMap
@@ -58530,6 +58544,7 @@ $QBUS_SelectMap = @{
                "New-QBUSUser",
                "New-QBUSWebExperience",
                "Remove-QBUSApplication",
+               "Remove-QBUSAttachment",
                "Remove-QBUSChatControlsConfiguration",
                "Remove-QBUSConversation",
                "Remove-QBUSDataAccessor",
@@ -61262,6 +61277,7 @@ $RSS_SelectMap = @{
                "Get-RSSScheduledAction",
                "Get-RSSSnapshot",
                "Get-RSSTableRestoreStatus",
+               "Get-RSSTrack",
                "Get-RSSUsageLimit",
                "Get-RSSWorkgroup",
                "Get-RSSCustomDomainAssociationList",
@@ -61274,6 +61290,7 @@ $RSS_SelectMap = @{
                "Get-RSSSnapshotList",
                "Get-RSSTableRestoreStatusList",
                "Get-RSSResourceTag",
+               "Get-RSSTrackList",
                "Get-RSSUsageLimitList",
                "Get-RSSWorkgroupList",
                "Write-RSSResourcePolicy",
@@ -65342,6 +65359,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.HubContentSupportStatus
+        {
+            ($_ -eq "Import-SMHubContent/SupportStatus") -Or
+            ($_ -eq "Update-SMHubContent/SupportStatus")
+        }
+        {
+            $v = "Deprecated","Restricted","Supported"
+            break
+        }
+
         # Amazon.SageMaker.HubContentType
         {
             ($_ -eq "Get-SMHubContent/HubContentType") -Or
@@ -65349,7 +65376,9 @@ $SM_Completers = {
             ($_ -eq "Get-SMHubContentVersionList/HubContentType") -Or
             ($_ -eq "Import-SMHubContent/HubContentType") -Or
             ($_ -eq "Remove-SMHubContent/HubContentType") -Or
-            ($_ -eq "Remove-SMHubContentReference/HubContentType")
+            ($_ -eq "Remove-SMHubContentReference/HubContentType") -Or
+            ($_ -eq "Update-SMHubContent/HubContentType") -Or
+            ($_ -eq "Update-SMHubContentReference/HubContentType")
         }
         {
             $v = "Model","ModelReference","Notebook"
@@ -66520,7 +66549,7 @@ $SM_map = @{
     "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
-    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent","Remove-SMHubContentReference")
+    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent","Remove-SMHubContentReference","Update-SMHubContent","Update-SMHubContentReference")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
@@ -66574,6 +66603,7 @@ $SM_map = @{
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
     "StoppingConditions_FlatInvocation"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
+    "SupportStatus"=@("Import-SMHubContent","Update-SMHubContent")
     "TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
     "TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
     "TagPropagation"=@("New-SMDomain","Update-SMDomain")
@@ -66982,6 +67012,8 @@ $SM_SelectMap = @{
                "Update-SMFeatureGroup",
                "Update-SMFeatureMetadata",
                "Update-SMHub",
+               "Update-SMHubContent",
+               "Update-SMHubContentReference",
                "Update-SMImage",
                "Update-SMImageVersion",
                "Update-SMInferenceComponent",
@@ -72258,6 +72290,7 @@ $SG_SelectMap = @{
                "Dismount-SGVolume",
                "Disable-SGGateway",
                "Remove-SGSGFileSystemAssociation",
+               "Invoke-SGEvictFilesFailingUpload",
                "Join-SGDomain",
                "Get-SGAutomaticTapeCreationPolicy",
                "Get-SGCacheReportList",
