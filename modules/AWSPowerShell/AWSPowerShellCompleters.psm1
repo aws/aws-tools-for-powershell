@@ -7806,6 +7806,9 @@ $BDA_SelectMap = @{
                "Get-BDADataAutomationProject",
                "Get-BDABlueprintList",
                "Get-BDADataAutomationProjectList",
+               "Get-BDAResourceTag",
+               "Add-BDAResourceTag",
+               "Remove-BDAResourceTag",
                "Update-BDABlueprint",
                "Update-BDADataAutomationProject")
 }
@@ -7889,7 +7892,10 @@ $BDAR_SelectCompleters = {
 
 $BDAR_SelectMap = @{
     "Select"=@("Get-BDARDataAutomationStatus",
-               "Invoke-BDARDataAutomationAsync")
+               "Invoke-BDARDataAutomationAsync",
+               "Get-BDARResourceTag",
+               "Add-BDARResourceTag",
+               "Remove-BDARResourceTag")
 }
 
 _awsArgumentCompleterRegistration $BDAR_SelectCompleters $BDAR_SelectMap
@@ -47313,6 +47319,7 @@ $EMC_SelectMap = @{
                "Get-EMCQueueList",
                "Get-EMCResourceTag",
                "Get-EMCVersionList",
+               "Invoke-EMCProbe",
                "Write-EMCPolicy",
                "Search-EMCJob",
                "Add-EMCResourceTag",

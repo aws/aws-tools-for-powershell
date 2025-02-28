@@ -246,6 +246,17 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.State StandardOutputConfiguration_Video_GenerativeField_State { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.BedrockDataAutomation.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter StandardOutputConfiguration_Audio_Extraction_Category_Types
         /// <summary>
         /// <para>
@@ -466,6 +477,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (this.StandardOutputConfiguration_Video_GenerativeField_Types != null)
             {
                 context.StandardOutputConfiguration_Video_GenerativeField_Types = new List<System.String>(this.StandardOutputConfiguration_Video_GenerativeField_Types);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.BedrockDataAutomation.Model.Tag>(this.Tag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -1125,6 +1140,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             {
                 request.StandardOutputConfiguration = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -1213,6 +1232,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public List<System.String> StandardOutputConfiguration_Video_Extraction_Category_Types { get; set; }
             public Amazon.BedrockDataAutomation.State StandardOutputConfiguration_Video_GenerativeField_State { get; set; }
             public List<System.String> StandardOutputConfiguration_Video_GenerativeField_Types { get; set; }
+            public List<Amazon.BedrockDataAutomation.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.BedrockDataAutomation.Model.CreateDataAutomationProjectResponse, NewBDADataAutomationProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -1,4 +1,22 @@
-﻿### 4.1.767 (2025-02-27 21:45Z)
+﻿### 4.1.768 (2025-02-28 22:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.993.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Data Automation for Amazon Bedrock
+    * Added cmdlet Add-BDAResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BDAResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BDAResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-BDABlueprint: added parameter Tag.
+    * Modified cmdlet New-BDADataAutomationProject: added parameter Tag.
+    * Modified cmdlet Update-BDABlueprint: added parameters EncryptionConfiguration_KmsEncryptionContext and EncryptionConfiguration_KmsKeyId.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameters EncryptionConfiguration_KmsEncryptionContext and EncryptionConfiguration_KmsKeyId.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet Invoke-EMCProbe leveraging the Probe service API.
+  * Amazon Runtime for Amazon Bedrock Data Automation
+    * Added cmdlet Add-BDARResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BDARResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BDARResourceTag leveraging the UntagResource service API.
+    * [Breaking Change] Modified cmdlet Invoke-BDARDataAutomationAsync: removed parameter DataAutomationConfiguration_DataAutomationArn; added parameters DataAutomationConfiguration_DataAutomationProjectArn, DataAutomationProfileArn and Tag.
+
+### 4.1.767 (2025-02-27 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.992.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Runtime
     * Added cmdlet Add-BARResourceTag leveraging the TagResource service API.

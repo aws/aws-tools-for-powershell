@@ -22,59 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.BedrockDataAutomationRuntime;
+using Amazon.BedrockDataAutomationRuntime.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.BDAR
 {
     /// <summary>
-    /// Gets the state of a Amazon Web Services Systems Manager change calendar at the current
-    /// time or a specified time. If you specify a time, <c>GetCalendarState</c> returns the
-    /// state of the calendar at that specific time, and returns the next time that the change
-    /// calendar state will transition. If you don't specify a time, <c>GetCalendarState</c>
-    /// uses the current time. Change Calendar entries have two possible states: <c>OPEN</c>
-    /// or <c>CLOSED</c>.
-    /// 
-    ///  
-    /// <para>
-    /// If you specify more than one calendar in a request, the command returns the status
-    /// of <c>OPEN</c> only if all calendars in the request are open. If one or more calendars
-    /// in the request are closed, the status returned is <c>CLOSED</c>.
-    /// </para><para>
-    /// For more information about Change Calendar, a tool in Amazon Web Services Systems
-    /// Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon
-    /// Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems
-    /// Manager User Guide</i>.
-    /// </para>
+    /// Untag an Amazon Bedrock Data Automation resource
     /// </summary>
-    [Cmdlet("Get", "SSMCalendarState")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetCalendarState API operation.", Operation = new[] {"GetCalendarState"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse))]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse object containing multiple properties."
+    [Cmdlet("Remove", "BDARResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Runtime for Amazon Bedrock Data Automation UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetSSMCalendarStateCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class RemoveBDARResourceTagCmdlet : AmazonBedrockDataAutomationRuntimeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AtTime
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>(Optional) The specific time for which you want to get calendar state information,
-        /// in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format. If you don't
-        /// specify a value or <c>AtTime</c>, the current time is used.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String AtTime { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceARN { get; set; }
         #endregion
         
-        #region Parameter CalendarName
+        #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The names of Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents)
-        /// that represent the calendar entries for which you want to get the state.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,15 +73,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("CalendarNames")]
-        public System.String[] CalendarName { get; set; }
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse).
-        /// Specifying the name of a property of type Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,18 +89,34 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AtTime parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AtTime' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AtTime' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDARResourceTag (UntagResource)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -123,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse, GetSSMCalendarStateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse, RemoveBDARResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,18 +135,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AtTime;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AtTime = this.AtTime;
-            if (this.CalendarName != null)
+            context.ResourceARN = this.ResourceARN;
+            #if MODULAR
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                context.CalendarName = new List<System.String>(this.CalendarName);
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.TagKey != null)
+            {
+                context.TagKey = new List<System.String>(this.TagKey);
             }
             #if MODULAR
-            if (this.CalendarName == null && ParameterWasBound(nameof(this.CalendarName)))
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
             {
-                WriteWarning("You are passing $null as a value for parameter CalendarName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -160,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.GetCalendarStateRequest();
+            var request = new Amazon.BedrockDataAutomationRuntime.Model.UntagResourceRequest();
             
-            if (cmdletContext.AtTime != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.AtTime = cmdletContext.AtTime;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.CalendarName != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.CalendarNames = cmdletContext.CalendarName;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -203,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetCalendarStateRequest request)
+        private Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonBedrockDataAutomationRuntime client, Amazon.BedrockDataAutomationRuntime.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetCalendarState");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Runtime for Amazon Bedrock Data Automation", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.GetCalendarState(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.GetCalendarStateAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -231,10 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AtTime { get; set; }
-            public List<System.String> CalendarName { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.GetCalendarStateResponse, GetSSMCalendarStateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceARN { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.BedrockDataAutomationRuntime.Model.UntagResourceResponse, RemoveBDARResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

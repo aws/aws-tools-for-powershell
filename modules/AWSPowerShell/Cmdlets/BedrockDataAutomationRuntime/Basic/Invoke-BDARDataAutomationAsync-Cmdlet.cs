@@ -53,14 +53,31 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         public Amazon.BedrockDataAutomationRuntime.Model.Blueprint[] Blueprint { get; set; }
         #endregion
         
-        #region Parameter DataAutomationConfiguration_DataAutomationArn
+        #region Parameter DataAutomationProfileArn
         /// <summary>
         /// <para>
-        /// <para>Data automation arn.</para>
+        /// <para>Data automation profile ARN</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DataAutomationProfileArn { get; set; }
+        #endregion
+        
+        #region Parameter DataAutomationConfiguration_DataAutomationProjectArn
+        /// <summary>
+        /// <para>
+        /// <para>Data automation project arn.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DataAutomationConfiguration_DataAutomationArn { get; set; }
+        public System.String DataAutomationConfiguration_DataAutomationProjectArn { get; set; }
         #endregion
         
         #region Parameter EventBridgeConfiguration_EventBridgeEnabled
@@ -87,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         #region Parameter EncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>KMS key id.</para>
+        /// <para>Customer KMS key used for encryption</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,6 +156,17 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         public Amazon.BedrockDataAutomationRuntime.DataAutomationStage DataAutomationConfiguration_Stage { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>List of tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.BedrockDataAutomationRuntime.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -175,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataAutomationConfiguration_DataAutomationArn), MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataAutomationConfiguration_DataAutomationProjectArn), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-BDARDataAutomationAsync (InvokeDataAutomationAsync)"))
             {
                 return;
@@ -196,8 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
                 context.Blueprint = new List<Amazon.BedrockDataAutomationRuntime.Model.Blueprint>(this.Blueprint);
             }
             context.ClientToken = this.ClientToken;
-            context.DataAutomationConfiguration_DataAutomationArn = this.DataAutomationConfiguration_DataAutomationArn;
+            context.DataAutomationConfiguration_DataAutomationProjectArn = this.DataAutomationConfiguration_DataAutomationProjectArn;
             context.DataAutomationConfiguration_Stage = this.DataAutomationConfiguration_Stage;
+            context.DataAutomationProfileArn = this.DataAutomationProfileArn;
+            #if MODULAR
+            if (this.DataAutomationProfileArn == null && ParameterWasBound(nameof(this.DataAutomationProfileArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DataAutomationProfileArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.EncryptionConfiguration_KmsEncryptionContext != null)
             {
                 context.EncryptionConfiguration_KmsEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -222,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
                 WriteWarning("You are passing $null as a value for parameter OutputConfiguration_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.BedrockDataAutomationRuntime.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,14 +289,14 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
              // populate DataAutomationConfiguration
             var requestDataAutomationConfigurationIsNull = true;
             request.DataAutomationConfiguration = new Amazon.BedrockDataAutomationRuntime.Model.DataAutomationConfiguration();
-            System.String requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationArn = null;
-            if (cmdletContext.DataAutomationConfiguration_DataAutomationArn != null)
+            System.String requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationProjectArn = null;
+            if (cmdletContext.DataAutomationConfiguration_DataAutomationProjectArn != null)
             {
-                requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationArn = cmdletContext.DataAutomationConfiguration_DataAutomationArn;
+                requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationProjectArn = cmdletContext.DataAutomationConfiguration_DataAutomationProjectArn;
             }
-            if (requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationArn != null)
+            if (requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationProjectArn != null)
             {
-                request.DataAutomationConfiguration.DataAutomationArn = requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationArn;
+                request.DataAutomationConfiguration.DataAutomationProjectArn = requestDataAutomationConfiguration_dataAutomationConfiguration_DataAutomationProjectArn;
                 requestDataAutomationConfigurationIsNull = false;
             }
             Amazon.BedrockDataAutomationRuntime.DataAutomationStage requestDataAutomationConfiguration_dataAutomationConfiguration_Stage = null;
@@ -274,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             if (requestDataAutomationConfigurationIsNull)
             {
                 request.DataAutomationConfiguration = null;
+            }
+            if (cmdletContext.DataAutomationProfileArn != null)
+            {
+                request.DataAutomationProfileArn = cmdletContext.DataAutomationProfileArn;
             }
             
              // populate EncryptionConfiguration
@@ -376,6 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             {
                 request.OutputConfiguration = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -439,13 +486,15 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         {
             public List<Amazon.BedrockDataAutomationRuntime.Model.Blueprint> Blueprint { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String DataAutomationConfiguration_DataAutomationArn { get; set; }
+            public System.String DataAutomationConfiguration_DataAutomationProjectArn { get; set; }
             public Amazon.BedrockDataAutomationRuntime.DataAutomationStage DataAutomationConfiguration_Stage { get; set; }
+            public System.String DataAutomationProfileArn { get; set; }
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public System.String InputConfiguration_S3Uri { get; set; }
             public System.Boolean? EventBridgeConfiguration_EventBridgeEnabled { get; set; }
             public System.String OutputConfiguration_S3Uri { get; set; }
+            public List<Amazon.BedrockDataAutomationRuntime.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.BedrockDataAutomationRuntime.Model.InvokeDataAutomationAsyncResponse, InvokeBDARDataAutomationAsyncCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InvocationArn;
         }

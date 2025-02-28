@@ -2771,10 +2771,16 @@ Set-Alias -Name BDA-ListBlueprints -Value Get-BDABlueprintList
 Set-Alias -Name List-BDADataAutomationProjects -Value Get-BDADataAutomationProjectList
 Set-Alias -Name List-BDADataAutomationProjectList -Value Get-BDADataAutomationProjectList
 Set-Alias -Name BDA-ListDataAutomationProjects -Value Get-BDADataAutomationProjectList
+Set-Alias -Name BDA-ListTagsForResource -Value Get-BDAResourceTag
+Set-Alias -Name BDA-TagResource -Value Add-BDAResourceTag
+Set-Alias -Name BDA-UntagResource -Value Remove-BDAResourceTag
 Set-Alias -Name BDA-UpdateBlueprint -Value Update-BDABlueprint
 Set-Alias -Name BDA-UpdateDataAutomationProject -Value Update-BDADataAutomationProject
 Set-Alias -Name BDAR-GetDataAutomationStatus -Value Get-BDARDataAutomationStatus
 Set-Alias -Name BDAR-InvokeDataAutomationAsync -Value Invoke-BDARDataAutomationAsync
+Set-Alias -Name BDAR-ListTagsForResource -Value Get-BDARResourceTag
+Set-Alias -Name BDAR-TagResource -Value Add-BDARResourceTag
+Set-Alias -Name BDAR-UntagResource -Value Remove-BDARResourceTag
 Set-Alias -Name Apply-BDRRGuardrail -Value Invoke-BDRRGuardrail
 Set-Alias -Name BDRR-ApplyGuardrail -Value Invoke-BDRRGuardrail
 Set-Alias -Name Converse-BDRR -Value Invoke-BDRRConverse
@@ -19369,6 +19375,9 @@ Set-Alias -Name EMC-ListTagsForResource -Value Get-EMCResourceTag
 Set-Alias -Name List-EMCVersions -Value Get-EMCVersionList
 Set-Alias -Name List-EMCVersionList -Value Get-EMCVersionList
 Set-Alias -Name EMC-ListVersions -Value Get-EMCVersionList
+Set-Alias -Name Probe-EMC -Value Invoke-EMCProbe
+Set-Alias -Name Probe-EMCProbe -Value Invoke-EMCProbe
+Set-Alias -Name EMC-Probe -Value Invoke-EMCProbe
 Set-Alias -Name Put-EMCPolicy -Value Write-EMCPolicy
 Set-Alias -Name EMC-PutPolicy -Value Write-EMCPolicy
 Set-Alias -Name Search-EMCJobs -Value Search-EMCJob

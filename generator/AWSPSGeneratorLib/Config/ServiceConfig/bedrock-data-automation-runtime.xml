@@ -22,7 +22,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeDataAutomationAsync" OutputProperty="InvocationArn" Verb="Invoke" Noun="DataAutomationAsync" ShouldProcessTarget="DataAutomationConfiguration_DataAutomationArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="InvokeDataAutomationAsync" OutputProperty="InvocationArn" Verb="Invoke" Noun="DataAutomationAsync" ShouldProcessTarget="DataAutomationConfiguration_DataAutomationProjectArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

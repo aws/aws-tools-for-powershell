@@ -22,42 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.BedrockDataAutomation;
+using Amazon.BedrockDataAutomation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.BDA
 {
     /// <summary>
-    /// Removes the server or virtual machine from the list of registered servers.
-    /// 
-    ///  
-    /// <para>
-    /// If you want to reregister an on-premises server, edge device, or VM, you must use
-    /// a different Activation Code and Activation ID than used to register the machine previously.
-    /// The Activation Code and Activation ID must not have already been used on the maximum
-    /// number of activations specified when they were created. For more information, see
-    /// <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-deregister-hybrid-nodes.html">Deregistering
-    /// managed nodes in a hybrid and multicloud environment</a> in the <i>Amazon Web Services
-    /// Systems Manager User Guide</i>.
-    /// </para>
+    /// List tags for an Amazon Bedrock Data Automation resource
     /// </summary>
-    [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeregisterManagedInstance API operation.", Operation = new[] {"DeregisterManagedInstance"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BDAResourceTag")]
+    [OutputType("Amazon.BedrockDataAutomation.Model.Tag")]
+    [AWSCmdlet("Calls the Data Automation for Amazon Bedrock ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("Amazon.BedrockDataAutomation.Model.Tag or Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of Amazon.BedrockDataAutomation.Model.Tag objects.",
+        "The service call response (type Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UnregisterSSMManagedInstanceCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetBDAResourceTagCmdlet : AmazonBedrockDataAutomationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter InstanceId
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ID assigned to the managed node when you registered it using the activation process.
-        /// </para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,49 +56,34 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-SSMManagedInstance (DeregisterManagedInstance)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -120,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse, UnregisterSSMManagedInstanceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse, GetBDAResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InstanceId = this.InstanceId;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceRequest();
+            var request = new Amazon.BedrockDataAutomation.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
             
             CmdletOutput output;
@@ -192,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceRequest request)
+        private Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonBedrockDataAutomation client, Amazon.BedrockDataAutomation.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeregisterManagedInstance");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Data Automation for Amazon Bedrock", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.DeregisterManagedInstance(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.DeregisterManagedInstanceAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse, UnregisterSSMManagedInstanceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ResourceARN { get; set; }
+            public System.Func<Amazon.BedrockDataAutomation.Model.ListTagsForResourceResponse, GetBDAResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

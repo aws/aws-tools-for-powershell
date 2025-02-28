@@ -84,11 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PremigrationAssessmentSetting
         /// <summary>
         /// <para>
-        /// <para>User-defined settings for the premigration assessment. The possible values are:</para><ul><li><para><c>ResultLocationFinder</c>: The folder within an Amazon Amazon S3 bucket where you
-        /// want DMS to store the results of this assessment run.</para></li><li><para><c>ResultEncryptionMode</c>: The supported values are <c>SSE_KMS</c> and <c>SSE_S3</c>.
+        /// <para>User-defined settings for the premigration assessment. The possible values are:</para><ul><li><para><c>ResultLocationFolder</c>: The folder within an Amazon S3 bucket where you want
+        /// DMS to store the results of this assessment run.</para></li><li><para><c>ResultEncryptionMode</c>: The supported values are <c>SSE_KMS</c> and <c>SSE_S3</c>.
         /// If these values are not provided, then the files are not encrypted at rest. For more
         /// information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.KMSKeys">Creating
-        /// Amazon Web Services KMS keys to encrypt Amazon Amazon S3 target objects</a>.</para></li><li><para><c>ResultKmsKeyArn</c>: The ARN of a customer KMS encryption key that you specify
+        /// Amazon Web Services KMS keys to encrypt Amazon S3 target objects</a>.</para></li><li><para><c>ResultKmsKeyArn</c>: The ARN of a customer KMS encryption key that you specify
         /// when you set <c>ResultEncryptionMode</c> to <c>SSE_KMS</c>.</para></li><li><para><c>IncludeOnly</c>: A space-separated list of names for specific individual assessments
         /// that you want to include. These names come from the default list of individual assessments
         /// that Database Migration Service supports for the associated migration.</para></li><li><para><c>Exclude</c>: A space-separated list of names for specific individual assessments

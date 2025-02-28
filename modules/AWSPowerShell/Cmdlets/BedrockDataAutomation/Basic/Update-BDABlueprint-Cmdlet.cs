@@ -74,6 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.BlueprintStage BlueprintStage { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KmsEncryptionContext
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable EncryptionConfiguration_KmsEncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Schema
         /// <summary>
         /// <para>
@@ -141,6 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             }
             #endif
             context.BlueprintStage = this.BlueprintStage;
+            if (this.EncryptionConfiguration_KmsEncryptionContext != null)
+            {
+                context.EncryptionConfiguration_KmsEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EncryptionConfiguration_KmsEncryptionContext.Keys)
+                {
+                    context.EncryptionConfiguration_KmsEncryptionContext.Add((String)hashKey, (System.String)(this.EncryptionConfiguration_KmsEncryptionContext[hashKey]));
+                }
+            }
+            context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.Schema = this.Schema;
             #if MODULAR
             if (this.Schema == null && ParameterWasBound(nameof(this.Schema)))
@@ -171,6 +200,35 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (cmdletContext.BlueprintStage != null)
             {
                 request.BlueprintStage = cmdletContext.BlueprintStage;
+            }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.BedrockDataAutomation.Model.EncryptionConfiguration();
+            Dictionary<System.String, System.String> requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext = null;
+            if (cmdletContext.EncryptionConfiguration_KmsEncryptionContext != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext = cmdletContext.EncryptionConfiguration_KmsEncryptionContext;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext != null)
+            {
+                request.EncryptionConfiguration.KmsEncryptionContext = requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyId != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId = cmdletContext.EncryptionConfiguration_KmsKeyId;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId != null)
+            {
+                request.EncryptionConfiguration.KmsKeyId = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
             }
             if (cmdletContext.Schema != null)
             {
@@ -239,6 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         {
             public System.String BlueprintArn { get; set; }
             public Amazon.BedrockDataAutomation.BlueprintStage BlueprintStage { get; set; }
+            public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
+            public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public System.String Schema { get; set; }
             public System.Func<Amazon.BedrockDataAutomation.Model.UpdateBlueprintResponse, UpdateBDABlueprintCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Blueprint;
