@@ -28,22 +28,18 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// This public API operation submits a code that Amazon Cognito sent to your user when
-    /// they signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
-    /// API operation. After your user enters their code, they confirm ownership of the email
-    /// address or phone number that they provided, and their user account becomes active.
-    /// Depending on your user pool configuration, your users will receive their confirmation
-    /// code in an email or SMS message.
+    /// Confirms the account of a new user. This public API operation submits a code that
+    /// Amazon Cognito sent to your user when they signed up in your user pool. After your
+    /// user enters their code, they confirm ownership of the email address or phone number
+    /// that they provided, and their user account becomes active. Depending on your user
+    /// pool configuration, your users will receive their confirmation code in an email or
+    /// SMS message.
     /// 
     ///  
     /// <para>
     /// Local users who signed up in your user pool are the only type of user who can confirm
     /// sign-up with a code. Users who federate through an external identity provider (IdP)
-    /// have already been confirmed by their IdP. Administrator-created users, users created
-    /// with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html">AdminCreateUser</a>
-    /// API operation, confirm their accounts when they respond to their invitation email
-    /// message and choose a password. They do not receive a confirmation code. Instead, they
-    /// receive a temporary password.
+    /// have already been confirmed by their IdP.
     /// </para><note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you can't use IAM credentials to authorize
@@ -108,8 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// to the ClientMetadata parameter in your ConfirmSignUp request. In your function code
         /// in Lambda, you can process the <c>clientMetadata</c> value to enhance your workflow
         /// for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
@@ -205,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// <para>The name of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
         /// <c>username</c> isn't an alias attribute in your user pool, this value must be the
         /// <c>sub</c> of a local user or the username of a user from a third-party IdP.</para>

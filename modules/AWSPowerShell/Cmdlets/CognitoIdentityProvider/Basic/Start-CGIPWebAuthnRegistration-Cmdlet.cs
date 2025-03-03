@@ -28,17 +28,13 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Requests credential creation options from your user pool for registration of a passkey
-    /// authenticator. Returns information about the user pool, the user profile, and authentication
+    /// Requests credential creation options from your user pool for the currently signed-in
+    /// user. Returns information about the user pool, the user profile, and authentication
     /// requirements. Users must provide this information in their request to enroll your
     /// application with their passkey provider.
     /// 
     ///  
     /// <para>
-    /// After users present this data and register with their passkey provider, return the
-    /// response to your user pool in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CompleteWebAuthnRegistration.html">
-    /// CompleteWebAuthnRegistration</a> API request.
-    /// </para><para>
     /// Authorize this action with a signed-in user's access token. It must include the scope
     /// <c>aws.cognito.signin.user.admin</c>.
     /// </para>
@@ -60,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose passkey metadata
-        /// you want to generate.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

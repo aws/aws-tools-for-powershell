@@ -22,45 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.CloudWatchRUM;
+using Amazon.CloudWatchRUM.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.CWRUM
 {
     /// <summary>
-    /// Changes the password for the currently signed-in user.
-    /// 
-    ///  
-    /// <para>
-    /// Authorize this action with a signed-in user's access token. It must include the scope
-    /// <c>aws.cognito.signin.user.admin</c>.
-    /// </para><note><para>
-    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you can't use IAM credentials to authorize
-    /// requests, and you can't grant IAM permissions in policies. For more information about
-    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a>.
-    /// </para></note>
+    /// Use this operation to assign a resource-based policy to a CloudWatch RUM app monitor
+    /// to control access to it. Each app monitor can have one resource-based policy. The
+    /// maximum size of the policy is 4 KB. To learn more about using resource policies with
+    /// RUM, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html">Using
+    /// resource-based policies with CloudWatch RUM</a>.
     /// </summary>
-    [Cmdlet("Update", "CGIPPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ChangePassword API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ChangePassword"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse))]
-    [AWSCmdletOutput("None or Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Write", "CWRUMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse")]
+    [AWSCmdlet("Calls the CloudWatch RUM PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse",
+        "This cmdlet returns an Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse object containing multiple properties."
     )]
-    public partial class UpdateCGIPPasswordCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class WriteCWRUMResourcePolicyCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccessToken
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose password you want
-        /// to change.</para>
+        /// <para>The name of the app monitor that you want to apply this resource-based policy to.
+        /// To find the names of your app monitors, you can use the <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html">ListAppMonitors</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,25 +61,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccessToken { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter PreviousPassword
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The user's previous password. Required if the user has a password. If the user has
-        /// no password and only signs in with passwordless authentication options, you can omit
-        /// this parameter.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PreviousPassword { get; set; }
-        #endregion
-        
-        #region Parameter ProposedPassword
-        /// <summary>
-        /// <para>
-        /// <para>A new password that you prompted the user to enter in your application.</para>
+        /// <para>The JSON to use as the resource policy. The document can be up to 4 KB in size. For
+        /// more information about the contents and syntax for this policy, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html">Using
+        /// resource-based policies with CloudWatch RUM</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,13 +80,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProposedPassword { get; set; }
+        public System.String PolicyDocument { get; set; }
+        #endregion
+        
+        #region Parameter PolicyRevisionId
+        /// <summary>
+        /// <para>
+        /// <para>A string value that you can use to conditionally update your policy. You can provide
+        /// the revision ID of your existing policy to make mutating requests against that policy.</para><para>When you assign a policy revision ID, then later requests about that policy will be
+        /// rejected with an <c>InvalidPolicyRevisionIdException</c> error if they don't provide
+        /// the correct current revision ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PolicyRevisionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccessToken parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccessToken' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -138,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccessToken), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CGIPPassword (ChangePassword)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWRUMResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -152,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse, UpdateCGIPPasswordCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse, WriteCWRUMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -161,24 +155,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccessToken;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccessToken = this.AccessToken;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.AccessToken == null && ParameterWasBound(nameof(this.AccessToken)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccessToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PreviousPassword = this.PreviousPassword;
-            context.ProposedPassword = this.ProposedPassword;
+            context.PolicyDocument = this.PolicyDocument;
             #if MODULAR
-            if (this.ProposedPassword == null && ParameterWasBound(nameof(this.ProposedPassword)))
+            if (this.PolicyDocument == null && ParameterWasBound(nameof(this.PolicyDocument)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProposedPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PolicyDocument which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PolicyRevisionId = this.PolicyRevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,25 +187,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.ChangePasswordRequest();
+            var request = new Amazon.CloudWatchRUM.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.AccessToken != null)
+            if (cmdletContext.Name != null)
             {
-                request.AccessToken = cmdletContext.AccessToken;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.PreviousPassword != null)
+            if (cmdletContext.PolicyDocument != null)
             {
-                request.PreviousPassword = cmdletContext.PreviousPassword;
+                request.PolicyDocument = cmdletContext.PolicyDocument;
             }
-            if (cmdletContext.ProposedPassword != null)
+            if (cmdletContext.PolicyRevisionId != null)
             {
-                request.ProposedPassword = cmdletContext.ProposedPassword;
+                request.PolicyRevisionId = cmdletContext.PolicyRevisionId;
             }
             
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(_RegionEndpoint);
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
@@ -240,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ChangePasswordRequest request)
+        private Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonCloudWatchRUM client, Amazon.CloudWatchRUM.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ChangePassword");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "CloudWatch RUM", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.ChangePassword(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.ChangePasswordAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -268,11 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccessToken { get; set; }
-            public System.String PreviousPassword { get; set; }
-            public System.String ProposedPassword { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse, UpdateCGIPPasswordCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Name { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.String PolicyRevisionId { get; set; }
+            public System.Func<Amazon.CloudWatchRUM.Model.PutResourcePolicyResponse, WriteCWRUMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

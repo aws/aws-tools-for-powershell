@@ -64,6 +64,19 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter AudioExtractionConfiguration_AudioExtractionStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of audio extraction (ENABLED or DISABLED) for processing audio content
+        /// from files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MediaExtractionConfiguration_AudioExtractionConfiguration_AudioExtractionStatus")]
+        [AWSConstantClassSource("Amazon.QBusiness.AudioExtractionStatus")]
+        public Amazon.QBusiness.AudioExtractionStatus AudioExtractionConfiguration_AudioExtractionStatus { get; set; }
+        #endregion
+        
         #region Parameter Configuration
         /// <summary>
         /// <para>
@@ -447,6 +460,19 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public Amazon.QBusiness.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter VideoExtractionConfiguration_VideoExtractionStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of video extraction (ENABLED or DISABLED) for processing video content
+        /// from files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MediaExtractionConfiguration_VideoExtractionConfiguration_VideoExtractionStatus")]
+        [AWSConstantClassSource("Amazon.QBusiness.VideoExtractionStatus")]
+        public Amazon.QBusiness.VideoExtractionStatus VideoExtractionConfiguration_VideoExtractionStatus { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -579,7 +605,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 WriteWarning("You are passing $null as a value for parameter IndexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AudioExtractionConfiguration_AudioExtractionStatus = this.AudioExtractionConfiguration_AudioExtractionStatus;
             context.ImageExtractionConfiguration_ImageExtractionStatus = this.ImageExtractionConfiguration_ImageExtractionStatus;
+            context.VideoExtractionConfiguration_VideoExtractionStatus = this.VideoExtractionConfiguration_VideoExtractionStatus;
             context.RoleArn = this.RoleArn;
             context.SyncSchedule = this.SyncSchedule;
             if (this.Tag != null)
@@ -927,6 +955,31 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
              // populate MediaExtractionConfiguration
             var requestMediaExtractionConfigurationIsNull = true;
             request.MediaExtractionConfiguration = new Amazon.QBusiness.Model.MediaExtractionConfiguration();
+            Amazon.QBusiness.Model.AudioExtractionConfiguration requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration = null;
+            
+             // populate AudioExtractionConfiguration
+            var requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfigurationIsNull = true;
+            requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration = new Amazon.QBusiness.Model.AudioExtractionConfiguration();
+            Amazon.QBusiness.AudioExtractionStatus requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration_audioExtractionConfiguration_AudioExtractionStatus = null;
+            if (cmdletContext.AudioExtractionConfiguration_AudioExtractionStatus != null)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration_audioExtractionConfiguration_AudioExtractionStatus = cmdletContext.AudioExtractionConfiguration_AudioExtractionStatus;
+            }
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration_audioExtractionConfiguration_AudioExtractionStatus != null)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration.AudioExtractionStatus = requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration_audioExtractionConfiguration_AudioExtractionStatus;
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfigurationIsNull = false;
+            }
+             // determine if requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration should be set to null
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfigurationIsNull)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration = null;
+            }
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration != null)
+            {
+                request.MediaExtractionConfiguration.AudioExtractionConfiguration = requestMediaExtractionConfiguration_mediaExtractionConfiguration_AudioExtractionConfiguration;
+                requestMediaExtractionConfigurationIsNull = false;
+            }
             Amazon.QBusiness.Model.ImageExtractionConfiguration requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration = null;
             
              // populate ImageExtractionConfiguration
@@ -950,6 +1003,31 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration != null)
             {
                 request.MediaExtractionConfiguration.ImageExtractionConfiguration = requestMediaExtractionConfiguration_mediaExtractionConfiguration_ImageExtractionConfiguration;
+                requestMediaExtractionConfigurationIsNull = false;
+            }
+            Amazon.QBusiness.Model.VideoExtractionConfiguration requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration = null;
+            
+             // populate VideoExtractionConfiguration
+            var requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfigurationIsNull = true;
+            requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration = new Amazon.QBusiness.Model.VideoExtractionConfiguration();
+            Amazon.QBusiness.VideoExtractionStatus requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration_videoExtractionConfiguration_VideoExtractionStatus = null;
+            if (cmdletContext.VideoExtractionConfiguration_VideoExtractionStatus != null)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration_videoExtractionConfiguration_VideoExtractionStatus = cmdletContext.VideoExtractionConfiguration_VideoExtractionStatus;
+            }
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration_videoExtractionConfiguration_VideoExtractionStatus != null)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration.VideoExtractionStatus = requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration_videoExtractionConfiguration_VideoExtractionStatus;
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfigurationIsNull = false;
+            }
+             // determine if requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration should be set to null
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfigurationIsNull)
+            {
+                requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration = null;
+            }
+            if (requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration != null)
+            {
+                request.MediaExtractionConfiguration.VideoExtractionConfiguration = requestMediaExtractionConfiguration_mediaExtractionConfiguration_VideoExtractionConfiguration;
                 requestMediaExtractionConfigurationIsNull = false;
             }
              // determine if request.MediaExtractionConfiguration should be set to null
@@ -1084,7 +1162,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String PreExtractionHookConfiguration_RoleArn { get; set; }
             public System.String PreExtractionHookConfiguration_S3BucketName { get; set; }
             public System.String IndexId { get; set; }
+            public Amazon.QBusiness.AudioExtractionStatus AudioExtractionConfiguration_AudioExtractionStatus { get; set; }
             public Amazon.QBusiness.ImageExtractionStatus ImageExtractionConfiguration_ImageExtractionStatus { get; set; }
+            public Amazon.QBusiness.VideoExtractionStatus VideoExtractionConfiguration_VideoExtractionStatus { get; set; }
             public System.String RoleArn { get; set; }
             public System.String SyncSchedule { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }

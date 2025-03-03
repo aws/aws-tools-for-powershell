@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the sign-in devices that Amazon Cognito has registered to the current user.
+    /// Lists the devices that Amazon Cognito has registered to the currently signed-in user.
     /// For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
     /// with user devices in your user pool</a>.
     /// 
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose list of devices
-        /// you want to view.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The limit of the device request.</para>
+        /// <para>The maximum number of devices that you want Amazon Cognito to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

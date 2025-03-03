@@ -28,14 +28,14 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Verifies the specified user attributes in the user pool.
+    /// Submits a verification code for a signed-in user who has added or changed a value
+    /// of an auto-verified attribute. When successful, the user's attribute becomes verified
+    /// and the attribute <c>email_verified</c> or <c>phone_number_verified</c> becomes <c>true</c>.
     /// 
     ///  
     /// <para>
     ///  If your user pool requires verification before Amazon Cognito updates the attribute
-    /// value, VerifyUserAttribute updates the affected attribute to its pending value. For
-    /// more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserAttributeUpdateSettingsType.html">
-    /// UserAttributeUpdateSettingsType</a>. 
+    /// value, this operation updates the affected attribute to its pending value.
     /// </para><para>
     /// Authorize this action with a signed-in user's access token. It must include the scope
     /// <c>aws.cognito.signin.user.admin</c>.
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose user attributes
-        /// you want to verify.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The attribute name in the request to verify user attributes.</para>
+        /// <para>The name of the attribute that you want to verify.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Code
         /// <summary>
         /// <para>
-        /// <para>The verification code in the request to verify user attributes.</para>
+        /// <para>The verification code that your user pool sent to the added or changed attribute,
+        /// for example the user's email address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

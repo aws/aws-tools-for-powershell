@@ -28,7 +28,25 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// <note><para>
+    /// Updates the specified user's attributes. To delete an attribute from your user, submit
+    /// the attribute in your API request with a blank value.
+    /// 
+    ///  
+    /// <para>
+    /// For custom attributes, you must add a <c>custom:</c> prefix to the attribute name,
+    /// for example <c>custom:department</c>.
+    /// </para><para>
+    /// This operation can set a user's email address or phone number as verified and permit
+    /// immediate sign-in in user pools that require verification of these attributes. To
+    /// do this, set the <c>email_verified</c> or <c>phone_number_verified</c> attribute to
+    /// <c>true</c>.
+    /// </para><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note><note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
     /// carriers require you to register an origination phone number before you can send SMS
     /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
@@ -45,24 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">
     /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
     /// Guide</i>.
-    /// </para></note><para>
-    /// Updates the specified user's attributes. To delete an attribute from your user, submit
-    /// the attribute in your API request with a blank value.
-    /// </para><para>
-    /// For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
-    /// name.
-    /// </para><para>
-    /// This operation can set a user's email address or phone number as verified and permit
-    /// immediate sign-in in user pools that require verification of these attributes. To
-    /// do this, set the <c>email_verified</c> or <c>phone_number_verified</c> attribute to
-    /// <c>true</c>.
-    /// </para><note><para>
-    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you must use IAM credentials to authorize
-    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
-    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "CGIPUserAttributeAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -90,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request.
         /// In your function code in Lambda, you can process the <c>clientMetadata</c> value to
         /// enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// <para>The name of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
         /// <c>username</c> isn't an alias attribute in your user pool, this value must be the
         /// <c>sub</c> of a local user or the username of a user from a third-party IdP.</para>

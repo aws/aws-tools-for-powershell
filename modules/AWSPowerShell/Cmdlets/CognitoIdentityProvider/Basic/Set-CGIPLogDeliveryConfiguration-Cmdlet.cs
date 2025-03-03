@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Sets up or modifies the logging configuration of a user pool. User pools can export
-    /// user notification logs and advanced security features user activity logs.
+    /// user notification logs and, when threat protection is active, user-activity logs.
+    /// For more information, see <a href="cognito/latest/developerguide/exporting-quotas-and-usage.html">Exporting
+    /// user pool logs</a>.
     /// </summary>
     [Cmdlet("Set", "CGIPLogDeliveryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType")]

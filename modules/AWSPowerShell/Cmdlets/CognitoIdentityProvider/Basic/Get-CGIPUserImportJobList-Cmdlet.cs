@@ -28,7 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists user import jobs for a user pool.
+    /// Given a user pool ID, returns user import jobs and their details. Import jobs are
+    /// retained in user pool configuration so that you can stage, stop, start, review, and
+    /// delete them. For more information about user import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing
+    /// users from a CSV file</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -53,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that the users are being imported into.</para>
+        /// <para>The ID of the user pool where you want to list import jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of import jobs you want the request to return.</para>
+        /// <para>The maximum number of import jobs that you want Amazon Cognito to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

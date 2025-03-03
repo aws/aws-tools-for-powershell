@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the users in the specified group.
+    /// Given a user pool ID and a group name, returns a list of users in the group. For more
+    /// information about user pool groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
+    /// groups to a user pool</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group.</para>
+        /// <para>The name of the group that you want to query for user membership.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool.</para>
+        /// <para>The ID of the user pool where you want to view the membership of the requested group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of users that you want to retrieve before pagination.</para>
+        /// <para>The maximum number of groups that you want Amazon Cognito to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -106,8 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous call to this operation, which can
-        /// be used to return the next set of items in the list.</para>
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

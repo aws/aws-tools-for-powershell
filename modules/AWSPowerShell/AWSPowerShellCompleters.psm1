@@ -15788,7 +15788,7 @@ $CGIP_Completers = {
             ($_ -eq "Update-CGIPUserPool/PreTokenGenerationConfig_LambdaVersion")
         }
         {
-            $v = "V1_0","V2_0"
+            $v = "V1_0","V2_0","V3_0"
             break
         }
 
@@ -58290,6 +58290,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.AudioExtractionStatus
+        {
+            ($_ -eq "New-QBUSDataSource/AudioExtractionConfiguration_AudioExtractionStatus") -Or
+            ($_ -eq "Update-QBUSDataSource/AudioExtractionConfiguration_AudioExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.AutoSubscriptionStatus
         "Update-QBUSApplication/AutoSubscriptionConfiguration_AutoSubscribe"
         {
@@ -58444,6 +58454,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.VideoExtractionStatus
+        {
+            ($_ -eq "New-QBUSDataSource/VideoExtractionConfiguration_VideoExtractionStatus") -Or
+            ($_ -eq "Update-QBUSDataSource/VideoExtractionConfiguration_VideoExtractionStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.WebExperienceSamplePromptsControlMode
         {
             ($_ -eq "New-QBUSWebExperience/SamplePromptsControlMode") -Or
@@ -58464,6 +58484,7 @@ $QBUS_Completers = {
 
 $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
+    "AudioExtractionConfiguration_AudioExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "AutoSubscriptionConfiguration_AutoSubscribe"=@("Update-QBUSApplication")
     "AutoSubscriptionConfiguration_DefaultSubscriptionType"=@("Update-QBUSApplication")
     "ChatMode"=@("Set-QBUSChatSync")
@@ -58484,6 +58505,7 @@ $QBUS_map = @{
     "State"=@("Update-QBUSPlugin")
     "StatusFilter"=@("Get-QBUSDataSourceSyncJobList")
     "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","New-QBUSSubscription","Update-QBUSSubscription","Write-QBUSGroup")
+    "VideoExtractionConfiguration_VideoExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
 }
 
 _awsArgumentCompleterRegistration $QBUS_Completers $QBUS_map
@@ -63533,12 +63555,15 @@ $CWRUM_SelectMap = @{
                "Get-CWRUMGetRumMetricDefinition",
                "New-CWRUMAppMonitor",
                "Remove-CWRUMAppMonitor",
+               "Remove-CWRUMResourcePolicy",
                "Remove-CWRUMRumMetricsDestination",
                "Get-CWRUMAppMonitor",
                "Get-CWRUMAppMonitorData",
+               "Get-CWRUMResourcePolicy",
                "Get-CWRUMAppMonitorList",
                "Get-CWRUMRumMetricsDestinationList",
                "Get-CWRUMResourceTag",
+               "Write-CWRUMResourcePolicy",
                "Write-CWRUMRumEvent",
                "Write-CWRUMRumMetricsDestination",
                "Add-CWRUMResourceTag",

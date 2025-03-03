@@ -1,4 +1,15 @@
-﻿### 4.1.768 (2025-02-28 22:11Z)
+﻿### 4.1.769 (2025-03-03 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.994.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch RUM
+    * Added cmdlet Get-CWRUMResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-CWRUMResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-CWRUMResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Write-CWRUMRumEvent: added parameter Alias.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSDataSource: added parameters AudioExtractionConfiguration_AudioExtractionStatus and VideoExtractionConfiguration_VideoExtractionStatus.
+    * Modified cmdlet Update-QBUSDataSource: added parameters AudioExtractionConfiguration_AudioExtractionStatus and VideoExtractionConfiguration_VideoExtractionStatus.
+
+### 4.1.768 (2025-02-28 22:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.993.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Data Automation for Amazon Bedrock
     * Added cmdlet Add-BDAResourceTag leveraging the TagResource service API.

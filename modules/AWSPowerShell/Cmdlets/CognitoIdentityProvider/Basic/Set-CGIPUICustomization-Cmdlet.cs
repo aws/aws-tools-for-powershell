@@ -28,20 +28,21 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets the user interface (UI) customization information for a user pool's built-in
-    /// app UI.
+    /// Configures UI branding settings for domains with the hosted UI (classic) branding
+    /// version. Your user pool must have a domain. Configure a domain with .
     /// 
     ///  
     /// <para>
-    /// You can specify app UI customization settings for a single client (with a specific
-    /// <c>clientId</c>) or for all clients (by setting the <c>clientId</c> to <c>ALL</c>).
-    /// If you specify <c>ALL</c>, the default configuration is used for every client that
-    /// has no previously set UI customization. If you specify UI customization settings for
-    /// a particular client, it will no longer return to the <c>ALL</c> configuration.
+    /// Set the default configuration for all clients with a <c>ClientId</c> of <c>ALL</c>.
+    /// When the <c>ClientId</c> value is an app client ID, the settings you pass in this
+    /// request apply to that app client and override the default <c>ALL</c> configuration.
     /// </para><note><para>
-    /// To use this API, your user pool must have a domain associated with it. Otherwise,
-    /// there is no place to host the app's pages, and the service will throw an error.
-    /// </para></note>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Set", "CGIPUICustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UICustomizationType")]
@@ -62,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The client ID for the client app.</para>
+        /// <para>The ID of the app client that you want to customize. To apply a default style to all
+        /// app clients not configured with client-level branding, set this parameter value to
+        /// <c>ALL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CSS
         /// <summary>
         /// <para>
-        /// <para>The CSS values in the UI customization.</para>
+        /// <para>A plaintext CSS file that contains the custom fields that you want to apply to your
+        /// user pool or app client. To download a template, go to the Amazon Cognito console.
+        /// Navigate to your user pool <i>App clients</i> tab, select <i>Login pages</i>, edit
+        /// <i>Hosted UI (classic) style</i>, and select the link to <c>CSS template.css</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ImageFile
         /// <summary>
         /// <para>
-        /// <para>The uploaded logo image for the UI customization.</para>
+        /// <para>The image that you want to set as your login in the classic hosted UI, as a Base64-formatted
+        /// binary object.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -94,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool.</para>
+        /// <para>The ID of the user pool where you want to apply branding to the classic hosted UI.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

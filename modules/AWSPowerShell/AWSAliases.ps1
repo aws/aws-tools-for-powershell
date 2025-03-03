@@ -26136,10 +26136,13 @@ Set-Alias -Name Create-CWRUMAppMonitor -Value New-CWRUMAppMonitor
 Set-Alias -Name CWRUM-CreateAppMonitor -Value New-CWRUMAppMonitor
 Set-Alias -Name Delete-CWRUMAppMonitor -Value Remove-CWRUMAppMonitor
 Set-Alias -Name CWRUM-DeleteAppMonitor -Value Remove-CWRUMAppMonitor
+Set-Alias -Name Delete-CWRUMResourcePolicy -Value Remove-CWRUMResourcePolicy
+Set-Alias -Name CWRUM-DeleteResourcePolicy -Value Remove-CWRUMResourcePolicy
 Set-Alias -Name Delete-CWRUMRumMetricsDestination -Value Remove-CWRUMRumMetricsDestination
 Set-Alias -Name CWRUM-DeleteRumMetricsDestination -Value Remove-CWRUMRumMetricsDestination
 Set-Alias -Name CWRUM-GetAppMonitor -Value Get-CWRUMAppMonitor
 Set-Alias -Name CWRUM-GetAppMonitorData -Value Get-CWRUMAppMonitorData
+Set-Alias -Name CWRUM-GetResourcePolicy -Value Get-CWRUMResourcePolicy
 Set-Alias -Name List-CWRUMAppMonitors -Value Get-CWRUMAppMonitorList
 Set-Alias -Name List-CWRUMAppMonitorList -Value Get-CWRUMAppMonitorList
 Set-Alias -Name CWRUM-ListAppMonitors -Value Get-CWRUMAppMonitorList
@@ -26147,6 +26150,8 @@ Set-Alias -Name List-CWRUMRumMetricsDestinations -Value Get-CWRUMRumMetricsDesti
 Set-Alias -Name List-CWRUMRumMetricsDestinationList -Value Get-CWRUMRumMetricsDestinationList
 Set-Alias -Name CWRUM-ListRumMetricsDestinations -Value Get-CWRUMRumMetricsDestinationList
 Set-Alias -Name CWRUM-ListTagsForResource -Value Get-CWRUMResourceTag
+Set-Alias -Name Put-CWRUMResourcePolicy -Value Write-CWRUMResourcePolicy
+Set-Alias -Name CWRUM-PutResourcePolicy -Value Write-CWRUMResourcePolicy
 Set-Alias -Name Put-CWRUMRumEvents -Value Write-CWRUMRumEvent
 Set-Alias -Name Put-CWRUMRumEvent -Value Write-CWRUMRumEvent
 Set-Alias -Name CWRUM-PutRumEvents -Value Write-CWRUMRumEvent

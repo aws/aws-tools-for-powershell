@@ -86,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The domain name for the custom domain that hosts the sign-up and sign-in pages for
-        /// your application. One example might be <c>auth.example.com</c>. </para><para>This string can include only lowercase letters, numbers, and hyphens. Don't use a
-        /// hyphen for the first or last character. Use periods to separate subdomain names.</para>
+        /// <para>The name of the domain that you want to update. For custom domains, this is the fully-qualified
+        /// domain name, for example <c>auth.example.com</c>. For prefix domains, this is the
+        /// prefix alone, such as <c>myprefix</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that is associated with the custom domain whose certificate
-        /// you're updating.</para>
+        /// <para>The ID of the user pool that is associated with the domain you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

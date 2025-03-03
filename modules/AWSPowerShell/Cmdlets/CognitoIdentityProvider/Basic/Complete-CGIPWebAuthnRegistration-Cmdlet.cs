@@ -28,10 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Completes registration of a passkey authenticator for the current user. Your application
-    /// provides data from a successful registration request with the data from the output
-    /// of a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_StartWebAuthnRegistration.html">
-    /// StartWebAuthnRegistration</a>.
+    /// Completes registration of a passkey authenticator for the currently signed-in user.
     /// 
     ///  
     /// <para>
@@ -56,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose passkey registration
-        /// you want to complete.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter WebAuthnCredential
         /// <summary>
         /// <para>
-        /// <para>A <a href="https://www.w3.org/TR/webauthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a>
+        /// <para>A <a href="https://www.w3.org/TR/WebAuthn-3/#dictdef-registrationresponsejson">RegistrationResponseJSON</a>
         /// public-key credential response from the user's passkey provider.</para>
         /// </para>
         /// </summary>

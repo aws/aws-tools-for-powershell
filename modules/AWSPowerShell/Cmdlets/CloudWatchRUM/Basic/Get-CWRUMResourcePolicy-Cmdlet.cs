@@ -22,46 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.CloudWatchRUM;
+using Amazon.CloudWatchRUM.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.CWRUM
 {
     /// <summary>
-    /// Given a user pool ID, returns configuration for sign-in with WebAuthn authenticators
-    /// and for multi-factor authentication (MFA). This operation describes the following:
-    /// 
-    ///  <ul><li><para>
-    /// The WebAuthn relying party (RP) ID and user-verification settings.
-    /// </para></li><li><para>
-    /// The required, optional, or disabled state of MFA for all user pool users.
-    /// </para></li><li><para>
-    /// The message templates for email and SMS MFA.
-    /// </para></li><li><para>
-    /// The enabled or disabled state of time-based one-time password (TOTP) MFA.
-    /// </para></li></ul><note><para>
-    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you must use IAM credentials to authorize
-    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
-    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
+    /// Use this operation to retrieve information about a resource-based policy that is attached
+    /// to an app monitor.
     /// </summary>
-    [Cmdlet("Get", "CGIPUserPoolMfaConfig")]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUserPoolMfaConfig API operation.", Operation = new[] {"GetUserPoolMfaConfig"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse object containing multiple properties."
+    [Cmdlet("Get", "CWRUMResourcePolicy")]
+    [OutputType("Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse")]
+    [AWSCmdlet("Calls the CloudWatch RUM GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse",
+        "This cmdlet returns an Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse object containing multiple properties."
     )]
-    public partial class GetCGIPUserPoolMfaConfigCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetCWRUMResourcePolicyCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter UserPoolId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool where you want to query WebAuthn and MFA configuration.</para>
+        /// <para>The name of the app monitor that is associated with the resource-based policy that
+        /// you want to view.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,14 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserPoolId { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserPoolId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserPoolId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse, GetCGIPUserPoolMfaConfigCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse, GetCWRUMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserPoolId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.UserPoolId = this.UserPoolId;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigRequest();
+            var request = new Amazon.CloudWatchRUM.Model.GetResourcePolicyRequest();
             
-            if (cmdletContext.UserPoolId != null)
+            if (cmdletContext.Name != null)
             {
-                request.UserPoolId = cmdletContext.UserPoolId;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -181,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigRequest request)
+        private Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonCloudWatchRUM client, Amazon.CloudWatchRUM.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetUserPoolMfaConfig");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "CloudWatch RUM", "GetResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.GetUserPoolMfaConfig(request);
+                return client.GetResourcePolicy(request);
                 #elif CORECLR
-                return client.GetUserPoolMfaConfigAsync(request).GetAwaiter().GetResult();
+                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -209,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String UserPoolId { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.GetUserPoolMfaConfigResponse, GetCGIPUserPoolMfaConfigCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.Func<Amazon.CloudWatchRUM.Model.GetResourcePolicyResponse, GetCWRUMResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

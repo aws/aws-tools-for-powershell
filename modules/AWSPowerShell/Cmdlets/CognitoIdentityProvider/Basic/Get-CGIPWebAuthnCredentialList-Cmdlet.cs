@@ -28,7 +28,20 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Generates a list of the current user's registered passkey, or webauthN, credentials.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Generates a list of the currently signed-in user's registered passkey, or WebAuthn,
+    /// credentials.
+    /// 
+    ///  
+    /// <para>
+    /// Authorize this action with a signed-in user's access token. It must include the scope
+    /// <c>aws.cognito.signin.user.admin</c>.
+    /// </para><note><para>
+    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you can't use IAM credentials to authorize
+    /// requests, and you can't grant IAM permissions in policies. For more information about
+    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a>.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGIPWebAuthnCredentialList")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.WebAuthnCredentialDescription")]
@@ -47,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose registered passkeys
-        /// you want to list.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,8 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous call to this operation, which can
-        /// be used to return the next set of items in the list.</para>
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

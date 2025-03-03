@@ -28,9 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Use this API to register a user's entered time-based one-time password (TOTP) code
-    /// and mark the user's software token MFA status as "verified" if successful. The request
-    /// takes an access token or a session string, but not both.
+    /// Registers the current user's time-based one-time password (TOTP) authenticator with
+    /// a code generated in their authenticator app from a private key that's supplied by
+    /// your user pool. Marks the user's software token MFA status as "verified" if successful.
+    /// The request takes an access token or a session string, but not both.
     /// 
     ///  <note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
@@ -58,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose software token you
-        /// want to verify.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter FriendlyDeviceName
         /// <summary>
         /// <para>
-        /// <para>The friendly device name.</para>
+        /// <para>A friendly name for the device that's running the TOTP authenticator.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Session
         /// <summary>
         /// <para>
-        /// <para>The session that should be passed both ways in challenge-response calls to the service.</para>
+        /// <para>The session ID from an <c>AssociateSoftwareToken</c> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserCode
         /// <summary>
         /// <para>
-        /// <para>The one- time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a>.</para>
+        /// <para>A TOTP that the user generated in their configured authenticator app.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

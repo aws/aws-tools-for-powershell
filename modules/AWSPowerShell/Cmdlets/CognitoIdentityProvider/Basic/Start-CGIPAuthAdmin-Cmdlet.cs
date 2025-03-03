@@ -89,22 +89,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The authentication flow that you want to initiate. Each <c>AuthFlow</c> has linked
-        /// <c>AuthParameters</c> that you must submit. The following are some example flows and
-        /// their parameters.</para><ul><li><para><c>USER_AUTH</c>: Request a preferred authentication type or review available authentication
-        /// types. From the offered authentication types, select one in a challenge response and
-        /// then authenticate with that method in an additional challenge response.</para></li><li><para><c>REFRESH_TOKEN_AUTH</c>: Receive new ID and access tokens when you pass a <c>REFRESH_TOKEN</c>
-        /// parameter with a valid refresh token as the value.</para></li><li><para><c>USER_SRP_AUTH</c>: Receive secure remote password (SRP) variables for the next
-        /// challenge, <c>PASSWORD_VERIFIER</c>, when you pass <c>USERNAME</c> and <c>SRP_A</c>
-        /// parameters..</para></li><li><para><c>ADMIN_USER_PASSWORD_AUTH</c>: Receive new tokens or the next challenge, for example
-        /// <c>SOFTWARE_TOKEN_MFA</c>, when you pass <c>USERNAME</c> and <c>PASSWORD</c> parameters.</para></li></ul><para><i>All flows</i></para><dl><dt>USER_AUTH</dt><dd><para>The entry point for sign-in with passwords, one-time passwords, and WebAuthN authenticators.</para></dd><dt>USER_SRP_AUTH</dt><dd><para>Username-password authentication with the Secure Remote Password (SRP) protocol. For
+        /// <c>AuthParameters</c> that you must submit. The following are some example flows.</para><dl><dt>USER_AUTH</dt><dd><para>The entry point for <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based
+        /// authentication</a> with passwords, one-time passwords, and WebAuthn authenticators.
+        /// Request a preferred authentication type or review available authentication types.
+        /// From the offered authentication types, select one in a challenge response and then
+        /// authenticate with that method in an additional challenge response. To activate this
+        /// setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+        /// Essentials tier</a> or higher.</para></dd><dt>USER_SRP_AUTH</dt><dd><para>Username-password authentication with the Secure Remote Password (SRP) protocol. For
         /// more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#Using-SRP-password-verification-in-custom-authentication-flow">Use
-        /// SRP password verification in custom authentication flow</a>.</para></dd><dt>REFRESH_TOKEN_AUTH and REFRESH_TOKEN</dt><dd><para>Provide a valid refresh token and receive new ID and access tokens. For more information,
-        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html">Using
+        /// SRP password verification in custom authentication flow</a>.</para></dd><dt>REFRESH_TOKEN_AUTH and REFRESH_TOKEN</dt><dd><para>Receive new ID and access tokens when you pass a <c>REFRESH_TOKEN</c> parameter with
+        /// a valid refresh token as the value. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html">Using
         /// the refresh token</a>.</para></dd><dt>CUSTOM_AUTH</dt><dd><para>Custom authentication with Lambda triggers. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">Custom
-        /// authentication challenge Lambda triggers</a>.</para></dd><dt>ADMIN_USER_PASSWORD_AUTH</dt><dd><para>Username-password authentication with the password sent directly in the request. For
-        /// more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#Built-in-authentication-flow-and-challenges">Admin
-        /// authentication flow</a>.</para></dd></dl><para><c>USER_PASSWORD_AUTH</c> is a flow type of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>
-        /// and isn't valid for AdminInitiateAuth.</para>
+        /// authentication challenge Lambda triggers</a>.</para></dd><dt>ADMIN_USER_PASSWORD_AUTH</dt><dd><para>Server-side username-password authentication with the password sent directly in the
+        /// request. For more information about client-side and server-side authentication, see
+        /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html">SDK
+        /// authorization models</a>.</para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The authentication parameters. These are inputs corresponding to the <c>AuthFlow</c>
-        /// that you're invoking. The required values depend on the value of <c>AuthFlow</c>:</para><ul><li><para>For <c>USER_AUTH</c>: <c>USERNAME</c> (required), <c>PREFERRED_CHALLENGE</c>. If you
+        /// that you're invoking. The required values depend on the value of <c>AuthFlow</c> for
+        /// example:</para><ul><li><para>For <c>USER_AUTH</c>: <c>USERNAME</c> (required), <c>PREFERRED_CHALLENGE</c>. If you
         /// don't provide a value for <c>PREFERRED_CHALLENGE</c>, Amazon Cognito responds with
         /// the <c>AvailableChallenges</c> parameter that specifies the available sign-in methods.</para></li><li><para>For <c>USER_SRP_AUTH</c>: <c>USERNAME</c> (required), <c>SRP_A</c> (required), <c>SECRET_HASH</c>
         /// (required if the app client is configured with a client secret), <c>DEVICE_KEY</c>.</para></li><li><para>For <c>ADMIN_USER_PASSWORD_AUTH</c>: <c>USERNAME</c> (required), <c>PASSWORD</c> (required),
@@ -171,8 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// in your AdminInitiateAuth request. In your function code in Lambda, you can process
         /// the <c>validationData</c> value to enhance your workflow for your specific needs.</para><para>When you use the AdminInitiateAuth API action, Amazon Cognito also invokes the functions
         /// for the following triggers, but it doesn't provide the ClientMetadata value as input:</para><ul><li><para>Post authentication</para></li><li><para>Custom message</para></li><li><para>Pre token generation</para></li><li><para>Create auth challenge</para></li><li><para>Define auth challenge</para></li><li><para>Custom email sender</para></li><li><para>Custom SMS sender</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this

@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Registers the user in the specified user pool and creates a user name, password, and
-    /// user attributes.
+    /// Registers a user with an app client and requests a user name, password, and user attributes
+    /// in the user pool.
     /// 
     ///  <note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
@@ -58,11 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// You might receive a <c>LimitExceeded</c> exception in response to this request if
     /// you have exceeded a rate quota for email or SMS messages, and if your user pool automatically
     /// verifies email addresses or phone numbers. When you get this exception in the response,
-    /// the user is successfully created and is in an <c>UNCONFIRMED</c> state. You can send
-    /// a new code with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.html">
-    /// ResendConfirmationCode</a> request, or confirm the user as an administrator with an
-    /// <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.html">
-    /// AdminConfirmSignUp</a> request.
+    /// the user is successfully created and is in an <c>UNCONFIRMED</c> state.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "CGIPUserInPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The ID of the client associated with the user pool.</para>
+        /// <para>The ID of the app client where the user wants to sign up.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,8 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
         /// in your SignUp request. In your function code in Lambda, you can process the <c>clientMetadata</c>
         /// value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
@@ -157,12 +152,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password of the user you want to register.</para><para>Users can sign up without a password when your user pool supports passwordless sign-in
+        /// <para>The user's proposed password. The password must comply with the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users-passwords.html">password
+        /// requirements</a> of your user pool.</para><para>Users can sign up without a password when your user pool supports passwordless sign-in
         /// with email or SMS OTPs. To create a user with no password, omit this parameter or
         /// submit a blank value. You can only create a passwordless user when passwordless sign-in
-        /// is available. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignInPolicyType.html">the
-        /// SignInPolicyType</a> property of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html">CreateUserPool</a>
-        /// and <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html">UpdateUserPool</a>.</para>
+        /// is available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <c>custom:</c> prefix to the attribute
-        /// name.</para>
+        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, include a <c>custom:</c> prefix in the attribute name, for
+        /// example <c>custom:department</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,10 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
         /// trigger. This set of key-value pairs are for custom validation of information that
         /// you collect from your users but don't need to retain.</para><para>Your Lambda function can analyze this additional data and act on it. Your function
-        /// might perform external API operations like logging user attributes and validation
-        /// data to Amazon CloudWatch Logs. Validation data might also affect the response that
-        /// your function returns to Amazon Cognito, like automatically confirming the user if
-        /// they sign up from within your network.</para><para>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre
+        /// can automatically confirm and verify select users or perform external API operations
+        /// like logging user attributes and validation data to Amazon CloudWatch Logs.</para><para>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre
         /// sign-up Lambda trigger</a>.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Stops the user import job.
+    /// Instructs your user pool to stop a running job that's importing users from a CSV file
+    /// that contains their usernames and attributes. For more information about importing
+    /// users from a CSV file, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing
+    /// users from a CSV file</a>.
     /// </summary>
     [Cmdlet("Stop", "CGIPUserImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserImportJobType")]
@@ -45,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID for the user import job.</para>
+        /// <para>The ID of a running user import job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that the users are being imported into.</para>
+        /// <para>The ID of the user pool that you want to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

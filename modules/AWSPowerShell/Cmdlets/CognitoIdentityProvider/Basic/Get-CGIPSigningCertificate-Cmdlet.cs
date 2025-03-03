@@ -28,15 +28,24 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// This method takes a user pool ID, and returns the signing certificate. The issued
-    /// certificate is valid for 10 years from the date of issue.
+    /// Given a user pool ID, returns the signing certificate for SAML 2.0 federation.
     /// 
     ///  
     /// <para>
-    /// Amazon Cognito issues and assigns a new signing certificate annually. This process
-    /// returns a new value in the response to <c>GetSigningCertificate</c>, but doesn't invalidate
+    /// Issued certificates are valid for 10 years from the date of issue. Amazon Cognito
+    /// issues and assigns a new signing certificate annually. This renewal process returns
+    /// a new value in the response to <c>GetSigningCertificate</c>, but doesn't invalidate
     /// the original certificate.
-    /// </para>
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-SAML-signing-encryption.html#cognito-user-pools-SAML-signing">Signing
+    /// SAML requests</a>.
+    /// </para><note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "CGIPSigningCertificate")]
     [OutputType("System.String")]
@@ -53,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to view the signing certificate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// <i>This action is no longer supported.</i> You can use it to configure only SMS MFA.
-    /// You can't use it to configure time-based one-time password (TOTP) software token MFA.
-    /// To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a>
-    /// instead.
+    /// You can't use it to configure time-based one-time password (TOTP) software token or
+    /// email MFA.
     /// 
     ///  
     /// <para>
@@ -62,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose user settings you
-        /// want to configure.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

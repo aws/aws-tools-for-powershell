@@ -33,12 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes">Custom
     /// attributes</a>.
     /// 
-    ///  
-    /// <para>
-    /// You can also create custom attributes in the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html#CognitoUserPools-CreateUserPool-request-Schema">Schema
-    /// parameter</a> of <c>CreateUserPool</c> and <c>UpdateUserPool</c>. You can't delete
-    /// custom attributes after you create them.
-    /// </para><note><para>
+    ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.

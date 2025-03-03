@@ -35,17 +35,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// you received from Amazon Cognito.
     /// 
     ///  <note><para>
-    /// Amazon Cognito disassociates an existing software token when you verify the new token
-    /// in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html">
-    /// VerifySoftwareToken</a> API request. If you don't verify the software token and your
-    /// user pool doesn't require MFA, the user can then authenticate with user name and password
-    /// credentials alone. If your user pool requires TOTP MFA, Amazon Cognito generates an
-    /// <c>MFA_SETUP</c> or <c>SOFTWARE_TOKEN_SETUP</c> challenge each time your user signs
-    /// in. Complete setup with <c>AssociateSoftwareToken</c> and <c>VerifySoftwareToken</c>.
-    /// </para><para>
-    /// After you set up software token MFA for your user, Amazon Cognito generates a <c>SOFTWARE_TOKEN_MFA</c>
-    /// challenge when they authenticate. Respond to this challenge with your user's TOTP.
-    /// </para></note><note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you can't use IAM credentials to authorize
     /// requests, and you can't grant IAM permissions in policies. For more information about
@@ -74,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose software token you
-        /// want to generate. You can provide either an access token or a session ID in the request.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para><para>You can provide either an access token or a session ID in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -22,42 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.CloudWatchRUM;
+using Amazon.CloudWatchRUM.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.CWRUM
 {
     /// <summary>
-    /// Given a user pool ID and a group name, returns information about the user group.
-    /// 
-    ///  
-    /// <para>
-    ///  For more information about user pool groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
-    /// groups to a user pool</a>.
-    /// </para><note><para>
-    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
-    /// for this API operation. For this operation, you must use IAM credentials to authorize
-    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
-    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
-    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
-    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
+    /// Removes the association of a resource-based policy from an app monitor.
     /// </summary>
-    [Cmdlet("Get", "CGIPGroup")]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.GroupType")]
-    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetGroup API operation.", Operation = new[] {"GetGroup"}, SelectReturnType = typeof(Amazon.CognitoIdentityProvider.Model.GetGroupResponse))]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GroupType or Amazon.CognitoIdentityProvider.Model.GetGroupResponse",
-        "This cmdlet returns an Amazon.CognitoIdentityProvider.Model.GroupType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetGroupResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CWRUMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the CloudWatch RUM DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetCGIPGroupCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class RemoveCWRUMResourcePolicyCmdlet : AmazonCloudWatchRUMClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter GroupName
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the group that you want to get information about.</para>
+        /// <para>The app monitor that you want to remove the resource policy from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,51 +56,63 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroupName { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter UserPoolId
+        #region Parameter PolicyRevisionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that contains the group that you want to query.</para>
+        /// <para>Specifies a specific policy revision to delete. Provide a <c>PolicyRevisionId</c>
+        /// to ensure an atomic delete operation. If the revision ID that you provide doesn't
+        /// match the latest policy revision ID, the request will be rejected with an <c>InvalidPolicyRevisionIdException</c>
+        /// error.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserPoolId { get; set; }
+        public System.String PolicyRevisionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Group'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentityProvider.Model.GetGroupResponse).
-        /// Specifying the name of a property of type Amazon.CognitoIdentityProvider.Model.GetGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PolicyRevisionId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Group";
+        public string Select { get; set; } = "PolicyRevisionId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWRUMResourcePolicy (DeleteResourcePolicy)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CognitoIdentityProvider.Model.GetGroupResponse, GetCGIPGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse, RemoveCWRUMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -131,23 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GroupName;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GroupName = this.GroupName;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UserPoolId = this.UserPoolId;
-            #if MODULAR
-            if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.PolicyRevisionId = this.PolicyRevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,15 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.GetGroupRequest();
+            var request = new Amazon.CloudWatchRUM.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.GroupName != null)
+            if (cmdletContext.Name != null)
             {
-                request.GroupName = cmdletContext.GroupName;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.UserPoolId != null)
+            if (cmdletContext.PolicyRevisionId != null)
             {
-                request.UserPoolId = cmdletContext.UserPoolId;
+                request.PolicyRevisionId = cmdletContext.PolicyRevisionId;
             }
             
             CmdletOutput output;
@@ -205,15 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.GetGroupResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetGroupRequest request)
+        private Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonCloudWatchRUM client, Amazon.CloudWatchRUM.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "CloudWatch RUM", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.GetGroup(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.GetGroupAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,10 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GroupName { get; set; }
-            public System.String UserPoolId { get; set; }
-            public System.Func<Amazon.CognitoIdentityProvider.Model.GetGroupResponse, GetCGIPGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Group;
+            public System.String Name { get; set; }
+            public System.String PolicyRevisionId { get; set; }
+            public System.Func<Amazon.CloudWatchRUM.Model.DeleteResourcePolicyResponse, RemoveCWRUMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PolicyRevisionId;
         }
         
     }

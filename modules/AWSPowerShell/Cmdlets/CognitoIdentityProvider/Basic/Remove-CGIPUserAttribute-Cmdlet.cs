@@ -28,8 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Self-deletes attributes for a user. For example, your application can submit a request
-    /// to this operation when a user wants to remove their <c>birthdate</c> attribute value.
+    /// Deletes attributes from the currently signed-in user. For example, your application
+    /// can submit a request to this operation when a user wants to remove their <c>birthdate</c>
+    /// attribute value.
     /// 
     ///  
     /// <para>
@@ -60,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose attributes you want
-        /// to delete.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

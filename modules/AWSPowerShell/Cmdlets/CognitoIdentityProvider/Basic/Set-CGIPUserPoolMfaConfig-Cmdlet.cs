@@ -28,7 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets the user pool multi-factor authentication (MFA) and passkey configuration.
+    /// Sets user pool multi-factor authentication (MFA) and passkey configuration. For more
+    /// information about user pool MFA, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html">Adding
+    /// MFA</a>. For more information about WebAuthn passkeys see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html#amazon-cognito-user-pools-authentication-flow-methods-passkey">Authentication
+    /// flows</a>.
     /// 
     ///  <note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
@@ -63,11 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailMfaConfiguration_Message
         /// <summary>
         /// <para>
-        /// <para>The template for the email message that your user pool sends to users with a code
-        /// for MFA and sign-in with an email OTP. The message must contain the <c>{####}</c>
-        /// placeholder. In the message, Amazon Cognito replaces this placeholder with the code.
-        /// If you don't provide this parameter, Amazon Cognito sends messages in the default
-        /// format.</para>
+        /// <para>The template for the email messages that your user pool sends to users with codes
+        /// for MFA and sign-in with email OTPs. The message must contain the <c>{####}</c> placeholder.
+        /// In the message, Amazon Cognito replaces this placeholder with the code. If you don't
+        /// provide this parameter, Amazon Cognito sends messages in the default format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,10 +79,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MfaConfiguration
         /// <summary>
         /// <para>
-        /// <para>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users who
-        /// have set up an MFA factor can sign in. To learn more, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html">Adding
-        /// Multi-Factor Authentication (MFA) to a user pool</a>. Valid values include:</para><ul><li><para><c>OFF</c> MFA won't be used for any users.</para></li><li><para><c>ON</c> MFA is required for all users to sign in.</para></li><li><para><c>OPTIONAL</c> MFA will be required only for individual users who have an MFA factor
-        /// activated.</para></li></ul>
+        /// <para>Sets multi-factor authentication (MFA) to be on, off, or optional. When <c>ON</c>,
+        /// all users must set up MFA before they can sign in. When <c>OPTIONAL</c>, your application
+        /// must make a client-side determination of whether a user wants to register an MFA device.
+        /// For user pools with adaptive authentication with threat protection, choose <c>OPTIONAL</c>.</para><para>When <c>MfaConfiguration</c> is <c>OPTIONAL</c>, managed login doesn't automatically
+        /// prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses
+        /// and in managed login for users who have chosen and configured a preferred MFA factor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailMfaConfiguration_Subject
         /// <summary>
         /// <para>
-        /// <para>The subject of the email message that your user pool sends to users with a code for
+        /// <para>The subject of the email messages that your user pool sends to users with codes for
         /// MFA and email OTP sign-in.</para>
         /// </para>
         /// </summary>

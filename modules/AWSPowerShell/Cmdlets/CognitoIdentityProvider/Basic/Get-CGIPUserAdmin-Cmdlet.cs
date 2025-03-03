@@ -28,11 +28,14 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Given the username, returns details about a user profile in a user pool. This operation
-    /// contributes to your monthly active user (MAU) count for the purpose of billing. You
-    /// can specify alias attributes in the <c>Username</c> parameter.
+    /// Given a username, returns details about a user profile in a user pool. You can specify
+    /// alias attributes in the <c>Username</c> request parameter.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// This operation contributes to your monthly active user (MAU) count for the purpose
+    /// of billing.
+    /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.
@@ -58,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// <para>The name of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
         /// <c>username</c> isn't an alias attribute in your user pool, this value must be the
         /// <c>sub</c> of a local user or the username of a user from a third-party IdP.</para>

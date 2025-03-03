@@ -28,7 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Starts the user import.
+    /// Instructs your user pool to start importing users from a CSV file that contains their
+    /// usernames and attributes. For more information about importing users from a CSV file,
+    /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing
+    /// users from a CSV file</a>.
     /// </summary>
     [Cmdlet("Start", "CGIPUserImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserImportJobType")]
@@ -45,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The job ID for the user import job.</para>
+        /// <para>The ID of a user import job that you previously created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that the users are being imported into.</para>
+        /// <para>The ID of the user pool that you want to start importing users into.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

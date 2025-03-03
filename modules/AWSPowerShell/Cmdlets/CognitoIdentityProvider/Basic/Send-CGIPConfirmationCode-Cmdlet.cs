@@ -28,8 +28,10 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Resends the confirmation (for confirmation of registration) to a specific user in
-    /// the user pool.
+    /// Resends the code that confirms a new account for a user who has signed up in your
+    /// user pool. Amazon Cognito sends confirmation codes to the user attribute in the <c>AutoVerifiedAttributes</c>
+    /// property of your user pool. When you prompt new users for the confirmation code, include
+    /// a "Resend code" option that generates a call to this API operation.
     /// 
     ///  <note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
@@ -84,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The ID of the client associated with the user pool.</para>
+        /// <para>The ID of the user pool app client where the user signed up.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In
         /// your function code in Lambda, you can process the <c>clientMetadata</c> value to enhance
         /// your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
@@ -160,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// <para>The name of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
         /// <c>username</c> isn't an alias attribute in your user pool, this value must be the
         /// <c>sub</c> of a local user or the username of a user from a third-party IdP.</para>

@@ -28,7 +28,13 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// <note><para>
+    /// Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
+    /// options.
+    /// 
+    ///  <important><para>
+    /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
+    /// value.
+    /// </para></important><note><para>
     /// This action might generate an SMS text message. Starting June 1, 2021, US telecom
     /// carriers require you to register an origination phone number before you can send SMS
     /// messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you
@@ -45,15 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">
     /// SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito Developer
     /// Guide</i>.
-    /// </para></note><para>
-    /// Creates a new Amazon Cognito user pool. This operation sets basic and advanced configuration
-    /// options. You can create a user pool in the Amazon Cognito console to your preferences
-    /// and use the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>
-    /// to generate requests from that baseline.
-    /// </para><important><para>
-    /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
-    /// value.
-    /// </para></important><note><para>
+    /// </para></note><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
     /// requests, and you must grant yourself the corresponding IAM permission in a policy.
@@ -76,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolAddOns_AdvancedSecurityMode
         /// <summary>
         /// <para>
-        /// <para>The operating mode of advanced security features for standard authentication types
-        /// in your user pool, including username-password and secure remote password (SRP) authentication.
+        /// <para>The operating mode of threat protection for standard authentication types in your
+        /// user pool, including username-password and secure remote password (SRP) authentication.
         /// </para>
         /// </para>
         /// </summary>
@@ -89,9 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AliasAttribute
         /// <summary>
         /// <para>
-        /// <para>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>,
-        /// <b>email</b>, or <b>preferred_username</b>. For more information about alias attributes,
-        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
+        /// <para>Attributes supported as an alias for this user pool. For more information about alias
+        /// attributes, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases">Customizing
         /// sign-in attributes</a>.</para>
         /// </para>
         /// </summary>
@@ -105,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The setting for allowing self-service sign-up. When <c>true</c>, only administrators
         /// can create new user profiles. When <c>false</c>, users can register themselves and
-        /// create a new user profile with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
-        /// operation.</para>
+        /// create a new user profile with the <c>SignUp</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// that has this option activated, Amazon Cognito sends a verification message to the
         /// new phone number or email address. Amazon Cognito doesn’t change the value of the
         /// attribute until your user responds to the verification message and confirms the new
-        /// value.</para><para>You can verify an updated email address or phone number with a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html">VerifyUserAttribute</a>
-        /// API request. You can also call the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>
-        /// API and set <c>email_verified</c> or <c>phone_number_verified</c> to true.</para><para>When <c>AttributesRequireVerificationBeforeUpdate</c> is false, your user pool doesn't
+        /// value.</para><para>When <c>AttributesRequireVerificationBeforeUpdate</c> is false, your user pool doesn't
         /// require that your users verify attribute changes before Amazon Cognito updates them.
         /// In a user pool where <c>AttributesRequireVerificationBeforeUpdate</c> is false, API
         /// operations that change attribute values can immediately update a user’s <c>email</c>
@@ -150,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AutoVerifiedAttribute
         /// <summary>
         /// <para>
-        /// <para>The attributes that you want your user pool to automatically verify. Possible values:
-        /// <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying
+        /// <para>The attributes that you want your user pool to automatically verify. For more information,
+        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying
         /// contact information at sign-up</a>.</para>
         /// </para>
         /// </summary>
@@ -225,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AdvancedSecurityAdditionalFlows_CustomAuthMode
         /// <summary>
         /// <para>
-        /// <para>The operating mode of advanced security features in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">
+        /// <para>The operating mode of threat protection in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">
         /// Custom authentication challenge Lambda triggers</a>. </para>
         /// </para>
         /// </summary>
@@ -294,10 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>When true, Amazon Cognito doesn't automatically remember a user's device when your
-        /// app sends a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html">
-        /// ConfirmDevice</a> API request. In your app, create a prompt for your user to choose
-        /// whether they want to remember their device. Return the user's choice in an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html">
-        /// UpdateDeviceStatus</a> API request.</para><para>When <c>DeviceOnlyRememberedOnUserPrompt</c> is <c>false</c>, Amazon Cognito immediately
+        /// app sends a <c>ConfirmDevice</c> API request. In your app, create a prompt for your
+        /// user to choose whether they want to remember their device. Return the user's choice
+        /// in an <c>UpdateDeviceStatus</c> API request.</para><para>When <c>DeviceOnlyRememberedOnUserPrompt</c> is <c>false</c>, Amazon Cognito immediately
         /// remembers devices that you register in a <c>ConfirmDevice</c> API request.</para>
         /// </para>
         /// </summary>
@@ -418,7 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationMessage
         /// <summary>
         /// <para>
-        /// <para>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</para>
+        /// <para>This parameter is no longer used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,7 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationSubject
         /// <summary>
         /// <para>
-        /// <para>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</para>
+        /// <para>This parameter is no longer used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -560,7 +553,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>Sets multi-factor authentication (MFA) to be on, off, or optional. When <c>ON</c>,
         /// all users must set up MFA before they can sign in. When <c>OPTIONAL</c>, your application
         /// must make a client-side determination of whether a user wants to register an MFA device.
-        /// For user pools with adaptive authentication with threat protection, choose <c>OPTIONAL</c>.</para>
+        /// For user pools with adaptive authentication with threat protection, choose <c>OPTIONAL</c>.</para><para>When <c>MfaConfiguration</c> is <c>OPTIONAL</c>, managed login doesn't automatically
+        /// prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses
+        /// and in managed login for users who have chosen and configured a preferred MFA factor.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -585,10 +580,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The number of previous passwords that you want Amazon Cognito to restrict each user
         /// from reusing. Users can't set a password that matches any of <c>n</c> previous passwords,
-        /// where <c>n</c> is the value of <c>PasswordHistorySize</c>.</para><para>Password history isn't enforced and isn't displayed in <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>
-        /// responses when you set this value to <c>0</c> or don't provide it. To activate this
-        /// setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
-        /// advanced security features</a> must be active in your user pool.</para>
+        /// where <c>n</c> is the value of <c>PasswordHistorySize</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -599,7 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PoolName
         /// <summary>
         /// <para>
-        /// <para>A friendlhy name for your user pool.</para>
+        /// <para>A friendly name for your user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -763,7 +755,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SmsAuthenticationMessage
         /// <summary>
         /// <para>
-        /// <para>A string representing the SMS authentication message.</para>
+        /// <para>The contents of the SMS message that your user pool sends to users in SMS OTP and
+        /// MFA authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -794,7 +787,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SmsVerificationMessage
         /// <summary>
         /// <para>
-        /// <para>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</para>
+        /// <para>This parameter is no longer used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -869,10 +862,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AdminCreateUserConfig_UnusedAccountValidityDay
         /// <summary>
         /// <para>
-        /// <para>This parameter is no longer in use. Configure the duration of temporary passwords
-        /// with the <c>TemporaryPasswordValidityDays</c> parameter of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html">PasswordPolicyType</a>.
-        /// For older user pools that have a <c>UnusedAccountValidityDays</c> configuration, that
-        /// value is effective until you set a value for <c>TemporaryPasswordValidityDays</c>.</para><para>The password expiration limit in days for administrator-created users. When this time
+        /// <para>This parameter is no longer in use.</para><para>The password expiration limit in days for administrator-created users. When this time
         /// expires, the user can't sign in with their temporary password. To reset the account
         /// after that time limit, you must call <c>AdminCreateUser</c> again, specifying <c>RESEND</c>
         /// for the <c>MessageAction</c> parameter. </para><para>The default value for this parameter is 7.</para>

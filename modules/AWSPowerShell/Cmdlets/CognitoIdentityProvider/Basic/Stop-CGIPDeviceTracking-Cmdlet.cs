@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Forgets the specified device. For more information about device authentication, see
-    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
+    /// Given a device key, deletes a remembered device as the currently signed-in user. For
+    /// more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working
     /// with user devices in your user pool</a>.
     /// 
     ///  
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose registered device
-        /// you want to forget.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DeviceKey
         /// <summary>
         /// <para>
-        /// <para>The device key.</para>
+        /// <para>The unique identifier, or device key, of the device that the user wants to forget.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

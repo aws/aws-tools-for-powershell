@@ -49,6 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Alias
+        /// <summary>
+        /// <para>
+        /// <para>If the app monitor uses a resource-based policy that requires <c>PutRumEvents</c>
+        /// requests to specify a certain alias, specify that alias here. This alias will be compared
+        /// to the <c>rum:alias</c> context key in the resource-based policy. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html">Using
+        /// resource-based policies with CloudWatch RUM</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Alias { get; set; }
+        #endregion
+        
         #region Parameter BatchId
         /// <summary>
         /// <para>
@@ -213,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Alias = this.Alias;
             context.AppMonitorDetails_Id = this.AppMonitorDetails_Id;
             context.AppMonitorDetails_Name = this.AppMonitorDetails_Name;
             context.AppMonitorDetails_Version = this.AppMonitorDetails_Version;
@@ -258,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             // create request
             var request = new Amazon.CloudWatchRUM.Model.PutRumEventsRequest();
             
+            if (cmdletContext.Alias != null)
+            {
+                request.Alias = cmdletContext.Alias;
+            }
             
              // populate AppMonitorDetails
             var requestAppMonitorDetailsIsNull = true;
@@ -399,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Alias { get; set; }
             public System.String AppMonitorDetails_Id { get; set; }
             public System.String AppMonitorDetails_Name { get; set; }
             public System.String AppMonitorDetails_Version { get; set; }

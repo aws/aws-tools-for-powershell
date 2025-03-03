@@ -33,9 +33,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     ///  <ol><li><para>
     /// The user's multi-factor authentication (MFA) preferences.
     /// </para></li><li><para>
-    /// The user's options in the <c>USER_AUTH</c> flow that they can select in a <c>SELECT_CHALLENGE</c>
-    /// response or request in a <c>PREFERRED_CHALLENGE</c>request.
-    /// </para></li></ol>
+    /// The user's options for choice-based authentication with the <c>USER_AUTH</c> flow.
+    /// </para></li></ol><para>
+    /// Authorize this action with a signed-in user's access token. It must include the scope
+    /// <c>aws.cognito.signin.user.admin</c>.
+    /// </para><note><para>
+    /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you can't use IAM credentials to authorize
+    /// requests, and you can't grant IAM permissions in policies. For more information about
+    /// authorization models in Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CGIPUserAuthFactor")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.GetUserAuthFactorsResponse")]
@@ -55,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose authentication factors
-        /// you want to view.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the name and scopes of resource server. All other fields are read-only.
+    /// Updates the name and scopes of a resource server. All other fields are read-only.
+    /// For more information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access
+    /// control with resource servers</a>.
     /// 
     ///  <important><para>
     /// If you don't provide a value for an attribute, it is set to the default value.
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the resource server.</para>
+        /// <para>The updated name of the resource server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>The scope values to be set for the resource server.</para>
+        /// <para>An array of updated custom scope names and descriptions that you want to associate
+        /// with your resource server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool.</para>
+        /// <para>The ID of the user pool that contains the resource server that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
