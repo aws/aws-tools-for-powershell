@@ -72,13 +72,52 @@ Describe -Tag "Smoke" "S3 Express" {
             "another file" | Out-File -FilePath ".\temp\bar\baz\blah.txt" -Force
             "basic file" | Out-File -FilePath "temp\basic.txt" -Force
 
-            Write-S3Object -BucketName $script:bucketName -KeyPrefix bar2\ -Folder .\temp\bar -Recurse
-            Write-S3Object -BucketName $script:bucketName -Key bar2\foo.txt -Content "foo"
+            Write-S3Object -BucketName $script:bucketName -KeyPrefix bar2\ -Folder .\temp\bar -Recurse -EnableLegacyKeyCleaning
+            Write-S3Object -BucketName $script:bucketName -Key bar2\foo.txt -Content "foo" -EnableLegacyKeyCleaning
+            Write-S3Object -BucketName $script:bucketName -Key basic.txt -File "temp\basic.txt" -EnableLegacyKeyCleaning
+
+            Write-S3Object -BucketName $script:bucketName -KeyPrefix bar2v5/ -Folder .\temp\bar -Recurse
+            Write-S3Object -BucketName $script:bucketName -Key bar2v5/foo.txt -Content "foo"
             Write-S3Object -BucketName $script:bucketName -Key basic.txt -File "temp\basic.txt"
+
+            Write-S3Object -BucketName $script:bucketName -KeyPrefix bar2v5backslash\ -Folder .\temp\bar -Recurse
+            Write-S3Object -BucketName $script:bucketName -Key bar2v5backslash\foo.txt -Content "foo"
         }
 
         It "Can download to a folder hierarchy" {
-            Read-S3Object -BucketName $script:bucketName -KeyPrefix bar2\ -Folder temp\new-bar
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix bar2v5 -Folder temp\s3express\new-bar-v5-noslash
+
+            (Get-Content ".\temp\s3express\new-bar-v5-noslash\foo.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-noslash\test.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-noslash\test2.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-noslash\baz\blah.txt").Length | Should -BeGreaterThan 0
+        }
+
+        It "Can download to a folder hierarchy when Keyprefix ends with forward slash" {
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix bar2v5/ -Folder temp\s3express\new-bar-v5-forwardslash
+
+            (Get-Content ".\temp\s3express\new-bar-v5-forwardslash\foo.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-forwardslash\test.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-forwardslash\test2.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-forwardslash\baz\blah.txt").Length | Should -BeGreaterThan 0
+        }
+
+        It "Can download to a folder hierarchy when Keyprefix ends with backslash" {
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix bar2v5backslash\ -Folder temp\s3express\new-bar-v5-backslash
+
+            (Get-Content ".\temp\s3express\new-bar-v5-backslash\test.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-backslash\test2.txt").Length | Should -BeGreaterThan 0
+            (Get-Content ".\temp\s3express\new-bar-v5-backslash\baz\blah.txt").Length | Should -BeGreaterThan 0
+        }
+
+        It "Can read key with backslash" {
+            Read-S3Object -BucketName $script:bucketName -Key bar2v5backslash\foo.txt -File temp\s3express\new-bar-v5-backslash\foo.txt
+
+            (Get-Content ".\temp\s3express\new-bar-v5-backslash\foo.txt").Length | Should -BeGreaterThan 0
+        }
+
+        It "Can download to a folder hierarchy when EnableLegacyKeyCleaning is set" {
+            Read-S3Object -BucketName $script:bucketName -KeyPrefix bar2\ -Folder temp\new-bar -EnableLegacyKeyCleaning
 
             (Get-Content ".\temp\new-bar\foo.txt").Length | Should -BeGreaterThan 0
             (Get-Content ".\temp\new-bar\test.txt").Length | Should -BeGreaterThan 0

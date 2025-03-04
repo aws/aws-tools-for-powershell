@@ -510,6 +510,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
 
+        #region Parameter EnableLegacyKeyCleaning
+        /// <summary>
+        /// Specifies whether to use legacy key cleaning behavior for S3 key names. When this switch is present,
+        /// the cmdlet will clean key names by removing leading spaces, forward slashes (/), and backslashes (\),
+        /// converting all backslashes to forward slashes, and removing trailing spaces. When not specified,
+        /// the legacy key cleaning is disabled.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter EnableLegacyKeyCleaning { get; set; }
+        #endregion
+
         protected override void StopProcessing()
         {
             base.StopProcessing();
@@ -530,8 +541,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (this.Key != null)
             {
-                context.Key = AmazonS3Helper.CleanKey(this.Key);
-                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
+                context.Key = this.Key;
+
+                if (this.EnableLegacyKeyCleaning.IsPresent)
+                {
+                    context.Key= AmazonS3Helper.CleanKey(this.Key);
+                    base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
+                }
             }
 
             if (this.ParameterSetName == ParamSet_FromLocalFile || this.ParameterSetName == ParamSet_FromLocalFileChecksum)
@@ -555,8 +571,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.OriginalKeyPrefix = this.KeyPrefix;
                 if (!rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase))
                 {
-                    context.KeyPrefix = AmazonS3Helper.CleanKey(this.KeyPrefix);
-                    base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.KeyPrefix, context.KeyPrefix);
+                    context.KeyPrefix = this.KeyPrefix;
+
+                    if (this.EnableLegacyKeyCleaning.IsPresent)
+                    {
+                        context.KeyPrefix = AmazonS3Helper.CleanKey(this.KeyPrefix);
+                        base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.KeyPrefix, context.KeyPrefix);
+                    }
                 }
                 if (!string.IsNullOrEmpty(this.SearchPattern))
                     context.SearchPattern = this.SearchPattern;

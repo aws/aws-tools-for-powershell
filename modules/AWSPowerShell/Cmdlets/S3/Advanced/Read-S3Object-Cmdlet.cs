@@ -270,6 +270,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        #region Parameter EnableLegacyKeyCleaning
+        /// <summary>
+        /// Specifies whether to use legacy key cleaning behavior for S3 key names. When this switch is present,
+        /// the cmdlet will clean key names by removing leading spaces, forward slashes (/), and backslashes (\),
+        /// converting all backslashes to forward slashes, and removing trailing spaces. When not specified,
+        /// the legacy key cleaning is disabled.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter EnableLegacyKeyCleaning { get; set; }
+        #endregion
+
         protected override void StopProcessing()
         {
             base.StopProcessing();
@@ -289,8 +300,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 case ParamSet_ToLocalFile:
                     {
-                        context.Key = AmazonS3Helper.CleanKey(this.Key);
-                        base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
+
+                        context.Key = this.Key;
+                        if (this.EnableLegacyKeyCleaning.IsPresent)
+                        {
+                            context.Key = AmazonS3Helper.CleanKey(this.Key);
+                            base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
+                        }
                         context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File);
                         context.VersionId = this.VersionId;
                     }
@@ -299,9 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 case ParamSet_ToLocalFolder:
                     {
                         context.OriginalKeyPrefix = this.KeyPrefix;
-                        context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
-                            ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
-                        base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.KeyPrefix, context.KeyPrefix);
+                        context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase)
+                            ? "/" : this.EnableLegacyKeyCleaning.IsPresent ? AmazonS3Helper.CleanKey(this.KeyPrefix) : this.KeyPrefix;
+                        base.UserAgentAddition = this.EnableLegacyKeyCleaning.IsPresent ? AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.KeyPrefix, context.KeyPrefix) : base.UserAgentAddition;
                         context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
                         context.DisableSlashCorrection = this.DisableSlashCorrection;
                     }

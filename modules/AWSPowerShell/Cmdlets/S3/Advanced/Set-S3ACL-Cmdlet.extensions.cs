@@ -47,12 +47,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter PublicReadWrite { get; set; }
         #endregion
 
+        #region Parameter EnableLegacyKeyCleaning
+        /// <summary>
+        /// Specifies whether to use legacy key cleaning behavior for S3 key names. When this switch is present,
+        /// the cmdlet will clean key names by removing leading spaces, forward slashes (/), and backslashes (\),
+        /// converting all backslashes to forward slashes, and removing trailing spaces. When not specified,
+        /// the legacy key cleaning is disabled.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter EnableLegacyKeyCleaning { get; set; }
+        #endregion
+
         protected override void PostExecutionContextLoad(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
 
-            cmdletContext.Key = AmazonS3Helper.CleanKey(this.Key);
-            base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, cmdletContext.Key);
+            cmdletContext.Key = this.Key;
+
+            if (this.EnableLegacyKeyCleaning.IsPresent)
+            {
+                cmdletContext.Key= AmazonS3Helper.CleanKey(this.Key);
+                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, cmdletContext.Key);
+            }
 
             if (string.IsNullOrEmpty(this.CannedACL))
             {

@@ -542,6 +542,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter Force { get; set; }
         #endregion
 
+        #region Parameter EnableLegacyKeyCleaning
+        /// <summary>
+        /// Specifies whether to use legacy key cleaning behavior for S3 key names. When this switch is present,
+        /// the cmdlet will clean key names by removing leading spaces, forward slashes (/), and backslashes (\),
+        /// converting all backslashes to forward slashes, and removing trailing spaces. When not specified,
+        /// the legacy key cleaning is disabled.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter EnableLegacyKeyCleaning { get; set; }
+        #endregion
+
         protected override void StopProcessing()
         {
             base.StopProcessing();
@@ -558,7 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var context = new CmdletContext
             {
                 SourceBucket = this.BucketName,
-                SourceKey = this.Key.TrimStart('/'),
+                SourceKey = this.EnableLegacyKeyCleaning.IsPresent ? this.Key.TrimStart('/') : this.Key,
                 SourceVersionId = this.VersionId,
                 DestinationBucket = this.DestinationBucket,
                 DestinationKey = this.DestinationKey,
@@ -593,7 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.DestinationBucket = context.SourceBucket;
             if (string.IsNullOrEmpty(context.DestinationKey))
                 context.DestinationKey = context.SourceKey;
-            context.DestinationKey = context.DestinationKey.TrimStart('/');
+            context.DestinationKey = this.EnableLegacyKeyCleaning.IsPresent ? context.DestinationKey.TrimStart('/') : context.DestinationKey;
             switch (this.ParameterSetName)
             {
                 case CopySingleObjectToLocalFile:
@@ -609,8 +620,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 case CopyMultipleObjectsToLocalFolder:
                     context.OriginalKeyPrefix = this.KeyPrefix;
                     context.KeyPrefix = ReadS3ObjectCmdlet.rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase)
-                        ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
-                    base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(context.OriginalKeyPrefix, context.KeyPrefix);
+                        ? "/" : this.EnableLegacyKeyCleaning.IsPresent ? AmazonS3Helper.CleanKey(this.KeyPrefix) : this.KeyPrefix;
+                    base.UserAgentAddition = this.EnableLegacyKeyCleaning.IsPresent ? AmazonS3Helper.GetCleanKeyUserAgentAdditionString(context.OriginalKeyPrefix, context.KeyPrefix) : base.UserAgentAddition;
 
                     context.LocalFolder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.LocalFolder);
                     break;
@@ -704,7 +715,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var request = new GetObjectMetadataRequest
             {
                 BucketName = bucketName,
-                Key = objectKey.TrimStart('/')
+                Key = this.EnableLegacyKeyCleaning.IsPresent ? objectKey.TrimStart('/') : objectKey
             };
 
             if (cmdletContext.RequestPayer != null)
@@ -721,10 +732,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private S3Object GetObjectData(IAmazonS3 s3Client, string bucketName, string objectKey, RequestPayer requestPayer)
         {
-            // The underlying S3 api does not like listing with prefixes starting with / so strip
-            // (eg Copy-S3Object -BucketName test-bucket -Key /data/sample.txt -DestinationKey /data/sample-copy.txt)
-            string key = objectKey.TrimStart('/');
-            base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(objectKey, key);
+            string key = objectKey;
+            if (this.EnableLegacyKeyCleaning.IsPresent)
+            {
+                key = objectKey.TrimStart('/');
+                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(objectKey, key);
+            }
+
             var request = new ListObjectsRequest
             {
                 BucketName = bucketName,
