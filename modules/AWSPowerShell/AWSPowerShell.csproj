@@ -631,6 +631,9 @@
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTJobsDataPlane.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTManagedIntegrations">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTManagedIntegrations.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTSecureTunneling.dll</HintPath>
     </Reference>
@@ -1823,6 +1826,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTManagedIntegrations">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTManagedIntegrations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTSecureTunneling.dll</HintPath>

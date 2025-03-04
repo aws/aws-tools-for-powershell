@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// You can't export snapshot data from Db2 or RDS Custom DB instances.
+    /// You can't export snapshot data from RDS Custom DB instances. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.html">
+    /// Supported Regions and DB engines for exporting snapshots to S3 in Amazon RDS</a>.
     /// </para><para>
     /// For more information on exporting DB snapshot data, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting
     /// DB snapshot data to Amazon S3</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-export-snapshot.html">Exporting

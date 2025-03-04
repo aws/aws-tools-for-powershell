@@ -38810,6 +38810,300 @@ $IOTJ_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IOTJ_SelectCompleters $IOTJ_SelectMap
+# Argument completions for service Managed integrations for AWS IoT Device Management
+
+
+$IOTMI_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IoTManagedIntegrations.AuthMaterialType
+        "New-IOTMIManagedThing/AuthenticationMaterialType"
+        {
+            $v = "WIFI_SETUP_QR_BAR_CODE","ZIGBEE_QR_BAR_CODE","ZWAVE_QR_BAR_CODE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.DeliveryDestinationType
+        {
+            ($_ -eq "New-IOTMIDestination/DeliveryDestinationType") -Or
+            ($_ -eq "Update-IOTMIDestination/DeliveryDestinationType")
+        }
+        {
+            $v = "KINESIS"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.DiscoveryAuthMaterialType
+        "Start-IOTMIDeviceDiscovery/AuthenticationMaterialType"
+        {
+            $v = "ZWAVE_INSTALL_CODE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.DiscoveryType
+        "Start-IOTMIDeviceDiscovery/DiscoveryType"
+        {
+            $v = "CLOUD","ZIGBEE","ZWAVE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.EncryptionType
+        "Write-IOTMIDefaultEncryptionConfiguration/EncryptionType"
+        {
+            $v = "CUSTOMER_KEY_ENCRYPTION","MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.EventType
+        {
+            ($_ -eq "Get-IOTMINotificationConfiguration/EventType") -Or
+            ($_ -eq "New-IOTMINotificationConfiguration/EventType") -Or
+            ($_ -eq "Remove-IOTMINotificationConfiguration/EventType") -Or
+            ($_ -eq "Update-IOTMINotificationConfiguration/EventType")
+        }
+        {
+            $v = "CONNECTOR_ASSOCIATION","CONNECTOR_ERROR_REPORT","DEVICE_COMMAND","DEVICE_COMMAND_REQUEST","DEVICE_EVENT","DEVICE_LIFE_CYCLE","DEVICE_OTA","DEVICE_STATE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.HubNetworkMode
+        "Update-IOTMIManagedThing/HubNetworkMode"
+        {
+            $v = "NETWORK_WIDE_EXCLUSION","STANDARD"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.LogLevel
+        {
+            ($_ -eq "New-IOTMIEventLogConfiguration/EventLogLevel") -Or
+            ($_ -eq "Update-IOTMIEventLogConfiguration/EventLogLevel") -Or
+            ($_ -eq "Write-IOTMIRuntimeLogConfiguration/RuntimeLogConfigurations_LogFlushLevel") -Or
+            ($_ -eq "Write-IOTMIRuntimeLogConfiguration/RuntimeLogConfigurations_LogLevel")
+        }
+        {
+            $v = "DEBUG","ERROR","INFO","WARN"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.OtaMechanism
+        "New-IOTMIOtaTask/OtaMechanism"
+        {
+            $v = "PUSH"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.OtaProtocol
+        "New-IOTMIOtaTask/Protocol"
+        {
+            $v = "HTTP"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.OtaType
+        "New-IOTMIOtaTask/OtaType"
+        {
+            $v = "CONTINUOUS","ONE_TIME"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.ProvisioningStatus
+        "Get-IOTMIManagedThingList/ProvisioningStatusFilter"
+        {
+            $v = "ACTIVATED","DELETED","DELETE_IN_PROGRESS","DELETION_FAILED","DISCOVERED","ISOLATED","PRE_ASSOCIATED","UNASSOCIATED"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.ProvisioningType
+        "New-IOTMIProvisioningProfile/ProvisioningType"
+        {
+            $v = "FLEET_PROVISIONING","JITR"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.Role
+        {
+            ($_ -eq "New-IOTMIManagedThing/Role") -Or
+            ($_ -eq "Get-IOTMIManagedThingList/RoleFilter")
+        }
+        {
+            $v = "CONTROLLER","DEVICE"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.SchedulingConfigEndBehavior
+        "New-IOTMIOtaTask/OtaSchedulingConfig_EndBehavior"
+        {
+            $v = "CANCEL","FORCE_CANCEL","STOP_ROLLOUT"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.SchemaVersionFormat
+        "Get-IOTMISchemaVersion/Format"
+        {
+            $v = "AWS","CONNECTOR","ZCL"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.SchemaVersionType
+        {
+            ($_ -eq "Get-IOTMISchemaVersion/Type") -Or
+            ($_ -eq "Get-IOTMISchemaVersionList/Type")
+        }
+        {
+            $v = "capability","definition"
+            break
+        }
+
+        # Amazon.IoTManagedIntegrations.SchemaVersionVisibility
+        "Get-IOTMISchemaVersionList/Visibility"
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTMI_map = @{
+    "AuthenticationMaterialType"=@("New-IOTMIManagedThing","Start-IOTMIDeviceDiscovery")
+    "DeliveryDestinationType"=@("New-IOTMIDestination","Update-IOTMIDestination")
+    "DiscoveryType"=@("Start-IOTMIDeviceDiscovery")
+    "EncryptionType"=@("Write-IOTMIDefaultEncryptionConfiguration")
+    "EventLogLevel"=@("New-IOTMIEventLogConfiguration","Update-IOTMIEventLogConfiguration")
+    "EventType"=@("Get-IOTMINotificationConfiguration","New-IOTMINotificationConfiguration","Remove-IOTMINotificationConfiguration","Update-IOTMINotificationConfiguration")
+    "Format"=@("Get-IOTMISchemaVersion")
+    "HubNetworkMode"=@("Update-IOTMIManagedThing")
+    "OtaMechanism"=@("New-IOTMIOtaTask")
+    "OtaSchedulingConfig_EndBehavior"=@("New-IOTMIOtaTask")
+    "OtaType"=@("New-IOTMIOtaTask")
+    "Protocol"=@("New-IOTMIOtaTask")
+    "ProvisioningStatusFilter"=@("Get-IOTMIManagedThingList")
+    "ProvisioningType"=@("New-IOTMIProvisioningProfile")
+    "Role"=@("New-IOTMIManagedThing")
+    "RoleFilter"=@("Get-IOTMIManagedThingList")
+    "RuntimeLogConfigurations_LogFlushLevel"=@("Write-IOTMIRuntimeLogConfiguration")
+    "RuntimeLogConfigurations_LogLevel"=@("Write-IOTMIRuntimeLogConfiguration")
+    "Type"=@("Get-IOTMISchemaVersion","Get-IOTMISchemaVersionList")
+    "Visibility"=@("Get-IOTMISchemaVersionList")
+}
+
+_awsArgumentCompleterRegistration $IOTMI_Completers $IOTMI_map
+
+$IOTMI_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IOTMI.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTMI_SelectMap = @{
+    "Select"=@("New-IOTMICredentialLocker",
+               "New-IOTMIDestination",
+               "New-IOTMIEventLogConfiguration",
+               "New-IOTMIManagedThing",
+               "New-IOTMINotificationConfiguration",
+               "New-IOTMIOtaTask",
+               "New-IOTMIOtaTaskConfiguration",
+               "New-IOTMIProvisioningProfile",
+               "Remove-IOTMICredentialLocker",
+               "Remove-IOTMIDestination",
+               "Remove-IOTMIEventLogConfiguration",
+               "Remove-IOTMIManagedThing",
+               "Remove-IOTMINotificationConfiguration",
+               "Remove-IOTMIOtaTask",
+               "Remove-IOTMIOtaTaskConfiguration",
+               "Remove-IOTMIProvisioningProfile",
+               "Get-IOTMICredentialLocker",
+               "Get-IOTMICustomEndpoint",
+               "Get-IOTMIDefaultEncryptionConfiguration",
+               "Get-IOTMIDestination",
+               "Get-IOTMIDeviceDiscovery",
+               "Get-IOTMIEventLogConfiguration",
+               "Get-IOTMIHubConfiguration",
+               "Get-IOTMIManagedThing",
+               "Get-IOTMIManagedThingCapability",
+               "Get-IOTMIManagedThingConnectivityData",
+               "Get-IOTMIManagedThingMetaData",
+               "Get-IOTMIManagedThingState",
+               "Get-IOTMINotificationConfiguration",
+               "Get-IOTMIOtaTask",
+               "Get-IOTMIOtaTaskConfiguration",
+               "Get-IOTMIProvisioningProfile",
+               "Get-IOTMIRuntimeLogConfiguration",
+               "Get-IOTMISchemaVersion",
+               "Get-IOTMICredentialLockerList",
+               "Get-IOTMIDestinationList",
+               "Get-IOTMIEventLogConfigurationList",
+               "Get-IOTMIManagedThingList",
+               "Get-IOTMIManagedThingSchemaList",
+               "Get-IOTMINotificationConfigurationList",
+               "Get-IOTMIOtaTaskConfigurationList",
+               "Get-IOTMIOtaTaskExecutionList",
+               "Get-IOTMIOtaTaskList",
+               "Get-IOTMIProvisioningProfileList",
+               "Get-IOTMISchemaVersionList",
+               "Write-IOTMIDefaultEncryptionConfiguration",
+               "Write-IOTMIHubConfiguration",
+               "Write-IOTMIRuntimeLogConfiguration",
+               "Register-IOTMICustomEndpoint",
+               "Reset-IOTMIRuntimeLogConfiguration",
+               "Send-IOTMIManagedThingCommand",
+               "Start-IOTMIDeviceDiscovery",
+               "Update-IOTMIDestination",
+               "Update-IOTMIEventLogConfiguration",
+               "Update-IOTMIManagedThing",
+               "Update-IOTMINotificationConfiguration",
+               "Update-IOTMIOtaTask")
+}
+
+_awsArgumentCompleterRegistration $IOTMI_SelectCompleters $IOTMI_SelectMap
 # Argument completions for service AWS IoT Secure Tunneling
 
 
@@ -38930,6 +39224,13 @@ $IOTSW_Completers = {
         "New-IOTSWPortal/PortalAuthMode"
         {
             $v = "IAM","SSO"
+            break
+        }
+
+        # Amazon.IoTSiteWise.CoreDeviceOperatingSystem
+        "New-IOTSWGateway/GreengrassV2_CoreDeviceOperatingSystem"
+        {
+            $v = "LINUX_AARCH64","LINUX_AMD64","WINDOWS_AMD64"
             break
         }
 
@@ -39130,6 +39431,7 @@ $IOTSW_map = @{
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "File_Type"=@("Update-IOTSWPortal")
     "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
+    "GreengrassV2_CoreDeviceOperatingSystem"=@("New-IOTSWGateway")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
     "MatchForVersionType"=@("New-IOTSWAssetModelCompositeModel","Remove-IOTSWAssetModel","Remove-IOTSWAssetModelCompositeModel","Update-IOTSWAssetModel","Update-IOTSWAssetModelCompositeModel")

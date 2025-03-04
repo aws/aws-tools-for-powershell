@@ -411,7 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of log types to enable for exporting to CloudWatch Logs. For more information,
         /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">
-        /// Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (CloudWatch Logs exports are managed by the DB cluster.)</para></li><li><para>RDS Custom</para></li></ul><para>The following values are valid for each DB engine:</para><ul><li><para>RDS for Db2 - <c>diag.log | notify.log</c></para></li><li><para>RDS for MariaDB - <c>audit | error | general | slowquery</c></para></li><li><para>RDS for Microsoft SQL Server - <c>agent | error</c></para></li><li><para>RDS for MySQL - <c>audit | error | general | slowquery</c></para></li><li><para>RDS for Oracle - <c>alert | audit | listener | trace | oemagent</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade</c></para></li></ul>
+        /// Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (CloudWatch Logs exports are managed by the DB cluster.)</para></li><li><para>RDS Custom</para></li></ul><para>The following values are valid for each DB engine:</para><ul><li><para>RDS for Db2 - <c>diag.log | notify.log | iam-db-auth-error</c></para></li><li><para>RDS for MariaDB - <c>audit | error | general | slowquery | iam-db-auth-error</c></para></li><li><para>RDS for Microsoft SQL Server - <c>agent | error</c></para></li><li><para>RDS for MySQL - <c>audit | error | general | slowquery | iam-db-auth-error</c></para></li><li><para>RDS for Oracle - <c>alert | audit | listener | trace | oemagent</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql | upgrade | iam-db-auth-error</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -868,7 +868,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The storage type to associate with the DB instance.</para><para>If you specify <c>io1</c>, <c>io2</c>, or <c>gp3</c>, you must also include a value
         /// for the <c>Iops</c> parameter.</para><para>This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the
-        /// DB cluster.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para>
+        /// DB cluster.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp3</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

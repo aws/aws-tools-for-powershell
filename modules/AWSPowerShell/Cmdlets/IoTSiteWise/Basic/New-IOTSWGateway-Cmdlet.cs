@@ -43,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter GreengrassV2_CoreDeviceOperatingSystem
+        /// <summary>
+        /// <para>
+        /// <para>The operating system of the core device in IoT Greengrass V2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GatewayPlatform_GreengrassV2_CoreDeviceOperatingSystem")]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.CoreDeviceOperatingSystem")]
+        public Amazon.IoTSiteWise.CoreDeviceOperatingSystem GreengrassV2_CoreDeviceOperatingSystem { get; set; }
+        #endregion
+        
         #region Parameter GreengrassV2_CoreDeviceThingName
         /// <summary>
         /// <para>
@@ -69,6 +81,21 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GatewayName { get; set; }
+        #endregion
+        
+        #region Parameter GatewayVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the gateway to create. Specify <c>3</c> to create an MQTT-enabled,
+        /// V3 gateway and <c>2</c> To create a Classic streams, V2 gateway. If the version isn't
+        /// specified, a Classic streams, V2 gateway is created by default.</para><para> We recommend creating an MQTT-enabled, V3 gateway for self-hosted gateways. SiteWise
+        /// Edge gateways on Siemens Industrial Edge should use gateway version <c>2</c>. For
+        /// more information on gateway versions, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gw-self-host-gg2.html">
+        /// Self-host a SiteWise Edge gateway with IoT Greengrass V2</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GatewayVersion { get; set; }
         #endregion
         
         #region Parameter Greengrass_GroupArn
@@ -160,8 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.Greengrass_GroupArn = this.Greengrass_GroupArn;
+            context.GreengrassV2_CoreDeviceOperatingSystem = this.GreengrassV2_CoreDeviceOperatingSystem;
             context.GreengrassV2_CoreDeviceThingName = this.GreengrassV2_CoreDeviceThingName;
             context.SiemensIE_IotCoreThingName = this.SiemensIE_IotCoreThingName;
+            context.GatewayVersion = this.GatewayVersion;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -219,31 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 request.GatewayPlatform.Greengrass = requestGatewayPlatform_gatewayPlatform_Greengrass;
                 requestGatewayPlatformIsNull = false;
             }
-            Amazon.IoTSiteWise.Model.GreengrassV2 requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
-            
-             // populate GreengrassV2
-            var requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = true;
-            requestGatewayPlatform_gatewayPlatform_GreengrassV2 = new Amazon.IoTSiteWise.Model.GreengrassV2();
-            System.String requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName = null;
-            if (cmdletContext.GreengrassV2_CoreDeviceThingName != null)
-            {
-                requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName = cmdletContext.GreengrassV2_CoreDeviceThingName;
-            }
-            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName != null)
-            {
-                requestGatewayPlatform_gatewayPlatform_GreengrassV2.CoreDeviceThingName = requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName;
-                requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = false;
-            }
-             // determine if requestGatewayPlatform_gatewayPlatform_GreengrassV2 should be set to null
-            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull)
-            {
-                requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
-            }
-            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2 != null)
-            {
-                request.GatewayPlatform.GreengrassV2 = requestGatewayPlatform_gatewayPlatform_GreengrassV2;
-                requestGatewayPlatformIsNull = false;
-            }
             Amazon.IoTSiteWise.Model.SiemensIE requestGatewayPlatform_gatewayPlatform_SiemensIE = null;
             
              // populate SiemensIE
@@ -269,10 +273,49 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 request.GatewayPlatform.SiemensIE = requestGatewayPlatform_gatewayPlatform_SiemensIE;
                 requestGatewayPlatformIsNull = false;
             }
+            Amazon.IoTSiteWise.Model.GreengrassV2 requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
+            
+             // populate GreengrassV2
+            var requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = true;
+            requestGatewayPlatform_gatewayPlatform_GreengrassV2 = new Amazon.IoTSiteWise.Model.GreengrassV2();
+            Amazon.IoTSiteWise.CoreDeviceOperatingSystem requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceOperatingSystem = null;
+            if (cmdletContext.GreengrassV2_CoreDeviceOperatingSystem != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceOperatingSystem = cmdletContext.GreengrassV2_CoreDeviceOperatingSystem;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceOperatingSystem != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2.CoreDeviceOperatingSystem = requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceOperatingSystem;
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = false;
+            }
+            System.String requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName = null;
+            if (cmdletContext.GreengrassV2_CoreDeviceThingName != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName = cmdletContext.GreengrassV2_CoreDeviceThingName;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2.CoreDeviceThingName = requestGatewayPlatform_gatewayPlatform_GreengrassV2_greengrassV2_CoreDeviceThingName;
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull = false;
+            }
+             // determine if requestGatewayPlatform_gatewayPlatform_GreengrassV2 should be set to null
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2IsNull)
+            {
+                requestGatewayPlatform_gatewayPlatform_GreengrassV2 = null;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_GreengrassV2 != null)
+            {
+                request.GatewayPlatform.GreengrassV2 = requestGatewayPlatform_gatewayPlatform_GreengrassV2;
+                requestGatewayPlatformIsNull = false;
+            }
              // determine if request.GatewayPlatform should be set to null
             if (requestGatewayPlatformIsNull)
             {
                 request.GatewayPlatform = null;
+            }
+            if (cmdletContext.GatewayVersion != null)
+            {
+                request.GatewayVersion = cmdletContext.GatewayVersion;
             }
             if (cmdletContext.Tag != null)
             {
@@ -341,8 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         {
             public System.String GatewayName { get; set; }
             public System.String Greengrass_GroupArn { get; set; }
+            public Amazon.IoTSiteWise.CoreDeviceOperatingSystem GreengrassV2_CoreDeviceOperatingSystem { get; set; }
             public System.String GreengrassV2_CoreDeviceThingName { get; set; }
             public System.String SiemensIE_IotCoreThingName { get; set; }
+            public System.String GatewayVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreateGatewayResponse, NewIOTSWGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
