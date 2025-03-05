@@ -124,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWindow { get; set; }
         #endregion
         
+        #region Parameter WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.AccessPropertyValue")]
+        public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceAccessProperties_DeviceTypeZeroClient
         /// <summary>
         /// <para>
@@ -227,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.WorkspaceAccessProperties_DeviceTypeOsx = this.WorkspaceAccessProperties_DeviceTypeOsx;
             context.WorkspaceAccessProperties_DeviceTypeWeb = this.WorkspaceAccessProperties_DeviceTypeWeb;
             context.WorkspaceAccessProperties_DeviceTypeWindow = this.WorkspaceAccessProperties_DeviceTypeWindow;
+            context.WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient = this.WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient;
             context.WorkspaceAccessProperties_DeviceTypeZeroClient = this.WorkspaceAccessProperties_DeviceTypeZeroClient;
             
             // allow further manipulation of loaded context prior to processing
@@ -322,6 +334,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 request.WorkspaceAccessProperties.DeviceTypeWindows = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWindow;
                 requestWorkspaceAccessPropertiesIsNull = false;
             }
+            Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient = null;
+            if (cmdletContext.WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient != null)
+            {
+                requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient = cmdletContext.WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient;
+            }
+            if (requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient != null)
+            {
+                request.WorkspaceAccessProperties.DeviceTypeWorkSpacesThinClient = requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeWorkSpacesThinClient;
+                requestWorkspaceAccessPropertiesIsNull = false;
+            }
             Amazon.WorkSpaces.AccessPropertyValue requestWorkspaceAccessProperties_workspaceAccessProperties_DeviceTypeZeroClient = null;
             if (cmdletContext.WorkspaceAccessProperties_DeviceTypeZeroClient != null)
             {
@@ -406,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeOsx { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWeb { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWindow { get; set; }
+            public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient { get; set; }
             public Amazon.WorkSpaces.AccessPropertyValue WorkspaceAccessProperties_DeviceTypeZeroClient { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.ModifyWorkspaceAccessPropertiesResponse, EditWKSWorkspaceAccessPropertyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

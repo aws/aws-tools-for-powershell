@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the authentication protocol that DataSync uses to connect to your SMB file
-        /// server. DataSync supports <c>NTLM</c> (default) and <c>KERBEROS</c> authentication.</para>
+        /// server. DataSync supports <c>NTLM</c> (default) and <c>KERBEROS</c> authentication.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing
+        /// DataSync access to SMB file servers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies a Kerberos prinicpal, which is an identity in your Kerberos realm that has
-        /// permission to access the files, folders, and file metadata in your SMB file server.</para><para>A Kerberos principal might look like <c>HOST/kerberosuser@EXAMPLE.COM</c>.</para><para>Principal names are case sensitive. Your DataSync task execution will fail if the
+        /// permission to access the files, folders, and file metadata in your SMB file server.</para><para>A Kerberos principal might look like <c>HOST/kerberosuser@MYDOMAIN.ORG</c>.</para><para>Principal names are case sensitive. Your DataSync task execution will fail if the
         /// principal that you specify for this parameter doesn’t exactly match the principal
         /// that you use to create the keytab file.</para>
         /// </para>
@@ -167,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the domain name or IP address of the SMB file server that your DataSync
-        /// agent will mount.</para><para>Remember the following when configuring this parameter:</para><ul><li><para>You can't specify an IP version 6 (IPv6) address.</para></li><li><para>If you're using Kerberos authentication, you must specify a domain name.</para></li></ul>
+        /// agent connects to.</para><para>Remember the following when configuring this parameter:</para><ul><li><para>You can't specify an IP version 6 (IPv6) address.</para></li><li><para>If you're using Kerberos authentication, you must specify a domain name.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

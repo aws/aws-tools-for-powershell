@@ -218,6 +218,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.FreeTier.dll',
         'AWSSDK.FSx.dll',
         'AWSSDK.GameLift.dll',
+        'AWSSDK.GameLiftStreams.dll',
         'AWSSDK.GeoMaps.dll',
         'AWSSDK.GeoPlaces.dll',
         'AWSSDK.GeoRoutes.dll',

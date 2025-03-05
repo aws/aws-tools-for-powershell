@@ -1,4 +1,14 @@
-﻿### 4.1.770 (2025-03-04 23:42Z)
+﻿### 4.1.771 (2025-03-05 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.996.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataSync
+    * Modified cmdlet Update-DSYNLocationNfs: added parameter ServerHostname.
+    * Modified cmdlet Update-DSYNLocationObjectStorage: added parameter ServerHostname.
+    * Modified cmdlet Update-DSYNLocationSmb: added parameter ServerHostname.
+  * Amazon GameLiftStreams. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GMLS and can be listed using the command 'Get-AWSCmdletName -Service GMLS'.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSWorkspaceAccessProperty: added parameter WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient.
+
+### 4.1.770 (2025-03-04 23:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.995.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT SiteWise
     * Modified cmdlet New-IOTSWGateway: added parameters GatewayVersion and GreengrassV2_CoreDeviceOperatingSystem.

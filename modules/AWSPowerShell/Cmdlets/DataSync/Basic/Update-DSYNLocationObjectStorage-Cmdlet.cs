@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public byte[] ServerCertificate { get; set; }
         #endregion
         
+        #region Parameter ServerHostname
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the domain name or IP version 4 (IPv4) address of the object storage server
+        /// that your DataSync agent connects to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerHostname { get; set; }
+        #endregion
+        
         #region Parameter ServerPort
         /// <summary>
         /// <para>
@@ -229,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #endif
             context.BucketSecretKey = this.BucketSecretKey;
             context.ServerCertificate = this.ServerCertificate;
+            context.ServerHostname = this.ServerHostname;
             context.ServerPort = this.ServerPort;
             context.ServerProtocol = this.ServerProtocol;
             context.Subdirectory = this.Subdirectory;
@@ -272,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 {
                     _ServerCertificateStream = new System.IO.MemoryStream(cmdletContext.ServerCertificate);
                     request.ServerCertificate = _ServerCertificateStream;
+                }
+                if (cmdletContext.ServerHostname != null)
+                {
+                    request.ServerHostname = cmdletContext.ServerHostname;
                 }
                 if (cmdletContext.ServerPort != null)
                 {
@@ -359,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public System.String LocationArn { get; set; }
             public System.String BucketSecretKey { get; set; }
             public byte[] ServerCertificate { get; set; }
+            public System.String ServerHostname { get; set; }
             public System.Int32? ServerPort { get; set; }
             public Amazon.DataSync.ObjectStorageServerProtocol ServerProtocol { get; set; }
             public System.String Subdirectory { get; set; }

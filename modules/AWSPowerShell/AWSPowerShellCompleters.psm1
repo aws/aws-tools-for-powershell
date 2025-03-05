@@ -32867,6 +32867,148 @@ $GML_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $GML_SelectCompleters $GML_SelectMap
+# Argument completions for service Amazon GameLiftStreams
+
+
+$GMLS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.GameLiftStreams.ExportFilesStatus
+        {
+            ($_ -eq "Get-GMLSStreamSessionList/ExportFilesStatus") -Or
+            ($_ -eq "Get-GMLSStreamSessionListByAccount/ExportFilesStatus")
+        }
+        {
+            $v = "FAILED","PENDING","SUCCEEDED"
+            break
+        }
+
+        # Amazon.GameLiftStreams.Protocol
+        "Start-GMLSStreamSession/Protocol"
+        {
+            $v = "WebRTC"
+            break
+        }
+
+        # Amazon.GameLiftStreams.RuntimeEnvironmentType
+        "New-GMLSApplication/RuntimeEnvironment_Type"
+        {
+            $v = "PROTON","UBUNTU","WINDOWS"
+            break
+        }
+
+        # Amazon.GameLiftStreams.StreamClass
+        "New-GMLSStreamGroup/StreamClass"
+        {
+            $v = "gen4n_high","gen4n_ultra","gen4n_win2022","gen5n_high","gen5n_ultra","gen5n_win2022"
+            break
+        }
+
+        # Amazon.GameLiftStreams.StreamSessionStatus
+        {
+            ($_ -eq "Get-GMLSStreamSessionList/Status") -Or
+            ($_ -eq "Get-GMLSStreamSessionListByAccount/Status")
+        }
+        {
+            $v = "ACTIVATING","ACTIVE","CONNECTED","ERROR","PENDING_CLIENT_RECONNECTION","RECONNECTING","TERMINATED","TERMINATING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GMLS_map = @{
+    "ExportFilesStatus"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount")
+    "Protocol"=@("Start-GMLSStreamSession")
+    "RuntimeEnvironment_Type"=@("New-GMLSApplication")
+    "Status"=@("Get-GMLSStreamSessionList","Get-GMLSStreamSessionListByAccount")
+    "StreamClass"=@("New-GMLSStreamGroup")
+}
+
+_awsArgumentCompleterRegistration $GMLS_Completers $GMLS_map
+
+$GMLS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.GMLS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GMLS_SelectMap = @{
+    "Select"=@("Add-GMLSStreamGroupLocation",
+               "Connect-GMLSApplication",
+               "New-GMLSApplication",
+               "New-GMLSStreamGroup",
+               "New-GMLSStreamSessionConnection",
+               "Remove-GMLSApplication",
+               "Remove-GMLSStreamGroup",
+               "Disconnect-GMLSApplication",
+               "Export-GMLSStreamSessionFile",
+               "Get-GMLSApplication",
+               "Get-GMLSStreamGroup",
+               "Get-GMLSStreamSession",
+               "Get-GMLSApplicationList",
+               "Get-GMLSStreamGroupList",
+               "Get-GMLSStreamSessionList",
+               "Get-GMLSStreamSessionListByAccount",
+               "Get-GMLSResourceTag",
+               "Remove-GMLSStreamGroupLocation",
+               "Start-GMLSStreamSession",
+               "Add-GMLSResourceTag",
+               "Stop-GMLSStreamSession",
+               "Remove-GMLSResourceTag",
+               "Update-GMLSApplication",
+               "Update-GMLSStreamGroup")
+}
+
+_awsArgumentCompleterRegistration $GMLS_SelectCompleters $GMLS_SelectMap
 # Argument completions for service Amazon Location Service Maps V2
 
 
@@ -77411,6 +77553,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeOsx") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWeb") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWindow") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeZeroClient")
         }
         {
@@ -77622,6 +77765,7 @@ $WKS_map = @{
     "WorkspaceAccessProperties_DeviceTypeOsx"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWeb"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWindow"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeZeroClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_OperatingSystemName"=@("Edit-WKSWorkspaceProperty")

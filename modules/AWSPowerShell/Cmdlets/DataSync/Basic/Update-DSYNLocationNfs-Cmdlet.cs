@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String LocationArn { get; set; }
         #endregion
         
+        #region Parameter ServerHostname
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the DNS name or IP version 4 (IPv4) address of the NFS file server that
+        /// your DataSync agent connects to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerHostname { get; set; }
+        #endregion
+        
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
@@ -181,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             {
                 context.OnPremConfig_AgentArn = new List<System.String>(this.OnPremConfig_AgentArn);
             }
+            context.ServerHostname = this.ServerHostname;
             context.Subdirectory = this.Subdirectory;
             
             // allow further manipulation of loaded context prior to processing
@@ -239,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (requestOnPremConfigIsNull)
             {
                 request.OnPremConfig = null;
+            }
+            if (cmdletContext.ServerHostname != null)
+            {
+                request.ServerHostname = cmdletContext.ServerHostname;
             }
             if (cmdletContext.Subdirectory != null)
             {
@@ -308,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public System.String LocationArn { get; set; }
             public Amazon.DataSync.NfsVersion MountOptions_Version { get; set; }
             public List<System.String> OnPremConfig_AgentArn { get; set; }
+            public System.String ServerHostname { get; set; }
             public System.String Subdirectory { get; set; }
             public System.Func<Amazon.DataSync.Model.UpdateLocationNfsResponse, UpdateDSYNLocationNfsCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
