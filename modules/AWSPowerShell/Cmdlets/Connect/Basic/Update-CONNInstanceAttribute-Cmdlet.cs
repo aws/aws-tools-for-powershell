@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The type of attribute.</para><note><para>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
-        /// contact Amazon Web Services Support for allowlisting.</para></note>
+        /// contact Amazon Web ServicesSupport for allowlisting.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Value { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -155,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter AttributeType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -188,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.AttributeType != null)
             {
                 request.AttributeType = cmdletContext.AttributeType;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -253,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Connect.InstanceAttributeType AttributeType { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Value { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateInstanceAttributeResponse, UpdateCONNInstanceAttributeCmdlet, object> Select { get; set; } =

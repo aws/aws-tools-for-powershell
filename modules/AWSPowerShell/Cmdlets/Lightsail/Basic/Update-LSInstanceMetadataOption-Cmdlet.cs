@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// or <c>GetInstances</c> API operation initially responds with a state of <c>pending</c>.
     /// After the parameter modifications are successfully applied, the state changes to <c>applied</c>
     /// in subsequent <c>GetInstance</c> or <c>GetInstances</c> API calls. For more information,
-    /// see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use
+    /// see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-instance-metadata-service">Use
     /// IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer
     /// Guide</i>.
     /// </summary>

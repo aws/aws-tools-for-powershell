@@ -31,7 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Updates the traffic distribution for a given traffic distribution group. 
     /// 
-    ///  <note><para>
+    ///  <important><para>
+    /// When you shift telephony traffic, also shift agents and/or agent sign-ins to ensure
+    /// they can handle the calls in the other Region. If you don't shift the agents, voice
+    /// calls will go to the shifted Region but there won't be any agents available to receive
+    /// the calls.
+    /// </para></important><note><para>
     /// The <c>SignInConfig</c> distribution is available only on a default <c>TrafficDistributionGroup</c>
     /// (see the <c>IsDefault</c> parameter in the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_TrafficDistributionGroup.html">TrafficDistributionGroup</a>
     /// data type). If you call <c>UpdateTrafficDistribution</c> with a modified <c>SignInConfig</c>

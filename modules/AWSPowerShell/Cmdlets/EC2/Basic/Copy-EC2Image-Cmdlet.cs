@@ -145,6 +145,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SnapshotCopyCompletionDurationMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specify a completion duration, in 15 minute increments, to initiate a time-based AMI
+        /// copy. The specified completion duration applies to each of the snapshots associated
+        /// with the AMI. Each snapshot associated with the AMI will be completed within the specified
+        /// completion duration, regardless of their size.</para><para>If you do not specify a value, the AMI copy operation is completed on a best-effort
+        /// basis.</para><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
+        /// Time-based copies</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SnapshotCopyCompletionDurationMinutes")]
+        public System.Int64? SnapshotCopyCompletionDurationMinute { get; set; }
+        #endregion
+        
         #region Parameter SourceImageId
         /// <summary>
         /// <para>
@@ -264,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SnapshotCopyCompletionDurationMinute = this.SnapshotCopyCompletionDurationMinute;
             context.SourceImageId = this.SourceImageId;
             #if MODULAR
             if (this.SourceImageId == null && ParameterWasBound(nameof(this.SourceImageId)))
@@ -325,6 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SnapshotCopyCompletionDurationMinute != null)
+            {
+                request.SnapshotCopyCompletionDurationMinutes = cmdletContext.SnapshotCopyCompletionDurationMinute.Value;
             }
             if (cmdletContext.SourceImageId != null)
             {
@@ -400,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
+            public System.Int64? SnapshotCopyCompletionDurationMinute { get; set; }
             public System.String SourceImageId { get; set; }
             public System.String SourceRegion { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

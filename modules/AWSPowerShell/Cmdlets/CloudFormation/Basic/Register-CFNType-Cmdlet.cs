@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the extension being registered.</para><para>We suggest that extension names adhere to the following patterns:</para><ul><li><para>For resource types, <c>company_or_organization::service::type</c>.</para></li><li><para>For modules, <c>company_or_organization::service::type::MODULE</c>.</para></li><li><para>For hooks, <c>MyCompany::Testing::MyTestHook</c>.</para></li></ul><note><para>The following organization namespaces are reserved and can't be used in your extension
+        /// <para>The name of the extension being registered.</para><para>We suggest that extension names adhere to the following patterns:</para><ul><li><para>For resource types, <c>company_or_organization::service::type</c>.</para></li><li><para>For modules, <c>company_or_organization::service::type::MODULE</c>.</para></li><li><para>For Hooks, <c>MyCompany::Testing::MyTestHook</c>.</para></li></ul><note><para>The following organization namespaces are reserved and can't be used in your extension
         /// names:</para><ul><li><para><c>Alexa</c></para></li><li><para><c>AMZN</c></para></li><li><para><c>Amazon</c></para></li><li><para><c>AWS</c></para></li><li><para><c>Custom</c></para></li><li><para><c>Dev</c></para></li></ul></note>
         /// </para>
         /// </summary>

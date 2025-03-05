@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// to include in your request, and the published <c>unit</c> value.</para><ul><li><para><b><c>BurstCapacityPercentage</c></b> - The percentage of CPU performance available
         /// for your instance to burst above its baseline. Your instance continuously accrues
         /// and consumes burst capacity. Burst capacity stops accruing when your instance's <c>BurstCapacityPercentage</c>
-        /// reaches 100%. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing
+        /// reaches 100%. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-burst-capacity">Viewing
         /// instance burst capacity in Amazon Lightsail</a>.</para><para><c>Statistics</c>: The most useful statistics are <c>Maximum</c> and <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Percent</c>.</para></li><li><para><b><c>BurstCapacityTime</c></b> - The available amount of time for your instance
         /// to burst at 100% CPU utilization. Your instance continuously accrues and consumes
         /// burst capacity. Burst capacity time stops accruing when your instance's <c>BurstCapacityPercentage</c>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// at 100% CPU utilization. For example, if your instance operates at 50% CPU utilization
         /// in the burstable zone for a 5-minute period, then it consumes CPU burst capacity minutes
         /// at a 50% rate in that period. Your instance consumed 2 minutes and 30 seconds of CPU
-        /// burst capacity minutes in the 5-minute period. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity">Viewing
+        /// burst capacity minutes in the 5-minute period. For more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-viewing-instance-burst-capacity">Viewing
         /// instance burst capacity in Amazon Lightsail</a>.</para><para><c>Statistics</c>: The most useful statistics are <c>Maximum</c> and <c>Average</c>.</para><para><c>Unit</c>: The published unit is <c>Seconds</c>.</para></li><li><para><b><c>CPUUtilization</c></b> - The percentage of allocated compute units that are
         /// currently in use on the instance. This metric identifies the processing power to run
         /// the applications on the instance. Tools in your operating system can show a lower

@@ -76,8 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para>A list of node IDs to be deleted from the specified cluster.</para><note><para>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove
-        /// instances that are configured as Slurm controller nodes.</para></note>
+        /// <para>A list of node IDs to be deleted from the specified cluster.</para><note><ul><li><para>For SageMaker HyperPod clusters using the Slurm workload manager, you cannot remove
+        /// instances that are configured as Slurm controller nodes.</para></li><li><para>If you need to delete more than 99 instances, contact <a href="http://aws.amazon.com/contact-us/">Support</a>
+        /// for assistance.</para></li></ul></note>
         /// </para>
         /// </summary>
         #if !MODULAR

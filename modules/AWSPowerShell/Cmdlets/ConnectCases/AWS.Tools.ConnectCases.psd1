@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The ConnectCases module of AWS Tools for PowerShell lets developers and administrators manage Amazon Connect Cases from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -34,6 +34,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Name of the PowerShell host required by this module
     PowerShellHostName = ''
+
+
 
     # Minimum version of the PowerShell host required by this module
     PowerShellHostVersion = ''
@@ -86,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCASCase', 
         'Get-CCASCaseAuditEvent', 
         'Get-CCASCaseEventConfiguration', 
+        'Get-CCASCaseRuleList', 
         'Get-CCASCasesForContactList', 
         'Get-CCASDomain', 
         'Get-CCASDomainList', 
@@ -96,14 +99,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCASResourceTag', 
         'Get-CCASTemplate', 
         'Get-CCASTemplateList', 
+        'Group-CCASGetCaseRule', 
         'Group-CCASGetField', 
         'Group-CCASPutFieldOption', 
         'New-CCASCase', 
+        'New-CCASCaseRule', 
         'New-CCASDomain', 
         'New-CCASField', 
         'New-CCASLayout', 
         'New-CCASRelatedItem', 
         'New-CCASTemplate', 
+        'Remove-CCASCaseRule', 
         'Remove-CCASDomain', 
         'Remove-CCASField', 
         'Remove-CCASLayout', 
@@ -112,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Search-CCASCase', 
         'Search-CCASRelatedItem', 
         'Update-CCASCase', 
+        'Update-CCASCaseRule', 
         'Update-CCASField', 
         'Update-CCASLayout', 
         'Update-CCASTemplate', 

@@ -194,8 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>You can specify two or more language codes that represent the languages you think
         /// may be present in your media. Including more than five is not recommended. If you're
         /// unsure what languages are present, do not include this parameter.</para><para>Including language options can improve the accuracy of language identification.</para><para>For a list of languages supported with Call Analytics, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
-        /// languages</a> table.</para><para>To transcribe speech in Modern Standard Arabic (<c>ar-SA</c>), your media file must
-        /// be encoded at a sample rate of 16,000 Hz or higher.</para>
+        /// languages</a> table.</para><para>To transcribe speech in Modern Standard Arabic (<c>ar-SA</c>) in Amazon Web Services
+        /// GovCloud (US) (US-West, us-gov-west-1), Amazon Web Services GovCloud (US) (US-East,
+        /// us-gov-east-1), Canada (Calgary) ca-west-1 and Africa (Cape Town) af-south-1, your
+        /// media file must be encoded at a sample rate of 16,000 Hz or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

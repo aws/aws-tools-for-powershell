@@ -126,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTrack" OutputProperty="Track" Verb="Get" Noun="Track" PipelineParameter="TrackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUsageLimit" OutputProperty="UsageLimit" Verb="Get" Noun="UsageLimit" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +175,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTracks" OutputProperty="Tracks" Verb="Get" Noun="TrackList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

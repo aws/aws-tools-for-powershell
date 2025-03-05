@@ -109,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public System.String Schema { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.BedrockDataAutomation.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -208,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
                 WriteWarning("You are passing $null as a value for parameter Schema which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.BedrockDataAutomation.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -276,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             {
                 request.Schema = cmdletContext.Schema;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -341,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public System.String Schema { get; set; }
+            public List<Amazon.BedrockDataAutomation.Model.Tag> Tag { get; set; }
             public Amazon.BedrockDataAutomation.Type Type { get; set; }
             public System.Func<Amazon.BedrockDataAutomation.Model.CreateBlueprintResponse, NewBDABlueprintCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Blueprint;

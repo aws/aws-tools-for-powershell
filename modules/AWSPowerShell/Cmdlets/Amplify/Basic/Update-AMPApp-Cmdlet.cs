@@ -134,6 +134,20 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String BuildSpec { get; set; }
         #endregion
         
+        #region Parameter ComputeRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute
+        /// role allows the Amplify Hosting compute service to securely access specific Amazon
+        /// Web Services resources based on the role's permissions. For more information about
+        /// the SSR Compute role, see <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding
+        /// an SSR Compute role</a> in the <i>Amplify User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeRoleArn { get; set; }
+        #endregion
+        
         #region Parameter CustomHeader
         /// <summary>
         /// <para>
@@ -284,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter IamServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The AWS Identity and Access Management (IAM) service role for an Amplify app. </para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             context.BasicAuthCredential = this.BasicAuthCredential;
             context.BuildSpec = this.BuildSpec;
             context.CacheConfig_Type = this.CacheConfig_Type;
+            context.ComputeRoleArn = this.ComputeRoleArn;
             context.CustomHeader = this.CustomHeader;
             if (this.CustomRule != null)
             {
@@ -645,6 +660,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             {
                 request.CacheConfig = null;
             }
+            if (cmdletContext.ComputeRoleArn != null)
+            {
+                request.ComputeRoleArn = cmdletContext.ComputeRoleArn;
+            }
             if (cmdletContext.CustomHeader != null)
             {
                 request.CustomHeaders = cmdletContext.CustomHeader;
@@ -768,6 +787,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.String BasicAuthCredential { get; set; }
             public System.String BuildSpec { get; set; }
             public Amazon.Amplify.CacheConfigType CacheConfig_Type { get; set; }
+            public System.String ComputeRoleArn { get; set; }
             public System.String CustomHeader { get; set; }
             public List<Amazon.Amplify.Model.CustomRule> CustomRule { get; set; }
             public System.String Description { get; set; }

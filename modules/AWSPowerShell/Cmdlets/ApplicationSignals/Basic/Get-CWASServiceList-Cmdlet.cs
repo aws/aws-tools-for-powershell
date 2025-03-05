@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.ApplicationSignals;
 using Amazon.ApplicationSignals.Model;
 
@@ -43,7 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Web Services Account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AwsAccountId { get; set; }
+        #endregion
         
         #region Parameter EndTime
         /// <summary>
@@ -60,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? EndTime { get; set; }
+        #endregion
+        
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// Amazon.ApplicationSignals.Model.ListServicesRequest.IncludeLinkedAccounts
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -117,6 +136,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the StartTime parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StartTime' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StartTime' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -127,11 +156,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -142,11 +166,22 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListServicesResponse, GetCWASServiceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.StartTime;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AwsAccountId = this.AwsAccountId;
             context.EndTime = this.EndTime;
             #if MODULAR
             if (this.EndTime == null && ParameterWasBound(nameof(this.EndTime)))
@@ -154,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.StartTime = this.StartTime;
@@ -176,14 +212,24 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.ApplicationSignals.Model.ListServicesRequest();
             
+            if (cmdletContext.AwsAccountId != null)
+            {
+                request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -255,7 +301,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "ListServices");
             try
             {
-                return client.ListServicesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.ListServices(request);
+                #elif CORECLR
+                return client.ListServicesAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -272,7 +324,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AwsAccountId { get; set; }
             public System.DateTime? EndTime { get; set; }
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartTime { get; set; }

@@ -29,8 +29,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 and onwards: Creates a user.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using
+    /// For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user. For
+    /// more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>.
     /// </summary>
     [Cmdlet("New", "ECUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The current supported value is Redis. </para>
+        /// <para>The options are valkey or redis. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

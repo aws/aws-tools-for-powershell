@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
     /// For example, if you specify a SQL ID, <c>GetDimensionKeyDetails</c> retrieves the
     /// full text of the dimension <c>db.sql.statement</c> associated with this ID. This operation
     /// is useful because <c>GetResourceMetrics</c> and <c>DescribeDimensionKeys</c> don't
-    /// support retrieval of large SQL statement text.
+    /// support retrieval of large SQL statement text, lock snapshots, and execution plans.
     /// </summary>
     [Cmdlet("Get", "PIDimensionKeyDetail")]
     [OutputType("Amazon.PI.Model.GetDimensionKeyDetailsResponse")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>The name of the dimension group. Performance Insights searches the specified group
-        /// for the dimension group ID. The following group name values are valid:</para><ul><li><para><c>db.query</c> (Amazon DocumentDB only)</para></li><li><para><c>db.sql</c> (Amazon RDS and Aurora only)</para></li></ul>
+        /// for the dimension group ID. The following group name values are valid:</para><ul><li><para><c>db.execution_plan</c> (Amazon RDS and Aurora only)</para></li><li><para><c>db.lock_snapshot</c> (Aurora only)</para></li><li><para><c>db.query</c> (Amazon DocumentDB only)</para></li><li><para><c>db.sql</c> (Amazon RDS and Aurora only)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>
         /// <para>The ID of the dimension group from which to retrieve dimension details. For dimension
         /// group <c>db.sql</c>, the group ID is <c>db.sql.id</c>. The following group ID values
-        /// are valid:</para><ul><li><para><c>db.sql.id</c> for dimension group <c>db.sql</c> (Aurora and RDS only)</para></li><li><para><c>db.query.id</c> for dimension group <c>db.query</c> (DocumentDB only)</para></li></ul>
+        /// are valid:</para><ul><li><para><c>db.execution_plan.id</c> for dimension group <c>db.execution_plan</c> (Aurora
+        /// and RDS only)</para></li><li><para><c>db.sql.id</c> for dimension group <c>db.sql</c> (Aurora and RDS only)</para></li><li><para><c>db.query.id</c> for dimension group <c>db.query</c> (DocumentDB only)</para></li><li><para>For the dimension group <c>db.lock_snapshot</c>, the <c>GroupIdentifier</c> is the
+        /// epoch timestamp when Performance Insights captured the snapshot, in seconds. You can
+        /// retrieve this value with the <c>GetResourceMetrics</c> operation for a 1 second period.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <para>A list of dimensions to retrieve the detail data for within the given dimension group.
         /// If you don't specify this parameter, Performance Insights returns all dimension data
         /// within the specified dimension group. Specify dimension names for the following dimension
-        /// groups:</para><ul><li><para><c>db.sql</c> - Specify either the full dimension name <c>db.sql.statement</c> or
+        /// groups:</para><ul><li><para><c>db.execution_plan</c> - Specify the dimension name <c>db.execution_plan.raw_plan</c>
+        /// or the short dimension name <c>raw_plan</c> (Amazon RDS and Aurora only)</para></li><li><para><c>db.lock_snapshot</c> - Specify the dimension name <c>db.lock_snapshot.lock_trees</c>
+        /// or the short dimension name <c>lock_trees</c>. (Aurora only)</para></li><li><para><c>db.sql</c> - Specify either the full dimension name <c>db.sql.statement</c> or
         /// the short dimension name <c>statement</c> (Aurora and RDS only).</para></li><li><para><c>db.query</c> - Specify either the full dimension name <c>db.query.statement</c>
         /// or the short dimension name <c>statement</c> (DocumentDB only).</para></li></ul>
         /// </para>

@@ -39,10 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// a default action to take (allow, block) for any request that does not match any of
     /// the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>,
     /// and managed rule group. You can associate a web ACL with one or more Amazon Web Services
-    /// resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon
-    /// API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon
-    /// Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access
-    /// instance. 
+    /// resources to protect. The resource types include Amazon CloudFront distribution, Amazon
+    /// API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito
+    /// user pool, App Runner service, and Amazon Web Services Verified Access instance. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CustomResponseBodies")]
         public System.Collections.Hashtable CustomResponseBody { get; set; }
+        #endregion
+        
+        #region Parameter DataProtectionConfig_DataProtection
+        /// <summary>
+        /// <para>
+        /// <para>An array of data protection configurations for specific web request field types. This
+        /// is defined for each web ACL. WAF applies the specified protection to all web requests
+        /// that the web ACL inspects. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataProtectionConfig_DataProtections")]
+        public Amazon.WAFV2.Model.DataProtection[] DataProtectionConfig_DataProtection { get; set; }
         #endregion
         
         #region Parameter Description
@@ -220,10 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>Indicates whether WAF should store a sampling of the web requests that match the rules.
-        /// You can view the sampled requests through the WAF console. </para><note><para>Request sampling doesn't provide a field redaction option, and any field redaction
-        /// that you specify in your logging configuration doesn't affect sampling. The only way
-        /// to exclude fields from request sampling is by disabling sampling in the web ACL visibility
-        /// configuration. </para></note>
+        /// You can view the sampled requests through the WAF console. </para><para>If you configure data protection for the web ACL, the protection applies to the web
+        /// ACL's sampled web request data. </para><note><para>Request sampling doesn't provide a field redaction option, and any field redaction
+        /// that you specify in your logging configuration doesn't affect sampling. You can only
+        /// exclude fields from request sampling by disabling sampling in the web ACL visibility
+        /// configuration or by configuring data protection for the web ACL.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -239,10 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
-        /// application. A regional application can be an Application Load Balancer (ALB), an
-        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// <para>Specifies whether this is for a global resource type, such as a Amazon CloudFront
+        /// distribution. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <c>--scope=CLOUDFRONT
         /// --region=us-east-1</c>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
@@ -350,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 {
                     context.CustomResponseBody.Add((String)hashKey, (Amazon.WAFV2.Model.CustomResponseBody)(this.CustomResponseBody[hashKey]));
                 }
+            }
+            if (this.DataProtectionConfig_DataProtection != null)
+            {
+                context.DataProtectionConfig_DataProtection = new List<Amazon.WAFV2.Model.DataProtection>(this.DataProtectionConfig_DataProtection);
             }
             context.DefaultAction_Allow = this.DefaultAction_Allow;
             context.DefaultAction_Block = this.DefaultAction_Block;
@@ -509,6 +524,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 request.CustomResponseBodies = cmdletContext.CustomResponseBody;
             }
             
+             // populate DataProtectionConfig
+            var requestDataProtectionConfigIsNull = true;
+            request.DataProtectionConfig = new Amazon.WAFV2.Model.DataProtectionConfig();
+            List<Amazon.WAFV2.Model.DataProtection> requestDataProtectionConfig_dataProtectionConfig_DataProtection = null;
+            if (cmdletContext.DataProtectionConfig_DataProtection != null)
+            {
+                requestDataProtectionConfig_dataProtectionConfig_DataProtection = cmdletContext.DataProtectionConfig_DataProtection;
+            }
+            if (requestDataProtectionConfig_dataProtectionConfig_DataProtection != null)
+            {
+                request.DataProtectionConfig.DataProtections = requestDataProtectionConfig_dataProtectionConfig_DataProtection;
+                requestDataProtectionConfigIsNull = false;
+            }
+             // determine if request.DataProtectionConfig should be set to null
+            if (requestDataProtectionConfigIsNull)
+            {
+                request.DataProtectionConfig = null;
+            }
+            
              // populate DefaultAction
             var requestDefaultActionIsNull = true;
             request.DefaultAction = new Amazon.WAFV2.Model.DefaultAction();
@@ -659,6 +693,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody> CustomResponseBody { get; set; }
+            public List<Amazon.WAFV2.Model.DataProtection> DataProtectionConfig_DataProtection { get; set; }
             public Amazon.WAFV2.Model.AllowAction DefaultAction_Allow { get; set; }
             public Amazon.WAFV2.Model.BlockAction DefaultAction_Block { get; set; }
             public System.String Description { get; set; }

@@ -1,3 +1,0 @@
-﻿# ElasticInference
-
-Export-ModuleMember -Alias *

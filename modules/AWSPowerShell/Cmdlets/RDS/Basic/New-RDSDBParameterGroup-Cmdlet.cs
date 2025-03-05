@@ -42,17 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB parameter group and associated settings to take effect.
     /// </para><para>
     /// This command doesn't apply to RDS Custom.
-    /// </para><important><para>
-    /// After you create a DB parameter group, you should wait at least 5 minutes before creating
-    /// your first DB instance that uses that DB parameter group as the default parameter
-    /// group. This allows Amazon RDS to fully complete the create action before the parameter
-    /// group is used as the default for a new DB instance. This is especially important for
-    /// parameters that are critical when creating the default database for a DB instance,
-    /// such as the character set for the default database defined by the <c>character_set_database</c>
-    /// parameter. You can use the <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon
-    /// RDS console</a> or the <i>DescribeDBParameters</i> command to verify that your DB
-    /// parameter group has been created or modified.
-    /// </para></important>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "RDSDBParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBParameterGroup")]

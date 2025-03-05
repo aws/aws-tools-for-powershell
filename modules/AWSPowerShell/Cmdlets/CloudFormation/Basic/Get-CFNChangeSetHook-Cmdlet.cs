@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
-        /// <para>If specified, lists only the hooks related to the specified <c>LogicalResourceId</c>.</para>
+        /// <para>If specified, lists only the Hooks related to the specified <c>LogicalResourceId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

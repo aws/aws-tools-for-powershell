@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The mode of Database Insights to enable for the DB cluster.</para><para>If you set this value to <c>advanced</c>, you must also set the <c>PerformanceInsightsEnabled</c>
         /// parameter to <c>true</c> and the <c>PerformanceInsightsRetentionPeriod</c> parameter
-        /// to 465.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
+        /// to 465.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

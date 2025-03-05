@@ -83,6 +83,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String CdcStopPosition { get; set; }
         #endregion
         
+        #region Parameter PremigrationAssessmentSetting
+        /// <summary>
+        /// <para>
+        /// <para>User-defined settings for the premigration assessment. The possible values are:</para><ul><li><para><c>ResultLocationFolder</c>: The folder within an Amazon S3 bucket where you want
+        /// DMS to store the results of this assessment run.</para></li><li><para><c>ResultEncryptionMode</c>: The supported values are <c>SSE_KMS</c> and <c>SSE_S3</c>.
+        /// If these values are not provided, then the files are not encrypted at rest. For more
+        /// information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.KMSKeys">Creating
+        /// Amazon Web Services KMS keys to encrypt Amazon S3 target objects</a>.</para></li><li><para><c>ResultKmsKeyArn</c>: The ARN of a customer KMS encryption key that you specify
+        /// when you set <c>ResultEncryptionMode</c> to <c>SSE_KMS</c>.</para></li><li><para><c>IncludeOnly</c>: A space-separated list of names for specific individual assessments
+        /// that you want to include. These names come from the default list of individual assessments
+        /// that Database Migration Service supports for the associated migration.</para></li><li><para><c>Exclude</c>: A space-separated list of names for specific individual assessments
+        /// that you want to exclude. These names come from the default list of individual assessments
+        /// that Database Migration Service supports for the associated migration.</para></li><li><para><c>FailOnAssessmentFailure</c>: A configurable setting you can set to <c>true</c>
+        /// (the default setting) or <c>false</c>. Use this setting to to stop the replication
+        /// from starting automatically if the assessment fails. This can help you evaluate the
+        /// issue that is preventing the replication from running successfully.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PremigrationAssessmentSettings")]
+        public System.String PremigrationAssessmentSetting { get; set; }
+        #endregion
+        
         #region Parameter ReplicationConfigArn
         /// <summary>
         /// <para>
@@ -174,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.CdcStartPosition = this.CdcStartPosition;
             context.CdcStartTime = this.CdcStartTime;
             context.CdcStopPosition = this.CdcStopPosition;
+            context.PremigrationAssessmentSetting = this.PremigrationAssessmentSetting;
             context.ReplicationConfigArn = this.ReplicationConfigArn;
             #if MODULAR
             if (this.ReplicationConfigArn == null && ParameterWasBound(nameof(this.ReplicationConfigArn)))
@@ -215,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.CdcStopPosition != null)
             {
                 request.CdcStopPosition = cmdletContext.CdcStopPosition;
+            }
+            if (cmdletContext.PremigrationAssessmentSetting != null)
+            {
+                request.PremigrationAssessmentSettings = cmdletContext.PremigrationAssessmentSetting;
             }
             if (cmdletContext.ReplicationConfigArn != null)
             {
@@ -282,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String CdcStartPosition { get; set; }
             public System.DateTime? CdcStartTime { get; set; }
             public System.String CdcStopPosition { get; set; }
+            public System.String PremigrationAssessmentSetting { get; set; }
             public System.String ReplicationConfigArn { get; set; }
             public System.String StartReplicationType { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.StartReplicationResponse, StartDMSReplicationCmdlet, object> Select { get; set; } =

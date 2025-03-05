@@ -5,7 +5,7 @@
     "CoreVersion"       : "4.0.0.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : true,
-    "PreviewLabel"        : "preview.7",
+    "PreviewLabel"        : "preview.9",
     "ServiceVersions"     : {
         "CloudHSM" : {
             "Version" : "4.0.0.0",
@@ -1572,14 +1572,6 @@
             "InPreview"               : false
         },
         "IoTSecureTunneling"              : {
-            "Version" : "4.0.0.0",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.0.0"
-            },
-            "InPreview"               : false
-        },
-        "ElasticInference"                : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

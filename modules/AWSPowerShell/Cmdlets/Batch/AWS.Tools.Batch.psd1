@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The Batch module of AWS Tools for PowerShell lets developers and administrators manage AWS Batch from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -34,6 +34,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Name of the PowerShell host required by this module
     PowerShellHostName = ''
+
+
 
     # Minimum version of the PowerShell host required by this module
     PowerShellHostVersion = ''
@@ -84,19 +86,24 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-BATResourceTag', 
         'Get-BATComputeEnvironment', 
+        'Get-BATConsumableResource', 
+        'Get-BATConsumableResourceList', 
         'Get-BATJobDefinition', 
         'Get-BATJobDetail', 
         'Get-BATJobList', 
         'Get-BATJobQueue', 
         'Get-BATJobQueueSnapshot', 
+        'Get-BATJobsByConsumableResourceList', 
         'Get-BATResourceTag', 
         'Get-BATSchedulingPolicy', 
         'Get-BATSchedulingPolicyList', 
         'New-BATComputeEnvironment', 
+        'New-BATConsumableResource', 
         'New-BATJobQueue', 
         'New-BATSchedulingPolicy', 
         'Register-BATJobDefinition', 
         'Remove-BATComputeEnvironment', 
+        'Remove-BATConsumableResource', 
         'Remove-BATJob', 
         'Remove-BATJobQueue', 
         'Remove-BATResourceTag', 
@@ -105,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Submit-BATJob', 
         'Unregister-BATJobDefinition', 
         'Update-BATComputeEnvironment', 
+        'Update-BATConsumableResource', 
         'Update-BATJobQueue', 
         'Update-BATSchedulingPolicy')
 

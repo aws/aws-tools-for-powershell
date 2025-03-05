@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// If a file cache with the specified client request token doesn't exist, <c>CreateFileCache</c>
     /// does the following: 
     /// </para><ul><li><para>
-    /// Creates a new, empty Amazon File Cache resourcewith an assigned ID, and an initial
+    /// Creates a new, empty Amazon File Cache resource with an assigned ID, and an initial
     /// lifecycle state of <c>CREATING</c>.
     /// </para></li><li><para>
     /// Returns the description of the cache in JSON format.

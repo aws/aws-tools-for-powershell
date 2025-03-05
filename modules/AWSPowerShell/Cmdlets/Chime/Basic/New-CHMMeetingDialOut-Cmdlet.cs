@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <para>
     /// To play welcome audio or implement an interactive voice response (IVR), use the <c>CreateSipMediaApplicationCall</c>
     /// action with the corresponding SIP media application ID.
-    /// </para><important><para><b>This API is is not available in a dedicated namespace.</b></para></important>
+    /// </para><important><para><b>This API is not available in a dedicated namespace.</b></para></important>
     /// </summary>
     [Cmdlet("New", "CHMMeetingDialOut", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

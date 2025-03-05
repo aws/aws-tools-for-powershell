@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// For example, if you already have 99 claimed or imported numbers and a service level
     /// quota of 99 phone numbers, and in any 180 day period you release 99, claim 99, and
     /// then release 99, you will have exceeded the 200% limit. At that point you are blocked
-    /// from claiming any more numbers until you open an Amazon Web Services Support ticket.
+    /// from claiming any more numbers until you open an Amazon Web ServicesSupport ticket.
     /// 
     /// </para>
     /// </summary>

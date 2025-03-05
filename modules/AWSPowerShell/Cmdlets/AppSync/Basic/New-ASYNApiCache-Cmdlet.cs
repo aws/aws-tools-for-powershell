@@ -47,7 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ApiCachingBehavior
         /// <summary>
         /// <para>
-        /// <para>Caching behavior.</para><ul><li><para><b>FULL_REQUEST_CACHING</b>: All requests are fully cached.</para></li><li><para><b>PER_RESOLVER_CACHING</b>: Individual resolvers that you specify are cached.</para></li></ul>
+        /// <para>Caching behavior.</para><ul><li><para><b>FULL_REQUEST_CACHING</b>: All requests from the same user are cached. Individual
+        /// resolvers are automatically cached. All API calls will try to return responses from
+        /// the cache.</para></li><li><para><b>PER_RESOLVER_CACHING</b>: Individual resolvers that you specify are cached.</para></li><li><para><b>OPERATION_LEVEL_CACHING</b>: Full requests are cached together and returned without
+        /// executing resolvers.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

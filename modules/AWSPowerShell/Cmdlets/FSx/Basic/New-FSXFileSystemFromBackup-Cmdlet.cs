@@ -234,10 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Sets the version for the Amazon FSx for Lustre file system that you're creating from
-        /// a backup. Valid values are <c>2.10</c>, <c>2.12</c>, and <c>2.15</c>.</para><para>You don't need to specify <c>FileSystemTypeVersion</c> because it will be applied
-        /// using the backup's <c>FileSystemTypeVersion</c> setting. If you choose to specify
-        /// <c>FileSystemTypeVersion</c> when creating from backup, the value must match the backup's
-        /// <c>FileSystemTypeVersion</c> setting.</para>
+        /// a backup. Valid values are <c>2.10</c>, <c>2.12</c>, and <c>2.15</c>.</para><para>You can enter a Lustre version that is newer than the backup's <c>FileSystemTypeVersion</c>
+        /// setting. If you don't enter a newer Lustre version, it defaults to the backup's setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -405,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// value. If you don't use the <c>StorageCapacity</c> parameter, the default is the backup's
         /// <c>StorageCapacity</c> value.</para><para>If used to create a file system other than OpenZFS, you must provide a value that
         /// matches the backup's <c>StorageCapacity</c> value. If you provide any other value,
-        /// Amazon FSx responds with with an HTTP status code 400 Bad Request. </para>
+        /// Amazon FSx responds with an HTTP status code 400 Bad Request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

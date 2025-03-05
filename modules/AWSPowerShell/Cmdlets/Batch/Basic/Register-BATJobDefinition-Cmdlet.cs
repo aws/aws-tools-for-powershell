@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.Batch;
 using Amazon.Batch.Model;
 
@@ -41,7 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Metadata_Annotation
         /// <summary>
@@ -103,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] ContainerProperties_Command { get; set; }
+        #endregion
+        
+        #region Parameter ConsumableResourceProperties_ConsumableResourceList
+        /// <summary>
+        /// <para>
+        /// <para>The list of consumable resources required by a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ConsumableResourceRequirement[] ConsumableResourceProperties_ConsumableResourceList { get; set; }
         #endregion
         
         #region Parameter PodProperties_Container
@@ -908,6 +916,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public string Select { get; set; } = "*";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the JobDefinitionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobDefinitionName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobDefinitionName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -918,11 +936,6 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -939,10 +952,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Batch.Model.RegisterJobDefinitionResponse, RegisterBATJobDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.JobDefinitionName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ConsumableResourceProperties_ConsumableResourceList != null)
+            {
+                context.ConsumableResourceProperties_ConsumableResourceList = new List<Amazon.Batch.Model.ConsumableResourceRequirement>(this.ConsumableResourceProperties_ConsumableResourceList);
             }
             if (this.ContainerProperties_Command != null)
             {
@@ -1121,6 +1148,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // create request
             var request = new Amazon.Batch.Model.RegisterJobDefinitionRequest();
             
+            
+             // populate ConsumableResourceProperties
+            var requestConsumableResourcePropertiesIsNull = true;
+            request.ConsumableResourceProperties = new Amazon.Batch.Model.ConsumableResourceProperties();
+            List<Amazon.Batch.Model.ConsumableResourceRequirement> requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList = null;
+            if (cmdletContext.ConsumableResourceProperties_ConsumableResourceList != null)
+            {
+                requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList = cmdletContext.ConsumableResourceProperties_ConsumableResourceList;
+            }
+            if (requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList != null)
+            {
+                request.ConsumableResourceProperties.ConsumableResourceList = requestConsumableResourceProperties_consumableResourceProperties_ConsumableResourceList;
+                requestConsumableResourcePropertiesIsNull = false;
+            }
+             // determine if request.ConsumableResourceProperties should be set to null
+            if (requestConsumableResourcePropertiesIsNull)
+            {
+                request.ConsumableResourceProperties = null;
+            }
             
              // populate ContainerProperties
             var requestContainerPropertiesIsNull = true;
@@ -1855,7 +1901,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "RegisterJobDefinition");
             try
             {
-                return client.RegisterJobDefinitionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.RegisterJobDefinition(request);
+                #elif CORECLR
+                return client.RegisterJobDefinitionAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -1872,6 +1924,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Batch.Model.ConsumableResourceRequirement> ConsumableResourceProperties_ConsumableResourceList { get; set; }
             public List<System.String> ContainerProperties_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
             public System.Int32? EphemeralStorage_SizeInGiB { get; set; }

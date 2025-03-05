@@ -80,82 +80,6 @@ $CHM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.Chime.ArtifactsState
-        {
-            ($_ -eq "New-CHMMediaCapturePipeline/Content_State") -Or
-            ($_ -eq "New-CHMMediaCapturePipeline/Video_State")
-        }
-        {
-            $v = "Disabled","Enabled"
-            break
-        }
-
-        # Amazon.Chime.AudioMuxType
-        "New-CHMMediaCapturePipeline/Audio_MuxType"
-        {
-            $v = "AudioOnly","AudioWithActiveSpeakerVideo"
-            break
-        }
-
-        # Amazon.Chime.ChannelMembershipType
-        {
-            ($_ -eq "Get-CHMChannelMembershipList/Type") -Or
-            ($_ -eq "New-CHMChannelMembership/Type") -Or
-            ($_ -eq "New-CHMCreateChannelMembership/Type")
-        }
-        {
-            $v = "DEFAULT","HIDDEN"
-            break
-        }
-
-        # Amazon.Chime.ChannelMessagePersistenceType
-        "Send-CHMChannelMessage/Persistence"
-        {
-            $v = "NON_PERSISTENT","PERSISTENT"
-            break
-        }
-
-        # Amazon.Chime.ChannelMessageType
-        "Send-CHMChannelMessage/Type"
-        {
-            $v = "CONTROL","STANDARD"
-            break
-        }
-
-        # Amazon.Chime.ChannelMode
-        {
-            ($_ -eq "New-CHMChannel/Mode") -Or
-            ($_ -eq "Update-CHMChannel/Mode")
-        }
-        {
-            $v = "RESTRICTED","UNRESTRICTED"
-            break
-        }
-
-        # Amazon.Chime.ChannelPrivacy
-        {
-            ($_ -eq "Get-CHMChannelList/Privacy") -Or
-            ($_ -eq "New-CHMChannel/Privacy")
-        }
-        {
-            $v = "PRIVATE","PUBLIC"
-            break
-        }
-
-        # Amazon.Chime.ContentMuxType
-        "New-CHMMediaCapturePipeline/Content_MuxType"
-        {
-            $v = "ContentOnly"
-            break
-        }
-
-        # Amazon.Chime.GeoMatchLevel
-        "New-CHMProxySession/GeoMatchLevel"
-        {
-            $v = "AreaCode","Country"
-            break
-        }
-
         # Amazon.Chime.License
         {
             ($_ -eq "Update-CHMAccount/DefaultLicense") -Or
@@ -163,27 +87,6 @@ $CHM_Completers = {
         }
         {
             $v = "Basic","Plus","Pro","ProTrial"
-            break
-        }
-
-        # Amazon.Chime.MediaPipelineSinkType
-        "New-CHMMediaCapturePipeline/SinkType"
-        {
-            $v = "S3Bucket"
-            break
-        }
-
-        # Amazon.Chime.MediaPipelineSourceType
-        "New-CHMMediaCapturePipeline/SourceType"
-        {
-            $v = "ChimeSdkMeeting"
-            break
-        }
-
-        # Amazon.Chime.NumberSelectionBehavior
-        "New-CHMProxySession/NumberSelectionBehavior"
-        {
-            $v = "AvoidSticky","PreferSticky"
             break
         }
 
@@ -220,13 +123,6 @@ $CHM_Completers = {
             break
         }
 
-        # Amazon.Chime.ProxySessionStatus
-        "Get-CHMProxySessionList/Status"
-        {
-            $v = "Closed","InProgress","Open"
-            break
-        }
-
         # Amazon.Chime.RoomMembershipRole
         {
             ($_ -eq "New-CHMRoomMembership/Role") -Or
@@ -234,100 +130,6 @@ $CHM_Completers = {
         }
         {
             $v = "Administrator","Member"
-            break
-        }
-
-        # Amazon.Chime.SipRuleTriggerType
-        "New-CHMSipRule/TriggerType"
-        {
-            $v = "RequestUriHostname","ToPhoneNumber"
-            break
-        }
-
-        # Amazon.Chime.SortOrder
-        "Get-CHMChannelMessageList/SortOrder"
-        {
-            $v = "ASCENDING","DESCENDING"
-            break
-        }
-
-        # Amazon.Chime.TranscribeContentIdentificationType
-        "Start-CHMMeetingTranscription/EngineTranscribeSettings_ContentIdentificationType"
-        {
-            $v = "PII"
-            break
-        }
-
-        # Amazon.Chime.TranscribeContentRedactionType
-        "Start-CHMMeetingTranscription/EngineTranscribeSettings_ContentRedactionType"
-        {
-            $v = "PII"
-            break
-        }
-
-        # Amazon.Chime.TranscribeLanguageCode
-        {
-            ($_ -eq "Start-CHMMeetingTranscription/EngineTranscribeSettings_LanguageCode") -Or
-            ($_ -eq "Start-CHMMeetingTranscription/EngineTranscribeSettings_PreferredLanguage")
-        }
-        {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","th-TH","zh-CN"
-            break
-        }
-
-        # Amazon.Chime.TranscribeMedicalContentIdentificationType
-        "Start-CHMMeetingTranscription/EngineTranscribeMedicalSettings_ContentIdentificationType"
-        {
-            $v = "PHI"
-            break
-        }
-
-        # Amazon.Chime.TranscribeMedicalLanguageCode
-        "Start-CHMMeetingTranscription/EngineTranscribeMedicalSettings_LanguageCode"
-        {
-            $v = "en-US"
-            break
-        }
-
-        # Amazon.Chime.TranscribeMedicalRegion
-        "Start-CHMMeetingTranscription/EngineTranscribeMedicalSettings_Region"
-        {
-            $v = "ap-southeast-2","auto","ca-central-1","eu-west-1","us-east-1","us-east-2","us-west-2"
-            break
-        }
-
-        # Amazon.Chime.TranscribeMedicalSpecialty
-        "Start-CHMMeetingTranscription/EngineTranscribeMedicalSettings_Specialty"
-        {
-            $v = "CARDIOLOGY","NEUROLOGY","ONCOLOGY","PRIMARYCARE","RADIOLOGY","UROLOGY"
-            break
-        }
-
-        # Amazon.Chime.TranscribeMedicalType
-        "Start-CHMMeetingTranscription/EngineTranscribeMedicalSettings_Type"
-        {
-            $v = "CONVERSATION","DICTATION"
-            break
-        }
-
-        # Amazon.Chime.TranscribePartialResultsStability
-        "Start-CHMMeetingTranscription/EngineTranscribeSettings_PartialResultsStability"
-        {
-            $v = "high","low","medium"
-            break
-        }
-
-        # Amazon.Chime.TranscribeRegion
-        "Start-CHMMeetingTranscription/EngineTranscribeSettings_Region"
-        {
-            $v = "ap-northeast-1","ap-northeast-2","ap-southeast-2","auto","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-east-2","us-west-2"
-            break
-        }
-
-        # Amazon.Chime.TranscribeVocabularyFilterMethod
-        "Start-CHMMeetingTranscription/EngineTranscribeSettings_VocabularyFilterMethod"
-        {
-            $v = "mask","remove","tag"
             break
         }
 
@@ -343,20 +145,6 @@ $CHM_Completers = {
             break
         }
 
-        # Amazon.Chime.VideoMuxType
-        "New-CHMMediaCapturePipeline/Video_MuxType"
-        {
-            $v = "VideoOnly"
-            break
-        }
-
-        # Amazon.Chime.VoiceConnectorAwsRegion
-        "New-CHMVoiceConnector/AwsRegion"
-        {
-            $v = "us-east-1","us-west-2"
-            break
-        }
-
 
     }
 
@@ -366,42 +154,14 @@ $CHM_Completers = {
 }
 
 $CHM_map = @{
-    "Audio_MuxType"=@("New-CHMMediaCapturePipeline")
-    "AwsRegion"=@("New-CHMVoiceConnector")
-    "Content_MuxType"=@("New-CHMMediaCapturePipeline")
-    "Content_State"=@("New-CHMMediaCapturePipeline")
     "DefaultLicense"=@("Update-CHMAccount")
-    "EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeMedicalSettings_Region"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeMedicalSettings_Specialty"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeMedicalSettings_Type"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_ContentIdentificationType"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_Region"=@("Start-CHMMeetingTranscription")
-    "EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMMeetingTranscription")
     "FilterName"=@("Get-CHMPhoneNumberList")
-    "GeoMatchLevel"=@("New-CHMProxySession")
     "LicenseType"=@("Update-CHMUser")
-    "Mode"=@("New-CHMChannel","Update-CHMChannel")
-    "NumberSelectionBehavior"=@("New-CHMProxySession")
-    "Persistence"=@("Send-CHMChannelMessage")
     "PhoneNumberType"=@("Search-CHMAvailablePhoneNumber")
-    "Privacy"=@("Get-CHMChannelList","New-CHMChannel")
     "ProductType"=@("Get-CHMPhoneNumberList","Get-CHMSupportedPhoneNumberCountryList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
-    "SinkType"=@("New-CHMMediaCapturePipeline")
-    "SortOrder"=@("Get-CHMChannelMessageList")
-    "SourceType"=@("New-CHMMediaCapturePipeline")
-    "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
-    "TriggerType"=@("New-CHMSipRule")
-    "Type"=@("Get-CHMChannelMembershipList","New-CHMChannelMembership","New-CHMCreateChannelMembership","Send-CHMChannelMessage")
+    "Status"=@("Get-CHMPhoneNumberList")
     "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
-    "Video_MuxType"=@("New-CHMMediaCapturePipeline")
-    "Video_State"=@("New-CHMMediaCapturePipeline")
 }
 
 _awsArgumentCompleterRegistration $CHM_Completers $CHM_map
@@ -454,12 +214,8 @@ $CHM_SelectCompleters = {
 }
 
 $CHM_SelectMap = @{
-    "Select"=@("Add-CHMPhoneNumbersToVoiceConnector",
-               "Add-CHMPhoneNumbersToVoiceConnectorGroup",
-               "Add-CHMPhoneNumberToUser",
+    "Select"=@("Add-CHMPhoneNumberToUser",
                "Add-CHMSigninDelegateGroupsToAccount",
-               "New-CHMAttendeeBatch",
-               "New-CHMCreateChannelMembership",
                "New-CHMRoomMembershipBatch",
                "Remove-CHMPhoneNumberBatch",
                "Enable-CHMUserSuspensionBatch",
@@ -467,184 +223,59 @@ $CHM_SelectMap = @{
                "Update-CHMPhoneNumberBatch",
                "Update-CHMUserBatch",
                "New-CHMAccount",
-               "New-CHMAppInstance",
-               "New-CHMAppInstanceAdmin",
-               "New-CHMAppInstanceUser",
-               "New-CHMAttendee",
                "New-CHMBot",
-               "New-CHMChannel",
-               "New-CHMChannelBan",
-               "New-CHMChannelMembership",
-               "New-CHMChannelModerator",
-               "New-CHMMediaCapturePipeline",
-               "New-CHMMeeting",
                "New-CHMMeetingDialOut",
-               "New-CHMMeetingWithAttendee",
                "New-CHMPhoneNumberOrder",
-               "New-CHMProxySession",
                "New-CHMRoom",
                "New-CHMRoomMembership",
-               "New-CHMSipMediaApplication",
-               "New-CHMSipMediaApplicationCall",
-               "New-CHMSipRule",
                "New-CHMUser",
-               "New-CHMVoiceConnector",
-               "New-CHMVoiceConnectorGroup",
                "Remove-CHMAccount",
-               "Remove-CHMAppInstance",
-               "Remove-CHMAppInstanceAdmin",
-               "Remove-CHMAppInstanceStreamingConfiguration",
-               "Remove-CHMAppInstanceUser",
-               "Remove-CHMAttendee",
-               "Remove-CHMChannel",
-               "Remove-CHMChannelBan",
-               "Remove-CHMChannelMembership",
-               "Remove-CHMChannelMessage",
-               "Remove-CHMChannelModerator",
                "Remove-CHMEventsConfiguration",
-               "Remove-CHMMediaCapturePipeline",
-               "Remove-CHMMeeting",
                "Remove-CHMPhoneNumber",
-               "Remove-CHMProxySession",
                "Remove-CHMRoom",
                "Remove-CHMRoomMembership",
-               "Remove-CHMSipMediaApplication",
-               "Remove-CHMSipRule",
-               "Remove-CHMVoiceConnector",
-               "Remove-CHMVoiceConnectorEmergencyCallingConfiguration",
-               "Remove-CHMVoiceConnectorGroup",
-               "Remove-CHMVoiceConnectorOrigination",
-               "Remove-CHMVoiceConnectorProxy",
-               "Remove-CHMVoiceConnectorStreamingConfiguration",
-               "Remove-CHMVoiceConnectorTermination",
-               "Remove-CHMVoiceConnectorTerminationCredential",
-               "Get-CHMAppInstance",
-               "Get-CHMAppInstanceAdmin",
-               "Get-CHMAppInstanceUser",
-               "Get-CHMChannel",
-               "Get-CHMChannelBan",
-               "Get-CHMChannelMembership",
-               "Get-CHMChannelMembershipForAppInstanceUser",
-               "Get-CHMChannelModeratedByAppInstanceUser",
-               "Get-CHMChannelModerator",
                "Remove-CHMPhoneNumberFromUser",
-               "Remove-CHMPhoneNumbersFromVoiceConnector",
-               "Remove-CHMPhoneNumbersFromVoiceConnectorGroup",
                "Remove-CHMSigninDelegateGroupsFromAccount",
                "Get-CHMAccount",
                "Get-CHMAccountSetting",
-               "Get-CHMAppInstanceRetentionSetting",
-               "Get-CHMAppInstanceStreamingConfiguration",
-               "Get-CHMAttendee",
                "Get-CHMBot",
-               "Get-CHMChannelMessage",
                "Get-CHMEventsConfiguration",
                "Get-CHMGlobalSetting",
-               "Get-CHMMediaCapturePipeline",
-               "Get-CHMMeeting",
-               "Get-CHMMessagingSessionEndpoint",
                "Get-CHMPhoneNumber",
                "Get-CHMPhoneNumberOrder",
                "Get-CHMPhoneNumberSetting",
-               "Get-CHMProxySession",
                "Get-CHMRetentionSetting",
                "Get-CHMRoom",
-               "Get-CHMSipMediaApplication",
-               "Get-CHMSipMediaApplicationLoggingConfiguration",
-               "Get-CHMSipRule",
                "Get-CHMUser",
                "Get-CHMUserSetting",
-               "Get-CHMVoiceConnector",
-               "Get-CHMVoiceConnectorEmergencyCallingConfiguration",
-               "Get-CHMVoiceConnectorGroup",
-               "Get-CHMVoiceConnectorLoggingConfiguration",
-               "Get-CHMVoiceConnectorOrigination",
-               "Get-CHMVoiceConnectorProxy",
-               "Get-CHMVoiceConnectorStreamingConfiguration",
-               "Get-CHMVoiceConnectorTermination",
-               "Get-CHMVoiceConnectorTerminationHealth",
                "Send-CHMUserInvitation",
                "Get-CHMAccountList",
-               "Get-CHMAppInstanceAdminList",
-               "Get-CHMAppInstanceList",
-               "Get-CHMAppInstanceUserList",
-               "Get-CHMAttendeeList",
-               "Get-CHMAttendeeTagList",
                "Get-CHMBotList",
-               "Get-CHMChannelBanList",
-               "Get-CHMChannelMembershipList",
-               "Get-CHMChannelMembershipsForAppInstanceUserList",
-               "Get-CHMChannelMessageList",
-               "Get-CHMChannelModeratorList",
-               "Get-CHMChannelList",
-               "Get-CHMChannelsModeratedByAppInstanceUserList",
-               "Get-CHMMediaCapturePipelineList",
-               "Get-CHMMeetingList",
-               "Get-CHMMeetingTagList",
                "Get-CHMPhoneNumberOrderList",
                "Get-CHMPhoneNumberList",
-               "Get-CHMProxySessionList",
                "Get-CHMRoomMembershipList",
                "Get-CHMRoomList",
-               "Get-CHMSipMediaApplicationList",
-               "Get-CHMSipRuleList",
                "Get-CHMSupportedPhoneNumberCountryList",
-               "Get-CHMResourceTag",
                "Get-CHMUserList",
-               "Get-CHMVoiceConnectorGroupList",
-               "Get-CHMVoiceConnectorList",
-               "Get-CHMVoiceConnectorTerminationCredentialList",
                "Invoke-CHMUserLogout",
-               "Write-CHMAppInstanceRetentionSetting",
-               "Write-CHMAppInstanceStreamingConfiguration",
                "Write-CHMEventsConfiguration",
                "Write-CHMRetentionSetting",
-               "Write-CHMSipMediaApplicationLoggingConfiguration",
-               "Write-CHMVoiceConnectorEmergencyCallingConfiguration",
-               "Write-CHMVoiceConnectorLoggingConfiguration",
-               "Write-CHMVoiceConnectorOrigination",
-               "Write-CHMVoiceConnectorProxy",
-               "Write-CHMVoiceConnectorStreamingConfiguration",
-               "Write-CHMVoiceConnectorTermination",
-               "Write-CHMVoiceConnectorTerminationCredential",
-               "Hide-CHMChannelMessage",
                "Hide-CHMConversationMessage",
                "Hide-CHMRoomMessage",
                "Update-CHMSecurityToken",
                "Reset-CHMPersonalPIN",
                "Restore-CHMPhoneNumber",
                "Search-CHMAvailablePhoneNumber",
-               "Send-CHMChannelMessage",
-               "Start-CHMMeetingTranscription",
-               "Stop-CHMMeetingTranscription",
-               "Add-CHMAttendee",
-               "Add-CHMMeeting",
-               "Add-CHMResourceTag",
-               "Remove-CHMAttendeeTag",
-               "Remove-CHMMeetingTag",
-               "Remove-CHMResourceTag",
                "Update-CHMAccount",
                "Update-CHMAccountSetting",
-               "Update-CHMAppInstance",
-               "Update-CHMAppInstanceUser",
                "Update-CHMBot",
-               "Update-CHMChannel",
-               "Update-CHMChannelMessage",
-               "Update-CHMChannelReadMarker",
                "Update-CHMGlobalSetting",
                "Update-CHMPhoneNumber",
                "Update-CHMPhoneNumberSetting",
-               "Update-CHMProxySession",
                "Update-CHMRoom",
                "Update-CHMRoomMembership",
-               "Update-CHMSipMediaApplication",
-               "Update-CHMSipMediaApplicationCall",
-               "Update-CHMSipRule",
                "Update-CHMUser",
-               "Update-CHMUserSetting",
-               "Update-CHMVoiceConnector",
-               "Update-CHMVoiceConnectorGroup",
-               "Confirm-CHME911Address")
+               "Update-CHMUserSetting")
 }
 
 _awsArgumentCompleterRegistration $CHM_SelectCompleters $CHM_SelectMap

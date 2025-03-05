@@ -29,17 +29,13 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Associates a web ACL with a regional application resource, to protect the resource.
-    /// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway
-    /// REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service,
-    /// or an Amazon Web Services Verified Access instance. 
+    /// Associates a web ACL with a resource, to protect the resource. 
     /// 
     ///  
     /// <para>
-    /// For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution
-    /// configuration. To associate a web ACL, in the CloudFront call <c>UpdateDistribution</c>,
-    /// set the web ACL ID to the Amazon Resource Name (ARN) of the web ACL. For information,
-    /// see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
+    /// Use this for all resource types except for Amazon CloudFront distributions. For Amazon
+    /// CloudFront, call <c>UpdateDistribution</c> for the distribution and provide the Amazon
+    /// Resource Name (ARN) of the web ACL in the web ACL ID. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
     /// in the <i>Amazon CloudFront Developer Guide</i>. 
     /// </para><para><b>Required permissions for customer-managed IAM policies</b></para><para>
     /// This call requires permissions that are specific to the protected resource type. For

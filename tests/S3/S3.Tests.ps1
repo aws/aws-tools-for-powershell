@@ -66,6 +66,11 @@ Describe -Tag "Smoke" "S3" {
                 Write-S3Object -BucketName $script:bucketName -Key foo.txt -Content "this is a test" -ServerSideEncryption Naan
             } | Should -Throw
         }
+
+        It "Can verify bucket ownership during write operations" {
+            $accountId = (Get-S3Bucket -BucketName $script:bucketName).Owner.ID
+            Write-S3Object -BucketName $script:bucketName -Key "ownership-test.txt" -ExpectedBucketOwner $accountId -Content "testing bucket ownership verification"
+        }
     }
 
     Context "Reading" {
@@ -240,6 +245,15 @@ Describe -Tag "Smoke" "S3" {
             $tagCollection | Should -HaveCount 1
             ($tagCollection[0].Key) | Should -Be "testtag"
             ($tagCollection[0].Value) | Should -Be "testvalue"
+        }
+        It "Can copy with ExpectedBucketOwner parameter" {
+            $accountId = (Get-S3Bucket -BucketName $script:bucketName).Owner.ID
+            Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $westBucketName -DestinationKey "key-copy-owner" -Region us-east-1 -ExpectedBucketOwner $accountId
+            Read-S3Object -BucketName $westBucketName -Key "key-copy-owner" -File "temp\owner-copy.txt"
+            (Get-Content "temp\owner-copy.txt") | Should -Be $content
+
+            $incorrectAccountId = "000000000000"
+            { Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $westBucketName -DestinationKey "key-copy-owner-fail" -Region us-east-1 -ExpectedBucketOwner $incorrectAccountId } | Should -Throw 
         }
     }
 

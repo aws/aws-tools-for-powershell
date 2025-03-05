@@ -20,6 +20,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetCaseRule" OutputProperty="*" Verb="Group" Noun="GetCaseRule" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetField" OutputProperty="*" Verb="Group" Noun="GetField" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -29,6 +33,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCase" OutputProperty="*" Verb="New" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCaseRule" OutputProperty="*" Verb="New" Noun="CaseRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -49,6 +57,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCaseRule" Verb="Remove" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -89,6 +101,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTemplate" OutputProperty="*" Verb="Get" Noun="Template" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCaseRules" OutputProperty="CaseRules" Verb="Get" Noun="CaseRuleList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -141,6 +157,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCase" Verb="Update" Noun="Case" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCaseRule" Verb="Update" Noun="CaseRule" ShouldProcessTarget="CaseRuleId" PipelineParameter="CaseRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

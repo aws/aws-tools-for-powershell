@@ -52,7 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported
         /// resources are Amazon ECS capacity providers, tasks, services, task definitions, clusters,
-        /// and container instances.</para>
+        /// and container instances.</para><para>In order to tag a service that has the following ARN format, you need to migrate the
+        /// service to the long ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html">Migrate
+        /// an Amazon ECS short service ARN to a long ARN</a> in the <i>Amazon Elastic Container
+        /// Service Developer Guide</i>.</para><para><c>arn:aws:ecs:region:aws_account_id:service/service-name</c></para><para>After the migration is complete, the service has the long ARN format, as shown below.
+        /// Use this ARN to tag the service.</para><para><c>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</c></para><para>If you try to tag a service with a short ARN, you receive an <c>InvalidParameterException</c>
+        /// error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

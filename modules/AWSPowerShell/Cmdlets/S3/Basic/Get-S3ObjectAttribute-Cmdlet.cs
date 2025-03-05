@@ -38,11 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// a single call to <c>GetObjectAttributes</c>.
     /// </para><note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
     /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
-    /// requests in the format <c>https://<i>bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information about endpoints
-    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// requests in the format <c>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information about endpoints
+    /// in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional
     /// and Zonal endpoints for directory buckets in Availability Zones</a> in the <i>Amazon
-    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Available
-    /// Local Zone for directory buckets</a> in the <i>Amazon S3 User Guide</i>.
+    /// S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts
+    /// for directory buckets in Local Zones</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use <c>GetObjectAttributes</c>, you
     /// must have READ access to the object. The permissions that you need to use this operation
     /// depend on whether the bucket is versioned. If the bucket is versioned, you need both

@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
         /// IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version
-        /// 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on
+        /// 6.2 to 7.1 and Memcached engine version 1.6.6 and above on all instances built on
         /// the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
         /// </para>
         /// </summary>
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
-        /// workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached
+        /// workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 to 7.1 and Memcached
         /// engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>. </para>
         /// </para>

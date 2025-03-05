@@ -54,6 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.Model.BlueprintItem[] CustomOutputConfiguration_Blueprint { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KmsEncryptionContext
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable EncryptionConfiguration_KmsEncryptionContext { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter ProjectArn
         /// <summary>
         /// <para>
@@ -359,6 +379,15 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             {
                 context.CustomOutputConfiguration_Blueprint = new List<Amazon.BedrockDataAutomation.Model.BlueprintItem>(this.CustomOutputConfiguration_Blueprint);
             }
+            if (this.EncryptionConfiguration_KmsEncryptionContext != null)
+            {
+                context.EncryptionConfiguration_KmsEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EncryptionConfiguration_KmsEncryptionContext.Keys)
+                {
+                    context.EncryptionConfiguration_KmsEncryptionContext.Add((String)hashKey, (System.String)(this.EncryptionConfiguration_KmsEncryptionContext[hashKey]));
+                }
+            }
+            context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.Splitter_State = this.Splitter_State;
             context.ProjectArn = this.ProjectArn;
             #if MODULAR
@@ -446,6 +475,35 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestCustomOutputConfigurationIsNull)
             {
                 request.CustomOutputConfiguration = null;
+            }
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.BedrockDataAutomation.Model.EncryptionConfiguration();
+            Dictionary<System.String, System.String> requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext = null;
+            if (cmdletContext.EncryptionConfiguration_KmsEncryptionContext != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext = cmdletContext.EncryptionConfiguration_KmsEncryptionContext;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext != null)
+            {
+                request.EncryptionConfiguration.KmsEncryptionContext = requestEncryptionConfiguration_encryptionConfiguration_KmsEncryptionContext;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyId != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId = cmdletContext.EncryptionConfiguration_KmsKeyId;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId != null)
+            {
+                request.EncryptionConfiguration.KmsKeyId = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
             }
             
              // populate OverrideConfiguration
@@ -1093,6 +1151,8 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.BedrockDataAutomation.Model.BlueprintItem> CustomOutputConfiguration_Blueprint { get; set; }
+            public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
+            public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public Amazon.BedrockDataAutomation.State Splitter_State { get; set; }
             public System.String ProjectArn { get; set; }
             public System.String ProjectDescription { get; set; }

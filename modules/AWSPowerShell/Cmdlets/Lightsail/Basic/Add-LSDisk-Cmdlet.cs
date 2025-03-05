@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// The <c>attach disk</c> operation supports tag-based access control via resource tags
     /// applied to the resource identified by <c>disk name</c>. For more information, see
-    /// the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

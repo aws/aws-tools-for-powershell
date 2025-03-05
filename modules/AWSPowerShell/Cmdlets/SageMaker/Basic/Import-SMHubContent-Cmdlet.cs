@@ -181,6 +181,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String HubName { get; set; }
         #endregion
         
+        #region Parameter SupportStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the hub content resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.HubContentSupportStatus")]
+        public Amazon.SageMaker.HubContentSupportStatus SupportStatus { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -282,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter HubName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SupportStatus = this.SupportStatus;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -341,6 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.HubName != null)
             {
                 request.HubName = cmdletContext.HubName;
+            }
+            if (cmdletContext.SupportStatus != null)
+            {
+                request.SupportStatus = cmdletContext.SupportStatus;
             }
             if (cmdletContext.Tag != null)
             {
@@ -411,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.HubContentType HubContentType { get; set; }
             public System.String HubContentVersion { get; set; }
             public System.String HubName { get; set; }
+            public Amazon.SageMaker.HubContentSupportStatus SupportStatus { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.ImportHubContentResponse, ImportSMHubContentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

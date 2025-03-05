@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// to access the data on the disk.
     /// </para><para>
     /// The <c>create disk snapshot</c> operation supports tag-based access control via request
-    /// tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// tags. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

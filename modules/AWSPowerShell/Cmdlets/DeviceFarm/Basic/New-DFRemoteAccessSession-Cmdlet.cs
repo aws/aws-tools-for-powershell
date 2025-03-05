@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String DeviceArn { get; set; }
         #endregion
         
+        #region Parameter DeviceProxy_Host
+        /// <summary>
+        /// <para>
+        /// <para>Hostname or IPv4 address of the proxy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_DeviceProxy_Host")]
+        public System.String DeviceProxy_Host { get; set; }
+        #endregion
+        
         #region Parameter InstanceArn
         /// <summary>
         /// <para>
@@ -119,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter DeviceProxy_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number on which the http/s proxy is listening.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_DeviceProxy_Port")]
+        public System.Int32? DeviceProxy_Port { get; set; }
         #endregion
         
         #region Parameter ProjectArn
@@ -255,6 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             context.ClientId = this.ClientId;
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
+            context.DeviceProxy_Host = this.DeviceProxy_Host;
+            context.DeviceProxy_Port = this.DeviceProxy_Port;
             if (this.Configuration_VpceConfigurationArn != null)
             {
                 context.Configuration_VpceConfigurationArn = new List<System.String>(this.Configuration_VpceConfigurationArn);
@@ -323,6 +347,41 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_VpceConfigurationArn != null)
             {
                 request.Configuration.VpceConfigurationArns = requestConfiguration_configuration_VpceConfigurationArn;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DeviceFarm.Model.DeviceProxy requestConfiguration_configuration_DeviceProxy = null;
+            
+             // populate DeviceProxy
+            var requestConfiguration_configuration_DeviceProxyIsNull = true;
+            requestConfiguration_configuration_DeviceProxy = new Amazon.DeviceFarm.Model.DeviceProxy();
+            System.String requestConfiguration_configuration_DeviceProxy_deviceProxy_Host = null;
+            if (cmdletContext.DeviceProxy_Host != null)
+            {
+                requestConfiguration_configuration_DeviceProxy_deviceProxy_Host = cmdletContext.DeviceProxy_Host;
+            }
+            if (requestConfiguration_configuration_DeviceProxy_deviceProxy_Host != null)
+            {
+                requestConfiguration_configuration_DeviceProxy.Host = requestConfiguration_configuration_DeviceProxy_deviceProxy_Host;
+                requestConfiguration_configuration_DeviceProxyIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_DeviceProxy_deviceProxy_Port = null;
+            if (cmdletContext.DeviceProxy_Port != null)
+            {
+                requestConfiguration_configuration_DeviceProxy_deviceProxy_Port = cmdletContext.DeviceProxy_Port.Value;
+            }
+            if (requestConfiguration_configuration_DeviceProxy_deviceProxy_Port != null)
+            {
+                requestConfiguration_configuration_DeviceProxy.Port = requestConfiguration_configuration_DeviceProxy_deviceProxy_Port.Value;
+                requestConfiguration_configuration_DeviceProxyIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DeviceProxy should be set to null
+            if (requestConfiguration_configuration_DeviceProxyIsNull)
+            {
+                requestConfiguration_configuration_DeviceProxy = null;
+            }
+            if (requestConfiguration_configuration_DeviceProxy != null)
+            {
+                request.Configuration.DeviceProxy = requestConfiguration_configuration_DeviceProxy;
                 requestConfigurationIsNull = false;
             }
              // determine if request.Configuration should be set to null
@@ -427,6 +486,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             public System.String ClientId { get; set; }
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+            public System.String DeviceProxy_Host { get; set; }
+            public System.Int32? DeviceProxy_Port { get; set; }
             public List<System.String> Configuration_VpceConfigurationArn { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String InstanceArn { get; set; }

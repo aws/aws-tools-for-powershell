@@ -84,6 +84,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Key { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AssociationId'.
@@ -131,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateSecurityKeyResponse, AddCONNSecurityKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -161,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.AssociateSecurityKeyRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -224,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Key { get; set; }
             public System.Func<Amazon.Connect.Model.AssociateSecurityKeyResponse, AddCONNSecurityKeyCmdlet, object> Select { get; set; } =

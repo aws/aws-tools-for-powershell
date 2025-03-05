@@ -99,6 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String[] ContainerOverrides_Command { get; set; }
         #endregion
         
+        #region Parameter ConsumableResourcePropertiesOverride_ConsumableResourceList
+        /// <summary>
+        /// <para>
+        /// <para>The list of consumable resources required by a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Batch.Model.ConsumableResourceRequirement[] ConsumableResourcePropertiesOverride_ConsumableResourceList { get; set; }
+        #endregion
+        
         #region Parameter PodProperties_Container
         /// <summary>
         /// <para>
@@ -504,6 +514,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ArrayProperties_Size = this.ArrayProperties_Size;
+            if (this.ConsumableResourcePropertiesOverride_ConsumableResourceList != null)
+            {
+                context.ConsumableResourcePropertiesOverride_ConsumableResourceList = new List<Amazon.Batch.Model.ConsumableResourceRequirement>(this.ConsumableResourcePropertiesOverride_ConsumableResourceList);
+            }
             if (this.ContainerOverrides_Command != null)
             {
                 context.ContainerOverrides_Command = new List<System.String>(this.ContainerOverrides_Command);
@@ -641,6 +655,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestArrayPropertiesIsNull)
             {
                 request.ArrayProperties = null;
+            }
+            
+             // populate ConsumableResourcePropertiesOverride
+            var requestConsumableResourcePropertiesOverrideIsNull = true;
+            request.ConsumableResourcePropertiesOverride = new Amazon.Batch.Model.ConsumableResourceProperties();
+            List<Amazon.Batch.Model.ConsumableResourceRequirement> requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList = null;
+            if (cmdletContext.ConsumableResourcePropertiesOverride_ConsumableResourceList != null)
+            {
+                requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList = cmdletContext.ConsumableResourcePropertiesOverride_ConsumableResourceList;
+            }
+            if (requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList != null)
+            {
+                request.ConsumableResourcePropertiesOverride.ConsumableResourceList = requestConsumableResourcePropertiesOverride_consumableResourcePropertiesOverride_ConsumableResourceList;
+                requestConsumableResourcePropertiesOverrideIsNull = false;
+            }
+             // determine if request.ConsumableResourcePropertiesOverride should be set to null
+            if (requestConsumableResourcePropertiesOverrideIsNull)
+            {
+                request.ConsumableResourcePropertiesOverride = null;
             }
             
              // populate ContainerOverrides
@@ -977,6 +1010,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? ArrayProperties_Size { get; set; }
+            public List<Amazon.Batch.Model.ConsumableResourceRequirement> ConsumableResourcePropertiesOverride_ConsumableResourceList { get; set; }
             public List<System.String> ContainerOverrides_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerOverrides_Environment { get; set; }
             public System.String ContainerOverrides_InstanceType { get; set; }

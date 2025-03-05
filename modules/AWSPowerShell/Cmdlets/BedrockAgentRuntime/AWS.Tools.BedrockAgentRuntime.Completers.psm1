@@ -262,17 +262,31 @@ $BAR_SelectCompleters = {
 }
 
 $BAR_SelectMap = @{
-    "Select"=@("Remove-BARAgentMemory",
+    "Select"=@("New-BARInvocation",
+               "New-BARSession",
+               "Remove-BARAgentMemory",
+               "Remove-BARSession",
+               "Close-BARSession",
                "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
+               "Get-BARInvocationStep",
+               "Get-BARSession",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
                "Invoke-BARInlineAgent",
+               "Get-BARInvocationList",
+               "Get-BARInvocationStepList",
+               "Get-BARSessionList",
+               "Get-BARResourceTag",
                "Get-BAROptimizePrompt",
+               "Write-BARInvocationStep",
                "Invoke-BARRerank",
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate",
-               "Invoke-BARRetrieveAndGenerateStream")
+               "Invoke-BARRetrieveAndGenerateStream",
+               "Add-BARResourceTag",
+               "Remove-BARResourceTag",
+               "Update-BARSession")
 }
 
 _awsArgumentCompleterRegistration $BAR_SelectCompleters $BAR_SelectMap

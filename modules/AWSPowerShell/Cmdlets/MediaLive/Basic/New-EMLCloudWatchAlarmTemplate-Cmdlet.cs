@@ -171,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.Int32? Period { get; set; }
         #endregion
         
+        #region Parameter RequestId
+        /// <summary>
+        /// <para>
+        /// An ID that you assign to a create request. This
+        /// ID ensures idempotency when creating resources.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RequestId { get; set; }
+        #endregion
+        
         #region Parameter Statistic
         /// <summary>
         /// <para>
@@ -341,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 WriteWarning("You are passing $null as a value for parameter Period which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RequestId = this.RequestId;
             context.Statistic = this.Statistic;
             #if MODULAR
             if (this.Statistic == null && ParameterWasBound(nameof(this.Statistic)))
@@ -425,6 +437,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.Period = cmdletContext.Period.Value;
             }
+            if (cmdletContext.RequestId != null)
+            {
+                request.RequestId = cmdletContext.RequestId;
+            }
             if (cmdletContext.Statistic != null)
             {
                 request.Statistic = cmdletContext.Statistic;
@@ -508,6 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String MetricName { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Period { get; set; }
+            public System.String RequestId { get; set; }
             public Amazon.MediaLive.CloudWatchAlarmTemplateStatistic Statistic { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.MediaLive.CloudWatchAlarmTemplateTargetResourceType TargetResourceType { get; set; }

@@ -31,9 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Updates an Amazon EKS managed node group configuration. Your node group continues
     /// to function during the update. The response output includes an update ID that you
-    /// can use to track the status of your node group update with the <a>DescribeUpdate</a>
-    /// API operation. You can update the Kubernetes labels and taints for a node group and
-    /// the scaling and version update configuration.
+    /// can use to track the status of your node group update with the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html"><c>DescribeUpdate</c></a> API operation. You can update the Kubernetes labels and
+    /// taints for a node group and the scaling and version update configuration.
     /// </summary>
     [Cmdlet("Update", "EKSNodegroupConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EKS.Model.Update")]
@@ -221,8 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The configuration for the behavior to follow during a node group version update of
         /// this managed node group. You choose between two possible strategies for replacing
-        /// nodes during an <a href="https://docs.aws.amazon.com/latest/APIReference/API_UpdateNodegroupVersion.html">UpdateNodegroupVersion</a>
-        /// action.</para><para>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer
+        /// nodes during an <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateNodegroupVersion.html"><c>UpdateNodegroupVersion</c></a> action.</para><para>An Amazon EKS managed node group updates by replacing nodes with new nodes of newer
         /// AMI versions in parallel. The <i>update strategy</i> changes the managed node update
         /// behavior of the managed node group for each quantity. The <i>default</i> strategy
         /// has guardrails to protect you from misconfiguration and launches the new instances

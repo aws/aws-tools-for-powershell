@@ -80,6 +80,16 @@ $EMRC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EMRContainers.AllowAWSToRetainLogs
+        {
+            ($_ -eq "New-EMRCManagedEndpoint/ManagedLogs_AllowAWSToRetainLog") -Or
+            ($_ -eq "Start-EMRCJobRun/ManagedLogs_AllowAWSToRetainLog")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.EMRContainers.CertificateProviderType
         "New-EMRCSecurityConfiguration/TlsCertificateConfiguration_CertificateProviderType"
         {
@@ -118,6 +128,7 @@ $EMRC_Completers = {
 $EMRC_map = @{
     "ContainerProvider_Type"=@("New-EMRCVirtualCluster")
     "ContainerProviderType"=@("Get-EMRCVirtualClusterList")
+    "ManagedLogs_AllowAWSToRetainLog"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "TlsCertificateConfiguration_CertificateProviderType"=@("New-EMRCSecurityConfiguration")
 }

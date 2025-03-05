@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingsStatistics" OutputProperty="*" Verb="Get" Noun="FindingsStatistic" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFindingV2" OutputProperty="*" Verb="Get" Noun="FindingV2" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

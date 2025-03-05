@@ -390,6 +390,7 @@ $SES2_SelectMap = @{
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
                "Write-SES2AccountVdmAttribute",
+               "Write-SES2ConfigurationSetArchivingOption",
                "Write-SES2ConfigurationSetDeliveryOption",
                "Write-SES2ConfigurationSetReputationOption",
                "Write-SES2ConfigurationSetSendingOption",

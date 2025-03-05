@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.Connect;
 using Amazon.Connect.Model;
 
@@ -48,7 +47,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter LexV2Bot_AliasArn
         /// <summary>
@@ -98,6 +96,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String LexBot_Name { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -106,6 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -118,11 +139,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -139,11 +155,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Connect.Model.AssociateBotResponse, AddCONNBotCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.InstanceId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -170,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.AssociateBotRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -260,7 +291,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "AssociateBot");
             try
             {
-                return client.AssociateBotAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.AssociateBot(request);
+                #elif CORECLR
+                return client.AssociateBotAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -277,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String InstanceId { get; set; }
             public System.String LexBot_LexRegion { get; set; }
             public System.String LexBot_Name { get; set; }
