@@ -203,7 +203,7 @@ Describe -Tag "Smoke" "S3" {
             ($tagCollection[0].Value) | Should -Be "testvalue"
         }
         It "Can copy with ExpectedBucketOwner parameter" {
-            $accountId = (Get-S3Bucket -BucketName $script:bucketName).Owner.ID
+            $accountId = (Get-STSCallerIdentity).Account
             Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $westBucketName -DestinationKey "key-copy-owner" -Region us-east-1 -ExpectedBucketOwner $accountId
             Read-S3Object -BucketName $westBucketName -Key "key-copy-owner" -File "temp\owner-copy.txt"
             (Get-Content "temp\owner-copy.txt") | Should -Be $content
