@@ -12,6 +12,5 @@ $SelectParams = @{
     )
 }
 
-(Get-EC2Instance @InstanceParams).Instances `
- | Select @SelectParams `
- | Format-Table -AutoSize
+$result = Get-EC2Instance @InstanceParams
+$result.Instances | Select-Object @SelectParams | Format-Table -AutoSize
