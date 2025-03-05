@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The engine for a specific user. </para>
+        /// <para>Modifies the engine listed for a user. The options are valkey or redis.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

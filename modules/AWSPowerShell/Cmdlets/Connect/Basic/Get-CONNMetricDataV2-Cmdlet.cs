@@ -87,12 +87,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <c>BOT_VERSION</c> | <c>BOT_LOCALE</c> | <c>BOT_INTENT_NAME</c> | <c>CAMPAIGN</c>
         /// | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c> |<c>CASE_TEMPLATE_ARN</c> | <c>CASE_STATUS</c>
         /// | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c> | <c>DISCONNECT_REASON</c>
-        /// | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_MODULE_RESOURCE_ID</c>
-        /// | <c>FLOWS_NEXT_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c> | <c>FLOWS_OUTCOME_TYPE</c>
-        /// | <c>FLOWS_RESOURCE_ID</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
-        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c>
-        /// | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c> | <c>QUEUE</c> | <c>Q_CONNECT_ENABLED</c>
-        /// | </para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
+        /// | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> | <c>EVALUATION_QUESTION</c>
+        /// | <c>EVALUATION_SOURCE</c> | <c>FEATURE</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c>
+        /// | <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_ID</c> | <c>FLOWS_NEXT_RESOURCE_QUEUE_ID</c>
+        /// | <c>FLOWS_OUTCOME_TYPE</c> | <c>FLOWS_RESOURCE_ID</c> | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c>
+        /// | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c>
+        /// | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c>
+        /// | <c>QUEUE</c> | <c>Q_CONNECT_ENABLED</c> | </para></li><li><para><b>Filter values</b>: A maximum of 100 filter values are supported in a single request.
         /// VOICE, CHAT, and TASK are valid <c>filterValue</c> for the CHANNEL filter key. They
         /// do not count towards limitation of 100 filter values. For example, a GetMetricDataV2
         /// request can filter by 50 queues, 35 agents, and 15 routing profiles for a total of
@@ -130,11 +131,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// | <c>ANSWERING_MACHINE_DETECTION_STATUS</c> | <c>BOT_ID</c> | <c>BOT_ALIAS</c> | <c>BOT_VERSION</c>
         /// | <c>BOT_LOCALE</c> | <c>BOT_INTENT_NAME</c> | <c>CAMPAIGN</c> | <c>CAMPAIGN_DELIVERY_EVENT_TYPE</c>
         /// | <c>CASE_TEMPLATE_ARN</c> | <c>CASE_STATUS</c> | <c>CHANNEL</c> | <c>contact/segmentAttributes/connect:Subtype</c>
-        /// | <c>DISCONNECT_REASON</c> | <c>FLOWS_RESOURCE_ID</c> | <c>FLOWS_MODULE_RESOURCE_ID</c>
-        /// | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c> | <c>INITIATION_METHOD</c>
-        /// | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c>
-        /// | <c>Q_CONNECT_ENABLED</c> | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> |
-        /// <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c></para>
+        /// | <c>DISCONNECT_REASON</c> | <c>EVALUATION_FORM</c> | <c>EVALUATION_SECTION</c> |
+        /// <c>EVALUATION_QUESTION</c> | <c>EVALUATION_SOURCE</c> | <c>FLOWS_RESOURCE_ID</c> |
+        /// <c>FLOWS_MODULE_RESOURCE_ID</c> | <c>FLOW_ACTION_ID</c> | <c>FLOW_TYPE</c> | <c>FLOWS_OUTCOME_TYPE</c>
+        /// | <c>FORM_VERSION</c> | <c>INITIATION_METHOD</c> | <c>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</c>
+        /// | <c>INVOKING_RESOURCE_TYPE</c> | <c>PARENT_FLOWS_RESOURCE_ID</c> | <c>Q_CONNECT_ENABLED</c>
+        /// | <c>QUEUE</c> | <c>RESOURCE_PUBLISHED_TIMESTAMP</c> | <c>ROUTING_PROFILE</c> | <c>ROUTING_STEP_EXPRESSION</c></para><para>Type: Array of strings</para><para>Array Members: Maximum number of 4 items</para><para>Required: No</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// Feature, contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-conversation-duration-historical">Average
         /// conversation duration</a></para></dd><dt>AVG_DIALS_PER_MINUTE</dt><dd><para>This metric is available only for outbound campaigns that use the agent assisted voice
         /// and automated voice delivery modes.</para><para>Unit: Count</para><para>Valid groupings and filters: Agent, Campaign, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-dials-historical">Average
-        /// dials per minute</a></para></dd><dt>AVG_FLOW_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
+        /// dials per minute</a></para></dd><dt>AVG_EVALUATION_SCORE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
+        /// Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue,
+        /// Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-evaluation-score-historical">Average
+        /// agent evaluation score</a></para></dd><dt>AVG_FLOW_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
         /// type, Flows module resource ID, Flows next resource ID, Flows next resource queue
         /// ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-flow-time-historical">Average
         /// flow time</a></para></dd><dt>AVG_GREETING_TIME_AGENT</dt><dd><para>This metric is available only for contacts analyzed by Contact Lens conversational
@@ -253,7 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// contact/segmentAttributes/connect:Subtype, Q in Connect</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-talk-time-customer-historical">Average
         /// customer talk time</a></para></dd><dt>AVG_WAIT_TIME_AFTER_CUSTOMER_CONNECTION</dt><dd><para>This metric is available only for outbound campaigns that use the agent assisted voice
         /// and automated voice delivery modes.</para><para>Unit: Seconds</para><para>Valid groupings and filters: Campaign</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-wait-time-historical">Average
-        /// wait time after customer connection</a></para></dd><dt>BOT_CONVERSATIONS_COMPLETED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot
+        /// wait time after customer connection</a></para></dd><dt>AVG_WEIGHTED_EVALUATION_SCORE</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form Id,
+        /// Evaluation Section ID, Evaluation Question ID, Evaluation Source, Form Version, Queue,
+        /// Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-weighted-agent-evaluation-score-historical">Average
+        /// weighted agent evaluation score</a></para></dd><dt>BOT_CONVERSATIONS_COMPLETED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot
         /// ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID,
         /// Flow type, Flow action ID, Invoking resource published timestamp, Initiation method,
         /// Invoking resource type, Parent flows resource ID</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot
@@ -323,7 +331,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// attempt disposition rate</a></para><note><para>Campaign Delivery Event Type filter and grouping are only available for SMS and Email
         /// campaign delivery modes. Agent, Queue, Routing Profile, Answering Machine Detection
         /// Status and Disconnect Reason are only available for agent assisted voice and automated
-        /// voice delivery modes. </para></note></dd><dt>FLOWS_OUTCOME</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
+        /// voice delivery modes. </para></note></dd><dt>EVALUATIONS_PERFORMED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
+        /// Evaluation Source, Form Version, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#evaluations-performed-historical">Evaluations
+        /// performed</a></para></dd><dt>FLOWS_OUTCOME</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
         /// type, Flows module resource ID, Flows next resource ID, Flows next resource queue
         /// ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#flows-outcome-historical">Flows
         /// outcome</a></para></dd><dt>FLOWS_STARTED</dt><dd><para>Unit: Count</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
@@ -340,7 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// queued time</a></para></dd><dt>MIN_FLOW_TIME</dt><dd><para>Unit: Seconds</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Flow
         /// type, Flows module resource ID, Flows next resource ID, Flows next resource queue
         /// ID, Flows outcome type, Flows resource ID, Initiation method, Resource published timestamp</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#minimum-flow-time-historical">Minimum
-        /// flow time</a></para></dd><dt>PERCENT_BOT_CONVERSATIONS_OUTCOME</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot
+        /// flow time</a></para></dd><dt>PERCENT_AUTOMATIC_FAILS</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Agent, Agent Hierarchy, Channel, Evaluation Form ID,
+        /// Evaluation Source, Form Version, Queue, Routing Profile</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#percent-evaluation-automatic-failures-historical">Automatic
+        /// fails percent</a></para></dd><dt>PERCENT_BOT_CONVERSATIONS_OUTCOME</dt><dd><para>Unit: Percent</para><para>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot
         /// ID, Bot alias, Bot version, Bot locale, Flows resource ID, Flows module resource ID,
         /// Flow type, Flow action ID, Invoking resource published timestamp, Initiation method,
         /// Invoking resource type, Parent flows resource ID</para><para>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#percent-bot-conversations-outcome-metric">Percent

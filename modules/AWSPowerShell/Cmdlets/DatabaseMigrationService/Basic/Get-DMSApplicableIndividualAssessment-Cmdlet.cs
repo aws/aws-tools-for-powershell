@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.MigrationTypeValue MigrationType { get; set; }
         #endregion
         
+        #region Parameter ReplicationConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of a serverless replication on which you want to base the
+        /// default list of individual assessments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReplicationConfigArn { get; set; }
+        #endregion
+        
         #region Parameter ReplicationInstanceArn
         /// <summary>
         /// <para>
@@ -192,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.Marker = this.Marker;
             context.MaxRecord = this.MaxRecord;
             context.MigrationType = this.MigrationType;
+            context.ReplicationConfigArn = this.ReplicationConfigArn;
             context.ReplicationInstanceArn = this.ReplicationInstanceArn;
             context.ReplicationTaskArn = this.ReplicationTaskArn;
             context.SourceEngineName = this.SourceEngineName;
@@ -221,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.MigrationType != null)
             {
                 request.MigrationType = cmdletContext.MigrationType;
+            }
+            if (cmdletContext.ReplicationConfigArn != null)
+            {
+                request.ReplicationConfigArn = cmdletContext.ReplicationConfigArn;
             }
             if (cmdletContext.ReplicationInstanceArn != null)
             {
@@ -320,6 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String Marker { get; set; }
             public System.Int32? MaxRecord { get; set; }
             public Amazon.DatabaseMigrationService.MigrationTypeValue MigrationType { get; set; }
+            public System.String ReplicationConfigArn { get; set; }
             public System.String ReplicationInstanceArn { get; set; }
             public System.String ReplicationTaskArn { get; set; }
             public System.String SourceEngineName { get; set; }

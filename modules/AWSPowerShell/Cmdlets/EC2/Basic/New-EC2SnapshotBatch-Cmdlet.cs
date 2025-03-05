@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// as the instance.
     /// </para></li><li><para>
     /// If the source instance is in a Local Zone, you can create the snapshots in the same
-    /// Local Zone or in parent Amazon Web Services Region.
+    /// Local Zone or in its parent Amazon Web Services Region.
     /// </para></li><li><para>
     /// If the source instance is on an Outpost, you can create the snapshots on the same
     /// Outpost or in its parent Amazon Web Services Region.

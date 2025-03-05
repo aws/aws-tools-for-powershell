@@ -29,9 +29,18 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Removes the server or virtual machine from the list of registered servers. You can
-    /// reregister the node again at any time. If you don't plan to use Run Command on the
-    /// server, we suggest uninstalling SSM Agent first.
+    /// Removes the server or virtual machine from the list of registered servers.
+    /// 
+    ///  
+    /// <para>
+    /// If you want to reregister an on-premises server, edge device, or VM, you must use
+    /// a different Activation Code and Activation ID than used to register the machine previously.
+    /// The Activation Code and Activation ID must not have already been used on the maximum
+    /// number of activations specified when they were created. For more information, see
+    /// <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-deregister-hybrid-nodes.html">Deregistering
+    /// managed nodes in a hybrid and multicloud environment</a> in the <i>Amazon Web Services
+    /// Systems Manager User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

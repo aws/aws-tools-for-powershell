@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  <note><para>
     /// When you start a stopped instance, Lightsail assigns a new public IP address to the
     /// instance. To use the same IP address after stopping and starting an instance, create
-    /// a static IP address and attach it to the instance. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-create-static-ip">Amazon
+    /// a static IP address and attach it to the instance. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/lightsail-create-static-ip">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para></note><para>
     /// The <c>stop instance</c> operation supports tag-based access control via resource
     /// tags applied to the resource identified by <c>instance name</c>. For more information,
-    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon
+    /// see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     /// </summary>

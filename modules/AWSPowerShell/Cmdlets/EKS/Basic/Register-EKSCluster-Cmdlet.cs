@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// Any Kubernetes cluster can be connected to the Amazon EKS control plane to view current
     /// information about the cluster and its nodes. 
     /// </para><para>
-    /// Cluster connection requires two steps. First, send a <c><a>RegisterClusterRequest</a></c> to add it to the Amazon EKS control plane.
+    /// Cluster connection requires two steps. First, send a <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterClusterRequest.html"><c>RegisterClusterRequest</c></a> to add it to the Amazon EKS control plane.
     /// </para><para>
     /// Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a>
     /// containing the <c>activationID</c> and <c>activationCode</c> must be applied to the

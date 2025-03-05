@@ -161,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Boolean? Radios_Gp { get; set; }
         #endregion
         
+        #region Parameter DeviceProxy_Host
+        /// <summary>
+        /// <para>
+        /// <para>Hostname or IPv4 address of the proxy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_DeviceProxy_Host")]
+        public System.String DeviceProxy_Host { get; set; }
+        #endregion
+        
         #region Parameter CustomerArtifactPaths_IosPath
         /// <summary>
         /// <para>
@@ -243,6 +254,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Test_Parameters")]
         public System.Collections.Hashtable Test_Parameter { get; set; }
+        #endregion
+        
+        #region Parameter DeviceProxy_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number on which the http/s proxy is listening.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_DeviceProxy_Port")]
+        public System.Int32? DeviceProxy_Port { get; set; }
         #endregion
         
         #region Parameter Test_TestPackageArn
@@ -358,6 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 context.CustomerArtifactPaths_IosPath = new List<System.String>(this.CustomerArtifactPaths_IosPath);
             }
+            context.DeviceProxy_Host = this.DeviceProxy_Host;
+            context.DeviceProxy_Port = this.DeviceProxy_Port;
             context.Configuration_ExtraDataPackageArn = this.Configuration_ExtraDataPackageArn;
             context.Configuration_Locale = this.Configuration_Locale;
             context.Location_Latitude = this.Location_Latitude;
@@ -473,6 +497,41 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_VpceConfigurationArn != null)
             {
                 request.Configuration.VpceConfigurationArns = requestConfiguration_configuration_VpceConfigurationArn;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.DeviceFarm.Model.DeviceProxy requestConfiguration_configuration_DeviceProxy = null;
+            
+             // populate DeviceProxy
+            var requestConfiguration_configuration_DeviceProxyIsNull = true;
+            requestConfiguration_configuration_DeviceProxy = new Amazon.DeviceFarm.Model.DeviceProxy();
+            System.String requestConfiguration_configuration_DeviceProxy_deviceProxy_Host = null;
+            if (cmdletContext.DeviceProxy_Host != null)
+            {
+                requestConfiguration_configuration_DeviceProxy_deviceProxy_Host = cmdletContext.DeviceProxy_Host;
+            }
+            if (requestConfiguration_configuration_DeviceProxy_deviceProxy_Host != null)
+            {
+                requestConfiguration_configuration_DeviceProxy.Host = requestConfiguration_configuration_DeviceProxy_deviceProxy_Host;
+                requestConfiguration_configuration_DeviceProxyIsNull = false;
+            }
+            System.Int32? requestConfiguration_configuration_DeviceProxy_deviceProxy_Port = null;
+            if (cmdletContext.DeviceProxy_Port != null)
+            {
+                requestConfiguration_configuration_DeviceProxy_deviceProxy_Port = cmdletContext.DeviceProxy_Port.Value;
+            }
+            if (requestConfiguration_configuration_DeviceProxy_deviceProxy_Port != null)
+            {
+                requestConfiguration_configuration_DeviceProxy.Port = requestConfiguration_configuration_DeviceProxy_deviceProxy_Port.Value;
+                requestConfiguration_configuration_DeviceProxyIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_DeviceProxy should be set to null
+            if (requestConfiguration_configuration_DeviceProxyIsNull)
+            {
+                requestConfiguration_configuration_DeviceProxy = null;
+            }
+            if (requestConfiguration_configuration_DeviceProxy != null)
+            {
+                request.Configuration.DeviceProxy = requestConfiguration_configuration_DeviceProxy;
                 requestConfigurationIsNull = false;
             }
             Amazon.DeviceFarm.Model.Location requestConfiguration_configuration_Location = null;
@@ -743,6 +802,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public List<System.String> CustomerArtifactPaths_AndroidPath { get; set; }
             public List<System.String> CustomerArtifactPaths_DeviceHostPath { get; set; }
             public List<System.String> CustomerArtifactPaths_IosPath { get; set; }
+            public System.String DeviceProxy_Host { get; set; }
+            public System.Int32? DeviceProxy_Port { get; set; }
             public System.String Configuration_ExtraDataPackageArn { get; set; }
             public System.String Configuration_Locale { get; set; }
             public System.Double? Location_Latitude { get; set; }

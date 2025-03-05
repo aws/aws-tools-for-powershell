@@ -96,7 +96,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNApiCache/ApiCachingBehavior")
         }
         {
-            $v = "FULL_REQUEST_CACHING","PER_RESOLVER_CACHING"
+            $v = "FULL_REQUEST_CACHING","OPERATION_LEVEL_CACHING","PER_RESOLVER_CACHING"
             break
         }
 

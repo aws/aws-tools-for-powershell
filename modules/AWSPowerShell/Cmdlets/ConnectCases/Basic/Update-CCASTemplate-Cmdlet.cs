@@ -34,6 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// and <c>status</c>. At least one of these attributes must not be null. If a null value
     /// is provided for a given attribute, that attribute is ignored and its current value
     /// is preserved.
+    /// 
+    ///  
+    /// <para>
+    /// Other template APIs are:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html">GetTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "CCASTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -105,6 +110,18 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequiredFields")]
         public Amazon.ConnectCases.Model.RequiredField[] RequiredField { get; set; }
+        #endregion
+        
+        #region Parameter Rule
+        /// <summary>
+        /// <para>
+        /// <para>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case
+        /// field conditions</a>) on a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Rules")]
+        public Amazon.ConnectCases.Model.TemplateRule[] Rule { get; set; }
         #endregion
         
         #region Parameter Status
@@ -195,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 context.RequiredField = new List<Amazon.ConnectCases.Model.RequiredField>(this.RequiredField);
             }
+            if (this.Rule != null)
+            {
+                context.Rule = new List<Amazon.ConnectCases.Model.TemplateRule>(this.Rule);
+            }
             context.Status = this.Status;
             context.TemplateId = this.TemplateId;
             #if MODULAR
@@ -253,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (cmdletContext.RequiredField != null)
             {
                 request.RequiredFields = cmdletContext.RequiredField;
+            }
+            if (cmdletContext.Rule != null)
+            {
+                request.Rules = cmdletContext.Rule;
             }
             if (cmdletContext.Status != null)
             {
@@ -322,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String LayoutConfiguration_DefaultLayout { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ConnectCases.Model.RequiredField> RequiredField { get; set; }
+            public List<Amazon.ConnectCases.Model.TemplateRule> Rule { get; set; }
             public Amazon.ConnectCases.TemplateStatus Status { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.ConnectCases.Model.UpdateTemplateResponse, UpdateCCASTemplateCmdlet, object> Select { get; set; } =

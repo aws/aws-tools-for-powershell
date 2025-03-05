@@ -18,7 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateInvocation" OutputProperty="*" Verb="New" Noun="Invocation" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSession" OutputProperty="*" Verb="New" Noun="Session" ShouldProcessTarget="EncryptionKeyArn" PipelineParameter="EncryptionKeyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAgentMemory" Verb="Remove" Noun="AgentMemory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSession" Verb="Remove" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EndSession" OutputProperty="*" Verb="Close" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,6 +43,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInvocationStep" OutputProperty="InvocationStep" Verb="Get" Noun="InvocationStep" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,7 +66,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInvocations" OutputProperty="InvocationSummaries" Verb="Get" Noun="InvocationList" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInvocationSteps" OutputProperty="InvocationStepSummaries" Verb="Get" Noun="InvocationStepList" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="SessionSummaries" Verb="Get" Noun="SessionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="OptimizePrompt" OutputProperty="OptimizedPrompt" Verb="Get" Noun="OptimizePrompt" ShouldProcessTarget="" PipelineParameter="TargetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInvocationStep" OutputProperty="InvocationStepId" Verb="Write" Noun="InvocationStep" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -96,6 +140,18 @@
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency" />
                 <Param Name="RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_PerformanceConfig_Latency" NewName="Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSession" OutputProperty="*" Verb="Update" Noun="Session" ShouldProcessTarget="SessionIdentifier" PipelineParameter="SessionIdentifier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

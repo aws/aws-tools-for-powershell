@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ApplyAction
         /// <summary>
         /// <para>
-        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <c>os-upgrade</c>, <c>system-update</c>, <c>db-upgrade</c></para>
+        /// <para>The pending maintenance action to apply to this resource.</para><para>Valid values: <c>os-upgrade</c>, <c>system-update</c>, <c>db-upgrade</c>, <c>os-patch</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

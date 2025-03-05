@@ -29,7 +29,8 @@ using Amazon.TaxSettings.Model;
 namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
-    /// Retrieves the tax exemption of accounts listed in a consolidated billing family.
+    /// Retrieves the tax exemption of accounts listed in a consolidated billing family. The
+    /// IAM action is <c>tax:GetExemptions</c>.
     /// </summary>
     [Cmdlet("Get", "TSATaxExemptionList")]
     [OutputType("System.String")]

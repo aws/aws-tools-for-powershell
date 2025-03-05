@@ -34,11 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// Describes the specified contact. 
-    /// </para><important><para>
-    /// Contact information remains available in Amazon Connect for 24 months from the InitiationTimestamp,
+    /// </para><important><ul><li><para><c>CustomerEndpoint</c> and <c>SystemEndpoint</c> are only populated for EMAIL contacts.
+    /// 
+    /// </para></li><li><para>
+    /// Contact information remains available in Amazon Connect for 24 months from the <c>InitiationTimestamp</c>,
     /// and then it is deleted. Only contact information that is available in Amazon Connect
-    /// is returned by this API
-    /// </para></important>
+    /// is returned by this API.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Get", "CONNContact")]
     [OutputType("Amazon.Connect.Model.Contact")]

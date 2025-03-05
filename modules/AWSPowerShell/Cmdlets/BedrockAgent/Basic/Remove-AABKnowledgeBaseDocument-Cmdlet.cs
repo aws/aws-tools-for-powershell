@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
     /// Deletes documents from a data source and syncs the changes to the knowledge base that
-    /// is connected to it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-real-time-ingestion.html">Ingest
-    /// documents into a knowledge base in real-time</a> in the Amazon Bedrock User Guide.
+    /// is connected to it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-direct-ingestion.html">Ingest
+    /// changes directly into a knowledge base</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Remove", "AABKnowledgeBaseDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBaseDocumentDetail")]

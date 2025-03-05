@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
     /// Lists all of the templates in a Cases domain. Each list item is a condensed summary
-    /// object of the template.
+    /// object of the template. 
+    /// 
+    ///  
+    /// <para>
+    ///  Other template APIs are: 
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html">GetTemplate</a></para></li><li><para><a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_UpdateTemplate.html">UpdateTemplate</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CCASTemplateList")]
     [OutputType("Amazon.ConnectCases.Model.TemplateSummary")]

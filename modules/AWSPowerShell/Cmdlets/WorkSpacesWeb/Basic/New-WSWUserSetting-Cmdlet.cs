@@ -146,6 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public Amazon.WorkSpacesWeb.EnabledType DownloadAllowed { get; set; }
         #endregion
         
+        #region Parameter ToolbarConfiguration_HiddenToolbarItem
+        /// <summary>
+        /// <para>
+        /// <para>The list of toolbar items to be hidden.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ToolbarConfiguration_HiddenToolbarItems")]
+        public System.String[] ToolbarConfiguration_HiddenToolbarItem { get; set; }
+        #endregion
+        
         #region Parameter IdleDisconnectTimeoutInMinute
         /// <summary>
         /// <para>
@@ -156,6 +167,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IdleDisconnectTimeoutInMinutes")]
         public System.Int32? IdleDisconnectTimeoutInMinute { get; set; }
+        #endregion
+        
+        #region Parameter ToolbarConfiguration_MaxDisplayResolution
+        /// <summary>
+        /// <para>
+        /// <para>The maximum display resolution that is allowed for the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.MaxDisplayResolution")]
+        public Amazon.WorkSpacesWeb.MaxDisplayResolution ToolbarConfiguration_MaxDisplayResolution { get; set; }
         #endregion
         
         #region Parameter PasteAllowed
@@ -203,6 +225,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public Amazon.WorkSpacesWeb.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter ToolbarConfiguration_ToolbarType
+        /// <summary>
+        /// <para>
+        /// <para>The type of toolbar displayed during the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.ToolbarType")]
+        public Amazon.WorkSpacesWeb.ToolbarType ToolbarConfiguration_ToolbarType { get; set; }
+        #endregion
+        
         #region Parameter UploadAllowed
         /// <summary>
         /// <para>
@@ -219,6 +252,17 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.WorkSpacesWeb.EnabledType")]
         public Amazon.WorkSpacesWeb.EnabledType UploadAllowed { get; set; }
+        #endregion
+        
+        #region Parameter ToolbarConfiguration_VisualMode
+        /// <summary>
+        /// <para>
+        /// <para>The visual mode of the toolbar.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.VisualMode")]
+        public Amazon.WorkSpacesWeb.VisualMode ToolbarConfiguration_VisualMode { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -336,6 +380,13 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             {
                 context.Tag = new List<Amazon.WorkSpacesWeb.Model.Tag>(this.Tag);
             }
+            if (this.ToolbarConfiguration_HiddenToolbarItem != null)
+            {
+                context.ToolbarConfiguration_HiddenToolbarItem = new List<System.String>(this.ToolbarConfiguration_HiddenToolbarItem);
+            }
+            context.ToolbarConfiguration_MaxDisplayResolution = this.ToolbarConfiguration_MaxDisplayResolution;
+            context.ToolbarConfiguration_ToolbarType = this.ToolbarConfiguration_ToolbarType;
+            context.ToolbarConfiguration_VisualMode = this.ToolbarConfiguration_VisualMode;
             context.UploadAllowed = this.UploadAllowed;
             #if MODULAR
             if (this.UploadAllowed == null && ParameterWasBound(nameof(this.UploadAllowed)))
@@ -432,6 +483,55 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             {
                 request.Tags = cmdletContext.Tag;
             }
+            
+             // populate ToolbarConfiguration
+            var requestToolbarConfigurationIsNull = true;
+            request.ToolbarConfiguration = new Amazon.WorkSpacesWeb.Model.ToolbarConfiguration();
+            List<System.String> requestToolbarConfiguration_toolbarConfiguration_HiddenToolbarItem = null;
+            if (cmdletContext.ToolbarConfiguration_HiddenToolbarItem != null)
+            {
+                requestToolbarConfiguration_toolbarConfiguration_HiddenToolbarItem = cmdletContext.ToolbarConfiguration_HiddenToolbarItem;
+            }
+            if (requestToolbarConfiguration_toolbarConfiguration_HiddenToolbarItem != null)
+            {
+                request.ToolbarConfiguration.HiddenToolbarItems = requestToolbarConfiguration_toolbarConfiguration_HiddenToolbarItem;
+                requestToolbarConfigurationIsNull = false;
+            }
+            Amazon.WorkSpacesWeb.MaxDisplayResolution requestToolbarConfiguration_toolbarConfiguration_MaxDisplayResolution = null;
+            if (cmdletContext.ToolbarConfiguration_MaxDisplayResolution != null)
+            {
+                requestToolbarConfiguration_toolbarConfiguration_MaxDisplayResolution = cmdletContext.ToolbarConfiguration_MaxDisplayResolution;
+            }
+            if (requestToolbarConfiguration_toolbarConfiguration_MaxDisplayResolution != null)
+            {
+                request.ToolbarConfiguration.MaxDisplayResolution = requestToolbarConfiguration_toolbarConfiguration_MaxDisplayResolution;
+                requestToolbarConfigurationIsNull = false;
+            }
+            Amazon.WorkSpacesWeb.ToolbarType requestToolbarConfiguration_toolbarConfiguration_ToolbarType = null;
+            if (cmdletContext.ToolbarConfiguration_ToolbarType != null)
+            {
+                requestToolbarConfiguration_toolbarConfiguration_ToolbarType = cmdletContext.ToolbarConfiguration_ToolbarType;
+            }
+            if (requestToolbarConfiguration_toolbarConfiguration_ToolbarType != null)
+            {
+                request.ToolbarConfiguration.ToolbarType = requestToolbarConfiguration_toolbarConfiguration_ToolbarType;
+                requestToolbarConfigurationIsNull = false;
+            }
+            Amazon.WorkSpacesWeb.VisualMode requestToolbarConfiguration_toolbarConfiguration_VisualMode = null;
+            if (cmdletContext.ToolbarConfiguration_VisualMode != null)
+            {
+                requestToolbarConfiguration_toolbarConfiguration_VisualMode = cmdletContext.ToolbarConfiguration_VisualMode;
+            }
+            if (requestToolbarConfiguration_toolbarConfiguration_VisualMode != null)
+            {
+                request.ToolbarConfiguration.VisualMode = requestToolbarConfiguration_toolbarConfiguration_VisualMode;
+                requestToolbarConfigurationIsNull = false;
+            }
+             // determine if request.ToolbarConfiguration should be set to null
+            if (requestToolbarConfigurationIsNull)
+            {
+                request.ToolbarConfiguration = null;
+            }
             if (cmdletContext.UploadAllowed != null)
             {
                 request.UploadAllowed = cmdletContext.UploadAllowed;
@@ -504,6 +604,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             public Amazon.WorkSpacesWeb.EnabledType PasteAllowed { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType PrintAllowed { get; set; }
             public List<Amazon.WorkSpacesWeb.Model.Tag> Tag { get; set; }
+            public List<System.String> ToolbarConfiguration_HiddenToolbarItem { get; set; }
+            public Amazon.WorkSpacesWeb.MaxDisplayResolution ToolbarConfiguration_MaxDisplayResolution { get; set; }
+            public Amazon.WorkSpacesWeb.ToolbarType ToolbarConfiguration_ToolbarType { get; set; }
+            public Amazon.WorkSpacesWeb.VisualMode ToolbarConfiguration_VisualMode { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType UploadAllowed { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.CreateUserSettingsResponse, NewWSWUserSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UserSettingsArn;

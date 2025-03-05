@@ -29,7 +29,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network
+    /// Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a network
     /// interface.
     /// </summary>
     [Cmdlet("Unregister", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

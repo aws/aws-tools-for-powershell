@@ -1481,6 +1481,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHubContent" OutputProperty="*" Verb="Update" Noun="HubContent" ShouldProcessTarget="HubContentName" PipelineParameter="HubContentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHubContentReference" OutputProperty="*" Verb="Update" Noun="HubContentReference" ShouldProcessTarget="HubContentName" PipelineParameter="HubContentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateImage" OutputProperty="ImageArn" Verb="Update" Noun="Image" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

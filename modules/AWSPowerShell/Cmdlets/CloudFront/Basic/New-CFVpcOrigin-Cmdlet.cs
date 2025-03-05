@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter VpcOriginEndpointConfig_HTTPPort
         /// <summary>
         /// <para>
-        /// <para>The HTTP port for the CloudFront VPC origin endpoint configuration.</para>
+        /// <para>The HTTP port for the CloudFront VPC origin endpoint configuration. The default value
+        /// is <c>80</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter VpcOriginEndpointConfig_HTTPSPort
         /// <summary>
         /// <para>
-        /// <para>The HTTPS port of the CloudFront VPC origin endpoint configuration.</para>
+        /// <para>The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value
+        /// is <c>443</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

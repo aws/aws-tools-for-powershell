@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
     /// Cancels an existing Amazon FSx for Lustre data repository task if that task is in
-    /// either the <c>PENDING</c> or <c>EXECUTING</c> state. When you cancel am export task,
+    /// either the <c>PENDING</c> or <c>EXECUTING</c> state. When you cancel an export task,
     /// Amazon FSx does the following.
     /// 
     ///  <ul><li><para>

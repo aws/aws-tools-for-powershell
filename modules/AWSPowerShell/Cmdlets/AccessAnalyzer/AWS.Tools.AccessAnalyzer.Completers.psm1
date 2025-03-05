@@ -237,6 +237,7 @@ $IAMAA_SelectMap = @{
                "Get-IAMAAArchiveRule",
                "Get-IAMAAFinding",
                "Get-IAMAAFindingRecommendation",
+               "Get-IAMAAFindingsStatistic",
                "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
                "Get-IAMAAAccessPreviewFindingList",

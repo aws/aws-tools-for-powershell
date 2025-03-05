@@ -1,10 +1,243 @@
-﻿### 5.0.0-preview002 (2025-02-18 15:37Z)
+### 5.0.0-preview002 (2025-02-18 15:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview002 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
 ### 5.0.0-preview001 (2024-10-22 14:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview001 at https://github.com/aws/aws-tools-for-powershell/issues/357
+
+### 4.1.768 (2025-02-28 22:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.993.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Data Automation for Amazon Bedrock
+    * Added cmdlet Add-BDAResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BDAResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BDAResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-BDABlueprint: added parameter Tag.
+    * Modified cmdlet New-BDADataAutomationProject: added parameter Tag.
+    * Modified cmdlet Update-BDABlueprint: added parameters EncryptionConfiguration_KmsEncryptionContext and EncryptionConfiguration_KmsKeyId.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameters EncryptionConfiguration_KmsEncryptionContext and EncryptionConfiguration_KmsKeyId.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet Invoke-EMCProbe leveraging the Probe service API.
+  * Amazon Runtime for Amazon Bedrock Data Automation
+    * Added cmdlet Add-BDARResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BDARResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BDARResourceTag leveraging the UntagResource service API.
+    * [Breaking Change] Modified cmdlet Invoke-BDARDataAutomationAsync: removed parameter DataAutomationConfiguration_DataAutomationArn; added parameters DataAutomationConfiguration_DataAutomationProjectArn, DataAutomationProfileArn and Tag.
+
+### 4.1.767 (2025-02-27 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.992.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Add-BARResourceTag leveraging the TagResource service API.
+    * Added cmdlet Close-BARSession leveraging the EndSession service API.
+    * Added cmdlet Get-BARInvocationList leveraging the ListInvocations service API.
+    * Added cmdlet Get-BARInvocationStep leveraging the GetInvocationStep service API.
+    * Added cmdlet Get-BARInvocationStepList leveraging the ListInvocationSteps service API.
+    * Added cmdlet Get-BARResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-BARSession leveraging the GetSession service API.
+    * Added cmdlet Get-BARSessionList leveraging the ListSessions service API.
+    * Added cmdlet New-BARInvocation leveraging the CreateInvocation service API.
+    * Added cmdlet New-BARSession leveraging the CreateSession service API.
+    * Added cmdlet Remove-BARResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-BARSession leveraging the DeleteSession service API.
+    * Added cmdlet Update-BARSession leveraging the UpdateSession service API.
+    * Added cmdlet Write-BARInvocationStep leveraging the PutInvocationStep service API.
+  * Amazon QBusiness
+    * Added cmdlet Remove-QBUSAttachment leveraging the DeleteAttachment service API.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSTrack leveraging the GetTrack service API.
+    * Added cmdlet Get-RSSTrackList leveraging the ListTracks service API.
+    * Modified cmdlet New-RSSWorkgroup: added parameter TrackName.
+    * Modified cmdlet Update-RSSWorkgroup: added parameter TrackName.
+  * Amazon SageMaker Service
+    * Added cmdlet Update-SMHubContent leveraging the UpdateHubContent service API.
+    * Added cmdlet Update-SMHubContentReference leveraging the UpdateHubContentReference service API.
+    * Modified cmdlet Import-SMHubContent: added parameter SupportStatus.
+  * Amazon Storage Gateway
+    * Added cmdlet Invoke-SGEvictFilesFailingUpload leveraging the EvictFilesFailingUpload service API.
+
+### 4.1.766 (2025-02-26 21:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.991.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Added cmdlet Get-BATConsumableResource leveraging the DescribeConsumableResource service API.
+    * Added cmdlet Get-BATConsumableResourceList leveraging the ListConsumableResources service API.
+    * Added cmdlet Get-BATJobsByConsumableResourceList leveraging the ListJobsByConsumableResource service API.
+    * Added cmdlet New-BATConsumableResource leveraging the CreateConsumableResource service API.
+    * Added cmdlet Remove-BATConsumableResource leveraging the DeleteConsumableResource service API.
+    * Added cmdlet Update-BATConsumableResource leveraging the UpdateConsumableResource service API.
+    * Modified cmdlet Register-BATJobDefinition: added parameter ConsumableResourceProperties_ConsumableResourceList.
+    * Modified cmdlet Submit-BATJob: added parameter ConsumableResourcePropertiesOverride_ConsumableResourceList.
+  * CHM
+    * [Breaking Change] Removed cmdlets Add-CHMAttendee, Add-CHMMeeting, Add-CHMPhoneNumbersToVoiceConnector, Add-CHMPhoneNumbersToVoiceConnectorGroup, Add-CHMResourceTag, Confirm-CHME911Address, Get-CHMAppInstance, Get-CHMAppInstanceAdmin, Get-CHMAppInstanceAdminList, Get-CHMAppInstanceList, Get-CHMAppInstanceRetentionSetting, Get-CHMAppInstanceStreamingConfiguration, Get-CHMAppInstanceUser, Get-CHMAppInstanceUserList, Get-CHMAttendee, Get-CHMAttendeeList, Get-CHMAttendeeTagList, Get-CHMChannel, Get-CHMChannelBan, Get-CHMChannelBanList, Get-CHMChannelList, Get-CHMChannelMembership, Get-CHMChannelMembershipForAppInstanceUser, Get-CHMChannelMembershipList, Get-CHMChannelMembershipsForAppInstanceUserList, Get-CHMChannelMessage, Get-CHMChannelMessageList, Get-CHMChannelModeratedByAppInstanceUser, Get-CHMChannelModerator, Get-CHMChannelModeratorList, Get-CHMChannelsModeratedByAppInstanceUserList, Get-CHMMediaCapturePipeline, Get-CHMMediaCapturePipelineList, Get-CHMMeeting, Get-CHMMeetingList, Get-CHMMeetingTagList, Get-CHMMessagingSessionEndpoint, Get-CHMProxySession, Get-CHMProxySessionList, Get-CHMResourceTag, Get-CHMSipMediaApplication, Get-CHMSipMediaApplicationList, Get-CHMSipMediaApplicationLoggingConfiguration, Get-CHMSipRule, Get-CHMSipRuleList, Get-CHMVoiceConnector, Get-CHMVoiceConnectorEmergencyCallingConfiguration, Get-CHMVoiceConnectorGroup, Get-CHMVoiceConnectorGroupList, Get-CHMVoiceConnectorList, Get-CHMVoiceConnectorLoggingConfiguration, Get-CHMVoiceConnectorOrigination, Get-CHMVoiceConnectorProxy, Get-CHMVoiceConnectorStreamingConfiguration, Get-CHMVoiceConnectorTermination, Get-CHMVoiceConnectorTerminationCredentialList, Get-CHMVoiceConnectorTerminationHealth, Hide-CHMChannelMessage, New-CHMAppInstance, New-CHMAppInstanceAdmin, New-CHMAppInstanceUser, New-CHMAttendee, New-CHMAttendeeBatch, New-CHMChannel, New-CHMChannelBan, New-CHMChannelMembership, New-CHMChannelModerator, New-CHMCreateChannelMembership, New-CHMMediaCapturePipeline, New-CHMMeeting, New-CHMMeetingWithAttendee, New-CHMProxySession, New-CHMSipMediaApplication, New-CHMSipMediaApplicationCall, New-CHMSipRule, New-CHMVoiceConnector, New-CHMVoiceConnectorGroup, Remove-CHMAppInstance, Remove-CHMAppInstanceAdmin, Remove-CHMAppInstanceStreamingConfiguration, Remove-CHMAppInstanceUser, Remove-CHMAttendee, Remove-CHMAttendeeTag, Remove-CHMChannel, Remove-CHMChannelBan, Remove-CHMChannelMembership, Remove-CHMChannelMessage, Remove-CHMChannelModerator, Remove-CHMMediaCapturePipeline, Remove-CHMMeeting, Remove-CHMMeetingTag, Remove-CHMPhoneNumbersFromVoiceConnector, Remove-CHMPhoneNumbersFromVoiceConnectorGroup, Remove-CHMProxySession, Remove-CHMResourceTag, Remove-CHMSipMediaApplication, Remove-CHMSipRule, Remove-CHMVoiceConnector, Remove-CHMVoiceConnectorEmergencyCallingConfiguration, Remove-CHMVoiceConnectorGroup, Remove-CHMVoiceConnectorOrigination, Remove-CHMVoiceConnectorProxy, Remove-CHMVoiceConnectorStreamingConfiguration, Remove-CHMVoiceConnectorTermination, Remove-CHMVoiceConnectorTerminationCredential, Send-CHMChannelMessage, Start-CHMMeetingTranscription, Stop-CHMMeetingTranscription, Update-CHMAppInstance, Update-CHMAppInstanceUser, Update-CHMChannel, Update-CHMChannelMessage, Update-CHMChannelReadMarker, Update-CHMProxySession, Update-CHMSipMediaApplication, Update-CHMSipMediaApplicationCall, Update-CHMSipRule, Update-CHMVoiceConnector, Update-CHMVoiceConnectorGroup, Write-CHMAppInstanceRetentionSetting, Write-CHMAppInstanceStreamingConfiguration, Write-CHMSipMediaApplicationLoggingConfiguration, Write-CHMVoiceConnectorEmergencyCallingConfiguration, Write-CHMVoiceConnectorLoggingConfiguration, Write-CHMVoiceConnectorOrigination, Write-CHMVoiceConnectorProxy, Write-CHMVoiceConnectorStreamingConfiguration, Write-CHMVoiceConnectorTermination and Write-CHMVoiceConnectorTerminationCredential.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet Get-CWASServiceLevelObjectiveList: added parameters IncludeLinkedAccount and SloOwnerAwsAccountId.
+    * Modified cmdlet Get-CWASServiceList: added parameters AwsAccountId and IncludeLinkedAccount.
+  * Amazon IoT FleetWise
+    * Modified cmdlet Get-IFWCampaignList: added parameter ListResponseScope.
+    * Modified cmdlet Get-IFWDecoderManifestList: added parameter ListResponseScope.
+    * Modified cmdlet Get-IFWFleetList: added parameters ListResponseScope and PassThru.
+    * Modified cmdlet Get-IFWModelManifestList: added parameter ListResponseScope.
+    * Modified cmdlet Get-IFWStateTemplateList: added parameters ListResponseScope and PassThru.
+    * Modified cmdlet Get-IFWVehicleList: added parameter ListResponseScope.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMInferenceComponent: added parameters AutoRollbackConfiguration_Alarm, MaximumBatchSize_Type, MaximumBatchSize_Value, RollbackMaximumBatchSize_Type, RollbackMaximumBatchSize_Value, RollingUpdatePolicy_MaximumExecutionTimeoutInSecond and RollingUpdatePolicy_WaitIntervalInSecond.
+
+### 4.1.765 (2025-02-25 21:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.990.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Device Farm
+    * Modified cmdlet Get-DFDevicePoolCompatibility: added parameters DeviceProxy_Host and DeviceProxy_Port.
+    * Modified cmdlet New-DFRemoteAccessSession: added parameters DeviceProxy_Host and DeviceProxy_Port.
+    * Modified cmdlet Submit-DFTestRun: added parameters DeviceProxy_Host and DeviceProxy_Port.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Copy-EC2Image: added parameter SnapshotCopyCompletionDurationMinute.
+  * Amazon Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters EgyptAdditionalInfo_UniqueIdentificationNumber, EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate, GreeceAdditionalInfo_ContractingAuthorityCode, VietnamAdditionalInfo_ElectronicTransactionCodeNumber, VietnamAdditionalInfo_EnterpriseIdentificationNumber, VietnamAdditionalInfo_PaymentVoucherNumber and VietnamAdditionalInfo_PaymentVoucherNumberDate.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters EgyptAdditionalInfo_UniqueIdentificationNumber, EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate, GreeceAdditionalInfo_ContractingAuthorityCode, VietnamAdditionalInfo_ElectronicTransactionCodeNumber, VietnamAdditionalInfo_EnterpriseIdentificationNumber, VietnamAdditionalInfo_PaymentVoucherNumber and VietnamAdditionalInfo_PaymentVoucherNumberDate.
+
+### 4.1.764 (2025-02-24 23:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.989.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Elastic Inference
+
+### 4.1.763 (2025-02-21 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.988.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABDataSource: added parameter CrawlerConfiguration_UserAgentHeader.
+    * Modified cmdlet Update-AABDataSource: added parameter CrawlerConfiguration_UserAgentHeader.
+
+### 4.1.762 (2025-02-20 21:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.987.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMCluster: added parameter InstanceGroupsToDelete.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWUserSetting: added parameters ToolbarConfiguration_HiddenToolbarItem, ToolbarConfiguration_MaxDisplayResolution, ToolbarConfiguration_ToolbarType and ToolbarConfiguration_VisualMode.
+    * Modified cmdlet Update-WSWUserSetting: added parameters ToolbarConfiguration_HiddenToolbarItem, ToolbarConfiguration_MaxDisplayResolution, ToolbarConfiguration_ToolbarType and ToolbarConfiguration_VisualMode.
+
+### 4.1.761 (2025-02-19 21:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.986.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWAnalysisReportList leveraging the ListAnalysisReports service API.
+    * Added cmdlet Get-NWFWAnalysisReportResult leveraging the GetAnalysisReportResults service API.
+    * Added cmdlet Start-NWFWAnalysisReport leveraging the StartAnalysisReport service API.
+    * Added cmdlet Update-NWFWFirewallAnalysisSetting leveraging the UpdateFirewallAnalysisSettings service API.
+    * Modified cmdlet New-NWFWFirewall: added parameter EnabledAnalysisType.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Write-SES2ConfigurationSetArchivingOption leveraging the PutConfigurationSetArchivingOptions service API.
+    * Modified cmdlet New-SES2ConfigurationSet: added parameter ArchivingOptions_ArchiveArn.
+
+### 4.1.760 (2025-02-18 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.985.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * [Breaking Change] Modified cmdlet Start-EMLMonitorDeployment: removed parameter RequestId.
+  * Amazon EMR Containers
+    * Modified cmdlet New-EMRCManagedEndpoint: added parameters ManagedLogs_AllowAWSToRetainLog and ManagedLogs_EncryptionKeyArn.
+    * Modified cmdlet Start-EMRCJobRun: added parameters ManagedLogs_AllowAWSToRetainLog and ManagedLogs_EncryptionKeyArn.
+
+### 4.1.759 (2025-02-17 21:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.984.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPApp: added parameter ComputeRoleArn.
+    * Modified cmdlet New-AMPBranch: added parameter ComputeRoleArn.
+    * Modified cmdlet Update-AMPApp: added parameter ComputeRoleArn.
+    * Modified cmdlet Update-AMPBranch: added parameter ComputeRoleArn.
+  * Amazon Database Migration Service
+    * Modified cmdlet Get-DMSApplicableIndividualAssessment: added parameter ReplicationConfigArn.
+  * Amazon Timestream InfluxDB
+    * Added cmdlet Get-TIDBDbCluster leveraging the GetDbCluster service API.
+    * Added cmdlet Get-TIDBDbClusterList leveraging the ListDbClusters service API.
+    * Added cmdlet Get-TIDBDbInstancesForClusterList leveraging the ListDbInstancesForCluster service API.
+    * Added cmdlet New-TIDBDbCluster leveraging the CreateDbCluster service API.
+    * Added cmdlet Remove-TIDBDbCluster leveraging the DeleteDbCluster service API.
+    * Added cmdlet Update-TIDBDbCluster leveraging the UpdateDbCluster service API.
+
+### 4.1.758 (2025-02-14 21:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.983.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNAnalyticsDataLakeDataSetList leveraging the ListAnalyticsDataLakeDataSets service API.
+    * Modified cmdlet Add-CONNApprovedOrigin: added parameter ClientToken.
+    * Modified cmdlet Add-CONNBot: added parameter ClientToken.
+    * Modified cmdlet Add-CONNInstanceStorageConfig: added parameter ClientToken.
+    * Modified cmdlet Add-CONNLambdaFunction: added parameter ClientToken.
+    * Modified cmdlet Add-CONNLexBot: added parameter ClientToken.
+    * Modified cmdlet Add-CONNSecurityKey: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNApprovedOrigin: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNBot: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNInstance: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNInstanceStorageConfig: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNLambdaFunction: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNLexBot: added parameter ClientToken.
+    * Modified cmdlet Remove-CONNSecurityKey: added parameter ClientToken.
+    * Modified cmdlet Update-CONNInstanceAttribute: added parameter ClientToken.
+    * Modified cmdlet Update-CONNInstanceStorageConfig: added parameter ClientToken.
+  * Amazon Database Migration Service
+    * Modified cmdlet Start-DMSReplication: added parameter PremigrationAssessmentSetting.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter DataProtectionConfig_DataProtection.
+    * Modified cmdlet Update-WAF2WebACL: added parameter DataProtectionConfig_DataProtection.
+
+### 4.1.757 (2025-02-13 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.982.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Get-IAMAAFindingsStatistic leveraging the GetFindingsStatistics service API.
+  * Amazon Storage Gateway
+    * Added cmdlet Get-SGCacheReport leveraging the DescribeCacheReport service API.
+    * Added cmdlet Get-SGCacheReportList leveraging the ListCacheReports service API.
+    * Added cmdlet Remove-SGCacheReport leveraging the DeleteCacheReport service API.
+    * Added cmdlet Start-SGCacheReport leveraging the StartCacheReport service API.
+    * Added cmdlet Stop-SGCacheReport leveraging the CancelCacheReport service API.
+
+### 4.1.756 (2025-02-12 22:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.981.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLCloudWatchAlarmTemplate: added parameter RequestId.
+    * Modified cmdlet New-EMLCloudWatchAlarmTemplateGroup: added parameter RequestId.
+    * Modified cmdlet New-EMLEventBridgeRuleTemplate: added parameter RequestId.
+    * Modified cmdlet New-EMLEventBridgeRuleTemplateGroup: added parameter RequestId.
+    * Modified cmdlet New-EMLSignalMap: added parameter RequestId.
+    * Modified cmdlet Start-EMLMonitorDeployment: added parameter RequestId.
+  * Amazon FSx
+    * Modified cmdlet Update-FSXFileSystem: added parameter FileSystemTypeVersion.
+  * Amazon OpenSearch Serverless
+    * Modified cmdlet New-OSSSecurityConfig: added parameter SamlOptions_OpenSearchServerlessEntityId.
+    * Modified cmdlet Update-OSSSecurityConfig: added parameter SamlOptions_OpenSearchServerlessEntityId.
+
+### 4.1.755 (2025-02-11 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.980.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Copy-S3Object: added parameter ExpectedBucketOwner.
+    * Modified cmdlet Write-S3Object: added parameter ExpectedBucketOwner.
+
+### 4.1.754 (2025-02-10 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.979.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSDataProvider: added parameters IbmDb2LuwSettings_CertificateArn, IbmDb2LuwSettings_DatabaseName, IbmDb2LuwSettings_Port, IbmDb2LuwSettings_ServerName, IbmDb2LuwSettings_SslMode, IbmDb2zOsSettings_CertificateArn, IbmDb2zOsSettings_DatabaseName, IbmDb2zOsSettings_Port, IbmDb2zOsSettings_ServerName and IbmDb2zOsSettings_SslMode.
+    * Modified cmdlet New-DMSDataProvider: added parameters IbmDb2LuwSettings_CertificateArn, IbmDb2LuwSettings_DatabaseName, IbmDb2LuwSettings_Port, IbmDb2LuwSettings_ServerName, IbmDb2LuwSettings_SslMode, IbmDb2zOsSettings_CertificateArn, IbmDb2zOsSettings_DatabaseName, IbmDb2zOsSettings_Port, IbmDb2zOsSettings_ServerName and IbmDb2zOsSettings_SslMode.
+
+### 4.1.753 (2025-02-07 22:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.978.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet Get-EKSClusterVersion: added parameter VersionStatus.
+  * Amazon Transcribe Service
+    * Modified cmdlet Start-TRSMedicalScribeJob: added parameter ClinicalNoteGenerationSettings_NoteTemplate.
+
+### 4.1.752 (2025-02-06 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.977.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNCFNStackRefactor leveraging the DescribeStackRefactor service API.
+    * Added cmdlet Get-CFNCFNStackRefactorActionList leveraging the ListStackRefactorActions service API.
+    * Added cmdlet Get-CFNCFNStackRefactorList leveraging the ListStackRefactors service API.
+    * Added cmdlet New-CFNCFNStackRefactor leveraging the CreateStackRefactor service API.
+    * Added cmdlet Start-CFNCFNStackRefactor leveraging the ExecuteStackRefactor service API.
+  * Amazon Connect Cases
+    * Added cmdlet Get-CCASCaseRuleList leveraging the ListCaseRules service API.
+    * Added cmdlet Group-CCASGetCaseRule leveraging the BatchGetCaseRule service API.
+    * Added cmdlet New-CCASCaseRule leveraging the CreateCaseRule service API.
+    * Added cmdlet Remove-CCASCaseRule leveraging the DeleteCaseRule service API.
+    * Added cmdlet Update-CCASCaseRule leveraging the UpdateCaseRule service API.
+    * Modified cmdlet New-CCASTemplate: added parameter Rule.
+    * Modified cmdlet Update-CCASTemplate: added parameter Rule.
+
+### 4.1.751 (2025-02-05 22:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.976.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
 ### 4.1.750 (2025-02-04 23:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.976.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service

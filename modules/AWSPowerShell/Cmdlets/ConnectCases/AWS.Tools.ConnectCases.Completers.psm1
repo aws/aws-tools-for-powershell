@@ -175,14 +175,17 @@ $CCAS_SelectCompleters = {
 }
 
 $CCAS_SelectMap = @{
-    "Select"=@("Group-CCASGetField",
+    "Select"=@("Group-CCASGetCaseRule",
+               "Group-CCASGetField",
                "Group-CCASPutFieldOption",
                "New-CCASCase",
+               "New-CCASCaseRule",
                "New-CCASDomain",
                "New-CCASField",
                "New-CCASLayout",
                "New-CCASRelatedItem",
                "New-CCASTemplate",
+               "Remove-CCASCaseRule",
                "Remove-CCASDomain",
                "Remove-CCASField",
                "Remove-CCASLayout",
@@ -193,6 +196,7 @@ $CCAS_SelectMap = @{
                "Get-CCASDomain",
                "Get-CCASLayout",
                "Get-CCASTemplate",
+               "Get-CCASCaseRuleList",
                "Get-CCASCasesForContactList",
                "Get-CCASDomainList",
                "Get-CCASFieldOptionList",
@@ -206,6 +210,7 @@ $CCAS_SelectMap = @{
                "Add-CCASResourceTag",
                "Remove-CCASResourceTag",
                "Update-CCASCase",
+               "Update-CCASCaseRule",
                "Update-CCASField",
                "Update-CCASLayout",
                "Update-CCASTemplate")

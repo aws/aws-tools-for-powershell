@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>A unique, service-generated identifier.</para>
+        /// <para>The unique ID of the state template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

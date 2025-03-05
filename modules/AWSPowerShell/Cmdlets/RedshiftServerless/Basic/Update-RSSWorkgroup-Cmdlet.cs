@@ -188,6 +188,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter TrackName
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter for the name of the track for the workgroup. If you don't provide
+        /// a track name, the workgroup is assigned to the <c>current</c> track.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrackName { get; set; }
+        #endregion
+        
         #region Parameter WorkgroupName
         /// <summary>
         /// <para>
@@ -273,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
+            context.TrackName = this.TrackName;
             context.WorkgroupName = this.WorkgroupName;
             #if MODULAR
             if (this.WorkgroupName == null && ParameterWasBound(nameof(this.WorkgroupName)))
@@ -361,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             {
                 request.SubnetIds = cmdletContext.SubnetId;
             }
+            if (cmdletContext.TrackName != null)
+            {
+                request.TrackName = cmdletContext.TrackName;
+            }
             if (cmdletContext.WorkgroupName != null)
             {
                 request.WorkgroupName = cmdletContext.WorkgroupName;
@@ -431,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> SubnetId { get; set; }
+            public System.String TrackName { get; set; }
             public System.String WorkgroupName { get; set; }
             public System.Func<Amazon.RedshiftServerless.Model.UpdateWorkgroupResponse, UpdateRSSWorkgroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Workgroup;

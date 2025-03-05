@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The VPC origin to delete, if a match occurs.</para>
+        /// <para>The version identifier of the VPC origin to delete. This is the <c>ETag</c> value
+        /// returned in the response to <a>GetVpcOrigin</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelCacheReport" OutputProperty="CacheReportARN" Verb="Stop" Noun="CacheReport" ShouldProcessTarget="CacheReportARN" PipelineParameter="CacheReportARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelRetrieval" OutputProperty="TapeARN" Verb="Stop" Noun="Retrieval" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -122,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCacheReport" OutputProperty="CacheReportARN" Verb="Remove" Noun="CacheReport" ShouldProcessTarget="CacheReportARN" PipelineParameter="CacheReportARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteChapCredentials" OutputProperty="*" Verb="Remove" Noun="ChapCredential" ShouldProcessTarget="InitiatorName" PositionalParameters="InitiatorName" PipelineParameter="TargetARN" NoPipelineParameter="false" LegacyAlias="Remove-SGChapCredentials">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +179,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCachediSCSIVolumes" OutputProperty="CachediSCSIVolumes" Verb="Get" Noun="CachediSCSIVolume" PipelineParameter="VolumeARNs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheReport" OutputProperty="CacheReportInfo" Verb="Get" Noun="CacheReport" PipelineParameter="CacheReportARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -246,11 +258,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EvictFilesFailingUpload" OutputProperty="NotificationId" Verb="Invoke" Noun="EvictFilesFailingUpload" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="JoinDomain" OutputProperty="GatewayARN" Verb="Join" Noun="Domain" ShouldProcessTarget="DomainName" PositionalParameters="GatewayARN" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAutomaticTapeCreationPolicies" OutputProperty="AutomaticTapeCreationPolicyInfos" Verb="Get" Noun="AutomaticTapeCreationPolicy" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCacheReports" OutputProperty="CacheReportList" Verb="Get" Noun="CacheReportList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -332,6 +352,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAvailabilityMonitorTest" OutputProperty="GatewayARN" Verb="Start" Noun="AvailabilityMonitorTest" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCacheReport" OutputProperty="CacheReportARN" Verb="Start" Noun="CacheReport" ShouldProcessTarget="VPCEndpointDNSName" PipelineParameter="FileShareARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

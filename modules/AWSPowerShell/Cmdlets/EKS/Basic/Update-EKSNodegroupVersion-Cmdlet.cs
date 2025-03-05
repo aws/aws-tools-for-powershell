@@ -34,10 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     ///  
     /// <para>
     /// You can update a node group using a launch template only if the node group was originally
-    /// deployed with a launch template. If you need to update a custom AMI in a node group
-    /// that was deployed with a launch template, then update your custom AMI, specify the
-    /// new ID in a new version of the launch template, and then update the node group to
-    /// the new version of the launch template.
+    /// deployed with a launch template. Additionally, the launch template ID or name must
+    /// match what was used when the node group was created. You can update the launch template
+    /// version with necessary changes.
+    /// </para><para>
+    /// If you need to update a custom AMI in a node group that was deployed with a launch
+    /// template, then update your custom AMI, specify the new ID in a new version of the
+    /// launch template, and then update the node group to the new version of the launch template.
     /// </para><para>
     /// If you update without a launch template, then you can update to the latest available
     /// AMI version of a node group's current Kubernetes version by not specifying a Kubernetes
@@ -115,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The ID of the launch template.</para><para>You must specify either the launch template ID or the launch template name in the
-        /// request, but not both.</para>
+        /// request, but not both. After node group creation, you cannot use a different ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The name of the launch template.</para><para>You must specify either the launch template name or the launch template ID in the
-        /// request, but not both.</para>
+        /// request, but not both. After node group creation, you cannot use a different name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The version number of the launch template to use. If no version is specified, then
-        /// the template's default version is used.</para>
+        /// the template's default version is used. You can use a different version for node group
+        /// updates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

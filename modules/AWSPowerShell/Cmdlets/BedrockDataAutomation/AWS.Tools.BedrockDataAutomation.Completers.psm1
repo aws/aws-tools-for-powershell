@@ -257,6 +257,9 @@ $BDA_SelectMap = @{
                "Get-BDADataAutomationProject",
                "Get-BDABlueprintList",
                "Get-BDADataAutomationProjectList",
+               "Get-BDAResourceTag",
+               "Add-BDAResourceTag",
+               "Remove-BDAResourceTag",
                "Update-BDABlueprint",
                "Update-BDADataAutomationProject")
 }

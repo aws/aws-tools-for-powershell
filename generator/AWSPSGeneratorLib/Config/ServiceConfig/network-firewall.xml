@@ -94,6 +94,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAnalysisReportResults" OutputProperty="*" Verb="Get" Noun="AnalysisReportResult" PipelineParameter="AnalysisReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAnalysisReports" OutputProperty="AnalysisReports" Verb="Get" Noun="AnalysisReportList" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFirewallPolicies" OutputProperty="FirewallPolicies" Verb="Get" Noun="FirewallPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -118,11 +126,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAnalysisReport" OutputProperty="AnalysisReportId" Verb="Start" Noun="AnalysisReport" ShouldProcessTarget="" PipelineParameter="AnalysisType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFirewallAnalysisSettings" OutputProperty="*" Verb="Update" Noun="FirewallAnalysisSetting" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

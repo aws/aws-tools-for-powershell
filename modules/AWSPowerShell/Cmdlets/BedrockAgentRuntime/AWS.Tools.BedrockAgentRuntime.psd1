@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2025 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The BedrockAgentRuntime module of AWS Tools for PowerShell lets developers and administrators manage Amazon Bedrock Agent Runtime from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -34,6 +34,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Name of the PowerShell host required by this module
     PowerShellHostName = ''
+
+
 
     # Minimum version of the PowerShell host required by this module
     PowerShellHostVersion = ''
@@ -82,8 +84,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-BARResourceTag', 
+        'Close-BARSession', 
         'Get-BARAgentMemory', 
+        'Get-BARInvocationList', 
+        'Get-BARInvocationStep', 
+        'Get-BARInvocationStepList', 
         'Get-BAROptimizePrompt', 
+        'Get-BARResourceTag', 
+        'Get-BARSession', 
+        'Get-BARSessionList', 
         'Invoke-BARAgent', 
         'Invoke-BARFlow', 
         'Invoke-BARGenerateQuery', 
@@ -92,7 +102,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Invoke-BARRetrieve', 
         'Invoke-BARRetrieveAndGenerate', 
         'Invoke-BARRetrieveAndGenerateStream', 
-        'Remove-BARAgentMemory')
+        'New-BARInvocation', 
+        'New-BARSession', 
+        'Remove-BARAgentMemory', 
+        'Remove-BARResourceTag', 
+        'Remove-BARSession', 
+        'Update-BARSession', 
+        'Write-BARInvocationStep')
 
     # Variables to export from this module
     VariablesToExport = '*'

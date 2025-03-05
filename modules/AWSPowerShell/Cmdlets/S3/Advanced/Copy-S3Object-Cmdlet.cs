@@ -234,6 +234,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter PublicReadWrite { get; set; }
         #endregion
 
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
+        /// not match the actual owner of the bucket, the request fails with the HTTP status code
+        /// <code>403 Forbidden</code> (access denied).</para>
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = CopyS3ObjectToS3Object)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+
         #region Parameter StorageClass
 
         // NOTE: This parameter does not use the marker attribute for automated validate set
@@ -631,6 +643,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     break;
             }
 
+            if (this.ExpectedBucketOwner != null)
+                context.ExpectedBucketOwner = this.ExpectedBucketOwner;
 #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("ModifiedSinceDate"))
                 context.ModifiedSinceDate = this.ModifiedSinceDate;
@@ -722,7 +736,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
             }
-
             base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(objectKey, request.Key);
 
             var response = CallAWSServiceOperation(sourceRegionClient, request);
@@ -838,6 +851,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
             }
+            if (cmdletContext.ExpectedBucketOwner !=  null)
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
 
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
@@ -936,6 +951,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     completeRequest.RequestPayer = cmdletContext.RequestPayer;
                 }
+                if (cmdletContext.ExpectedBucketOwner != null)
+                    initiateRequest.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner; 
 
                 CallAWSServiceOperation(Client, completeRequest);
                 uploadId = null;
@@ -1235,6 +1252,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public S3MetadataDirective? MetadataDirective { get; set; }
             public S3CannedACL CannedACL { get; set; }
             public String SourceVersionId { get; set; }
+            public String ExpectedBucketOwner {get; set; }
             public S3StorageClass StorageClass { get; set; }
             public ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
             public string ServerSideEncryptionKeyManagementServiceKeyId { get; set; }

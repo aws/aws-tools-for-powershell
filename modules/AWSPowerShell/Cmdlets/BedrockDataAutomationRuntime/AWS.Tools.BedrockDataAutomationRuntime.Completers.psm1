@@ -150,7 +150,10 @@ $BDAR_SelectCompleters = {
 
 $BDAR_SelectMap = @{
     "Select"=@("Get-BDARDataAutomationStatus",
-               "Invoke-BDARDataAutomationAsync")
+               "Invoke-BDARDataAutomationAsync",
+               "Get-BDARResourceTag",
+               "Add-BDARResourceTag",
+               "Remove-BDARResourceTag")
 }
 
 _awsArgumentCompleterRegistration $BDAR_SelectCompleters $BDAR_SelectMap

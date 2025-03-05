@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter CalendarName
         /// <summary>
         /// <para>
-        /// <para>The names or Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents)
+        /// <para>The names of Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents)
         /// that represent the calendar entries for which you want to get the state.</para>
         /// </para>
         /// </summary>

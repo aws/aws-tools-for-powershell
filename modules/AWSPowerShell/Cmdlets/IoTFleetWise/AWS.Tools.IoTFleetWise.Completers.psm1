@@ -111,6 +111,20 @@ $IFW_Completers = {
             break
         }
 
+        # Amazon.IoTFleetWise.ListResponseScope
+        {
+            ($_ -eq "Get-IFWCampaignList/ListResponseScope") -Or
+            ($_ -eq "Get-IFWDecoderManifestList/ListResponseScope") -Or
+            ($_ -eq "Get-IFWFleetList/ListResponseScope") -Or
+            ($_ -eq "Get-IFWModelManifestList/ListResponseScope") -Or
+            ($_ -eq "Get-IFWStateTemplateList/ListResponseScope") -Or
+            ($_ -eq "Get-IFWVehicleList/ListResponseScope")
+        }
+        {
+            $v = "METADATA_ONLY"
+            break
+        }
+
         # Amazon.IoTFleetWise.LogType
         "Write-IFWLoggingOption/CloudWatchLogDelivery_LogType"
         {
@@ -188,6 +202,7 @@ $IFW_map = @{
     "DefaultForUnmappedSignal"=@("New-IFWDecoderManifest","Update-IFWDecoderManifest")
     "DiagnosticsMode"=@("New-IFWCampaign")
     "EncryptionType"=@("Write-IFWEncryptionConfiguration")
+    "ListResponseScope"=@("Get-IFWCampaignList","Get-IFWDecoderManifestList","Get-IFWFleetList","Get-IFWModelManifestList","Get-IFWStateTemplateList","Get-IFWVehicleList")
     "SignalNodeType"=@("Get-IFWSignalCatalogNodeList")
     "SpoolingMode"=@("New-IFWCampaign")
     "Status"=@("Update-IFWDecoderManifest","Update-IFWModelManifest")

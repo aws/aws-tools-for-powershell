@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The names of the Amazon Web Services accounts that you
-        /// want to delete stack instances for.</para><para>You can specify <c>Accounts</c> or <c>DeploymentTargets</c>, but not both.</para>
+        /// <para>[Self-managed permissions] The account IDs of the Amazon Web Services accounts that
+        /// you want to delete stack instances for.</para><para>You can specify <c>Accounts</c> or <c>DeploymentTargets</c>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_Account
         /// <summary>
         /// <para>
-        /// <para>The names of one or more Amazon Web Services accounts for which you want to deploy
-        /// stack set updates.</para>
+        /// <para>The account IDs of the Amazon Web Services accounts. If you have many account numbers,
+        /// you can provide those accounts using the <c>AccountsUrl</c> property instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_AccountsUrl
         /// <summary>
         /// <para>
-        /// <para>Returns the value of the <c>AccountsUrl</c> property.</para>
+        /// <para>The Amazon S3 URL path to a file that contains a list of Amazon Web Services account
+        /// IDs. The file format must be either <c>.csv</c> or <c>.txt</c>, and the data can be
+        /// comma-separated or new-line-separated. There is currently a 10MB limit for the data
+        /// (approximately 800,000 accounts).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</para>
+        /// <para>The organization root ID or organizational unit (OU) IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

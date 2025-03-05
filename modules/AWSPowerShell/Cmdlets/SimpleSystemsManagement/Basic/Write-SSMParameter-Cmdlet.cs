@@ -29,7 +29,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Add a parameter to the system.
+    /// Create or update a parameter in Parameter Store.
     /// </summary>
     [Cmdlet("Write", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Int64")]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The Key Management Service (KMS) ID that you want to use to encrypt a parameter. Use
         /// a custom key for better security. Required for parameters that use the <c>SecureString</c>
         /// data type.</para><para>If you don't specify a key ID, the system uses the default key associated with your
-        /// Amazon Web Services account which is not as secure as using a custom key.</para><ul><li><para>To use a custom KMS key, choose the <c>SecureString</c> data type with the <c>Key
+        /// Amazon Web Services account, which is not as secure as using a custom key.</para><ul><li><para>To use a custom KMS key, choose the <c>SecureString</c> data type with the <c>Key
         /// ID</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name of the parameter that you want to add to the system.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
+        /// <para>The fully qualified name of the parameter that you want to create or update.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
         /// name itself.</para></note><para>The fully qualified name includes the complete hierarchy of the parameter path and
         /// name. For parameters in a hierarchy, you must include a leading forward slash character
         /// (/) when you create or reference a parameter. For example: <c>/Dev/DBServer/MySQL/db-string13</c></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an Amazon Web Services Region</para></li><li><para>A parameter name can't be prefixed with "<c>aws</c>" or "<c>ssm</c>" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <c>a-zA-Z0-9_.-</c></para><para>In addition, the slash character ( / ) is used to delineate hierarchies in parameter
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of parameter that you want to add to the system.</para><note><para><c>SecureString</c> isn't currently supported for CloudFormation templates.</para></note><para>Items in a <c>StringList</c> must be separated by a comma (,). You can't use other
+        /// <para>The type of parameter that you want to create.</para><note><para><c>SecureString</c> isn't currently supported for CloudFormation templates.</para></note><para>Items in a <c>StringList</c> must be separated by a comma (,). You can't use other
         /// punctuation or special character to escape items in the list. If you have a parameter
         /// value that requires a comma, then use the <c>String</c> data type.</para><important><para>Specifying a parameter type isn't required when updating a parameter. You must specify
         /// a parameter type when creating a parameter.</para></important>

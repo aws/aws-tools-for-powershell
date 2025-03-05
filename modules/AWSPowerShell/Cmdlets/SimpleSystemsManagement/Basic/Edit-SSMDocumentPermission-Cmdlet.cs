@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The Amazon Web Services users that should have access to the document. The account
-        /// IDs can either be a group of account IDs or <i>All</i>.</para>
+        /// IDs can either be a group of account IDs or <i>All</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The Amazon Web Services users that should no longer have access to the document. The
         /// Amazon Web Services user can either be a group of account IDs or <i>All</i>. This
         /// action has a higher priority than <c>AccountIdsToAdd</c>. If you specify an ID to
-        /// add and the same ID to remove, the system removes access to the document.</para>
+        /// add and the same ID to remove, the system removes access to the document. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
