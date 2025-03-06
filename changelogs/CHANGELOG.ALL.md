@@ -1,4 +1,18 @@
-﻿### 4.1.771 (2025-03-05 21:36Z)
+﻿### 4.1.772 (2025-03-06 21:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.997.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet New-BDRPromptRouter leveraging the CreatePromptRouter service API.
+    * Added cmdlet Remove-BDRPromptRouter leveraging the DeletePromptRouter service API.
+    * Modified cmdlet Get-BDRPromptRouterList: added parameters PassThru and Type.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet New-IVSRTStage: added parameter AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.
+    * Modified cmdlet Update-IVSRTStage: added parameter AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Get-RSDStatementList: added parameters ClusterIdentifier, Database and WorkgroupName.
+  * Amazon WorkSpaces
+    * Added cmdlet Edit-WKSEndpointEncryptionMode leveraging the ModifyEndpointEncryptionMode service API.
+
+### 4.1.771 (2025-03-05 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.996.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataSync
     * Modified cmdlet Update-DSYNLocationNfs: added parameter ServerHostname.

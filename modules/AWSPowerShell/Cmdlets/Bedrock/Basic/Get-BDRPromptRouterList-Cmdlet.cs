@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the prompt routers, such as whether it's default or custom.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.Bedrock.PromptRouterType")]
+        public Amazon.Bedrock.PromptRouterType Type { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -81,6 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public string Select { get; set; } = "PromptRouterSummaries";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Type parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Type' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Type' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -101,13 +122,24 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.ListPromptRoutersResponse, GetBDRPromptRouterListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Type;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -121,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.Bedrock.Model.ListPromptRoutersRequest();
@@ -129,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -217,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Bedrock.PromptRouterType Type { get; set; }
             public System.Func<Amazon.Bedrock.Model.ListPromptRoutersResponse, GetBDRPromptRouterListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PromptRouterSummaries;
         }

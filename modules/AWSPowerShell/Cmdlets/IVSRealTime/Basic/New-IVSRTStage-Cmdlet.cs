@@ -87,6 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
         #endregion
         
+        #region Parameter AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond
+        /// <summary>
+        /// <para>
+        /// <para>If a stage publisher disconnects and then reconnects within the specified interval,
+        /// the multiple recordings will be considered a single recording and merged together.</para><para>The default value is 0, which disables merging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_RecordingReconnectWindowSeconds")]
+        public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
+        #endregion
+        
         #region Parameter ThumbnailConfiguration_Storage
         /// <summary>
         /// <para>
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <para>ARN of the <a>StorageConfiguration</a> resource to use for individual participant
         /// recording. Default: <c>""</c> (empty string, no storage configuration is specified).
         /// Individual participant recording cannot be started unless a storage configuration
-        /// is specified, when a <a>Stage</a> is created or updated.</para>
+        /// is specified, when a <a>Stage</a> is created or updated. To disable individual participant
+        /// recording, set this to <c>""</c>; other fields in this object will get reset to their
+        /// defaults when sending <c>""</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             {
                 context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
             }
+            context.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = this.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond;
             context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
             context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
             if (this.ThumbnailConfiguration_Storage != null)
@@ -256,6 +271,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType != null)
             {
                 request.AutoParticipantRecordingConfiguration.MediaTypes = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+            System.Int32? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = null;
+            if (cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
+            {
+                request.AutoParticipantRecordingConfiguration.RecordingReconnectWindowSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
             System.String requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = null;
@@ -392,6 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
+            public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
             public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
             public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
             public List<System.String> ThumbnailConfiguration_Storage { get; set; }

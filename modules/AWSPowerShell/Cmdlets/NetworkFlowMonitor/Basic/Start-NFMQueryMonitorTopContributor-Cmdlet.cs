@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         /// <summary>
         /// <para>
         /// <para>The category that you want to query top contributors for, for a specific monitor.
-        /// Destination categories can be one of the following: </para><ul><li><para><c>INTRA_AZ</c>: Top contributor network flows within a single Availability Zone</para></li><li><para><c>INTER_AZ</c>: Top contributor network flows between Availability Zones</para></li><li><para><c>INTER_VPC</c>: Top contributor network flows between VPCs</para></li><li><para><c>AWS_SERVICES</c>: Top contributor network flows to or from Amazon Web Services
-        /// services</para></li><li><para><c>UNCLASSIFIED</c>: Top contributor network flows that do not have a bucket classification</para></li></ul>
+        /// Destination categories can be one of the following: </para><ul><li><para><c>INTRA_AZ</c>: Top contributor network flows within a single Availability Zone</para></li><li><para><c>INTER_AZ</c>: Top contributor network flows between Availability Zones</para></li><li><para><c>INTER_VPC</c>: Top contributor network flows between VPCs</para></li><li><para><c>AMAZON_S3</c>: Top contributor network flows to or from Amazon S3</para></li><li><para><c>AMAZON_DYNAMODB</c>: Top contributor network flows to or from Amazon Dynamo DB</para></li><li><para><c>UNCLASSIFIED</c>: Top contributor network flows that do not have a bucket classification</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

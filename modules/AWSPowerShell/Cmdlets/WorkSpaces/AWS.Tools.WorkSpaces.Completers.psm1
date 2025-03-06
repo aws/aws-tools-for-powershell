@@ -166,6 +166,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.EndpointEncryptionMode
+        "Edit-WKSEndpointEncryptionMode/EndpointEncryptionMode"
+        {
+            $v = "FIPS_VALIDATED","STANDARD_TLS"
+            break
+        }
+
         # Amazon.WorkSpaces.ImageType
         "Get-WKSWorkspaceImage/ImageType"
         {
@@ -280,6 +287,7 @@ $WKS_map = @{
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "EndpointEncryptionMode"=@("Edit-WKSEndpointEncryptionMode")
     "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
@@ -422,6 +430,7 @@ $WKS_SelectMap = @{
                "Edit-WKSAccount",
                "Edit-WKSCertificateBasedAuthProperty",
                "Edit-WKSClientProperty",
+               "Edit-WKSEndpointEncryptionMode",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
                "Edit-WKSStreamingProperty",

@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return.</para>
+        /// <para>The maximum size of each page of results. The default value is 20 and the maximum
+        /// value is 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

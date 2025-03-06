@@ -22,30 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IVSRealTime;
-using Amazon.IVSRealTime.Model;
+using Amazon.WorkSpaces;
+using Amazon.WorkSpaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IVSRT
+namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Removes tags from the resource with the specified ARN.
+    /// Modifies the endpoint encryption mode that allows you to configure the specified directory
+    /// between Standard TLS and FIPS 140-2 validated mode.
     /// </summary>
-    [Cmdlet("Remove", "IVSRTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Edit", "WKSEndpointEncryptionMode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.UntagResourceResponse",
+    [AWSCmdlet("Calls the Amazon WorkSpaces ModifyEndpointEncryptionMode API operation.", Operation = new[] {"ModifyEndpointEncryptionMode"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveIVSRTResourceTagCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
+    public partial class EditWKSEndpointEncryptionModeCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to be untagged. The ARN must be URL-encoded.</para>
+        /// <para> The identifier of the directory.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,34 +57,31 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter EndpointEncryptionMode
         /// <summary>
         /// <para>
-        /// <para>Array of tag keys (strings) for the tags to be removed. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
-        /// practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details,
-        /// including restrictions that apply to tags and "Tag naming limits and requirements";
-        /// Amazon IVS has no constraints on tags beyond what is documented there.</para>
+        /// <para>The encryption mode used for endpoint connections when streaming to WorkSpaces Personal
+        /// or WorkSpace Pools.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [AWSConstantClassSource("Amazon.WorkSpaces.EndpointEncryptionMode")]
+        public Amazon.WorkSpaces.EndpointEncryptionMode EndpointEncryptionMode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.UntagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IVSRTResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DirectoryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-WKSEndpointEncryptionMode (ModifyEndpointEncryptionMode)"))
             {
                 return;
             }
@@ -129,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.UntagResourceResponse, RemoveIVSRTResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse, EditWKSEndpointEncryptionModeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,24 +136,21 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.DirectoryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.DirectoryId = this.DirectoryId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.EndpointEncryptionMode = this.EndpointEncryptionMode;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.EndpointEncryptionMode == null && ParameterWasBound(nameof(this.EndpointEncryptionMode)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EndpointEncryptionMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IVSRealTime.Model.UntagResourceRequest();
+            var request = new Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.EndpointEncryptionMode != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.EndpointEncryptionMode = cmdletContext.EndpointEncryptionMode;
             }
             
             CmdletOutput output;
@@ -215,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region AWS Service Operation Call
         
-        private Amazon.IVSRealTime.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.UntagResourceRequest request)
+        private Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "ModifyEndpointEncryptionMode");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.ModifyEndpointEncryptionMode(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.ModifyEndpointEncryptionModeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,9 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.IVSRealTime.Model.UntagResourceResponse, RemoveIVSRTResourceTagCmdlet, object> Select { get; set; } =
+            public System.String DirectoryId { get; set; }
+            public Amazon.WorkSpaces.EndpointEncryptionMode EndpointEncryptionMode { get; set; }
+            public System.Func<Amazon.WorkSpaces.Model.ModifyEndpointEncryptionModeResponse, EditWKSEndpointEncryptionModeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

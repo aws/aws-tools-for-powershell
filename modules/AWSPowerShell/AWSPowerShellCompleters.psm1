@@ -6755,6 +6755,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.PromptRouterType
+        "Get-BDRPromptRouterList/Type"
+        {
+            $v = "custom","default"
+            break
+        }
+
         # Amazon.Bedrock.ProvisionedModelStatus
         "Get-BDRProvisionedModelThroughputList/StatusEqual"
         {
@@ -6835,6 +6842,7 @@ $BDR_map = @{
     "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
     "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "Type"=@("Get-BDRPromptRouterList")
     "TypeEqual"=@("Get-BDRInferenceProfileList")
 }
 
@@ -6898,6 +6906,7 @@ $BDR_SelectMap = @{
                "New-BDRModelCustomizationJob",
                "New-BDRModelImportJob",
                "New-BDRModelInvocationJob",
+               "New-BDRPromptRouter",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
                "Remove-BDRGuardrail",
@@ -6905,6 +6914,7 @@ $BDR_SelectMap = @{
                "Remove-BDRInferenceProfile",
                "Remove-BDRMarketplaceModelEndpoint",
                "Remove-BDRModelInvocationLoggingConfiguration",
+               "Remove-BDRPromptRouter",
                "Remove-BDRProvisionedModelThroughput",
                "Unregister-BDRMarketplaceModelEndpoint",
                "Get-BDRCustomModel",
@@ -77630,6 +77640,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.EndpointEncryptionMode
+        "Edit-WKSEndpointEncryptionMode/EndpointEncryptionMode"
+        {
+            $v = "FIPS_VALIDATED","STANDARD_TLS"
+            break
+        }
+
         # Amazon.WorkSpaces.ImageType
         "Get-WKSWorkspaceImage/ImageType"
         {
@@ -77744,6 +77761,7 @@ $WKS_map = @{
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "EndpointEncryptionMode"=@("Edit-WKSEndpointEncryptionMode")
     "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
@@ -77886,6 +77904,7 @@ $WKS_SelectMap = @{
                "Edit-WKSAccount",
                "Edit-WKSCertificateBasedAuthProperty",
                "Edit-WKSClientProperty",
+               "Edit-WKSEndpointEncryptionMode",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
                "Edit-WKSStreamingProperty",

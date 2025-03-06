@@ -2489,6 +2489,8 @@ Set-Alias -Name Create-BDRModelImportJob -Value New-BDRModelImportJob
 Set-Alias -Name BDR-CreateModelImportJob -Value New-BDRModelImportJob
 Set-Alias -Name Create-BDRModelInvocationJob -Value New-BDRModelInvocationJob
 Set-Alias -Name BDR-CreateModelInvocationJob -Value New-BDRModelInvocationJob
+Set-Alias -Name Create-BDRPromptRouter -Value New-BDRPromptRouter
+Set-Alias -Name BDR-CreatePromptRouter -Value New-BDRPromptRouter
 Set-Alias -Name Create-BDRProvisionedModelThroughput -Value New-BDRProvisionedModelThroughput
 Set-Alias -Name BDR-CreateProvisionedModelThroughput -Value New-BDRProvisionedModelThroughput
 Set-Alias -Name Delete-BDRCustomModel -Value Remove-BDRCustomModel
@@ -2503,6 +2505,8 @@ Set-Alias -Name Delete-BDRMarketplaceModelEndpoint -Value Remove-BDRMarketplaceM
 Set-Alias -Name BDR-DeleteMarketplaceModelEndpoint -Value Remove-BDRMarketplaceModelEndpoint
 Set-Alias -Name Delete-BDRModelInvocationLoggingConfiguration -Value Remove-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-DeleteModelInvocationLoggingConfiguration -Value Remove-BDRModelInvocationLoggingConfiguration
+Set-Alias -Name Delete-BDRPromptRouter -Value Remove-BDRPromptRouter
+Set-Alias -Name BDR-DeletePromptRouter -Value Remove-BDRPromptRouter
 Set-Alias -Name Delete-BDRProvisionedModelThroughput -Value Remove-BDRProvisionedModelThroughput
 Set-Alias -Name BDR-DeleteProvisionedModelThroughput -Value Remove-BDRProvisionedModelThroughput
 Set-Alias -Name Deregister-BDRMarketplaceModelEndpoint -Value Unregister-BDRMarketplaceModelEndpoint
@@ -31675,6 +31679,8 @@ Set-Alias -Name WKS-ModifyCertificateBasedAuthProperties -Value Edit-WKSCertific
 Set-Alias -Name Modify-WKSClientProperties -Value Edit-WKSClientProperty
 Set-Alias -Name Modify-WKSClientProperty -Value Edit-WKSClientProperty
 Set-Alias -Name WKS-ModifyClientProperties -Value Edit-WKSClientProperty
+Set-Alias -Name Modify-WKSEndpointEncryptionMode -Value Edit-WKSEndpointEncryptionMode
+Set-Alias -Name WKS-ModifyEndpointEncryptionMode -Value Edit-WKSEndpointEncryptionMode
 Set-Alias -Name Modify-WKSSamlProperties -Value Edit-WKSSamlProperty
 Set-Alias -Name Modify-WKSSamlProperty -Value Edit-WKSSamlProperty
 Set-Alias -Name WKS-ModifySamlProperties -Value Edit-WKSSamlProperty

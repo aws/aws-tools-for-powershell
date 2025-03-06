@@ -22,30 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IVSRealTime;
-using Amazon.IVSRealTime.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IVSRT
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Removes tags from the resource with the specified ARN.
+    /// Deletes a specified prompt router. This action cannot be undone.
     /// </summary>
-    [Cmdlet("Remove", "IVSRTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "BDRPromptRouter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.UntagResourceResponse",
+    [AWSCmdlet("Calls the Amazon Bedrock DeletePromptRouter API operation.", Operation = new[] {"DeletePromptRouter"}, SelectReturnType = typeof(Amazon.Bedrock.Model.DeletePromptRouterResponse))]
+    [AWSCmdletOutput("None or Amazon.Bedrock.Model.DeletePromptRouterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.UntagResourceResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Bedrock.Model.DeletePromptRouterResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveIVSRTResourceTagCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
+    public partial class RemoveBDRPromptRouterCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter PromptRouterArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to be untagged. The ARN must be URL-encoded.</para>
+        /// <para>The Amazon Resource Name (ARN) of the prompt router to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,34 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>Array of tag keys (strings) for the tags to be removed. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
-        /// practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details,
-        /// including restrictions that apply to tags and "Tag naming limits and requirements";
-        /// Amazon IVS has no constraints on tags beyond what is documented there.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String PromptRouterArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.UntagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.DeletePromptRouterResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PromptRouterArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PromptRouterArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PromptRouterArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IVSRTResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PromptRouterArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-BDRPromptRouter (DeletePromptRouter)"))
             {
                 return;
             }
@@ -129,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.UntagResourceResponse, RemoveIVSRTResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.DeletePromptRouterResponse, RemoveBDRPromptRouterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,24 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.PromptRouterArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.PromptRouterArn = this.PromptRouterArn;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.PromptRouterArn == null && ParameterWasBound(nameof(this.PromptRouterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PromptRouterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,15 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IVSRealTime.Model.UntagResourceRequest();
+            var request = new Amazon.Bedrock.Model.DeletePromptRouterRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.PromptRouterArn != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
+                request.PromptRouterArn = cmdletContext.PromptRouterArn;
             }
             
             CmdletOutput output;
@@ -215,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region AWS Service Operation Call
         
-        private Amazon.IVSRealTime.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.UntagResourceRequest request)
+        private Amazon.Bedrock.Model.DeletePromptRouterResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.DeletePromptRouterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "DeletePromptRouter");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.DeletePromptRouter(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeletePromptRouterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,9 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.IVSRealTime.Model.UntagResourceResponse, RemoveIVSRTResourceTagCmdlet, object> Select { get; set; } =
+            public System.String PromptRouterArn { get; set; }
+            public System.Func<Amazon.Bedrock.Model.DeletePromptRouterResponse, RemoveBDRPromptRouterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
