@@ -175,12 +175,6 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeAsync" OutputProperty="Status" Verb="Invoke" Noun="FunctionAsync" ShouldProcessTarget="FunctionName" PositionalParameters="InvokeArgs" PipelineParameter="FunctionName" NoPipelineParameter="false" ReplacementObsoleteMessage="This Cmdlet is deprecated. We recommend to use the Invoke-LMFunction Cmdlet instead." ConfirmImpact="Low">
-            <Params>
-                <Param Name="InvokeArgs" NewName="InvokeArg" DefaultValue="{}" />
-            </Params>
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="InvokeWithResponseStream" OutputProperty="*" Verb="Invoke" Noun="WithResponseStream" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

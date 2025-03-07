@@ -19,17 +19,6 @@ Describe -Tag "Smoke" "EC2" {
             $images | Should -Not -Be $null
             $images.Count | Should -BeGreaterThan 0
         }
-
-        It "Can get a list of by-name image keys" {
-            $imageKeys = Get-EC2ImageByName
-            $imageKeys | Should -Not -Be $null
-            $imageKeys.Count | Should -BeGreaterThan 0
-        }
-
-        It "Can get an image by name" {
-            $image = Get-EC2ImageByName WINDOWS_2016_BASE
-            $image | Should -Not -Be $null
-        }
     }
 }
 

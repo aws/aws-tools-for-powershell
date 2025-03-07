@@ -474,15 +474,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Int32? ConcurrentServiceRequest { get; set; }
         #endregion
 
-        #region Parameter CalculateContentMD5Header
-        /// <summary>
-        /// This property determines whether the Content-MD5 header should be calculated for upload.
-        /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true)]
-        [Obsolete("This parameter is redundant in the latest version of the S3 module, which automatically calculates a checksum to verify data integrity")]
-        public bool CalculateContentMD5Header { get; set; }
-        #endregion
-
         #region Parameter PartSize
         /// <summary>
         /// This property determines the part size of the upload. 
@@ -642,10 +633,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Headers = this.HeaderCollection;
             context.TagSet = this.TagSet;
 
-#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
-            context.CalculateContentMD5Header = this.CalculateContentMD5Header;
-#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
-
             if (this.ChecksumAlgorithm != null)
             {
                 context.ChecksumAlgorithm = this.ChecksumAlgorithm;
@@ -742,12 +729,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
             if (cmdletContext.ExpectedBucketOwner != null)
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
-            
-
-#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
-            request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
-#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
-
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
@@ -846,10 +827,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
-#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
-                request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
-#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
-
                 if (cmdletContext.PartSize != null)
                     request.PartSize = cmdletContext.PartSize.Value;
 
@@ -916,11 +893,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
             if (cmdletContext.TagSet != null)
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
-
-#pragma warning disable CS0618 // A class member was marked with the Obsolete attribute
-            request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
-#pragma warning restore CS0618 // A class member was marked with the Obsolete attribute
-
             if (cmdletContext.ChecksumAlgorithm != null)
             {
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
@@ -1010,8 +982,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Tag[] TagSet { get; set; }
 
             public int? ConcurrentServiceRequests { get; set; }
-
-            public bool CalculateContentMD5Header { get; set; }
 
             public long? PartSize { get; set; }
 

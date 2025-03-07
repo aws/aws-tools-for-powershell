@@ -21,7 +21,6 @@ using System.Linq;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
-using Amazon.EC2.Util;
 using Amazon.EC2;
 using Amazon.Runtime;
 

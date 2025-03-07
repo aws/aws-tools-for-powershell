@@ -17,7 +17,7 @@ Describe -Tag "Smoke" "AutoScaling" {
     Context "Launch Configurations" {
         It "Can create a launch configuration" {
             $launchConfigParams = @{
-                "ImageId"=(Get-EC2ImageByName WINDOWS_2016_BASE).ImageId
+                "ImageId"=(Get-SSMLatestEC2Image -Path ami-windows-latest -ImageName Windows_Server-2019-English-Core-Base)
                 "InstanceType"="t1.micro"
                 "LaunchConfigurationName"=$script:launchConfigName
             }
