@@ -9,7 +9,7 @@ ssm_StartSession:
       - sdk_version: 4
         sdk_action: Start-SSMSession
         excerpts:
-        - description: '<emphasis role="bold">Example 1: This example initiates a connection to a target for a Session Manager session, enabling port forwarding.</emphasis>'
+        - description: '<emphasis role="bold">Example 1: This example initiates a connection to a target for a Session Manager session, enabling port forwarding. Note: You need to add Region parameter if not already set using AWS Credentials.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:
@@ -17,9 +17,42 @@ ssm_StartSession:
         - description: <emphasis role="bold">Output:</emphasis>
           snippet_files: []
         - description: |-
-            <programlisting language="none" role="nocopy">SessionId    StreamUrl
-            ----------    ----------
-            random-id0    wss://ssmmessages.amazonaws.com/v1/data-channel/random-id</programlisting>
+            <programlisting language="none" role="nocopy">Starting session with SessionId: testUser-xi4glew849asyeryde34u4dfsdfy
+            Port 8080 opened for sessionId testUser-xi4glew849asyeryde34u4dfsdfy.
+            Waiting for connections...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example creates an interactive session with a specified instance for a Session Manager session.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Start-SSMSession.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Starting session with SessionId : testUser-xi4glew849asyeryde34u4dfsdfy
+            Windows PowerShell
+            Copyright (C) Microsoft Corporation. All rights reserved.
+                                                                                                                                                                                                            
+            Install the latest PowerShell for new features and improvements!
+                                                                                                                                                                  
+            PS C:\Windows\system32> whoami
+            ec2amaz-fnsdrwv\ec2-test-user
+            PS C:\Windows\system32></programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example creates a session without connecting to it and returns the SessionId, StreamUrl, and TokenValue properties required to connect to the session.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Start-SSMSession.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">SessionId        : testUser-xi4glew849asyeryde34u4dfsdfy
+            StreamUrl        : {StreamUrl value redacted}
+            TokenValue       : {Token value redacted}
+            ContentLength    : 1207
+            HttpStatusCode   : OK</programlisting>    
+          snippet_files: []
   services:
     ssm:
       StartSession:

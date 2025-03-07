@@ -20,7 +20,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 
         #region Parameter DisablePluginInvocation
         /// <summary>
-        /// If set, returns only start session metadata (i.e. reverts to legacy behavior).
+        /// <para>
+        /// <para>If set, reverts to legacy behavior and returns session metadata including a URL and token that can be used to open 
+        // a WebSocket connection to send input and receive outputs, rather than opening an interactive terminal.</para>
+        /// </para>
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter DisablePluginInvocation { get; set; }

@@ -1,0 +1,1 @@
+Start-SSMSession -Target 'i-1234567890abcdef0' -Region 'us-west-1'
