@@ -168,6 +168,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIpPools" OutputProperty="IpamPools" Verb="Edit" Noun="IpPool" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyListener" OutputProperty="Listeners" Verb="Edit" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

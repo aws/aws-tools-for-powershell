@@ -75,6 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.AgentActionGroup[] ActionGroup { get; set; }
         #endregion
         
+        #region Parameter AgentCollaboration
+        /// <summary>
+        /// <para>
+        /// <para> Defines how the inline collaborator agent handles information across multiple collaborator
+        /// agents to coordinate a final response. The inline collaborator agent can also be the
+        /// supervisor. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.AgentCollaboration")]
+        public Amazon.BedrockAgentRuntime.AgentCollaboration AgentCollaboration { get; set; }
+        #endregion
+        
         #region Parameter StreamingConfigurations_ApplyGuardrailInterval
         /// <summary>
         /// <para>
@@ -83,6 +96,29 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? StreamingConfigurations_ApplyGuardrailInterval { get; set; }
+        #endregion
+        
+        #region Parameter CollaboratorConfiguration
+        /// <summary>
+        /// <para>
+        /// <para> Settings for an inline agent collaborator called with <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html">InvokeInlineAgent</a>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CollaboratorConfigurations")]
+        public Amazon.BedrockAgentRuntime.Model.CollaboratorConfiguration[] CollaboratorConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter Collaborator
+        /// <summary>
+        /// <para>
+        /// <para> List of collaborator inline agents. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Collaborators")]
+        public Amazon.BedrockAgentRuntime.Model.Collaborator[] Collaborator { get; set; }
         #endregion
         
         #region Parameter CustomerEncryptionKeyArn
@@ -246,6 +282,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
         #endregion
         
+        #region Parameter ConversationHistory_Message
+        /// <summary>
+        /// <para>
+        /// <para>The conversation's messages.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InlineSessionState_ConversationHistory_Messages")]
+        public Amazon.BedrockAgentRuntime.Model.Message[] ConversationHistory_Message { get; set; }
+        #endregion
+        
         #region Parameter PromptOverrideConfiguration_OverrideLambda
         /// <summary>
         /// <para>
@@ -406,7 +453,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 context.ActionGroup = new List<Amazon.BedrockAgentRuntime.Model.AgentActionGroup>(this.ActionGroup);
             }
+            context.AgentCollaboration = this.AgentCollaboration;
             context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
+            if (this.CollaboratorConfiguration != null)
+            {
+                context.CollaboratorConfiguration = new List<Amazon.BedrockAgentRuntime.Model.CollaboratorConfiguration>(this.CollaboratorConfiguration);
+            }
+            if (this.Collaborator != null)
+            {
+                context.Collaborator = new List<Amazon.BedrockAgentRuntime.Model.Collaborator>(this.Collaborator);
+            }
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
@@ -420,6 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.GuardrailConfiguration_GuardrailIdentifier = this.GuardrailConfiguration_GuardrailIdentifier;
             context.GuardrailConfiguration_GuardrailVersion = this.GuardrailConfiguration_GuardrailVersion;
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
+            if (this.ConversationHistory_Message != null)
+            {
+                context.ConversationHistory_Message = new List<Amazon.BedrockAgentRuntime.Model.Message>(this.ConversationHistory_Message);
+            }
             if (this.InlineSessionState_File != null)
             {
                 context.InlineSessionState_File = new List<Amazon.BedrockAgentRuntime.Model.InputFile>(this.InlineSessionState_File);
@@ -491,6 +551,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 request.ActionGroups = cmdletContext.ActionGroup;
             }
+            if (cmdletContext.AgentCollaboration != null)
+            {
+                request.AgentCollaboration = cmdletContext.AgentCollaboration;
+            }
             
              // populate BedrockModelConfigurations
             var requestBedrockModelConfigurationsIsNull = true;
@@ -524,6 +588,14 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestBedrockModelConfigurationsIsNull)
             {
                 request.BedrockModelConfigurations = null;
+            }
+            if (cmdletContext.CollaboratorConfiguration != null)
+            {
+                request.CollaboratorConfigurations = cmdletContext.CollaboratorConfiguration;
+            }
+            if (cmdletContext.Collaborator != null)
+            {
+                request.Collaborators = cmdletContext.Collaborator;
             }
             if (cmdletContext.CustomerEncryptionKeyArn != null)
             {
@@ -626,6 +698,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestInlineSessionState_inlineSessionState_SessionAttribute != null)
             {
                 request.InlineSessionState.SessionAttributes = requestInlineSessionState_inlineSessionState_SessionAttribute;
+                requestInlineSessionStateIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.ConversationHistory requestInlineSessionState_inlineSessionState_ConversationHistory = null;
+            
+             // populate ConversationHistory
+            var requestInlineSessionState_inlineSessionState_ConversationHistoryIsNull = true;
+            requestInlineSessionState_inlineSessionState_ConversationHistory = new Amazon.BedrockAgentRuntime.Model.ConversationHistory();
+            List<Amazon.BedrockAgentRuntime.Model.Message> requestInlineSessionState_inlineSessionState_ConversationHistory_conversationHistory_Message = null;
+            if (cmdletContext.ConversationHistory_Message != null)
+            {
+                requestInlineSessionState_inlineSessionState_ConversationHistory_conversationHistory_Message = cmdletContext.ConversationHistory_Message;
+            }
+            if (requestInlineSessionState_inlineSessionState_ConversationHistory_conversationHistory_Message != null)
+            {
+                requestInlineSessionState_inlineSessionState_ConversationHistory.Messages = requestInlineSessionState_inlineSessionState_ConversationHistory_conversationHistory_Message;
+                requestInlineSessionState_inlineSessionState_ConversationHistoryIsNull = false;
+            }
+             // determine if requestInlineSessionState_inlineSessionState_ConversationHistory should be set to null
+            if (requestInlineSessionState_inlineSessionState_ConversationHistoryIsNull)
+            {
+                requestInlineSessionState_inlineSessionState_ConversationHistory = null;
+            }
+            if (requestInlineSessionState_inlineSessionState_ConversationHistory != null)
+            {
+                request.InlineSessionState.ConversationHistory = requestInlineSessionState_inlineSessionState_ConversationHistory;
                 requestInlineSessionStateIsNull = false;
             }
              // determine if request.InlineSessionState should be set to null
@@ -769,7 +866,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.BedrockAgentRuntime.Model.AgentActionGroup> ActionGroup { get; set; }
+            public Amazon.BedrockAgentRuntime.AgentCollaboration AgentCollaboration { get; set; }
             public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.CollaboratorConfiguration> CollaboratorConfiguration { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.Collaborator> Collaborator { get; set; }
             public System.String CustomerEncryptionKeyArn { get; set; }
             public System.Boolean? EnableTrace { get; set; }
             public System.Boolean? EndSession { get; set; }
@@ -777,6 +877,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }
             public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.Message> ConversationHistory_Message { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.InputFile> InlineSessionState_File { get; set; }
             public System.String InlineSessionState_InvocationId { get; set; }
             public Dictionary<System.String, System.String> InlineSessionState_PromptSessionAttribute { get; set; }

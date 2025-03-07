@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <para>
         /// <para>A name for the new Neptune Analytics graph to be created.</para><para>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character
         /// must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        /// </para>
+        /// Only lowercase letters are allowed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
-        /// Min = 128</para>
+        /// Min = 16</para>
         /// </para>
         /// </summary>
         #if !MODULAR

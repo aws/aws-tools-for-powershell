@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>The snapshot name. For example: <c>my-snapshot-1</c>.</para><para>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character
-        /// must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.</para>
+        /// must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
+        /// Only lowercase letters are allowed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

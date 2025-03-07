@@ -7026,6 +7026,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.ContextEnrichmentType
+        {
+            ($_ -eq "New-AABDataSource/ContextEnrichmentConfiguration_Type") -Or
+            ($_ -eq "Update-AABDataSource/ContextEnrichmentConfiguration_Type")
+        }
+        {
+            $v = "BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
         # Amazon.BedrockAgent.CrawlFilterConfigurationType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type") -Or
@@ -7080,6 +7090,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.EnrichmentStrategyMethod
+        {
+            ($_ -eq "New-AABDataSource/EnrichmentStrategyConfiguration_Method") -Or
+            ($_ -eq "Update-AABDataSource/EnrichmentStrategyConfiguration_Method")
+        }
+        {
+            $v = "CHUNK_ENTITY_EXTRACTION"
+            break
+        }
+
         # Amazon.BedrockAgent.IngestionJobSortByAttribute
         "Get-AABIngestionJobList/SortBy_Attribute"
         {
@@ -7103,7 +7123,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/StorageConfiguration_Type")
         }
         {
-            $v = "MONGO_DB_ATLAS","OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD"
+            $v = "MONGO_DB_ATLAS","NEPTUNE_ANALYTICS","OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD"
             break
         }
 
@@ -7263,6 +7283,7 @@ $AAB_map = @{
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "BedrockFoundationModelConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "ContextEnrichmentConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
@@ -7274,6 +7295,7 @@ $AAB_map = @{
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "EnrichmentStrategyConfiguration_Method"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
@@ -7421,6 +7443,13 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.AgentCollaboration
+        "Invoke-BARInlineAgent/AgentCollaboration"
+        {
+            $v = "DISABLED","SUPERVISOR","SUPERVISOR_ROUTER"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.InputQueryType
         "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
         {
@@ -7535,6 +7564,7 @@ $BAR_Completers = {
 }
 
 $BAR_map = @{
+    "AgentCollaboration"=@("Invoke-BARInlineAgent")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
@@ -28662,6 +28692,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
                "Edit-ELB2CapacityReservation",
+               "Edit-ELB2IpPool",
                "Edit-ELB2Listener",
                "Edit-ELB2ListenerAttribute",
                "Edit-ELB2LoadBalancerAttribute",

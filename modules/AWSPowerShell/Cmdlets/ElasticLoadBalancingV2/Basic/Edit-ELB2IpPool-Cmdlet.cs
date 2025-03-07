@@ -22,40 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.NeptuneGraph;
-using Amazon.NeptuneGraph.Model;
+using Amazon.ElasticLoadBalancingV2;
+using Amazon.ElasticLoadBalancingV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NEPTG
+namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Updates the configuration of a specified Neptune Analytics graph
+    /// [Application Load Balancers] Modify the IP pool associated to a load balancer.
     /// </summary>
-    [Cmdlet("Update", "NEPTGGraph", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.NeptuneGraph.Model.UpdateGraphResponse")]
-    [AWSCmdlet("Calls the Amazon Neptune Graph UpdateGraph API operation.", Operation = new[] {"UpdateGraph"}, SelectReturnType = typeof(Amazon.NeptuneGraph.Model.UpdateGraphResponse))]
-    [AWSCmdletOutput("Amazon.NeptuneGraph.Model.UpdateGraphResponse",
-        "This cmdlet returns an Amazon.NeptuneGraph.Model.UpdateGraphResponse object containing multiple properties."
+    [Cmdlet("Edit", "ELB2IpPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticLoadBalancingV2.Model.IpamPools")]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyIpPools API operation.", Operation = new[] {"ModifyIpPools"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse))]
+    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.IpamPools or Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse",
+        "This cmdlet returns an Amazon.ElasticLoadBalancingV2.Model.IpamPools object.",
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateNEPTGGraphCmdlet : AmazonNeptuneGraphClientCmdlet, IExecutor
+    public partial class EditELB2IpPoolCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DeletionProtection
+        #region Parameter IpamPools_Ipv4IpamPoolId
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the graph has deletion protection enabled. The graph
-        /// can't be deleted when deletion protection is enabled.</para>
+        /// <para>The ID of the IPv4 IPAM pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DeletionProtection { get; set; }
+        public System.String IpamPools_Ipv4IpamPoolId { get; set; }
         #endregion
         
-        #region Parameter GraphIdentifier
+        #region Parameter LoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Neptune Analytics graph.</para>
+        /// <para>The Amazon Resource Name (ARN) of the load balancer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,47 +66,37 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GraphIdentifier { get; set; }
+        public System.String LoadBalancerArn { get; set; }
         #endregion
         
-        #region Parameter ProvisionedMemory
+        #region Parameter RemoveIpamPool
         /// <summary>
         /// <para>
-        /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</para><para>Min = 16</para>
+        /// <para>Remove the IP pools in use by the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ProvisionedMemory { get; set; }
-        #endregion
-        
-        #region Parameter PublicConnectivity
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether or not the graph can be reachable over the internet. All access
-        /// to graphs is IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? PublicConnectivity { get; set; }
+        [Alias("RemoveIpamPools")]
+        public System.String[] RemoveIpamPool { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NeptuneGraph.Model.UpdateGraphResponse).
-        /// Specifying the name of a property of type Amazon.NeptuneGraph.Model.UpdateGraphResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamPools'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse).
+        /// Specifying the name of a property of type Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "IpamPools";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GraphIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LoadBalancerArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LoadBalancerArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GraphIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LoadBalancerArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -126,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GraphIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-NEPTGGraph (UpdateGraph)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LoadBalancerArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-ELB2IpPool (ModifyIpPools)"))
             {
                 return;
             }
@@ -140,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NeptuneGraph.Model.UpdateGraphResponse, UpdateNEPTGGraphCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse, EditELB2IpPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,19 +139,21 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GraphIdentifier;
+                context.Select = (response, cmdlet) => this.LoadBalancerArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DeletionProtection = this.DeletionProtection;
-            context.GraphIdentifier = this.GraphIdentifier;
+            context.IpamPools_Ipv4IpamPoolId = this.IpamPools_Ipv4IpamPoolId;
+            context.LoadBalancerArn = this.LoadBalancerArn;
             #if MODULAR
-            if (this.GraphIdentifier == null && ParameterWasBound(nameof(this.GraphIdentifier)))
+            if (this.LoadBalancerArn == null && ParameterWasBound(nameof(this.LoadBalancerArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter GraphIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LoadBalancerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ProvisionedMemory = this.ProvisionedMemory;
-            context.PublicConnectivity = this.PublicConnectivity;
+            if (this.RemoveIpamPool != null)
+            {
+                context.RemoveIpamPool = new List<System.String>(this.RemoveIpamPool);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,23 +168,34 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NeptuneGraph.Model.UpdateGraphRequest();
+            var request = new Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsRequest();
             
-            if (cmdletContext.DeletionProtection != null)
+            
+             // populate IpamPools
+            var requestIpamPoolsIsNull = true;
+            request.IpamPools = new Amazon.ElasticLoadBalancingV2.Model.IpamPools();
+            System.String requestIpamPools_ipamPools_Ipv4IpamPoolId = null;
+            if (cmdletContext.IpamPools_Ipv4IpamPoolId != null)
             {
-                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
+                requestIpamPools_ipamPools_Ipv4IpamPoolId = cmdletContext.IpamPools_Ipv4IpamPoolId;
             }
-            if (cmdletContext.GraphIdentifier != null)
+            if (requestIpamPools_ipamPools_Ipv4IpamPoolId != null)
             {
-                request.GraphIdentifier = cmdletContext.GraphIdentifier;
+                request.IpamPools.Ipv4IpamPoolId = requestIpamPools_ipamPools_Ipv4IpamPoolId;
+                requestIpamPoolsIsNull = false;
             }
-            if (cmdletContext.ProvisionedMemory != null)
+             // determine if request.IpamPools should be set to null
+            if (requestIpamPoolsIsNull)
             {
-                request.ProvisionedMemory = cmdletContext.ProvisionedMemory.Value;
+                request.IpamPools = null;
             }
-            if (cmdletContext.PublicConnectivity != null)
+            if (cmdletContext.LoadBalancerArn != null)
             {
-                request.PublicConnectivity = cmdletContext.PublicConnectivity.Value;
+                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
+            }
+            if (cmdletContext.RemoveIpamPool != null)
+            {
+                request.RemoveIpamPools = cmdletContext.RemoveIpamPool;
             }
             
             CmdletOutput output;
@@ -227,15 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         #region AWS Service Operation Call
         
-        private Amazon.NeptuneGraph.Model.UpdateGraphResponse CallAWSServiceOperation(IAmazonNeptuneGraph client, Amazon.NeptuneGraph.Model.UpdateGraphRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune Graph", "UpdateGraph");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyIpPools");
             try
             {
                 #if DESKTOP
-                return client.UpdateGraph(request);
+                return client.ModifyIpPools(request);
                 #elif CORECLR
-                return client.UpdateGraphAsync(request).GetAwaiter().GetResult();
+                return client.ModifyIpPoolsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -255,12 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? DeletionProtection { get; set; }
-            public System.String GraphIdentifier { get; set; }
-            public System.Int32? ProvisionedMemory { get; set; }
-            public System.Boolean? PublicConnectivity { get; set; }
-            public System.Func<Amazon.NeptuneGraph.Model.UpdateGraphResponse, UpdateNEPTGGraphCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String IpamPools_Ipv4IpamPoolId { get; set; }
+            public System.String LoadBalancerArn { get; set; }
+            public List<System.String> RemoveIpamPool { get; set; }
+            public System.Func<Amazon.ElasticLoadBalancingV2.Model.ModifyIpPoolsResponse, EditELB2IpPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamPools;
         }
         
     }

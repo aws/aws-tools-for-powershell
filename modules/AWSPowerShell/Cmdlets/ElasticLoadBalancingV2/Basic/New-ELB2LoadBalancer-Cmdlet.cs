@@ -91,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
         #endregion
         
+        #region Parameter IpamPools_Ipv4IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the IPv4 IPAM pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpamPools_Ipv4IpamPoolId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -241,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
             context.EnablePrefixForIpv6SourceNat = this.EnablePrefixForIpv6SourceNat;
             context.IpAddressType = this.IpAddressType;
+            context.IpamPools_Ipv4IpamPoolId = this.IpamPools_Ipv4IpamPoolId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -293,6 +304,25 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
+            }
+            
+             // populate IpamPools
+            var requestIpamPoolsIsNull = true;
+            request.IpamPools = new Amazon.ElasticLoadBalancingV2.Model.IpamPools();
+            System.String requestIpamPools_ipamPools_Ipv4IpamPoolId = null;
+            if (cmdletContext.IpamPools_Ipv4IpamPoolId != null)
+            {
+                requestIpamPools_ipamPools_Ipv4IpamPoolId = cmdletContext.IpamPools_Ipv4IpamPoolId;
+            }
+            if (requestIpamPools_ipamPools_Ipv4IpamPoolId != null)
+            {
+                request.IpamPools.Ipv4IpamPoolId = requestIpamPools_ipamPools_Ipv4IpamPoolId;
+                requestIpamPoolsIsNull = false;
+            }
+             // determine if request.IpamPools should be set to null
+            if (requestIpamPoolsIsNull)
+            {
+                request.IpamPools = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -386,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.String CustomerOwnedIpv4Pool { get; set; }
             public Amazon.ElasticLoadBalancingV2.EnablePrefixForIpv6SourceNatEnum EnablePrefixForIpv6SourceNat { get; set; }
             public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
+            public System.String IpamPools_Ipv4IpamPoolId { get; set; }
             public System.String Name { get; set; }
             public Amazon.ElasticLoadBalancingV2.LoadBalancerSchemeEnum Scheme { get; set; }
             public List<System.String> SecurityGroup { get; set; }

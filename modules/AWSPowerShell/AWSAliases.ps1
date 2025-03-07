@@ -11702,6 +11702,9 @@ Set-Alias -Name ELB2-GetTrustStoreCaCertificatesBundle -Value Get-ELB2TrustStore
 Set-Alias -Name ELB2-GetTrustStoreRevocationContent -Value Get-ELB2TrustStoreRevocationContent
 Set-Alias -Name Modify-ELB2CapacityReservation -Value Edit-ELB2CapacityReservation
 Set-Alias -Name ELB2-ModifyCapacityReservation -Value Edit-ELB2CapacityReservation
+Set-Alias -Name Modify-ELB2IpPools -Value Edit-ELB2IpPool
+Set-Alias -Name Modify-ELB2IpPool -Value Edit-ELB2IpPool
+Set-Alias -Name ELB2-ModifyIpPools -Value Edit-ELB2IpPool
 Set-Alias -Name Modify-ELB2Listener -Value Edit-ELB2Listener
 Set-Alias -Name ELB2-ModifyListener -Value Edit-ELB2Listener
 Set-Alias -Name Modify-ELB2ListenerAttributes -Value Edit-ELB2ListenerAttribute
