@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
         public System.String DirectoryId { get; set; }
         #endregion
         
+        #region Parameter VpcInformation_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The VPC IP address type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PcaConnectorAd.IpAddressType")]
+        public Amazon.PcaConnectorAd.IpAddressType VpcInformation_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter VpcInformation_SecurityGroupId
         /// <summary>
         /// <para>
@@ -182,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.VpcInformation_IpAddressType = this.VpcInformation_IpAddressType;
             if (this.VpcInformation_SecurityGroupId != null)
             {
                 context.VpcInformation_SecurityGroupId = new List<System.String>(this.VpcInformation_SecurityGroupId);
@@ -228,6 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
              // populate VpcInformation
             var requestVpcInformationIsNull = true;
             request.VpcInformation = new Amazon.PcaConnectorAd.Model.VpcInformation();
+            Amazon.PcaConnectorAd.IpAddressType requestVpcInformation_vpcInformation_IpAddressType = null;
+            if (cmdletContext.VpcInformation_IpAddressType != null)
+            {
+                requestVpcInformation_vpcInformation_IpAddressType = cmdletContext.VpcInformation_IpAddressType;
+            }
+            if (requestVpcInformation_vpcInformation_IpAddressType != null)
+            {
+                request.VpcInformation.IpAddressType = requestVpcInformation_vpcInformation_IpAddressType;
+                requestVpcInformationIsNull = false;
+            }
             List<System.String> requestVpcInformation_vpcInformation_SecurityGroupId = null;
             if (cmdletContext.VpcInformation_SecurityGroupId != null)
             {
@@ -308,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             public System.String ClientToken { get; set; }
             public System.String DirectoryId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.PcaConnectorAd.IpAddressType VpcInformation_IpAddressType { get; set; }
             public List<System.String> VpcInformation_SecurityGroupId { get; set; }
             public System.Func<Amazon.PcaConnectorAd.Model.CreateConnectorResponse, NewPCAADConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectorArn;

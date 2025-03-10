@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// <para>The password of the initial admin user created in InfluxDB. This password will allow
         /// you to access the InfluxDB UI to perform various administrative tasks and also use
         /// the InfluxDB CLI to create an operator token. These attributes will be stored in a
-        /// Secret created in Amazon Web Services SecretManager in your account.</para>
+        /// Secret created in Secrets Manager in your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

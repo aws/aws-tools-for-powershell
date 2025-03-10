@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// <para>The password of the initial admin user created in InfluxDB. This password will allow
         /// you to access the InfluxDB UI to perform various administrative tasks and also use
         /// the InfluxDB CLI to create an operator token. These attributes will be stored in a
-        /// secret created in Amazon Web Services Secrets Manager in your account.</para>
+        /// secret created in Secrets Manager in your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -264,8 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1.
         /// This username will allow you to access the InfluxDB UI to perform various administrative
         /// tasks and also use the InfluxDB CLI to create an operator token. These attributes
-        /// will be stored in a secret created in Amazon Web Services Secrets Manager in your
-        /// account.</para>
+        /// will be stored in a secret created in Secrets Manager in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

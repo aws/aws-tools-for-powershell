@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter StandardsControlAssociationUpdate
         /// <summary>
         /// <para>
-        /// <para> Updates the enablement status of a security control in a specified standard. </para>
+        /// <para> Updates the enablement status of a security control in a specified standard. </para><para> Calls to this operation return a <c>RESOURCE_NOT_FOUND_EXCEPTION</c> error when the
+        /// standard subscription for the control has <c>StandardsControlsUpdatable</c> value
+        /// <c>NOT_READY_FOR_UPDATES</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

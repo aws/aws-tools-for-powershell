@@ -158,6 +158,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PreviousContactId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the previous contact when creating a transfer contact. This value can be
+        /// provided only for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate
+        /// Amazon Connect Contact Lens with external voice systems</a> in the <i>Amazon Connect
+        /// Administrator Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreviousContactId { get; set; }
+        #endregion
+        
         #region Parameter Reference
         /// <summary>
         /// <para>
@@ -174,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
+        /// <para>The unique identifier for an Amazon Connect contact. This identifier is related to
+        /// the contact starting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.Name = this.Name;
+            context.PreviousContactId = this.PreviousContactId;
             if (this.Reference != null)
             {
                 context.Reference = new Dictionary<System.String, Amazon.Connect.Model.Reference>(StringComparer.Ordinal);
@@ -385,6 +400,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PreviousContactId != null)
+            {
+                request.PreviousContactId = cmdletContext.PreviousContactId;
             }
             if (cmdletContext.Reference != null)
             {
@@ -487,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Amazon.Connect.ContactInitiationMethod InitiationMethod { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public System.String PreviousContactId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
             public System.String RelatedContactId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue> SegmentAttribute { get; set; }

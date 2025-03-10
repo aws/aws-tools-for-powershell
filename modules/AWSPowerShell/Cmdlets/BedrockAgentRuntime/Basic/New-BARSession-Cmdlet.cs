@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     ///  You use a session to store state and conversation history for generative AI applications
     /// built with open-source frameworks. For Amazon Bedrock Agents, the service automatically
     /// manages conversation context and associates them with the agent-specific sessionId
-    /// you specify in the <a href="https://docs.aws.amazon.com/bedrock/latest/API_agent-runtime_InvokeAgent.html">InvokeAgent</a>
+    /// you specify in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a>
     /// API operation. 
     /// </para></note><para>
     /// Related APIs:

@@ -86,7 +86,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABAgentActionGroup/ParentActionGroupSignature")
         }
         {
-            $v = "AMAZON.CodeInterpreter","AMAZON.UserInput"
+            $v = "AMAZON.CodeInterpreter","AMAZON.UserInput","ANTHROPIC.Bash","ANTHROPIC.Computer","ANTHROPIC.TextEditor"
             break
         }
 

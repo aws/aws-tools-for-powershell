@@ -177,19 +177,38 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ParentActionGroupSignature
         /// <summary>
         /// <para>
-        /// <para>To allow your agent to request the user for additional information when trying to
-        /// complete a task, set this field to <c>AMAZON.UserInput</c>. You must leave the <c>description</c>,
-        /// <c>apiSchema</c>, and <c>actionGroupExecutor</c> fields blank for this action group.</para><para>To allow your agent to generate, run, and troubleshoot code when trying to complete
-        /// a task, set this field to <c>AMAZON.CodeInterpreter</c>. You must leave the <c>description</c>,
-        /// <c>apiSchema</c>, and <c>actionGroupExecutor</c> fields blank for this action group.</para><para>During orchestration, if your agent determines that it needs to invoke an API in an
-        /// action group, but doesn't have enough information to complete the API request, it
-        /// will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a>
-        /// reprompting the user for more information.</para>
+        /// <para>Specify a built-in or computer use action for this action group. If you specify a
+        /// value, you must leave the <c>description</c>, <c>apiSchema</c>, and <c>actionGroupExecutor</c>
+        /// fields empty for this action group. </para><ul><li><para>To allow your agent to request the user for additional information when trying to
+        /// complete a task, set this field to <c>AMAZON.UserInput</c>. </para></li><li><para>To allow your agent to generate, run, and troubleshoot code when trying to complete
+        /// a task, set this field to <c>AMAZON.CodeInterpreter</c>.</para></li><li><para>To allow your agent to use an Anthropic computer use tool, specify one of the following
+        /// values. </para><important><para> Computer use is a new Anthropic Claude model capability (in beta) available with
+        /// Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. When operating computer
+        /// use functionality, we recommend taking additional security precautions, such as executing
+        /// computer actions in virtual environments with restricted data access and limited internet
+        /// connectivity. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure
+        /// an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </para></important><ul><li><para><c>ANTHROPIC.Computer</c> - Gives the agent permission to use the mouse and keyboard
+        /// and take screenshots.</para></li><li><para><c>ANTHROPIC.TextEditor</c> - Gives the agent permission to view, create and edit
+        /// files.</para></li><li><para><c>ANTHROPIC.Bash</c> - Gives the agent permission to run commands in a bash shell.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockAgent.ActionGroupSignature")]
         public Amazon.BedrockAgent.ActionGroupSignature ParentActionGroupSignature { get; set; }
+        #endregion
+        
+        #region Parameter ParentActionGroupSignatureParam
+        /// <summary>
+        /// <para>
+        /// <para>The configuration settings for a computer use action.</para><important><para> Computer use is a new Anthropic Claude model capability (in beta) available with
+        /// Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see
+        /// <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure
+        /// an Amazon Bedrock Agent to complete tasks with computer use tools</a>. </para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ParentActionGroupSignatureParams")]
+        public System.Collections.Hashtable ParentActionGroupSignatureParam { get; set; }
         #endregion
         
         #region Parameter ApiSchema_Payload
@@ -335,6 +354,14 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.FunctionSchema_Function = new List<Amazon.BedrockAgent.Model.Function>(this.FunctionSchema_Function);
             }
             context.ParentActionGroupSignature = this.ParentActionGroupSignature;
+            if (this.ParentActionGroupSignatureParam != null)
+            {
+                context.ParentActionGroupSignatureParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ParentActionGroupSignatureParam.Keys)
+                {
+                    context.ParentActionGroupSignatureParam.Add((String)hashKey, (System.String)(this.ParentActionGroupSignatureParam[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -481,6 +508,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 request.ParentActionGroupSignature = cmdletContext.ParentActionGroupSignature;
             }
+            if (cmdletContext.ParentActionGroupSignatureParam != null)
+            {
+                request.ParentActionGroupSignatureParams = cmdletContext.ParentActionGroupSignatureParam;
+            }
             
             CmdletOutput output;
             
@@ -555,6 +586,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String Description { get; set; }
             public List<Amazon.BedrockAgent.Model.Function> FunctionSchema_Function { get; set; }
             public Amazon.BedrockAgent.ActionGroupSignature ParentActionGroupSignature { get; set; }
+            public Dictionary<System.String, System.String> ParentActionGroupSignatureParam { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.CreateAgentActionGroupResponse, NewAABAgentActionGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AgentActionGroup;
         }

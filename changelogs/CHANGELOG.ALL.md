@@ -1,4 +1,14 @@
-﻿### 4.1.773 (2025-03-07 21:50Z)
+﻿### 4.1.774 (2025-03-10 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.999.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABAgentActionGroup: added parameter ParentActionGroupSignatureParam.
+    * Modified cmdlet Update-AABAgentActionGroup: added parameter ParentActionGroupSignatureParam.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNContact: added parameter PreviousContactId.
+  * Amazon Pca Connector Ad
+    * Modified cmdlet New-PCAADConnector: added parameter VpcInformation_IpAddressType.
+
+### 4.1.773 (2025-03-07 21:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.998.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABDataSource: added parameters ContextEnrichmentConfiguration_Type, EnrichmentStrategyConfiguration_Method and VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn.

@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Specifies whether a control is currently enabled or disabled in each enabled standard
-    /// in the calling account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// in the calling account. 
+    /// 
+    ///  
+    /// <para>
+    /// This operation omits standards control associations for standard subscriptions where
+    /// <c>StandardsControlsUpdatable</c> has value <c>NOT_READY_FOR_UPDATES</c>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBStandardsControlAssociationList")]
     [OutputType("Amazon.SecurityHub.Model.StandardsControlAssociationSummary")]
