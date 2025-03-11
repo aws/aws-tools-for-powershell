@@ -186,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's
         /// used when you create a service and don't specify a Service Connect configuration.
         /// The namespace name can include up to 1024 characters. The name is case-sensitive.
-        /// The name can't include hyphens (-), tilde (~), greater than (&gt;), less than (&lt;),
-        /// or slash (/).</para><para>If you enter an existing namespace name or ARN, then that namespace will be used.
+        /// The name can't include greater than (&gt;), less than (&lt;), double quotation marks
+        /// ("), or slash (/).</para><para>If you enter an existing namespace name or ARN, then that namespace will be used.
         /// Any namespace type is supported. The namespace must be in this account and this Amazon
         /// Web Services Region.</para><para>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates
         /// a Cloud Map namespace with the "API calls" method of instance discovery only. This

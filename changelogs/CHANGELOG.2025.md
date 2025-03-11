@@ -1,4 +1,10 @@
-﻿### 4.1.774 (2025-03-10 20:57Z)
+﻿### 4.1.775 (2025-03-11 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1000.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Registry
+    * Modified cmdlet New-ECRPullThroughCacheRule: added parameters CustomRoleArn and UpstreamRepositoryPrefix.
+    * Modified cmdlet Update-ECRPullThroughCacheRule: added parameter CustomRoleArn.
+
+### 4.1.774 (2025-03-10 20:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.999.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABAgentActionGroup: added parameter ParentActionGroupSignatureParam.
