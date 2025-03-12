@@ -36,6 +36,11 @@ ec2_StartInstances:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Start-EC2Instance.4.1.ps1
+        - description: '<emphasis role="bold">Example 5: This example validates permissions for starting an EC2 instance using the DryRun parameter without actually starting the instance. Note: This throws an exception if succeeded which is the expected behavior.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Start-EC2Instance.5.1.ps1
   services:
     ec2:
       StartInstances:

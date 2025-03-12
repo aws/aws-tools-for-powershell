@@ -1,0 +1,1 @@
+New-EC2Instance -ImageId 'ami-12345678' -InstanceType 't2.micro' -KeyName 'my-key-pair' -Region 'us-west-2' -DryRun $true

@@ -55,9 +55,7 @@
         <Map From="VpnConnections" To="VpnConnection" />
         <Map From="VpnGateways" To="VpnGateway" />
     </NounMappings>
-    <Params>
-        <Param Name="DryRun" Exclude="true" />
-    </Params>
+    <Params />
     <CustomAliases>
         <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
     </CustomAliases>
@@ -189,7 +187,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -253,11 +251,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelCapacityReservationFleets" OutputProperty="*" Verb="Stop" Noun="CapacityReservationFleet" ShouldProcessTarget="CapacityReservationFleetIds" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelCapacityReservationFleets" OutputProperty="*" Verb="Stop" Noun="CapacityReservationFleet" ShouldProcessTarget="CapacityReservationFleetIds" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelConversionTask" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelConversionTask" Verb="" Noun="" Exclude="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -345,7 +343,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDefaultVpc" OutputProperty="Vpc" Verb="New" Noun="DefaultVpc" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDefaultVpc" OutputProperty="Vpc" Verb="New" Noun="DefaultVpc"  AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -385,7 +383,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -453,7 +451,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetworkInsightsAccessScope" OutputProperty="*" Verb="New" Noun="NetworkInsightsAccessScope" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNetworkInsightsAccessScope" OutputProperty="*" Verb="New" Noun="NetworkInsightsAccessScope" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -599,7 +597,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTransitGatewayRouteTableAnnouncement" OutputProperty="TransitGatewayRouteTableAnnouncement" Verb="New" Noun="TransitGatewayRouteTableAnnouncement" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTransitGatewayRouteTableAnnouncement" OutputProperty="TransitGatewayRouteTableAnnouncement" Verb="New" Noun="TransitGatewayRouteTableAnnouncement" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -839,7 +837,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Verb="Remove" Noun="SpotDatafeedSubscription" ShouldProcessMsgNoun="Spot Datafeed Subscription" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Verb="Remove" Noun="SpotDatafeedSubscription" ShouldProcessMsgNoun="Spot Datafeed Subscription" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1019,11 +1017,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAddressTransfers" OutputProperty="AddressTransfers" Verb="Get" Noun="AddressTransfer" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAddressTransfers" OutputProperty="AddressTransfers" Verb="Get" Noun="AddressTransfer" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1031,7 +1029,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAwsNetworkPerformanceMetricSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="AwsNetworkPerformanceMetricSubscription" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAwsNetworkPerformanceMetricSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="AwsNetworkPerformanceMetricSubscription" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1039,19 +1037,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidr" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidr" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityBlockExtensionHistory" OutputProperty="CapacityBlockExtensions" Verb="Get" Noun="CapacityBlockExtensionHistory" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionHistory" OutputProperty="CapacityBlockExtensions" Verb="Get" Noun="CapacityBlockExtensionHistory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityBlockExtensionOfferings" OutputProperty="CapacityBlockExtensionOfferings" Verb="Get" Noun="CapacityBlockExtensionOffering" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeCapacityBlockExtensionOfferings" OutputProperty="CapacityBlockExtensionOfferings" Verb="Get" Noun="CapacityBlockExtensionOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeCapacityBlockOfferings" OutputProperty="CapacityBlockOfferings" Verb="Get" Noun="CapacityBlockOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1059,15 +1057,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCarrierGateways" OutputProperty="CarrierGateways" Verb="Get" Noun="CarrierGateway" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCarrierGateways" OutputProperty="CarrierGateways" Verb="Get" Noun="CarrierGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1075,31 +1073,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnAuthorizationRules" OutputProperty="AuthorizationRules" Verb="Get" Noun="ClientVpnAuthorizationRule" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeClientVpnAuthorizationRules" OutputProperty="AuthorizationRules" Verb="Get" Noun="ClientVpnAuthorizationRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnConnections" OutputProperty="Connections" Verb="Get" Noun="ClientVpnConnection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeClientVpnConnections" OutputProperty="Connections" Verb="Get" Noun="ClientVpnConnection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnEndpoints" OutputProperty="ClientVpnEndpoints" Verb="Get" Noun="ClientVpnEndpoint" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeClientVpnEndpoints" OutputProperty="ClientVpnEndpoints" Verb="Get" Noun="ClientVpnEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnRoutes" OutputProperty="Routes" Verb="Get" Noun="ClientVpnRoute" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeClientVpnRoutes" OutputProperty="Routes" Verb="Get" Noun="ClientVpnRoute" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientVpnTargetNetworks" OutputProperty="ClientVpnTargetNetworks" Verb="Get" Noun="ClientVpnTargetNetwork" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeClientVpnTargetNetworks" OutputProperty="ClientVpnTargetNetworks" Verb="Get" Noun="ClientVpnTargetNetwork" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCoipPools" OutputProperty="CoipPools" Verb="Get" Noun="CoipPool" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeCoipPools" OutputProperty="CoipPools" Verb="Get" Noun="CoipPool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConversionTasks" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConversionTasks" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1107,7 +1105,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeclarativePoliciesReports" OutputProperty="Reports" Verb="Get" Noun="DeclarativePoliciesReport" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDeclarativePoliciesReports" OutputProperty="Reports" Verb="Get" Noun="DeclarativePoliciesReport" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1115,11 +1113,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" OutputProperty="EgressOnlyInternetGateways" Verb="Get" Noun="EgressOnlyInternetGatewayList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" OutputProperty="EgressOnlyInternetGateways" Verb="Get" Noun="EgressOnlyInternetGatewayList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticGpus" OutputProperty="ElasticGpuSet" Verb="Get" Noun="ElasticGpu" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeElasticGpus" OutputProperty="ElasticGpuSet" Verb="Get" Noun="ElasticGpu" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1131,7 +1129,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFastLaunchImages" OutputProperty="FastLaunchImages" Verb="Get" Noun="FastLaunchImage" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFastLaunchImages" OutputProperty="FastLaunchImages" Verb="Get" Noun="FastLaunchImage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1139,15 +1137,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="FleetInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="FleetInstanceList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1159,7 +1157,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFpgaImages" OutputProperty="FpgaImages" Verb="Get" Noun="FpgaImage" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFpgaImages" OutputProperty="FpgaImages" Verb="Get" Noun="FpgaImage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1167,7 +1165,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHostReservations" OutputProperty="HostReservationSet" Verb="Get" Noun="HostReservation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeHostReservations" OutputProperty="HostReservationSet" Verb="Get" Noun="HostReservation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1175,7 +1173,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" OutputProperty="IamInstanceProfileAssociations" Verb="Get" Noun="IamInstanceProfileAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" OutputProperty="IamInstanceProfileAssociations" Verb="Get" Noun="IamInstanceProfileAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1209,7 +1207,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceConnectEndpoints" OutputProperty="InstanceConnectEndpoints" Verb="Get" Noun="InstanceConnectEndpoint" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstanceConnectEndpoints" OutputProperty="InstanceConnectEndpoints" Verb="Get" Noun="InstanceConnectEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1217,15 +1215,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Get" Noun="InstanceEventNotificationAttribute" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Get" Noun="InstanceEventNotificationAttribute" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceEventWindows" OutputProperty="InstanceEventWindows" Verb="Get" Noun="InstanceEventWindow" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstanceEventWindows" OutputProperty="InstanceEventWindows" Verb="Get" Noun="InstanceEventWindow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceImageMetadata" OutputProperty="InstanceImageMetadata" Verb="Get" Noun="InstanceImageMetadata" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstanceImageMetadata" OutputProperty="InstanceImageMetadata" Verb="Get" Noun="InstanceImageMetadata" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1237,15 +1235,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTopology" OutputProperty="Instances" Verb="Get" Noun="InstanceTopology" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstanceTopology" OutputProperty="Instances" Verb="Get" Noun="InstanceTopology" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTypeOfferings" OutputProperty="InstanceTypeOfferings" Verb="Get" Noun="InstanceTypeOffering" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeInstanceTypeOfferings" OutputProperty="InstanceTypeOfferings" Verb="Get" Noun="InstanceTypeOffering" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceType" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1253,35 +1251,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamByoasn" OutputProperty="Byoasns" Verb="Get" Noun="IpamByoasn" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpamByoasn" OutputProperty="Byoasns" Verb="Get" Noun="IpamByoasn" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamExternalResourceVerificationTokens" OutputProperty="IpamExternalResourceVerificationTokens" Verb="Get" Noun="IpamExternalResourceVerificationToken" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpamExternalResourceVerificationTokens" OutputProperty="IpamExternalResourceVerificationTokens" Verb="Get" Noun="IpamExternalResourceVerificationToken" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamPools" OutputProperty="IpamPools" Verb="Get" Noun="IpamPool" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpamPools" OutputProperty="IpamPools" Verb="Get" Noun="IpamPool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamResourceDiscoveries" OutputProperty="IpamResourceDiscoveries" Verb="Get" Noun="IpamResourceDiscovery" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpamResourceDiscoveries" OutputProperty="IpamResourceDiscoveries" Verb="Get" Noun="IpamResourceDiscovery" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamResourceDiscoveryAssociations" OutputProperty="IpamResourceDiscoveryAssociations" Verb="Get" Noun="IpamResourceDiscoveryAssociation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpamResourceDiscoveryAssociations" OutputProperty="IpamResourceDiscoveryAssociations" Verb="Get" Noun="IpamResourceDiscoveryAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpams" OutputProperty="Ipams" Verb="Get" Noun="Ipam" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpams" OutputProperty="Ipams" Verb="Get" Noun="Ipam" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpamScopes" OutputProperty="IpamScopes" Verb="Get" Noun="IpamScope" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpamScopes" OutputProperty="IpamScopes" Verb="Get" Noun="IpamScope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpv6Pools" OutputProperty="Ipv6Pools" Verb="Get" Noun="Ipv6Pool" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpv6Pools" OutputProperty="Ipv6Pools" Verb="Get" Noun="Ipv6Pool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1289,39 +1287,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLaunchTemplates" OutputProperty="LaunchTemplates" Verb="Get" Noun="Template" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLaunchTemplates" OutputProperty="LaunchTemplates" Verb="Get" Noun="Template" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLaunchTemplateVersions" OutputProperty="LaunchTemplateVersions" Verb="Get" Noun="TemplateVersion" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLaunchTemplateVersions" OutputProperty="LaunchTemplateVersions" Verb="Get" Noun="TemplateVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayRouteTables" OutputProperty="LocalGatewayRouteTables" Verb="Get" Noun="LocalGatewayRouteTable" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTables" OutputProperty="LocalGatewayRouteTables" Verb="Get" Noun="LocalGatewayRouteTable" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociations" Verb="Get" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociations" Verb="Get" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVpcAssociations" OutputProperty="LocalGatewayRouteTableVpcAssociations" Verb="Get" Noun="LocalGatewayRouteTableVpcAssociation" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVpcAssociations" OutputProperty="LocalGatewayRouteTableVpcAssociations" Verb="Get" Noun="LocalGatewayRouteTableVpcAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGateways" OutputProperty="LocalGateways" Verb="Get" Noun="LocalGateway" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLocalGateways" OutputProperty="LocalGateways" Verb="Get" Noun="LocalGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaceGroups" OutputProperty="LocalGatewayVirtualInterfaceGroups" Verb="Get" Noun="LocalGatewayVirtualInterfaceGroup" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaceGroups" OutputProperty="LocalGatewayVirtualInterfaceGroups" Verb="Get" Noun="LocalGatewayVirtualInterfaceGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaces" OutputProperty="LocalGatewayVirtualInterfaces" Verb="Get" Noun="LocalGatewayVirtualInterface" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaces" OutputProperty="LocalGatewayVirtualInterfaces" Verb="Get" Noun="LocalGatewayVirtualInterface" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLockedSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="LockedSnapshot" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLockedSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="LockedSnapshot" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1329,7 +1327,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1349,7 +1347,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopes" OutputProperty="NetworkInsightsAccessScopes" Verb="Get" Noun="NetworkInsightsAccessScope" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNetworkInsightsAccessScopes" OutputProperty="NetworkInsightsAccessScopes" Verb="Get" Noun="NetworkInsightsAccessScope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1365,7 +1363,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" OutputProperty="NetworkInterfacePermissions" Verb="Get" Noun="NetworkInterfacePermission" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" OutputProperty="NetworkInterfacePermissions" Verb="Get" Noun="NetworkInterfacePermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1393,7 +1391,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplaceRootVolumeTasks" OutputProperty="ReplaceRootVolumeTasks" Verb="Get" Noun="ReplaceRootVolumeTask" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReplaceRootVolumeTasks" OutputProperty="ReplaceRootVolumeTasks" Verb="Get" Noun="ReplaceRootVolumeTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1405,7 +1403,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedInstancesModifications" OutputProperty="ReservedInstancesModifications" Verb="Get" Noun="ReservedInstancesModification" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EC2ReservedInstancesModifications">
+        <ServiceOperation MethodName="DescribeReservedInstancesModifications" OutputProperty="ReservedInstancesModifications" Verb="Get" Noun="ReservedInstancesModification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EC2ReservedInstancesModifications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1419,11 +1417,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" OutputProperty="ScheduledInstanceAvailabilitySet" Verb="Get" Noun="ScheduledInstanceAvailability" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" OutputProperty="ScheduledInstanceAvailabilitySet" Verb="Get" Noun="ScheduledInstanceAvailability" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1431,7 +1429,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityGroupRules" OutputProperty="SecurityGroupRules" Verb="Get" Noun="SecurityGroupRule" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSecurityGroupRules" OutputProperty="SecurityGroupRules" Verb="Get" Noun="SecurityGroupRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1439,7 +1437,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityGroupVpcAssociations" OutputProperty="SecurityGroupVpcAssociations" Verb="Get" Noun="SecurityGroupVpcAssociation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSecurityGroupVpcAssociations" OutputProperty="SecurityGroupVpcAssociations" Verb="Get" Noun="SecurityGroupVpcAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1459,11 +1457,11 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshotTierStatus" OutputProperty="SnapshotTierStatuses" Verb="Get" Noun="SnapshotTierStatus" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSnapshotTierStatus" OutputProperty="SnapshotTierStatuses" Verb="Get" Noun="SnapshotTierStatus" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="Get" Noun="SpotDatafeedSubscription" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="Get" Noun="SpotDatafeedSubscription" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1483,7 +1481,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSpotPriceHistory" OutputProperty="SpotPriceHistory" Verb="Get" Noun="SpotPriceHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeSpotPriceHistory" OutputProperty="SpotPriceHistory" Verb="Get" Noun="SpotPriceHistory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1491,7 +1489,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStoreImageTasks" OutputProperty="StoreImageTaskResults" Verb="Get" Noun="StoreImageTask" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeStoreImageTasks" OutputProperty="StoreImageTaskResults" Verb="Get" Noun="StoreImageTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1519,51 +1517,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayAttachments" OutputProperty="TransitGatewayAttachments" Verb="Get" Noun="TransitGatewayAttachment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTransitGatewayAttachments" OutputProperty="TransitGatewayAttachments" Verb="Get" Noun="TransitGatewayAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayConnectPeers" OutputProperty="TransitGatewayConnectPeers" Verb="Get" Noun="TransitGatewayConnectPeer" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTransitGatewayConnectPeers" OutputProperty="TransitGatewayConnectPeers" Verb="Get" Noun="TransitGatewayConnectPeer" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayConnects" OutputProperty="TransitGatewayConnects" Verb="Get" Noun="TransitGatewayConnect" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTransitGatewayConnects" OutputProperty="TransitGatewayConnects" Verb="Get" Noun="TransitGatewayConnect" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayMulticastDomains" OutputProperty="TransitGatewayMulticastDomains" Verb="Get" Noun="TransitGatewayMulticastDomain" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTransitGatewayMulticastDomains" OutputProperty="TransitGatewayMulticastDomains" Verb="Get" Noun="TransitGatewayMulticastDomain" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayPeeringAttachments" OutputProperty="TransitGatewayPeeringAttachments" Verb="Get" Noun="TransitGatewayPeeringAttachment" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTransitGatewayPeeringAttachments" OutputProperty="TransitGatewayPeeringAttachments" Verb="Get" Noun="TransitGatewayPeeringAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayPolicyTables" OutputProperty="TransitGatewayPolicyTables" Verb="Get" Noun="TransitGatewayPolicyTable" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTransitGatewayPolicyTables" OutputProperty="TransitGatewayPolicyTables" Verb="Get" Noun="TransitGatewayPolicyTable" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayRouteTableAnnouncements" OutputProperty="TransitGatewayRouteTableAnnouncements" Verb="Get" Noun="TransitGatewayRouteTableAnnouncement" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTransitGatewayRouteTableAnnouncements" OutputProperty="TransitGatewayRouteTableAnnouncements" Verb="Get" Noun="TransitGatewayRouteTableAnnouncement" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGateways" OutputProperty="TransitGateways" Verb="Get" Noun="TransitGateway" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTransitGateways" OutputProperty="TransitGateways" Verb="Get" Noun="TransitGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransitGatewayVpcAttachments" OutputProperty="TransitGatewayVpcAttachments" Verb="Get" Noun="TransitGatewayVpcAttachment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTransitGatewayVpcAttachments" OutputProperty="TransitGatewayVpcAttachments" Verb="Get" Noun="TransitGatewayVpcAttachment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrunkInterfaceAssociations" OutputProperty="InterfaceAssociations" Verb="Get" Noun="TrunkInterfaceAssociation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrunkInterfaceAssociations" OutputProperty="InterfaceAssociations" Verb="Get" Noun="TrunkInterfaceAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessEndpoints" OutputProperty="VerifiedAccessEndpoints" Verb="Get" Noun="VerifiedAccessEndpoint" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeVerifiedAccessEndpoints" OutputProperty="VerifiedAccessEndpoints" Verb="Get" Noun="VerifiedAccessEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1571,15 +1569,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessInstanceLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="VerifiedAccessInstanceLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVerifiedAccessInstanceLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="VerifiedAccessInstanceLoggingConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessInstances" OutputProperty="VerifiedAccessInstances" Verb="Get" Noun="VerifiedAccessInstance" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVerifiedAccessInstances" OutputProperty="VerifiedAccessInstances" Verb="Get" Noun="VerifiedAccessInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVerifiedAccessTrustProviders" OutputProperty="VerifiedAccessTrustProviders" Verb="Get" Noun="VerifiedAccessTrustProvider" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVerifiedAccessTrustProviders" OutputProperty="VerifiedAccessTrustProviders" Verb="Get" Noun="VerifiedAccessTrustProvider" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1609,11 +1607,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessExclusions" OutputProperty="VpcBlockPublicAccessExclusions" Verb="Get" Noun="VpcBlockPublicAccessExclusion" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessExclusions" OutputProperty="VpcBlockPublicAccessExclusions" Verb="Get" Noun="VpcBlockPublicAccessExclusion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Get" Noun="VpcBlockPublicAccessOption" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeVpcBlockPublicAccessOptions" OutputProperty="VpcBlockPublicAccessOptions" Verb="Get" Noun="VpcBlockPublicAccessOption" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1625,11 +1623,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociation" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVpcEndpointAssociations" OutputProperty="VpcEndpointAssociations" Verb="Get" Noun="VpcEndpointAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" OutputProperty="ConnectionNotificationSet" Verb="Get" Noun="EndpointConnectionNotification" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" OutputProperty="ConnectionNotificationSet" Verb="Get" Noun="EndpointConnectionNotification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1641,15 +1639,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointServiceConfigurations" OutputProperty="ServiceConfigurations" Verb="Get" Noun="EndpointServiceConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeVpcEndpointServiceConfigurations" OutputProperty="ServiceConfigurations" Verb="Get" Noun="EndpointServiceConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointServicePermissions" OutputProperty="AllowedPrincipals" Verb="Get" Noun="EndpointServicePermission" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeVpcEndpointServicePermissions" OutputProperty="AllowedPrincipals" Verb="Get" Noun="EndpointServicePermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVpcEndpointServices" OutputProperty="*" Verb="Get" Noun="VpcEndpointService" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="DescribeVpcEndpointServices" OutputProperty="*" Verb="Get" Noun="VpcEndpointService" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1701,7 +1699,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Disable" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableAllowedImagesSettings" OutputProperty="AllowedImagesSettingsState" Verb="Disable" Noun="AllowedImagesSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1709,7 +1707,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1727,7 +1725,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableImageBlockPublicAccess" OutputProperty="ImageBlockPublicAccessState" Verb="Disable" Noun="ImageBlockPublicAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableImageBlockPublicAccess" OutputProperty="ImageBlockPublicAccessState" Verb="Disable" Noun="ImageBlockPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1743,11 +1741,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Disable" Noun="SnapshotBlockPublicAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Disable" Noun="SnapshotBlockPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1819,7 +1817,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateTransitGatewayPolicyTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayPolicyTable" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1847,7 +1845,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1879,11 +1877,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableReachabilityAnalyzerOrganizationSharing" OutputProperty="ReturnValue" Verb="Enable" Noun="ReachabilityAnalyzerOrganizationSharing" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableReachabilityAnalyzerOrganizationSharing" OutputProperty="ReturnValue" Verb="Enable" Noun="ReachabilityAnalyzerOrganizationSharing" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1931,7 +1929,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAllowedImagesSettings" OutputProperty="*" Verb="Get" Noun="AllowedImagesSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1943,7 +1941,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAwsNetworkPerformanceData" OutputProperty="DataResponses" Verb="Get" Noun="AwsNetworkPerformanceData" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAwsNetworkPerformanceData" OutputProperty="DataResponses" Verb="Get" Noun="AwsNetworkPerformanceData" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1971,11 +1969,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Get" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Get" Noun="EbsDefaultKmsKeyId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Get" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Get" Noun="EbsEncryptionByDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1991,11 +1989,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImageBlockPublicAccessState" OutputProperty="ImageBlockPublicAccessState" Verb="Get" Noun="ImageBlockPublicAccessState" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImageBlockPublicAccessState" OutputProperty="ImageBlockPublicAccessState" Verb="Get" Noun="ImageBlockPublicAccessState" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2003,7 +2001,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2059,7 +2057,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPasswordData" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPasswordData" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2071,11 +2069,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSerialConsoleAccessStatus" OutputProperty="SerialConsoleAccessEnabled" Verb="Get" Noun="SerialConsoleAccessStatus" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnapshotBlockPublicAccessState" OutputProperty="State" Verb="Get" Noun="SnapshotBlockPublicAccessState" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSnapshotBlockPublicAccessState" OutputProperty="State" Verb="Get" Noun="SnapshotBlockPublicAccessState" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2087,7 +2085,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayAttachmentPropagations" OutputProperty="TransitGatewayAttachmentPropagations" Verb="Get" Noun="TransitGatewayAttachmentPropagation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetTransitGatewayAttachmentPropagations" OutputProperty="TransitGatewayAttachmentPropagations" Verb="Get" Noun="TransitGatewayAttachmentPropagation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2107,11 +2105,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayRouteTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayRouteTableAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetTransitGatewayRouteTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayRouteTableAssociation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransitGatewayRouteTablePropagations" OutputProperty="TransitGatewayRouteTablePropagations" Verb="Get" Noun="TransitGatewayRouteTablePropagation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetTransitGatewayRouteTablePropagations" OutputProperty="TransitGatewayRouteTablePropagations" Verb="Get" Noun="TransitGatewayRouteTablePropagation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2131,7 +2129,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpnConnectionDeviceTypes" OutputProperty="VpnConnectionDeviceTypes" Verb="Get" Noun="VpnConnectionDeviceType" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVpnConnectionDeviceTypes" OutputProperty="VpnConnectionDeviceTypes" Verb="Get" Noun="VpnConnectionDeviceType" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2147,7 +2145,7 @@
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportInstance" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportInstance" Verb="" Noun="" Exclude="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2164,15 +2162,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportVolume" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportVolume" Verb="" Noun="" Exclude="true" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImagesInRecycleBin" OutputProperty="Images" Verb="Get" Noun="ImagesInRecycleBinList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImagesInRecycleBin" OutputProperty="Images" Verb="Get" Noun="ImagesInRecycleBinList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSnapshotsInRecycleBin" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotsInRecycleBinList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2578,7 +2576,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReplaceImageCriteriaInAllowedImagesSettings" OutputProperty="ReturnValue" Verb="Set" Noun="ImageCriteriaInAllowedImagesSetting" ShouldProcessTarget="ImageCriteria" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReplaceImageCriteriaInAllowedImagesSettings" OutputProperty="ReturnValue" Verb="Set" Noun="ImageCriteriaInAllowedImagesSetting" ShouldProcessTarget="ImageCriteria" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2627,7 +2625,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Reset" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Reset" Noun="EbsDefaultKmsKeyId" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

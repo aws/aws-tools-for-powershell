@@ -77,6 +77,16 @@ ec2_DescribeTags:
             i-012e3cb4df567e1aa jump1
             i-01c23a45d6fc7a89f repro-3</programlisting>
           snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 6: This example validates permissions for getting EC2 Tags using the DryRun parameter without actually fetching them. Note: This throws an exception if succeeded which is the expected behavior.</emphasis>"
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Tag.6.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Get-EC2Tag: Request would have succeeded, but DryRun flag is set.</programlisting>
+          snippet_files: []
   services:
     ec2:
       DescribeTags:
