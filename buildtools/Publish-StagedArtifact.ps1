@@ -89,6 +89,11 @@ $paramSetLocalName = "local"
 
 Import-Module Microsoft.PowerShell.PSResourceGet
 
+# in pwsh 7.1.0, running Publish-PSResource errors out with
+# Cannot retrieve the dynamic parameters for the cmdlet. Loading repository store failed: Could not find file 'C:\Users\ContainerAdministrator\AppData\Local\PSResourceGet\PSResourceRepository.xml'.
+# Running Get-PSResourceRepository seems to create the PSResourceRepository.xml file
+$allRepos = Get-PSResourceRepository
+
 $shouldUpdatePackageVersions = ![string]::IsNullOrEmpty($UpdatePackageVersionsProfile)
 #Import DynamoDBv2 needed to update the PackageVersions table.
 if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
@@ -107,7 +112,7 @@ if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
 }
 elseif($PSCmdlet.ParameterSetName -eq $paramSetLocalName){
     # validate if the LocalRepositoryName exists
-    $localRepo = Get-PSResourceRepository -Name $LocalRepositoryName -ErrorAction SilentlyContinue
+    $localRepo = $allRepos | Where-Object {$_.Name -eq $LocalRepositoryName}
     if(-not $localRepo){
         throw "Local repository $LocalRepositoryName does not exist."
     }
