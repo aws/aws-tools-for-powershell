@@ -123,6 +123,7 @@ ec2_DescribeInstances:
             i-066b...57b7b08888 t3.medium    Windows  10.0.1.11        ec2-name-04  stopped
             i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5         ec2-name-05  running
             i-0a68...274cc5043b t3.medium    Windows  10.0.1.6         ec2-name-06  stopped</programlisting>
+          snippet_files: []
   services:
     ec2:
       DescribeInstances:
