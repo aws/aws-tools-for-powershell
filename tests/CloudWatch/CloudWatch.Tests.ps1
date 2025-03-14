@@ -74,7 +74,6 @@ Describe -Tag "Smoke" "CloudWatch" {
                     MaxRecord = $numPerPage 
                     NextToken = $result.NextToken
                     Select = '*'
-                    NoAutoIteration = $true
                 }
                 $result = Get-CWAlarm @splatParams
                 
@@ -82,7 +81,7 @@ Describe -Tag "Smoke" "CloudWatch" {
             }
             while ($null -ne $result.NextToken)
 
-            $allAlarms.count | Should -Be $cwAlarms.Count
+            $allAlarms.MetricAlarms.Count | Should -Be $cwAlarms.Count
         }
 
         It "Can manually iterate with token aliases, max 2 per call" {
@@ -92,7 +91,7 @@ Describe -Tag "Smoke" "CloudWatch" {
             {
                 $splatParams = @{
                     
-                    MaxItems = $numPerPage 
+                    MaxRecords = $numPerPage 
                     NextToken = $result.NextToken
                     Select = '*'
                     NoAutoIteration = $true
@@ -103,7 +102,7 @@ Describe -Tag "Smoke" "CloudWatch" {
             }
             while ($null -ne $result.NextToken)
 
-            $allAlarms.count | Should -Be $cwAlarms.Count
+            $allAlarms.MetricAlarms.Count | Should -Be $cwAlarms.Count
         }
     }
 }

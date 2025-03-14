@@ -1,0 +1,1 @@
+Get-CWAlarm -AlarmType 'CompositeAlarms'

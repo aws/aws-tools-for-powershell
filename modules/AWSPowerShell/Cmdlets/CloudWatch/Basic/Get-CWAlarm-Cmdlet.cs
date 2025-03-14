@@ -41,11 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAlarm")]
-    [OutputType("Amazon.CloudWatch.Model.MetricAlarm")]
+    [OutputType("Amazon.CloudWatch.Model.DescribeAlarmsResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch DescribeAlarms API operation.", Operation = new[] {"DescribeAlarms"}, SelectReturnType = typeof(Amazon.CloudWatch.Model.DescribeAlarmsResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatch.Model.MetricAlarm or Amazon.CloudWatch.Model.DescribeAlarmsResponse",
-        "This cmdlet returns a collection of Amazon.CloudWatch.Model.MetricAlarm objects.",
-        "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmsResponse) can be returned by specifying '-Select *'."
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.DescribeAlarmsResponse",
+        "This cmdlet returns an Amazon.CloudWatch.Model.DescribeAlarmsResponse object containing multiple properties."
     )]
     public partial class GetCWAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -158,15 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The maximum number of alarm descriptions to retrieve.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
-        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
-        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxRecords")]
-        public int? MaxRecord { get; set; }
+        [Alias("MaxRecords")]
+        public System.Int32? MaxRecord { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -185,13 +179,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MetricAlarms'.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatch.Model.DescribeAlarmsResponse).
         /// Specifying the name of a property of type Amazon.CloudWatch.Model.DescribeAlarmsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MetricAlarms";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -236,15 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             context.ChildrenOfAlarmName = this.ChildrenOfAlarmName;
             context.MaxRecord = this.MaxRecord;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
-            {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxRecord parameter to limit the total number of items returned by the cmdlet." +
-                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxRecord" +
-                    " to the service to specify how many items should be returned by each service call.");
-            }
-            #endif
             context.NextToken = this.NextToken;
             context.ParentsOfAlarmName = this.ParentsOfAlarmName;
             context.StateValue = this.StateValue;
@@ -258,7 +243,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
@@ -289,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             if (cmdletContext.ParentsOfAlarmName != null)
             {
@@ -346,123 +330,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
-            
-            // create request and set iteration invariants
-            var request = new Amazon.CloudWatch.Model.DescribeAlarmsRequest();
-            if (cmdletContext.ActionPrefix != null)
-            {
-                request.ActionPrefix = cmdletContext.ActionPrefix;
-            }
-            if (cmdletContext.AlarmNamePrefix != null)
-            {
-                request.AlarmNamePrefix = cmdletContext.AlarmNamePrefix;
-            }
-            if (cmdletContext.AlarmName != null)
-            {
-                request.AlarmNames = cmdletContext.AlarmName;
-            }
-            if (cmdletContext.AlarmType != null)
-            {
-                request.AlarmTypes = cmdletContext.AlarmType;
-            }
-            if (cmdletContext.ChildrenOfAlarmName != null)
-            {
-                request.ChildrenOfAlarmName = cmdletContext.ChildrenOfAlarmName;
-            }
-            if (cmdletContext.ParentsOfAlarmName != null)
-            {
-                request.ParentsOfAlarmName = cmdletContext.ParentsOfAlarmName;
-            }
-            if (cmdletContext.StateValue != null)
-            {
-                request.StateValue = cmdletContext.StateValue;
-            }
-            
-            // Initialize loop variants and commence piping
-            System.String _nextToken = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.MaxRecord.HasValue)
-            {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxRecord;
-            }
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                if (_emitLimit.HasValue)
-                {
-                    int correctPageSize = Math.Min(100, _emitLimit.Value);
-                    request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                }
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    int _receivedThisCall = response.MetricAlarms?.Count ?? 0;
-                    
-                    _nextToken = response.NextToken;
-                    _retrievedSoFar += _receivedThisCall;
-                    if (_emitLimit.HasValue)
-                    {
-                        _emitLimit -= _receivedThisCall;
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                
-                ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
-            
-            
-            if (useParameterSelect)
-            {
-                WriteObject(cmdletContext.Select(null, this));
-            }
-            
-            
-            return null;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -500,12 +367,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public List<System.String> AlarmName { get; set; }
             public List<System.String> AlarmType { get; set; }
             public System.String ChildrenOfAlarmName { get; set; }
-            public int? MaxRecord { get; set; }
+            public System.Int32? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
             public System.String ParentsOfAlarmName { get; set; }
             public Amazon.CloudWatch.StateValue StateValue { get; set; }
             public System.Func<Amazon.CloudWatch.Model.DescribeAlarmsResponse, GetCWAlarmCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MetricAlarms;
+                (response, cmdlet) => response;
         }
         
     }

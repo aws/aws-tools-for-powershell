@@ -49,7 +49,7 @@
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="MetricAlarms" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="*" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
