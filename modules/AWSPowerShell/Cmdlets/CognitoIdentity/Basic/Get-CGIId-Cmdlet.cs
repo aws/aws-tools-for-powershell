@@ -28,7 +28,7 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit
+    /// Generates (or retrieves) IdentityID. Supplying multiple logins will create an implicit
     /// linked account.
     /// 
     ///  
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A standard AWS account ID (9+ digits).</para>
+        /// <para>A standard Amazon Web Services account ID (9+ digits).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

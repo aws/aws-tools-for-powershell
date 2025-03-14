@@ -188,9 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// do passwordless sign-in with an email or SMS OTP. These attributes must be provided
         /// when passwordless options are the only available, or when you don't submit a <c>TemporaryPassword</c>.</para><para>In your <c>AdminCreateUser</c> request, you can set the <c>email_verified</c> and
         /// <c>phone_number_verified</c> attributes to <c>true</c>. The following conditions apply:</para><dl><dt>email</dt><dd><para>The email address where you want the user to receive their confirmation code and username.
-        /// You must provide a value for the <c>email</c> when you want to set <c>email_verified</c>
+        /// You must provide a value for <c>email</c> when you want to set <c>email_verified</c>
         /// to <c>true</c>, or if you set <c>EMAIL</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd><dt>phone_number</dt><dd><para>The phone number where you want the user to receive their confirmation code and username.
-        /// You must provide a value for the <c>email</c> when you want to set <c>phone_number</c>
+        /// You must provide a value for <c>phone_number</c> when you want to set <c>phone_number_verified</c>
         /// to <c>true</c>, or if you set <c>SMS</c> in the <c>DesiredDeliveryMediums</c> parameter.</para></dd></dl>
         /// </para>
         /// </summary>

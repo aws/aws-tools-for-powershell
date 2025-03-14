@@ -33878,6 +33878,16 @@ $GLUE_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Glue.AllowFullTableExternalDataAccessEnum
+        {
+            ($_ -eq "New-GLUECatalog/CatalogInput_AllowFullTableExternalDataAccess") -Or
+            ($_ -eq "Update-GLUECatalog/CatalogInput_AllowFullTableExternalDataAccess")
+        }
+        {
+            $v = "False","True"
+            break
+        }
+
         # Amazon.Glue.AuthenticationType
         "Test-GLUEConnection/AuthenticationConfiguration_AuthenticationType"
         {
@@ -34237,6 +34247,7 @@ $GLUE_map = @{
     "ApplyOverrideForComputeEnvironment"=@("Get-GLUEConnection")
     "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
+    "CatalogInput_AllowFullTableExternalDataAccess"=@("New-GLUECatalog","Update-GLUECatalog")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")

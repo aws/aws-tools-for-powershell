@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// 
     ///  
     /// <para>
-    /// To add or update data, Lake Formation needs read/write access to the chosen Amazon
-    /// S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess
+    /// To add or update data, Lake Formation needs read/write access to the chosen data location.
+    /// Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess
     /// service-linked role. When you register the first Amazon S3 path, the service-linked
     /// role and a new inline policy are created on your behalf. Lake Formation adds the first
     /// path to the inline policy and attaches it to the service-linked role. When you register
@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.Boolean? WithFederation { get; set; }
         #endregion
         
+        #region Parameter WithPrivilegedAccess
+        /// <summary>
+        /// <para>
+        /// <para>Grants the calling principal the permissions to perform all supported Lake Formation
+        /// operations on the registered data location. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WithPrivilegedAccess { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -190,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             context.RoleArn = this.RoleArn;
             context.UseServiceLinkedRole = this.UseServiceLinkedRole;
             context.WithFederation = this.WithFederation;
+            context.WithPrivilegedAccess = this.WithPrivilegedAccess;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -225,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (cmdletContext.WithFederation != null)
             {
                 request.WithFederation = cmdletContext.WithFederation.Value;
+            }
+            if (cmdletContext.WithPrivilegedAccess != null)
+            {
+                request.WithPrivilegedAccess = cmdletContext.WithPrivilegedAccess.Value;
             }
             
             CmdletOutput output;
@@ -292,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String RoleArn { get; set; }
             public System.Boolean? UseServiceLinkedRole { get; set; }
             public System.Boolean? WithFederation { get; set; }
+            public System.Boolean? WithPrivilegedAccess { get; set; }
             public System.Func<Amazon.LakeFormation.Model.RegisterResourceResponse, RegisterLKFResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

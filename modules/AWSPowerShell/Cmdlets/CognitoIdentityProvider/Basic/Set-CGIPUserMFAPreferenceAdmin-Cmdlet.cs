@@ -94,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
-        /// TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</para>
+        /// TOTP MFA and sets it as the preferred MFA method when multiple methods are available.
+        /// This operation can set TOTP as a user's preferred MFA method before they register
+        /// a TOTP authenticator.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

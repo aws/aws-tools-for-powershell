@@ -1,4 +1,16 @@
-﻿### 4.1.776 (2025-03-14 00:32Z)
+﻿### 4.1.777 (2025-03-14 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1002.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECatalog: added parameter CatalogInput_AllowFullTableExternalDataAccess.
+    * Modified cmdlet Update-GLUECatalog: added parameter CatalogInput_AllowFullTableExternalDataAccess.
+  * Amazon Lake Formation
+    * Modified cmdlet Grant-LKFPermission: added parameter Condition_Expression.
+    * Modified cmdlet New-LKFLakeFormationOptIn: added parameter Condition_Expression.
+    * Modified cmdlet Register-LKFResource: added parameter WithPrivilegedAccess.
+    * Modified cmdlet Remove-LKFLakeFormationOptIn: added parameter Condition_Expression.
+    * Modified cmdlet Revoke-LKFPermission: added parameter Condition_Expression.
+
+### 4.1.776 (2025-03-14 00:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1001.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPBranch: added parameter EnableSkewProtection.

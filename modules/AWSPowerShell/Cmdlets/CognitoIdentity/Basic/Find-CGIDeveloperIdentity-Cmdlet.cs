@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// searched in the database and returned as a part of the response. If you supply both,
     /// <c>DeveloperUserIdentifier</c> will be matched against <c>IdentityID</c>. If the values
     /// are verified against the database, the response returns both values and is the same
-    /// as the request. Otherwise a <c>ResourceConflictException</c> is thrown.
+    /// as the request. Otherwise, a <c>ResourceConflictException</c> is thrown.
     /// 
     ///  
     /// <para><c>LookupDeveloperIdentity</c> is intended for low-throughput control plane operations:
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// are likely to be throttled. <a>GetOpenIdTokenForDeveloperIdentity</a> is a better
     /// option for higher-volume operations for user authentication.
     /// </para><para>
-    /// You must use AWS Developer credentials to call this API.
+    /// You must use Amazon Web Services developer credentials to call this operation.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "CGIDeveloperIdentity")]

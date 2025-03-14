@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
     /// Returns credentials for the provided identity ID. Any provided logins will be validated
-    /// against supported login providers. If the token is for cognito-identity.amazonaws.com,
-    /// it will be passed through to AWS Security Token Service with the appropriate role
-    /// for the token.
+    /// against supported login providers. If the token is for <c>cognito-identity.amazonaws.com</c>,
+    /// it will be passed through to Security Token Service with the appropriate role for
+    /// the token.
     /// 
     ///  
     /// <para>
