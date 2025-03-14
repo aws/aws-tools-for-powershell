@@ -235,6 +235,8 @@ $MPV2_SelectMap = @{
                "Get-MPV2ResourceTag",
                "Write-MPV2ChannelPolicy",
                "Write-MPV2OriginEndpointPolicy",
+               "Reset-MPV2ChannelState",
+               "Reset-MPV2OriginEndpointState",
                "Add-MPV2ResourceTag",
                "Remove-MPV2ResourceTag",
                "Update-MPV2Channel",

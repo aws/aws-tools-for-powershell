@@ -1,4 +1,19 @@
-﻿### 4.1.775 (2025-03-11 20:47Z)
+﻿### 4.1.776 (2025-03-14 00:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1001.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPBranch: added parameter EnableSkewProtection.
+    * Modified cmdlet Update-AMPBranch: added parameter EnableSkewProtection.
+  * Amazon DataZone
+    * Modified cmdlet Update-DZEnvironment: added parameters BlueprintVersion and UserParameter.
+    * Modified cmdlet Update-DZProject: added parameters ProjectProfileVersion and UserParameter.
+  * Amazon Elemental MediaPackage v2
+    * Added cmdlet Reset-MPV2ChannelState leveraging the ResetChannelState service API.
+    * Added cmdlet Reset-MPV2OriginEndpointState leveraging the ResetOriginEndpointState service API.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet New-IVSRTStage: added parameter HlsConfiguration_TargetSegmentDurationSecond.
+    * Modified cmdlet Update-IVSRTStage: added parameter HlsConfiguration_TargetSegmentDurationSecond.
+
+### 4.1.775 (2025-03-11 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1000.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EC2 Container Registry
     * Modified cmdlet New-ECRPullThroughCacheRule: added parameters CustomRoleArn and UpstreamRepositoryPrefix.

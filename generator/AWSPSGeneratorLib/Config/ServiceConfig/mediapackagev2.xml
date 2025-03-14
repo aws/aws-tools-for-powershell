@@ -110,6 +110,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetChannelState" OutputProperty="*" Verb="Reset" Noun="ChannelState" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetOriginEndpointState" OutputProperty="*" Verb="Reset" Noun="OriginEndpointState" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

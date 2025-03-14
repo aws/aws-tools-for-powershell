@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BlueprintVersion
+        /// <summary>
+        /// <para>
+        /// <para>The blueprint version to which the environment should be updated. You can only specify
+        /// the following string for this parameter: <c>latest</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BlueprintVersion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -108,6 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter UserParameter
+        /// <summary>
+        /// <para>
+        /// <para>The user parameters of the environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserParameters")]
+        public Amazon.DataZone.Model.EnvironmentParameter[] UserParameter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -170,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BlueprintVersion = this.BlueprintVersion;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -190,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.Name = this.Name;
+            if (this.UserParameter != null)
+            {
+                context.UserParameter = new List<Amazon.DataZone.Model.EnvironmentParameter>(this.UserParameter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -206,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.UpdateEnvironmentRequest();
             
+            if (cmdletContext.BlueprintVersion != null)
+            {
+                request.BlueprintVersion = cmdletContext.BlueprintVersion;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -225,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.UserParameter != null)
+            {
+                request.UserParameters = cmdletContext.UserParameter;
             }
             
             CmdletOutput output;
@@ -287,11 +322,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BlueprintVersion { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.DataZone.Model.EnvironmentParameter> UserParameter { get; set; }
             public System.Func<Amazon.DataZone.Model.UpdateEnvironmentResponse, UpdateDZEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

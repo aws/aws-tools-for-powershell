@@ -22,32 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.MediaPackageV2;
+using Amazon.MediaPackageV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.MPV2
 {
     /// <summary>
-    /// Retrieves information about the log anomaly detector that you specify. The KMS key
-    /// ARN detected is valid.
+    /// Resetting the channel can help to clear errors from misconfigurations in the encoder.
+    /// A reset refreshes the ingest stream and removes previous content. 
+    /// 
+    ///  
+    /// <para>
+    ///  Be sure to stop the encoder before you reset the channel, and wait at least 30 seconds
+    /// before you restart the encoder. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CWLLogAnomalyDetector")]
-    [OutputType("Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs GetLogAnomalyDetector API operation.", Operation = new[] {"GetLogAnomalyDetector"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse object containing multiple properties."
+    [Cmdlet("Reset", "MPV2ChannelState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaPackageV2.Model.ResetChannelStateResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 ResetChannelState API operation.", Operation = new[] {"ResetChannelState"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.ResetChannelStateResponse))]
+    [AWSCmdletOutput("Amazon.MediaPackageV2.Model.ResetChannelStateResponse",
+        "This cmdlet returns an Amazon.MediaPackageV2.Model.ResetChannelStateResponse object containing multiple properties."
     )]
-    public partial class GetCWLLogAnomalyDetectorCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class ResetMPV2ChannelStateCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AnomalyDetectorArn
+        #region Parameter ChannelGroupName
         /// <summary>
         /// <para>
-        /// <para>The ARN of the anomaly detector to retrieve information about. You can find the ARNs
-        /// of log anomaly detectors in your account by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">ListLogAnomalyDetectors</a>
-        /// operation.</para>
+        /// <para>The name of the channel group that contains the channel that you are resetting.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ChannelGroupName { get; set; }
+        #endregion
+        
+        #region Parameter ChannelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the channel that you are resetting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,14 +79,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AnomalyDetectorArn { get; set; }
+        public System.String ChannelName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackageV2.Model.ResetChannelStateResponse).
+        /// Specifying the name of a property of type Amazon.MediaPackageV2.Model.ResetChannelStateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,18 +95,34 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AnomalyDetectorArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AnomalyDetectorArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChannelName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AnomalyDetectorArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-MPV2ChannelState (ResetChannelState)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -95,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse, GetCWLLogAnomalyDetectorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.ResetChannelStateResponse, ResetMPV2ChannelStateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -104,14 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AnomalyDetectorArn;
+                context.Select = (response, cmdlet) => this.ChannelName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AnomalyDetectorArn = this.AnomalyDetectorArn;
+            context.ChannelGroupName = this.ChannelGroupName;
             #if MODULAR
-            if (this.AnomalyDetectorArn == null && ParameterWasBound(nameof(this.AnomalyDetectorArn)))
+            if (this.ChannelGroupName == null && ParameterWasBound(nameof(this.ChannelGroupName)))
             {
-                WriteWarning("You are passing $null as a value for parameter AnomalyDetectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ChannelName = this.ChannelName;
+            #if MODULAR
+            if (this.ChannelName == null && ParameterWasBound(nameof(this.ChannelName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorRequest();
+            var request = new Amazon.MediaPackageV2.Model.ResetChannelStateRequest();
             
-            if (cmdletContext.AnomalyDetectorArn != null)
+            if (cmdletContext.ChannelGroupName != null)
             {
-                request.AnomalyDetectorArn = cmdletContext.AnomalyDetectorArn;
+                request.ChannelGroupName = cmdletContext.ChannelGroupName;
+            }
+            if (cmdletContext.ChannelName != null)
+            {
+                request.ChannelName = cmdletContext.ChannelName;
             }
             
             CmdletOutput output;
@@ -167,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorRequest request)
+        private Amazon.MediaPackageV2.Model.ResetChannelStateResponse CallAWSServiceOperation(IAmazonMediaPackageV2 client, Amazon.MediaPackageV2.Model.ResetChannelStateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "GetLogAnomalyDetector");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage v2", "ResetChannelState");
             try
             {
                 #if DESKTOP
-                return client.GetLogAnomalyDetector(request);
+                return client.ResetChannelState(request);
                 #elif CORECLR
-                return client.GetLogAnomalyDetectorAsync(request).GetAwaiter().GetResult();
+                return client.ResetChannelStateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,8 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AnomalyDetectorArn { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse, GetCWLLogAnomalyDetectorCmdlet, object> Select { get; set; } =
+            public System.String ChannelGroupName { get; set; }
+            public System.String ChannelName { get; set; }
+            public System.Func<Amazon.MediaPackageV2.Model.ResetChannelStateResponse, ResetMPV2ChannelStateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

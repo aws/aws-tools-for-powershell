@@ -28,8 +28,7 @@ using Amazon.MediaPackageV2.Model;
 namespace Amazon.PowerShell.Cmdlets.MPV2
 {
     /// <summary>
-    /// Retrieves all channel groups that are configured in AWS Elemental MediaPackage, including
-    /// the channels and origin endpoints that are associated with it.
+    /// Retrieves all channel groups that are configured in Elemental MediaPackage.
     /// </summary>
     [Cmdlet("Get", "MPV2ChannelGroupList")]
     [OutputType("Amazon.MediaPackageV2.Model.ChannelGroupListConfiguration")]

@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app.
         /// The SSR Compute role allows the Amplify Hosting compute service to securely access
         /// specific Amazon Web Services resources based on the role's permissions. For more information
-        /// about the SSR Compute role, see <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding
+        /// about the SSR Compute role, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding
         /// an SSR Compute role</a> in the <i>Amplify User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -198,6 +198,21 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EnablePullRequestPreview { get; set; }
+        #endregion
+        
+        #region Parameter EnableSkewProtection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the skew protection feature is enabled for the branch.</para><para>Deployment skew protection is available to Amplify applications to eliminate version
+        /// skew issues between client and servers in web applications. When you apply skew protection
+        /// to a branch, you can ensure that your clients always interact with the correct version
+        /// of server-side assets, regardless of when a deployment occurs. For more information
+        /// about skew protection, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew
+        /// protection for Amplify deployments</a> in the <i>Amplify User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableSkewProtection { get; set; }
         #endregion
         
         #region Parameter EnvironmentVariable
@@ -350,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             context.EnableNotification = this.EnableNotification;
             context.EnablePerformanceMode = this.EnablePerformanceMode;
             context.EnablePullRequestPreview = this.EnablePullRequestPreview;
+            context.EnableSkewProtection = this.EnableSkewProtection;
             if (this.EnvironmentVariable != null)
             {
                 context.EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -449,6 +465,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             {
                 request.EnablePullRequestPreview = cmdletContext.EnablePullRequestPreview.Value;
             }
+            if (cmdletContext.EnableSkewProtection != null)
+            {
+                request.EnableSkewProtection = cmdletContext.EnableSkewProtection.Value;
+            }
             if (cmdletContext.EnvironmentVariable != null)
             {
                 request.EnvironmentVariables = cmdletContext.EnvironmentVariable;
@@ -544,6 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.Boolean? EnableNotification { get; set; }
             public System.Boolean? EnablePerformanceMode { get; set; }
             public System.Boolean? EnablePullRequestPreview { get; set; }
+            public System.Boolean? EnableSkewProtection { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public System.String Framework { get; set; }
             public System.String PullRequestEnvironmentName { get; set; }

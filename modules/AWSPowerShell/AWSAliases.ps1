@@ -19843,6 +19843,8 @@ Set-Alias -Name Put-MPV2ChannelPolicy -Value Write-MPV2ChannelPolicy
 Set-Alias -Name MPV2-PutChannelPolicy -Value Write-MPV2ChannelPolicy
 Set-Alias -Name Put-MPV2OriginEndpointPolicy -Value Write-MPV2OriginEndpointPolicy
 Set-Alias -Name MPV2-PutOriginEndpointPolicy -Value Write-MPV2OriginEndpointPolicy
+Set-Alias -Name MPV2-ResetChannelState -Value Reset-MPV2ChannelState
+Set-Alias -Name MPV2-ResetOriginEndpointState -Value Reset-MPV2OriginEndpointState
 Set-Alias -Name MPV2-TagResource -Value Add-MPV2ResourceTag
 Set-Alias -Name MPV2-UntagResource -Value Remove-MPV2ResourceTag
 Set-Alias -Name MPV2-UpdateChannel -Value Update-MPV2Channel

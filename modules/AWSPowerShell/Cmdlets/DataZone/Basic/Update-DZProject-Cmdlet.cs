@@ -133,6 +133,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.OverallDeploymentStatus EnvironmentDeploymentDetails_OverallDeploymentStatus { get; set; }
         #endregion
         
+        #region Parameter ProjectProfileVersion
+        /// <summary>
+        /// <para>
+        /// <para>The project profile version to which the project should be updated. You can only specify
+        /// the following string for this parameter: <c>latest</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectProfileVersion { get; set; }
+        #endregion
+        
+        #region Parameter UserParameter
+        /// <summary>
+        /// <para>
+        /// <para>The user parameters of the project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserParameters")]
+        public Amazon.DataZone.Model.EnvironmentConfigurationUserParameter[] UserParameter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
@@ -236,6 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.Name = this.Name;
+            context.ProjectProfileVersion = this.ProjectProfileVersion;
+            if (this.UserParameter != null)
+            {
+                context.UserParameter = new List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter>(this.UserParameter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -300,6 +327,14 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProjectProfileVersion != null)
+            {
+                request.ProjectProfileVersion = cmdletContext.ProjectProfileVersion;
+            }
+            if (cmdletContext.UserParameter != null)
+            {
+                request.UserParameters = cmdletContext.UserParameter;
             }
             
             CmdletOutput output;
@@ -369,6 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Identifier { get; set; }
             public System.String Name { get; set; }
+            public System.String ProjectProfileVersion { get; set; }
+            public List<Amazon.DataZone.Model.EnvironmentConfigurationUserParameter> UserParameter { get; set; }
             public System.Func<Amazon.DataZone.Model.UpdateProjectResponse, UpdateDZProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }
