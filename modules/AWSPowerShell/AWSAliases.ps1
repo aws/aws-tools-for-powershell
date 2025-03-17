@@ -956,6 +956,9 @@ Set-Alias -Name CWAI-UpdateWorkload -Value Update-CWAIWorkload
 Set-Alias -Name Batch-CWASGetServiceLevelObjectiveBudgetReport -Value Get-CWASBatchServiceLevelObjectiveBudgetReport
 Set-Alias -Name Batch-CWASBatchServiceLevelObjectiveBudgetReport -Value Get-CWASBatchServiceLevelObjectiveBudgetReport
 Set-Alias -Name CWAS-BatchGetServiceLevelObjectiveBudgetReport -Value Get-CWASBatchServiceLevelObjectiveBudgetReport
+Set-Alias -Name Batch-CWASUpdateExclusionWindows -Value Update-CWASUpdateExclusionWindow
+Set-Alias -Name Batch-CWASUpdateExclusionWindow -Value Update-CWASUpdateExclusionWindow
+Set-Alias -Name CWAS-BatchUpdateExclusionWindows -Value Update-CWASUpdateExclusionWindow
 Set-Alias -Name Create-CWASServiceLevelObjective -Value New-CWASServiceLevelObjective
 Set-Alias -Name CWAS-CreateServiceLevelObjective -Value New-CWASServiceLevelObjective
 Set-Alias -Name Delete-CWASServiceLevelObjective -Value Remove-CWASServiceLevelObjective
@@ -968,6 +971,9 @@ Set-Alias -Name CWAS-ListServiceDependencies -Value Get-CWASServiceDependencyLis
 Set-Alias -Name List-CWASServiceDependents -Value Get-CWASServiceDependentList
 Set-Alias -Name List-CWASServiceDependentList -Value Get-CWASServiceDependentList
 Set-Alias -Name CWAS-ListServiceDependents -Value Get-CWASServiceDependentList
+Set-Alias -Name List-CWASServiceLevelObjectiveExclusionWindows -Value Get-CWASServiceLevelObjectiveExclusionWindowList
+Set-Alias -Name List-CWASServiceLevelObjectiveExclusionWindowList -Value Get-CWASServiceLevelObjectiveExclusionWindowList
+Set-Alias -Name CWAS-ListServiceLevelObjectiveExclusionWindows -Value Get-CWASServiceLevelObjectiveExclusionWindowList
 Set-Alias -Name List-CWASServiceLevelObjectives -Value Get-CWASServiceLevelObjectiveList
 Set-Alias -Name List-CWASServiceLevelObjectiveList -Value Get-CWASServiceLevelObjectiveList
 Set-Alias -Name CWAS-ListServiceLevelObjectives -Value Get-CWASServiceLevelObjectiveList

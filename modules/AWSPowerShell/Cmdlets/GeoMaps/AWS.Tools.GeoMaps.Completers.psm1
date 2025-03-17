@@ -83,10 +83,25 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.ColorScheme
         {
             ($_ -eq "Get-GEOMSprite/ColorScheme") -Or
+            ($_ -eq "Get-GEOMStaticMap/ColorScheme") -Or
             ($_ -eq "Get-GEOMStyleDescriptor/ColorScheme")
         }
         {
             $v = "Dark","Light"
+            break
+        }
+
+        # Amazon.GeoMaps.LabelSize
+        "Get-GEOMStaticMap/LabelSize"
+        {
+            $v = "Large","Small"
+            break
+        }
+
+        # Amazon.GeoMaps.MapFeatureMode
+        "Get-GEOMStaticMap/PointsOfInterest"
+        {
+            $v = "Disabled","Enabled"
             break
         }
 
@@ -110,7 +125,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.StaticMapStyle
         "Get-GEOMStaticMap/Style"
         {
-            $v = "Satellite"
+            $v = "Satellite","Standard"
             break
         }
 
@@ -130,7 +145,9 @@ $GEOM_Completers = {
 }
 
 $GEOM_map = @{
-    "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStyleDescriptor")
+    "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
+    "LabelSize"=@("Get-GEOMStaticMap")
+    "PointsOfInterest"=@("Get-GEOMStaticMap")
     "ScaleBarUnit"=@("Get-GEOMStaticMap")
     "Style"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
     "Variant"=@("Get-GEOMSprite")

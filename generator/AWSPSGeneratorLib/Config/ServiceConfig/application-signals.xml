@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateExclusionWindows" OutputProperty="*" Verb="Update" Noun="UpdateExclusionWindow" ShouldProcessTarget="SloIds" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateServiceLevelObjective" OutputProperty="Slo" Verb="New" Noun="ServiceLevelObjective" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListServiceDependents" OutputProperty="*" Verb="Get" Noun="ServiceDependentList" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceLevelObjectiveExclusionWindows" OutputProperty="ExclusionWindows" Verb="Get" Noun="ServiceLevelObjectiveExclusionWindowList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

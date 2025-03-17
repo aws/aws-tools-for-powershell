@@ -28,7 +28,7 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// Returns information about the style.
+    /// <c>GetStyleDescriptor</c> returns information about the style.
     /// </summary>
     [Cmdlet("Get", "GEOMStyleDescriptor")]
     [OutputType("Amazon.GeoMaps.Model.GetStyleDescriptorResponse")]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// <summary>
         /// <para>
         /// <para>Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format.</para><para>The following political views are currently supported:</para><ul><li><para><c>ARG</c>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del
-        /// Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</para></li><li><para><c>EGY</c>: Egypt's view on Bir Tawil</para></li><li><para><c>IND</c>: India's view on Gilgit-Baltistan</para></li><li><para><c>KEN</c>: Kenya's view on the Ilemi Triangle</para></li><li><para><c>MAR</c>: Morocco's view on Western Sahara</para></li><li><para><c>PAK</c>: Pakistan's view on Jammu and Kashmir and the Junagadh Area</para></li><li><para><c>RUS</c>: Russia's view on Crimea</para></li><li><para><c>SDN</c>: Sudan's view on the Halaib Triangle</para></li><li><para><c>SRB</c>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</para></li><li><para><c>SUR</c>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</para></li><li><para><c>SYR</c>: Syria's view on the Golan Heights</para></li><li><para><c>TUR</c>: Turkey's view on Cyprus and Northern Cyprus</para></li><li><para><c>TZA</c>: Tanzania's view on Lake Malawi</para></li><li><para><c>URY</c>: Uruguay's view on Rincon de Artigas</para></li><li><para><c>VNM</c>: Vietnam's view on the Paracel Islands and Spratly Islands</para></li></ul>
+        /// Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</para></li><li><para><c>EGY</c>: Egypt's view on Bir Tawil</para></li><li><para><c>IND</c>: India's view on Gilgit-Baltistan</para></li><li><para><c>KEN</c>: Kenya's view on the Ilemi Triangle</para></li><li><para><c>MAR</c>: Morocco's view on Western Sahara</para></li><li><para><c>RUS</c>: Russia's view on Crimea</para></li><li><para><c>SDN</c>: Sudan's view on the Halaib Triangle</para></li><li><para><c>SRB</c>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</para></li><li><para><c>SUR</c>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</para></li><li><para><c>SYR</c>: Syria's view on the Golan Heights</para></li><li><para><c>TUR</c>: Turkey's view on Cyprus and Northern Cyprus</para></li><li><para><c>TZA</c>: Tanzania's view on Lake Malawi</para></li><li><para><c>URY</c>: Uruguay's view on Rincon de Artigas</para></li><li><para><c>VNM</c>: Vietnam's view on the Paracel Islands and Spratly Islands</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -3050,12 +3050,14 @@ $CWAS_SelectCompleters = {
 
 $CWAS_SelectMap = @{
     "Select"=@("Get-CWASBatchServiceLevelObjectiveBudgetReport",
+               "Update-CWASUpdateExclusionWindow",
                "New-CWASServiceLevelObjective",
                "Remove-CWASServiceLevelObjective",
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",
+               "Get-CWASServiceLevelObjectiveExclusionWindowList",
                "Get-CWASServiceLevelObjectiveList",
                "Get-CWASServiceOperationList",
                "Get-CWASServiceList",
@@ -33061,10 +33063,25 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.ColorScheme
         {
             ($_ -eq "Get-GEOMSprite/ColorScheme") -Or
+            ($_ -eq "Get-GEOMStaticMap/ColorScheme") -Or
             ($_ -eq "Get-GEOMStyleDescriptor/ColorScheme")
         }
         {
             $v = "Dark","Light"
+            break
+        }
+
+        # Amazon.GeoMaps.LabelSize
+        "Get-GEOMStaticMap/LabelSize"
+        {
+            $v = "Large","Small"
+            break
+        }
+
+        # Amazon.GeoMaps.MapFeatureMode
+        "Get-GEOMStaticMap/PointsOfInterest"
+        {
+            $v = "Disabled","Enabled"
             break
         }
 
@@ -33088,7 +33105,7 @@ $GEOM_Completers = {
         # Amazon.GeoMaps.StaticMapStyle
         "Get-GEOMStaticMap/Style"
         {
-            $v = "Satellite"
+            $v = "Satellite","Standard"
             break
         }
 
@@ -33108,7 +33125,9 @@ $GEOM_Completers = {
 }
 
 $GEOM_map = @{
-    "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStyleDescriptor")
+    "ColorScheme"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
+    "LabelSize"=@("Get-GEOMStaticMap")
+    "PointsOfInterest"=@("Get-GEOMStaticMap")
     "ScaleBarUnit"=@("Get-GEOMStaticMap")
     "Style"=@("Get-GEOMSprite","Get-GEOMStaticMap","Get-GEOMStyleDescriptor")
     "Variant"=@("Get-GEOMSprite")
@@ -63979,6 +63998,16 @@ $CWRUM_Completers = {
             break
         }
 
+        # Amazon.CloudWatchRUM.DeobfuscationStatus
+        {
+            ($_ -eq "New-CWRUMAppMonitor/JavaScriptSourceMaps_Status") -Or
+            ($_ -eq "Update-CWRUMAppMonitor/JavaScriptSourceMaps_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CloudWatchRUM.MetricDestination
         {
             ($_ -eq "Add-CWRUMCreateRumMetricDefinition/Destination") -Or
@@ -64004,6 +64033,7 @@ $CWRUM_Completers = {
 $CWRUM_map = @{
     "CustomEvents_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
     "Destination"=@("Add-CWRUMCreateRumMetricDefinition","Get-CWRUMGetRumMetricDefinition","Remove-CWRUMDeleteRumMetricDefinition","Remove-CWRUMRumMetricsDestination","Update-CWRUMRumMetricDefinition","Write-CWRUMRumMetricsDestination")
+    "JavaScriptSourceMaps_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
 }
 
 _awsArgumentCompleterRegistration $CWRUM_Completers $CWRUM_map

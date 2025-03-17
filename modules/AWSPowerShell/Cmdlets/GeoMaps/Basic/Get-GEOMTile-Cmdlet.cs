@@ -28,8 +28,9 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// Returns a tile. Map tiles are used by clients to render a map. they're addressed using
-    /// a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level.
+    /// <c>GetTile</c> returns a tile. Map tiles are used by clients to render a map. they're
+    /// addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom)
+    /// level.
     /// </summary>
     [Cmdlet("Get", "GEOMTile")]
     [OutputType("Amazon.GeoMaps.Model.GetTileResponse")]

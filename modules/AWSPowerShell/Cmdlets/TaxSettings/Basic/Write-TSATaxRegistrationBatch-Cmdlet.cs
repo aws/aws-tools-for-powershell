@@ -383,7 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_ElectronicTransactionCodeNumber
         /// <summary>
         /// <para>
-        /// <para>The electronic transaction code number on the tax return document.</para>
+        /// <para>The electronic transaction code number on the tax return document. This field must
+        /// be provided for successful API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -394,7 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_EnterpriseIdentificationNumber
         /// <summary>
         /// <para>
-        /// <para>The enterprise identification number for tax registration.</para>
+        /// <para>The enterprise identification number for tax registration. This field must be provided
+        /// for successful API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +508,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_PaymentVoucherNumber
         /// <summary>
         /// <para>
-        /// <para>The payment voucher number on the tax return payment document.</para>
+        /// <para>The payment voucher number on the tax return payment document. This field must be
+        /// provided for successful API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -517,7 +520,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter VietnamAdditionalInfo_PaymentVoucherNumberDate
         /// <summary>
         /// <para>
-        /// <para>The date on the tax return payment document.</para>
+        /// <para>The date on the tax return payment document. This field must be provided for successful
+        /// API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

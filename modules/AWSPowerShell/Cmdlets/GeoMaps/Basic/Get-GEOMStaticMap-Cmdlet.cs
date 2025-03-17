@@ -28,9 +28,9 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// Provides high-quality static map images with customizable options. You can modify
-    /// the map's appearance and overlay additional information. It's an ideal solution for
-    /// applications requiring tailored static map snapshots.
+    /// <c>GetStaticMap</c> provides high-quality static map images with customizable options.
+    /// You can modify the map's appearance and overlay additional information. It's an ideal
+    /// solution for applications requiring tailored static map snapshots.
     /// </summary>
     [Cmdlet("Get", "GEOMStaticMap")]
     [OutputType("Amazon.GeoMaps.Model.GetStaticMapResponse")]
@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         public System.String Center { get; set; }
         #endregion
         
+        #region Parameter ColorScheme
+        /// <summary>
+        /// <para>
+        /// <para>Sets color tone for map, such as dark and light for specific map styles. It only applies
+        /// to vector map styles, such as Standard.</para><para>Example: <c>Light</c></para><para>Default value: <c>Light</c></para><note><para>Valid values for <c>ColorScheme</c> are case sensitive.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoMaps.ColorScheme")]
+        public Amazon.GeoMaps.ColorScheme ColorScheme { get; set; }
+        #endregion
+        
         #region Parameter CompactOverlay
         /// <summary>
         /// <para>
@@ -91,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CompactOverlay { get; set; }
+        #endregion
+        
+        #region Parameter CropLabel
+        /// <summary>
+        /// <para>
+        /// <para>It is a flag that takes in true or false. It prevents the labels that are on the edge
+        /// of the image from being cut or obscured.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CropLabels")]
+        public System.Boolean? CropLabel { get; set; }
         #endregion
         
         #region Parameter FileName
@@ -150,6 +174,30 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         public System.String Key { get; set; }
         #endregion
         
+        #region Parameter LabelSize
+        /// <summary>
+        /// <para>
+        /// <para>Overrides the label size auto-calculated by <c>FileName</c>. Takes in one of the values
+        /// - <c>Small</c> or <c>Large</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GeoMaps.LabelSize")]
+        public Amazon.GeoMaps.LabelSize LabelSize { get; set; }
+        #endregion
+        
+        #region Parameter Language
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the language on the map labels using the BCP 47 language tag, limited to
+        /// ISO 639-1 two-letter language codes. If the specified language data isn't available
+        /// for the map image, the labels will default to the regional primary language.</para><para>Supported codes:</para><ul><li><para><c>ar</c></para></li><li><para><c>as</c></para></li><li><para><c>az</c></para></li><li><para><c>be</c></para></li><li><para><c>bg</c></para></li><li><para><c>bn</c></para></li><li><para><c>bs</c></para></li><li><para><c>ca</c></para></li><li><para><c>cs</c></para></li><li><para><c>cy</c></para></li><li><para><c>da</c></para></li><li><para><c>de</c></para></li><li><para><c>el</c></para></li><li><para><c>en</c></para></li><li><para><c>es</c></para></li><li><para><c>et</c></para></li><li><para><c>eu</c></para></li><li><para><c>fi</c></para></li><li><para><c>fo</c></para></li><li><para><c>fr</c></para></li><li><para><c>ga</c></para></li><li><para><c>gl</c></para></li><li><para><c>gn</c></para></li><li><para><c>gu</c></para></li><li><para><c>he</c></para></li><li><para><c>hi</c></para></li><li><para><c>hr</c></para></li><li><para><c>hu</c></para></li><li><para><c>hy</c></para></li><li><para><c>id</c></para></li><li><para><c>is</c></para></li><li><para><c>it</c></para></li><li><para><c>ja</c></para></li><li><para><c>ka</c></para></li><li><para><c>kk</c></para></li><li><para><c>km</c></para></li><li><para><c>kn</c></para></li><li><para><c>ko</c></para></li><li><para><c>ky</c></para></li><li><para><c>lt</c></para></li><li><para><c>lv</c></para></li><li><para><c>mk</c></para></li><li><para><c>ml</c></para></li><li><para><c>mr</c></para></li><li><para><c>ms</c></para></li><li><para><c>mt</c></para></li><li><para><c>my</c></para></li><li><para><c>nl</c></para></li><li><para><c>no</c></para></li><li><para><c>or</c></para></li><li><para><c>pa</c></para></li><li><para><c>pl</c></para></li><li><para><c>pt</c></para></li><li><para><c>ro</c></para></li><li><para><c>ru</c></para></li><li><para><c>sk</c></para></li><li><para><c>sl</c></para></li><li><para><c>sq</c></para></li><li><para><c>sr</c></para></li><li><para><c>sv</c></para></li><li><para><c>ta</c></para></li><li><para><c>te</c></para></li><li><para><c>th</c></para></li><li><para><c>tr</c></para></li><li><para><c>uk</c></para></li><li><para><c>uz</c></para></li><li><para><c>vi</c></para></li><li><para><c>zh</c></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Language { get; set; }
+        #endregion
+        
         #region Parameter Padding
         /// <summary>
         /// <para>
@@ -159,6 +207,30 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Padding { get; set; }
+        #endregion
+        
+        #region Parameter PointsOfInterest
+        /// <summary>
+        /// <para>
+        /// <para>Determines if the result image will display icons representing points of interest
+        /// on the map.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PointsOfInterests")]
+        [AWSConstantClassSource("Amazon.GeoMaps.MapFeatureMode")]
+        public Amazon.GeoMaps.MapFeatureMode PointsOfInterest { get; set; }
+        #endregion
+        
+        #region Parameter PoliticalView
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the political view, using ISO 3166-2 or ISO 3166-3 country code format.</para><para>The following political views are currently supported:</para><ul><li><para><c>ARG</c>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del
+        /// Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</para></li><li><para><c>EGY</c>: Egypt's view on Bir Tawil</para></li><li><para><c>IND</c>: India's view on Gilgit-Baltistan</para></li><li><para><c>KEN</c>: Kenya's view on the Ilemi Triangle</para></li><li><para><c>MAR</c>: Morocco's view on Western Sahara</para></li><li><para><c>RUS</c>: Russia's view on Crimea</para></li><li><para><c>SDN</c>: Sudan's view on the Halaib Triangle</para></li><li><para><c>SRB</c>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</para></li><li><para><c>SUR</c>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</para></li><li><para><c>SYR</c>: Syria's view on the Golan Heights</para></li><li><para><c>TUR</c>: Turkey's view on Cyprus and Northern Cyprus</para></li><li><para><c>TZA</c>: Tanzania's view on Lake Malawi</para></li><li><para><c>URY</c>: Uruguay's view on Rincon de Artigas</para></li><li><para><c>VNM</c>: Vietnam's view on the Paracel Islands and Spratly Islands</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PoliticalView { get; set; }
         #endregion
         
         #region Parameter Radius
@@ -187,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
         #region Parameter Style
         /// <summary>
         /// <para>
-        /// <para>Style specifies the desired map style for the <c>Style</c> APIs.</para>
+        /// <para><c>Style</c> specifies the desired map style.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,7 +342,9 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             context.BoundedPosition = this.BoundedPosition;
             context.BoundingBox = this.BoundingBox;
             context.Center = this.Center;
+            context.ColorScheme = this.ColorScheme;
             context.CompactOverlay = this.CompactOverlay;
+            context.CropLabel = this.CropLabel;
             context.FileName = this.FileName;
             #if MODULAR
             if (this.FileName == null && ParameterWasBound(nameof(this.FileName)))
@@ -287,7 +361,11 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             }
             #endif
             context.Key = this.Key;
+            context.LabelSize = this.LabelSize;
+            context.Language = this.Language;
             context.Padding = this.Padding;
+            context.PointsOfInterest = this.PointsOfInterest;
+            context.PoliticalView = this.PoliticalView;
             context.Radius = this.Radius;
             context.ScaleBarUnit = this.ScaleBarUnit;
             context.Style = this.Style;
@@ -327,9 +405,17 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             {
                 request.Center = cmdletContext.Center;
             }
+            if (cmdletContext.ColorScheme != null)
+            {
+                request.ColorScheme = cmdletContext.ColorScheme;
+            }
             if (cmdletContext.CompactOverlay != null)
             {
                 request.CompactOverlay = cmdletContext.CompactOverlay;
+            }
+            if (cmdletContext.CropLabel != null)
+            {
+                request.CropLabels = cmdletContext.CropLabel.Value;
             }
             if (cmdletContext.FileName != null)
             {
@@ -347,9 +433,25 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             {
                 request.Key = cmdletContext.Key;
             }
+            if (cmdletContext.LabelSize != null)
+            {
+                request.LabelSize = cmdletContext.LabelSize;
+            }
+            if (cmdletContext.Language != null)
+            {
+                request.Language = cmdletContext.Language;
+            }
             if (cmdletContext.Padding != null)
             {
                 request.Padding = cmdletContext.Padding.Value;
+            }
+            if (cmdletContext.PointsOfInterest != null)
+            {
+                request.PointsOfInterests = cmdletContext.PointsOfInterest;
+            }
+            if (cmdletContext.PoliticalView != null)
+            {
+                request.PoliticalView = cmdletContext.PoliticalView;
             }
             if (cmdletContext.Radius != null)
             {
@@ -435,12 +537,18 @@ namespace Amazon.PowerShell.Cmdlets.GEOM
             public System.String BoundedPosition { get; set; }
             public System.String BoundingBox { get; set; }
             public System.String Center { get; set; }
+            public Amazon.GeoMaps.ColorScheme ColorScheme { get; set; }
             public System.String CompactOverlay { get; set; }
+            public System.Boolean? CropLabel { get; set; }
             public System.String FileName { get; set; }
             public System.String GeoJsonOverlay { get; set; }
             public System.Int32? Height { get; set; }
             public System.String Key { get; set; }
+            public Amazon.GeoMaps.LabelSize LabelSize { get; set; }
+            public System.String Language { get; set; }
             public System.Int32? Padding { get; set; }
+            public Amazon.GeoMaps.MapFeatureMode PointsOfInterest { get; set; }
+            public System.String PoliticalView { get; set; }
             public System.Int64? Radius { get; set; }
             public Amazon.GeoMaps.ScaleBarUnit ScaleBarUnit { get; set; }
             public Amazon.GeoMaps.StaticMapStyle Style { get; set; }
