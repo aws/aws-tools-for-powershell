@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Cidr { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
@@ -158,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.IpamPoolId = this.IpamPoolId;
             #if MODULAR
             if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
@@ -191,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Cidr != null)
             {
                 request.Cidr = cmdletContext.Cidr;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpamPoolId != null)
             {
@@ -256,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cidr { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IpamPoolId { get; set; }
             public System.String IpamPoolOwner { get; set; }
             public System.Func<Amazon.EC2.Model.MoveByoipCidrToIpamResponse, MoveEC2ByoipCidrToIpamCmdlet, object> Select { get; set; } =

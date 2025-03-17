@@ -130,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DisconnectOnSessionTimeout { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ClientConnectOptions_Enabled
         /// <summary>
         /// <para>
@@ -326,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.DnsServers_CustomDnsServer = new List<System.String>(this.DnsServers_CustomDnsServer);
             }
             context.DnsServers_Enabled = this.DnsServers_Enabled;
+            context.DryRun = this.DryRun;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -490,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DnsServers = null;
             }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -585,6 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DisconnectOnSessionTimeout { get; set; }
             public List<System.String> DnsServers_CustomDnsServer { get; set; }
             public System.Boolean? DnsServers_Enabled { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public Amazon.EC2.SelfServicePortal SelfServicePortal { get; set; }
             public System.String ServerCertificateArn { get; set; }

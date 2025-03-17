@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -131,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeFastSnapshotRestoresResponse, GetEC2FastSnapshotRestoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
@@ -165,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request and set iteration invariants
             var request = new Amazon.EC2.Model.DescribeFastSnapshotRestoresRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
@@ -228,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             // create request and set iteration invariants
             var request = new Amazon.EC2.Model.DescribeFastSnapshotRestoresRequest();
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
@@ -345,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }

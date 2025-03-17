@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AssociationId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -128,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
             CmdletOutput output;
@@ -209,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String AssociationId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Func<Amazon.EC2.Model.DisassociateTrunkInterfaceResponse, UnregisterEC2TrunkInterfaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;
         }

@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Options_Ipv6Support
         /// <summary>
         /// <para>
@@ -216,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateTransitGatewayVpcAttachmentResponse, NewEC2TransitGatewayVpcAttachmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.Options_ApplianceModeSupport = this.Options_ApplianceModeSupport;
             context.Options_DnsSupport = this.Options_DnsSupport;
             context.Options_Ipv6Support = this.Options_Ipv6Support;
@@ -264,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateTransitGatewayVpcAttachmentRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             
              // populate Options
             var requestOptionsIsNull = true;
@@ -384,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.ApplianceModeSupportValue Options_ApplianceModeSupport { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
             public Amazon.EC2.Ipv6SupportValue Options_Ipv6Support { get; set; }

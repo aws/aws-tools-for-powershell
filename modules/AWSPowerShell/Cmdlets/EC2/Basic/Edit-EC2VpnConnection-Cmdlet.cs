@@ -94,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CustomerGatewayId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter TransitGatewayId
         /// <summary>
         /// <para>
@@ -179,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CustomerGatewayId = this.CustomerGatewayId;
+            context.DryRun = this.DryRun;
             context.TransitGatewayId = this.TransitGatewayId;
             context.VpnConnectionId = this.VpnConnectionId;
             #if MODULAR
@@ -207,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CustomerGatewayId != null)
             {
                 request.CustomerGatewayId = cmdletContext.CustomerGatewayId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.TransitGatewayId != null)
             {
@@ -276,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CustomerGatewayId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.String VpnConnectionId { get; set; }
             public System.String VpnGatewayId { get; set; }

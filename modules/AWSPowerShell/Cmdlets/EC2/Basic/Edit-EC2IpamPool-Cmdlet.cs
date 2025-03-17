@@ -138,6 +138,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
@@ -223,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AutoImport = this.AutoImport;
             context.ClearAllocationDefaultNetmaskLength = this.ClearAllocationDefaultNetmaskLength;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.IpamPoolId = this.IpamPoolId;
             #if MODULAR
             if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
@@ -277,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpamPoolId != null)
             {
@@ -348,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AutoImport { get; set; }
             public System.Boolean? ClearAllocationDefaultNetmaskLength { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IpamPoolId { get; set; }
             public List<Amazon.EC2.Model.RequestIpamResourceTag> RemoveAllocationResourceTag { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyIpamPoolResponse, EditEC2IpamPoolCmdlet, object> Select { get; set; } =

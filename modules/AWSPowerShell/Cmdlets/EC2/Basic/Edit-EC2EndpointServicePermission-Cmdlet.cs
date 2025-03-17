@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddAllowedPrincipal { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter RemoveAllowedPrincipal
         /// <summary>
         /// <para>
@@ -146,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddAllowedPrincipal = new List<System.String>(this.AddAllowedPrincipal);
             }
+            context.DryRun = this.DryRun;
             if (this.RemoveAllowedPrincipal != null)
             {
                 context.RemoveAllowedPrincipal = new List<System.String>(this.RemoveAllowedPrincipal);
@@ -176,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AddAllowedPrincipal != null)
             {
                 request.AddAllowedPrincipals = cmdletContext.AddAllowedPrincipal;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.RemoveAllowedPrincipal != null)
             {
@@ -241,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AddAllowedPrincipal { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> RemoveAllowedPrincipal { get; set; }
             public System.String ServiceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcEndpointServicePermissionsResponse, EditEC2EndpointServicePermissionCmdlet, object> Select { get; set; } =

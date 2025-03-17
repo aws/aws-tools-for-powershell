@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AddressRegion { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -161,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AddressRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
@@ -195,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AddressRegion != null)
             {
                 request.AddressRegion = cmdletContext.AddressRegion;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Filter != null)
             {
@@ -288,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AddressRegion { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public System.String IpamResourceDiscoveryId { get; set; }
             public System.Int32? MaxResult { get; set; }

@@ -120,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
@@ -187,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             context.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = this.AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc;
             context.AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink = this.AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink;
+            context.DryRun = this.DryRun;
             context.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc = this.RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc;
             context.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc = this.RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc;
             context.RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink = this.RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink;
@@ -251,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAccepterPeeringConnectionOptionsIsNull)
             {
                 request.AccepterPeeringConnectionOptions = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
              // populate RequesterPeeringConnectionOptions
@@ -353,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AccepterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
             public System.Boolean? AccepterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc { get; set; }
             public System.Boolean? AccepterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowDnsResolutionFromRemoteVpc { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalClassicLinkToRemoteVpc { get; set; }
             public System.Boolean? RequesterPeeringConnectionOptions_AllowEgressFromLocalVpcToRemoteClassicLink { get; set; }

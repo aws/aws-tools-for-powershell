@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DestinationCidrBlock { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter TransitGatewayAttachmentId
         /// <summary>
         /// <para>
@@ -154,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter DestinationCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
             context.TransitGatewayRouteTableId = this.TransitGatewayRouteTableId;
             #if MODULAR
@@ -185,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.TransitGatewayAttachmentId != null)
             {
@@ -251,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? Blackhole { get; set; }
             public System.String DestinationCidrBlock { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String TransitGatewayAttachmentId { get; set; }
             public System.String TransitGatewayRouteTableId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateTransitGatewayRouteResponse, NewEC2TransitGatewayRouteCmdlet, object> Select { get; set; } =

@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ReservationType
         /// <summary>
         /// <para>
@@ -175,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.ReservationType = this.ReservationType;
             #if MODULAR
             if (this.ReservationType == null && ParameterWasBound(nameof(this.ReservationType)))
@@ -216,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ReservationType != null)
             {
@@ -286,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Cidr { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.SubnetCidrReservationType ReservationType { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

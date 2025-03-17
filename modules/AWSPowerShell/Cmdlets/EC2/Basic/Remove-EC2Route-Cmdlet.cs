@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DestinationPrefixListId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
@@ -142,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
             context.DestinationPrefixListId = this.DestinationPrefixListId;
+            context.DryRun = this.DryRun;
             context.RouteTableId = this.RouteTableId;
             #if MODULAR
             if (this.RouteTableId == null && ParameterWasBound(nameof(this.RouteTableId)))
@@ -176,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationPrefixListId != null)
             {
                 request.DestinationPrefixListId = cmdletContext.DestinationPrefixListId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.RouteTableId != null)
             {
@@ -239,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DestinationCidrBlock { get; set; }
             public System.String DestinationIpv6CidrBlock { get; set; }
             public System.String DestinationPrefixListId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String RouteTableId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteRouteResponse, RemoveEC2RouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

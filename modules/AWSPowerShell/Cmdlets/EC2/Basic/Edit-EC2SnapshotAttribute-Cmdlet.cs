@@ -79,6 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
@@ -194,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.CreateVolumePermission_Remove = new List<Amazon.EC2.Model.CreateVolumePermission>(this.CreateVolumePermission_Remove);
             }
+            context.DryRun = this.DryRun;
             if (this.GroupName != null)
             {
                 context.GroupName = new List<System.String>(this.GroupName);
@@ -258,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestCreateVolumePermissionIsNull)
             {
                 request.CreateVolumePermission = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.GroupName != null)
             {
@@ -333,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
             public List<Amazon.EC2.Model.CreateVolumePermission> CreateVolumePermission_Add { get; set; }
             public List<Amazon.EC2.Model.CreateVolumePermission> CreateVolumePermission_Remove { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> GroupName { get; set; }
             public Amazon.EC2.OperationType OperationType { get; set; }
             public System.String SnapshotId { get; set; }

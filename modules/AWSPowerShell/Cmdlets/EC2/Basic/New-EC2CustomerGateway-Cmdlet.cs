@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DeviceName { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpAddress
         /// <summary>
         /// <para>
@@ -210,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.BgpAsnExtended = this.BgpAsnExtended;
             context.CertificateArn = this.CertificateArn;
             context.DeviceName = this.DeviceName;
+            context.DryRun = this.DryRun;
             context.IpAddress = this.IpAddress;
             context.PublicIp = this.PublicIp;
             if (this.TagSpecification != null)
@@ -254,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeviceName != null)
             {
                 request.DeviceName = cmdletContext.DeviceName;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpAddress != null)
             {
@@ -330,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int64? BgpAsnExtended { get; set; }
             public System.String CertificateArn { get; set; }
             public System.String DeviceName { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IpAddress { get; set; }
             public System.String PublicIp { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

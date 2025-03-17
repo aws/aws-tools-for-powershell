@@ -82,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
@@ -185,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.StartDeclarativePoliciesReportResponse, StartEC2DeclarativePoliciesReportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DryRun = this.DryRun;
             context.S3Bucket = this.S3Bucket;
             #if MODULAR
             if (this.S3Bucket == null && ParameterWasBound(nameof(this.S3Bucket)))
@@ -220,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.StartDeclarativePoliciesReportRequest();
             
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.S3Bucket != null)
             {
                 request.S3Bucket = cmdletContext.S3Bucket;
@@ -291,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DryRun { get; set; }
             public System.String S3Bucket { get; set; }
             public System.String S3Prefix { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

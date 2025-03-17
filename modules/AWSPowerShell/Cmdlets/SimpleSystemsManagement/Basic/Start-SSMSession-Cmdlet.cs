@@ -29,17 +29,19 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Initiates an interactive terminal session with a target instance (for example, a managed node) for a Session Manager
-    /// session. Opens a direct terminal connection to the target instance for sending commands and receiving outputs. 
-    /// AWS Tools for PowerShell usage: Requires the Session Manager plugin to be installed on the client machine. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
-    /// the Session Manager plugin for the Amazon Web Services CLI</a> in the <i>Amazon Web
-    /// Services Systems Manager User Guide</i>.
+    /// Initiates a connection to a target (for example, a managed node) for a Session Manager
+    /// session. Returns a URL and token that can be used to open a WebSocket connection for
+    /// sending input and receiving outputs.
     /// 
     ///  <note><para>
     /// Amazon Web Services CLI usage: <c>start-session</c> is an interactive command that
     /// requires the Session Manager plugin to be installed on the client machine making the
-    /// call.
+    /// call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
+    /// the Session Manager plugin for the Amazon Web Services CLI</a> in the <i>Amazon Web
+    /// Services Systems Manager User Guide</i>.
     /// </para><para>
+    /// Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn't currently supported
+    /// by Amazon Web Services Tools for PowerShell on Windows local machines.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "SSMSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

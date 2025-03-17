@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter CidrAuthorizationContext_Message
         /// <summary>
         /// <para>
@@ -216,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CidrAuthorizationContext_Message = this.CidrAuthorizationContext_Message;
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.MultiRegion = this.MultiRegion;
             context.NetworkBorderGroup = this.NetworkBorderGroup;
             if (this.PoolTagSpecification != null)
@@ -275,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.MultiRegion != null)
             {
@@ -351,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrAuthorizationContext_Message { get; set; }
             public System.String CidrAuthorizationContext_Signature { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? MultiRegion { get; set; }
             public System.String NetworkBorderGroup { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> PoolTagSpecification { get; set; }

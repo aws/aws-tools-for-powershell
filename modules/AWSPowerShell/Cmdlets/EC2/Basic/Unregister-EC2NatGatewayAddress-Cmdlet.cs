@@ -76,6 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AssociationId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter MaxDrainDurationSecond
         /// <summary>
         /// <para>
@@ -162,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.MaxDrainDurationSecond = this.MaxDrainDurationSecond;
             context.NatGatewayId = this.NatGatewayId;
             #if MODULAR
@@ -189,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AssociationId != null)
             {
                 request.AssociationIds = cmdletContext.AssociationId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.MaxDrainDurationSecond != null)
             {
@@ -254,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AssociationId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Int32? MaxDrainDurationSecond { get; set; }
             public System.String NatGatewayId { get; set; }
             public System.Func<Amazon.EC2.Model.DisassociateNatGatewayAddressResponse, UnregisterEC2NatGatewayAddressCmdlet, object> Select { get; set; } =

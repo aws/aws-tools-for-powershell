@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.DateTime? AnalysisStartTimeEnd { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -167,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.AnalysisStartTimeBegin = this.AnalysisStartTimeBegin;
             context.AnalysisStartTimeEnd = this.AnalysisStartTimeEnd;
+            context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
@@ -203,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AnalysisStartTimeEnd != null)
             {
                 request.AnalysisStartTimeEnd = cmdletContext.AnalysisStartTimeEnd.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Filter != null)
             {
@@ -301,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.DateTime? AnalysisStartTimeBegin { get; set; }
             public System.DateTime? AnalysisStartTimeEnd { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public List<System.String> NetworkInsightsAccessScopeAnalysisId { get; set; }

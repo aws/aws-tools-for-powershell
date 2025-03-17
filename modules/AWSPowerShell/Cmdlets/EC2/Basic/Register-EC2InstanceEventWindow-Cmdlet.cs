@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AssociationTarget_DedicatedHostId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter InstanceEventWindowId
         /// <summary>
         /// <para>
@@ -164,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AssociationTarget_InstanceTag = new List<Amazon.EC2.Model.Tag>(this.AssociationTarget_InstanceTag);
             }
+            context.DryRun = this.DryRun;
             context.InstanceEventWindowId = this.InstanceEventWindowId;
             #if MODULAR
             if (this.InstanceEventWindowId == null && ParameterWasBound(nameof(this.InstanceEventWindowId)))
@@ -225,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestAssociationTargetIsNull)
             {
                 request.AssociationTarget = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.InstanceEventWindowId != null)
             {
@@ -288,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> AssociationTarget_DedicatedHostId { get; set; }
             public List<System.String> AssociationTarget_InstanceId { get; set; }
             public List<Amazon.EC2.Model.Tag> AssociationTarget_InstanceTag { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String InstanceEventWindowId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateInstanceEventWindowResponse, RegisterEC2InstanceEventWindowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceEventWindow;

@@ -83,6 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CustomerGatewayId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Options_EnableAcceleration
         /// <summary>
         /// <para>
@@ -293,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter CustomerGatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.Options_EnableAcceleration = this.Options_EnableAcceleration;
             context.Options_LocalIpv4NetworkCidr = this.Options_LocalIpv4NetworkCidr;
             context.Options_LocalIpv6NetworkCidr = this.Options_LocalIpv6NetworkCidr;
@@ -338,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CustomerGatewayId != null)
             {
                 request.CustomerGatewayId = cmdletContext.CustomerGatewayId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
              // populate Options
@@ -520,6 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CustomerGatewayId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? Options_EnableAcceleration { get; set; }
             public System.String Options_LocalIpv4NetworkCidr { get; set; }
             public System.String Options_LocalIpv6NetworkCidr { get; set; }

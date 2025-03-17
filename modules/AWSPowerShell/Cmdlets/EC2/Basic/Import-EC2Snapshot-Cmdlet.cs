@@ -79,6 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DiskContainer_Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Encrypted
         /// <summary>
         /// <para>
@@ -274,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DiskContainer_Url = this.DiskContainer_Url;
             context.DiskContainer_S3Bucket = this.DiskContainer_S3Bucket;
             context.DiskContainer_S3Key = this.DiskContainer_S3Key;
+            context.DryRun = this.DryRun;
             context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
             context.RoleName = this.RoleName;
@@ -428,6 +441,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DiskContainer = null;
             }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.Encrypted != null)
             {
                 request.Encrypted = cmdletContext.Encrypted.Value;
@@ -510,6 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DiskContainer_Url { get; set; }
             public System.String DiskContainer_S3Bucket { get; set; }
             public System.String DiskContainer_S3Key { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String RoleName { get; set; }

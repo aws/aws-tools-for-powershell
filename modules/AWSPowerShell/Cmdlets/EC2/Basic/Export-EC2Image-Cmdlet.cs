@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DiskImageFormat DiskImageFormat { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>
@@ -204,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter DiskImageFormat which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.ImageId = this.ImageId;
             #if MODULAR
             if (this.ImageId == null && ParameterWasBound(nameof(this.ImageId)))
@@ -251,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DiskImageFormat != null)
             {
                 request.DiskImageFormat = cmdletContext.DiskImageFormat;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ImageId != null)
             {
@@ -351,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public Amazon.EC2.DiskImageFormat DiskImageFormat { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String ImageId { get; set; }
             public System.String RoleName { get; set; }
             public System.String S3ExportLocation_S3Bucket { get; set; }

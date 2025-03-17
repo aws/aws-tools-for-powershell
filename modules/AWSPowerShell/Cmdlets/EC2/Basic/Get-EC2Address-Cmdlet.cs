@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AllocationId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -119,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AllocationId = new List<System.String>(this.AllocationId);
             }
+            context.DryRun = this.DryRun;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
@@ -146,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AllocationId != null)
             {
                 request.AllocationIds = cmdletContext.AllocationId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Filter != null)
             {
@@ -211,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AllocationId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public List<System.String> PublicIp { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeAddressesResponse, GetEC2AddressCmdlet, object> Select { get; set; } =

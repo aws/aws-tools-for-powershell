@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddNetworkService { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter RemoveNetworkService
         /// <summary>
         /// <para>
@@ -144,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddNetworkService = new List<System.String>(this.AddNetworkService);
             }
+            context.DryRun = this.DryRun;
             if (this.RemoveNetworkService != null)
             {
                 context.RemoveNetworkService = new List<System.String>(this.RemoveNetworkService);
@@ -174,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AddNetworkService != null)
             {
                 request.AddNetworkServices = cmdletContext.AddNetworkService;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.RemoveNetworkService != null)
             {
@@ -239,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AddNetworkService { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> RemoveNetworkService { get; set; }
             public System.String TrafficMirrorFilterId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyTrafficMirrorFilterNetworkServicesResponse, EditEC2TrafficMirrorFilterNetworkServiceCmdlet, object> Select { get; set; } =

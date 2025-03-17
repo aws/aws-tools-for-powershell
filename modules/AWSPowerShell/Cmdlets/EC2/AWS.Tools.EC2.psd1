@@ -294,7 +294,6 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2Image', 
         'Get-EC2ImageAttribute', 
         'Get-EC2ImageBlockPublicAccessState', 
-        'Get-EC2ImageByName', 
         'Get-EC2ImagesInRecycleBinList', 
         'Get-EC2ImportImageTask', 
         'Get-EC2ImportSnapshotTask', 
@@ -782,7 +781,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
-            Prerelease = 'preview002'
+            Prerelease = 'preview003'
         }
     }
 }

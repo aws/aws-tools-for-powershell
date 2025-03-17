@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DestinationPrefixListId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter LocalGatewayRouteTableId
         /// <summary>
         /// <para>
@@ -131,6 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.DestinationPrefixListId = this.DestinationPrefixListId;
+            context.DryRun = this.DryRun;
             context.LocalGatewayRouteTableId = this.LocalGatewayRouteTableId;
             #if MODULAR
             if (this.LocalGatewayRouteTableId == null && ParameterWasBound(nameof(this.LocalGatewayRouteTableId)))
@@ -161,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationPrefixListId != null)
             {
                 request.DestinationPrefixListId = cmdletContext.DestinationPrefixListId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.LocalGatewayRouteTableId != null)
             {
@@ -223,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String DestinationCidrBlock { get; set; }
             public System.String DestinationPrefixListId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String LocalGatewayRouteTableId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteLocalGatewayRouteResponse, RemoveEC2LocalGatewayRouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Route;

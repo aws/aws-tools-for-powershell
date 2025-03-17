@@ -197,7 +197,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
-            Prerelease = 'preview002'
+            Prerelease = 'preview003'
         }
     }
 }

@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
@@ -226,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Context = this.Context;
+            context.DryRun = this.DryRun;
             context.ExcessCapacityTerminationPolicy = this.ExcessCapacityTerminationPolicy;
             context.FleetId = this.FleetId;
             #if MODULAR
@@ -262,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ExcessCapacityTerminationPolicy != null)
             {
@@ -390,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Context { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.FleetExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
             public System.String FleetId { get; set; }
             public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfig { get; set; }

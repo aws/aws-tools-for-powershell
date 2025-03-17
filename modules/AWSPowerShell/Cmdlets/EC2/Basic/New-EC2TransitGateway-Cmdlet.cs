@@ -135,6 +135,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Options_MulticastSupport
         /// <summary>
         /// <para>
@@ -241,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.Options_AmazonSideAsn = this.Options_AmazonSideAsn;
             context.Options_AutoAcceptSharedAttachment = this.Options_AutoAcceptSharedAttachment;
             context.Options_DefaultRouteTableAssociation = this.Options_DefaultRouteTableAssociation;
@@ -276,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
              // populate Options
@@ -436,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Int64? Options_AmazonSideAsn { get; set; }
             public Amazon.EC2.AutoAcceptSharedAttachmentsValue Options_AutoAcceptSharedAttachment { get; set; }
             public Amazon.EC2.DefaultRouteTableAssociationValue Options_DefaultRouteTableAssociation { get; set; }

@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpamScopeId
         /// <summary>
         /// <para>
@@ -119,6 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.IpamScopeId = this.IpamScopeId;
             #if MODULAR
             if (this.IpamScopeId == null && ParameterWasBound(nameof(this.IpamScopeId)))
@@ -145,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpamScopeId != null)
             {
@@ -206,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IpamScopeId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyIpamScopeResponse, EditEC2IpamScopeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamScope;

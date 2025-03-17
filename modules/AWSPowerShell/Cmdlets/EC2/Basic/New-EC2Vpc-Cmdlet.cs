@@ -84,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrBlock { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter InstanceTenancy
         /// <summary>
         /// <para>
@@ -243,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.AmazonProvidedIpv6CidrBlock = this.AmazonProvidedIpv6CidrBlock;
             context.CidrBlock = this.CidrBlock;
+            context.DryRun = this.DryRun;
             context.InstanceTenancy = this.InstanceTenancy;
             context.Ipv4IpamPoolId = this.Ipv4IpamPoolId;
             context.Ipv4NetmaskLength = this.Ipv4NetmaskLength;
@@ -278,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CidrBlock != null)
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.InstanceTenancy != null)
             {
@@ -372,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
             public System.String Ipv4IpamPoolId { get; set; }
             public System.Int32? Ipv4NetmaskLength { get; set; }

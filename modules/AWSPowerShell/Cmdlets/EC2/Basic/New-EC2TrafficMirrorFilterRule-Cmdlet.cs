@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DestinationCidrBlock { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter DestinationPortRange_FromPort
         /// <summary>
         /// <para>
@@ -296,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.DestinationPortRange_FromPort = this.DestinationPortRange_FromPort;
             context.DestinationPortRange_ToPort = this.DestinationPortRange_ToPort;
+            context.DryRun = this.DryRun;
             context.Protocol = this.Protocol;
             context.RuleAction = this.RuleAction;
             #if MODULAR
@@ -394,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestDestinationPortRangeIsNull)
             {
                 request.DestinationPortRange = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Protocol != null)
             {
@@ -512,6 +529,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DestinationCidrBlock { get; set; }
             public System.Int32? DestinationPortRange_FromPort { get; set; }
             public System.Int32? DestinationPortRange_ToPort { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Int32? Protocol { get; set; }
             public Amazon.EC2.TrafficMirrorRuleAction RuleAction { get; set; }
             public System.Int32? RuleNumber { get; set; }

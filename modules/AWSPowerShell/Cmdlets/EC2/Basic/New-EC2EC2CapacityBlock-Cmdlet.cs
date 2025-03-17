@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CapacityBlockOfferingId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter InstancePlatform
         /// <summary>
         /// <para>
@@ -145,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter CapacityBlockOfferingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.InstancePlatform = this.InstancePlatform;
             #if MODULAR
             if (this.InstancePlatform == null && ParameterWasBound(nameof(this.InstancePlatform)))
@@ -175,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CapacityBlockOfferingId != null)
             {
                 request.CapacityBlockOfferingId = cmdletContext.CapacityBlockOfferingId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.InstancePlatform != null)
             {
@@ -240,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CapacityBlockOfferingId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.CapacityReservationInstancePlatform InstancePlatform { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.PurchaseCapacityBlockResponse, NewEC2EC2CapacityBlockCmdlet, object> Select { get; set; } =

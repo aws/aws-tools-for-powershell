@@ -81,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DestinationIpamScopeId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Monitored
         /// <summary>
         /// <para>
@@ -204,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.DestinationIpamScopeId = this.DestinationIpamScopeId;
+            context.DryRun = this.DryRun;
             context.Monitored = this.Monitored;
             #if MODULAR
             if (this.Monitored == null && ParameterWasBound(nameof(this.Monitored)))
@@ -255,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationIpamScopeId != null)
             {
                 request.DestinationIpamScopeId = cmdletContext.DestinationIpamScopeId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Monitored != null)
             {
@@ -329,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String CurrentIpamScopeId { get; set; }
             public System.String DestinationIpamScopeId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? Monitored { get; set; }
             public System.String ResourceCidr { get; set; }
             public System.String ResourceId { get; set; }

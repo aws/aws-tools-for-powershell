@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DelegatedAdminAccountId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Success'.
@@ -118,6 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter DelegatedAdminAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -137,6 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DelegatedAdminAccountId != null)
             {
                 request.DelegatedAdminAccountId = cmdletContext.DelegatedAdminAccountId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
             CmdletOutput output;
@@ -194,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DelegatedAdminAccountId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Func<Amazon.EC2.Model.EnableIpamOrganizationAdminAccountResponse, EnableEC2IpamOrganizationAdminAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Success;
         }

@@ -74,6 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int64? CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter MaxEntry
         /// <summary>
         /// <para>
@@ -178,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.AddEntry = new List<Amazon.EC2.Model.AddPrefixListEntry>(this.AddEntry);
             }
             context.CurrentVersion = this.CurrentVersion;
+            context.DryRun = this.DryRun;
             context.MaxEntry = this.MaxEntry;
             context.PrefixListId = this.PrefixListId;
             #if MODULAR
@@ -214,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CurrentVersion != null)
             {
                 request.CurrentVersion = cmdletContext.CurrentVersion.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.MaxEntry != null)
             {
@@ -288,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<Amazon.EC2.Model.AddPrefixListEntry> AddEntry { get; set; }
             public System.Int64? CurrentVersion { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Int32? MaxEntry { get; set; }
             public System.String PrefixListId { get; set; }
             public System.String PrefixListName { get; set; }

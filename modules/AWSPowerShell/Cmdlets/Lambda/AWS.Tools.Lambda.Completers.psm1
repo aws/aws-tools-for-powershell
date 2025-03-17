@@ -368,7 +368,6 @@ $LM_SelectMap = @{
                "Get-LMProvisionedConcurrencyConfig",
                "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
-               "Invoke-LMFunctionAsync",
                "Invoke-LMWithResponseStream",
                "Get-LMAliasList",
                "Get-LMCodeSigningConfigList",

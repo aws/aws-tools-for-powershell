@@ -58,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DnsRecordIpType DnsOptions_DnsRecordIpType { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
@@ -303,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             context.DnsOptions_DnsRecordIpType = this.DnsOptions_DnsRecordIpType;
             context.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint = this.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint;
+            context.DryRun = this.DryRun;
             context.IpAddressType = this.IpAddressType;
             context.PolicyDocument = this.PolicyDocument;
             context.PrivateDnsEnabled = this.PrivateDnsEnabled;
@@ -386,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestDnsOptionsIsNull)
             {
                 request.DnsOptions = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpAddressType != null)
             {
@@ -501,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public Amazon.EC2.DnsRecordIpType DnsOptions_DnsRecordIpType { get; set; }
             public System.Boolean? DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public Amazon.EC2.IpAddressType IpAddressType { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.Boolean? PrivateDnsEnabled { get; set; }

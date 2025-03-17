@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the operation, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
@@ -190,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DryRun = this.DryRun;
             context.EndTime = this.EndTime;
             if (this.Instance != null)
             {
@@ -241,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Description = cmdletContext.Description;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
@@ -318,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             [System.ObsoleteAttribute]
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.DateTime? EndTime { get; set; }
             public List<System.String> Instance { get; set; }
             public List<System.String> ReasonCode { get; set; }

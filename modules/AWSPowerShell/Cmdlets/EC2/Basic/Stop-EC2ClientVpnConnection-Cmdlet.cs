@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ConnectionId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Username
         /// <summary>
         /// <para>
@@ -139,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.ConnectionId = this.ConnectionId;
+            context.DryRun = this.DryRun;
             context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
@@ -163,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ConnectionId != null)
             {
                 request.ConnectionId = cmdletContext.ConnectionId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.Username != null)
             {
@@ -225,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientVpnEndpointId { get; set; }
             public System.String ConnectionId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.EC2.Model.TerminateClientVpnConnectionsResponse, StopEC2ClientVpnConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

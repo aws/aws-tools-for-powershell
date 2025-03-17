@@ -277,6 +277,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DisableApiTermination { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the operation, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EbsOptimized
         /// <summary>
         /// <para>
@@ -875,6 +887,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CreditSpecification_CpuCredit = this.CreditSpecification_CpuCredit;
             context.DisableApiStop = this.DisableApiStop;
             context.DisableApiTermination = this.DisableApiTermination;
+            context.DryRun = this.DryRun;
             context.EbsOptimized = this.EbsOptimized;
             if (this.ElasticGpuSpecification != null)
             {
@@ -1082,6 +1095,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DisableApiTermination != null)
             {
                 request.DisableApiTermination = cmdletContext.DisableApiTermination.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.EbsOptimized != null)
             {
@@ -1569,6 +1586,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CreditSpecification_CpuCredit { get; set; }
             public System.Boolean? DisableApiStop { get; set; }
             public System.Boolean? DisableApiTermination { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? EbsOptimized { get; set; }
             public List<Amazon.EC2.Model.ElasticGpuSpecification> ElasticGpuSpecification { get; set; }
             public List<Amazon.EC2.Model.ElasticInferenceAccelerator> ElasticInferenceAccelerator { get; set; }

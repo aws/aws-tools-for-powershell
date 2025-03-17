@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DomainType Domain { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
@@ -198,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Address = this.Address;
             context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
             context.Domain = this.Domain;
+            context.DryRun = this.DryRun;
             context.IpamPoolId = this.IpamPoolId;
             context.NetworkBorderGroup = this.NetworkBorderGroup;
             context.PublicIpv4Pool = this.PublicIpv4Pool;
@@ -232,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpamPoolId != null)
             {
@@ -307,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Address { get; set; }
             public System.String CustomerOwnedIpv4Pool { get; set; }
             public Amazon.EC2.DomainType Domain { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IpamPoolId { get; set; }
             public System.String NetworkBorderGroup { get; set; }
             public System.String PublicIpv4Pool { get; set; }

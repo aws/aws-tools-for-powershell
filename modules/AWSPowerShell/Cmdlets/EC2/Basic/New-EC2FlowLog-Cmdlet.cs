@@ -82,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DeliverLogsPermissionArn { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter DestinationOptions_FileFormat
         /// <summary>
         /// <para>
@@ -306,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DestinationOptions_FileFormat = this.DestinationOptions_FileFormat;
             context.DestinationOptions_HiveCompatiblePartition = this.DestinationOptions_HiveCompatiblePartition;
             context.DestinationOptions_PerHourPartition = this.DestinationOptions_PerHourPartition;
+            context.DryRun = this.DryRun;
             context.LogDestination = this.LogDestination;
             context.LogDestinationType = this.LogDestinationType;
             context.LogFormat = this.LogFormat;
@@ -399,6 +412,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestDestinationOptionsIsNull)
             {
                 request.DestinationOptions = null;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.LogDestination != null)
             {
@@ -497,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DestinationFileFormat DestinationOptions_FileFormat { get; set; }
             public System.Boolean? DestinationOptions_HiveCompatiblePartition { get; set; }
             public System.Boolean? DestinationOptions_PerHourPartition { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String LogDestination { get; set; }
             public Amazon.EC2.LogDestinationType LogDestinationType { get; set; }
             public System.String LogFormat { get; set; }

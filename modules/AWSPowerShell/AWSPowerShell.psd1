@@ -512,7 +512,7 @@ This product provides support for all AWS services in a single module. As an alt
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
-            Prerelease = 'preview002'
+            Prerelease = 'preview003'
         }
     }
 }

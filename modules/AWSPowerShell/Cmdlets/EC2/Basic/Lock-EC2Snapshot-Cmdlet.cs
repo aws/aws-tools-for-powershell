@@ -78,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? CoolOffPeriod { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ExpirationDate
         /// <summary>
         /// <para>
@@ -188,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CoolOffPeriod = this.CoolOffPeriod;
+            context.DryRun = this.DryRun;
             context.ExpirationDate = this.ExpirationDate;
             context.LockDuration = this.LockDuration;
             context.LockMode = this.LockMode;
@@ -223,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CoolOffPeriod != null)
             {
                 request.CoolOffPeriod = cmdletContext.CoolOffPeriod.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ExpirationDate != null)
             {
@@ -296,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? CoolOffPeriod { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.DateTime? ExpirationDate { get; set; }
             public System.Int32? LockDuration { get; set; }
             public Amazon.EC2.LockMode LockMode { get; set; }

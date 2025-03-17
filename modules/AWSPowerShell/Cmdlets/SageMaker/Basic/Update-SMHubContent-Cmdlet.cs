@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.SageMaker;
 using Amazon.SageMaker.Model;
 
@@ -52,6 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter HubContentDescription
         /// <summary>
@@ -189,16 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the HubContentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^HubContentName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HubContentName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -209,6 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -225,21 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateHubContentResponse, UpdateSMHubContentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.HubContentName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HubContentDescription = this.HubContentDescription;
             context.HubContentDisplayName = this.HubContentDisplayName;
             context.HubContentMarkdown = this.HubContentMarkdown;
@@ -366,13 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateHubContent");
             try
             {
-                #if DESKTOP
-                return client.UpdateHubContent(request);
-                #elif CORECLR
-                return client.UpdateHubContentAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.UpdateHubContentAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

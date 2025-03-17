@@ -102,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? DestinationPort { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter FilterAtDestination_DestinationPortRange_FromPort
         /// <summary>
         /// <para>
@@ -321,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Destination = this.Destination;
             context.DestinationIp = this.DestinationIp;
             context.DestinationPort = this.DestinationPort;
+            context.DryRun = this.DryRun;
             context.FilterAtDestination_DestinationAddress = this.FilterAtDestination_DestinationAddress;
             context.FilterAtDestination_DestinationPortRange_FromPort = this.FilterAtDestination_DestinationPortRange_FromPort;
             context.FilterAtDestination_DestinationPortRange_ToPort = this.FilterAtDestination_DestinationPortRange_ToPort;
@@ -383,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationPort != null)
             {
                 request.DestinationPort = cmdletContext.DestinationPort.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
              // populate FilterAtDestination
@@ -657,6 +674,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Destination { get; set; }
             public System.String DestinationIp { get; set; }
             public System.Int32? DestinationPort { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String FilterAtDestination_DestinationAddress { get; set; }
             public System.Int32? FilterAtDestination_DestinationPortRange_FromPort { get; set; }
             public System.Int32? FilterAtDestination_DestinationPortRange_ToPort { get; set; }

@@ -140,6 +140,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DeviceTrustProviderType DeviceTrustProviderType { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter NativeApplicationOidcOptions_Issuer
         /// <summary>
         /// <para>
@@ -383,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DeviceOptions_PublicSigningKeyUrl = this.DeviceOptions_PublicSigningKeyUrl;
             context.DeviceOptions_TenantId = this.DeviceOptions_TenantId;
             context.DeviceTrustProviderType = this.DeviceTrustProviderType;
+            context.DryRun = this.DryRun;
             context.NativeApplicationOidcOptions_AuthorizationEndpoint = this.NativeApplicationOidcOptions_AuthorizationEndpoint;
             context.NativeApplicationOidcOptions_ClientId = this.NativeApplicationOidcOptions_ClientId;
             context.NativeApplicationOidcOptions_ClientSecret = this.NativeApplicationOidcOptions_ClientSecret;
@@ -475,6 +488,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeviceTrustProviderType != null)
             {
                 request.DeviceTrustProviderType = cmdletContext.DeviceTrustProviderType;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
              // populate NativeApplicationOidcOptions
@@ -749,6 +766,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DeviceOptions_PublicSigningKeyUrl { get; set; }
             public System.String DeviceOptions_TenantId { get; set; }
             public Amazon.EC2.DeviceTrustProviderType DeviceTrustProviderType { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String NativeApplicationOidcOptions_AuthorizationEndpoint { get; set; }
             public System.String NativeApplicationOidcOptions_ClientId { get; set; }
             public System.String NativeApplicationOidcOptions_ClientSecret { get; set; }

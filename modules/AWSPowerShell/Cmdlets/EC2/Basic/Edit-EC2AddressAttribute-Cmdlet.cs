@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Address'.
@@ -127,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.DomainName = this.DomainName;
+            context.DryRun = this.DryRun;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             
             CmdletOutput output;
@@ -208,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String AllocationId { get; set; }
             public System.String DomainName { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyAddressAttributeResponse, EditEC2AddressAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Address;
         }

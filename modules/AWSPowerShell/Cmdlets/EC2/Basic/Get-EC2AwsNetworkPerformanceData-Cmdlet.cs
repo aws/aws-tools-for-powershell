@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.DataQuery[] DataQuery { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EndTime
         /// <summary>
         /// <para>
@@ -148,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.DataQuery = new List<Amazon.EC2.Model.DataQuery>(this.DataQuery);
             }
+            context.DryRun = this.DryRun;
             context.EndTime = this.EndTime;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -173,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DataQuery != null)
             {
                 request.DataQueries = cmdletContext.DataQuery;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.EndTime != null)
             {
@@ -266,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.DataQuery> DataQuery { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.DateTime? EndTime { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

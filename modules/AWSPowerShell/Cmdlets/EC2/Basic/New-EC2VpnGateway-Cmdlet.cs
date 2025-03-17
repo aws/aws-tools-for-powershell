@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -152,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.AmazonSideAsn = this.AmazonSideAsn;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.DryRun = this.DryRun;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -186,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -252,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Int64? AmazonSideAsn { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.GatewayType Type { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpnGatewayResponse, NewEC2VpnGatewayCmdlet, object> Select { get; set; } =

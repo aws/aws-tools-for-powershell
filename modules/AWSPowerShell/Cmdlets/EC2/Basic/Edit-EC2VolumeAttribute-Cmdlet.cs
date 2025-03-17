@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? AutoEnableIO { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter VolumeId
         /// <summary>
         /// <para>
@@ -129,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AutoEnableIO = this.AutoEnableIO;
+            context.DryRun = this.DryRun;
             context.VolumeId = this.VolumeId;
             #if MODULAR
             if (this.VolumeId == null && ParameterWasBound(nameof(this.VolumeId)))
@@ -155,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AutoEnableIO != null)
             {
                 request.AutoEnableIO = cmdletContext.AutoEnableIO.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.VolumeId != null)
             {
@@ -216,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AutoEnableIO { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String VolumeId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVolumeAttributeResponse, EditEC2VolumeAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

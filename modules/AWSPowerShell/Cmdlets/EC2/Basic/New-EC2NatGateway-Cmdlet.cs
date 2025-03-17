@@ -93,6 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
@@ -232,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AllocationId = this.AllocationId;
             context.ClientToken = this.ClientToken;
             context.ConnectivityType = this.ConnectivityType;
+            context.DryRun = this.DryRun;
             context.PrivateIpAddress = this.PrivateIpAddress;
             if (this.SecondaryAllocationId != null)
             {
@@ -280,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ConnectivityType != null)
             {
                 request.ConnectivityType = cmdletContext.ConnectivityType;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.PrivateIpAddress != null)
             {
@@ -363,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AllocationId { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String PrivateIpAddress { get; set; }
             public List<System.String> SecondaryAllocationId { get; set; }
             public System.Int32? SecondaryPrivateIpAddressCount { get; set; }

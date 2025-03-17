@@ -85,6 +85,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -152,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CapacityReservationSpecification_CapacityReservationPreference = this.CapacityReservationSpecification_CapacityReservationPreference;
             context.CapacityReservationTarget_CapacityReservationId = this.CapacityReservationTarget_CapacityReservationId;
             context.CapacityReservationTarget_CapacityReservationResourceGroupArn = this.CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            context.DryRun = this.DryRun;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -229,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CapacityReservationSpecification = null;
             }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
@@ -291,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
             public System.String CapacityReservationTarget_CapacityReservationId { get; set; }
             public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String InstanceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceCapacityReservationAttributesResponse, EditEC2InstanceCapacityReservationAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

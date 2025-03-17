@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter EnablePrimaryIpv6
         /// <summary>
         /// <para>
@@ -265,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ConnectionTrackingSpecification_UdpStreamTimeout = this.ConnectionTrackingSpecification_UdpStreamTimeout;
             context.ConnectionTrackingSpecification_UdpTimeout = this.ConnectionTrackingSpecification_UdpTimeout;
             context.Description = this.Description;
+            context.DryRun = this.DryRun;
             context.EnablePrimaryIpv6 = this.EnablePrimaryIpv6;
             context.EnaSrdSpecification_EnaSrdEnabled = this.EnaSrdSpecification_EnaSrdEnabled;
             context.EnaSrdUdpSpecification_EnaSrdUdpEnabled = this.EnaSrdUdpSpecification_EnaSrdUdpEnabled;
@@ -371,6 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.EnablePrimaryIpv6 != null)
             {
@@ -494,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? ConnectionTrackingSpecification_UdpStreamTimeout { get; set; }
             public System.Int32? ConnectionTrackingSpecification_UdpTimeout { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? EnablePrimaryIpv6 { get; set; }
             public System.Boolean? EnaSrdSpecification_EnaSrdEnabled { get; set; }
             public System.Boolean? EnaSrdUdpSpecification_EnaSrdUdpEnabled { get; set; }

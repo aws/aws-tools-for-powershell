@@ -71,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AwsService { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
@@ -154,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.AwsAccountId = this.AwsAccountId;
             context.AwsService = this.AwsService;
+            context.DryRun = this.DryRun;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
             if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
@@ -191,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AwsService != null)
             {
                 request.AwsService = cmdletContext.AwsService;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -257,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String AwsAccountId { get; set; }
             public System.String AwsService { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public Amazon.EC2.InterfacePermissionType Permission { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNetworkInterfacePermissionResponse, NewEC2NetworkInterfacePermissionCmdlet, object> Select { get; set; } =

@@ -2108,7 +2108,6 @@ $EC2_SelectMap = @{
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
                "Stop-EC2ByoipCidrAdvertisement",
-               "Get-EC2ImageByName",
                "Get-EC2InstanceMetadata",
                "Get-EC2PasswordData")
 }

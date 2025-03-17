@@ -67,6 +67,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? Cascade { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>A check for whether you have the required permissions for the action without actually
+        /// making the request and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter IpamId
         /// <summary>
         /// <para>
@@ -132,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Cascade = this.Cascade;
+            context.DryRun = this.DryRun;
             context.IpamId = this.IpamId;
             #if MODULAR
             if (this.IpamId == null && ParameterWasBound(nameof(this.IpamId)))
@@ -158,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Cascade != null)
             {
                 request.Cascade = cmdletContext.Cascade.Value;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.IpamId != null)
             {
@@ -219,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Cascade { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String IpamId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteIpamResponse, RemoveEC2IpamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Ipam;

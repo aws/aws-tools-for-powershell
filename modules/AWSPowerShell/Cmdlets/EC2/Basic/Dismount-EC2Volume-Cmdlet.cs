@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Device { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter ForceDismount
         /// <summary>
         /// <para>
@@ -164,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Device = this.Device;
+            context.DryRun = this.DryRun;
             context.ForceDismount = this.ForceDismount;
             context.InstanceId = this.InstanceId;
             context.VolumeId = this.VolumeId;
@@ -192,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Device != null)
             {
                 request.Device = cmdletContext.Device;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.ForceDismount != null)
             {
@@ -261,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Device { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.Boolean? ForceDismount { get; set; }
             public System.String InstanceId { get; set; }
             public System.String VolumeId { get; set; }

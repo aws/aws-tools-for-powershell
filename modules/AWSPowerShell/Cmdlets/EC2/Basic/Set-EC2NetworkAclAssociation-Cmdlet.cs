@@ -69,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AssociationId { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter NetworkAclId
         /// <summary>
         /// <para>
@@ -140,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             context.NetworkAclId = this.NetworkAclId;
             #if MODULAR
             if (this.NetworkAclId == null && ParameterWasBound(nameof(this.NetworkAclId)))
@@ -166,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AssociationId != null)
             {
                 request.AssociationId = cmdletContext.AssociationId;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.NetworkAclId != null)
             {
@@ -227,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssociationId { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public System.String NetworkAclId { get; set; }
             public System.Func<Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse, SetEC2NetworkAclAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NewAssociationId;

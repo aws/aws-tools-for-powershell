@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter DryRun
+        /// <summary>
+        /// <para>
+        /// <para>Checks whether you have the required permissions for the action, without actually
+        /// making the request, and provides an error response. If you have the required permissions,
+        /// the error response is <c>DryRunOperation</c>. Otherwise, it is <c>UnauthorizedOperation</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DryRun { get; set; }
+        #endregion
+        
         #region Parameter SourceSnapshotId
         /// <summary>
         /// <para>
@@ -148,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DryRun = this.DryRun;
             if (this.SourceSnapshotId != null)
             {
                 context.SourceSnapshotId = new List<System.String>(this.SourceSnapshotId);
@@ -177,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZones = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.DryRun != null)
+            {
+                request.DryRun = cmdletContext.DryRun.Value;
             }
             if (cmdletContext.SourceSnapshotId != null)
             {
@@ -238,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AvailabilityZone { get; set; }
+            public System.Boolean? DryRun { get; set; }
             public List<System.String> SourceSnapshotId { get; set; }
             public System.Func<Amazon.EC2.Model.EnableFastSnapshotRestoresResponse, EnableEC2FastSnapshotRestoreCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
