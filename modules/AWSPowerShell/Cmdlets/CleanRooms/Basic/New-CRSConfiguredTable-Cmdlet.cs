@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter AnalysisMethod
         /// <summary>
         /// <para>
-        /// <para>The analysis method for the configured tables. The only valid value is currently `DIRECT_QUERY`.</para>
+        /// <para>The analysis method allowed for the configured tables.</para><para><c>DIRECT_QUERY</c> allows SQL queries to be run directly on this table.</para><para><c>DIRECT_JOB</c> allows PySpark jobs to be run directly on this table.</para><para><c>MULTIPLE</c> allows both SQL queries and PySpark jobs to be run directly on this
+        /// table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -180,6 +181,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TableReference_Snowflake_SecretArn")]
         public System.String Snowflake_SecretArn { get; set; }
+        #endregion
+        
+        #region Parameter SelectedAnalysisMethod
+        /// <summary>
+        /// <para>
+        /// <para> The analysis methods to enable for the configured table. When configured, you must
+        /// specify at least two analysis methods.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SelectedAnalysisMethods")]
+        public System.String[] SelectedAnalysisMethod { get; set; }
         #endregion
         
         #region Parameter Athena_TableName
@@ -317,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SelectedAnalysisMethod != null)
+            {
+                context.SelectedAnalysisMethod = new List<System.String>(this.SelectedAnalysisMethod);
+            }
             context.Athena_DatabaseName = this.Athena_DatabaseName;
             context.Athena_OutputLocation = this.Athena_OutputLocation;
             context.Athena_TableName = this.Athena_TableName;
@@ -371,6 +388,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SelectedAnalysisMethod != null)
+            {
+                request.SelectedAnalysisMethods = cmdletContext.SelectedAnalysisMethod;
             }
             
              // populate TableReference
@@ -630,6 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Amazon.CleanRooms.AnalysisMethod AnalysisMethod { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> SelectedAnalysisMethod { get; set; }
             public System.String Athena_DatabaseName { get; set; }
             public System.String Athena_OutputLocation { get; set; }
             public System.String Athena_TableName { get; set; }

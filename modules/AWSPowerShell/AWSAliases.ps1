@@ -3712,6 +3712,7 @@ Set-Alias -Name CRS-GetIdMappingTable -Value Get-CRSIdMappingTable
 Set-Alias -Name CRS-GetIdNamespaceAssociation -Value Get-CRSIdNamespaceAssociation
 Set-Alias -Name CRS-GetMembership -Value Get-CRSMembership
 Set-Alias -Name CRS-GetPrivacyBudgetTemplate -Value Get-CRSPrivacyBudgetTemplate
+Set-Alias -Name CRS-GetProtectedJob -Value Get-CRSProtectedJob
 Set-Alias -Name CRS-GetProtectedQuery -Value Get-CRSProtectedQuery
 Set-Alias -Name CRS-GetSchemaAnalysisRule -Value Get-CRSSchemaAnalysisRule
 Set-Alias -Name CRS-GetSchema -Value Get-CRSSchema
@@ -3763,6 +3764,9 @@ Set-Alias -Name CRS-ListPrivacyBudgets -Value Get-CRSPrivacyBudgetList
 Set-Alias -Name List-CRSPrivacyBudgetTemplates -Value Get-CRSPrivacyBudgetTemplateList
 Set-Alias -Name List-CRSPrivacyBudgetTemplateList -Value Get-CRSPrivacyBudgetTemplateList
 Set-Alias -Name CRS-ListPrivacyBudgetTemplates -Value Get-CRSPrivacyBudgetTemplateList
+Set-Alias -Name List-CRSProtectedJobs -Value Get-CRSProtectedJobList
+Set-Alias -Name List-CRSProtectedJobList -Value Get-CRSProtectedJobList
+Set-Alias -Name CRS-ListProtectedJobs -Value Get-CRSProtectedJobList
 Set-Alias -Name List-CRSProtectedQueries -Value Get-CRSProtectedQueryList
 Set-Alias -Name List-CRSProtectedQueryList -Value Get-CRSProtectedQueryList
 Set-Alias -Name CRS-ListProtectedQueries -Value Get-CRSProtectedQueryList
@@ -3774,6 +3778,7 @@ Set-Alias -Name Populate-CRSIdMappingTable -Value Invoke-CRSIdMappingTable
 Set-Alias -Name CRS-PopulateIdMappingTable -Value Invoke-CRSIdMappingTable
 Set-Alias -Name Preview-CRSPrivacyImpact -Value Test-CRSPrivacyImpact
 Set-Alias -Name CRS-PreviewPrivacyImpact -Value Test-CRSPrivacyImpact
+Set-Alias -Name CRS-StartProtectedJob -Value Start-CRSProtectedJob
 Set-Alias -Name CRS-StartProtectedQuery -Value Start-CRSProtectedQuery
 Set-Alias -Name CRS-TagResource -Value Add-CRSResourceTag
 Set-Alias -Name CRS-UntagResource -Value Remove-CRSResourceTag
@@ -3788,6 +3793,7 @@ Set-Alias -Name CRS-UpdateIdMappingTable -Value Update-CRSIdMappingTable
 Set-Alias -Name CRS-UpdateIdNamespaceAssociation -Value Update-CRSIdNamespaceAssociation
 Set-Alias -Name CRS-UpdateMembership -Value Update-CRSMembership
 Set-Alias -Name CRS-UpdatePrivacyBudgetTemplate -Value Update-CRSPrivacyBudgetTemplate
+Set-Alias -Name CRS-UpdateProtectedJob -Value Update-CRSProtectedJob
 Set-Alias -Name CRS-UpdateProtectedQuery -Value Update-CRSProtectedQuery
 Set-Alias -Name Cancel-CRMLTrainedModel -Value Stop-CRMLTrainedModel
 Set-Alias -Name CRML-CancelTrainedModel -Value Stop-CRMLTrainedModel

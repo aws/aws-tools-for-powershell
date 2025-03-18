@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Artifacts_AdditionalArtifact
+        /// <summary>
+        /// <para>
+        /// <para> Additional artifacts for the analysis template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_Artifacts_AdditionalArtifacts")]
+        public Amazon.CleanRooms.Model.AnalysisTemplateArtifact[] Artifacts_AdditionalArtifact { get; set; }
+        #endregion
+        
         #region Parameter AnalysisParameter
         /// <summary>
         /// <para>
@@ -55,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AnalysisParameters")]
         public Amazon.CleanRooms.Model.AnalysisParameter[] AnalysisParameter { get; set; }
+        #endregion
+        
+        #region Parameter Location_Bucket
+        /// <summary>
+        /// <para>
+        /// <para> The bucket name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_Artifacts_EntryPoint_Location_Bucket")]
+        public System.String Location_Bucket { get; set; }
         #endregion
         
         #region Parameter Description
@@ -82,6 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CleanRooms.AnalysisFormat")]
         public Amazon.CleanRooms.AnalysisFormat Format { get; set; }
+        #endregion
+        
+        #region Parameter Location_Key
+        /// <summary>
+        /// <para>
+        /// <para> The object key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_Artifacts_EntryPoint_Location_Key")]
+        public System.String Location_Key { get; set; }
         #endregion
         
         #region Parameter MembershipIdentifier
@@ -116,6 +149,28 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Schema_ReferencedTable
+        /// <summary>
+        /// <para>
+        /// <para>The tables referenced in the analysis schema.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Schema_ReferencedTables")]
+        public System.String[] Schema_ReferencedTable { get; set; }
+        #endregion
+        
+        #region Parameter Artifacts_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para> The role ARN for the analysis template artifacts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_Artifacts_RoleArn")]
+        public System.String Artifacts_RoleArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -209,6 +264,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Schema_ReferencedTable != null)
+            {
+                context.Schema_ReferencedTable = new List<System.String>(this.Schema_ReferencedTable);
+            }
+            if (this.Artifacts_AdditionalArtifact != null)
+            {
+                context.Artifacts_AdditionalArtifact = new List<Amazon.CleanRooms.Model.AnalysisTemplateArtifact>(this.Artifacts_AdditionalArtifact);
+            }
+            context.Location_Bucket = this.Location_Bucket;
+            context.Location_Key = this.Location_Key;
+            context.Artifacts_RoleArn = this.Artifacts_RoleArn;
             context.Source_Text = this.Source_Text;
             if (this.Tag != null)
             {
@@ -255,6 +321,25 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 request.Name = cmdletContext.Name;
             }
             
+             // populate Schema
+            var requestSchemaIsNull = true;
+            request.Schema = new Amazon.CleanRooms.Model.AnalysisSchema();
+            List<System.String> requestSchema_schema_ReferencedTable = null;
+            if (cmdletContext.Schema_ReferencedTable != null)
+            {
+                requestSchema_schema_ReferencedTable = cmdletContext.Schema_ReferencedTable;
+            }
+            if (requestSchema_schema_ReferencedTable != null)
+            {
+                request.Schema.ReferencedTables = requestSchema_schema_ReferencedTable;
+                requestSchemaIsNull = false;
+            }
+             // determine if request.Schema should be set to null
+            if (requestSchemaIsNull)
+            {
+                request.Schema = null;
+            }
+            
              // populate Source
             var requestSourceIsNull = true;
             request.Source = new Amazon.CleanRooms.Model.AnalysisSource();
@@ -266,6 +351,91 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (requestSource_source_Text != null)
             {
                 request.Source.Text = requestSource_source_Text;
+                requestSourceIsNull = false;
+            }
+            Amazon.CleanRooms.Model.AnalysisTemplateArtifacts requestSource_source_Artifacts = null;
+            
+             // populate Artifacts
+            var requestSource_source_ArtifactsIsNull = true;
+            requestSource_source_Artifacts = new Amazon.CleanRooms.Model.AnalysisTemplateArtifacts();
+            List<Amazon.CleanRooms.Model.AnalysisTemplateArtifact> requestSource_source_Artifacts_artifacts_AdditionalArtifact = null;
+            if (cmdletContext.Artifacts_AdditionalArtifact != null)
+            {
+                requestSource_source_Artifacts_artifacts_AdditionalArtifact = cmdletContext.Artifacts_AdditionalArtifact;
+            }
+            if (requestSource_source_Artifacts_artifacts_AdditionalArtifact != null)
+            {
+                requestSource_source_Artifacts.AdditionalArtifacts = requestSource_source_Artifacts_artifacts_AdditionalArtifact;
+                requestSource_source_ArtifactsIsNull = false;
+            }
+            System.String requestSource_source_Artifacts_artifacts_RoleArn = null;
+            if (cmdletContext.Artifacts_RoleArn != null)
+            {
+                requestSource_source_Artifacts_artifacts_RoleArn = cmdletContext.Artifacts_RoleArn;
+            }
+            if (requestSource_source_Artifacts_artifacts_RoleArn != null)
+            {
+                requestSource_source_Artifacts.RoleArn = requestSource_source_Artifacts_artifacts_RoleArn;
+                requestSource_source_ArtifactsIsNull = false;
+            }
+            Amazon.CleanRooms.Model.AnalysisTemplateArtifact requestSource_source_Artifacts_source_Artifacts_EntryPoint = null;
+            
+             // populate EntryPoint
+            var requestSource_source_Artifacts_source_Artifacts_EntryPointIsNull = true;
+            requestSource_source_Artifacts_source_Artifacts_EntryPoint = new Amazon.CleanRooms.Model.AnalysisTemplateArtifact();
+            Amazon.CleanRooms.Model.S3Location requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location = null;
+            
+             // populate Location
+            var requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_LocationIsNull = true;
+            requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location = new Amazon.CleanRooms.Model.S3Location();
+            System.String requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Bucket = null;
+            if (cmdletContext.Location_Bucket != null)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Bucket = cmdletContext.Location_Bucket;
+            }
+            if (requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Bucket != null)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location.Bucket = requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Bucket;
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_LocationIsNull = false;
+            }
+            System.String requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Key = null;
+            if (cmdletContext.Location_Key != null)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Key = cmdletContext.Location_Key;
+            }
+            if (requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Key != null)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location.Key = requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location_location_Key;
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_LocationIsNull = false;
+            }
+             // determine if requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location should be set to null
+            if (requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_LocationIsNull)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location = null;
+            }
+            if (requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location != null)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint.Location = requestSource_source_Artifacts_source_Artifacts_EntryPoint_source_Artifacts_EntryPoint_Location;
+                requestSource_source_Artifacts_source_Artifacts_EntryPointIsNull = false;
+            }
+             // determine if requestSource_source_Artifacts_source_Artifacts_EntryPoint should be set to null
+            if (requestSource_source_Artifacts_source_Artifacts_EntryPointIsNull)
+            {
+                requestSource_source_Artifacts_source_Artifacts_EntryPoint = null;
+            }
+            if (requestSource_source_Artifacts_source_Artifacts_EntryPoint != null)
+            {
+                requestSource_source_Artifacts.EntryPoint = requestSource_source_Artifacts_source_Artifacts_EntryPoint;
+                requestSource_source_ArtifactsIsNull = false;
+            }
+             // determine if requestSource_source_Artifacts should be set to null
+            if (requestSource_source_ArtifactsIsNull)
+            {
+                requestSource_source_Artifacts = null;
+            }
+            if (requestSource_source_Artifacts != null)
+            {
+                request.Source.Artifacts = requestSource_source_Artifacts;
                 requestSourceIsNull = false;
             }
              // determine if request.Source should be set to null
@@ -343,6 +513,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public Amazon.CleanRooms.AnalysisFormat Format { get; set; }
             public System.String MembershipIdentifier { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> Schema_ReferencedTable { get; set; }
+            public List<Amazon.CleanRooms.Model.AnalysisTemplateArtifact> Artifacts_AdditionalArtifact { get; set; }
+            public System.String Location_Bucket { get; set; }
+            public System.String Location_Key { get; set; }
+            public System.String Artifacts_RoleArn { get; set; }
             public System.String Source_Text { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CleanRooms.Model.CreateAnalysisTemplateResponse, NewCRSAnalysisTemplateCmdlet, object> Select { get; set; } =

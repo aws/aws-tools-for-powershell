@@ -22,31 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppSync;
-using Amazon.AppSync.Model;
+using Amazon.CleanRooms;
+using Amazon.CleanRooms.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ASYN
+namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates a custom <c>DomainName</c> object.
+    /// Updates the processing of a currently running job.
     /// </summary>
-    [Cmdlet("New", "ASYNDomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppSync.Model.DomainNameConfig")]
-    [AWSCmdlet("Calls the AWS AppSync CreateDomainName API operation.", Operation = new[] {"CreateDomainName"}, SelectReturnType = typeof(Amazon.AppSync.Model.CreateDomainNameResponse))]
-    [AWSCmdletOutput("Amazon.AppSync.Model.DomainNameConfig or Amazon.AppSync.Model.CreateDomainNameResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.DomainNameConfig object.",
-        "The service call response (type Amazon.AppSync.Model.CreateDomainNameResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "CRSProtectedJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CleanRooms.Model.ProtectedJob")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service UpdateProtectedJob API operation.", Operation = new[] {"UpdateProtectedJob"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.UpdateProtectedJobResponse))]
+    [AWSCmdletOutput("Amazon.CleanRooms.Model.ProtectedJob or Amazon.CleanRooms.Model.UpdateProtectedJobResponse",
+        "This cmdlet returns an Amazon.CleanRooms.Model.ProtectedJob object.",
+        "The service call response (type Amazon.CleanRooms.Model.UpdateProtectedJobResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewASYNDomainNameCmdlet : AmazonAppSyncClientCmdlet, IExecutor
+    public partial class UpdateCRSProtectedJobCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CertificateArn
+        #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager
-        /// (ACM) certificate or an Identity and Access Management (IAM) server certificate.</para>
+        /// <para>The identifier for a member of a protected job instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,23 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CertificateArn { get; set; }
+        public System.String MembershipIdentifier { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter ProtectedJobIdentifier
         /// <summary>
         /// <para>
-        /// <para>A description of the <c>DomainName</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter DomainName
-        /// <summary>
-        /// <para>
-        /// <para>The domain name.</para>
+        /// <para> The identifier of the protected job to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,37 +73,44 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String ProtectedJobIdentifier { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter TargetStatus
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The target status of a protected job. Used to update the execution status of a currently
+        /// running job.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.CleanRooms.TargetProtectedJobStatus")]
+        public Amazon.CleanRooms.TargetProtectedJobStatus TargetStatus { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DomainNameConfig'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppSync.Model.CreateDomainNameResponse).
-        /// Specifying the name of a property of type Amazon.AppSync.Model.CreateDomainNameResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProtectedJob'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.UpdateProtectedJobResponse).
+        /// Specifying the name of a property of type Amazon.CleanRooms.Model.UpdateProtectedJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DomainNameConfig";
+        public string Select { get; set; } = "ProtectedJob";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ProtectedJobIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ProtectedJobIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProtectedJobIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ASYNDomainName (CreateDomainName)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProtectedJobIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CRSProtectedJob (UpdateProtectedJob)"))
             {
                 return;
             }
@@ -148,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppSync.Model.CreateDomainNameResponse, NewASYNDomainNameCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.UpdateProtectedJobResponse, UpdateCRSProtectedJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,32 +153,30 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainName;
+                context.Select = (response, cmdlet) => this.ProtectedJobIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CertificateArn = this.CertificateArn;
+            context.MembershipIdentifier = this.MembershipIdentifier;
             #if MODULAR
-            if (this.CertificateArn == null && ParameterWasBound(nameof(this.CertificateArn)))
+            if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CertificateArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            context.DomainName = this.DomainName;
+            context.ProtectedJobIdentifier = this.ProtectedJobIdentifier;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.ProtectedJobIdentifier == null && ParameterWasBound(nameof(this.ProtectedJobIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProtectedJobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.TargetStatus = this.TargetStatus;
+            #if MODULAR
+            if (this.TargetStatus == null && ParameterWasBound(nameof(this.TargetStatus)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter TargetStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,23 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppSync.Model.CreateDomainNameRequest();
+            var request = new Amazon.CleanRooms.Model.UpdateProtectedJobRequest();
             
-            if (cmdletContext.CertificateArn != null)
+            if (cmdletContext.MembershipIdentifier != null)
             {
-                request.CertificateArn = cmdletContext.CertificateArn;
+                request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ProtectedJobIdentifier != null)
             {
-                request.Description = cmdletContext.Description;
+                request.ProtectedJobIdentifier = cmdletContext.ProtectedJobIdentifier;
             }
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.TargetStatus != null)
             {
-                request.DomainName = cmdletContext.DomainName;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.TargetStatus = cmdletContext.TargetStatus;
             }
             
             CmdletOutput output;
@@ -248,15 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region AWS Service Operation Call
         
-        private Amazon.AppSync.Model.CreateDomainNameResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.CreateDomainNameRequest request)
+        private Amazon.CleanRooms.Model.UpdateProtectedJobResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.UpdateProtectedJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "CreateDomainName");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "UpdateProtectedJob");
             try
             {
                 #if DESKTOP
-                return client.CreateDomainName(request);
+                return client.UpdateProtectedJob(request);
                 #elif CORECLR
-                return client.CreateDomainNameAsync(request).GetAwaiter().GetResult();
+                return client.UpdateProtectedJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -276,12 +266,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CertificateArn { get; set; }
-            public System.String Description { get; set; }
-            public System.String DomainName { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.AppSync.Model.CreateDomainNameResponse, NewASYNDomainNameCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DomainNameConfig;
+            public System.String MembershipIdentifier { get; set; }
+            public System.String ProtectedJobIdentifier { get; set; }
+            public Amazon.CleanRooms.TargetProtectedJobStatus TargetStatus { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.UpdateProtectedJobResponse, UpdateCRSProtectedJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ProtectedJob;
         }
         
     }

@@ -1,4 +1,20 @@
-﻿### 4.1.778 (2025-03-17 21:01Z)
+﻿### 4.1.779 (2025-03-18 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1004.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Modified cmdlet New-ASYNDomainName: added parameter Tag.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSProtectedJob leveraging the GetProtectedJob service API.
+    * Added cmdlet Get-CRSProtectedJobList leveraging the ListProtectedJobs service API.
+    * Added cmdlet Start-CRSProtectedJob leveraging the StartProtectedJob service API.
+    * Added cmdlet Update-CRSProtectedJob leveraging the UpdateProtectedJob service API.
+    * Modified cmdlet New-CRSAnalysisTemplate: added parameters Artifacts_AdditionalArtifact, Artifacts_RoleArn, Location_Bucket, Location_Key and Schema_ReferencedTable.
+    * Modified cmdlet New-CRSCollaboration: added parameters JobCompute_IsResponsible and JobLogStatus.
+    * Modified cmdlet New-CRSConfiguredTable: added parameter SelectedAnalysisMethod.
+    * Modified cmdlet New-CRSMembership: added parameters DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket, DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix, DefaultJobResultConfiguration_RoleArn, JobCompute_IsResponsible and JobLogStatus.
+    * Modified cmdlet Update-CRSConfiguredTable: added parameters AnalysisMethod and SelectedAnalysisMethod.
+    * Modified cmdlet Update-CRSMembership: added parameters DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket, DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix, DefaultJobResultConfiguration_RoleArn and JobLogStatus.
+
+### 4.1.778 (2025-03-17 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1003.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Application Signals
     * Added cmdlet Get-CWASServiceLevelObjectiveExclusionWindowList leveraging the ListServiceLevelObjectiveExclusionWindows service API.
