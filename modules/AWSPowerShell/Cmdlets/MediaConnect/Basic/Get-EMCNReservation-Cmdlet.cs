@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ReservationArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the reservation.
+        /// <para>The Amazon Resource Name (ARN) of the offering. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

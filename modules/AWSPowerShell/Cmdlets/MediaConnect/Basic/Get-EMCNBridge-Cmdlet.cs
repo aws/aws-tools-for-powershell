@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The ARN of the bridge that you want to describe.
+        /// <para> The Amazon Resource Name (ARN) of the bridge that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_FailoverMode
         /// <summary>
         /// <para>
-        /// The type of failover you choose for this
-        /// flow. MERGE combines the source streams into a single stream, allowing graceful recovery
-        /// from any single-source loss. FAILOVER allows switching between different streams.
+        /// <para> The type of failover you choose for this flow. MERGE combines the source streams
+        /// into a single stream, allowing graceful recovery from any single-source loss. FAILOVER
+        /// allows switching between different streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter EgressGatewayBridge_MaxBitrate
         /// <summary>
         /// <para>
-        /// The maximum expected bitrate (in bps).
+        /// <para> The maximum expected bitrate (in bps) of the egress bridge.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter IngressGatewayBridge_MaxBitrate
         /// <summary>
         /// <para>
-        /// The maximum expected bitrate (in bps).
+        /// <para> The maximum expected bitrate (in bps) of the ingress bridge. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter IngressGatewayBridge_MaxOutput
         /// <summary>
         /// <para>
-        /// The maximum number of expected outputs.
+        /// <para> The maximum number of expected outputs on the ingress bridge. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The name of the bridge. This name can not be modified
-        /// after the bridge is created.
+        /// <para> The name of the bridge. This name can not be modified after the bridge is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// The outputs that you want to add to this bridge.
+        /// <para> The outputs that you want to add to this bridge.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter PlacementArn
         /// <summary>
         /// <para>
-        /// The bridge placement Amazon Resource Number
-        /// (ARN).
+        /// <para> The bridge placement Amazon Resource Number (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,8 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourcePriority_PrimarySource
         /// <summary>
         /// <para>
-        /// The name of the source you choose as the
-        /// primary source for this flow.
+        /// <para> The name of the source you choose as the primary source for this flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_RecoveryWindow
         /// <summary>
         /// <para>
-        /// Search window time to look for dash-7 packets
+        /// <para> Search window time to look for dash-7 packets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// The sources that you want to add to this bridge.
+        /// <para> The sources that you want to add to this bridge.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -176,7 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_State
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The state of source failover on the flow. If the state is inactive, the flow can have
+        /// only one source. If the state is active, the flow can have one or two sources. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

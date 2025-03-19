@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The ARN of the bridge that you want to update.
+        /// <para> The Amazon Resource Name (ARN) of the bridge that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowSource_FlowArn
         /// <summary>
         /// <para>
-        /// The ARN of the cloud flow to use as a source of
-        /// this bridge.
+        /// <para> The Amazon Resource Name (ARN) that identifies the MediaConnect resource from which
+        /// to delete tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkSource_MulticastIp
         /// <summary>
         /// <para>
-        /// The network source multicast IP.
+        /// <para> The network source multicast IP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MulticastSourceSettings_MulticastSourceIp
         /// <summary>
         /// <para>
-        /// The IP address of the source for source-specific
-        /// multicast (SSM).
+        /// <para> The IP address of the source for source-specific multicast (SSM).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkSource_NetworkName
         /// <summary>
         /// <para>
-        /// The network source's gateway network name.
+        /// <para>The network source's gateway network name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkSource_Port
         /// <summary>
         /// <para>
-        /// The network source port.
+        /// <para>The network source port. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkSource_Protocol
         /// <summary>
         /// <para>
-        /// The network source protocol.
+        /// <para>The network source protocol. </para><note><para>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference
+        /// is maintained for legacy purposes only.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceName
         /// <summary>
         /// <para>
-        /// The name of the source that you want to update.
+        /// <para> The name of the source that you want to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,8 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowVpcInterfaceAttachment_VpcInterfaceName
         /// <summary>
         /// <para>
-        /// The name of the VPC interface to use
-        /// for this resource.
+        /// <para> The name of the VPC interface to use for this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceMonitoringConfig_AudioMonitoringSetting
         /// <summary>
         /// <para>
-        /// Contains the settings for audio
-        /// stream metrics monitoring.
+        /// <para> Contains the settings for audio stream metrics monitoring.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,9 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// The Availability Zone that you want to
-        /// create the flow in. These options are limited to the Availability Zones within the
-        /// current AWS Region.
+        /// <para> The Availability Zone that you want to create the flow in. These options are limited
+        /// to the Availability Zones within the current Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceMonitoringConfig_ContentQualityAnalysisState
         /// <summary>
         /// <para>
-        /// Indicates whether content
-        /// quality analysis is enabled or disabled.
+        /// <para> Indicates whether content quality analysis is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Entitlement
         /// <summary>
         /// <para>
-        /// The entitlements that you want to grant on
-        /// a flow.
+        /// <para> The entitlements that you want to grant on a flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_FailoverMode
         /// <summary>
         /// <para>
-        /// The type of failover you choose for this
-        /// flow. MERGE combines the source streams into a single stream, allowing graceful recovery
-        /// from any single-source loss. FAILOVER allows switching between different streams.
+        /// <para> The type of failover you choose for this flow. MERGE combines the source streams
+        /// into a single stream, allowing graceful recovery from any single-source loss. FAILOVER
+        /// allows switching between different streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,11 +100,33 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.FailoverMode SourceFailoverConfig_FailoverMode { get; set; }
         #endregion
         
+        #region Parameter FlowSize
+        /// <summary>
+        /// <para>
+        /// <para> Determines the processing capacity and feature set of the flow. Set this optional
+        /// parameter to <c>LARGE</c> if you want to enable NDI outputs on the flow. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.FlowSize")]
+        public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
+        #endregion
+        
+        #region Parameter NdiConfig_MachineName
+        /// <summary>
+        /// <para>
+        /// <para>A prefix for the names of the NDI sources that the flow creates. If a custom name
+        /// isn't specified, MediaConnect generates a unique 12-character ID as the prefix. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NdiConfig_MachineName { get; set; }
+        #endregion
+        
         #region Parameter Maintenance_MaintenanceDay
         /// <summary>
         /// <para>
-        /// A day of a week when the maintenance will
-        /// happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+        /// <para> A day of a week when the maintenance will happen. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,9 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Maintenance_MaintenanceStartHour
         /// <summary>
         /// <para>
-        /// UTC time when the maintenance will
-        /// happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default
-        /// value is 02:00.
+        /// <para> UTC time when the maintenance will happen. </para><para>Use 24-hour HH:MM format. </para><para>Minutes must be 00. </para><para>Example: 13:00. </para><para>The default value is 02:00.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaStream
         /// <summary>
         /// <para>
-        /// The media streams that you want to add to
-        /// the flow. You can associate these media streams with sources and outputs on the flow.
+        /// <para> The media streams that you want to add to the flow. You can associate these media
+        /// streams with sources and outputs on the flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The name of the flow.
+        /// <para> The name of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,10 +173,34 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NdiConfig_NdiDiscoveryServer
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to three NDI discovery server configurations. While not required by the
+        /// API, this configuration is necessary for NDI functionality to work properly. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NdiConfig_NdiDiscoveryServers")]
+        public Amazon.MediaConnect.Model.NdiDiscoveryServerConfig[] NdiConfig_NdiDiscoveryServer { get; set; }
+        #endregion
+        
+        #region Parameter NdiConfig_NdiState
+        /// <summary>
+        /// <para>
+        /// <para>A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED
+        /// to add NDI outputs. Default is DISABLED. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.NdiState")]
+        public Amazon.MediaConnect.NdiState NdiConfig_NdiState { get; set; }
+        #endregion
+        
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// The outputs that you want to add to this flow.
+        /// <para> The outputs that you want to add to this flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourcePriority_PrimarySource
         /// <summary>
         /// <para>
-        /// The name of the source you choose as the
-        /// primary source for this flow.
+        /// <para> The name of the source you choose as the primary source for this flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_RecoveryWindow
         /// <summary>
         /// <para>
-        /// Search window time to look for dash-7 packets
+        /// <para> Search window time to look for dash-7 packets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The sources that are assigned to the flow. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_State
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The state of source failover on the flow. If the state is inactive, the flow can have
+        /// only one source. If the state is active, the flow can have one or two sources. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceMonitoringConfig_ThumbnailState
         /// <summary>
         /// <para>
-        /// The state of thumbnail monitoring.
+        /// <para> Indicates whether thumbnails are enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,8 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceMonitoringConfig_VideoMonitoringSetting
         /// <summary>
         /// <para>
-        /// Contains the settings for video
-        /// stream metrics monitoring.
+        /// <para> Contains the settings for video stream metrics monitoring.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VpcInterface
         /// <summary>
         /// <para>
-        /// The VPC interfaces you want on the flow.
+        /// <para> The VPC interfaces you want on the flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 context.Entitlement = new List<Amazon.MediaConnect.Model.GrantEntitlementRequest>(this.Entitlement);
             }
+            context.FlowSize = this.FlowSize;
             context.Maintenance_MaintenanceDay = this.Maintenance_MaintenanceDay;
             context.Maintenance_MaintenanceStartHour = this.Maintenance_MaintenanceStartHour;
             if (this.MediaStream != null)
@@ -326,6 +366,12 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NdiConfig_MachineName = this.NdiConfig_MachineName;
+            if (this.NdiConfig_NdiDiscoveryServer != null)
+            {
+                context.NdiConfig_NdiDiscoveryServer = new List<Amazon.MediaConnect.Model.NdiDiscoveryServerConfig>(this.NdiConfig_NdiDiscoveryServer);
+            }
+            context.NdiConfig_NdiState = this.NdiConfig_NdiState;
             if (this.Output != null)
             {
                 context.Output = new List<Amazon.MediaConnect.Model.AddOutputRequest>(this.Output);
@@ -376,6 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 request.Entitlements = cmdletContext.Entitlement;
             }
+            if (cmdletContext.FlowSize != null)
+            {
+                request.FlowSize = cmdletContext.FlowSize;
+            }
             
              // populate Maintenance
             var requestMaintenanceIsNull = true;
@@ -412,6 +462,45 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate NdiConfig
+            var requestNdiConfigIsNull = true;
+            request.NdiConfig = new Amazon.MediaConnect.Model.NdiConfig();
+            System.String requestNdiConfig_ndiConfig_MachineName = null;
+            if (cmdletContext.NdiConfig_MachineName != null)
+            {
+                requestNdiConfig_ndiConfig_MachineName = cmdletContext.NdiConfig_MachineName;
+            }
+            if (requestNdiConfig_ndiConfig_MachineName != null)
+            {
+                request.NdiConfig.MachineName = requestNdiConfig_ndiConfig_MachineName;
+                requestNdiConfigIsNull = false;
+            }
+            List<Amazon.MediaConnect.Model.NdiDiscoveryServerConfig> requestNdiConfig_ndiConfig_NdiDiscoveryServer = null;
+            if (cmdletContext.NdiConfig_NdiDiscoveryServer != null)
+            {
+                requestNdiConfig_ndiConfig_NdiDiscoveryServer = cmdletContext.NdiConfig_NdiDiscoveryServer;
+            }
+            if (requestNdiConfig_ndiConfig_NdiDiscoveryServer != null)
+            {
+                request.NdiConfig.NdiDiscoveryServers = requestNdiConfig_ndiConfig_NdiDiscoveryServer;
+                requestNdiConfigIsNull = false;
+            }
+            Amazon.MediaConnect.NdiState requestNdiConfig_ndiConfig_NdiState = null;
+            if (cmdletContext.NdiConfig_NdiState != null)
+            {
+                requestNdiConfig_ndiConfig_NdiState = cmdletContext.NdiConfig_NdiState;
+            }
+            if (requestNdiConfig_ndiConfig_NdiState != null)
+            {
+                request.NdiConfig.NdiState = requestNdiConfig_ndiConfig_NdiState;
+                requestNdiConfigIsNull = false;
+            }
+             // determine if request.NdiConfig should be set to null
+            if (requestNdiConfigIsNull)
+            {
+                request.NdiConfig = null;
             }
             if (cmdletContext.Output != null)
             {
@@ -601,10 +690,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         {
             public System.String AvailabilityZone { get; set; }
             public List<Amazon.MediaConnect.Model.GrantEntitlementRequest> Entitlement { get; set; }
+            public Amazon.MediaConnect.FlowSize FlowSize { get; set; }
             public Amazon.MediaConnect.MaintenanceDay Maintenance_MaintenanceDay { get; set; }
             public System.String Maintenance_MaintenanceStartHour { get; set; }
             public List<Amazon.MediaConnect.Model.AddMediaStreamRequest> MediaStream { get; set; }
             public System.String Name { get; set; }
+            public System.String NdiConfig_MachineName { get; set; }
+            public List<Amazon.MediaConnect.Model.NdiDiscoveryServerConfig> NdiConfig_NdiDiscoveryServer { get; set; }
+            public Amazon.MediaConnect.NdiState NdiConfig_NdiState { get; set; }
             public List<Amazon.MediaConnect.Model.AddOutputRequest> Output { get; set; }
             public Amazon.MediaConnect.FailoverMode SourceFailoverConfig_FailoverMode { get; set; }
             public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }

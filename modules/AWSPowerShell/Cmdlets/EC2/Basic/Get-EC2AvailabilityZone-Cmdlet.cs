@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <c>opt-in-not-required</c>).</para></li><li><para><c>parent-zone-id</c> - The ID of the zone that handles some of the Local Zone and
         /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>parent-zone-name</c> - The ID of the zone that handles some of the Local Zone
         /// and Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>region-name</c> - The name of the Region for the Zone (for example, <c>us-east-1</c>).</para></li><li><para><c>state</c> - The state of the Availability Zone, the Local Zone, or the Wavelength
-        /// Zone (<c>available</c>).</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>use1-az1</c>),
+        /// Zone (<c>available</c> | <c>unavailable</c> | <c>constrained</c>).</para></li><li><para><c>zone-id</c> - The ID of the Availability Zone (for example, <c>use1-az1</c>),
         /// the Local Zone (for example, <c>usw2-lax1-az1</c>), or the Wavelength Zone (for example,
         /// <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>zone-name</c> - The name of the Availability Zone (for example, <c>us-east-1a</c>),
         /// the Local Zone (for example, <c>us-west-2-lax-1a</c>), or the Wavelength Zone (for

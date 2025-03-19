@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Entitlement
         /// <summary>
         /// <para>
-        /// The list of entitlements that you want to
-        /// grant.
+        /// <para> The list of entitlements that you want to grant.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to grant entitlements on.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to grant entitlements on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

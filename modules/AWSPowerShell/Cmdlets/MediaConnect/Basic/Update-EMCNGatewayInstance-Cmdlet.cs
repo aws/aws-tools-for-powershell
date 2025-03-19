@@ -28,7 +28,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Updates the configuration of an existing Gateway Instance.
+    /// Updates an existing gateway instance.
     /// </summary>
     [Cmdlet("Update", "EMCNGatewayInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.UpdateGatewayInstanceResponse")]
@@ -44,10 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgePlacement
         /// <summary>
         /// <para>
-        /// The availability of the instance to host
-        /// new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED,
-        /// no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can
-        /// be added to this instance.
+        /// <para>The state of the instance. <c>ACTIVE</c> or <c>INACTIVE</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter GatewayInstanceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the
-        /// instance that you want to update.
+        /// <para>The Amazon Resource Name (ARN) of the gateway instance that you want to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

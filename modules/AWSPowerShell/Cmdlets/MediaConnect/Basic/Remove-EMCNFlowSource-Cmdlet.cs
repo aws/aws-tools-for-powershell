@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to remove a source from.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to remove a source from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// The ARN of the source that you want to remove.
+        /// <para> The ARN of the source that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

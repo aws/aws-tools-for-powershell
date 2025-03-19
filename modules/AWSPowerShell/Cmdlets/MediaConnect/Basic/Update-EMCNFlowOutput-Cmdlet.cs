@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter CidrAllowList
         /// <summary>
         /// <para>
-        /// The range of IP addresses that should be
-        /// allowed to initiate output requests to this flow. These IP addresses should be in
-        /// the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        /// <para> The range of IP addresses that should be allowed to initiate output requests to this
+        /// flow. These IP addresses should be in the form of a Classless Inter-Domain Routing
+        /// (CIDR) block; for example, 10.0.0.0/16.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,9 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// A description of the output. This description
-        /// appears only on the AWS Elemental MediaConnect console and will not be seen by the
-        /// end user.
+        /// <para> A description of the output. This description appears only on the MediaConnect console
+        /// and will not be seen by the end user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// The IP address where you want to send the
-        /// output.
+        /// <para> The IP address where you want to send the output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,9 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Encryption
         /// <summary>
         /// <para>
-        /// The type of key used for the encryption. If
-        /// no keyType is provided, the service will use the default setting (static-key). Allowable
-        /// encryption types: static-key.
+        /// <para> The type of key used for the encryption. If no <c>keyType</c> is provided, the service
+        /// will use the default setting (static-key). Allowable encryption types: static-key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that is associated with the output that
-        /// you want to update.
+        /// <para> The Amazon Resource Name (ARN) of the flow that is associated with the output that
+        /// you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MaxLatency
         /// <summary>
         /// <para>
-        /// The maximum latency in milliseconds. This parameter
-        /// applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+        /// <para> The maximum latency in milliseconds. This parameter applies only to RIST-based and
+        /// Zixi-based streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaStreamOutputConfiguration
         /// <summary>
         /// <para>
-        /// The media streams that
-        /// are associated with the output, and the parameters for those associations.
+        /// <para> The media streams that are associated with the output, and the parameters for those
+        /// associations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,21 +130,42 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MinLatency
         /// <summary>
         /// <para>
-        /// The minimum latency in milliseconds for SRT-based
-        /// streams. In streams that use the SRT protocol, this value that you set on your MediaConnect
-        /// source or output represents the minimal potential latency of that connection. The
-        /// latency of the stream is set to the highest number between the sender’s minimum latency
-        /// and the receiver’s minimum latency.
+        /// <para> The minimum latency in milliseconds for SRT-based streams. In streams that use the
+        /// SRT protocol, this value that you set on your MediaConnect source or output represents
+        /// the minimal potential latency of that connection. The latency of the stream is set
+        /// to the highest number between the sender’s minimum latency and the receiver’s minimum
+        /// latency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? MinLatency { get; set; }
         #endregion
         
+        #region Parameter NdiProgramName
+        /// <summary>
+        /// <para>
+        /// <para> A suffix for the names of the NDI sources that the flow creates. If a custom name
+        /// isn't specified, MediaConnect uses the output name. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NdiProgramName { get; set; }
+        #endregion
+        
+        #region Parameter NdiSpeedHqQuality
+        /// <summary>
+        /// <para>
+        /// <para>A quality setting for the NDI Speed HQ encoder. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NdiSpeedHqQuality { get; set; }
+        #endregion
+        
         #region Parameter OutputArn
         /// <summary>
         /// <para>
-        /// The ARN of the output that you want to update.
+        /// <para> The ARN of the output that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,9 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter OutputStatus
         /// <summary>
         /// <para>
-        /// An indication of whether the output should
-        /// transmit data or not. If you don't specify the outputStatus field in your request,
-        /// MediaConnect leaves the value unchanged.
+        /// <para> An indication of whether the output should transmit data or not. If you don't specify
+        /// the <c>outputStatus</c> field in your request, MediaConnect leaves the value unchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,8 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// The port to use when content is distributed to this
-        /// output.
+        /// <para> The port to use when content is distributed to this output.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// The protocol to use for the output.
+        /// <para> The protocol to use for the output.</para><note><para>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference
+        /// is maintained for legacy purposes only.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter RemoteId
         /// <summary>
         /// <para>
-        /// The remote ID for the Zixi-pull stream.
+        /// <para> The remote ID for the Zixi-pull stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SenderControlPort
         /// <summary>
         /// <para>
-        /// The port that the flow uses to send
-        /// outbound requests to initiate connection with the sender.
+        /// <para> The port that the flow uses to send outbound requests to initiate connection with
+        /// the sender.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,8 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SenderIpAddress
         /// <summary>
         /// <para>
-        /// The IP address that the flow communicates
-        /// with to initiate connection with the sender.
+        /// <para> The IP address that the flow communicates with to initiate connection with the sender.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,8 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SmoothingLatency
         /// <summary>
         /// <para>
-        /// The smoothing latency in milliseconds
-        /// for RIST, RTP, and RTP-FEC streams.
+        /// <para> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,8 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter StreamId
         /// <summary>
         /// <para>
-        /// The stream ID that you want to use for this transport.
-        /// This parameter applies only to Zixi and SRT caller-based streams.
+        /// <para> The stream ID that you want to use for this transport. This parameter applies only
+        /// to Zixi and SRT caller-based streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,8 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VpcInterfaceAttachment_VpcInterfaceName
         /// <summary>
         /// <para>
-        /// The name of the VPC interface to use
-        /// for this resource.
+        /// <para> The name of the VPC interface to use for this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -343,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 context.MediaStreamOutputConfiguration = new List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest>(this.MediaStreamOutputConfiguration);
             }
             context.MinLatency = this.MinLatency;
+            context.NdiProgramName = this.NdiProgramName;
+            context.NdiSpeedHqQuality = this.NdiSpeedHqQuality;
             context.OutputArn = this.OutputArn;
             #if MODULAR
             if (this.OutputArn == null && ParameterWasBound(nameof(this.OutputArn)))
@@ -406,6 +422,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.MinLatency != null)
             {
                 request.MinLatency = cmdletContext.MinLatency.Value;
+            }
+            if (cmdletContext.NdiProgramName != null)
+            {
+                request.NdiProgramName = cmdletContext.NdiProgramName;
+            }
+            if (cmdletContext.NdiSpeedHqQuality != null)
+            {
+                request.NdiSpeedHqQuality = cmdletContext.NdiSpeedHqQuality.Value;
             }
             if (cmdletContext.OutputArn != null)
             {
@@ -531,6 +555,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? MaxLatency { get; set; }
             public List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest> MediaStreamOutputConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
+            public System.String NdiProgramName { get; set; }
+            public System.Int32? NdiSpeedHqQuality { get; set; }
             public System.String OutputArn { get; set; }
             public Amazon.MediaConnect.OutputStatus OutputStatus { get; set; }
             public System.Int32? Port { get; set; }

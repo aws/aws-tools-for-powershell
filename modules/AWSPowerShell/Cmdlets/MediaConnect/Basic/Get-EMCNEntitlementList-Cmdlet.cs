@@ -28,8 +28,8 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Displays a list of all entitlements that have been granted to this account. This request
-    /// returns 20 results per page.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Displays a list of all entitlements that have been granted to this account. This
+    /// request returns 20 results per page.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMCNEntitlementList")]
     [OutputType("Amazon.MediaConnect.Model.ListedEntitlement")]
@@ -46,13 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of results to return per
-        /// API request. For example, you submit a ListEntitlements request with MaxResults set
-        /// at 5. Although 20 items match your request, the service returns no more than the first
-        /// 5 items. (The service also returns a NextToken value that you can use to fetch the
-        /// next batch of results.) The service might return fewer results than the MaxResults
-        /// value. If MaxResults is not included in the request, the service defaults to pagination
-        /// with a maximum of 20 results per page.
+        /// <para> The maximum number of results to return per API request. </para><para>For example, you submit a <c>ListEntitlements</c> request with set at 5. Although
+        /// 20 items match your request, the service returns no more than the first 5 items. (The
+        /// service also returns a NextToken value that you can use to fetch the next batch of
+        /// results.) </para><para>The service might return fewer results than the <c>MaxResults</c> value. If <c>MaxResults</c>
+        /// is not included in the request, the service defaults to pagination with a maximum
+        /// of 20 results per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -69,11 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The token that identifies which batch of results
-        /// that you want to see. For example, you submit a ListEntitlements request with MaxResults
-        /// set at 5. The service returns the first batch of results (up to 5) and a NextToken
-        /// value. To see the next batch of results, you can submit the ListEntitlements request
-        /// a second time and specify the NextToken value.
+        /// <para> The token that identifies the batch of results that you want to see. </para><para>For example, you submit a <c>ListEntitlements</c> request with <c>MaxResults</c> set
+        /// at 5. The service returns the first batch of results (up to 5) and a <c>NextToken</c>
+        /// value. To see the next batch of results, you can submit the <c>ListEntitlements</c>
+        /// request a second time and specify the <c>NextToken</c> value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

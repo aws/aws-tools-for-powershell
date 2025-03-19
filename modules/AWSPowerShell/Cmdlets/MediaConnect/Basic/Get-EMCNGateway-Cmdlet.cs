@@ -28,8 +28,8 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Displays the details of a gateway. The response includes the gateway ARN, name, and
-    /// CIDR blocks, as well as details about the networks.
+    /// Displays the details of a gateway. The response includes the gateway Amazon Resource
+    /// Name (ARN), name, and CIDR blocks, as well as details about the networks.
     /// </summary>
     [Cmdlet("Get", "EMCNGateway")]
     [OutputType("Amazon.MediaConnect.Model.Gateway")]
@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter GatewayArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the gateway
-        /// that you want to describe.
+        /// <para> The ARN of the gateway that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

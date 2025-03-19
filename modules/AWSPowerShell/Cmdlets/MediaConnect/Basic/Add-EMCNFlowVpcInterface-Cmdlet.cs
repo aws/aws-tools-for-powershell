@@ -28,7 +28,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Adds VPC interfaces to flow
+    /// Adds VPC interfaces to a flow.
     /// </summary>
     [Cmdlet("Add", "EMCNFlowVpcInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.AddFlowVpcInterfacesResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to mutate.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VpcInterface
         /// <summary>
         /// <para>
-        /// A list of VPC interfaces that you want to
-        /// add.
+        /// <para> A list of VPC interfaces that you want to add to the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

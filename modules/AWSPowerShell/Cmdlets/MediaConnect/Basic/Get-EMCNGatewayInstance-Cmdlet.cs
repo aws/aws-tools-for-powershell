@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter GatewayInstanceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the
-        /// gateway instance that you want to describe.
+        /// <para> The Amazon Resource Name (ARN) of the gateway instance that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

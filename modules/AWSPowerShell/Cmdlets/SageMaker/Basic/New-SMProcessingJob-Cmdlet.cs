@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that
         /// Amazon SageMaker uses to encrypt the processing job output. <c>KmsKeyId</c> can be
-        /// an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
-        /// <c>KmsKeyId</c> is applied to all outputs.</para>
+        /// an ID of a KMS key, ARN of a KMS key, or alias of a KMS key. The <c>KmsKeyId</c> is
+        /// applied to all outputs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

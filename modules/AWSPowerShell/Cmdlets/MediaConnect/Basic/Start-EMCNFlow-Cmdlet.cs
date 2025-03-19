@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The ARN of the flow that you want to start.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to start.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

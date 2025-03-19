@@ -28,10 +28,10 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Associates the specified tags to a resource with the specified resourceArn. If existing
-    /// tags on a resource are not specified in the request parameters, they are not changed.
-    /// When a resource is deleted, the tags associated with that resource are deleted as
-    /// well.
+    /// Associates the specified tags to a resource with the specified <c>resourceArn</c>.
+    /// If existing tags on a resource are not specified in the request parameters, they are
+    /// not changed. When a resource is deleted, the tags associated with that resource are
+    /// deleted as well.
     /// </summary>
     [Cmdlet("Add", "EMCNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) that identifies
-        /// the AWS Elemental MediaConnect resource to which to add tags.
+        /// <para> The Amazon Resource Name (ARN) that identifies the MediaConnect resource to which
+        /// to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// A map from tag keys to values. Tag keys can have
-        /// a maximum character length of 128 characters, and tag values can have a maximum length
-        /// of 256 characters.
+        /// <para> A map from tag keys to values. Tag keys can have a maximum character length of 128
+        /// characters, and tag values can have a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

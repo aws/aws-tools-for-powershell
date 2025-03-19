@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_ChannelOrder
         /// <summary>
         /// <para>
-        /// The format of the audio channel.
+        /// <para> The format of the audio channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,9 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ClockRate
         /// <summary>
         /// <para>
-        /// The sample rate (in Hz) for the stream. If the
-        /// media stream type is video or ancillary data, set this value to 90000. If the media
-        /// stream type is audio, set this value to either 48000 or 96000.
+        /// <para>The sample rate for the stream. This value in measured in kHz. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_Colorimetry
         /// <summary>
         /// <para>
-        /// The format that is used for the representation
-        /// of color.
+        /// <para> The format that is used for the representation of color.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// Description
+        /// <para>A description that can help you quickly identify what your media stream is used for.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_ExactFramerate
         /// <summary>
         /// <para>
-        /// The frame rate for the video stream, in
-        /// frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect
-        /// uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the
-        /// exactFramerate.
+        /// <para> The frame rate for the video stream, in frames/second. For example: 60000/1001. If
+        /// you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you
+        /// specify 60, MediaConnect uses 60/1 as the <c>exactFramerate</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the flow.
+        /// <para> The Amazon Resource Name (ARN) of the flow that is associated with the media stream
+        /// that you updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,8 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Attributes_Lang
         /// <summary>
         /// <para>
-        /// The audio language, in a format that is recognized
-        /// by the receiver.
+        /// <para>The audio language, in a format that is recognized by the receiver. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaStreamName
         /// <summary>
         /// <para>
-        /// The name of the media stream that you
-        /// want to update.
+        /// <para> The media stream that you updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaStreamType
         /// <summary>
         /// <para>
-        /// The type of media stream.
+        /// <para>The type of media stream. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_Par
         /// <summary>
         /// <para>
-        /// The pixel aspect ratio (PAR) of the video.
+        /// <para> The pixel aspect ratio (PAR) of the video.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_Range
         /// <summary>
         /// <para>
-        /// The encoding range of the video.
+        /// <para> The encoding range of the video.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,8 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_ScanMode
         /// <summary>
         /// <para>
-        /// The type of compression that was used to smooth
-        /// the video’s appearance.
+        /// <para> The type of compression that was used to smooth the video’s appearance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,8 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Fmtp_Tc
         /// <summary>
         /// <para>
-        /// The transfer characteristic system (TCS) that is used
-        /// in the video.
+        /// <para> The transfer characteristic system (TCS) that is used in the video.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VideoFormat
         /// <summary>
         /// <para>
-        /// The resolution of the video.
+        /// <para>The resolution of the video. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

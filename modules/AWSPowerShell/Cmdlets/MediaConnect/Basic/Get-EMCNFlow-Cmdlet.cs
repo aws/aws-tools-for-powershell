@@ -28,8 +28,9 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Displays the details of a flow. The response includes the flow ARN, name, and Availability
-    /// Zone, as well as details about the source, outputs, and entitlements.
+    /// Displays the details of a flow. The response includes the flow Amazon Resource Name
+    /// (ARN), name, and Availability Zone, as well as details about the source, outputs,
+    /// and entitlements.
     /// </summary>
     [Cmdlet("Get", "EMCNFlow")]
     [OutputType("Amazon.MediaConnect.Model.DescribeFlowResponse")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The ARN of the flow that you want to describe.
+        /// <para> The ARN of the flow that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
