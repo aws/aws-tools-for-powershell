@@ -52148,6 +52148,13 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.FlowOperationType
+        "Get-NWFWFlowOperationList/FlowOperationType"
+        {
+            $v = "FLOW_CAPTURE","FLOW_FLUSH"
+            break
+        }
+
         # Amazon.NetworkFirewall.GeneratedRulesType
         {
             ($_ -eq "New-NWFWRuleGroup/RulesSourceList_GeneratedRulesType") -Or
@@ -52219,6 +52226,7 @@ $NWFW_Completers = {
 $NWFW_map = @{
     "AnalysisType"=@("Start-NWFWAnalysisReport")
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
+    "FlowOperationType"=@("Get-NWFWFlowOperationList")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
@@ -52291,6 +52299,7 @@ $NWFW_SelectMap = @{
                "Remove-NWFWTLSInspectionConfiguration",
                "Get-NWFWFirewall",
                "Get-NWFWFirewallPolicy",
+               "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
@@ -52301,11 +52310,15 @@ $NWFW_SelectMap = @{
                "Get-NWFWAnalysisReportList",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallList",
+               "Get-NWFWFlowOperationResultList",
+               "Get-NWFWFlowOperationList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",
                "Write-NWFWResourcePolicy",
                "Start-NWFWAnalysisReport",
+               "Start-NWFWFlowCapture",
+               "Start-NWFWFlowFlush",
                "Add-NWFWResourceTag",
                "Remove-NWFWResourceTag",
                "Update-NWFWFirewallAnalysisSetting",

@@ -1,4 +1,13 @@
-﻿### 4.1.780 (2025-03-19 21:12Z)
+﻿### 4.1.781 (2025-03-20 20:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1006.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWFlowOperation leveraging the DescribeFlowOperation service API.
+    * Added cmdlet Get-NWFWFlowOperationList leveraging the ListFlowOperations service API.
+    * Added cmdlet Get-NWFWFlowOperationResultList leveraging the ListFlowOperationResults service API.
+    * Added cmdlet Start-NWFWFlowCapture leveraging the StartFlowCapture service API.
+    * Added cmdlet Start-NWFWFlowFlush leveraging the StartFlowFlush service API.
+
+### 4.1.780 (2025-03-19 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1005.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaConnect
     * Modified cmdlet New-EMCNFlow: added parameters FlowSize, NdiConfig_MachineName, NdiConfig_NdiDiscoveryServer and NdiConfig_NdiState.

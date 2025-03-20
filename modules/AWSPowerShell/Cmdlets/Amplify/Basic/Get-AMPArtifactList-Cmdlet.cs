@@ -28,7 +28,17 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Returns a list of artifacts for a specified app, branch, and job.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of end-to-end testing artifacts for a specified app, branch, and job.
+    /// 
+    ///  
+    /// <para>
+    /// To return the build artifacts, use the <a href="https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html">GetJob</a>
+    /// API.
+    /// </para><para>
+    /// For more information about Amplify testing support, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html">Setting
+    /// up end-to-end Cypress tests for your Amplify application</a> in the <i>Amplify Hosting
+    /// User Guide</i>. 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AMPArtifactList")]
     [OutputType("Amazon.Amplify.Model.Artifact")]

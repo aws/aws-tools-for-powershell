@@ -21191,6 +21191,8 @@ Set-Alias -Name Describe-NWFWFirewall -Value Get-NWFWFirewall
 Set-Alias -Name NWFW-DescribeFirewall -Value Get-NWFWFirewall
 Set-Alias -Name Describe-NWFWFirewallPolicy -Value Get-NWFWFirewallPolicy
 Set-Alias -Name NWFW-DescribeFirewallPolicy -Value Get-NWFWFirewallPolicy
+Set-Alias -Name Describe-NWFWFlowOperation -Value Get-NWFWFlowOperation
+Set-Alias -Name NWFW-DescribeFlowOperation -Value Get-NWFWFlowOperation
 Set-Alias -Name Describe-NWFWLoggingConfiguration -Value Get-NWFWLoggingConfiguration
 Set-Alias -Name NWFW-DescribeLoggingConfiguration -Value Get-NWFWLoggingConfiguration
 Set-Alias -Name Describe-NWFWResourcePolicy -Value Get-NWFWResourcePolicy
@@ -21215,6 +21217,12 @@ Set-Alias -Name NWFW-ListFirewallPolicies -Value Get-NWFWFirewallPolicyList
 Set-Alias -Name List-NWFWFirewalls -Value Get-NWFWFirewallList
 Set-Alias -Name List-NWFWFirewallList -Value Get-NWFWFirewallList
 Set-Alias -Name NWFW-ListFirewalls -Value Get-NWFWFirewallList
+Set-Alias -Name List-NWFWFlowOperationResults -Value Get-NWFWFlowOperationResultList
+Set-Alias -Name List-NWFWFlowOperationResultList -Value Get-NWFWFlowOperationResultList
+Set-Alias -Name NWFW-ListFlowOperationResults -Value Get-NWFWFlowOperationResultList
+Set-Alias -Name List-NWFWFlowOperations -Value Get-NWFWFlowOperationList
+Set-Alias -Name List-NWFWFlowOperationList -Value Get-NWFWFlowOperationList
+Set-Alias -Name NWFW-ListFlowOperations -Value Get-NWFWFlowOperationList
 Set-Alias -Name List-NWFWRuleGroups -Value Get-NWFWRuleGroupList
 Set-Alias -Name List-NWFWRuleGroupList -Value Get-NWFWRuleGroupList
 Set-Alias -Name NWFW-ListRuleGroups -Value Get-NWFWRuleGroupList
@@ -21225,6 +21233,8 @@ Set-Alias -Name NWFW-ListTLSInspectionConfigurations -Value Get-NWFWTLSInspectio
 Set-Alias -Name Put-NWFWResourcePolicy -Value Write-NWFWResourcePolicy
 Set-Alias -Name NWFW-PutResourcePolicy -Value Write-NWFWResourcePolicy
 Set-Alias -Name NWFW-StartAnalysisReport -Value Start-NWFWAnalysisReport
+Set-Alias -Name NWFW-StartFlowCapture -Value Start-NWFWFlowCapture
+Set-Alias -Name NWFW-StartFlowFlush -Value Start-NWFWFlowFlush
 Set-Alias -Name NWFW-TagResource -Value Add-NWFWResourceTag
 Set-Alias -Name NWFW-UntagResource -Value Remove-NWFWResourceTag
 Set-Alias -Name Update-NWFWFirewallAnalysisSettings -Value Update-NWFWFirewallAnalysisSetting
