@@ -28,28 +28,24 @@ using Amazon.Route53RecoveryControlConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.R53RC
 {
     /// <summary>
-    /// Create a new cluster. A cluster is a set of redundant Regional endpoints against which
-    /// you can run API calls to update or get the state of one or more routing controls.
-    /// Each cluster has a name, status, Amazon Resource Name (ARN), and an array of the five
-    /// cluster endpoints (one for each supported Amazon Web Services Region) that you can
-    /// use with API calls to the cluster data plane.
+    /// Updates an existing cluster. You can only update the network type of a cluster.
     /// </summary>
-    [Cmdlet("New", "R53RCCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "R53RCCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53RecoveryControlConfig.Model.Cluster")]
-    [AWSCmdlet("Calls the AWS Route53 Recovery Control Config CreateCluster API operation.", Operation = new[] {"CreateCluster"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse))]
-    [AWSCmdletOutput("Amazon.Route53RecoveryControlConfig.Model.Cluster or Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse",
+    [AWSCmdlet("Calls the AWS Route53 Recovery Control Config UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse))]
+    [AWSCmdletOutput("Amazon.Route53RecoveryControlConfig.Model.Cluster or Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse",
         "This cmdlet returns an Amazon.Route53RecoveryControlConfig.Model.Cluster object.",
-        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewR53RCClusterCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
+    public partial class UpdateR53RCClusterCmdlet : AmazonRoute53RecoveryControlConfigClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterName
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster.</para>
+        /// <para>The Amazon Resource Name (ARN) of the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterName { get; set; }
+        public System.String ClusterArn { get; set; }
         #endregion
         
         #region Parameter NetworkType
@@ -69,38 +65,22 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         /// <para>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Route53RecoveryControlConfig.NetworkType")]
         public Amazon.Route53RecoveryControlConfig.NetworkType NetworkType { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags associated with the cluster.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent
-        /// API request with an action, specify a client token in the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse).
-        /// Specifying the name of a property of type Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse).
+        /// Specifying the name of a property of type Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -132,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53RCCluster (CreateCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-R53RCCluster (UpdateCluster)"))
             {
                 return;
             }
@@ -146,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse, NewR53RCClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse, UpdateR53RCClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -155,26 +135,23 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterName;
+                context.Select = (response, cmdlet) => this.ClusterArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.ClusterName = this.ClusterName;
+            context.ClusterArn = this.ClusterArn;
             #if MODULAR
-            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.NetworkType = this.NetworkType;
-            if (this.Tag != null)
+            #if MODULAR
+            if (this.NetworkType == null && ParameterWasBound(nameof(this.NetworkType)))
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                WriteWarning("You are passing $null as a value for parameter NetworkType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,23 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53RecoveryControlConfig.Model.CreateClusterRequest();
+            var request = new Amazon.Route53RecoveryControlConfig.Model.UpdateClusterRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.ClusterName != null)
-            {
-                request.ClusterName = cmdletContext.ClusterName;
+                request.ClusterArn = cmdletContext.ClusterArn;
             }
             if (cmdletContext.NetworkType != null)
             {
                 request.NetworkType = cmdletContext.NetworkType;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -240,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse CallAWSServiceOperation(IAmazonRoute53RecoveryControlConfig client, Amazon.Route53RecoveryControlConfig.Model.CreateClusterRequest request)
+        private Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse CallAWSServiceOperation(IAmazonRoute53RecoveryControlConfig client, Amazon.Route53RecoveryControlConfig.Model.UpdateClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route53 Recovery Control Config", "CreateCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route53 Recovery Control Config", "UpdateCluster");
             try
             {
                 #if DESKTOP
-                return client.CreateCluster(request);
+                return client.UpdateCluster(request);
                 #elif CORECLR
-                return client.CreateClusterAsync(request).GetAwaiter().GetResult();
+                return client.UpdateClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -268,11 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String ClusterName { get; set; }
+            public System.String ClusterArn { get; set; }
             public Amazon.Route53RecoveryControlConfig.NetworkType NetworkType { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse, NewR53RCClusterCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Route53RecoveryControlConfig.Model.UpdateClusterResponse, UpdateR53RCClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }
         

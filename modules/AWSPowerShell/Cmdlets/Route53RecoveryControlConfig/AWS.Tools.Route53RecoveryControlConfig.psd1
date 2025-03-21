@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-R53RCResourceTag', 
         'Remove-R53RCRoutingControl', 
         'Remove-R53RCSafetyRule', 
+        'Update-R53RCCluster', 
         'Update-R53RCControlPanel', 
         'Update-R53RCRoutingControl', 
         'Update-R53RCSafetyRule')

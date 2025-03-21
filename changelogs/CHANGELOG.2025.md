@@ -1,4 +1,13 @@
-﻿### 4.1.781 (2025-03-20 20:46Z)
+﻿### 4.1.782 (2025-03-21 21:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1007.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet New-DZDomain: added parameter SingleSignOn_IdcInstanceArn.
+    * Modified cmdlet Update-DZDomain: added parameter SingleSignOn_IdcInstanceArn.
+  * Amazon Route53 Recovery Control Config
+    * Added cmdlet Update-R53RCCluster leveraging the UpdateCluster service API.
+    * Modified cmdlet New-R53RCCluster: added parameter NetworkType.
+
+### 4.1.781 (2025-03-20 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1006.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Network Firewall
     * Added cmdlet Get-NWFWFlowOperation leveraging the DescribeFlowOperation service API.

@@ -80,6 +80,16 @@ $R53RC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Route53RecoveryControlConfig.NetworkType
+        {
+            ($_ -eq "New-R53RCCluster/NetworkType") -Or
+            ($_ -eq "Update-R53RCCluster/NetworkType")
+        }
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
         # Amazon.Route53RecoveryControlConfig.RuleType
         {
             ($_ -eq "New-R53RCSafetyRule/AssertionRule_RuleConfig_Type") -Or
@@ -101,6 +111,7 @@ $R53RC_Completers = {
 $R53RC_map = @{
     "AssertionRule_RuleConfig_Type"=@("New-R53RCSafetyRule")
     "GatingRule_RuleConfig_Type"=@("New-R53RCSafetyRule")
+    "NetworkType"=@("New-R53RCCluster","Update-R53RCCluster")
 }
 
 _awsArgumentCompleterRegistration $R53RC_Completers $R53RC_map
@@ -174,6 +185,7 @@ $R53RC_SelectMap = @{
                "Get-R53RCResourceTag",
                "Add-R53RCResourceTag",
                "Remove-R53RCResourceTag",
+               "Update-R53RCCluster",
                "Update-R53RCControlPanel",
                "Update-R53RCRoutingControl",
                "Update-R53RCSafetyRule")

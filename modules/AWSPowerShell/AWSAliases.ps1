@@ -26157,6 +26157,7 @@ Set-Alias -Name R53RC-ListSafetyRules -Value Get-R53RCSafetyRuleList
 Set-Alias -Name R53RC-ListTagsForResource -Value Get-R53RCResourceTag
 Set-Alias -Name R53RC-TagResource -Value Add-R53RCResourceTag
 Set-Alias -Name R53RC-UntagResource -Value Remove-R53RCResourceTag
+Set-Alias -Name R53RC-UpdateCluster -Value Update-R53RCCluster
 Set-Alias -Name R53RC-UpdateControlPanel -Value Update-R53RCControlPanel
 Set-Alias -Name R53RC-UpdateRoutingControl -Value Update-R53RCRoutingControl
 Set-Alias -Name R53RC-UpdateSafetyRule -Value Update-R53RCSafetyRule
