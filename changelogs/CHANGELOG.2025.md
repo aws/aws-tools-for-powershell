@@ -1,4 +1,11 @@
-﻿### 4.1.782 (2025-03-21 21:52Z)
+﻿### 4.1.783 (2025-03-24 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1008.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Systems Manager
+    * Modified cmdlet Get-SSMDeployablePatchSnapshotForInstance: added parameter BaselineOverride_AvailableSecurityUpdatesComplianceStatus.
+    * Modified cmdlet New-SSMPatchBaseline: added parameter AvailableSecurityUpdatesComplianceStatus.
+    * Modified cmdlet Update-SSMPatchBaseline: added parameter AvailableSecurityUpdatesComplianceStatus.
+
+### 4.1.782 (2025-03-21 21:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1007.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet New-DZDomain: added parameter SingleSignOn_IdcInstanceArn.

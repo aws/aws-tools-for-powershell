@@ -28,7 +28,7 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Updates the AI Agent that is set for use by defafult on an Amazon Q in Connect Assistant.
+    /// Updates the AI Agent that is set for use by default on an Amazon Q in Connect Assistant.
     /// </summary>
     [Cmdlet("Update", "QCAssistantAIAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.AssistantData")]

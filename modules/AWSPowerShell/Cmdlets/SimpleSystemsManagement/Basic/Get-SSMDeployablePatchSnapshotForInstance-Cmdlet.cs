@@ -93,6 +93,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean? BaselineOverride_ApprovedPatchesEnableNonSecurity { get; set; }
         #endregion
         
+        #region Parameter BaselineOverride_AvailableSecurityUpdatesComplianceStatus
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether managed nodes for which there are available security-related patches
+        /// that have not been approved by the baseline are being defined as <c>COMPLIANT</c>
+        /// or <c>NON_COMPLIANT</c>. This option is specified when the <c>CreatePatchBaseline</c>
+        /// or <c>UpdatePatchBaseline</c> commands are run.</para><para>Applies to Windows Server managed nodes only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchComplianceStatus")]
+        public Amazon.SimpleSystemsManagement.PatchComplianceStatus BaselineOverride_AvailableSecurityUpdatesComplianceStatus { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -255,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.BaselineOverride_ApprovedPatchesComplianceLevel = this.BaselineOverride_ApprovedPatchesComplianceLevel;
             context.BaselineOverride_ApprovedPatchesEnableNonSecurity = this.BaselineOverride_ApprovedPatchesEnableNonSecurity;
+            context.BaselineOverride_AvailableSecurityUpdatesComplianceStatus = this.BaselineOverride_AvailableSecurityUpdatesComplianceStatus;
             if (this.GlobalFilters_PatchFilter != null)
             {
                 context.GlobalFilters_PatchFilter = new List<Amazon.SimpleSystemsManagement.Model.PatchFilter>(this.GlobalFilters_PatchFilter);
@@ -331,6 +346,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (requestBaselineOverride_baselineOverride_ApprovedPatchesEnableNonSecurity != null)
             {
                 request.BaselineOverride.ApprovedPatchesEnableNonSecurity = requestBaselineOverride_baselineOverride_ApprovedPatchesEnableNonSecurity.Value;
+                requestBaselineOverrideIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.PatchComplianceStatus requestBaselineOverride_baselineOverride_AvailableSecurityUpdatesComplianceStatus = null;
+            if (cmdletContext.BaselineOverride_AvailableSecurityUpdatesComplianceStatus != null)
+            {
+                requestBaselineOverride_baselineOverride_AvailableSecurityUpdatesComplianceStatus = cmdletContext.BaselineOverride_AvailableSecurityUpdatesComplianceStatus;
+            }
+            if (requestBaselineOverride_baselineOverride_AvailableSecurityUpdatesComplianceStatus != null)
+            {
+                request.BaselineOverride.AvailableSecurityUpdatesComplianceStatus = requestBaselineOverride_baselineOverride_AvailableSecurityUpdatesComplianceStatus;
                 requestBaselineOverrideIsNull = false;
             }
             Amazon.SimpleSystemsManagement.OperatingSystem requestBaselineOverride_baselineOverride_OperatingSystem = null;
@@ -501,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<System.String> BaselineOverride_ApprovedPatch { get; set; }
             public Amazon.SimpleSystemsManagement.PatchComplianceLevel BaselineOverride_ApprovedPatchesComplianceLevel { get; set; }
             public System.Boolean? BaselineOverride_ApprovedPatchesEnableNonSecurity { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchComplianceStatus BaselineOverride_AvailableSecurityUpdatesComplianceStatus { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilter { get; set; }
             public Amazon.SimpleSystemsManagement.OperatingSystem BaselineOverride_OperatingSystem { get; set; }
             public List<System.String> BaselineOverride_RejectedPatch { get; set; }

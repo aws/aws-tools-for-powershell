@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the model used for this AI Prompt. Model Ids supported are: <c>CLAUDE_3_HAIKU_20240307_V1</c></para>
+        /// <para>The identifier of the model used for this AI Prompt. Model Ids supported are: <c>anthropic.claude-3-haiku-20240307-v1:0</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

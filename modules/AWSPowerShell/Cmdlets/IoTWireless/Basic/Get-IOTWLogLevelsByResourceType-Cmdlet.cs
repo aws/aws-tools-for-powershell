@@ -28,8 +28,9 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Returns current default log levels or log levels by resource types. Based on resource
-    /// types, log levels can be for wireless device log options or wireless gateway log options.
+    /// Returns current default log levels or log levels by resource types. Based on the resource
+    /// type, log levels can be returned for wireless device, wireless gateway, or FUOTA task
+    /// log options.
     /// </summary>
     [Cmdlet("Get", "IOTWLogLevelsByResourceType")]
     [OutputType("Amazon.IoTWireless.Model.GetLogLevelsByResourceTypesResponse")]

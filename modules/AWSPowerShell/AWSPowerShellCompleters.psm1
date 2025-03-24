@@ -71394,6 +71394,17 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.PatchComplianceStatus
+        {
+            ($_ -eq "New-SSMPatchBaseline/AvailableSecurityUpdatesComplianceStatus") -Or
+            ($_ -eq "Update-SSMPatchBaseline/AvailableSecurityUpdatesComplianceStatus") -Or
+            ($_ -eq "Get-SSMDeployablePatchSnapshotForInstance/BaselineOverride_AvailableSecurityUpdatesComplianceStatus")
+        }
+        {
+            $v = "COMPLIANT","NON_COMPLIANT"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.PatchProperty
         "Get-SSMPatchProperty/Property"
         {
@@ -71458,7 +71469,9 @@ $SSM_Completers = {
 $SSM_map = @{
     "ApprovedPatchesComplianceLevel"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
     "AssociationStatus_Name"=@("Update-SSMAssociationStatus")
+    "AvailableSecurityUpdatesComplianceStatus"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
     "BaselineOverride_ApprovedPatchesComplianceLevel"=@("Get-SSMDeployablePatchSnapshotForInstance")
+    "BaselineOverride_AvailableSecurityUpdatesComplianceStatus"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "BaselineOverride_OperatingSystem"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "BaselineOverride_RejectedPatchesAction"=@("Get-SSMDeployablePatchSnapshotForInstance")
     "ComplianceSeverity"=@("New-SSMAssociation","Update-SSMAssociation")
