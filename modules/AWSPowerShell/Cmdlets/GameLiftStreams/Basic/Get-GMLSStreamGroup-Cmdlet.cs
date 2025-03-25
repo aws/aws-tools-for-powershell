@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique ID value of the stream group resource to retrieve. Format example: <c>1AB2C3De4</c>.</para>
+        /// <para>The unique ID value of the stream group resource to retrieve. Format example: <c>sg-1AB2C3De4</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

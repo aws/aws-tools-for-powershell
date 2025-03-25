@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ForceUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Set this value to <c>true</c> to override upgrade-blocking readiness checks when updating
+        /// a cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceUpdate { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -164,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ForceUpdate = this.ForceUpdate;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -197,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ForceUpdate != null)
+            {
+                request.Force = cmdletContext.ForceUpdate.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -268,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Boolean? ForceUpdate { get; set; }
             public System.String Name { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateClusterVersionResponse, UpdateEKSClusterVersionCmdlet, object> Select { get; set; } =

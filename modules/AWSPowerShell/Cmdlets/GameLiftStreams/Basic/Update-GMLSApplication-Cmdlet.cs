@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save
-        /// application logs. Use the following format for the URI: <c>s3://[bucket name]/[prefix]</c>.
-        /// Required if you specify one or more <c>LogPaths</c>.</para><note><para>The log bucket must have permissions that give Amazon GameLift Streams access to write
+        /// application logs. Required if you specify one or more <c>ApplicationLogPaths</c>.</para><note><para>The log bucket must have permissions that give Amazon GameLift Streams access to write
         /// the log files. For more information, see <b>Getting Started</b> in the Amazon GameLift
         /// Streams Developer Guide. </para></note>
         /// </para>
@@ -69,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>Locations of log files that your content generates during a stream session. Enter
         /// path values that are relative to the <c>ApplicationSourceUri</c> location. You can
-        /// specify up to 10 log locations. Amazon GameLift Streams uploads designated log files
-        /// to the Amazon S3 bucket that you specify in <c>ApplicationLogOutputUri</c> at the
-        /// end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+        /// specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to
+        /// the Amazon S3 bucket that you specify in <c>ApplicationLogOutputUri</c> at the end
+        /// of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
         /// and get the <c>LogFileLocationUri</c>.</para>
         /// </para>
         /// </summary>
@@ -95,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format
-        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</c>
-        /// or ID-<c>9ZY8X7Wv6</c>. </para>
+        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</c>
+        /// or ID-<c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

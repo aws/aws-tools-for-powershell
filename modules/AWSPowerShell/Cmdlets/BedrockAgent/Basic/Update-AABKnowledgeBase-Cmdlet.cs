@@ -217,6 +217,28 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.Int32? BedrockEmbeddingModelConfiguration_Dimension { get; set; }
         #endregion
         
+        #region Parameter OpensearchManagedClusterConfiguration_DomainArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the OpenSearch domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_OpensearchManagedClusterConfiguration_DomainArn")]
+        public System.String OpensearchManagedClusterConfiguration_DomainArn { get; set; }
+        #endregion
+        
+        #region Parameter OpensearchManagedClusterConfiguration_DomainEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint URL the OpenSearch domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_OpensearchManagedClusterConfiguration_DomainEndpoint")]
+        public System.String OpensearchManagedClusterConfiguration_DomainEndpoint { get; set; }
+        #endregion
+        
         #region Parameter BedrockEmbeddingModelConfiguration_EmbeddingDataType
         /// <summary>
         /// <para>
@@ -348,6 +370,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField { get; set; }
+        #endregion
+        
+        #region Parameter StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField
@@ -526,6 +558,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
@@ -678,6 +721,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores the vector embeddings for your
+        /// data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField
         /// <summary>
         /// <para>
@@ -721,6 +775,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageConfiguration_MongoDbAtlasConfiguration_VectorIndexName")]
         public System.String MongoDbAtlasConfiguration_VectorIndexName { get; set; }
+        #endregion
+        
+        #region Parameter OpensearchManagedClusterConfiguration_VectorIndexName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the vector store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_OpensearchManagedClusterConfiguration_VectorIndexName")]
+        public System.String OpensearchManagedClusterConfiguration_VectorIndexName { get; set; }
         #endregion
         
         #region Parameter OpensearchServerlessConfiguration_VectorIndexName
@@ -889,6 +954,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField = this.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField;
             context.NeptuneAnalyticsConfiguration_GraphArn = this.NeptuneAnalyticsConfiguration_GraphArn;
+            context.OpensearchManagedClusterConfiguration_DomainArn = this.OpensearchManagedClusterConfiguration_DomainArn;
+            context.OpensearchManagedClusterConfiguration_DomainEndpoint = this.OpensearchManagedClusterConfiguration_DomainEndpoint;
+            context.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField;
+            context.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField = this.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField;
+            context.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField = this.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField;
+            context.OpensearchManagedClusterConfiguration_VectorIndexName = this.OpensearchManagedClusterConfiguration_VectorIndexName;
             context.OpensearchServerlessConfiguration_CollectionArn = this.OpensearchServerlessConfiguration_CollectionArn;
             context.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField = this.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField;
@@ -1509,6 +1580,96 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.StorageConfiguration.OpensearchServerlessConfiguration = requestStorageConfiguration_storageConfiguration_OpensearchServerlessConfiguration;
                 requestStorageConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.OpenSearchManagedClusterConfiguration requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration = null;
+            
+             // populate OpensearchManagedClusterConfiguration
+            var requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfigurationIsNull = true;
+            requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration = new Amazon.BedrockAgent.Model.OpenSearchManagedClusterConfiguration();
+            System.String requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainArn = null;
+            if (cmdletContext.OpensearchManagedClusterConfiguration_DomainArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainArn = cmdletContext.OpensearchManagedClusterConfiguration_DomainArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration.DomainArn = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainArn;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainEndpoint = null;
+            if (cmdletContext.OpensearchManagedClusterConfiguration_DomainEndpoint != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainEndpoint = cmdletContext.OpensearchManagedClusterConfiguration_DomainEndpoint;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainEndpoint != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration.DomainEndpoint = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_DomainEndpoint;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_VectorIndexName = null;
+            if (cmdletContext.OpensearchManagedClusterConfiguration_VectorIndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_VectorIndexName = cmdletContext.OpensearchManagedClusterConfiguration_VectorIndexName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_VectorIndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration.VectorIndexName = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_opensearchManagedClusterConfiguration_VectorIndexName;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.OpenSearchManagedClusterFieldMapping requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping = null;
+            
+             // populate FieldMapping
+            var requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMappingIsNull = true;
+            requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping = new Amazon.BedrockAgent.Model.OpenSearchManagedClusterFieldMapping();
+            System.String requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField = null;
+            if (cmdletContext.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField = cmdletContext.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping.MetadataField = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField = null;
+            if (cmdletContext.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField = cmdletContext.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping.TextField = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField = null;
+            if (cmdletContext.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField = cmdletContext.StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping.VectorField = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMappingIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping should be set to null
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMappingIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping != null)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration.FieldMapping = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping;
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfigurationIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration should be set to null
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfigurationIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration != null)
+            {
+                request.StorageConfiguration.OpensearchManagedClusterConfiguration = requestStorageConfiguration_storageConfiguration_OpensearchManagedClusterConfiguration;
+                requestStorageConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.PineconeConfiguration requestStorageConfiguration_storageConfiguration_PineconeConfiguration = null;
             
              // populate PineconeConfiguration
@@ -2010,6 +2171,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField { get; set; }
             public System.String NeptuneAnalyticsConfiguration_GraphArn { get; set; }
+            public System.String OpensearchManagedClusterConfiguration_DomainArn { get; set; }
+            public System.String OpensearchManagedClusterConfiguration_DomainEndpoint { get; set; }
+            public System.String StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField { get; set; }
+            public System.String StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField { get; set; }
+            public System.String StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField { get; set; }
+            public System.String OpensearchManagedClusterConfiguration_VectorIndexName { get; set; }
             public System.String OpensearchServerlessConfiguration_CollectionArn { get; set; }
             public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField { get; set; }

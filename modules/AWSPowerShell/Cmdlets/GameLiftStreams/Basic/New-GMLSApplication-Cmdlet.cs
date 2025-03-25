@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     ///  If the request is successful, Amazon GameLift Streams begins to create an application
     /// and sets the status to <c>INITIALIZED</c>. When an application reaches <c>READY</c>
     /// status, you can use the application to set up stream groups and start streams. To
-    /// track application status, call <a>GetApplication</a>. 
+    /// track application status, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetApplication.html">GetApplication</a>.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("New", "GMLSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save
-        /// application logs. Use the following format for the URI: <c>s3://[bucket name]/[prefix]</c>.
-        /// Required if you specify one or more <c>LogPaths</c>.</para><note><para>The log bucket must have permissions that give Amazon GameLift Streams access to write
+        /// application logs. Required if you specify one or more <c>ApplicationLogPaths</c>.</para><note><para>The log bucket must have permissions that give Amazon GameLift Streams access to write
         /// the log files. For more information, see <b>Getting Started</b> in the Amazon GameLift
         /// Streams Developer Guide. </para></note>
         /// </para>
@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>Locations of log files that your content generates during a stream session. Enter
         /// path values that are relative to the <c>ApplicationSourceUri</c> location. You can
-        /// specify up to 10 log locations. Amazon GameLift Streams uploads designated log files
-        /// to the Amazon S3 bucket that you specify in <c>ApplicationLogOutputUri</c> at the
-        /// end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+        /// specify up to 10 log paths. Amazon GameLift Streams uploads designated log files to
+        /// the Amazon S3 bucket that you specify in <c>ApplicationLogOutputUri</c> at the end
+        /// of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
         /// and get the <c>LogFileLocationUri</c>.</para>
         /// </para>
         /// </summary>
@@ -92,12 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter ApplicationSourceUri
         /// <summary>
         /// <para>
-        /// <para>The location of the content that you want to stream. Enter the URI of an Amazon S3
-        /// location (bucket name and prefixes) that contains your content. Use the following
-        /// format for the URI: <c>s3://[bucket name]/[prefix]</c>. The location can have a multi-level
+        /// <para>The location of the content that you want to stream. Enter an Amazon S3 URI to a bucket
+        /// that contains your game or other application. The location can have a multi-level
         /// prefix structure, but it must include all the files needed to run the content. Amazon
-        /// GameLift Streams copies everything under the specified location.</para><para>This value is immutable. To designate a different content location, create a new application.</para><note><para>The S3 bucket and the Amazon GameLift Streams application must be in the same Amazon
-        /// Web Services Region.</para></note>
+        /// GameLift Streams copies everything under the specified location.</para><para>This value is immutable. To designate a different content location, create a new application.</para><note><para>The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same
+        /// Amazon Web Services Region.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,10 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
         /// access management and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// You can use <a>TagResource</a> to add tags, <a>UntagResource</a> to remove tags, and
-        /// <a>ListTagsForResource</a> to view tags on existing resources. The maximum tag limit
-        /// might be lower than stated. See the <i>Amazon Web Services General Reference</i> for
-        /// actual tagging limits.</para>
+        /// You can use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html">TagResource</a>
+        /// to add tags, <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html">UntagResource</a>
+        /// to remove tags, and <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a>
+        /// to view tags on existing resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

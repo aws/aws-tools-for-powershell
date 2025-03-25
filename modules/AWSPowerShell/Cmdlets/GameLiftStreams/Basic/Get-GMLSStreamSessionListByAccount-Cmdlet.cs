@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// <para>
     /// In the returned list of stream sessions, the <c>ExportFilesMetadata</c> property only
     /// shows the <c>Status</c> value. To get the <c>OutpurUri</c> and <c>StatusReason</c>
-    /// values, use <a>GetStreamSession</a>.
+    /// values, use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>.
     /// </para><para>
     /// We don't recommend using this operation to regularly check stream session statuses
     /// because it's costly. Instead, to check status updates for a specific stream session,
-    /// use <a>GetStreamSession</a>.
+    /// use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLSStreamSessionListByAccount")]

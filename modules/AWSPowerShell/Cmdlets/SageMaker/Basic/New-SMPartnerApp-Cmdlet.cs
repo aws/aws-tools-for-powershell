@@ -112,6 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>SageMaker Partner AI Apps uses Amazon Web Services KMS to encrypt data at rest using
+        /// an Amazon Web Services managed key by default. For more control, specify a customer
+        /// managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter MaintenanceConfig_MaintenanceWindowStart
         /// <summary>
         /// <para>
@@ -268,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceConfig_MaintenanceWindowStart = this.MaintenanceConfig_MaintenanceWindowStart;
             context.Name = this.Name;
             #if MODULAR
@@ -354,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             
              // populate MaintenanceConfig
@@ -457,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ClientToken { get; set; }
             public System.Boolean? EnableIamSessionBasedIdentity { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String MaintenanceConfig_MaintenanceWindowStart { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

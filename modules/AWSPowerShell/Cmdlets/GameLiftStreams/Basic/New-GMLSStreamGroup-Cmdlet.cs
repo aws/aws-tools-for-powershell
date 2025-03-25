@@ -93,13 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// class determines the type of computing resources Amazon GameLift Streams uses and
         /// impacts the cost of streaming. The following options are available: </para><para>A stream class can be one of the following:</para><ul><li><para><b><c>gen5n_win2022</c> (NVIDIA, ultra)</b> Supports applications with extremely
         /// high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base
-        /// and supports DirectX 12. Compatible with most Unreal Engine 5.x builds, 32-bit applications,
-        /// and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen5n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
+        /// and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32
+        /// and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen5n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
         /// 3D scene complexity. Uses NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 12 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen5n_ultra</c> (NVIDIA, ultra)</b> Supports applications with extremely high
         /// 3D scene complexity. Uses dedicated NVIDIA A10G Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 24 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_win2022</c> (NVIDIA, ultra)</b> Supports applications with extremely
         /// high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base
-        /// and supports DirectX 12. Compatible with most Unreal Engine 5.2 and 5.3 builds, 32-bit
-        /// applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
+        /// and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32
+        /// and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li><li><para><b><c>gen4n_high</c> (NVIDIA, high)</b> Supports applications with moderate to high
         /// 3D scene complexity. Uses NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 4 vCPUs, 16 GB RAM, 8 GB VRAM</para></li><li><para>Tenancy: Supports up to 2 concurrent stream sessions</para></li></ul></li><li><para><b><c>gen4n_ultra</c> (NVIDIA, ultra)</b> Supports applications with high 3D scene
         /// complexity. Uses dedicated NVIDIA T4 Tensor GPU.</para><ul><li><para>Reference resolution: 1080p</para></li><li><para>Reference frame rate: 60 fps</para></li><li><para>Workload specifications: 8 vCPUs, 32 GB RAM, 16 GB VRAM</para></li><li><para>Tenancy: Supports 1 concurrent stream session</para></li></ul></li></ul>
         /// </para>
@@ -119,12 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <summary>
         /// <para>
         /// <para>A list of labels to assign to the new stream group resource. Tags are developer-defined
-        /// key-value pairs. It is useful to tag Amazon Web Services resources for resource management,
-        /// access management, and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
+        /// access management and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// You can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags on existing resources. The maximum tag limit might be
-        /// lower than stated. See the <i>Amazon Web Services </i> for actual tagging limits.</para>
+        /// You can use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html">TagResource</a>
+        /// to add tags, <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html">UntagResource</a>
+        /// to remove tags, and <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a>
+        /// to view tags on existing resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
