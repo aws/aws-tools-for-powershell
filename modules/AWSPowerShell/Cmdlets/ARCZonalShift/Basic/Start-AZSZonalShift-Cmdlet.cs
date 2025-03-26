@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// Zone in an Amazon Web Services Region, to help your application recover immediately,
     /// for example, from a developer's bad code deployment or from an Amazon Web Services
     /// infrastructure failure in a single Availability Zone. You can start a zonal shift
-    /// in Route 53 ARC only for managed resources in your Amazon Web Services account in
-    /// an Amazon Web Services Region. Resources are automatically registered with Route 53
-    /// ARC by Amazon Web Services services.
+    /// in ARC only for managed resources in your Amazon Web Services account in an Amazon
+    /// Web Services Region. Resources are automatically registered with ARC by Amazon Web
+    /// Services services.
     /// 
     ///  
     /// <para>
@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// Load Balancers with cross-zone load balancing turned off.
     /// </para><para>
     /// When you start a zonal shift, traffic for the resource is no longer routed to the
-    /// Availability Zone. The zonal shift is created immediately in Route 53 ARC. However,
-    /// it can take a short time, typically up to a few minutes, for existing, in-progress
-    /// connections in the Availability Zone to complete.
+    /// Availability Zone. The zonal shift is created immediately in ARC. However, it can
+    /// take a short time, typically up to a few minutes, for existing, in-progress connections
+    /// in the Availability Zone to complete.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal
     /// shift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter ExpiresIn
         /// <summary>
         /// <para>
-        /// <para>The length of time that you want a zonal shift to be active, which Route 53 ARC converts
-        /// to an expiry time (expiration time). Zonal shifts are temporary. You can set a zonal
+        /// <para>The length of time that you want a zonal shift to be active, which ARC converts to
+        /// an expiry time (expiration time). Zonal shifts are temporary. You can set a zonal
         /// shift to be active initially for up to three days (72 hours).</para><para>If you want to still keep traffic away from an Availability Zone, you can update the
         /// zonal shift and set a new expiration. You can also cancel a zonal shift, before it
         /// expires, for example, if you're ready to restore traffic to the Availability Zone.</para><para>To set a length of time for a zonal shift to be active, specify a whole number, and

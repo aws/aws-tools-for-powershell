@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para><para>
     /// The response contains the association between the Direct Connect gateway and transit
     /// gateway.
+    /// </para></li><li><para>
+    /// A Direct Connect gateway and a virtual private gateway
+    /// </para><para>
+    /// The response contains the association between the Direct Connect gateway and virtual
+    /// private gateway.
+    /// </para></li><li><para>
+    /// A Direct Connect gateway association to a Cloud WAN core network
+    /// </para><para>
+    /// The response contains the Cloud WAN core network ID that the Direct Connect gateway
+    /// is associated to.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DCGatewayAssociation")]

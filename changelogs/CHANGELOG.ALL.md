@@ -1,4 +1,13 @@
-﻿### 4.1.784 (2025-03-25 22:45Z)
+﻿### 4.1.785 (2025-03-26 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1010.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Direct Connect
+    * Modified cmdlet New-DCGateway: added parameter Tag.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Add-EMTLogsForPlaybackConfiguration: added parameters AdsInteractionLog_ExcludeEventType, AdsInteractionLog_PublishOptInEventType and ManifestServiceInteractionLog_ExcludeEventType.
+  * Amazon WAF V2
+    * Modified cmdlet Get-WAF2WebACL: added parameter ARN.
+
+### 4.1.784 (2025-03-25 22:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1009.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters OpensearchManagedClusterConfiguration_DomainArn, OpensearchManagedClusterConfiguration_DomainEndpoint, OpensearchManagedClusterConfiguration_VectorIndexName, StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField, StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField and StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField.

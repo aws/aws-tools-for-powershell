@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>Add, change, or remove windows of days and times for when you can, optionally, block
-        /// Route 53 ARC from starting a practice run for a resource.</para><para>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
+        /// ARC from starting a practice run for a resource.</para><para>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
         /// dates, that dates and times for practice runs are in UTC. Also, be aware of potential
         /// time adjustments that might be required for daylight saving time differences. Separate
         /// multiple blocked windows with spaces.</para><para>For example, say you run business report summaries three days a week. For this scenario,

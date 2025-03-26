@@ -131,7 +131,7 @@ $WAF2_Completers = {
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
-            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","VERIFIED_ACCESS_INSTANCE"
+            $v = "AMPLIFY","API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","VERIFIED_ACCESS_INSTANCE"
             break
         }
 

@@ -28,21 +28,11 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Returns the status of autoshift observer notification. Autoshift observer notification
-    /// enables you to be notified, through Amazon EventBridge, when there is an autoshift
-    /// event for zonal autoshift.
-    /// 
-    ///  
-    /// <para>
-    /// If the status is <c>ENABLED</c>, Route 53 ARC includes all autoshift events when you
-    /// use the EventBridge pattern <c>Autoshift In Progress</c>. When the status is <c>DISABLED</c>,
-    /// Route 53 ARC includes only autoshift events for autoshifts when one or more of your
-    /// resources is included in the autoshift.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification">
-    /// Notifications for practice runs and autoshifts</a> in the Amazon Route 53 Application
-    /// Recovery Controller Developer Guide.
-    /// </para>
+    /// Returns the status of the autoshift observer notification. Autoshift observer notifications
+    /// notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift.
+    /// The status can be <c>ENABLED</c> or <c>DISABLED</c>. When <c>ENABLED</c>, a notification
+    /// is sent when an autoshift is triggered. When <c>DISABLED</c>, notifications are not
+    /// sent.
     /// </summary>
     [Cmdlet("Get", "AZSAutoshiftObserverNotificationStatus")]
     [OutputType("Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus")]

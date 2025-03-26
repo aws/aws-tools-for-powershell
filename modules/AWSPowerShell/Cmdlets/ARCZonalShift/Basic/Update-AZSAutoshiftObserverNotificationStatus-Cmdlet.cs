@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// 
     ///  
     /// <para>
-    /// If the status is <c>ENABLED</c>, Route 53 ARC includes all autoshift events when you
-    /// use the EventBridge pattern <c>Autoshift In Progress</c>. When the status is <c>DISABLED</c>,
-    /// Route 53 ARC includes only autoshift events for autoshifts when one or more of your
-    /// resources is included in the autoshift.
+    /// If the status is <c>ENABLED</c>, ARC includes all autoshift events when you use the
+    /// EventBridge pattern <c>Autoshift In Progress</c>. When the status is <c>DISABLED</c>,
+    /// ARC includes only autoshift events for autoshifts when one or more of your resources
+    /// is included in the autoshift.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification">
     /// Notifications for practice runs and autoshifts</a> in the Amazon Route 53 Application
@@ -60,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>The status to set for autoshift observer notification. If the status is <c>ENABLED</c>,
-        /// Route 53 ARC includes all autoshift events when you use the Amazon EventBridge pattern
-        /// <c>Autoshift In Progress</c>. When the status is <c>DISABLED</c>, Route 53 ARC includes
-        /// only autoshift events for autoshifts when one or more of your resources is included
-        /// in the autoshift. </para>
+        /// ARC includes all autoshift events when you use the Amazon EventBridge pattern <c>Autoshift
+        /// In Progress</c>. When the status is <c>DISABLED</c>, ARC includes only autoshift events
+        /// for autoshifts when one or more of your resources is included in the autoshift. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
