@@ -215,6 +215,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String[] ColumnWildcard_ExcludedColumnName { get; set; }
         #endregion
         
+        #region Parameter Condition_Expression
+        /// <summary>
+        /// <para>
+        /// <para>An expression written based on the Cedar Policy Language used to match the principal
+        /// attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Condition_Expression { get; set; }
+        #endregion
+        
         #region Parameter LFTagPolicy_Expression
         /// <summary>
         /// <para>
@@ -464,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CatalogId = this.CatalogId;
+            context.Condition_Expression = this.Condition_Expression;
             if (this.Permission != null)
             {
                 context.Permission = new List<System.String>(this.Permission);
@@ -537,6 +549,25 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (cmdletContext.CatalogId != null)
             {
                 request.CatalogId = cmdletContext.CatalogId;
+            }
+            
+             // populate Condition
+            var requestConditionIsNull = true;
+            request.Condition = new Amazon.LakeFormation.Model.Condition();
+            System.String requestCondition_condition_Expression = null;
+            if (cmdletContext.Condition_Expression != null)
+            {
+                requestCondition_condition_Expression = cmdletContext.Condition_Expression;
+            }
+            if (requestCondition_condition_Expression != null)
+            {
+                request.Condition.Expression = requestCondition_condition_Expression;
+                requestConditionIsNull = false;
+            }
+             // determine if request.Condition should be set to null
+            if (requestConditionIsNull)
+            {
+                request.Condition = null;
             }
             if (cmdletContext.Permission != null)
             {
@@ -1050,6 +1081,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CatalogId { get; set; }
+            public System.String Condition_Expression { get; set; }
             public List<System.String> Permission { get; set; }
             public List<System.String> PermissionsWithGrantOption { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }

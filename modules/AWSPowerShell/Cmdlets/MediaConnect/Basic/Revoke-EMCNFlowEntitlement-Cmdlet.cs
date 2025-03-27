@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter EntitlementArn
         /// <summary>
         /// <para>
-        /// The ARN of the entitlement that you want
-        /// to revoke.
+        /// <para> The Amazon Resource Name (ARN) of the entitlement that you want to revoke.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to revoke an entitlement
-        /// from.
+        /// <para> The flow that you want to revoke an entitlement from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

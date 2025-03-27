@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-WKSAccount', 
         'Edit-WKSCertificateBasedAuthProperty', 
         'Edit-WKSClientProperty', 
+        'Edit-WKSEndpointEncryptionMode', 
         'Edit-WKSSamlProperty', 
         'Edit-WKSSelfservicePermission', 
         'Edit-WKSStreamingProperty', 

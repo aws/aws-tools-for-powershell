@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iot-managed-integrations</C2jFilename>
+    <AssemblyName>IoTManagedIntegrations</AssemblyName>
+    <ServiceNounPrefix>IOTMI</ServiceNounPrefix>
+    <ServiceName>Managed integrations for AWS IoT Device Management</ServiceName>
+    <ServiceClientInterface>IAmazonIoTManagedIntegrations</ServiceClientInterface>
+    <ServiceClient>AmazonIoTManagedIntegrationsClient</ServiceClient>
+    <ServiceModuleGuid>abff4374-eec2-44f3-abda-2d07d119fd0d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCredentialLocker" OutputProperty="*" Verb="New" Noun="CredentialLocker" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDestination" OutputProperty="Name" Verb="New" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventLogConfiguration" OutputProperty="Id" Verb="New" Noun="EventLogConfiguration" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateManagedThing" OutputProperty="*" Verb="New" Noun="ManagedThing" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotificationConfiguration" OutputProperty="EventType" Verb="New" Noun="NotificationConfiguration" ShouldProcessTarget="DestinationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOtaTask" OutputProperty="*" Verb="New" Noun="OtaTask" ShouldProcessTarget="TaskConfigurationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOtaTaskConfiguration" OutputProperty="TaskConfigurationId" Verb="New" Noun="OtaTaskConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProvisioningProfile" OutputProperty="*" Verb="New" Noun="ProvisioningProfile" ShouldProcessTarget="Name" PipelineParameter="ProvisioningType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCredentialLocker" Verb="Remove" Noun="CredentialLocker" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventLogConfiguration" Verb="Remove" Noun="EventLogConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteManagedThing" Verb="Remove" Noun="ManagedThing" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotificationConfiguration" Verb="Remove" Noun="NotificationConfiguration" ShouldProcessTarget="EventType" PipelineParameter="EventType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOtaTask" Verb="Remove" Noun="OtaTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOtaTaskConfiguration" Verb="Remove" Noun="OtaTaskConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProvisioningProfile" Verb="Remove" Noun="ProvisioningProfile" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCredentialLocker" OutputProperty="*" Verb="Get" Noun="CredentialLocker" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomEndpoint" OutputProperty="EndpointAddress" Verb="Get" Noun="CustomEndpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDefaultEncryptionConfiguration" OutputProperty="*" Verb="Get" Noun="DefaultEncryptionConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDestination" OutputProperty="*" Verb="Get" Noun="Destination" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeviceDiscovery" OutputProperty="*" Verb="Get" Noun="DeviceDiscovery" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventLogConfiguration" OutputProperty="*" Verb="Get" Noun="EventLogConfiguration" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHubConfiguration" OutputProperty="*" Verb="Get" Noun="HubConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedThing" OutputProperty="*" Verb="Get" Noun="ManagedThing" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedThingCapabilities" OutputProperty="*" Verb="Get" Noun="ManagedThingCapability" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedThingConnectivityData" OutputProperty="*" Verb="Get" Noun="ManagedThingConnectivityData" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedThingMetaData" OutputProperty="*" Verb="Get" Noun="ManagedThingMetaData" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedThingState" OutputProperty="Endpoints" Verb="Get" Noun="ManagedThingState" PipelineParameter="ManagedThingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNotificationConfiguration" OutputProperty="*" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="EventType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOtaTask" OutputProperty="*" Verb="Get" Noun="OtaTask" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOtaTaskConfiguration" OutputProperty="*" Verb="Get" Noun="OtaTaskConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProvisioningProfile" OutputProperty="*" Verb="Get" Noun="ProvisioningProfile" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRuntimeLogConfiguration" OutputProperty="*" Verb="Get" Noun="RuntimeLogConfiguration" PipelineParameter="ManagedThingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchemaVersion" OutputProperty="*" Verb="Get" Noun="SchemaVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCredentialLockers" OutputProperty="Items" Verb="Get" Noun="CredentialLockerList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDestinations" OutputProperty="DestinationList" Verb="Get" Noun="DestinationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventLogConfigurations" OutputProperty="EventLogConfigurationList" Verb="Get" Noun="EventLogConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedThings" OutputProperty="Items" Verb="Get" Noun="ManagedThingList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedThingSchemas" OutputProperty="Items" Verb="Get" Noun="ManagedThingSchemaList" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotificationConfigurations" OutputProperty="NotificationConfigurationList" Verb="Get" Noun="NotificationConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOtaTaskConfigurations" OutputProperty="Items" Verb="Get" Noun="OtaTaskConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOtaTaskExecutions" OutputProperty="ExecutionSummaries" Verb="Get" Noun="OtaTaskExecutionList" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOtaTasks" OutputProperty="Tasks" Verb="Get" Noun="OtaTaskList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProvisioningProfiles" OutputProperty="Items" Verb="Get" Noun="ProvisioningProfileList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchemaVersions" OutputProperty="Items" Verb="Get" Noun="SchemaVersionList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDefaultEncryptionConfiguration" OutputProperty="*" Verb="Write" Noun="DefaultEncryptionConfiguration" ShouldProcessTarget="KmsKeyArn" PipelineParameter="EncryptionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutHubConfiguration" OutputProperty="HubTokenTimerExpirySettingInSeconds" Verb="Write" Noun="HubConfiguration" ShouldProcessTarget="HubTokenTimerExpirySettingInSeconds" PipelineParameter="HubTokenTimerExpirySettingInSeconds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRuntimeLogConfiguration" Verb="Write" Noun="RuntimeLogConfiguration" ShouldProcessTarget="ManagedThingId" PipelineParameter="ManagedThingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterCustomEndpoint" OutputProperty="EndpointAddress" Verb="Register" Noun="CustomEndpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetRuntimeLogConfiguration" Verb="Reset" Noun="RuntimeLogConfiguration" ShouldProcessTarget="ManagedThingId" PipelineParameter="ManagedThingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendManagedThingCommand" OutputProperty="TraceId" Verb="Send" Noun="ManagedThingCommand" ShouldProcessTarget="ManagedThingId" PipelineParameter="ManagedThingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeviceDiscovery" OutputProperty="*" Verb="Start" Noun="DeviceDiscovery" ShouldProcessTarget="" PipelineParameter="DiscoveryType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventLogConfiguration" Verb="Update" Noun="EventLogConfiguration" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateManagedThing" Verb="Update" Noun="ManagedThing" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotificationConfiguration" Verb="Update" Noun="NotificationConfiguration" ShouldProcessTarget="DestinationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOtaTask" Verb="Update" Noun="OtaTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

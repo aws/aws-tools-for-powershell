@@ -289,6 +289,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.Int32? QueryGenerationConfiguration_ExecutionTimeoutSecond { get; set; }
         #endregion
         
+        #region Parameter NeptuneAnalyticsConfiguration_GraphArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Neptune Analytics vector store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_NeptuneAnalyticsConfiguration_GraphArn")]
+        public System.String NeptuneAnalyticsConfiguration_GraphArn { get; set; }
+        #endregion
+        
         #region Parameter KendraKnowledgeBaseConfiguration_KendraIndexArn
         /// <summary>
         /// <para>
@@ -327,6 +338,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
@@ -347,15 +368,15 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
-        #region Parameter FieldMapping_MetadataField
+        #region Parameter StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
         /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField")]
-        public System.String FieldMapping_MetadataField { get; set; }
+        [Alias("FieldMapping_MetadataField")]
+        public System.String StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField
@@ -492,6 +513,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
@@ -514,7 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_PineconeConfiguration_FieldMapping_TextField { get; set; }
         #endregion
         
-        #region Parameter FieldMapping_TextField
+        #region Parameter StorageConfiguration_RdsConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
         /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
@@ -522,8 +554,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_TextField")]
-        public System.String FieldMapping_TextField { get; set; }
+        [Alias("FieldMapping_TextField")]
+        public System.String StorageConfiguration_RdsConfiguration_FieldMapping_TextField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField
@@ -655,7 +687,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField { get; set; }
         #endregion
         
-        #region Parameter FieldMapping_VectorField
+        #region Parameter StorageConfiguration_RdsConfiguration_FieldMapping_VectorField
         /// <summary>
         /// <para>
         /// <para>The name of the field in which Amazon Bedrock stores the vector embeddings for your
@@ -663,8 +695,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_VectorField")]
-        public System.String FieldMapping_VectorField { get; set; }
+        [Alias("FieldMapping_VectorField")]
+        public System.String StorageConfiguration_RdsConfiguration_FieldMapping_VectorField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField
@@ -837,6 +869,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField;
             context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField;
             context.MongoDbAtlasConfiguration_VectorIndexName = this.MongoDbAtlasConfiguration_VectorIndexName;
+            context.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField;
+            context.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField = this.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField;
+            context.NeptuneAnalyticsConfiguration_GraphArn = this.NeptuneAnalyticsConfiguration_GraphArn;
             context.OpensearchServerlessConfiguration_CollectionArn = this.OpensearchServerlessConfiguration_CollectionArn;
             context.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField = this.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField;
@@ -849,10 +884,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.PineconeConfiguration_Namespace = this.PineconeConfiguration_Namespace;
             context.RdsConfiguration_CredentialsSecretArn = this.RdsConfiguration_CredentialsSecretArn;
             context.RdsConfiguration_DatabaseName = this.RdsConfiguration_DatabaseName;
-            context.FieldMapping_MetadataField = this.FieldMapping_MetadataField;
+            context.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField;
             context.FieldMapping_PrimaryKeyField = this.FieldMapping_PrimaryKeyField;
-            context.FieldMapping_TextField = this.FieldMapping_TextField;
-            context.FieldMapping_VectorField = this.FieldMapping_VectorField;
+            context.StorageConfiguration_RdsConfiguration_FieldMapping_TextField = this.StorageConfiguration_RdsConfiguration_FieldMapping_TextField;
+            context.StorageConfiguration_RdsConfiguration_FieldMapping_VectorField = this.StorageConfiguration_RdsConfiguration_FieldMapping_VectorField;
             context.RdsConfiguration_ResourceArn = this.RdsConfiguration_ResourceArn;
             context.RdsConfiguration_TableName = this.RdsConfiguration_TableName;
             context.RedisEnterpriseCloudConfiguration_CredentialsSecretArn = this.RedisEnterpriseCloudConfiguration_CredentialsSecretArn;
@@ -1317,6 +1352,66 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.StorageConfiguration.Type = requestStorageConfiguration_storageConfiguration_Type;
                 requestStorageConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.NeptuneAnalyticsConfiguration requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration = null;
+            
+             // populate NeptuneAnalyticsConfiguration
+            var requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfigurationIsNull = true;
+            requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration = new Amazon.BedrockAgent.Model.NeptuneAnalyticsConfiguration();
+            System.String requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_neptuneAnalyticsConfiguration_GraphArn = null;
+            if (cmdletContext.NeptuneAnalyticsConfiguration_GraphArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_neptuneAnalyticsConfiguration_GraphArn = cmdletContext.NeptuneAnalyticsConfiguration_GraphArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_neptuneAnalyticsConfiguration_GraphArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration.GraphArn = requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_neptuneAnalyticsConfiguration_GraphArn;
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.NeptuneAnalyticsFieldMapping requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping = null;
+            
+             // populate FieldMapping
+            var requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMappingIsNull = true;
+            requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping = new Amazon.BedrockAgent.Model.NeptuneAnalyticsFieldMapping();
+            System.String requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField = null;
+            if (cmdletContext.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField = cmdletContext.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping.MetadataField = requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField;
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField = null;
+            if (cmdletContext.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField = cmdletContext.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping.TextField = requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField;
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMappingIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping should be set to null
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMappingIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping != null)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration.FieldMapping = requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping;
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfigurationIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration should be set to null
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfigurationIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration != null)
+            {
+                request.StorageConfiguration.NeptuneAnalyticsConfiguration = requestStorageConfiguration_storageConfiguration_NeptuneAnalyticsConfiguration;
+                requestStorageConfigurationIsNull = false;
+            }
             Amazon.BedrockAgent.Model.OpenSearchServerlessConfiguration requestStorageConfiguration_storageConfiguration_OpensearchServerlessConfiguration = null;
             
              // populate OpensearchServerlessConfiguration
@@ -1617,14 +1712,14 @@ namespace Amazon.PowerShell.Cmdlets.AAB
              // populate FieldMapping
             var requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = true;
             requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping = new Amazon.BedrockAgent.Model.RdsFieldMapping();
-            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField = null;
-            if (cmdletContext.FieldMapping_MetadataField != null)
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_MetadataField = null;
+            if (cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField != null)
             {
-                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField = cmdletContext.FieldMapping_MetadataField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_MetadataField = cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField;
             }
-            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField != null)
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_MetadataField != null)
             {
-                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.MetadataField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_MetadataField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.MetadataField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_MetadataField;
                 requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
             }
             System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_PrimaryKeyField = null;
@@ -1637,24 +1732,24 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.PrimaryKeyField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_PrimaryKeyField;
                 requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
             }
-            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField = null;
-            if (cmdletContext.FieldMapping_TextField != null)
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_TextField = null;
+            if (cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_TextField != null)
             {
-                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField = cmdletContext.FieldMapping_TextField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_TextField = cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_TextField;
             }
-            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField != null)
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_TextField != null)
             {
-                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.TextField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_TextField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.TextField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_TextField;
                 requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
             }
-            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField = null;
-            if (cmdletContext.FieldMapping_VectorField != null)
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_VectorField = null;
+            if (cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_VectorField != null)
             {
-                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField = cmdletContext.FieldMapping_VectorField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_VectorField = cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_VectorField;
             }
-            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField != null)
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_VectorField != null)
             {
-                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.VectorField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_VectorField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.VectorField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_VectorField;
                 requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
             }
              // determine if requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping should be set to null
@@ -1889,6 +1984,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField { get; set; }
             public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField { get; set; }
             public System.String MongoDbAtlasConfiguration_VectorIndexName { get; set; }
+            public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField { get; set; }
+            public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField { get; set; }
+            public System.String NeptuneAnalyticsConfiguration_GraphArn { get; set; }
             public System.String OpensearchServerlessConfiguration_CollectionArn { get; set; }
             public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField { get; set; }
@@ -1901,10 +1999,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String PineconeConfiguration_Namespace { get; set; }
             public System.String RdsConfiguration_CredentialsSecretArn { get; set; }
             public System.String RdsConfiguration_DatabaseName { get; set; }
-            public System.String FieldMapping_MetadataField { get; set; }
+            public System.String StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String FieldMapping_PrimaryKeyField { get; set; }
-            public System.String FieldMapping_TextField { get; set; }
-            public System.String FieldMapping_VectorField { get; set; }
+            public System.String StorageConfiguration_RdsConfiguration_FieldMapping_TextField { get; set; }
+            public System.String StorageConfiguration_RdsConfiguration_FieldMapping_VectorField { get; set; }
             public System.String RdsConfiguration_ResourceArn { get; set; }
             public System.String RdsConfiguration_TableName { get; set; }
             public System.String RedisEnterpriseCloudConfiguration_CredentialsSecretArn { get; set; }

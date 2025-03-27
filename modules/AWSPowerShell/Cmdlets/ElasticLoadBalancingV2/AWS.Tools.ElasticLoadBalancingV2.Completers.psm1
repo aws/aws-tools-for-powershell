@@ -279,6 +279,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
                "Edit-ELB2CapacityReservation",
+               "Edit-ELB2IpPool",
                "Edit-ELB2Listener",
                "Edit-ELB2ListenerAttribute",
                "Edit-ELB2LoadBalancerAttribute",

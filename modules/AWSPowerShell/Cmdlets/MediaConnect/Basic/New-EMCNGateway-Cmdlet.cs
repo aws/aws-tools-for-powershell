@@ -29,7 +29,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Creates a new gateway. The request must include at least one network (up to 4).
+    /// Creates a new gateway. The request must include at least one network (up to four).
     /// </summary>
     [Cmdlet("New", "EMCNGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.Gateway")]
@@ -47,10 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter EgressCidrBlock
         /// <summary>
         /// <para>
-        /// The range of IP addresses that are allowed
-        /// to contribute content or initiate output requests for flows communicating with this
-        /// gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing
-        /// (CIDR) block; for example, 10.0.0.0/16.
+        /// <para> The range of IP addresses that are allowed to contribute content or initiate output
+        /// requests for flows communicating with this gateway. These IP addresses should be in
+        /// the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The name of the gateway. This name can not be modified
-        /// after the gateway is created.
+        /// <para> The name of the gateway. This name can not be modified after the gateway is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Network
         /// <summary>
         /// <para>
-        /// The list of networks that you want to add.
+        /// <para> The list of networks that you want to add to the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

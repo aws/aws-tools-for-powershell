@@ -1,0 +1,3 @@
+﻿# IoTManagedIntegrations
+
+Export-ModuleMember -Alias *

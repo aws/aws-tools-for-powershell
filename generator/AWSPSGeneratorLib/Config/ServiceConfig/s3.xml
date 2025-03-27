@@ -473,6 +473,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="HeadBucket" OutputProperty="*" Verb="Head" Noun="Bucket" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false" Exclude="true">
+        <Params />
+        <TypesNotToFlatten />
+      </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten>
         <Type>Amazon.S3.Model.SelectParameters</Type>

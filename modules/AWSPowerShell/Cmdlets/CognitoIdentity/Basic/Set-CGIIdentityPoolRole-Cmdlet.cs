@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// 
     ///  
     /// <para>
-    /// You must use AWS Developer credentials to call this API.
+    /// You must use Amazon Web Services developer credentials to call this operation.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "CGIIdentityPoolRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// <para>
         /// <para>How users for a specific identity provider are to mapped to roles. This is a string
         /// to <a>RoleMapping</a> object map. The string identifies the identity provider, for
-        /// example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</para><para>Up to 25 rules can be specified per identity provider.</para>
+        /// example, <c>graph.facebook.com</c> or <c>cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id</c>.</para><para>Up to 25 rules can be specified per identity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -67,7 +67,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateMembership" OutputProperty="Membership" Verb="New" Noun="Membership" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" Alias="Default_Job_S3_Bucket" />
+                <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" Alias="Default_Job_S3_KeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="New" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
@@ -182,6 +185,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProtectedJob" OutputProperty="ProtectedJob" Verb="Get" Noun="ProtectedJob" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProtectedQuery" OutputProperty="ProtectedQuery" Verb="Get" Noun="ProtectedQuery" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -258,6 +265,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectedJobs" OutputProperty="ProtectedJobs" Verb="Get" Noun="ProtectedJobList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProtectedQueries" OutputProperty="ProtectedQueries" Verb="Get" Noun="ProtectedQueryList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -275,6 +286,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PreviewPrivacyImpact" OutputProperty="PrivacyImpact" Verb="Test" Noun="PrivacyImpact" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartProtectedJob" OutputProperty="ProtectedJob" Verb="Start" Noun="ProtectedJob" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -327,10 +342,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMembership" OutputProperty="Membership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket" Alias="Default_Job_S3_Bucket" />
+                <Param Name="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" NewName="DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix" Alias="Default_Job_S3_KeyPrefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePrivacyBudgetTemplate" OutputProperty="PrivacyBudgetTemplate" Verb="Update" Noun="PrivacyBudgetTemplate" ShouldProcessTarget="PrivacyBudgetTemplateIdentifier" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProtectedJob" OutputProperty="ProtectedJob" Verb="Update" Noun="ProtectedJob" ShouldProcessTarget="ProtectedJobIdentifier" PipelineParameter="ProtectedJobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

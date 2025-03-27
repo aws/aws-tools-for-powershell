@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter CatalogInput_AllowFullTableExternalDataAccess
+        /// <summary>
+        /// <para>
+        /// <para> Allows third-party engines to access data in Amazon S3 locations that are registered
+        /// with Lake Formation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.AllowFullTableExternalDataAccessEnum")]
+        public Amazon.Glue.AllowFullTableExternalDataAccessEnum CatalogInput_AllowFullTableExternalDataAccess { get; set; }
+        #endregion
+        
         #region Parameter TargetRedshiftCatalog_CatalogArn
         /// <summary>
         /// <para>
@@ -256,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter CatalogId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CatalogInput_AllowFullTableExternalDataAccess = this.CatalogInput_AllowFullTableExternalDataAccess;
             if (this.CatalogProperties_CustomProperty != null)
             {
                 context.CatalogProperties_CustomProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -312,6 +325,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate CatalogInput
             var requestCatalogInputIsNull = true;
             request.CatalogInput = new Amazon.Glue.Model.CatalogInput();
+            Amazon.Glue.AllowFullTableExternalDataAccessEnum requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess = null;
+            if (cmdletContext.CatalogInput_AllowFullTableExternalDataAccess != null)
+            {
+                requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess = cmdletContext.CatalogInput_AllowFullTableExternalDataAccess;
+            }
+            if (requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess != null)
+            {
+                request.CatalogInput.AllowFullTableExternalDataAccess = requestCatalogInput_catalogInput_AllowFullTableExternalDataAccess;
+                requestCatalogInputIsNull = false;
+            }
             List<Amazon.Glue.Model.PrincipalPermissions> requestCatalogInput_catalogInput_CreateDatabaseDefaultPermission = null;
             if (cmdletContext.CatalogInput_CreateDatabaseDefaultPermission != null)
             {
@@ -553,6 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CatalogId { get; set; }
+            public Amazon.Glue.AllowFullTableExternalDataAccessEnum CatalogInput_AllowFullTableExternalDataAccess { get; set; }
             public Dictionary<System.String, System.String> CatalogProperties_CustomProperty { get; set; }
             public System.String DataLakeAccessProperties_CatalogType { get; set; }
             public System.Boolean? DataLakeAccessProperties_DataLakeAccess { get; set; }

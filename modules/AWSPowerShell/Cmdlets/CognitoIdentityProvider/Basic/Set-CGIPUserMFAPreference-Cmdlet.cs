@@ -41,11 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// 
     ///  
     /// <para>
-    /// This operation doesn't reset an existing TOTP MFA for a user. To register a new TOTP
-    /// factor for a user, make an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken</a>
-    /// request. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa-totp.html">TOTP
-    /// software token MFA</a>.
-    /// </para><para>
     /// Authorize this action with a signed-in user's access token. It must include the scope
     /// <c>aws.cognito.signin.user.admin</c>.
     /// </para><note><para>
@@ -72,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose MFA preference you
-        /// want to set.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
-        /// TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</para>
+        /// TOTP MFA and sets it as the preferred MFA method when multiple methods are available.
+        /// Users must register a TOTP authenticator before they set this as their preferred MFA
+        /// method.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

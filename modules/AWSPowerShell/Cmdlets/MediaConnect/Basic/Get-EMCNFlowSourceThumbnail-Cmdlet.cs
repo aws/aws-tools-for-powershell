@@ -29,7 +29,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Displays the thumbnail details of a flow's source stream.
+    /// Describes the thumbnail for the flow source.
     /// </summary>
     [Cmdlet("Get", "EMCNFlowSourceThumbnail")]
     [OutputType("Amazon.MediaConnect.Model.ThumbnailDetails")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the flow.
+        /// <para> The Amazon Resource Name (ARN) of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

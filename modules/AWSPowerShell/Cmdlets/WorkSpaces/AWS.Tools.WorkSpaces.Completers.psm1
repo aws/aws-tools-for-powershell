@@ -89,6 +89,7 @@ $WKS_Completers = {
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeOsx") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWeb") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWindow") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient") -Or
             ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeZeroClient")
         }
         {
@@ -162,6 +163,13 @@ $WKS_Completers = {
         "Edit-WKSAccount/DedicatedTenancySupport"
         {
             $v = "ENABLED"
+            break
+        }
+
+        # Amazon.WorkSpaces.EndpointEncryptionMode
+        "Edit-WKSEndpointEncryptionMode/EndpointEncryptionMode"
+        {
+            $v = "FIPS_VALIDATED","STANDARD_TLS"
             break
         }
 
@@ -279,6 +287,7 @@ $WKS_map = @{
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DataReplication"=@("Edit-WKSWorkspaceProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "EndpointEncryptionMode"=@("Edit-WKSEndpointEncryptionMode")
     "GlobalAccelerator_Mode"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "GlobalAccelerator_PreferredProtocol"=@("Edit-WKSStreamingProperty","Edit-WKSWorkspaceProperty")
     "ImageType"=@("Get-WKSWorkspaceImage")
@@ -300,6 +309,7 @@ $WKS_map = @{
     "WorkspaceAccessProperties_DeviceTypeOsx"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWeb"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeWindow"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeZeroClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_OperatingSystemName"=@("Edit-WKSWorkspaceProperty")
@@ -420,6 +430,7 @@ $WKS_SelectMap = @{
                "Edit-WKSAccount",
                "Edit-WKSCertificateBasedAuthProperty",
                "Edit-WKSClientProperty",
+               "Edit-WKSEndpointEncryptionMode",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
                "Edit-WKSStreamingProperty",

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the flow.
+        /// <para> The Amazon Resource Name (ARN) of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaStream
         /// <summary>
         /// <para>
-        /// The media streams that you want to add to
-        /// the flow.
+        /// <para> The media streams that you want to add to the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

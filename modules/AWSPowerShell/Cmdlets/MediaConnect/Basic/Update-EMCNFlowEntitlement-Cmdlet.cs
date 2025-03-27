@@ -29,9 +29,9 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// You can change an entitlement's description, subscribers, and encryption. If you change
-    /// the subscribers, the service will remove the outputs that are are used by the subscribers
-    /// that are removed.
+    /// Updates an entitlement. You can change an entitlement's description, subscribers,
+    /// and encryption. If you change the subscribers, the service will remove the outputs
+    /// that are are used by the subscribers that are removed.
     /// </summary>
     [Cmdlet("Update", "EMCNFlowEntitlement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.Entitlement")]
@@ -49,9 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// A description of the entitlement. This description
-        /// appears only on the AWS Elemental MediaConnect console and will not be seen by the
-        /// subscriber or end user.
+        /// <para> A description of the entitlement. This description appears only on the MediaConnect
+        /// console and will not be seen by the subscriber or end user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,9 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Encryption
         /// <summary>
         /// <para>
-        /// The type of encryption that will be used on
-        /// the output associated with this entitlement. Allowable encryption types: static-key,
-        /// speke.
+        /// <para> The type of encryption that will be used on the output associated with this entitlement.
+        /// Allowable encryption types: static-key, speke.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter EntitlementArn
         /// <summary>
         /// <para>
-        /// The ARN of the entitlement that you want
-        /// to update.
+        /// <para> The Amazon Resource Name (ARN) of the entitlement that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter EntitlementStatus
         /// <summary>
         /// <para>
-        /// An indication of whether you want to
-        /// enable the entitlement to allow access, or disable it to stop streaming content to
-        /// the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field
-        /// in your request, MediaConnect leaves the value unchanged.
+        /// <para> An indication of whether you want to enable the entitlement to allow access, or disable
+        /// it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify
+        /// the <c>entitlementStatus</c> field in your request, MediaConnect leaves the value
+        /// unchanged.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that is associated with the entitlement
-        /// that you want to update.
+        /// <para> The ARN of the flow that is associated with the entitlement that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Subscriber
         /// <summary>
         /// <para>
-        /// The AWS account IDs that you want to share
-        /// your content with. The receiving accounts (subscribers) will be allowed to create
-        /// their own flow using your content as the source.
+        /// <para> The Amazon Web Services account IDs that you want to share your content with. The
+        /// receiving accounts (subscribers) will be allowed to create their own flow using your
+        /// content as the source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

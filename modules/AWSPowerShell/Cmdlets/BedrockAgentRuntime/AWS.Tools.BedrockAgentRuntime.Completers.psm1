@@ -80,6 +80,13 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.AgentCollaboration
+        "Invoke-BARInlineAgent/AgentCollaboration"
+        {
+            $v = "DISABLED","SUPERVISOR","SUPERVISOR_ROUTER"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.InputQueryType
         "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
         {
@@ -194,6 +201,7 @@ $BAR_Completers = {
 }
 
 $BAR_map = @{
+    "AgentCollaboration"=@("Invoke-BARInlineAgent")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")

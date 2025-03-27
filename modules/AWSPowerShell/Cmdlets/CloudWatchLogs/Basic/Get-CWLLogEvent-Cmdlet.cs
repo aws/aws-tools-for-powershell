@@ -33,12 +33,25 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// or filter using a time range.
     /// 
     ///  
-    /// <para>
-    /// By default, this operation returns as many log events as can fit in a response size
-    /// of 1MB (up to 10,000 log events). You can get additional log events by specifying
-    /// one of the tokens in a subsequent call. This operation can return empty results while
-    /// there are more log events available through the token.
+    /// <para><c>GetLogEvents</c> is a paginated operation. Each page returned can contain up to
+    /// 1 MB of log events or up to 10,000 log events. A returned page might only be partially
+    /// full, or even empty. For example, if the result of a query would return 15,000 log
+    /// events, the first page isn't guaranteed to have 10,000 log events even if they all
+    /// fit into 1 MB.
     /// </para><para>
+    /// Partially full or empty pages don't necessarily mean that pagination is finished.
+    /// As long as the <c>nextBackwardToken</c> or <c>nextForwardToken</c> returned is NOT
+    /// equal to the <c>nextToken</c> that you passed into the API call, there might be more
+    /// log events available. The token that you use depends on the direction you want to
+    /// move in along the log stream. The returned tokens are never null.
+    /// </para><note><para>
+    /// If you set <c>startFromHead</c> to <c>true</c> and you don’t include <c>endTime</c>
+    /// in your request, you can end up in a situation where the pagination doesn't terminate.
+    /// This can happen when the new log events are being added to the target log streams
+    /// faster than they are being read. This situation is a good use case for the CloudWatch
+    /// Logs <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">Live
+    /// Tail</a> feature.
+    /// </para></note><para>
     /// If you are using CloudWatch cross-account observability, you can use this operation
     /// in a monitoring account and view data from the linked source accounts. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
@@ -47,7 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// You can specify the log group to search by using either <c>logGroupIdentifier</c>
     /// or <c>logGroupName</c>. You must include one of these two parameters, but you can't
     /// include both. 
-    /// </para>
+    /// </para><note><para>
+    /// If you are using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html">log
+    /// transformation</a>, the <c>GetLogEvents</c> operation returns only the original versions
+    /// of log events, before they were transformed. To view the transformed versions, you
+    /// must use a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">CloudWatch
+    /// Logs query.</a></para></note>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvent")]
     [OutputType("Amazon.CloudWatchLogs.Model.GetLogEventsResponse")]

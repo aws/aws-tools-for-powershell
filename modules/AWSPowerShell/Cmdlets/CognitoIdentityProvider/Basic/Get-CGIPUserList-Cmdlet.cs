@@ -29,7 +29,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists users and their basic details in a user pool.
+    /// Given a user pool ID, returns a list of users and their basic details in a user pool.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool on which the search should be performed.</para>
+        /// <para>The ID of the user pool where you want to display or search for users.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of users to be returned.</para>
+        /// <para>The maximum number of users that you want Amazon Cognito to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

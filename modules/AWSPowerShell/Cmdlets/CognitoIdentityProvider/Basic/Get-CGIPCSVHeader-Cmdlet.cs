@@ -29,8 +29,21 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the header information for the comma-separated value (CSV) file to be used as
-    /// input for the user import job.
+    /// Given a user pool ID, generates a comma-separated value (CSV) list populated with
+    /// available user attributes in the user pool. This list is the header for the CSV file
+    /// that determines the users in a user import job. Save the content of <c>CSVHeader</c>
+    /// in the response as a <c>.csv</c> file and populate it with the usernames and attributes
+    /// of users that you want to import. For more information about CSV user import, see
+    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing
+    /// users from a CSV file</a>.
+    /// 
+    ///  <note><para>
+    /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
+    /// for this API operation. For this operation, you must use IAM credentials to authorize
+    /// requests, and you must grant yourself the corresponding IAM permission in a policy.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing
+    /// Amazon Web Services API Requests</a></para></li><li><para><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using
+    /// the Amazon Cognito user pools API and user pool endpoints</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "CGIPCSVHeader")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse")]
@@ -47,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool that the users are to be imported into.</para>
+        /// <para>The ID of the user pool that you want to import users into.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

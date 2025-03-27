@@ -29,7 +29,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the clients that have been created for the specified user pool.
+    /// Given a user pool ID, lists app clients. App clients are sets of rules for the access
+    /// that you want a user pool to grant to one application. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">App
+    /// clients</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -72,8 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results you want the request to return when listing the user
-        /// pool clients.</para>
+        /// <para>The maximum number of app clients that you want Amazon Cognito to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -90,8 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous call to this operation, which can
-        /// be used to return the next set of items in the list.</para>
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Creates a new group in the specified user pool. For more information about user pool
-    /// groups see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
+    /// groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding
     /// groups to a user pool</a>.
     /// 
     ///  <note><para>

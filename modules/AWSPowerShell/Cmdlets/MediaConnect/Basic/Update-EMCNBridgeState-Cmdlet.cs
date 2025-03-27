@@ -29,7 +29,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Updates the bridge state
+    /// Updates the bridge state.
     /// </summary>
     [Cmdlet("Update", "EMCNBridgeState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.UpdateBridgeStateResponse")]
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The ARN of the bridge that you want to update.
+        /// <para> The Amazon Resource Name (ARN) of the bridge that you want to update the state of.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter DesiredState
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The desired state for the bridge. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.IVSRealTime;
 using Amazon.IVSRealTime.Model;
 
@@ -40,8 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     public partial class NewIVSRTStageCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter AutoParticipantRecordingConfiguration_MediaType
         /// <summary>
@@ -87,6 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
         #endregion
         
+        #region Parameter AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond
+        /// <summary>
+        /// <para>
+        /// <para>If a stage publisher disconnects and then reconnects within the specified interval,
+        /// the multiple recordings will be considered a single recording and merged together.</para><para>The default value is 0, which disables merging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_RecordingReconnectWindowSeconds")]
+        public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
+        #endregion
+        
         #region Parameter ThumbnailConfiguration_Storage
         /// <summary>
         /// <para>
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <para>ARN of the <a>StorageConfiguration</a> resource to use for individual participant
         /// recording. Default: <c>""</c> (empty string, no storage configuration is specified).
         /// Individual participant recording cannot be started unless a storage configuration
-        /// is specified, when a <a>Stage</a> is created or updated.</para>
+        /// is specified, when a <a>Stage</a> is created or updated. To disable individual participant
+        /// recording, set this to <c>""</c>; other fields in this object will get reset to their
+        /// defaults when sending <c>""</c>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,6 +156,19 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.Int32? ThumbnailConfiguration_TargetIntervalSecond { get; set; }
         #endregion
         
+        #region Parameter HlsConfiguration_TargetSegmentDurationSecond
+        /// <summary>
+        /// <para>
+        /// <para>Defines the target duration for recorded segments generated when recording a stage
+        /// participant. Segments may have durations longer than the specified value when needed
+        /// to ensure each segment begins with a keyframe. Default: 6.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_HlsConfiguration_TargetSegmentDurationSeconds")]
+        public System.Int32? HlsConfiguration_TargetSegmentDurationSecond { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -151,6 +178,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -163,11 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -184,15 +216,27 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.CreateStageResponse, NewIVSRTStageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Name;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.HlsConfiguration_TargetSegmentDurationSecond = this.HlsConfiguration_TargetSegmentDurationSecond;
             if (this.AutoParticipantRecordingConfiguration_MediaType != null)
             {
                 context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
             }
+            context.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = this.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond;
             context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
             context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
             if (this.ThumbnailConfiguration_Storage != null)
@@ -243,6 +287,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 request.AutoParticipantRecordingConfiguration.MediaTypes = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
+            System.Int32? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = null;
+            if (cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = cmdletContext.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
+            {
+                request.AutoParticipantRecordingConfiguration.RecordingReconnectWindowSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
             System.String requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = null;
             if (cmdletContext.AutoParticipantRecordingConfiguration_StorageConfigurationArn != null)
             {
@@ -251,6 +305,31 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn != null)
             {
                 request.AutoParticipantRecordingConfiguration.StorageConfigurationArn = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+            Amazon.IVSRealTime.Model.ParticipantRecordingHlsConfiguration requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration = null;
+            
+             // populate HlsConfiguration
+            var requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfigurationIsNull = true;
+            requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration = new Amazon.IVSRealTime.Model.ParticipantRecordingHlsConfiguration();
+            System.Int32? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration_hlsConfiguration_TargetSegmentDurationSecond = null;
+            if (cmdletContext.HlsConfiguration_TargetSegmentDurationSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration_hlsConfiguration_TargetSegmentDurationSecond = cmdletContext.HlsConfiguration_TargetSegmentDurationSecond.Value;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration_hlsConfiguration_TargetSegmentDurationSecond != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration.TargetSegmentDurationSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration_hlsConfiguration_TargetSegmentDurationSecond.Value;
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfigurationIsNull = false;
+            }
+             // determine if requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration should be set to null
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfigurationIsNull)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration = null;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration != null)
+            {
+                request.AutoParticipantRecordingConfiguration.HlsConfiguration = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_HlsConfiguration;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
             Amazon.IVSRealTime.Model.ParticipantThumbnailConfiguration requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_ThumbnailConfiguration = null;
@@ -353,7 +432,13 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "CreateStage");
             try
             {
-                return client.CreateStageAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.CreateStage(request);
+                #elif CORECLR
+                return client.CreateStageAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -370,7 +455,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? HlsConfiguration_TargetSegmentDurationSecond { get; set; }
             public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
+            public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
             public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
             public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
             public List<System.String> ThumbnailConfiguration_Storage { get; set; }

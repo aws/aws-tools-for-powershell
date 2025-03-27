@@ -29,7 +29,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Activate sign-in for a user profile that previously had sign-in access disabled.
+    /// Activates sign-in for a user profile that previously had sign-in access disabled.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// <para>The name of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
         /// <c>username</c> isn't an alias attribute in your user pool, this value must be the
         /// <c>sub</c> of a local user or the username of a user from a third-party IdP.</para>

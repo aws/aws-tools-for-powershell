@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// 
     ///  
     /// <para>
-    /// You must use AWS Developer credentials to call this API.
+    /// You must use Amazon Web Services developer credentials to call this operation.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CGIIdentityPoolRole")]

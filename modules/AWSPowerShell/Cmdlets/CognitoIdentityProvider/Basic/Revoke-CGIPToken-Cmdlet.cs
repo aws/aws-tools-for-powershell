@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The client ID for the token that you want to revoke.</para>
+        /// <para>The ID of the app client where the token that you want to revoke was issued.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientSecret
         /// <summary>
         /// <para>
-        /// <para>The secret for the client ID. This is required only if the client ID has a secret.</para>
+        /// <para>The client secret of the requested app client, if the client has a secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

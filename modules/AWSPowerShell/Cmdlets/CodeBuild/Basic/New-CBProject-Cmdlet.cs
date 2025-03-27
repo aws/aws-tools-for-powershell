@@ -981,20 +981,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_Type
         /// <summary>
         /// <para>
-        /// <para>The type of build environment to use for related builds.</para><ul><li><para>The environment type <c>ARM_CONTAINER</c> is available only in regions US East (N.
-        /// Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai),
-        /// Asia Pacific (Tokyo), Asia Pacific (Sydney), and EU (Frankfurt).</para></li><li><para>The environment type <c>LINUX_CONTAINER</c> is available only in regions US East (N.
-        /// Virginia), US East (Ohio), US West (Oregon), Canada (Central), EU (Ireland), EU (London),
-        /// EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),
-        /// Asia Pacific (Sydney), China (Beijing), and China (Ningxia).</para></li><li><para>The environment type <c>LINUX_GPU_CONTAINER</c> is available only in regions US East
-        /// (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), EU (Ireland), EU
-        /// (London), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific
-        /// (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul><ul><li><para>The environment types <c>ARM_LAMBDA_CONTAINER</c> and <c>LINUX_LAMBDA_CONTAINER</c>
-        /// are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
-        /// Asia Pacific (Mumbai), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific
-        /// (Tokyo), EU (Frankfurt), EU (Ireland), and South America (São Paulo).</para></li></ul><ul><li><para>The environment types <c>WINDOWS_CONTAINER</c> and <c>WINDOWS_SERVER_2019_CONTAINER</c>
-        /// are available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
-        /// and EU (Ireland).</para></li></ul><note><para>If you're using compute fleets during project creation, <c>type</c> will be ignored.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
+        /// <para>The type of build environment to use for related builds.</para><note><para>If you're using compute fleets during project creation, <c>type</c> will be ignored.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
         /// environment compute types</a> in the <i>CodeBuild user guide</i>.</para>
         /// </para>
         /// </summary>

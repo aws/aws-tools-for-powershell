@@ -29,24 +29,15 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Calling this API causes a message to be sent to the end user with a confirmation code
-    /// that is required to change the user's password. For the <c>Username</c> parameter,
-    /// you can use the username or user alias. The method used to send the confirmation code
-    /// is sent according to the specified AccountRecoverySetting. For more information, see
-    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering
-    /// User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. To use the confirmation
-    /// code for resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.
-    /// 
+    /// Sends a password-reset confirmation code for the currently signed-in user.
     /// 
     ///  
     /// <para>
-    /// If neither a verified phone number nor a verified email exists, this API returns <c>InvalidParameterException</c>.
-    /// If your app client has a client secret and you don't provide a <c>SECRET_HASH</c>
-    /// parameter, this API returns <c>NotAuthorizedException</c>.
+    /// For the <c>Username</c> parameter, you can use the username or user alias.
     /// </para><para>
-    /// To use this API operation, your user pool must have self-service account recovery
-    /// configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a>
-    /// if you manage passwords as an administrator.
+    /// If neither a verified phone number nor a verified email exists, Amazon Cognito responds
+    /// with an <c>InvalidParameterException</c> error . If your app client has a client secret
+    /// and you don't provide a <c>SECRET_HASH</c> parameter, this API returns <c>NotAuthorizedException</c>.
     /// </para><note><para>
     /// Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you can't use IAM credentials to authorize
@@ -99,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The ID of the client associated with the user pool.</para>
+        /// <para>The ID of the user pool app client associated with the current signed-in user.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,8 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// attribute, which provides the data that you assigned to the ClientMetadata parameter
         /// in your ForgotPassword request. In your function code in Lambda, you can process the
         /// <c>clientMetadata</c> value to enhance your workflow for your specific needs.</para><para>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
-        /// Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito
-        /// Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
+        /// Using Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</para><note><para>When you use the <c>ClientMetadata</c> parameter, note that Amazon Cognito won't do
         /// the following:</para><ul><li><para>Store the <c>ClientMetadata</c> value. This data is available only to Lambda triggers
         /// that are assigned to a user pool to support custom workflows. If your user pool configuration
         /// doesn't include triggers, the <c>ClientMetadata</c> parameter serves no purpose.</para></li><li><para>Validate the <c>ClientMetadata</c> value.</para></li><li><para>Encrypt the <c>ClientMetadata</c> value. Don't send sensitive information in this
@@ -175,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The username of the user that you want to query or modify. The value of this parameter
+        /// <para>The name of the user that you want to query or modify. The value of this parameter
         /// is typically your user's username, but it can be any of their alias attributes. If
         /// <c>username</c> isn't an alias attribute in your user pool, this value must be the
         /// <c>sub</c> of a local user or the username of a user from a third-party IdP.</para>

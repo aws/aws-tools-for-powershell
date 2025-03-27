@@ -29,7 +29,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Updates the bridge
+    /// Updates the bridge.
     /// </summary>
     [Cmdlet("Update", "EMCNBridge", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.Bridge")]
@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Number (ARN) of the bridge
-        /// that you want to update.
+        /// <para> TheAmazon Resource Name (ARN) of the bridge that you want to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_FailoverMode
         /// <summary>
         /// <para>
-        /// The type of failover you choose for this
-        /// flow. MERGE combines the source streams into a single stream, allowing graceful recovery
-        /// from any single-source loss. FAILOVER allows switching between different streams.
+        /// <para> The type of failover you choose for this flow. MERGE combines the source streams
+        /// into a single stream, allowing graceful recovery from any single-source loss. FAILOVER
+        /// allows switching between different streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter EgressGatewayBridge_MaxBitrate
         /// <summary>
         /// <para>
-        /// Update an existing egress-type bridge.
+        /// <para>The maximum expected bitrate (in bps). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter IngressGatewayBridge_MaxBitrate
         /// <summary>
         /// <para>
-        /// The maximum expected bitrate (in bps).
+        /// <para> The maximum expected bitrate (in bps).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter IngressGatewayBridge_MaxOutput
         /// <summary>
         /// <para>
-        /// The maximum number of expected outputs.
+        /// <para> The maximum number of expected outputs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourcePriority_PrimarySource
         /// <summary>
         /// <para>
-        /// The name of the source you choose as the
-        /// primary source for this flow.
+        /// <para> The name of the source you choose as the primary source for this flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_RecoveryWindow
         /// <summary>
         /// <para>
-        /// Recovery window time to look for dash-7
-        /// packets
+        /// <para> Recovery window time to look for dash-7 packets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter SourceFailoverConfig_State
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The state of source failover on the flow. If the state is inactive, the flow can have
+        /// only one source. If the state is active, the flow can have one or two sources. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

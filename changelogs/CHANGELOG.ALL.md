@@ -1,4 +1,4 @@
-﻿### 5.0.0-preview003 (2025-03-17 16:54Z)
+### 5.0.0-preview003 (2025-03-17 16:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview003 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
@@ -9,6 +9,155 @@
 ### 5.0.0-preview001 (2024-10-22 14:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview001 at https://github.com/aws/aws-tools-for-powershell/issues/357
+
+### 4.1.782 (2025-03-21 21:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1007.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet New-DZDomain: added parameter SingleSignOn_IdcInstanceArn.
+    * Modified cmdlet Update-DZDomain: added parameter SingleSignOn_IdcInstanceArn.
+  * Amazon Route53 Recovery Control Config
+    * Added cmdlet Update-R53RCCluster leveraging the UpdateCluster service API.
+    * Modified cmdlet New-R53RCCluster: added parameter NetworkType.
+
+### 4.1.781 (2025-03-20 20:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1006.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWFlowOperation leveraging the DescribeFlowOperation service API.
+    * Added cmdlet Get-NWFWFlowOperationList leveraging the ListFlowOperations service API.
+    * Added cmdlet Get-NWFWFlowOperationResultList leveraging the ListFlowOperationResults service API.
+    * Added cmdlet Start-NWFWFlowCapture leveraging the StartFlowCapture service API.
+    * Added cmdlet Start-NWFWFlowFlush leveraging the StartFlowFlush service API.
+
+### 4.1.780 (2025-03-19 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1005.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet New-EMCNFlow: added parameters FlowSize, NdiConfig_MachineName, NdiConfig_NdiDiscoveryServer and NdiConfig_NdiState.
+    * Modified cmdlet Update-EMCNFlow: added parameters NdiConfig_MachineName, NdiConfig_NdiDiscoveryServer and NdiConfig_NdiState.
+    * Modified cmdlet Update-EMCNFlowOutput: added parameters NdiProgramName and NdiSpeedHqQuality.
+
+### 4.1.779 (2025-03-18 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1004.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Modified cmdlet New-ASYNDomainName: added parameter Tag.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSProtectedJob leveraging the GetProtectedJob service API.
+    * Added cmdlet Get-CRSProtectedJobList leveraging the ListProtectedJobs service API.
+    * Added cmdlet Start-CRSProtectedJob leveraging the StartProtectedJob service API.
+    * Added cmdlet Update-CRSProtectedJob leveraging the UpdateProtectedJob service API.
+    * Modified cmdlet New-CRSAnalysisTemplate: added parameters Artifacts_AdditionalArtifact, Artifacts_RoleArn, Location_Bucket, Location_Key and Schema_ReferencedTable.
+    * Modified cmdlet New-CRSCollaboration: added parameters JobCompute_IsResponsible and JobLogStatus.
+    * Modified cmdlet New-CRSConfiguredTable: added parameter SelectedAnalysisMethod.
+    * Modified cmdlet New-CRSMembership: added parameters DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket, DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix, DefaultJobResultConfiguration_RoleArn, JobCompute_IsResponsible and JobLogStatus.
+    * Modified cmdlet Update-CRSConfiguredTable: added parameters AnalysisMethod and SelectedAnalysisMethod.
+    * Modified cmdlet Update-CRSMembership: added parameters DefaultJobResultConfiguration_OutputConfiguration_S3_Bucket, DefaultJobResultConfiguration_OutputConfiguration_S3_KeyPrefix, DefaultJobResultConfiguration_RoleArn and JobLogStatus.
+
+### 4.1.778 (2025-03-17 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1003.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Application Signals
+    * Added cmdlet Get-CWASServiceLevelObjectiveExclusionWindowList leveraging the ListServiceLevelObjectiveExclusionWindows service API.
+    * Added cmdlet Update-CWASUpdateExclusionWindow leveraging the BatchUpdateExclusionWindows service API.
+  * Amazon CloudWatch RUM
+    * Modified cmdlet New-CWRUMAppMonitor: added parameters DomainList, JavaScriptSourceMaps_S3Uri and JavaScriptSourceMaps_Status.
+    * Modified cmdlet Update-CWRUMAppMonitor: added parameters DomainList, JavaScriptSourceMaps_S3Uri and JavaScriptSourceMaps_Status.
+  * Amazon Location Service Maps V2
+    * Modified cmdlet Get-GEOMStaticMap: added parameters ColorScheme, CropLabel, LabelSize, Language, PointsOfInterest and PoliticalView.
+
+### 4.1.777 (2025-03-14 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1002.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUECatalog: added parameter CatalogInput_AllowFullTableExternalDataAccess.
+    * Modified cmdlet Update-GLUECatalog: added parameter CatalogInput_AllowFullTableExternalDataAccess.
+  * Amazon Lake Formation
+    * Modified cmdlet Grant-LKFPermission: added parameter Condition_Expression.
+    * Modified cmdlet New-LKFLakeFormationOptIn: added parameter Condition_Expression.
+    * Modified cmdlet Register-LKFResource: added parameter WithPrivilegedAccess.
+    * Modified cmdlet Remove-LKFLakeFormationOptIn: added parameter Condition_Expression.
+    * Modified cmdlet Revoke-LKFPermission: added parameter Condition_Expression.
+
+### 4.1.776 (2025-03-14 00:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1001.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPBranch: added parameter EnableSkewProtection.
+    * Modified cmdlet Update-AMPBranch: added parameter EnableSkewProtection.
+  * Amazon DataZone
+    * Modified cmdlet Update-DZEnvironment: added parameters BlueprintVersion and UserParameter.
+    * Modified cmdlet Update-DZProject: added parameters ProjectProfileVersion and UserParameter.
+  * Amazon Elemental MediaPackage v2
+    * Added cmdlet Reset-MPV2ChannelState leveraging the ResetChannelState service API.
+    * Added cmdlet Reset-MPV2OriginEndpointState leveraging the ResetOriginEndpointState service API.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet New-IVSRTStage: added parameter HlsConfiguration_TargetSegmentDurationSecond.
+    * Modified cmdlet Update-IVSRTStage: added parameter HlsConfiguration_TargetSegmentDurationSecond.
+
+### 4.1.775 (2025-03-11 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1000.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EC2 Container Registry
+    * Modified cmdlet New-ECRPullThroughCacheRule: added parameters CustomRoleArn and UpstreamRepositoryPrefix.
+    * Modified cmdlet Update-ECRPullThroughCacheRule: added parameter CustomRoleArn.
+
+### 4.1.774 (2025-03-10 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.999.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABAgentActionGroup: added parameter ParentActionGroupSignatureParam.
+    * Modified cmdlet Update-AABAgentActionGroup: added parameter ParentActionGroupSignatureParam.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNContact: added parameter PreviousContactId.
+  * Amazon Pca Connector Ad
+    * Modified cmdlet New-PCAADConnector: added parameter VpcInformation_IpAddressType.
+
+### 4.1.773 (2025-03-07 21:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.998.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABDataSource: added parameters ContextEnrichmentConfiguration_Type, EnrichmentStrategyConfiguration_Method and VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn.
+    * Modified cmdlet New-AABKnowledgeBase: added parameters NeptuneAnalyticsConfiguration_GraphArn, StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField and StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField.
+    * Modified cmdlet Update-AABDataSource: added parameters ContextEnrichmentConfiguration_Type, EnrichmentStrategyConfiguration_Method and VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters NeptuneAnalyticsConfiguration_GraphArn, StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField and StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARInlineAgent: added parameters AgentCollaboration, Collaborator, CollaboratorConfiguration and ConversationHistory_Message.
+  * Amazon Elastic Load Balancing V2
+    * Added cmdlet Edit-ELB2IpPool leveraging the ModifyIpPools service API.
+    * Modified cmdlet New-ELB2LoadBalancer: added parameter IpamPools_Ipv4IpamPoolId.
+
+### 4.1.772 (2025-03-06 21:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.997.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet New-BDRPromptRouter leveraging the CreatePromptRouter service API.
+    * Added cmdlet Remove-BDRPromptRouter leveraging the DeletePromptRouter service API.
+    * Modified cmdlet Get-BDRPromptRouterList: added parameters PassThru and Type.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet New-IVSRTStage: added parameter AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.
+    * Modified cmdlet Update-IVSRTStage: added parameter AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Get-RSDStatementList: added parameters ClusterIdentifier, Database and WorkgroupName.
+  * Amazon WorkSpaces
+    * Added cmdlet Edit-WKSEndpointEncryptionMode leveraging the ModifyEndpointEncryptionMode service API.
+
+### 4.1.771 (2025-03-05 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.996.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataSync
+    * Modified cmdlet Update-DSYNLocationNfs: added parameter ServerHostname.
+    * Modified cmdlet Update-DSYNLocationObjectStorage: added parameter ServerHostname.
+    * Modified cmdlet Update-DSYNLocationSmb: added parameter ServerHostname.
+  * Amazon GameLiftStreams. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GMLS and can be listed using the command 'Get-AWSCmdletName -Service GMLS'.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSWorkspaceAccessProperty: added parameter WorkspaceAccessProperties_DeviceTypeWorkSpacesThinClient.
+
+### 4.1.770 (2025-03-04 23:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.995.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT SiteWise
+    * Modified cmdlet New-IOTSWGateway: added parameters GatewayVersion and GreengrassV2_CoreDeviceOperatingSystem.
+  * Amazon Managed integrations for AWS IoT Device Management. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IOTMI and can be listed using the command 'Get-AWSCmdletName -Service IOTMI'.
+
+### 4.1.769 (2025-03-03 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.994.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch RUM
+    * Added cmdlet Get-CWRUMResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-CWRUMResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-CWRUMResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Write-CWRUMRumEvent: added parameter Alias.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSDataSource: added parameters AudioExtractionConfiguration_AudioExtractionStatus and VideoExtractionConfiguration_VideoExtractionStatus.
+    * Modified cmdlet Update-QBUSDataSource: added parameters AudioExtractionConfiguration_AudioExtractionStatus and VideoExtractionConfiguration_VideoExtractionStatus.
 
 ### 4.1.768 (2025-02-28 22:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.993.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.

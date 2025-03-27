@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.CleanRooms;
 using Amazon.CleanRooms.Model;
 
@@ -42,7 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AnalysisMethod
+        /// <summary>
+        /// <para>
+        /// <para> The analysis method for the configured table.</para><para><c>DIRECT_QUERY</c> allows SQL queries to be run directly on this table.</para><para><c>DIRECT_JOB</c> allows PySpark jobs to be run directly on this table.</para><para><c>MULTIPLE</c> allows both SQL queries and PySpark jobs to be run directly on this
+        /// table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.AnalysisMethod")]
+        public Amazon.CleanRooms.AnalysisMethod AnalysisMethod { get; set; }
+        #endregion
         
         #region Parameter ConfiguredTableIdentifier
         /// <summary>
@@ -82,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter SelectedAnalysisMethod
+        /// <summary>
+        /// <para>
+        /// <para> The selected analysis methods for the table configuration update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SelectedAnalysisMethods")]
+        public System.String[] SelectedAnalysisMethod { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfiguredTable'.
@@ -91,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "ConfiguredTable";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ConfiguredTableIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConfiguredTableIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConfiguredTableIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -103,11 +134,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -124,11 +150,22 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.UpdateConfiguredTableResponse, UpdateCRSConfiguredTableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ConfiguredTableIdentifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnalysisMethod = this.AnalysisMethod;
             context.ConfiguredTableIdentifier = this.ConfiguredTableIdentifier;
             #if MODULAR
             if (this.ConfiguredTableIdentifier == null && ParameterWasBound(nameof(this.ConfiguredTableIdentifier)))
@@ -138,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #endif
             context.Description = this.Description;
             context.Name = this.Name;
+            if (this.SelectedAnalysisMethod != null)
+            {
+                context.SelectedAnalysisMethod = new List<System.String>(this.SelectedAnalysisMethod);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.UpdateConfiguredTableRequest();
             
+            if (cmdletContext.AnalysisMethod != null)
+            {
+                request.AnalysisMethod = cmdletContext.AnalysisMethod;
+            }
             if (cmdletContext.ConfiguredTableIdentifier != null)
             {
                 request.ConfiguredTableIdentifier = cmdletContext.ConfiguredTableIdentifier;
@@ -165,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SelectedAnalysisMethod != null)
+            {
+                request.SelectedAnalysisMethods = cmdletContext.SelectedAnalysisMethod;
             }
             
             CmdletOutput output;
@@ -204,7 +253,13 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "UpdateConfiguredTable");
             try
             {
-                return client.UpdateConfiguredTableAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.UpdateConfiguredTable(request);
+                #elif CORECLR
+                return client.UpdateConfiguredTableAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -221,9 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CleanRooms.AnalysisMethod AnalysisMethod { get; set; }
             public System.String ConfiguredTableIdentifier { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> SelectedAnalysisMethod { get; set; }
             public System.Func<Amazon.CleanRooms.Model.UpdateConfiguredTableResponse, UpdateCRSConfiguredTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfiguredTable;
         }

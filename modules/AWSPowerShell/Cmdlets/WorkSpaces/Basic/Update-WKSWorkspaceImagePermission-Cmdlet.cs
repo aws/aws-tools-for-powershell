@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// In the China (Ningxia) Region, you can copy images only within the same Region.
     /// </para><para>
     /// In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact
-    /// Amazon Web Services Support.
+    /// Amazon Web ServicesSupport.
     /// </para><para>
     /// For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
     /// Share or Unshare a Custom WorkSpaces Image</a>.
@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </para></li><li><para>
     /// Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts isn't
     /// supported at this time in Amazon Web Services GovCloud (US). To share BYOL images
-    /// across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services
-    /// Support.
+    /// across accounts in Amazon Web Services GovCloud (US), contact Amazon Web ServicesSupport.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Update", "WKSWorkspaceImagePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

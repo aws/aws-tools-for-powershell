@@ -29,7 +29,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Deletes a registered passkey, or webauthN, authenticator for the currently signed-in
+    /// Deletes a registered passkey, or WebAuthn, authenticator for the currently signed-in
     /// user.
     /// 
     ///  
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose passkey credential
-        /// you want to delete.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CredentialId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the passkey that you want to delete. Look up registered devices
-        /// with <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListWebAuthnCredentials.html">ListWebAuthnCredentials</a>.</para>
+        /// <para>The unique identifier of the passkey that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

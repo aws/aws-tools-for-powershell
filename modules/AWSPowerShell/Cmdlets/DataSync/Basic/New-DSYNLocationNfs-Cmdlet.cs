@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
-        /// <para>Specifies the Domain Name System (DNS) name or IP version 4 address of the NFS file
-        /// server that your DataSync agent connects to.</para>
+        /// <para>Specifies the DNS name or IP version 4 address of the NFS file server that your DataSync
+        /// agent connects to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

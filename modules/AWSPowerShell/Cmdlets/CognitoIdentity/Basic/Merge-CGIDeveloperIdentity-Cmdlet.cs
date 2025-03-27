@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// the source user, <c>SourceUserIdentifier</c>, and the destination user, <c>DestinationUserIdentifier</c>,
     /// together should not be larger than 20. Otherwise, an exception will be thrown.
     /// </para><para>
-    /// You must use AWS Developer credentials to call this API.
+    /// You must use Amazon Web Services developer credentials to call this operation.
     /// </para>
     /// </summary>
     [Cmdlet("Merge", "CGIDeveloperIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

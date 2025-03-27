@@ -553,6 +553,9 @@
     <Reference Include="AWSSDK.GameLift">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GameLift.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GameLiftStreams">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.GameLiftStreams.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.GeoMaps">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.GeoMaps.dll</HintPath>
     </Reference>
@@ -639,6 +642,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTManagedIntegrations">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTManagedIntegrations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/net472/AWSSDK.IoTSecureTunneling.dll</HintPath>
@@ -1756,6 +1762,9 @@
     <Reference Include="AWSSDK.GameLift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GameLift.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GameLiftStreams">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GameLiftStreams.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.GeoMaps">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.GeoMaps.dll</HintPath>
     </Reference>
@@ -1842,6 +1851,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTManagedIntegrations">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTManagedIntegrations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTSecureTunneling.dll</HintPath>

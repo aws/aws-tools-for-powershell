@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         #region Parameter ProvisionedMemory
         /// <summary>
         /// <para>
-        /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</para><para>Min = 128</para>
+        /// <para>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</para><para>Min = 16</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

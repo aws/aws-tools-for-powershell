@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The ARN of the bridge that you want to update.
+        /// <para> The Amazon Resource Name (ARN) of the bridge that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// The outputs that you want to add to this bridge.
+        /// <para> The outputs that you want to add to this bridge.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

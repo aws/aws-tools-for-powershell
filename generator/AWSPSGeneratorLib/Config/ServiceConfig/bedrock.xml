@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePromptRouter" OutputProperty="PromptRouterArn" Verb="New" Noun="PromptRouter" ShouldProcessTarget="PromptRouterName" PipelineParameter="PromptRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateProvisionedModelThroughput" OutputProperty="ProvisionedModelArn" Verb="New" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteModelInvocationLoggingConfiguration" Verb="Remove" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePromptRouter" Verb="Remove" Noun="PromptRouter" ShouldProcessTarget="PromptRouterArn" PipelineParameter="PromptRouterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,7 +203,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPromptRouters" OutputProperty="PromptRouterSummaries" Verb="Get" Noun="PromptRouterList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPromptRouters" OutputProperty="PromptRouterSummaries" Verb="Get" Noun="PromptRouterList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

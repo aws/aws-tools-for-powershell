@@ -29,11 +29,13 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Updates an identity pool.
+    /// Updates the configuration of an identity pool.
     /// 
-    ///  
-    /// <para>
-    /// You must use AWS Developer credentials to call this API.
+    ///  <important><para>
+    /// If you don't provide a value for a parameter, Amazon Cognito sets it to its default
+    /// value. 
+    /// </para></important><para>
+    /// You must use Amazon Web Services developer credentials to call this operation.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CGIIdentityPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

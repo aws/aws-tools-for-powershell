@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The domain that you want to delete. For custom domains, this is the fully-qualified
-        /// domain name, such as <c>auth.example.com</c>. For Amazon Cognito prefix domains, this
-        /// is the prefix alone, such as <c>auth</c>.</para>
+        /// domain name like <c>auth.example.com</c>. For Amazon Cognito prefix domains, this
+        /// is the prefix alone, like <c>myprefix</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -106,6 +106,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MPV2OriginEndpoint', 
         'Remove-MPV2OriginEndpointPolicy', 
         'Remove-MPV2ResourceTag', 
+        'Reset-MPV2ChannelState', 
+        'Reset-MPV2OriginEndpointState', 
         'Stop-MPV2HarvestJob', 
         'Update-MPV2Channel', 
         'Update-MPV2ChannelGroup', 

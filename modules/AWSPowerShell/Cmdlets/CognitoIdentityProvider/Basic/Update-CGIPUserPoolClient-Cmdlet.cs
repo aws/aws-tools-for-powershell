@@ -29,15 +29,18 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the specified user pool app client with the specified attributes. You can
-    /// get a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.
+    /// Given a user pool app client ID, updates the configuration. To avoid setting parameters
+    /// to Amazon Cognito defaults, construct this API request to pass the existing configuration
+    /// of your app client, modified to include the changes that you want to make.
     /// 
     ///  <important><para>
     /// If you don't provide a value for an attribute, Amazon Cognito sets it to its default
     /// value.
     /// </para></important><para>
-    /// You can also use this operation to enable token revocation for user pool clients.
-    /// For more information about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.
+    /// Unlike app clients created in the console, Amazon Cognito doesn't automatically assign
+    /// a branding style to app clients that you configure with this API operation. Managed
+    /// login and classic hosted UI pages aren't available for your client until after you
+    /// apply a branding style.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -91,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlow
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth flows.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
+        /// <para>The OAuth grant types that you want your app client to generate. To create an app
+        /// client that generates client credentials grants, you must add <c>client_credentials</c>
+        /// as the only allowed OAuth flow.</para><dl><dt>code</dt><dd><para>Use a code grant flow, which provides an authorization code as the response. This
         /// code can be exchanged for access tokens with the <c>/oauth2/token</c> endpoint.</para></dd><dt>implicit</dt><dd><para>Issue the access token (and, optionally, ID token, based on scopes) directly to your
         /// user.</para></dd><dt>client_credentials</dt><dd><para>Issue the access token from the <c>/oauth2/token</c> endpoint directly to a non-person
         /// user using a combination of the client ID and client secret.</para></dd></dl>
@@ -105,12 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlowsUserPoolClient
         /// <summary>
         /// <para>
-        /// <para>Set to <c>true</c> to use OAuth 2.0 features in your user pool app client.</para><para><c>AllowedOAuthFlowsUserPoolClient</c> must be <c>true</c> before you can configure
-        /// the following features in your app client.</para><ul><li><para><c>CallBackURLs</c>: Callback URLs.</para></li><li><para><c>LogoutURLs</c>: Sign-out redirect URLs.</para></li><li><para><c>AllowedOAuthScopes</c>: OAuth 2.0 scopes.</para></li><li><para><c>AllowedOAuthFlows</c>: Support for authorization code, implicit, and client credentials
-        /// OAuth 2.0 grants.</para></li></ul><para>To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console
-        /// or set <c>AllowedOAuthFlowsUserPoolClient</c> to <c>true</c> in a <c>CreateUserPoolClient</c>
-        /// or <c>UpdateUserPoolClient</c> API request. If you don't set a value for <c>AllowedOAuthFlowsUserPoolClient</c>
-        /// in a request with the CLI or SDKs, it defaults to <c>false</c>.</para>
+        /// <para>Set to <c>true</c> to use OAuth 2.0 authorization server features in your app client.</para><para>This parameter must have a value of <c>true</c> before you can configure the following
+        /// features in your app client.</para><ul><li><para><c>CallBackURLs</c>: Callback URLs.</para></li><li><para><c>LogoutURLs</c>: Sign-out redirect URLs.</para></li><li><para><c>AllowedOAuthScopes</c>: OAuth 2.0 scopes.</para></li><li><para><c>AllowedOAuthFlows</c>: Support for authorization code, implicit, and client credentials
+        /// OAuth 2.0 grants.</para></li></ul><para>To use authorization server features, configure one of these features in the Amazon
+        /// Cognito console or set <c>AllowedOAuthFlowsUserPoolClient</c> to <c>true</c> in a
+        /// <c>CreateUserPoolClient</c> or <c>UpdateUserPoolClient</c> API request. If you don't
+        /// set a value for <c>AllowedOAuthFlowsUserPoolClient</c> in a request with the CLI or
+        /// SDKs, it defaults to <c>false</c>. When <c>false</c>, only SDK-based API sign-in is
+        /// permitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,10 +127,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthScope
         /// <summary>
         /// <para>
-        /// <para>The allowed OAuth scopes. Possible values provided by OAuth are <c>phone</c>, <c>email</c>,
-        /// <c>openid</c>, and <c>profile</c>. Possible values provided by Amazon Web Services
-        /// are <c>aws.cognito.signin.user.admin</c>. Custom scopes created in Resource Servers
-        /// are also supported.</para>
+        /// <para>The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app
+        /// client to authorize access with. Scopes govern access control to user pool self-service
+        /// API operations, user data from the <c>userInfo</c> endpoint, and third-party APIs.
+        /// Scope values include <c>phone</c>, <c>email</c>, <c>openid</c>, and <c>profile</c>.
+        /// The <c>aws.cognito.signin.user.admin</c> scope authorizes user self-service operations.
+        /// Custom scopes with resource servers authorize access to external APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,7 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed redirect (callback) URLs for the IdPs.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
+        /// <para>A list of allowed redirect, or callback, URLs for managed login authentication. These
+        /// URLs are the paths where you want to send your users' browsers after they complete
+        /// authentication with managed login or a third-party IdP. Typically, callback URLs are
+        /// the home of an application that uses OAuth or OIDC libraries to process authentication
+        /// outcomes.</para><para>A redirect URI must meet the following requirements:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server. Amazon Cognito doesn't accept authorization
+        /// requests with <c>redirect_uri</c> values that aren't in the list of <c>CallbackURLs</c>
+        /// that you provide in this parameter.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
         /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes
         /// only.</para><para>App callback URLs such as <c>myapp://example</c> are also supported.</para>
         /// </para>
@@ -183,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The ID of the client associated with the user pool.</para>
+        /// <para>The ID of the app client that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -200,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientName
         /// <summary>
         /// <para>
-        /// <para>The client name from the update user pool client request.</para>
+        /// <para>A friendly name for the app client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,9 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter DefaultRedirectURI
         /// <summary>
         /// <para>
-        /// <para>The default redirect URI. Must be in the <c>CallbackURLs</c> list.</para><para>A redirect URI must:</para><ul><li><para>Be an absolute URI.</para></li><li><para>Be registered with the authorization server.</para></li><li><para>Not include a fragment component.</para></li></ul><para>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection
-        /// Endpoint</a>.</para><para>Amazon Cognito requires HTTPS over HTTP except for <c>http://localhost</c> for testing
-        /// purposes only.</para><para>App callback URLs such as <c>myapp://example</c> are also supported.</para>
+        /// <para>The default redirect URI. In app clients with one assigned IdP, replaces <c>redirect_uri</c>
+        /// in authentication requests. Must be in the <c>CallbackURLs</c> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,12 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EnablePropagateAdditionalUserContextData
         /// <summary>
         /// <para>
-        /// <para>Activates the propagation of additional user context data. For more information about
-        /// propagation of user context data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html">
-        /// Adding advanced security to a user pool</a>. If you don’t include this parameter,
-        /// you can't send device fingerprint information, including source IP address, to Amazon
-        /// Cognito advanced security. You can only activate <c>EnablePropagateAdditionalUserContextData</c>
-        /// in an app client that has a client secret.</para>
+        /// <para>When <c>true</c>, your application can include additional <c>UserContextData</c> in
+        /// authentication requests. This data includes the IP address, and contributes to analysis
+        /// by threat protection features. For more information about propagation of user context
+        /// data, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint">Adding
+        /// session data to API requests</a>. If you don’t include this parameter, you can't send
+        /// the source IP address to Amazon Cognito threat protection features. You can only activate
+        /// <c>EnablePropagateAdditionalUserContextData</c> in an app client that has a client
+        /// secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EnableTokenRevocation
         /// <summary>
         /// <para>
-        /// <para>Activates or deactivates token revocation. For more information about revoking tokens,
-        /// see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</para>
+        /// <para>Activates or deactivates <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html">token
+        /// revocation</a> in the target app client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,17 +264,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ExplicitAuthFlow
         /// <summary>
         /// <para>
-        /// <para>The authentication flows that you want your user pool client to support. For each
-        /// app client in your user pool, you can sign in your users with any combination of one
-        /// or more flows, including with a user name and Secure Remote Password (SRP), a user
-        /// name and password, or a custom authentication process that you define with Lambda
-        /// functions.</para><note><para>If you don't specify a value for <c>ExplicitAuthFlows</c>, your user client supports
-        /// <c>ALLOW_REFRESH_TOKEN_AUTH</c>, <c>ALLOW_USER_SRP_AUTH</c>, and <c>ALLOW_CUSTOM_AUTH</c>.</para></note><para>Valid values include:</para><ul><li><para><c>ALLOW_USER_AUTH</c>: Enable selection-based sign-in with <c>USER_AUTH</c>. This
+        /// <para>The <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html">authentication
+        /// flows</a> that you want your user pool client to support. For each app client in your
+        /// user pool, you can sign in your users with any combination of one or more flows, including
+        /// with a user name and Secure Remote Password (SRP), a user name and password, or a
+        /// custom authentication process that you define with Lambda functions.</para><note><para>If you don't specify a value for <c>ExplicitAuthFlows</c>, your app client supports
+        /// <c>ALLOW_REFRESH_TOKEN_AUTH</c>, <c>ALLOW_USER_SRP_AUTH</c>, and <c>ALLOW_CUSTOM_AUTH</c>.
+        /// </para></note><para>The values for authentication flow options include the following.</para><ul><li><para><c>ALLOW_USER_AUTH</c>: Enable selection-based sign-in with <c>USER_AUTH</c>. This
         /// setting covers username-password, secure remote password (SRP), passwordless, and
         /// passkey authentication. This authentiation flow can do username-password and SRP authentication
         /// without other <c>ExplicitAuthFlows</c> permitting them. For example users can complete
         /// an SRP challenge through <c>USER_AUTH</c> without the flow <c>USER_SRP_AUTH</c> being
-        /// active for the app client. This flow doesn't include <c>CUSTOM_AUTH</c>. </para></li><li><para><c>ALLOW_ADMIN_USER_PASSWORD_AUTH</c>: Enable admin based user password authentication
+        /// active for the app client. This flow doesn't include <c>CUSTOM_AUTH</c>. </para><para>To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+        /// Essentials tier</a> or higher.</para></li><li><para><c>ALLOW_ADMIN_USER_PASSWORD_AUTH</c>: Enable admin based user password authentication
         /// flow <c>ADMIN_USER_PASSWORD_AUTH</c>. This setting replaces the <c>ADMIN_NO_SRP_AUTH</c>
         /// setting. With this authentication flow, your app passes a user name and password to
         /// Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol
@@ -318,7 +336,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
-        /// <para>A list of allowed logout URLs for the IdPs.</para>
+        /// <para>A list of allowed logout URLs for managed login authentication. When you pass <c>logout_uri</c>
+        /// and <c>client_id</c> parameters to <c>/logout</c>, Amazon Cognito signs out your user
+        /// and redirects them to the logout URL. This parameter describes the URLs that you want
+        /// to be the permitted targets of <c>logout_uri</c>. A typical use of these URLs is when
+        /// a user selects "Sign out" and you redirect them to your public homepage. For more
+        /// information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout
+        /// endpoint</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,14 +352,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PreventUserExistenceError
         /// <summary>
         /// <para>
-        /// <para>Errors and responses that you want Amazon Cognito APIs to return during authentication,
-        /// account confirmation, and password recovery when the user doesn't exist in the user
-        /// pool. When set to <c>ENABLED</c> and the user doesn't exist, authentication returns
-        /// an error indicating either the username or password was incorrect. Account confirmation
-        /// and password recovery return a response indicating a code was sent to a simulated
-        /// destination. When set to <c>LEGACY</c>, those APIs return a <c>UserNotFoundException</c>
-        /// exception if the user doesn't exist in the user pool.</para><para>Valid values include:</para><ul><li><para><c>ENABLED</c> - This prevents user existence-related errors.</para></li><li><para><c>LEGACY</c> - This represents the early behavior of Amazon Cognito where user existence
-        /// related errors aren't prevented.</para></li></ul><para>Defaults to <c>LEGACY</c> when you don't provide a value.</para>
+        /// <para>When <c>ENABLED</c>, suppresses messages that might indicate a valid user exists when
+        /// someone attempts sign-in. This parameters sets your preference for the errors and
+        /// responses that you want Amazon Cognito APIs to return during authentication, account
+        /// confirmation, and password recovery when the user doesn't exist in the user pool.
+        /// When set to <c>ENABLED</c> and the user doesn't exist, authentication returns an error
+        /// indicating either the username or password was incorrect. Account confirmation and
+        /// password recovery return a response indicating a code was sent to a simulated destination.
+        /// When set to <c>LEGACY</c>, those APIs return a <c>UserNotFoundException</c> exception
+        /// if the user doesn't exist in the user pool.</para><para>Defaults to <c>LEGACY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,11 +374,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The list of user attributes that you want your app client to have read access to.
         /// After your user authenticates in your app, their access token authorizes them to read
-        /// their own attribute value for any attribute in this list. An example of this kind
-        /// of activity is when your user selects a link to view their profile information. Your
-        /// app makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a>
-        /// API request to retrieve and display your user's profile data.</para><para>When you don't specify the <c>ReadAttributes</c> for your app client, your app can
-        /// read the values of <c>email_verified</c>, <c>phone_number_verified</c>, and the Standard
+        /// their own attribute value for any attribute in this list.</para><para>When you don't specify the <c>ReadAttributes</c> for your app client, your app can
+        /// read the values of <c>email_verified</c>, <c>phone_number_verified</c>, and the standard
         /// attributes of your user pool. When your user pool app client has read access to these
         /// default attributes, <c>ReadAttributes</c> doesn't return any information. Amazon Cognito
         /// only populates <c>ReadAttributes</c> in the API response if you have specified your
@@ -415,11 +437,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// client. The following are supported: <c>COGNITO</c>, <c>Facebook</c>, <c>Google</c>,
         /// <c>SignInWithApple</c>, and <c>LoginWithAmazon</c>. You can also specify the names
         /// that you configured for the SAML and OIDC IdPs in your user pool, for example <c>MySAMLIdP</c>
-        /// or <c>MyOIDCIdP</c>.</para><para>This setting applies to providers that you can access with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
-        /// login</a>. The removal of <c>COGNITO</c> from this list doesn't prevent authentication
-        /// operations for local users with the user pools API in an Amazon Web Services SDK.
-        /// The only way to prevent API-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF
-        /// rule</a>.</para>
+        /// or <c>MyOIDCIdP</c>.</para><para>This parameter sets the IdPs that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed
+        /// login</a> will display on the login page for your app client. The removal of <c>COGNITO</c>
+        /// from this list doesn't prevent authentication operations for local users with the
+        /// user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication
+        /// is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF
+        /// rule</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -441,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool where you want to update the user pool client.</para>
+        /// <para>The ID of the user pool where you want to update the app client.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -460,10 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The list of user attributes that you want your app client to have write access to.
         /// After your user authenticates in your app, their access token authorizes them to set
-        /// or modify their own attribute value for any attribute in this list. An example of
-        /// this kind of activity is when you present your user with a form to update their profile
-        /// information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a>
-        /// API request and sets <c>family_name</c> to the new value. </para><para>When you don't specify the <c>WriteAttributes</c> for your app client, your app can
+        /// or modify their own attribute value for any attribute in this list.</para><para>When you don't specify the <c>WriteAttributes</c> for your app client, your app can
         /// write the values of the Standard attributes of your user pool. When your user pool
         /// has write access to these default attributes, <c>WriteAttributes</c> doesn't return
         /// any information. Amazon Cognito only populates <c>WriteAttributes</c> in the API response

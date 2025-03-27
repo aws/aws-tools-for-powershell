@@ -184,12 +184,14 @@ $CWAS_SelectCompleters = {
 
 $CWAS_SelectMap = @{
     "Select"=@("Get-CWASBatchServiceLevelObjectiveBudgetReport",
+               "Update-CWASUpdateExclusionWindow",
                "New-CWASServiceLevelObjective",
                "Remove-CWASServiceLevelObjective",
                "Get-CWASService",
                "Get-CWASServiceLevelObjective",
                "Get-CWASServiceDependencyList",
                "Get-CWASServiceDependentList",
+               "Get-CWASServiceLevelObjectiveExclusionWindowList",
                "Get-CWASServiceLevelObjectiveList",
                "Get-CWASServiceOperationList",
                "Get-CWASServiceList",

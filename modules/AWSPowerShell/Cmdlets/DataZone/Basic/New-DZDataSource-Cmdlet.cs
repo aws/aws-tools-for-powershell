@@ -297,7 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the data source.</para>
+        /// <para>The type of the data source. In Amazon DataZone, you can use data sources to import
+        /// technical metadata of assets (data) from the source databases or data warehouses into
+        /// Amazon DataZone. In the current release of Amazon DataZone, you can create and run
+        /// data sources for Amazon Web Services Glue and Amazon Redshift.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

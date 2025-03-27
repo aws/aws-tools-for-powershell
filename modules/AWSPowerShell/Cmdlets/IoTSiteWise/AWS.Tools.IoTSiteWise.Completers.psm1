@@ -107,6 +107,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.CoreDeviceOperatingSystem
+        "New-IOTSWGateway/GreengrassV2_CoreDeviceOperatingSystem"
+        {
+            $v = "LINUX_AARCH64","LINUX_AMD64","WINDOWS_AMD64"
+            break
+        }
+
         # Amazon.IoTSiteWise.DatasetSourceFormat
         {
             ($_ -eq "New-IOTSWDataset/DatasetSource_SourceFormat") -Or
@@ -304,6 +311,7 @@ $IOTSW_map = @{
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
     "File_Type"=@("Update-IOTSWPortal")
     "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
+    "GreengrassV2_CoreDeviceOperatingSystem"=@("New-IOTSWGateway")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
     "MatchForVersionType"=@("New-IOTSWAssetModelCompositeModel","Remove-IOTSWAssetModel","Remove-IOTSWAssetModelCompositeModel","Update-IOTSWAssetModel","Update-IOTSWAssetModelCompositeModel")

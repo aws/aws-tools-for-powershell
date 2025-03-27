@@ -29,7 +29,13 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Provides a list of analysis segments for a real-time analysis session.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of analysis segments for a real-time chat analysis session. This API
+    /// supports CHAT channels only. 
+    /// 
+    ///  <important><para>
+    /// This API does not support VOICE. If you attempt to use it for VOICE, an <c>InvalidRequestException</c>
+    /// occurs.
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNRealtimeContactAnalysisSegmentsV2List")]
     [OutputType("Amazon.Connect.Model.ListRealtimeContactAnalysisSegmentsV2Response")]

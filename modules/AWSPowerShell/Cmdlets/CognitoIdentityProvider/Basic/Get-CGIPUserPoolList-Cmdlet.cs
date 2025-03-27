@@ -29,7 +29,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the user pools associated with an Amazon Web Services account.
+    /// Lists user pools and their details in the current Amazon Web Services account.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results you want the request to return when listing the user
-        /// pools.</para>
+        /// <para>The maximum number of user pools that you want Amazon Cognito to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -73,8 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous call to this operation, which can
-        /// be used to return the next set of items in the list.</para>
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

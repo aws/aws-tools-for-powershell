@@ -31,12 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.NFM
     /// <summary>
     /// Return the data for a query with the Network Flow Monitor query interface. Specify
     /// the query that you want to return results for by providing a query ID and a scope
-    /// ID. This query returns data for the top contributors for workload insights. Workload
-    /// insights provide a high level view of network flow performance data collected by agents
-    /// for a scope.
+    /// ID.
     /// 
     ///  
     /// <para>
+    /// This query returns the data for top contributors for workload insights for a specific
+    /// scope. Workload insights provide a high level view of network flow performance data
+    /// collected by agents for a scope. To return just the top contributors, see <c>GetQueryResultsWorkloadInsightsTopContributors</c>.
+    /// </para><para>
     /// Create a query ID for this call by calling the corresponding API call to start the
     /// query, <c>StartQueryWorkloadInsightsTopContributorsData</c>. Use the scope ID that
     /// was returned for your account by <c>CreateScope</c>.

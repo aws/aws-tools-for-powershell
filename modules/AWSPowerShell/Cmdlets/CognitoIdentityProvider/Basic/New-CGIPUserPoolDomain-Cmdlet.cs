@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// A user pool domain hosts managed login, an authorization server and web server for
     /// authentication in your application. This operation creates a new user pool prefix
-    /// or custom domain and sets the managed login branding version. Set the branding version
-    /// to <c>1</c> for hosted UI (classic) or <c>2</c> for managed login. When you choose
-    /// a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
+    /// domain or custom domain and sets the managed login branding version. Set the branding
+    /// version to <c>1</c> for hosted UI (classic) or <c>2</c> for managed login. When you
+    /// choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
     /// Amazon Web Services Region in your request.
     /// 
     ///  
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The domain string. For custom domains, this is the fully-qualified domain name, such
         /// as <c>auth.example.com</c>. For prefix domains, this is the prefix alone, such as
-        /// <c>myprefix</c>. A prefix value of <c>myprefix</c> for a user pool in the us-east-1
+        /// <c>myprefix</c>. A prefix value of <c>myprefix</c> for a user pool in the <c>us-east-1</c>
         /// Region results in a domain of <c>myprefix.auth.us-east-1.amazoncognito.com</c>.</para>
         /// </para>
         /// </summary>
