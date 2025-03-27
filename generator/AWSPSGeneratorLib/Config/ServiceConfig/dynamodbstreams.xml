@@ -2,12 +2,12 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>streams.dynamodb</C2jFilename>
-    <AssemblyName>DynamoDBv2</AssemblyName>
-    <ServiceNounPrefix>DDB</ServiceNounPrefix>
-    <ServiceName>Amazon DynamoDB</ServiceName>
+    <AssemblyName>DynamoDBStreams</AssemblyName>
+    <ServiceNounPrefix>DDBS</ServiceNounPrefix>
+    <ServiceName>Amazon DynamoDB Streams</ServiceName>
     <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
-    <ServiceModuleGuid />
+    <ServiceModuleGuid>1fedf5a4-7e66-4cb7-9b26-0fb671bb9484</ServiceModuleGuid>
     <PipelineParameter>TableName</PipelineParameter>
     <VerbMappings />
     <NounMappings />
