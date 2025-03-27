@@ -29,8 +29,8 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Enables additional CloudWatch metrics for the specified CloudFront distribution. The
-    /// additional metrics incur an additional cost.
+    /// Enables or disables additional Amazon CloudWatch metrics for the specified CloudFront
+    /// distribution. The additional metrics incur an additional cost.
     /// 
     ///  
     /// <para>

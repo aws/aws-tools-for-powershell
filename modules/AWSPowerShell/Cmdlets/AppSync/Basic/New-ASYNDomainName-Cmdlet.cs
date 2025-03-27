@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DomainNameConfig'.
@@ -151,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -237,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String CertificateArn { get; set; }
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.AppSync.Model.CreateDomainNameResponse, NewASYNDomainNameCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainNameConfig;
         }

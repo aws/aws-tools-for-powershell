@@ -29,7 +29,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Changes the password for a specified user in a user pool.
+    /// Changes the password for the currently signed-in user.
     /// 
     ///  
     /// <para>

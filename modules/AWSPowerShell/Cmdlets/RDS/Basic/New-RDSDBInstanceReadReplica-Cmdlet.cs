@@ -649,7 +649,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The storage type to associate with the read replica.</para><para>If you specify <c>io1</c>, <c>io2</c>, or <c>gp3</c>, you must also include a value
-        /// for the <c>Iops</c> parameter.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c> if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para>
+        /// for the <c>Iops</c> parameter.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c> if the <c>Iops</c> parameter is specified. Otherwise, <c>gp3</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

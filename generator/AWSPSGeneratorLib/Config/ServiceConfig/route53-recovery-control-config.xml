@@ -110,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateControlPanel" OutputProperty="ControlPanel" Verb="Update" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

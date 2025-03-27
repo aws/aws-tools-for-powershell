@@ -90,6 +90,16 @@ $CWRUM_Completers = {
             break
         }
 
+        # Amazon.CloudWatchRUM.DeobfuscationStatus
+        {
+            ($_ -eq "New-CWRUMAppMonitor/JavaScriptSourceMaps_Status") -Or
+            ($_ -eq "Update-CWRUMAppMonitor/JavaScriptSourceMaps_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CloudWatchRUM.MetricDestination
         {
             ($_ -eq "Add-CWRUMCreateRumMetricDefinition/Destination") -Or
@@ -115,6 +125,7 @@ $CWRUM_Completers = {
 $CWRUM_map = @{
     "CustomEvents_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
     "Destination"=@("Add-CWRUMCreateRumMetricDefinition","Get-CWRUMGetRumMetricDefinition","Remove-CWRUMDeleteRumMetricDefinition","Remove-CWRUMRumMetricsDestination","Update-CWRUMRumMetricDefinition","Write-CWRUMRumMetricsDestination")
+    "JavaScriptSourceMaps_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
 }
 
 _awsArgumentCompleterRegistration $CWRUM_Completers $CWRUM_map
@@ -172,12 +183,15 @@ $CWRUM_SelectMap = @{
                "Get-CWRUMGetRumMetricDefinition",
                "New-CWRUMAppMonitor",
                "Remove-CWRUMAppMonitor",
+               "Remove-CWRUMResourcePolicy",
                "Remove-CWRUMRumMetricsDestination",
                "Get-CWRUMAppMonitor",
                "Get-CWRUMAppMonitorData",
+               "Get-CWRUMResourcePolicy",
                "Get-CWRUMAppMonitorList",
                "Get-CWRUMRumMetricsDestinationList",
                "Get-CWRUMResourceTag",
+               "Write-CWRUMResourcePolicy",
                "Write-CWRUMRumEvent",
                "Write-CWRUMRumMetricsDestination",
                "Add-CWRUMResourceTag",

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to remove a VPC interface
-        /// from.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to remove a VPC interface
+        /// from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter VpcInterfaceName
         /// <summary>
         /// <para>
-        /// The name of the VPC interface that you
-        /// want to remove.
+        /// <para> The name of the VPC interface that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -83,6 +83,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.DomainVersion DomainVersion { get; set; }
         #endregion
         
+        #region Parameter SingleSignOn_IdcInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IDC instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SingleSignOn_IdcInstanceArn { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyIdentifier
         /// <summary>
         /// <para>
@@ -231,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.ServiceRole = this.ServiceRole;
+            context.SingleSignOn_IdcInstanceArn = this.SingleSignOn_IdcInstanceArn;
             context.SingleSignOn_Type = this.SingleSignOn_Type;
             context.SingleSignOn_UserAssignment = this.SingleSignOn_UserAssignment;
             if (this.Tag != null)
@@ -289,6 +300,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
              // populate SingleSignOn
             var requestSingleSignOnIsNull = true;
             request.SingleSignOn = new Amazon.DataZone.Model.SingleSignOn();
+            System.String requestSingleSignOn_singleSignOn_IdcInstanceArn = null;
+            if (cmdletContext.SingleSignOn_IdcInstanceArn != null)
+            {
+                requestSingleSignOn_singleSignOn_IdcInstanceArn = cmdletContext.SingleSignOn_IdcInstanceArn;
+            }
+            if (requestSingleSignOn_singleSignOn_IdcInstanceArn != null)
+            {
+                request.SingleSignOn.IdcInstanceArn = requestSingleSignOn_singleSignOn_IdcInstanceArn;
+                requestSingleSignOnIsNull = false;
+            }
             Amazon.DataZone.AuthType requestSingleSignOn_singleSignOn_Type = null;
             if (cmdletContext.SingleSignOn_Type != null)
             {
@@ -380,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String KmsKeyIdentifier { get; set; }
             public System.String Name { get; set; }
             public System.String ServiceRole { get; set; }
+            public System.String SingleSignOn_IdcInstanceArn { get; set; }
             public Amazon.DataZone.AuthType SingleSignOn_Type { get; set; }
             public Amazon.DataZone.UserAssignment SingleSignOn_UserAssignment { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

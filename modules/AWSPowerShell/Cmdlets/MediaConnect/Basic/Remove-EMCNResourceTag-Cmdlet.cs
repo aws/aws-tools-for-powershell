@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) that identifies
-        /// the AWS Elemental MediaConnect resource from which to delete tags.
+        /// <para> The Amazon Resource Name (ARN) of the resource that you want to untag. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// The keys of the tags to be removed.
+        /// <para>The keys of the tags to be removed. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

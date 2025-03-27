@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to add outputs to.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to add outputs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// A list of outputs that you want to add.
+        /// <para> A list of outputs that you want to add to the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-ELB2Tag', 
         'Add-ELB2TrustStoreRevocation', 
         'Edit-ELB2CapacityReservation', 
+        'Edit-ELB2IpPool', 
         'Edit-ELB2Listener', 
         'Edit-ELB2ListenerAttribute', 
         'Edit-ELB2LoadBalancerAttribute', 

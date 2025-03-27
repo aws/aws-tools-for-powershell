@@ -56,6 +56,9 @@
                 <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType" NewName="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType" />
                 <Param Name="DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl" NewName="DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl" />
                 <Param Name="DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl" NewName="DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl" />
+                <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" Alias="BedrockFoundationModelConfiguration_ModelArn" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" NewName="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" Alias="CrawlerConfiguration_UserAgentHeader" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -84,6 +87,11 @@
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField" Alias="FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_VectorField" Alias="FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" Alias="FieldMapping_TextField" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
             </Params>
@@ -331,6 +339,9 @@
                 <Param Name="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType" NewName="DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType" />
                 <Param Name="DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl" NewName="DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl" />
                 <Param Name="DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl" NewName="DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl" />
+                <Param Name="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ContextEnrichmentConfiguration_BedrockFoundationModelConfiguration_ModelArn" />
+                <Param Name="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" NewName="VectorIngestionConfiguration_ParsingConfiguration_BedrockFoundationModelConfiguration_ModelArn" Alias="BedrockFoundationModelConfiguration_ModelArn" />
+                <Param Name="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" NewName="DataSourceConfiguration_WebConfiguration_CrawlerConfiguration_UserAgentHeader" Alias="CrawlerConfiguration_UserAgentHeader" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -355,6 +366,11 @@
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField" Alias="FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_VectorField" Alias="FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" Alias="FieldMapping_TextField" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
             </Params>

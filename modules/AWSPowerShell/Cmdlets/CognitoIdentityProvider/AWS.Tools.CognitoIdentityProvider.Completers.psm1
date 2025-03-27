@@ -228,7 +228,7 @@ $CGIP_Completers = {
             ($_ -eq "Update-CGIPUserPool/PreTokenGenerationConfig_LambdaVersion")
         }
         {
-            $v = "V1_0","V2_0"
+            $v = "V1_0","V2_0","V3_0"
             break
         }
 

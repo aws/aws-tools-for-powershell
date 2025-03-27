@@ -29,7 +29,11 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates IdP information for a user pool.
+    /// Modifies the configuration and trust relationship between a third-party identity provider
+    /// (IdP) and a user pool. Amazon Cognito accepts sign-in with third-party identity providers
+    /// through managed login and OIDC relying-party libraries. For more information, see
+    /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party
+    /// IdP sign-in</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributeMapping
         /// <summary>
         /// <para>
-        /// <para>The IdP attribute mapping to be changed.</para>
+        /// <para>A mapping of IdP attributes to standard and custom user pool attributes. Specify a
+        /// user pool attribute as the key of the key-value pair, and the IdP attribute claim
+        /// name as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +71,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter IdpIdentifier
         /// <summary>
         /// <para>
-        /// <para>A list of IdP identifiers.</para>
+        /// <para>An array of IdP identifiers, for example <c>"IdPIdentifiers": [ "MyIdP", "MyIdP2"
+        /// ]</c>. Identifiers are friendly names that you can pass in the <c>idp_identifier</c>
+        /// query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize
+        /// endpoint</a> to silently redirect to sign-in with the associated IdP. Identifiers
+        /// in a domain format also enable the use of <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html">email-address
+        /// matching with SAML providers</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The IdP name.</para>
+        /// <para>The name of the IdP that you want to update. You can pass the identity provider name
+        /// in the <c>identity_provider</c> query parameter of requests to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html">Authorize
+        /// endpoint</a> to silently redirect to sign-in with the associated IdP.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The Id of the user pool where you want to update your IdP.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

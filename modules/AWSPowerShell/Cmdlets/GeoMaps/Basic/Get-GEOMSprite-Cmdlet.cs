@@ -29,7 +29,7 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// Returns the map's sprites.
+    /// <c>GetSprites</c> returns the map's sprites.
     /// </summary>
     [Cmdlet("Get", "GEOMSprite")]
     [OutputType("Amazon.GeoMaps.Model.GetSpritesResponse")]

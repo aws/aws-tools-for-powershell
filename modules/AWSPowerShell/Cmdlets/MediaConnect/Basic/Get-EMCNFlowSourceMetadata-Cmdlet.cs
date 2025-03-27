@@ -29,8 +29,9 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Displays details of the flow's source stream. The response contains information about
-    /// the contents of the stream and its programs.
+    /// The <c>DescribeFlowSourceMetadata</c> API is used to view information about the flow's
+    /// source transport stream and programs. This API displays status messages about the
+    /// flow's source as well as details about the program's video, audio, and other data.
     /// </summary>
     [Cmdlet("Get", "EMCNFlowSourceMetadata")]
     [OutputType("Amazon.MediaConnect.Model.DescribeFlowSourceMetadataResponse")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the flow.
+        /// <para> The Amazon Resource Name (ARN) of the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

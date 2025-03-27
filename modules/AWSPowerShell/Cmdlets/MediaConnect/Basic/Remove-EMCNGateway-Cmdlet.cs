@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter GatewayArn
         /// <summary>
         /// <para>
-        /// The ARN of the gateway that you want to delete.
+        /// <para> The Amazon Resource Name (ARN) of the gateway that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

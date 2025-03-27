@@ -46,11 +46,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Amazon Cognito doesn't require that you pass all parameters in one request and preserves
     /// existing style settings that you don't specify. If your request is larger than 2MB,
     /// separate it into multiple requests, each with a size smaller than the limit. 
-    /// </para><para>
-    /// As a best practice, modify the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBrandingByClient.html">DescribeManagedLoginBrandingByClient</a>
-    /// into the request parameters for this operation. To get all settings, set <c>ReturnMergedResources</c>
-    /// to <c>true</c>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managed-login-brandingdesigner.html#branding-designer-api">API
-    /// and SDK operations for managed login branding</a>.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize
@@ -75,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Asset
         /// <summary>
         /// <para>
-        /// <para>An array of image files that you want to apply to roles like backgrounds, logos, and
-        /// icons. Each object must also indicate whether it is for dark mode, light mode, or
-        /// browser-adaptive mode.</para>
+        /// <para>An array of image files that you want to apply to functions like backgrounds, logos,
+        /// and icons. Each object must also indicate whether it is for dark mode, light mode,
+        /// or browser-adaptive mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client that you want to create the branding style for. Each style is permanently
-        /// linked to an app client. To change the style for an app client, delete the existing
-        /// style with <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteManagedLoginBranding.html">DeleteManagedLoginBranding</a>
-        /// and create a new one.</para>
+        /// <para>The app client that you want to create the branding style for. Each style is linked
+        /// to an app client until you delete it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

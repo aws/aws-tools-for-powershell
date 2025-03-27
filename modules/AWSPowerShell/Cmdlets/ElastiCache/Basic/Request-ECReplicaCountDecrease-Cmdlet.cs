@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of <c>ConfigureShard</c> objects that can be used to configure each shard in
-        /// a Valkey or Redis OSS (cluster mode enabled) replication group. The <c>ConfigureShard</c>
-        /// has three members: <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
+        /// a Valkey or Redis OSS replication group. The <c>ConfigureShard</c> has three members:
+        /// <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -119,6 +119,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CRSPrivacyBudgetList', 
         'Get-CRSPrivacyBudgetTemplate', 
         'Get-CRSPrivacyBudgetTemplateList', 
+        'Get-CRSProtectedJob', 
+        'Get-CRSProtectedJobList', 
         'Get-CRSProtectedQuery', 
         'Get-CRSProtectedQueryList', 
         'Get-CRSResourceTag', 
@@ -150,6 +152,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CRSMembership', 
         'Remove-CRSPrivacyBudgetTemplate', 
         'Remove-CRSResourceTag', 
+        'Start-CRSProtectedJob', 
         'Start-CRSProtectedQuery', 
         'Test-CRSPrivacyImpact', 
         'Update-CRSAnalysisTemplate', 
@@ -163,6 +166,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CRSIdNamespaceAssociation', 
         'Update-CRSMembership', 
         'Update-CRSPrivacyBudgetTemplate', 
+        'Update-CRSProtectedJob', 
         'Update-CRSProtectedQuery')
 
     # Variables to export from this module

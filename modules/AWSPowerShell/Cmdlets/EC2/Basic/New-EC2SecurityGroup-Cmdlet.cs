@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length. Cannot start with <c>sg-</c>.</para><para>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>The name of the security group. Names are case-insensitive and must be unique within
+        /// the VPC.</para><para>Constraints: Up to 255 characters in length. Can't start with <c>sg-</c>.</para><para>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
         /// </para>
         /// </summary>
         #if !MODULAR

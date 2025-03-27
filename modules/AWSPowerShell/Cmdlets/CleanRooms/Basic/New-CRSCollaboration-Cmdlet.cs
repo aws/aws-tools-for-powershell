@@ -129,10 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter CreatorMLMemberAbilities_CustomMLMemberAbility
         /// <summary>
         /// <para>
-        /// <para>The custom ML member abilities for a collaboration member. The inference feature is
-        /// not available in the custom ML modeling beta.</para><para>Custom ML modeling is in beta release and is subject to change. For beta terms and
-        /// conditions, see <i>Betas and Previews</i> in the <a href="https://aws.amazon.com/service-terms/">Amazon
-        /// Web Services Service Terms</a>.</para>
+        /// <para>The custom ML member abilities for a collaboration member. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,6 +152,22 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter JobCompute_IsResponsible
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the collaboration creator has configured the collaboration member
+        /// to pay for query and job compute costs (<c>TRUE</c>) or has not configured the collaboration
+        /// member to pay for query and job compute costs (<c>FALSE</c>).</para><para>Exactly one member can be configured to pay for query and job compute costs. An error
+        /// is returned if the collaboration creator sets a <c>TRUE</c> value for more than one
+        /// member in the collaboration. </para><para>An error is returned if the collaboration creator sets a <c>FALSE</c> value for the
+        /// member who can run queries and jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CreatorPaymentConfiguration_JobCompute_IsResponsible")]
+        public System.Boolean? JobCompute_IsResponsible { get; set; }
         #endregion
         
         #region Parameter ModelInference_IsResponsible
@@ -208,6 +221,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.Boolean? QueryCompute_IsResponsible { get; set; }
         #endregion
         
+        #region Parameter JobLogStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether job logs are enabled for this collaboration. </para><para>When <c>ENABLED</c>, Clean Rooms logs details about jobs run within this collaboration;
+        /// those logs can be viewed in Amazon CloudWatch Logs. The default value is <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.CollaborationJobLogStatus")]
+        public Amazon.CleanRooms.CollaborationJobLogStatus JobLogStatus { get; set; }
+        #endregion
+        
         #region Parameter Member
         /// <summary>
         /// <para>
@@ -258,7 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter QueryLogStatus
         /// <summary>
         /// <para>
-        /// <para>An indicator as to whether query logging has been enabled or disabled for the collaboration.</para>
+        /// <para>An indicator as to whether query logging has been enabled or disabled for the collaboration.</para><para>When <c>ENABLED</c>, Clean Rooms logs details about queries run within this collaboration
+        /// and those logs can be viewed in Amazon CloudWatch Logs. The default value is <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -354,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 context.CreatorMLMemberAbilities_CustomMLMemberAbility = new List<System.String>(this.CreatorMLMemberAbilities_CustomMLMemberAbility);
             }
+            context.JobCompute_IsResponsible = this.JobCompute_IsResponsible;
             context.ModelInference_IsResponsible = this.ModelInference_IsResponsible;
             context.ModelTraining_IsResponsible = this.ModelTraining_IsResponsible;
             context.QueryCompute_IsResponsible = this.QueryCompute_IsResponsible;
@@ -368,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.JobLogStatus = this.JobLogStatus;
             if (this.Member != null)
             {
                 context.Member = new List<Amazon.CleanRooms.Model.MemberSpecification>(this.Member);
@@ -451,6 +479,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate CreatorPaymentConfiguration
             var requestCreatorPaymentConfigurationIsNull = true;
             request.CreatorPaymentConfiguration = new Amazon.CleanRooms.Model.PaymentConfiguration();
+            Amazon.CleanRooms.Model.JobComputePaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute = null;
+            
+             // populate JobCompute
+            var requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobComputeIsNull = true;
+            requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute = new Amazon.CleanRooms.Model.JobComputePaymentConfig();
+            System.Boolean? requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute_jobCompute_IsResponsible = null;
+            if (cmdletContext.JobCompute_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute_jobCompute_IsResponsible = cmdletContext.JobCompute_IsResponsible.Value;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute_jobCompute_IsResponsible != null)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute.IsResponsible = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute_jobCompute_IsResponsible.Value;
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobComputeIsNull = false;
+            }
+             // determine if requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute should be set to null
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobComputeIsNull)
+            {
+                requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute = null;
+            }
+            if (requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute != null)
+            {
+                request.CreatorPaymentConfiguration.JobCompute = requestCreatorPaymentConfiguration_creatorPaymentConfiguration_JobCompute;
+                requestCreatorPaymentConfigurationIsNull = false;
+            }
             Amazon.CleanRooms.Model.QueryComputePaymentConfig requestCreatorPaymentConfiguration_creatorPaymentConfiguration_QueryCompute = null;
             
              // populate QueryCompute
@@ -599,6 +652,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.JobLogStatus != null)
+            {
+                request.JobLogStatus = cmdletContext.JobLogStatus;
+            }
             if (cmdletContext.Member != null)
             {
                 request.Members = cmdletContext.Member;
@@ -674,6 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String CreatorDisplayName { get; set; }
             public List<System.String> CreatorMemberAbility { get; set; }
             public List<System.String> CreatorMLMemberAbilities_CustomMLMemberAbility { get; set; }
+            public System.Boolean? JobCompute_IsResponsible { get; set; }
             public System.Boolean? ModelInference_IsResponsible { get; set; }
             public System.Boolean? ModelTraining_IsResponsible { get; set; }
             public System.Boolean? QueryCompute_IsResponsible { get; set; }
@@ -682,6 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.Boolean? DataEncryptionMetadata_AllowJoinsOnColumnsWithDifferentName { get; set; }
             public System.Boolean? DataEncryptionMetadata_PreserveNull { get; set; }
             public System.String Description { get; set; }
+            public Amazon.CleanRooms.CollaborationJobLogStatus JobLogStatus { get; set; }
             public List<Amazon.CleanRooms.Model.MemberSpecification> Member { get; set; }
             public System.String Name { get; set; }
             public Amazon.CleanRooms.CollaborationQueryLogStatus QueryLogStatus { get; set; }

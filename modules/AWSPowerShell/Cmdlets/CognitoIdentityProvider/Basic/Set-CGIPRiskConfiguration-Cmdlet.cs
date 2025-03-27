@@ -29,13 +29,25 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Configures actions on detected risks. To delete the risk configuration for <c>UserPoolId</c>
-    /// or <c>ClientId</c>, pass null values for all four configuration types.
+    /// Configures threat protection for a user pool or app client. Sets configuration for
+    /// the following.
     /// 
-    ///  
-    /// <para>
-    /// To activate Amazon Cognito advanced security features, update the user pool to include
-    /// the <c>UserPoolAddOns</c> key<c>AdvancedSecurityMode</c>.
+    ///  <ul><li><para>
+    /// Responses to risks with adaptive authentication
+    /// </para></li><li><para>
+    /// Responses to vulnerable passwords with compromised-credentials detection
+    /// </para></li><li><para>
+    /// Notifications to users who have had risky activity detected
+    /// </para></li><li><para>
+    /// IP-address denylist and allowlist
+    /// </para></li></ul><para>
+    /// To set the risk configuration for the user pool to defaults, send this request with
+    /// only the <c>UserPoolId</c> parameter. To reset the threat protection settings of an
+    /// app client to be inherited from the user pool, send <c>UserPoolId</c> and <c>ClientId</c>
+    /// parameters only. To change threat protection to audit-only or off, update the value
+    /// of <c>UserPoolAddOns</c> in an <c>UpdateUserPool</c> request. To activate this setting,
+    /// your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
+    /// Plus tier</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "CGIPRiskConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID. If <c>ClientId</c> is null, then the risk configuration is mapped
-        /// to <c>userPoolId</c>. When the client ID is null, the same risk configuration is applied
-        /// to all the clients in the userPool.</para><para>Otherwise, <c>ClientId</c> is mapped to the client. When the client ID isn't null,
-        /// the user pool configuration is overridden and the risk configuration for the client
-        /// is used instead.</para>
+        /// <para>The ID of the app client where you want to set a risk configuration. If <c>ClientId</c>
+        /// is null, then the risk configuration is mapped to <c>UserPoolId</c>. When the client
+        /// ID is null, the same risk configuration is applied to all the clients in the userPool.</para><para>When you include a <c>ClientId</c> parameter, Amazon Cognito maps the configuration
+        /// to the app client. When you include both <c>ClientId</c> and <c>UserPoolId</c>, Amazon
+        /// Cognito maps the configuration to the app client only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,7 +357,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID. </para>
+        /// <para>The ID of the user pool where you want to set a risk configuration. If you include
+        /// <c>UserPoolId</c> in your request, don't include <c>ClientId</c>. When the client
+        /// ID is null, the same risk configuration is applied to all the clients in the userPool.
+        /// When you include both <c>ClientId</c> and <c>UserPoolId</c>, Amazon Cognito maps the
+        /// configuration to the app client only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

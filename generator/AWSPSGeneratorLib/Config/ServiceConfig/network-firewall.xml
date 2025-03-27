@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowOperation" OutputProperty="*" Verb="Get" Noun="FlowOperation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLoggingConfiguration" OutputProperty="*" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +114,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFlowOperationResults" OutputProperty="*" Verb="Get" Noun="FlowOperationResultList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlowOperations" OutputProperty="FlowOperations" Verb="Get" Noun="FlowOperationList" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -127,6 +139,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAnalysisReport" OutputProperty="AnalysisReportId" Verb="Start" Noun="AnalysisReport" ShouldProcessTarget="" PipelineParameter="AnalysisType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFlowCapture" OutputProperty="*" Verb="Start" Noun="FlowCapture" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFlowFlush" OutputProperty="*" Verb="Start" Noun="FlowFlush" ShouldProcessTarget="FirewallArn" PipelineParameter="FirewallArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

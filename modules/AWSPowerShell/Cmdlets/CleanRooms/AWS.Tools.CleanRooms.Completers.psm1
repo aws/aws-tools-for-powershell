@@ -97,14 +97,17 @@ $CRS_Completers = {
         # Amazon.CleanRooms.AnalysisFormat
         "New-CRSAnalysisTemplate/Format"
         {
-            $v = "SQL"
+            $v = "PYSPARK_1_0","SQL"
             break
         }
 
         # Amazon.CleanRooms.AnalysisMethod
-        "New-CRSConfiguredTable/AnalysisMethod"
         {
-            $v = "DIRECT_QUERY"
+            ($_ -eq "New-CRSConfiguredTable/AnalysisMethod") -Or
+            ($_ -eq "Update-CRSConfiguredTable/AnalysisMethod")
+        }
+        {
+            $v = "DIRECT_JOB","DIRECT_QUERY","MULTIPLE"
             break
         }
 
@@ -119,6 +122,13 @@ $CRS_Completers = {
         "New-CRSCollaboration/AnalyticsEngine"
         {
             $v = "CLEAN_ROOMS_SQL","SPARK"
+            break
+        }
+
+        # Amazon.CleanRooms.CollaborationJobLogStatus
+        "New-CRSCollaboration/JobLogStatus"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -170,6 +180,16 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.MembershipJobLogStatus
+        {
+            ($_ -eq "New-CRSMembership/JobLogStatus") -Or
+            ($_ -eq "Update-CRSMembership/JobLogStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CleanRooms.MembershipQueryLogStatus
         {
             ($_ -eq "New-CRSMembership/QueryLogStatus") -Or
@@ -206,6 +226,20 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.ProtectedJobStatus
+        "Get-CRSProtectedJobList/Status"
+        {
+            $v = "CANCELLED","CANCELLING","FAILED","STARTED","SUBMITTED","SUCCESS"
+            break
+        }
+
+        # Amazon.CleanRooms.ProtectedJobType
+        "Start-CRSProtectedJob/Type"
+        {
+            $v = "PYSPARK"
+            break
+        }
+
         # Amazon.CleanRooms.ProtectedQueryStatus
         "Get-CRSProtectedQueryList/Status"
         {
@@ -238,6 +272,13 @@ $CRS_Completers = {
             break
         }
 
+        # Amazon.CleanRooms.TargetProtectedJobStatus
+        "Update-CRSProtectedJob/TargetStatus"
+        {
+            $v = "CANCELLED"
+            break
+        }
+
         # Amazon.CleanRooms.TargetProtectedQueryStatus
         "Update-CRSProtectedQuery/TargetStatus"
         {
@@ -263,21 +304,22 @@ $CRS_Completers = {
 $CRS_map = @{
     "Aggregation_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
-    "AnalysisMethod"=@("New-CRSConfiguredTable")
+    "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
     "AnalyticsEngine"=@("New-CRSCollaboration")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Format"=@("New-CRSAnalysisTemplate")
+    "JobLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "List_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "PrivacyBudgetType"=@("Get-CRSCollaborationPrivacyBudgetList","Get-CRSPrivacyBudgetList","New-CRSPrivacyBudgetTemplate","Update-CRSPrivacyBudgetTemplate")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
     "S3_ResultFormat"=@("New-CRSMembership","Start-CRSProtectedQuery","Update-CRSMembership")
     "SchemaType"=@("Get-CRSSchemaList")
-    "Status"=@("Get-CRSMembershipList","Get-CRSProtectedQueryList")
-    "TargetStatus"=@("Update-CRSProtectedQuery")
-    "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedQuery")
+    "Status"=@("Get-CRSMembershipList","Get-CRSProtectedJobList","Get-CRSProtectedQueryList")
+    "TargetStatus"=@("Update-CRSProtectedJob","Update-CRSProtectedQuery")
+    "Type"=@("Get-CRSSchemaAnalysisRule","Start-CRSProtectedJob","Start-CRSProtectedQuery")
     "Worker_Type"=@("Start-CRSProtectedQuery")
 }
 
@@ -372,6 +414,7 @@ $CRS_SelectMap = @{
                "Get-CRSIdNamespaceAssociation",
                "Get-CRSMembership",
                "Get-CRSPrivacyBudgetTemplate",
+               "Get-CRSProtectedJob",
                "Get-CRSProtectedQuery",
                "Get-CRSSchema",
                "Get-CRSSchemaAnalysisRule",
@@ -391,11 +434,13 @@ $CRS_SelectMap = @{
                "Get-CRSMembershipList",
                "Get-CRSPrivacyBudgetList",
                "Get-CRSPrivacyBudgetTemplateList",
+               "Get-CRSProtectedJobList",
                "Get-CRSProtectedQueryList",
                "Get-CRSSchemaList",
                "Get-CRSResourceTag",
                "Invoke-CRSIdMappingTable",
                "Test-CRSPrivacyImpact",
+               "Start-CRSProtectedJob",
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",
                "Remove-CRSResourceTag",
@@ -410,6 +455,7 @@ $CRS_SelectMap = @{
                "Update-CRSIdNamespaceAssociation",
                "Update-CRSMembership",
                "Update-CRSPrivacyBudgetTemplate",
+               "Update-CRSProtectedJob",
                "Update-CRSProtectedQuery")
 }
 

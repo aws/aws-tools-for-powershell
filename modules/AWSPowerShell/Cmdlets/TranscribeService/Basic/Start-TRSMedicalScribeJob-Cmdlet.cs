@@ -186,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Specify one of the following templates to use for the clinical note summary. The default
         /// is <c>HISTORY_AND_PHYSICAL</c>.</para><ul><li><para>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation.
-        /// Sections include Chief Complaint, History of Present Illness, Review of Systems, Past
-        /// Medical History, Assessment, and Plan.</para></li><li><para>GIRPP: Provides summaries based on the patients progress toward goals. Sections include
-        /// Goal, Intervention, Response, Progress, and Plan.</para></li></ul>
+        /// Examples of sections include Chief Complaint, History of Present Illness, Review of
+        /// Systems, Past Medical History, Assessment, and Plan. </para></li><li><para>GIRPP: Provides summaries based on the patients progress toward goals. Examples of
+        /// sections include Goal, Intervention, Response, Progress, and Plan.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

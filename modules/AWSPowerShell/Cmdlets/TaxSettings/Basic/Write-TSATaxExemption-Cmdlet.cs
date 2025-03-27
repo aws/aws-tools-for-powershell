@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         #region Parameter ExemptionType
         /// <summary>
         /// <para>
-        /// <para>The exemption type. </para>
+        /// <para>The exemption type. Use the supported tax exemption type description. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

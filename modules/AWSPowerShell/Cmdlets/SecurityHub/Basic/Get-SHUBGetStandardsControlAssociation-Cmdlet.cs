@@ -30,7 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// For a batch of security controls and standards, identifies whether each control is
-    /// currently enabled or disabled in a standard.
+    /// currently enabled or disabled in a standard. 
+    /// 
+    ///  
+    /// <para>
+    ///  Calls to this operation return a <c>RESOURCE_NOT_FOUND_EXCEPTION</c> error when the
+    /// standard subscription for the association has a <c>NOT_READY_FOR_UPDATES</c> value
+    /// for <c>StandardsControlsUpdatable</c>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SHUBGetStandardsControlAssociation")]
     [OutputType("Amazon.SecurityHub.Model.BatchGetStandardsControlAssociationsResponse")]

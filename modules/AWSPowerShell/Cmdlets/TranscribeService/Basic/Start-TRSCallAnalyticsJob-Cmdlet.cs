@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// into an Amazon S3 bucket; you can then specify the Amazon S3 location of the file
     /// using the <c>Media</c> parameter.
     /// </para><para>
-    /// Note that job queuing is enabled by default for Call Analytics jobs.
+    /// Job queuing is available for Call Analytics jobs. If you pass a <c>DataAccessRoleArn</c>
+    /// in your request and you exceed your Concurrent Job Limit, your job will automatically
+    /// be added to a queue to be processed once your concurrent job count is below the limit.
     /// </para><para>
     /// You must include the following parameters in your <c>StartCallAnalyticsJob</c> request:
     /// </para><ul><li><para><c>region</c>: The Amazon Web Services Region where you are making your request.
@@ -61,8 +63,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// Transcribe endpoints and quotas</a>.
     /// </para></li><li><para><c>CallAnalyticsJobName</c>: A custom name that you create for your transcription
     /// job that's unique within your Amazon Web Services account.
-    /// </para></li><li><para><c>DataAccessRoleArn</c>: The Amazon Resource Name (ARN) of an IAM role that has
-    /// permissions to access the Amazon S3 bucket that contains your input files.
     /// </para></li><li><para><c>Media</c> (<c>MediaFileUri</c> or <c>RedactedMediaFileUri</c>): The Amazon S3
     /// location of your media file.
     /// </para></li></ul><note><para>

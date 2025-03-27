@@ -29,7 +29,9 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Lists the resource servers for a user pool.
+    /// Given a user pool ID, returns all resource servers and their details. For more information
+    /// about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access
+    /// control with resource servers</a>.
     /// 
     ///  <note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool.</para>
+        /// <para>The ID of the user pool where you want to list resource servers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of resource servers to return.</para>
+        /// <para>The maximum number of resource servers that you want Amazon Cognito to return in the
+        /// response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -89,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token.</para>
+        /// <para>This API operation returns a limited number of results. The pagination token is an
+        /// identifier that you can present in an additional API request with the same parameters.
+        /// When you include the pagination token, Amazon Cognito returns the next set of items
+        /// after the current list. Subsequent requests return a new pagination token. By use
+        /// of this token, you can paginate through the full list of items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

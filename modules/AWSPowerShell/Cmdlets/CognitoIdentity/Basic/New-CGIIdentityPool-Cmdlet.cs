@@ -30,16 +30,20 @@ namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
     /// Creates a new identity pool. The identity pool is a store of user identity information
-    /// that is specific to your AWS account. The keys for <c>SupportedLoginProviders</c>
+    /// that is specific to your Amazon Web Services account. The keys for <c>SupportedLoginProviders</c>
     /// are as follows:
     /// 
     ///  <ul><li><para>
     /// Facebook: <c>graph.facebook.com</c></para></li><li><para>
     /// Google: <c>accounts.google.com</c></para></li><li><para>
+    /// Sign in With Apple: <c>appleid.apple.com</c></para></li><li><para>
     /// Amazon: <c>www.amazon.com</c></para></li><li><para>
     /// Twitter: <c>api.twitter.com</c></para></li><li><para>
-    /// Digits: <c>www.digits.com</c></para></li></ul><para>
-    /// You must use AWS Developer credentials to call this API.
+    /// Digits: <c>www.digits.com</c></para></li></ul><important><para>
+    /// If you don't provide a value for a parameter, Amazon Cognito sets it to its default
+    /// value. 
+    /// </para></important><para>
+    /// You must use Amazon Web Services developer credentials to call this operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CGIIdentityPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

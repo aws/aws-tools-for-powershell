@@ -29,7 +29,7 @@ using Amazon.GeoMaps.Model;
 namespace Amazon.PowerShell.Cmdlets.GEOM
 {
     /// <summary>
-    /// Returns the map's glyphs.
+    /// <c>GetGlyphs</c> returns the map's glyphs.
     /// </summary>
     [Cmdlet("Get", "GEOMGlyph")]
     [OutputType("Amazon.GeoMaps.Model.GetGlyphsResponse")]

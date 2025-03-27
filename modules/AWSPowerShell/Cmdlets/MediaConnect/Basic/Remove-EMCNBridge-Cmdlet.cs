@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The ARN of the bridge that you want to delete.
+        /// <para> The Amazon Resource Name (ARN) of the bridge that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

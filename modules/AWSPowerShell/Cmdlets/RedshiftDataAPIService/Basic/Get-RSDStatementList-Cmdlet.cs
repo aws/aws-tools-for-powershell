@@ -34,6 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// 
     ///  
     /// <para>
+    /// When you use identity-enhanced role sessions to list statements, you must provide
+    /// either the <c>cluster-identifier</c> or <c>workgroup-name</c> parameter. This ensures
+    /// that the IdC user can only access the Amazon Redshift IdC applications they are assigned.
+    /// For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html">
+    /// Trusted identity propagation overview</a>.
+    /// </para><para>
     /// For more information about the Amazon Redshift Data API and CLI usage examples, see
     /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
     /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
@@ -51,6 +57,28 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter ClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The cluster identifier. Only statements that ran on this cluster are returned. When
+        /// providing <c>ClusterIdentifier</c>, then <c>WorkgroupName</c> can't be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Database
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database when listing statements run against a <c>ClusterIdentifier</c>
+        /// or <c>WorkgroupName</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Database { get; set; }
+        #endregion
         
         #region Parameter RoleLevel
         /// <summary>
@@ -89,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.RedshiftDataAPIService.StatusString")]
         public Amazon.RedshiftDataAPIService.StatusString Status { get; set; }
+        #endregion
+        
+        #region Parameter WorkgroupName
+        /// <summary>
+        /// <para>
+        /// <para>The serverless workgroup name or Amazon Resource Name (ARN). Only statements that
+        /// ran on this workgroup are returned. When providing <c>WorkgroupName</c>, then <c>ClusterIdentifier</c>
+        /// can't be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkgroupName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -149,11 +189,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
                 context.Select = CreateSelectDelegate<Amazon.RedshiftDataAPIService.Model.ListStatementsResponse, GetRSDStatementListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClusterIdentifier = this.ClusterIdentifier;
+            context.Database = this.Database;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.RoleLevel = this.RoleLevel;
             context.StatementName = this.StatementName;
             context.Status = this.Status;
+            context.WorkgroupName = this.WorkgroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +213,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             // create request
             var request = new Amazon.RedshiftDataAPIService.Model.ListStatementsRequest();
             
+            if (cmdletContext.ClusterIdentifier != null)
+            {
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.Database != null)
+            {
+                request.Database = cmdletContext.Database;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -189,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.WorkgroupName != null)
+            {
+                request.WorkgroupName = cmdletContext.WorkgroupName;
             }
             
             CmdletOutput output;
@@ -245,11 +300,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClusterIdentifier { get; set; }
+            public System.String Database { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Boolean? RoleLevel { get; set; }
             public System.String StatementName { get; set; }
             public Amazon.RedshiftDataAPIService.StatusString Status { get; set; }
+            public System.String WorkgroupName { get; set; }
             public System.Func<Amazon.RedshiftDataAPIService.Model.ListStatementsResponse, GetRSDStatementListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Statements;
         }

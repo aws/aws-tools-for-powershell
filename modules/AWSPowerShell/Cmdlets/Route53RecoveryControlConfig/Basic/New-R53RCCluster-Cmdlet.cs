@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53RecoveryControlConfig.NetworkType")]
+        public Amazon.Route53RecoveryControlConfig.NetworkType NetworkType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -142,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkType = this.NetworkType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -173,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -235,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         {
             public System.String ClientToken { get; set; }
             public System.String ClusterName { get; set; }
+            public Amazon.Route53RecoveryControlConfig.NetworkType NetworkType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Route53RecoveryControlConfig.Model.CreateClusterResponse, NewR53RCClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;

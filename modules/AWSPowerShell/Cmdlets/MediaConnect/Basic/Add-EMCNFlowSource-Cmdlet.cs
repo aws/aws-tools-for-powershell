@@ -29,7 +29,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Adds Sources to flow
+    /// Adds sources to a flow.
     /// </summary>
     [Cmdlet("Add", "EMCNFlowSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.AddFlowSourcesResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The flow that you want to mutate.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// A list of sources that you want to add.
+        /// <para> A list of sources that you want to add to the flow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

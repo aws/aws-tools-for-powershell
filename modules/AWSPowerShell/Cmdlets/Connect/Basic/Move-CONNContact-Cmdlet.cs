@@ -29,17 +29,17 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Transfers contacts from one agent or queue to another agent or queue at any point
-    /// after a contact is created. You can transfer a contact to another queue by providing
-    /// the flow which orchestrates the contact to the destination queue. This gives you more
-    /// control over contact handling and helps you adhere to the service level agreement
-    /// (SLA) guaranteed to your customers.
+    /// Transfers <c>TASK</c> or <c>EMAIL</c> contacts from one agent or queue to another
+    /// agent or queue at any point after a contact is created. You can transfer a contact
+    /// to another queue by providing the flow which orchestrates the contact to the destination
+    /// queue. This gives you more control over contact handling and helps you adhere to the
+    /// service level agreement (SLA) guaranteed to your customers.
     /// 
     ///  
     /// <para>
     /// Note the following requirements:
     /// </para><ul><li><para>
-    /// Transfer is supported for only <c>TASK</c> contacts.
+    /// Transfer is supported for only <c>TASK</c> and <c>EMAIL</c> contacts.
     /// </para></li><li><para>
     /// Do not use both <c>QueueId</c> and <c>UserId</c> in the same call.
     /// </para></li><li><para>

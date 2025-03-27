@@ -90,15 +90,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWRUMAppMonitorData', 
         'Get-CWRUMAppMonitorList', 
         'Get-CWRUMGetRumMetricDefinition', 
+        'Get-CWRUMResourcePolicy', 
         'Get-CWRUMResourceTag', 
         'Get-CWRUMRumMetricsDestinationList', 
         'New-CWRUMAppMonitor', 
         'Remove-CWRUMAppMonitor', 
         'Remove-CWRUMDeleteRumMetricDefinition', 
+        'Remove-CWRUMResourcePolicy', 
         'Remove-CWRUMResourceTag', 
         'Remove-CWRUMRumMetricsDestination', 
         'Update-CWRUMAppMonitor', 
         'Update-CWRUMRumMetricDefinition', 
+        'Write-CWRUMResourcePolicy', 
         'Write-CWRUMRumEvent', 
         'Write-CWRUMRumMetricsDestination')
 

@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// <summary>
         /// <para>
         /// <para>Disable the /debug/pprof HTTP endpoint. This endpoint provides runtime profiling data
-        /// and can be helpful when debugging.</para><para>Default: false</para>
+        /// and can be helpful when debugging.</para><para>Default: true</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

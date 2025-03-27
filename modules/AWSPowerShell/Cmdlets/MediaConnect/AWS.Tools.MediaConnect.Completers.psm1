@@ -130,6 +130,13 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.FlowSize
+        "New-EMCNFlow/FlowSize"
+        {
+            $v = "LARGE","MEDIUM"
+            break
+        }
+
         # Amazon.MediaConnect.MaintenanceDay
         {
             ($_ -eq "New-EMCNFlow/Maintenance_MaintenanceDay") -Or
@@ -144,6 +151,16 @@ $EMCN_Completers = {
         "Update-EMCNFlowMediaStream/MediaStreamType"
         {
             $v = "ancillary-data","audio","video"
+            break
+        }
+
+        # Amazon.MediaConnect.NdiState
+        {
+            ($_ -eq "New-EMCNFlow/NdiConfig_NdiState") -Or
+            ($_ -eq "Update-EMCNFlow/NdiConfig_NdiState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -162,7 +179,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "cdi","fujitsu-qos","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
+            $v = "cdi","fujitsu-qos","ndi-speed-hq","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
             break
         }
 
@@ -221,12 +238,14 @@ $EMCN_map = @{
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "FlowSize"=@("New-EMCNFlow")
     "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
     "Fmtp_Range"=@("Update-EMCNFlowMediaStream")
     "Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
     "Fmtp_Tc"=@("Update-EMCNFlowMediaStream")
     "Maintenance_MaintenanceDay"=@("New-EMCNFlow","Update-EMCNFlow")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
+    "NdiConfig_NdiState"=@("New-EMCNFlow","Update-EMCNFlow")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
     "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
     "OutputStatus"=@("Update-EMCNFlowOutput")

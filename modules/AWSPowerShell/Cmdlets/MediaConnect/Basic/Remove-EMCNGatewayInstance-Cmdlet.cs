@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ForceRemove
         /// <summary>
         /// <para>
-        /// Force the deregistration of an instance. Force will
-        /// deregister an instance, even if there are bridges running on it.
+        /// <para> Force the deregistration of an instance. Force will deregister an instance, even
+        /// if there are bridges running on it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter GatewayInstanceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the
-        /// gateway that contains the instance that you want to deregister.
+        /// <para> The Amazon Resource Name (ARN) of the gateway that contains the instance that you
+        /// want to deregister.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -134,6 +134,13 @@ $PCAAD_Completers = {
             break
         }
 
+        # Amazon.PcaConnectorAd.IpAddressType
+        "New-PCAADConnector/VpcInformation_IpAddressType"
+        {
+            $v = "DUALSTACK","IPV4"
+            break
+        }
+
         # Amazon.PcaConnectorAd.KeySpec
         {
             ($_ -eq "New-PCAADTemplate/Definition_TemplateV2_PrivateKeyAttributes_KeySpec") -Or
@@ -221,6 +228,7 @@ $PCAAD_map = @{
     "Definition_TemplateV4_PrivateKeyAttributes_KeySpec"=@("New-PCAADTemplate","Update-PCAADTemplate")
     "Definition_TemplateV4_PrivateKeyAttributes_KeyUsageProperty_PropertyType"=@("New-PCAADTemplate","Update-PCAADTemplate")
     "Definition_TemplateV4_PrivateKeyFlags_ClientVersion"=@("New-PCAADTemplate","Update-PCAADTemplate")
+    "VpcInformation_IpAddressType"=@("New-PCAADConnector")
 }
 
 _awsArgumentCompleterRegistration $PCAAD_Completers $PCAAD_map

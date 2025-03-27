@@ -29,7 +29,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Retrieves information about the log anomaly detector that you specify.
+    /// Retrieves information about the log anomaly detector that you specify. The KMS key
+    /// ARN detected is valid.
     /// </summary>
     [Cmdlet("Get", "CWLLogAnomalyDetector")]
     [OutputType("Amazon.CloudWatchLogs.Model.GetLogAnomalyDetectorResponse")]

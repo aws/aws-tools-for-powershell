@@ -517,7 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para><para>Constraints:</para><ul><li><para>If you specify <c>io1</c>, <c>io2</c>, or <c>gp3</c>, you must also include a value
+        /// <para>The storage type to associate with the DB instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp3</c>.</para><para>Constraints:</para><ul><li><para>If you specify <c>io1</c>, <c>io2</c>, or <c>gp3</c>, you must also include a value
         /// for the <c>Iops</c> parameter.</para></li></ul>
         /// </para>
         /// </summary>

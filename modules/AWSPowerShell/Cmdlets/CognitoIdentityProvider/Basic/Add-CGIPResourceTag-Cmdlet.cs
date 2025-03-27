@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the user pool.</para>
+        /// <para>An array of tag keys and values that you want to assign to the user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

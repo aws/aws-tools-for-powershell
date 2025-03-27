@@ -30,22 +30,39 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Lists log events from the specified log group. You can list all the log events or
-    /// filter the results using a filter pattern, a time range, and the name of the log stream.
+    /// filter the results using one or more of the following:
     /// 
-    ///  
-    /// <para>
+    ///  <ul><li><para>
+    /// A filter pattern
+    /// </para></li><li><para>
+    /// A time range
+    /// </para></li><li><para>
+    /// The log stream name, or a log stream name prefix that matches mutltiple log streams
+    /// </para></li></ul><para>
     /// You must have the <c>logs:FilterLogEvents</c> permission to perform this operation.
     /// </para><para>
     /// You can specify the log group to search by using either <c>logGroupIdentifier</c>
     /// or <c>logGroupName</c>. You must include one of these two parameters, but you can't
     /// include both. 
+    /// </para><para><c>FilterLogEvents</c> is a paginated operation. Each page returned can contain up
+    /// to 1 MB of log events or up to 10,000 log events. A returned page might only be partially
+    /// full, or even empty. For example, if the result of a query would return 15,000 log
+    /// events, the first page isn't guaranteed to have 10,000 log events even if they all
+    /// fit into 1 MB.
     /// </para><para>
-    /// By default, this operation returns as many log events as can fit in 1 MB (up to 10,000
-    /// log events) or all the events found within the specified time range. If the results
-    /// include a token, that means there are more log events available. You can get additional
-    /// results by specifying the token in a subsequent call. This operation can return empty
-    /// results while there are more log events available through the token.
-    /// </para><para>
+    /// Partially full or empty pages don't necessarily mean that pagination is finished.
+    /// If the results include a <c>nextToken</c>, there might be more log events available.
+    /// You can return these additional log events by providing the nextToken in a subsequent
+    /// <c>FilterLogEvents</c> operation. If the results don't include a <c>nextToken</c>,
+    /// then pagination is finished. 
+    /// </para><note><para>
+    /// If you set <c>startFromHead</c> to <c>true</c> and you don’t include <c>endTime</c>
+    /// in your request, you can end up in a situation where the pagination doesn't terminate.
+    /// This can happen when the new log events are being added to the target log streams
+    /// faster than they are being read. This situation is a good use case for the CloudWatch
+    /// Logs <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">Live
+    /// Tail</a> feature.
+    /// </para></note><para>
     /// The returned log events are sorted by event timestamp, the timestamp when the event
     /// was ingested by CloudWatch Logs, and the ID of the <c>PutLogEvents</c> request.
     /// </para><para>
@@ -53,7 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// in a monitoring account and view data from the linked source accounts. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
     /// cross-account observability</a>.
-    /// </para><br/><br/>In the AWS.Tools.CloudWatchLogs module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// If you are using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html">log
+    /// transformation</a>, the <c>FilterLogEvents</c> operation returns only the original
+    /// versions of log events, before they were transformed. To view the transformed versions,
+    /// you must use a <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">CloudWatch
+    /// Logs query.</a></para></note><br/><br/>In the AWS.Tools.CloudWatchLogs module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLFilteredLogEvent")]
     [OutputType("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse")]

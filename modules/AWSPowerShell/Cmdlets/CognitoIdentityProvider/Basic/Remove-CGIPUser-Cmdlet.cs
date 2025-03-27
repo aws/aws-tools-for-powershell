@@ -29,8 +29,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Self-deletes a user profile. A deleted user profile can no longer be used to sign
-    /// in and can't be restored.
+    /// Deletes the profile of the currently signed-in user. A deleted user profile can no
+    /// longer be used to sign in and can't be restored.
     /// 
     ///  
     /// <para>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>A valid access token that Amazon Cognito issued to the user whose user profile you
-        /// want to delete.</para>
+        /// <para>A valid access token that Amazon Cognito issued to the currently signed-in user. Must
+        /// include a scope claim for <c>aws.cognito.signin.user.admin</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

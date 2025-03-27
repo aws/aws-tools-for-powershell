@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter BridgeArn
         /// <summary>
         /// <para>
-        /// The ARN of the bridge that you want to update.
+        /// <para> The Amazon Resource Name (ARN) of the bridge that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkOutput_IpAddress
         /// <summary>
         /// <para>
-        /// The network output IP Address.
+        /// <para>The network output IP Address. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkOutput_NetworkName
         /// <summary>
         /// <para>
-        /// The network output's gateway network name.
+        /// <para>The network output's gateway network name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter OutputName
         /// <summary>
         /// <para>
-        /// The name of the bridge output that you want
-        /// to update.
+        /// <para> Tname of the output that you want to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkOutput_Port
         /// <summary>
         /// <para>
-        /// The network output port.
+        /// <para>The network output port. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkOutput_Protocol
         /// <summary>
         /// <para>
-        /// The network output protocol.
+        /// <para>The network output protocol. </para><note><para>Elemental MediaConnect no longer supports the Fujitsu QoS protocol. This reference
+        /// is maintained for legacy purposes only.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter NetworkOutput_Ttl
         /// <summary>
         /// <para>
-        /// The network output TTL.
+        /// <para>The network output TTL. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

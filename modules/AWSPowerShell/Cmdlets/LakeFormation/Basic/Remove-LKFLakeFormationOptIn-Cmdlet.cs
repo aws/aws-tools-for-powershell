@@ -197,6 +197,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String[] ColumnWildcard_ExcludedColumnName { get; set; }
         #endregion
         
+        #region Parameter Condition_Expression
+        /// <summary>
+        /// <para>
+        /// <para>An expression written based on the Cedar Policy Language used to match the principal
+        /// attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Condition_Expression { get; set; }
+        #endregion
+        
         #region Parameter LFTagPolicy_Expression
         /// <summary>
         /// <para>
@@ -413,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.DeleteLakeFormationOptInResponse, RemoveLKFLakeFormationOptInCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Condition_Expression = this.Condition_Expression;
             context.Principal_DataLakePrincipalIdentifier = this.Principal_DataLakePrincipalIdentifier;
             context.Catalog_Id = this.Catalog_Id;
             context.Database_CatalogId = this.Database_CatalogId;
@@ -469,6 +481,25 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             // create request
             var request = new Amazon.LakeFormation.Model.DeleteLakeFormationOptInRequest();
             
+            
+             // populate Condition
+            var requestConditionIsNull = true;
+            request.Condition = new Amazon.LakeFormation.Model.Condition();
+            System.String requestCondition_condition_Expression = null;
+            if (cmdletContext.Condition_Expression != null)
+            {
+                requestCondition_condition_Expression = cmdletContext.Condition_Expression;
+            }
+            if (requestCondition_condition_Expression != null)
+            {
+                request.Condition.Expression = requestCondition_condition_Expression;
+                requestConditionIsNull = false;
+            }
+             // determine if request.Condition should be set to null
+            if (requestConditionIsNull)
+            {
+                request.Condition = null;
+            }
             
              // populate Principal
             var requestPrincipalIsNull = true;
@@ -972,6 +1003,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Condition_Expression { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }
             public System.String Catalog_Id { get; set; }
             public System.String Database_CatalogId { get; set; }

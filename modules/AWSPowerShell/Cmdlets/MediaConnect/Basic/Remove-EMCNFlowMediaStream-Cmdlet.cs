@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter FlowArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the flow.
+        /// <para> The Amazon Resource Name (ARN) of the flow that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MediaStreamName
         /// <summary>
         /// <para>
-        /// The name of the media stream that you
-        /// want to remove.
+        /// <para> The name of the media stream that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -195,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter SnsTopicName
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
-        /// The maximum length is 256 characters.</para>
+        /// <para>Specifies the name or ARN of the Amazon SNS topic defined for notification of log
+        /// file delivery. The maximum length is 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
