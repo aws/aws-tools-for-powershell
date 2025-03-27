@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ScanTypeFilter
+        /// <summary>
+        /// <para>
+        /// <para>The scan type that you want to get summary information about. The default is <c>FULL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.ScanType")]
+        public Amazon.CloudFormation.ScanType ScanTypeFilter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -108,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ScanTypeFilter = this.ScanTypeFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ScanTypeFilter != null)
+            {
+                request.ScanTypeFilter = cmdletContext.ScanTypeFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -217,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CloudFormation.ScanType ScanTypeFilter { get; set; }
             public System.Func<Amazon.CloudFormation.Model.ListResourceScansResponse, GetCFNResourceScanListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceScanSummaries;
         }

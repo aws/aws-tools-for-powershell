@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Updates the stack set, and associated stack instances in the specified accounts and
+    /// Updates the stack set and associated stack instances in the specified accounts and
     /// Amazon Web Services Regions.
     /// 
     ///  
@@ -130,10 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter AdministrationRoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</para><para>Specify an IAM role only if you are using customized administrator roles to control
+        /// <para>[Self-managed permissions] The Amazon Resource Name (ARN) of the IAM role to use to
+        /// update this stack set.</para><para>Specify an IAM role only if you are using customized administrator roles to control
         /// which users or groups can manage specific stack sets within the same administrator
-        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites
-        /// for using CloudFormation StackSets</a> in the <i>CloudFormation User Guide</i>.</para><para>If you specified a customized administrator role when you created the stack set, you
+        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+        /// self-managed permissions</a> in the <i>CloudFormation User Guide</i>.</para><para>If you specified a customized administrator role when you created the stack set, you
         /// must specify a customized administrator role, even if it is the same customized administrator
         /// role used with this stack set previously.</para>
         /// </para>
@@ -212,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter ExecutionRoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM execution role to use to update the stack set. If you do not specify
-        /// an execution role, CloudFormation uses the <c>AWSCloudFormationStackSetExecutionRole</c>
+        /// <para>[Self-managed permissions] The name of the IAM execution role to use to update the
+        /// stack set. If you do not specify an execution role, CloudFormation uses the <c>AWSCloudFormationStackSetExecutionRole</c>
         /// role for the stack set operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
         /// stack resources users and groups can include in their stack sets.</para><para>If you specify a customized execution role, CloudFormation uses that role to update
         /// the stack. If you do not specify a customized execution role, CloudFormation performs

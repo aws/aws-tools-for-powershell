@@ -127,10 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// a valid operating system in this request. There is no default value. You can't change
         /// a build's operating system later.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
         /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
-        /// game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first
-        /// update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
+        /// game servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift,
+        /// first update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
         /// See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
-        /// Migrate to Amazon GameLift server SDK version 5.</a></para></note>
+        /// Migrate to server SDK version 5.</a></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

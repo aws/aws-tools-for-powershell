@@ -1,4 +1,16 @@
-﻿### 4.1.785 (2025-03-26 21:27Z)
+﻿### 4.1.786 (2025-03-27 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1011.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameter ContainerProperties_EnableExecuteCommand.
+  * Amazon CloudFormation
+    * Modified cmdlet Get-CFNResourceScanList: added parameter ScanTypeFilter.
+    * Modified cmdlet Start-CFNResourceScan: added parameter ScanFilter.
+  * Amazon Pricing Calculator
+    * Modified cmdlet Update-BCMPCPreference: added parameter StandaloneAccountRateTypeSelection.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMApp: added parameter RecoveryMode.
+
+### 4.1.785 (2025-03-26 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1010.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Direct Connect
     * Modified cmdlet New-DCGateway: added parameter Tag.

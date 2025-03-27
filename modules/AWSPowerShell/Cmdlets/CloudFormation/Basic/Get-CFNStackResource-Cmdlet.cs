@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
-        /// <para>The logical name of the resource as specified in the template.</para><para>Default: There is no default value.</para>
+        /// <para>The logical name of the resource as specified in the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that's associated with the stack, which aren't always
-        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

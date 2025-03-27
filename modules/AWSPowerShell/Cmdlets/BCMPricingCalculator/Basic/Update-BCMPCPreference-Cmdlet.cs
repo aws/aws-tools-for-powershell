@@ -28,7 +28,7 @@ using Amazon.BCMPricingCalculator.Model;
 namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
-    /// Updates the preferences for the Amazon Web Services Cost Explorer service.
+    /// Updates the preferences for Pricing Calculator.
     /// </summary>
     [Cmdlet("Update", "BCMPCPreference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse")]
@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MemberAccountRateTypeSelections")]
         public System.String[] MemberAccountRateTypeSelection { get; set; }
+        #endregion
+        
+        #region Parameter StandaloneAccountRateTypeSelection
+        /// <summary>
+        /// <para>
+        /// <para> The updated preferred rate types for a standalone account. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StandaloneAccountRateTypeSelections")]
+        public System.String[] StandaloneAccountRateTypeSelection { get; set; }
         #endregion
         
         #region Parameter Select
@@ -113,6 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             {
                 context.MemberAccountRateTypeSelection = new List<System.String>(this.MemberAccountRateTypeSelection);
             }
+            if (this.StandaloneAccountRateTypeSelection != null)
+            {
+                context.StandaloneAccountRateTypeSelection = new List<System.String>(this.StandaloneAccountRateTypeSelection);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
             if (cmdletContext.MemberAccountRateTypeSelection != null)
             {
                 request.MemberAccountRateTypeSelections = cmdletContext.MemberAccountRateTypeSelection;
+            }
+            if (cmdletContext.StandaloneAccountRateTypeSelection != null)
+            {
+                request.StandaloneAccountRateTypeSelections = cmdletContext.StandaloneAccountRateTypeSelection;
             }
             
             CmdletOutput output;
@@ -200,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         {
             public List<System.String> ManagementAccountRateTypeSelection { get; set; }
             public List<System.String> MemberAccountRateTypeSelection { get; set; }
+            public List<System.String> StandaloneAccountRateTypeSelection { get; set; }
             public System.Func<Amazon.BCMPricingCalculator.Model.UpdatePreferencesResponse, UpdateBCMPCPreferenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

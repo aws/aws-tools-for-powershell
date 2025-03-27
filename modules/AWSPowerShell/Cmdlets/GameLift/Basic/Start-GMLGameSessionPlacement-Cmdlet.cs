@@ -29,60 +29,64 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Makes a request to start a new game session using a game session queue. When processing
-    /// a placement request in a queue, Amazon GameLift finds the best possible available
-    /// resource to host the game session and prompts the resource to start the game session.
-    /// 
+    /// a placement request, Amazon GameLift looks for the best possible available resource
+    /// to host the game session, based on how the queue is configured to prioritize factors
+    /// such as resource cost, latency, and location. After selecting an available resource,
+    /// Amazon GameLift prompts the resource to start a game session. A placement request
+    /// can include a list of players to create a set of player sessions. The request can
+    /// also include information to pass to the new game session, such as to specify a game
+    /// map or other options.
     /// 
     ///  
     /// <para><b>Request options</b></para><para>
-    /// Call this API with the following minimum parameters: <i>GameSessionQueueName</i>,
-    /// <i>MaximumPlayerSessionCount</i>, and <i>PlacementID</i>. You can also include game
-    /// session data (data formatted as strings) or game properties (data formatted as key-value
-    /// pairs) to pass to the new game session.
+    /// Use this operation to make the following types of requests. 
     /// </para><ul><li><para>
-    /// You can change how Amazon GameLift chooses a hosting resource for the new game session.
-    /// Prioritizing resources for game session placements is defined when you configure a
-    /// game session queue. You can use the default prioritization process or specify a custom
-    /// process by providing a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html">
-    /// PriorityConfiguration</a> when you create or update a queue.
+    /// Request a placement using the queue's default prioritization process (see the default
+    /// prioritization described in <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a>).
+    /// Include these required parameters:
+    /// </para><ul><li><para><c>GameSessionQueueName</c></para></li><li><para><c>MaximumPlayerSessionCount</c></para></li><li><para><c>PlacementID</c></para></li></ul></li><li><para>
+    /// Request a placement and prioritize based on latency. Include these parameters:
     /// </para><ul><li><para>
-    /// Prioritize based on resource cost and location, using the queue's configured priority
-    /// settings. Call this API with the minimum parameters.
+    /// Required parameters <c>GameSessionQueueName</c>, <c>MaximumPlayerSessionCount</c>,
+    /// <c>PlacementID</c>.
+    /// </para></li><li><para><c>PlayerLatencies</c>. Include a set of latency values for destinations in the queue.
+    /// When a request includes latency data, Amazon GameLift automatically reorder the queue's
+    /// locations priority list based on lowest available latency values. If a request includes
+    /// latency data for multiple players, Amazon GameLift calculates each location's average
+    /// latency for all players and reorders to find the lowest latency across all players.
     /// </para></li><li><para>
-    /// Prioritize based on latency. Include a set of values for <i>PlayerLatencies</i>. You
-    /// can provide latency data with or without player session data. This option instructs
-    /// Amazon GameLift to reorder the queue's prioritized locations list based on the latency
-    /// data. If latency data is provided for multiple players, Amazon GameLift calculates
-    /// each location's average latency for all players and reorders to find the lowest latency
-    /// across all players. Don't include latency data if you're providing a custom list of
-    /// locations.
-    /// </para></li><li><para>
+    /// Don't include <c>PriorityConfigurationOverride</c>.
+    /// </para></li></ul><ul><li><para>
     /// Prioritize based on a custom list of locations. If you're using a queue that's configured
     /// to prioritize location first (see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a>
-    /// for game session queues), use the <i>PriorityConfigurationOverride</i> parameter to
-    /// substitute a different location list for this placement request. When prioritizing
-    /// placements by location, Amazon GameLift searches each location in prioritized order
-    /// to find an available hosting resource for the new game session. You can choose whether
-    /// to use the override list for the first placement attempt only or for all attempts.
+    /// for game session queues), you can optionally use the <i>PriorityConfigurationOverride</i>
+    /// parameter to substitute a different location priority list for this placement request.
+    /// Amazon GameLift searches each location on the priority override list to find an available
+    /// hosting resource for the new game session. Specify a fallback strategy to use in the
+    /// event that Amazon GameLift fails to place the game session in any of the locations
+    /// on the override list. 
     /// </para></li></ul></li><li><para>
+    /// Request a placement and prioritized based on a custom list of locations. 
+    /// </para></li><li><para>
     /// You can request new player sessions for a group of players. Include the <i>DesiredPlayerSessions</i>
     /// parameter and include at minimum a unique player ID for each. You can also include
     /// player-specific data to pass to the new game session. 
     /// </para></li></ul><para><b>Result</b></para><para>
-    /// If successful, this request generates a new game session placement request and adds
-    /// it to the game session queue for Amazon GameLift to process in turn. You can track
-    /// the status of individual placement requests by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html">DescribeGameSessionPlacement</a>.
-    /// A new game session is running if the status is <c>FULFILLED</c> and the request returns
-    /// the game session connection information (IP address and port). If you include player
+    /// If successful, this operation generates a new game session placement request and adds
+    /// it to the game session queue for processing. You can track the status of individual
+    /// placement requests by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html">DescribeGameSessionPlacement</a>
+    /// or by monitoring queue notifications. When the request status is <c>FULFILLED</c>,
+    /// a new game session has started and the placement request is updated with connection
+    /// information for the game session (IP address and port). If the request included player
     /// session data, Amazon GameLift creates a player session for each player ID in the request.
     /// </para><para>
-    /// The request results in a <c>BadRequestException</c> in the following situations:
+    /// The request results in a <c>InvalidRequestException</c> in the following situations:
     /// </para><ul><li><para>
     /// If the request includes both <i>PlayerLatencies</i> and <i>PriorityConfigurationOverride</i>
     /// parameters.
     /// </para></li><li><para>
-    /// If the request includes the <i>PriorityConfigurationOverride</i> parameter and designates
-    /// a queue doesn't prioritize locations.
+    /// If the request includes the <i>PriorityConfigurationOverride</i> parameter and specifies
+    /// a queue that doesn't prioritize locations.
     /// </para></li></ul><para>
     /// Amazon GameLift continues to retry each placement request until it reaches the queue's
     /// timeout setting. If a request times out, you can resubmit the request to the same
@@ -202,13 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PriorityConfigurationOverride_PlacementFallbackStrategy
         /// <summary>
         /// <para>
-        /// <para>Instructions for how to use the override list if the first round of placement attempts
-        /// fails. The first round is a failure if Amazon GameLift searches all listed locations,
-        /// in all of the queue's destinations, without finding an available hosting resource
-        /// for a new game session. Valid strategies include: </para><ul><li><para><c>DEFAULT_AFTER_SINGLE_PASS</c> -- After the first round of placement attempts,
-        /// discard the override list and use the queue's default location priority list. Continue
-        /// to use the queue's default list until the placement request times out.</para></li><li><para><c>NONE</c> -- Continue to use the override list for all rounds of placement attempts
-        /// until the placement request times out.</para></li></ul>
+        /// <para>Instructions for how to proceed if placement fails in every location on the priority
+        /// override list. Valid strategies include: </para><ul><li><para><c>DEFAULT_AFTER_SINGLE_PASS</c> -- After attempting to place a new game session
+        /// in every location on the priority override list, try to place a game session in queue's
+        /// other locations. This is the default behavior.</para></li><li><para><c>NONE</c> -- Limit placements to locations on the priority override list only.
+        /// </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// and acquired by a fleet instance, the new version is used for all new game sessions.
     /// 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Realtime Servers</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// GameLift Amazon GameLift Realtime</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLScript", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -33,8 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para><b>Request options</b></para><para>
-    /// To request access to a compute, specify the compute name and the fleet ID.
-    /// </para><para><b>Results</b></para><para>
+    /// Provide the fleet ID and compute name. The compute name varies depending on the type
+    /// of fleet.
+    /// </para><ul><li><para>
+    /// For a compute in a managed EC2 fleet, provide an instance ID. Each instance in the
+    /// fleet is a compute.
+    /// </para></li><li><para>
+    /// For a compute in a managed container fleet, provide a compute name. In a container
+    /// fleet, each game server container group on a fleet instance is assigned a compute
+    /// name. 
+    /// </para></li></ul><para><b>Results</b></para><para>
     /// If successful, this operation returns a set of temporary Amazon Web Services credentials,
     /// including a two-part access key and a session token.
     /// </para><ul><li><para>
@@ -61,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the compute resource that you want to connect to. For an EC2
-        /// fleet compute, use the instance ID. Use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html</a>
-        /// to retrieve compute identifiers.</para>
+        /// fleet, use an instance ID. For a managed container fleet, use a compute name. You
+        /// can retrieve a fleet's compute names by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">ListCompute</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

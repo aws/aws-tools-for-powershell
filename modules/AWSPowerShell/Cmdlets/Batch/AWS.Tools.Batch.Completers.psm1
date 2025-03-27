@@ -155,7 +155,7 @@ $BAT_Completers = {
         # Amazon.Batch.LogDriver
         "Register-BATJobDefinition/LogConfiguration_LogDriver"
         {
-            $v = "awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
+            $v = "awsfirelens","awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
             break
         }
 

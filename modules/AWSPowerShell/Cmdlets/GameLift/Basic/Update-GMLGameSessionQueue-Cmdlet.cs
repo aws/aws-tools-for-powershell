@@ -178,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A custom sequence to use when prioritizing where to place new game sessions. Each
         /// priority type is listed once.</para><ul><li><para><c>LATENCY</c> -- Amazon GameLift prioritizes locations where the average player
         /// latency is lowest. Player latency data is provided in each game session placement
-        /// request.</para></li><li><para><c>COST</c> -- Amazon GameLift prioritizes destinations with the lowest current hosting
-        /// costs. Cost is evaluated based on the location, instance type, and fleet type (Spot
-        /// or On-Demand) of each destination in the queue.</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift prioritizes based on the list order of destinations
+        /// request.</para></li><li><para><c>COST</c> -- Amazon GameLift prioritizes queue destinations with the lowest current
+        /// hosting costs. Cost is evaluated based on the destination's location, instance type,
+        /// and fleet type (Spot or On-Demand).</para></li><li><para><c>DESTINATION</c> -- Amazon GameLift prioritizes based on the list order of destinations
         /// in the queue configuration.</para></li><li><para><c>LOCATION</c> -- Amazon GameLift prioritizes based on the provided order of locations,
         /// as defined in <c>LocationOrder</c>. </para></li></ul>
         /// </para>

@@ -182,6 +182,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String PodProperties_DnsPolicy { get; set; }
         #endregion
         
+        #region Parameter ContainerProperties_EnableExecuteCommand
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether execute command functionality is turned on for this task. If <c>true</c>,
+        /// execute command functionality is turned on all the containers in the task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ContainerProperties_EnableExecuteCommand { get; set; }
+        #endregion
+        
         #region Parameter ContainerProperties_Environment
         /// <summary>
         /// <para>
@@ -370,7 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// parameter are log drivers that the Amazon ECS container agent can communicate with
         /// by default.</para><para>The supported log drivers are <c>awslogs</c>, <c>fluentd</c>, <c>gelf</c>, <c>json-file</c>,
         /// <c>journald</c>, <c>logentries</c>, <c>syslog</c>, and <c>splunk</c>.</para><note><para>Jobs that are running on Fargate resources are restricted to the <c>awslogs</c> and
-        /// <c>splunk</c> log drivers.</para></note><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
+        /// <c>splunk</c> log drivers.</para></note><dl><dt>awsfirelens</dt><dd><para>Specifies the firelens logging driver. For more information on configuring Firelens,
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Send
+        /// Amazon ECS logs to an Amazon Web Services service or Amazon Web Services Partner</a>
+        /// in the <i>Amazon Elastic Container Service Developer Guide</i>.</para></dd><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
         /// the awslogs log driver</a> in the <i>Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
         /// CloudWatch Logs logging driver</a> in the Docker documentation.</para></dd><dt>fluentd</dt><dd><para>Specifies the Fluentd logging driver. For more information including usage and options,
         /// see <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd logging
@@ -421,8 +435,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// value. For more information, see <a href="https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details"><c>--memory-swap</c> details</a> in the Docker documentation.</para><para>If a <c>maxSwap</c> value of <c>0</c> is specified, the container doesn't use swap.
         /// Accepted values are <c>0</c> or any positive integer. If the <c>maxSwap</c> parameter
         /// is omitted, the container doesn't use the swap configuration for the container instance
-        /// that it's running on. A <c>maxSwap</c> value must be set for the <c>swappiness</c>
-        /// parameter to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// on which it runs. A <c>maxSwap</c> value must be set for the <c>swappiness</c> parameter
+        /// to be used.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// provide it for these jobs.</para></note>
         /// </para>
         /// </summary>
@@ -626,7 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The scheduling priority for jobs that are submitted with this job definition. This
-        /// only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling
+        /// only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling
         /// priority are scheduled before jobs with a lower scheduling priority.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
         /// </para>
         /// </summary>
@@ -975,6 +989,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ContainerProperties_Command = new List<System.String>(this.ContainerProperties_Command);
             }
+            context.ContainerProperties_EnableExecuteCommand = this.ContainerProperties_EnableExecuteCommand;
             if (this.ContainerProperties_Environment != null)
             {
                 context.ContainerProperties_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerProperties_Environment);
@@ -1179,6 +1194,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_Command != null)
             {
                 request.ContainerProperties.Command = requestContainerProperties_containerProperties_Command;
+                requestContainerPropertiesIsNull = false;
+            }
+            System.Boolean? requestContainerProperties_containerProperties_EnableExecuteCommand = null;
+            if (cmdletContext.ContainerProperties_EnableExecuteCommand != null)
+            {
+                requestContainerProperties_containerProperties_EnableExecuteCommand = cmdletContext.ContainerProperties_EnableExecuteCommand.Value;
+            }
+            if (requestContainerProperties_containerProperties_EnableExecuteCommand != null)
+            {
+                request.ContainerProperties.EnableExecuteCommand = requestContainerProperties_containerProperties_EnableExecuteCommand.Value;
                 requestContainerPropertiesIsNull = false;
             }
             List<Amazon.Batch.Model.KeyValuePair> requestContainerProperties_containerProperties_Environment = null;
@@ -1926,6 +1951,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             public List<Amazon.Batch.Model.ConsumableResourceRequirement> ConsumableResourceProperties_ConsumableResourceList { get; set; }
             public List<System.String> ContainerProperties_Command { get; set; }
+            public System.Boolean? ContainerProperties_EnableExecuteCommand { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
             public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String ContainerProperties_ExecutionRoleArn { get; set; }

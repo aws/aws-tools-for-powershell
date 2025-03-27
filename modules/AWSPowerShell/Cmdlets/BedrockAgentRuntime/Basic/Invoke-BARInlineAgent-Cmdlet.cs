@@ -91,7 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter StreamingConfigurations_ApplyGuardrailInterval
         /// <summary>
         /// <para>
-        /// <para> The guardrail interval to apply as response is generated. </para>
+        /// <para> The guardrail interval to apply as response is generated. By default, the guardrail
+        /// interval is set to 50 characters. If a larger interval is specified, the response
+        /// will be generated in larger chunks with fewer <c>ApplyGuardrail</c> calls. The following
+        /// examples show the response generated for <i>Hello, I am an agent</i> input string.</para><para><b>Example response in chunks: Interval set to 3 characters</b></para><para><c>'Hel', 'lo, ','I am', ' an', ' Age', 'nt'</c></para><para>Each chunk has at least 3 characters except for the last chunk</para><para><b>Example response in chunks: Interval set to 20 or more characters</b></para><para><c>Hello, I am an Agent</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

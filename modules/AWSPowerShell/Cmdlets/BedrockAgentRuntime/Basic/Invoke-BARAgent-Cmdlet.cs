@@ -40,11 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
     /// enablement</a>.
     /// </para></li><li><para>
-    /// To stream agent responses, make sure that only orchestration prompt is enabled. Agent
-    /// streaming is not supported for the following steps: 
-    /// </para><ul><li><para><c>Pre-processing</c></para></li><li><para><c>Post-processing</c></para></li><li><para>
-    /// Agent with 1 Knowledge base and <c>User Input</c> not enabled
-    /// </para></li></ul></li><li><para>
     /// End a conversation by setting <c>endSession</c> to <c>true</c>.
     /// </para></li><li><para>
     /// In the <c>sessionState</c> object, you can include attributes for the session or prompt
@@ -117,7 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter StreamingConfigurations_ApplyGuardrailInterval
         /// <summary>
         /// <para>
-        /// <para> The guardrail interval to apply as response is generated. </para>
+        /// <para> The guardrail interval to apply as response is generated. By default, the guardrail
+        /// interval is set to 50 characters. If a larger interval is specified, the response
+        /// will be generated in larger chunks with fewer <c>ApplyGuardrail</c> calls. The following
+        /// examples show the response generated for <i>Hello, I am an agent</i> input string.</para><para><b>Example response in chunks: Interval set to 3 characters</b></para><para><c>'Hel', 'lo, ','I am', ' an', ' Age', 'nt'</c></para><para>Each chunk has at least 3 characters except for the last chunk</para><para><b>Example response in chunks: Interval set to 20 or more characters</b></para><para><c>Hello, I am an Agent</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

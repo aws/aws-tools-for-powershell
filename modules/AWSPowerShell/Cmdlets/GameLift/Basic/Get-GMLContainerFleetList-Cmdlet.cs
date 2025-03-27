@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Get a list of fleets filtered by container group definition. Provide the container
     /// group definition name or ARN value.
     /// </para></li><li><para>
-    /// To get a list of all Realtime Servers fleets with a specific configuration script,
-    /// provide the script ID. 
+    /// To get a list of all Amazon GameLift Realtime fleets with a specific configuration
+    /// script, provide the script ID. 
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>

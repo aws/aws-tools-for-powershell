@@ -118,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ResourceSpec_LifecycleConfigArn { get; set; }
         #endregion
         
+        #region Parameter RecoveryMode
+        /// <summary>
+        /// <para>
+        /// <para> Indicates whether the application is launched in recovery mode. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RecoveryMode { get; set; }
+        #endregion
+        
         #region Parameter ResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
@@ -265,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RecoveryMode = this.RecoveryMode;
             context.ResourceSpec_InstanceType = this.ResourceSpec_InstanceType;
             context.ResourceSpec_LifecycleConfigArn = this.ResourceSpec_LifecycleConfigArn;
             context.ResourceSpec_SageMakerImageArn = this.ResourceSpec_SageMakerImageArn;
@@ -303,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
+            }
+            if (cmdletContext.RecoveryMode != null)
+            {
+                request.RecoveryMode = cmdletContext.RecoveryMode.Value;
             }
             
              // populate ResourceSpec
@@ -439,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String AppName { get; set; }
             public Amazon.SageMaker.AppType AppType { get; set; }
             public System.String DomainId { get; set; }
+            public System.Boolean? RecoveryMode { get; set; }
             public Amazon.SageMaker.AppInstanceType ResourceSpec_InstanceType { get; set; }
             public System.String ResourceSpec_LifecycleConfigArn { get; set; }
             public System.String ResourceSpec_SageMakerImageArn { get; set; }

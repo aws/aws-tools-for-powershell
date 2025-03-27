@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
-        /// <para>The logical name of the resource as specified in the template.</para><para>Default: There is no default value.</para>
+        /// <para>The logical name of the resource as specified in the template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// corresponds to the <c>InstanceId</c>. You can pass the EC2 <c>InstanceId</c> to <c>DescribeStackResources</c>
         /// to find which stack the instance belongs to and what other resources are part of the
         /// stack.</para><para>Required: Conditional. If you don't specify <c>PhysicalResourceId</c>, you must specify
-        /// <c>StackName</c>.</para><para>Default: There is no default value.</para>
+        /// <c>StackName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which aren't always
-        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para><para>Required: Conditional. If you don't specify <c>StackName</c>, you must specify <c>PhysicalResourceId</c>.</para>
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Required: Conditional. If you don't specify <c>StackName</c>, you must specify <c>PhysicalResourceId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

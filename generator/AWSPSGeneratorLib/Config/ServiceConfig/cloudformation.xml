@@ -265,7 +265,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceScans" OutputProperty="ResourceScanSummaries" Verb="Get" Noun="ResourceScanList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceScans" OutputProperty="ResourceScanSummaries" Verb="Get" Noun="ResourceScanList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

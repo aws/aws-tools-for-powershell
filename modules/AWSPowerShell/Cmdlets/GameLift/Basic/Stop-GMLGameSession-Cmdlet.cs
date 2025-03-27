@@ -85,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the game session to be terminated. A game session ARN has
-        /// the following format: <c>arn:aws:gamelift:&lt;region&gt;::gamesession/&lt;fleet ID&gt;/&lt;custom
-        /// ID string or idempotency token&gt;</c>.</para>
+        /// the following format: <c>arn:aws:gamelift:&lt;location&gt;::gamesession/&lt;fleet
+        /// ID&gt;/&lt;custom ID string or idempotency token&gt;</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
