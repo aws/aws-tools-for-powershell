@@ -140,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DataSetReference[] SourceAnalysis_DataSetReference { get; set; }
         #endregion
         
+        #region Parameter Options_ExcludedDataSetArn
+        /// <summary>
+        /// <para>
+        /// <para>A list of dataset ARNS to exclude from Dashboard Q&amp;A.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_ExcludedDataSetArns")]
+        public System.String[] Options_ExcludedDataSetArn { get; set; }
+        #endregion
+        
         #region Parameter Definition_FilterGroup
         /// <summary>
         /// <para>
@@ -243,6 +254,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Definition_ParameterDeclarations")]
         public Amazon.QuickSight.Model.ParameterDeclaration[] Definition_ParameterDeclaration { get; set; }
+        #endregion
+        
+        #region Parameter Options_QBusinessInsightsStatus
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether insight summaries from Amazon Q Business are allowed in Dashboard
+        /// Q&amp;A.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_QBusinessInsightsStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.QBusinessInsightsStatus")]
+        public Amazon.QuickSight.QBusinessInsightsStatus Options_QBusinessInsightsStatus { get; set; }
         #endregion
         
         #region Parameter QueryExecutionOptions_QueryExecutionMode
@@ -475,6 +499,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Definition_FilterGroup = new List<Amazon.QuickSight.Model.FilterGroup>(this.Definition_FilterGroup);
             }
+            if (this.Options_ExcludedDataSetArn != null)
+            {
+                context.Options_ExcludedDataSetArn = new List<System.String>(this.Options_ExcludedDataSetArn);
+            }
+            context.Options_QBusinessInsightsStatus = this.Options_QBusinessInsightsStatus;
             context.Options_Timezone = this.Options_Timezone;
             context.Options_WeekStart = this.Options_WeekStart;
             if (this.Definition_ParameterDeclaration != null)
@@ -940,6 +969,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate Options
             var requestDefinition_definition_OptionsIsNull = true;
             requestDefinition_definition_Options = new Amazon.QuickSight.Model.AssetOptions();
+            List<System.String> requestDefinition_definition_Options_options_ExcludedDataSetArn = null;
+            if (cmdletContext.Options_ExcludedDataSetArn != null)
+            {
+                requestDefinition_definition_Options_options_ExcludedDataSetArn = cmdletContext.Options_ExcludedDataSetArn;
+            }
+            if (requestDefinition_definition_Options_options_ExcludedDataSetArn != null)
+            {
+                requestDefinition_definition_Options.ExcludedDataSetArns = requestDefinition_definition_Options_options_ExcludedDataSetArn;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
+            Amazon.QuickSight.QBusinessInsightsStatus requestDefinition_definition_Options_options_QBusinessInsightsStatus = null;
+            if (cmdletContext.Options_QBusinessInsightsStatus != null)
+            {
+                requestDefinition_definition_Options_options_QBusinessInsightsStatus = cmdletContext.Options_QBusinessInsightsStatus;
+            }
+            if (requestDefinition_definition_Options_options_QBusinessInsightsStatus != null)
+            {
+                requestDefinition_definition_Options.QBusinessInsightsStatus = requestDefinition_definition_Options_options_QBusinessInsightsStatus;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
             System.String requestDefinition_definition_Options_options_Timezone = null;
             if (cmdletContext.Options_Timezone != null)
             {
@@ -1151,6 +1200,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnConfiguration> Definition_ColumnConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.DataSetConfiguration> Definition_DataSetConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.FilterGroup> Definition_FilterGroup { get; set; }
+            public List<System.String> Options_ExcludedDataSetArn { get; set; }
+            public Amazon.QuickSight.QBusinessInsightsStatus Options_QBusinessInsightsStatus { get; set; }
             public System.String Options_Timezone { get; set; }
             public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }

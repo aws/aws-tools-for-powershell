@@ -349,6 +349,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.UniqueKey[] PerformanceConfiguration_UniqueKey { get; set; }
         #endregion
         
+        #region Parameter UseAs
+        /// <summary>
+        /// <para>
+        /// <para>The usage of the dataset. <c>RLS_RULES</c> must be specified for RLS permission datasets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QuickSight.DataSetUseAs")]
+        public Amazon.QuickSight.DataSetUseAs UseAs { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -517,6 +528,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
             }
+            context.UseAs = this.UseAs;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -731,6 +743,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.UseAs != null)
+            {
+                request.UseAs = cmdletContext.UseAs;
+            }
             
             CmdletOutput output;
             
@@ -816,6 +832,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<List<System.String>> RowLevelPermissionTagConfiguration_TagRuleConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> RowLevelPermissionTagConfiguration_TagRule { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
+            public Amazon.QuickSight.DataSetUseAs UseAs { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateDataSetResponse, NewQSDataSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -175,6 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyARN</c> of the certificate that signed the client's <c>PublicKeyCertificate</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier")]
+        public System.String DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter KeyCryptogram_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
@@ -197,6 +208,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier")]
         public System.String Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to decrypt
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt { get; set; }
         #endregion
         
         #region Parameter KeyModesOfUse_Decrypt
@@ -223,6 +246,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to derive
+        /// new keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey { get; set; }
+        #endregion
+        
         #region Parameter KeyModesOfUse_DeriveKey
         /// <summary>
         /// <para>
@@ -245,6 +280,30 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey")]
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey { get; set; }
+        #endregion
+        
+        #region Parameter DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The key algorithm of the derived ECDH key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.SymmetricKeyAlgorithm")]
+        public Amazon.PaymentCryptography.SymmetricKeyAlgorithm DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to encrypt
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt { get; set; }
         #endregion
         
         #region Parameter KeyModesOfUse_Encrypt
@@ -303,6 +362,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String Tr34KeyBlock_ExportToken { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to generate
+        /// and verify other card and PIN verification keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate { get; set; }
+        #endregion
+        
         #region Parameter KeyModesOfUse_Generate
         /// <summary>
         /// <para>
@@ -356,6 +427,49 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public Amazon.PaymentCryptography.KeyCheckValueAlgorithm ExportAttributes_KeyCheckValueAlgorithm { get; set; }
         #endregion
         
+        #region Parameter DiffieHellmanTr31KeyBlock_KeyDerivationFunction
+        /// <summary>
+        /// <para>
+        /// <para>The key derivation function to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationFunction")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyDerivationFunction")]
+        public Amazon.PaymentCryptography.KeyDerivationFunction DiffieHellmanTr31KeyBlock_KeyDerivationFunction { get; set; }
+        #endregion
+        
+        #region Parameter DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The hash type to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyDerivationHashAlgorithm")]
+        public Amazon.PaymentCryptography.KeyDerivationHashAlgorithm DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability
+        /// <summary>
+        /// <para>
+        /// <para>Specifies subsequent exportability of the key within the key block after it is received
+        /// by the receiving party. It can be used to further restrict exportability of the key
+        /// after export from Amazon Web Services Payment Cryptography.</para><para>When set to <c>EXPORTABLE</c>, the key can be subsequently exported by the receiver
+        /// under a KEK using TR-31 or TR-34 key block export only. When set to <c>NON_EXPORTABLE</c>,
+        /// the key cannot be subsequently exported by the receiver. When set to <c>SENSITIVE</c>,
+        /// the key can be exported by the receiver under a KEK using TR-31, TR-34, RSA wrap and
+        /// unwrap cryptogram or using a symmetric cryptogram key export method. For further information
+        /// refer to <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyExportability")]
+        public Amazon.PaymentCryptography.KeyExportability KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability { get; set; }
+        #endregion
+        
         #region Parameter KeyBlockHeaders_KeyExportability
         /// <summary>
         /// <para>
@@ -406,6 +520,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String ExportDukptInitialKey_KeySerialNumber { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion
+        /// <summary>
+        /// <para>
+        /// <para>Parameter used to indicate the version of the key carried in the key block or indicate
+        /// the value carried in the key block is a component of a key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion")]
+        public System.String KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion { get; set; }
+        #endregion
+        
         #region Parameter KeyBlockHeaders_KeyVersion
         /// <summary>
         /// <para>
@@ -430,6 +556,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.String KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key has no special restrictions
+        /// other than the restrictions implied by <c>KeyUsage</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions { get; set; }
+        #endregion
+        
         #region Parameter KeyModesOfUse_NoRestriction
         /// <summary>
         /// <para>
@@ -452,6 +590,22 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions")]
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks
+        /// <summary>
+        /// <para>
+        /// <para>Parameter used to indicate the type of optional data in key block headers. Refer to
+        /// <a href="https://webstore.ansi.org/standards/ascx9/ansix91432022">ANSI X9.143-2022</a>
+        /// for information on allowed data type for optional blocks.</para><para>Optional block character limit is 112 characters. For each optional block, 2 characters
+        /// are reserved for optional block ID and 2 characters reserved for optional block length.
+        /// More than one optional blocks can be included as long as the combined length does
+        /// not increase 112 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks")]
+        public System.Collections.Hashtable KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks { get; set; }
         #endregion
         
         #region Parameter KeyBlockHeaders_OptionalBlock
@@ -486,6 +640,29 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Collections.Hashtable KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks { get; set; }
         #endregion
         
+        #region Parameter DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyARN</c> of the asymmetric ECC key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier")]
+        public System.String DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter DiffieHellmanTr31KeyBlock_PublicKeyCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The client's public key certificate in PEM format (base64 encoded) to use for ECDH
+        /// key derivation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_PublicKeyCertificate")]
+        public System.String DiffieHellmanTr31KeyBlock_PublicKeyCertificate { get; set; }
+        #endregion
+        
         #region Parameter Tr34KeyBlock_RandomNonce
         /// <summary>
         /// <para>
@@ -497,6 +674,31 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_Tr34KeyBlock_RandomNonce")]
         public System.String Tr34KeyBlock_RandomNonce { get; set; }
+        #endregion
+        
+        #region Parameter DerivationData_SharedInformation
+        /// <summary>
+        /// <para>
+        /// <para>A byte string containing information that binds the ECDH derived key to the two parties
+        /// involved or to the context of the key.</para><para>It may include details like identities of the two parties deriving the key, context
+        /// of the operation, session IDs, and optionally a nonce. It must not contain zero bytes,
+        /// and re-using shared information for multiple ECDH key derivations is not recommended.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_SharedInformation")]
+        public System.String DerivationData_SharedInformation { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used for signing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign { get; set; }
         #endregion
         
         #region Parameter KeyModesOfUse_Sign
@@ -519,6 +721,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign")]
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to unwrap
+        /// other keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap { get; set; }
         #endregion
         
         #region Parameter KeyModesOfUse_Unwrap
@@ -545,6 +759,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap { get; set; }
         #endregion
         
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to verify
+        /// signatures.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify { get; set; }
+        #endregion
+        
         #region Parameter KeyModesOfUse_Verify
         /// <summary>
         /// <para>
@@ -567,6 +793,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify")]
         public System.Boolean? KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify { get; set; }
+        #endregion
+        
+        #region Parameter KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap
+        /// <summary>
+        /// <para>
+        /// <para>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to wrap
+        /// other keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap")]
+        public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap { get; set; }
         #endregion
         
         #region Parameter KeyModesOfUse_Wrap
@@ -712,6 +950,32 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 WriteWarning("You are passing $null as a value for parameter ExportKeyIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = this.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+            context.DerivationData_SharedInformation = this.DerivationData_SharedInformation;
+            context.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = this.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap;
+            context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion = this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion;
+            if (this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
+            {
+                context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks.Keys)
+                {
+                    context.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks.Add((String)hashKey, (System.String)(this.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks[hashKey]));
+                }
+            }
+            context.DiffieHellmanTr31KeyBlock_KeyDerivationFunction = this.DiffieHellmanTr31KeyBlock_KeyDerivationFunction;
+            context.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm = this.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm;
+            context.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier = this.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier;
+            context.DiffieHellmanTr31KeyBlock_PublicKeyCertificate = this.DiffieHellmanTr31KeyBlock_PublicKeyCertificate;
             context.KeyCryptogram_CertificateAuthorityPublicKeyIdentifier = this.KeyCryptogram_CertificateAuthorityPublicKeyIdentifier;
             context.KeyCryptogram_WrappingKeyCertificate = this.KeyCryptogram_WrappingKeyCertificate;
             context.KeyCryptogram_WrappingSpec = this.KeyCryptogram_WrappingSpec;
@@ -1262,6 +1526,256 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 request.KeyMaterial.Tr34KeyBlock = requestKeyMaterial_keyMaterial_Tr34KeyBlock;
                 requestKeyMaterialIsNull = false;
             }
+            Amazon.PaymentCryptography.Model.ExportDiffieHellmanTr31KeyBlock requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
+            
+             // populate DiffieHellmanTr31KeyBlock
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = true;
+            requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = new Amazon.PaymentCryptography.Model.ExportDiffieHellmanTr31KeyBlock();
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = cmdletContext.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.CertificateAuthorityPublicKeyIdentifier = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.SymmetricKeyAlgorithm requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = cmdletContext.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.DeriveKeyAlgorithm = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.KeyDerivationFunction requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationFunction != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction = cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationFunction;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.KeyDerivationFunction = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.KeyDerivationHashAlgorithm requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm = cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.KeyDerivationHashAlgorithm = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier = cmdletContext.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.PrivateKeyIdentifier = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_PublicKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate = cmdletContext.DiffieHellmanTr31KeyBlock_PublicKeyCertificate;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.PublicKeyCertificate = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
+            
+             // populate DerivationData
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = true;
+            requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = new Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData();
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation = null;
+            if (cmdletContext.DerivationData_SharedInformation != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation = cmdletContext.DerivationData_SharedInformation;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData.SharedInformation = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.DerivationData = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.KeyBlockHeaders requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders = null;
+            
+             // populate KeyBlockHeaders
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeadersIsNull = true;
+            requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders = new Amazon.PaymentCryptography.Model.KeyBlockHeaders();
+            Amazon.PaymentCryptography.KeyExportability requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders.KeyExportability = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders.KeyVersion = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders.OptionalBlocks = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.KeyModesOfUse requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse = null;
+            
+             // populate KeyModesOfUse
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = true;
+            requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse = new Amazon.PaymentCryptography.Model.KeyModesOfUse();
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Decrypt = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.DeriveKey = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Encrypt = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Generate = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.NoRestrictions = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Sign = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Unwrap = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Verify = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+            System.Boolean? requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = null;
+            if (cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap = cmdletContext.KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap.Value;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse.Wrap = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap.Value;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUseIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse = null;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders.KeyModesOfUse = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeadersIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeadersIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders = null;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.KeyBlockHeaders = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock != null)
+            {
+                request.KeyMaterial.DiffieHellmanTr31KeyBlock = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock;
+                requestKeyMaterialIsNull = false;
+            }
              // determine if request.KeyMaterial should be set to null
             if (requestKeyMaterialIsNull)
             {
@@ -1331,6 +1845,25 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             public System.String ExportDukptInitialKey_KeySerialNumber { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm ExportAttributes_KeyCheckValueAlgorithm { get; set; }
             public System.String ExportKeyIdentifier { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
+            public System.String DerivationData_SharedInformation { get; set; }
+            public Amazon.PaymentCryptography.SymmetricKeyAlgorithm DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm { get; set; }
+            public Amazon.PaymentCryptography.KeyExportability KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify { get; set; }
+            public System.Boolean? KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap { get; set; }
+            public System.String KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion { get; set; }
+            public Dictionary<System.String, System.String> KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks { get; set; }
+            public Amazon.PaymentCryptography.KeyDerivationFunction DiffieHellmanTr31KeyBlock_KeyDerivationFunction { get; set; }
+            public Amazon.PaymentCryptography.KeyDerivationHashAlgorithm DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_PublicKeyCertificate { get; set; }
             public System.String KeyCryptogram_CertificateAuthorityPublicKeyIdentifier { get; set; }
             public System.String KeyCryptogram_WrappingKeyCertificate { get; set; }
             public Amazon.PaymentCryptography.WrappingKeySpec KeyCryptogram_WrappingSpec { get; set; }

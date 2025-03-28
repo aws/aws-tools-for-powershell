@@ -1327,6 +1327,16 @@ $AG_Completers = {
             break
         }
 
+        # Amazon.APIGateway.IpAddressType
+        {
+            ($_ -eq "New-AGDomainName/EndpointConfiguration_IpAddressType") -Or
+            ($_ -eq "New-AGRestApi/EndpointConfiguration_IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.APIGateway.LocationStatusType
         "Get-AGDocumentationPartList/LocationStatus"
         {
@@ -1382,6 +1392,7 @@ $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
     "ConnectionType"=@("Write-AGIntegration")
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
+    "EndpointConfiguration_IpAddressType"=@("New-AGDomainName","New-AGRestApi")
     "Format"=@("Import-AGApiKey")
     "Location_Type"=@("New-AGDocumentationPart")
     "LocationStatus"=@("Get-AGDocumentationPartList")
@@ -1687,6 +1698,16 @@ $AG2_Completers = {
             break
         }
 
+        # Amazon.ApiGatewayV2.IpAddressType
+        {
+            ($_ -eq "New-AG2Api/IpAddressType") -Or
+            ($_ -eq "Update-AG2Api/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.ApiGatewayV2.LoggingLevel
         {
             ($_ -eq "New-AG2Stage/DefaultRouteSettings_LoggingLevel") -Or
@@ -1729,6 +1750,7 @@ $AG2_map = @{
     "ContentHandlingStrategy"=@("New-AG2Integration","New-AG2IntegrationResponse","Update-AG2Integration","Update-AG2IntegrationResponse")
     "DefaultRouteSettings_LoggingLevel"=@("New-AG2Stage","Update-AG2Stage")
     "IntegrationType"=@("New-AG2Integration","Update-AG2Integration")
+    "IpAddressType"=@("New-AG2Api","Update-AG2Api")
     "PassthroughBehavior"=@("New-AG2Integration","Update-AG2Integration")
     "ProtocolType"=@("New-AG2Api")
 }
@@ -55552,6 +55574,13 @@ $PAYCC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PaymentCryptography.DeriveKeyUsage
+        "New-PAYCCKey/DeriveKeyUsage"
+        {
+            $v = "TR31_B0_BASE_DERIVATION_KEY","TR31_C0_CARD_VERIFICATION_KEY","TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY","TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS","TR31_E1_EMV_MKEY_CONFIDENTIALITY","TR31_E2_EMV_MKEY_INTEGRITY","TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS","TR31_E5_EMV_MKEY_CARD_PERSONALIZATION","TR31_E6_EMV_MKEY_OTHER","TR31_K0_KEY_ENCRYPTION_KEY","TR31_K1_KEY_BLOCK_PROTECTION_KEY","TR31_M1_ISO_9797_1_MAC_KEY","TR31_M3_ISO_9797_3_MAC_KEY","TR31_M6_ISO_9797_5_CMAC_KEY","TR31_M7_HMAC_KEY","TR31_P0_PIN_ENCRYPTION_KEY","TR31_P1_PIN_GENERATION_KEY","TR31_V1_IBM3624_PIN_VERIFICATION_KEY","TR31_V2_VISA_PIN_VERIFICATION_KEY"
+            break
+        }
+
         # Amazon.PaymentCryptography.KeyAlgorithm
         {
             ($_ -eq "Import-PAYCCKey/KeyAttributes_KeyAlgorithm") -Or
@@ -55562,7 +55591,7 @@ $PAYCC_Completers = {
             ($_ -eq "Get-PAYCCParametersForImport/WrappingKeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
             break
         }
 
@@ -55589,9 +55618,30 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.KeyDerivationFunction
+        {
+            ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationFunction") -Or
+            ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationFunction")
+        }
+        {
+            $v = "ANSI_X963","NIST_SP800"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyDerivationHashAlgorithm
+        {
+            ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm")
+        }
+        {
+            $v = "SHA_256","SHA_384","SHA_512"
+            break
+        }
+
         # Amazon.PaymentCryptography.KeyExportability
         {
             ($_ -eq "Export-PAYCCKey/KeyBlockHeaders_KeyExportability") -Or
+            ($_ -eq "Export-PAYCCKey/KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability") -Or
             ($_ -eq "Export-PAYCCKey/KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability")
         }
         {
@@ -55628,6 +55678,16 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.SymmetricKeyAlgorithm
+        {
+            ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm")
+        }
+        {
+            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            break
+        }
+
         # Amazon.PaymentCryptography.Tr34KeyBlockFormat
         {
             ($_ -eq "Export-PAYCCKey/Tr34KeyBlock_KeyBlockFormat") -Or
@@ -55657,6 +55717,10 @@ $PAYCC_Completers = {
 }
 
 $PAYCC_map = @{
+    "DeriveKeyUsage"=@("New-PAYCCKey")
+    "DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationFunction"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm"=@("Export-PAYCCKey","Import-PAYCCKey")
     "ExportAttributes_KeyCheckValueAlgorithm"=@("Export-PAYCCKey")
     "KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyAttributes_KeyClass"=@("Import-PAYCCKey","New-PAYCCKey")
@@ -55664,6 +55728,7 @@ $PAYCC_map = @{
     "KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyCheckValueAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyCryptogram_WrappingSpec"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage"=@("Import-PAYCCKey")
@@ -59887,6 +59952,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSDashboard/DataPointMenuLabelOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DataQAEnabledOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DataQAEnabledOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/ExportToCSVOption_AvailabilityStatus") -Or
@@ -59929,6 +59996,13 @@ $QS_Completers = {
         }
         {
             $v = "DIRECT_QUERY","SPICE"
+            break
+        }
+
+        # Amazon.QuickSight.DataSetUseAs
+        "New-QSDataSet/UseAs"
+        {
+            $v = "RLS_RULES"
             break
         }
 
@@ -60089,6 +60163,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.QBusinessInsightsStatus
+        {
+            ($_ -eq "New-QSAnalysis/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "New-QSDashboard/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "New-QSTemplate/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "Update-QSAnalysis/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "Update-QSDashboard/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "Update-QSTemplate/Options_QBusinessInsightsStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.QSearchStatus
         "Update-QSQuickSightQSearchConfiguration/QSearchStatus"
         {
@@ -60105,6 +60193,13 @@ $QS_Completers = {
         }
         {
             $v = "AUTO","MANUAL"
+            break
+        }
+
+        # Amazon.QuickSight.RefreshFailureAlertStatus
+        "Write-QSDataSetRefreshProperty/EmailAlert_AlertStatus"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -60303,8 +60398,10 @@ $QS_map = @{
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
+    "EmailAlert_AlertStatus"=@("Write-QSDataSetRefreshProperty")
     "ExportFormat"=@("Start-QSAssetBundleExportJob")
     "ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -60320,6 +60417,7 @@ $QS_map = @{
     "IngestionType"=@("New-QSIngestion")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
+    "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -60346,6 +60444,7 @@ $QS_map = @{
     "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
+    "UseAs"=@("New-QSDataSet")
     "UserRole"=@("Register-QSUser")
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")

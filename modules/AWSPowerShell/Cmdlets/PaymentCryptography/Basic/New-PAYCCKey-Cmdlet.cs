@@ -91,6 +91,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_DeriveKey { get; set; }
         #endregion
         
+        #region Parameter DeriveKeyUsage
+        /// <summary>
+        /// <para>
+        /// <para>The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31
+        /// spec.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.DeriveKeyUsage")]
+        public Amazon.PaymentCryptography.DeriveKeyUsage DeriveKeyUsage { get; set; }
+        #endregion
+        
         #region Parameter Enabled
         /// <summary>
         /// <para>
@@ -355,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 context.Select = (response, cmdlet) => this.Exportable;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeriveKeyUsage = this.DeriveKeyUsage;
             context.Enabled = this.Enabled;
             context.Exportable = this.Exportable;
             #if MODULAR
@@ -414,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             // create request
             var request = new Amazon.PaymentCryptography.Model.CreateKeyRequest();
             
+            if (cmdletContext.DeriveKeyUsage != null)
+            {
+                request.DeriveKeyUsage = cmdletContext.DeriveKeyUsage;
+            }
             if (cmdletContext.Enabled != null)
             {
                 request.Enabled = cmdletContext.Enabled.Value;
@@ -635,6 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.PaymentCryptography.DeriveKeyUsage DeriveKeyUsage { get; set; }
             public System.Boolean? Enabled { get; set; }
             public System.Boolean? Exportable { get; set; }
             public Amazon.PaymentCryptography.KeyAlgorithm KeyAttributes_KeyAlgorithm { get; set; }

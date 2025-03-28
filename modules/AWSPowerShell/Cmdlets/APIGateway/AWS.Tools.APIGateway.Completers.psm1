@@ -164,6 +164,16 @@ $AG_Completers = {
             break
         }
 
+        # Amazon.APIGateway.IpAddressType
+        {
+            ($_ -eq "New-AGDomainName/EndpointConfiguration_IpAddressType") -Or
+            ($_ -eq "New-AGRestApi/EndpointConfiguration_IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.APIGateway.LocationStatusType
         "Get-AGDocumentationPartList/LocationStatus"
         {
@@ -219,6 +229,7 @@ $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
     "ConnectionType"=@("Write-AGIntegration")
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
+    "EndpointConfiguration_IpAddressType"=@("New-AGDomainName","New-AGRestApi")
     "Format"=@("Import-AGApiKey")
     "Location_Type"=@("New-AGDocumentationPart")
     "LocationStatus"=@("Get-AGDocumentationPartList")

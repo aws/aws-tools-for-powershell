@@ -117,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Int32? BuildTimeoutInMinutesOverride { get; set; }
         #endregion
         
+        #region Parameter CacheOverride_CacheNamespace
+        /// <summary>
+        /// <para>
+        /// <para>Defines the scope of the cache. You can use this namespace to share a cache across
+        /// multiple projects. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/caching-s3.html#caching-s3-sharing">Cache
+        /// sharing between projects</a> in the <i>CodeBuild User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CacheOverride_CacheNamespace { get; set; }
+        #endregion
+        
         #region Parameter CertificateOverride
         /// <summary>
         /// <para>
@@ -843,6 +855,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.BuildBatchConfigOverride_TimeoutInMin = this.BuildBatchConfigOverride_TimeoutInMin;
             context.BuildspecOverride = this.BuildspecOverride;
             context.BuildTimeoutInMinutesOverride = this.BuildTimeoutInMinutesOverride;
+            context.CacheOverride_CacheNamespace = this.CacheOverride_CacheNamespace;
             context.CacheOverride_Location = this.CacheOverride_Location;
             if (this.CacheOverride_Mode != null)
             {
@@ -1132,6 +1145,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate CacheOverride
             var requestCacheOverrideIsNull = true;
             request.CacheOverride = new Amazon.CodeBuild.Model.ProjectCache();
+            System.String requestCacheOverride_cacheOverride_CacheNamespace = null;
+            if (cmdletContext.CacheOverride_CacheNamespace != null)
+            {
+                requestCacheOverride_cacheOverride_CacheNamespace = cmdletContext.CacheOverride_CacheNamespace;
+            }
+            if (requestCacheOverride_cacheOverride_CacheNamespace != null)
+            {
+                request.CacheOverride.CacheNamespace = requestCacheOverride_cacheOverride_CacheNamespace;
+                requestCacheOverrideIsNull = false;
+            }
             System.String requestCacheOverride_cacheOverride_Location = null;
             if (cmdletContext.CacheOverride_Location != null)
             {
@@ -1521,6 +1544,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int32? BuildBatchConfigOverride_TimeoutInMin { get; set; }
             public System.String BuildspecOverride { get; set; }
             public System.Int32? BuildTimeoutInMinutesOverride { get; set; }
+            public System.String CacheOverride_CacheNamespace { get; set; }
             public System.String CacheOverride_Location { get; set; }
             public List<System.String> CacheOverride_Mode { get; set; }
             public Amazon.CodeBuild.CacheType CacheOverride_Type { get; set; }
