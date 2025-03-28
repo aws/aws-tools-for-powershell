@@ -40,7 +40,7 @@ For information about maintenance and support for major versions and their under
 
 Check out this user guide to get started quickly.
 
-[AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/Index.html)
+[AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/index.html)
 
 Take a look at this reference for more in-depth documentation for each PowerShell cmdlet.
 
