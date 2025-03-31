@@ -28,7 +28,14 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Lists all of the contact lists available.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all of the contact lists available.
+    /// 
+    ///  
+    /// <para>
+    /// If your output includes a "NextToken" field with a string value, this indicates there
+    /// may be additional contacts on the filtered list - regardless of the number of contacts
+    /// returned.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SES2ContactListCollection")]
     [OutputType("Amazon.SimpleEmailV2.Model.ContactList")]

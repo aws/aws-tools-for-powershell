@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter FaviconFile
         /// <summary>
         /// <para>
-        /// <para>Specify icon file data string (in base64 encoding).</para>
+        /// <para>Specify an icon file data string (in base64 encoding).</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

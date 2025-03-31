@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts
+        /// rack or an Outposts server configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetId { get; set; }
+        #endregion
+        
         #region Parameter OrderId
         /// <summary>
         /// <para>
@@ -152,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 context.Select = (response, cmdlet) => this.OutpostIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetId = this.AssetId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.OrderId = this.OrderId;
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             // create request and set iteration invariants
             var request = new Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesRequest();
             
+            if (cmdletContext.AssetId != null)
+            {
+                request.AssetId = cmdletContext.AssetId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -279,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OrderId { get; set; }

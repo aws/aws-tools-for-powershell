@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para> The ID of the Outpost server. </para>
+        /// <para> The ID of the Outpost server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

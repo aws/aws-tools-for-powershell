@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public System.String[] InstancesToExclude_AccountId { get; set; }
         #endregion
         
+        #region Parameter AssetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts
+        /// rack or an Outposts server configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetId { get; set; }
+        #endregion
+        
         #region Parameter DryRun
         /// <summary>
         /// <para>
@@ -210,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 context.Select = (response, cmdlet) => this.OutpostIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetId = this.AssetId;
             context.DryRun = this.DryRun;
             if (this.InstancePool != null)
             {
@@ -258,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             // create request
             var request = new Amazon.Outposts.Model.StartCapacityTaskRequest();
             
+            if (cmdletContext.AssetId != null)
+            {
+                request.AssetId = cmdletContext.AssetId;
+            }
             if (cmdletContext.DryRun != null)
             {
                 request.DryRun = cmdletContext.DryRun.Value;
@@ -378,6 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public List<Amazon.Outposts.Model.InstanceTypeCapacity> InstancePool { get; set; }
             public List<System.String> InstancesToExclude_AccountId { get; set; }

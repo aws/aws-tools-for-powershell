@@ -277,6 +277,13 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.WebAppEndpointPolicy
+        "New-TFRWebApp/WebAppEndpointPolicy"
+        {
+            $v = "FIPS","STANDARD"
+            break
+        }
+
 
     }
 
@@ -306,6 +313,7 @@ $TFR_map = @{
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("New-TFRAgreement","Send-TFRWorkflowStepState","Update-TFRAgreement")
     "Usage"=@("Import-TFRCertificate")
+    "WebAppEndpointPolicy"=@("New-TFRWebApp")
 }
 
 _awsArgumentCompleterRegistration $TFR_Completers $TFR_map

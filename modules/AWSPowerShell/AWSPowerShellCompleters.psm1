@@ -25757,6 +25757,23 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.RouteServerPeerLivenessMode
+        "New-EC2RouteServerPeer/BgpOptions_PeerLivenessDetection"
+        {
+            $v = "bfd","bgp-keepalive"
+            break
+        }
+
+        # Amazon.EC2.RouteServerPersistRoutesAction
+        {
+            ($_ -eq "Edit-EC2RouteServer/PersistRoute") -Or
+            ($_ -eq "New-EC2RouteServer/PersistRoute")
+        }
+        {
+            $v = "disable","enable","reset"
+            break
+        }
+
         # Amazon.EC2.RuleAction
         {
             ($_ -eq "New-EC2NetworkAclEntry/RuleAction") -Or
@@ -26081,6 +26098,7 @@ $EC2_map = @{
     "AutoRecovery"=@("Edit-EC2InstanceMaintenanceOption")
     "AwsService"=@("New-EC2IpamPool")
     "BandwidthWeighting"=@("Edit-EC2InstanceNetworkPerformanceOption")
+    "BgpOptions_PeerLivenessDetection"=@("New-EC2RouteServerPeer")
     "BootMode"=@("Import-EC2Image","Register-EC2Image")
     "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
     "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
@@ -26163,6 +26181,7 @@ $EC2_map = @{
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "PayerResponsibility"=@("Edit-EC2VpcEndpointServicePayerResponsibility")
     "Permission"=@("New-EC2NetworkInterfacePermission")
+    "PersistRoute"=@("Edit-EC2RouteServer","New-EC2RouteServer")
     "Placement_Tenancy"=@("New-EC2Instance","Request-EC2SpotInstance")
     "PrivateDnsHostnameType"=@("Edit-EC2PrivateDnsNameOption")
     "PrivateDnsHostnameTypeOnLaunch"=@("Edit-EC2SubnetAttribute")
@@ -26285,6 +26304,7 @@ $EC2_SelectMap = @{
                "Register-EC2IpamByoasn",
                "Register-EC2IpamResourceDiscovery",
                "Register-EC2NatGatewayAddress",
+               "Register-EC2RouteServer",
                "Register-EC2RouteTable",
                "Register-EC2SecurityGroupVpc",
                "Register-EC2SubnetCidrBlock",
@@ -26364,6 +26384,9 @@ $EC2_SelectMap = @{
                "New-EC2ReservedInstancesListing",
                "New-EC2RestoreImageTask",
                "New-EC2Route",
+               "New-EC2RouteServer",
+               "New-EC2RouteServerEndpoint",
+               "New-EC2RouteServerPeer",
                "New-EC2RouteTable",
                "New-EC2SecurityGroup",
                "New-EC2Snapshot",
@@ -26442,6 +26465,9 @@ $EC2_SelectMap = @{
                "Remove-EC2PublicIpv4Pool",
                "Remove-EC2QueuedReservedInstance",
                "Remove-EC2Route",
+               "Remove-EC2RouteServer",
+               "Remove-EC2RouteServerEndpoint",
+               "Remove-EC2RouteServerPeer",
                "Remove-EC2RouteTable",
                "Remove-EC2SecurityGroup",
                "Remove-EC2Snapshot",
@@ -26586,6 +26612,9 @@ $EC2_SelectMap = @{
                "Get-EC2ReservedInstancesListing",
                "Get-EC2ReservedInstancesModification",
                "Get-EC2ReservedInstancesOffering",
+               "Get-EC2RouteServerEndpoint",
+               "Get-EC2RouteServerPeer",
+               "Get-EC2RouteServer",
                "Get-EC2RouteTable",
                "Get-EC2ScheduledInstanceAvailability",
                "Get-EC2ScheduledInstance",
@@ -26663,6 +26692,7 @@ $EC2_SelectMap = @{
                "Disable-EC2ImageDeprecation",
                "Disable-EC2ImageDeregistrationProtection",
                "Disable-EC2IpamOrganizationAdminAccount",
+               "Disable-EC2RouteServerPropagation",
                "Disable-EC2SerialConsoleAccess",
                "Disable-EC2SnapshotBlockPublicAccess",
                "Disable-EC2TransitGatewayRouteTablePropagation",
@@ -26678,6 +26708,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2IpamByoasn",
                "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2NatGatewayAddress",
+               "Unregister-EC2RouteServer",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SecurityGroupVpc",
                "Unregister-EC2SubnetCidrBlock",
@@ -26698,6 +26729,7 @@ $EC2_SelectMap = @{
                "Enable-EC2ImageDeregistrationProtection",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
+               "Enable-EC2RouteServerPropagation",
                "Enable-EC2SerialConsoleAccess",
                "Enable-EC2SnapshotBlockPublicAccess",
                "Enable-EC2TransitGatewayRouteTablePropagation",
@@ -26743,6 +26775,9 @@ $EC2_SelectMap = @{
                "Get-EC2NetworkInsightsAccessScopeAnalysisFinding",
                "Get-EC2NetworkInsightsAccessScopeContent",
                "Get-EC2ReservedInstancesExchangeQuote",
+               "Get-EC2RouteServerAssociation",
+               "Get-EC2RouteServerPropagation",
+               "Get-EC2RouteServerRoutingDatabase",
                "Get-EC2SecurityGroupsForVpc",
                "Get-EC2SerialConsoleAccessStatus",
                "Get-EC2SnapshotBlockPublicAccessState",
@@ -26803,6 +26838,7 @@ $EC2_SelectMap = @{
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
                "Edit-EC2ReservedInstance",
+               "Edit-EC2RouteServer",
                "Edit-EC2SecurityGroupRule",
                "Edit-EC2SnapshotAttribute",
                "Edit-EC2SnapshotTier",
@@ -65358,6 +65394,7 @@ $S3C_SelectMap = @{
                "Remove-S3CAccessPointForObjectLambda",
                "Remove-S3CAccessPointPolicy",
                "Remove-S3CAccessPointPolicyForObjectLambda",
+               "Remove-S3CAccessPointScope",
                "Remove-S3CBucket",
                "Remove-S3CBucketLifecycleConfiguration",
                "Remove-S3CBucketPolicy",
@@ -65384,6 +65421,7 @@ $S3C_SelectMap = @{
                "Get-S3CAccessPointPolicyForObjectLambda",
                "Get-S3CAccessPointPolicyStatus",
                "Get-S3CAccessPointPolicyStatusForObjectLambda",
+               "Get-S3CAccessPointScope",
                "Get-S3CBucket",
                "Get-S3CBucketLifecycleConfiguration",
                "Get-S3CBucketPolicy",
@@ -65404,6 +65442,7 @@ $S3C_SelectMap = @{
                "Get-S3CAccessGrantsInstanceList",
                "Get-S3CAccessGrantsLocationList",
                "Get-S3CAccessPointList",
+               "Get-S3CAccessPointsForDirectoryBucketList",
                "Get-S3CAccessPointsForObjectLambdaList",
                "Get-S3CCallerAccessGrantList",
                "Get-S3CJobList",
@@ -65416,6 +65455,7 @@ $S3C_SelectMap = @{
                "Write-S3CAccessPointConfigurationForObjectLambda",
                "Write-S3CAccessPointPolicy",
                "Write-S3CAccessPointPolicyForObjectLambda",
+               "Write-S3CAccessPointScope",
                "Write-S3CBucketLifecycleConfiguration",
                "Write-S3CBucketPolicy",
                "Write-S3CBucketReplication",
@@ -75164,6 +75204,13 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.WebAppEndpointPolicy
+        "New-TFRWebApp/WebAppEndpointPolicy"
+        {
+            $v = "FIPS","STANDARD"
+            break
+        }
+
 
     }
 
@@ -75193,6 +75240,7 @@ $TFR_map = @{
     "ServerProtocol"=@("Test-TFRIdentityProvider")
     "Status"=@("New-TFRAgreement","Send-TFRWorkflowStepState","Update-TFRAgreement")
     "Usage"=@("Import-TFRCertificate")
+    "WebAppEndpointPolicy"=@("New-TFRWebApp")
 }
 
 _awsArgumentCompleterRegistration $TFR_Completers $TFR_map

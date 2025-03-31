@@ -1,4 +1,38 @@
-﻿### 4.1.787 (2025-03-28 21:00Z)
+﻿### 4.1.788 (2025-03-31 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1013.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2RouteServerPropagation leveraging the DisableRouteServerPropagation service API.
+    * Added cmdlet Edit-EC2RouteServer leveraging the ModifyRouteServer service API.
+    * Added cmdlet Enable-EC2RouteServerPropagation leveraging the EnableRouteServerPropagation service API.
+    * Added cmdlet Get-EC2RouteServer leveraging the DescribeRouteServers service API.
+    * Added cmdlet Get-EC2RouteServerAssociation leveraging the GetRouteServerAssociations service API.
+    * Added cmdlet Get-EC2RouteServerEndpoint leveraging the DescribeRouteServerEndpoints service API.
+    * Added cmdlet Get-EC2RouteServerPeer leveraging the DescribeRouteServerPeers service API.
+    * Added cmdlet Get-EC2RouteServerPropagation leveraging the GetRouteServerPropagations service API.
+    * Added cmdlet Get-EC2RouteServerRoutingDatabase leveraging the GetRouteServerRoutingDatabase service API.
+    * Added cmdlet New-EC2RouteServer leveraging the CreateRouteServer service API.
+    * Added cmdlet New-EC2RouteServerEndpoint leveraging the CreateRouteServerEndpoint service API.
+    * Added cmdlet New-EC2RouteServerPeer leveraging the CreateRouteServerPeer service API.
+    * Added cmdlet Register-EC2RouteServer leveraging the AssociateRouteServer service API.
+    * Added cmdlet Remove-EC2RouteServer leveraging the DeleteRouteServer service API.
+    * Added cmdlet Remove-EC2RouteServerEndpoint leveraging the DeleteRouteServerEndpoint service API.
+    * Added cmdlet Remove-EC2RouteServerPeer leveraging the DeleteRouteServerPeer service API.
+    * Added cmdlet Unregister-EC2RouteServer leveraging the DisassociateRouteServer service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet Update-EKSClusterConfig: added parameters RemoteNetworkConfig_RemoteNodeNetwork and RemoteNetworkConfig_RemotePodNetwork.
+  * Amazon Outposts
+    * Modified cmdlet Get-OUTPOutpostSupportedInstanceType: added parameter AssetId.
+    * Modified cmdlet Start-OUTPCapacityTask: added parameter AssetId.
+  * Amazon S3 Control
+    * Added cmdlet Get-S3CAccessPointScope leveraging the GetAccessPointScope service API.
+    * Added cmdlet Get-S3CAccessPointsForDirectoryBucketList leveraging the ListAccessPointsForDirectoryBuckets service API.
+    * Added cmdlet Remove-S3CAccessPointScope leveraging the DeleteAccessPointScope service API.
+    * Added cmdlet Write-S3CAccessPointScope leveraging the PutAccessPointScope service API.
+    * Modified cmdlet New-S3CAccessPoint: added parameters Scope_Permission and Scope_Prefix.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRWebApp: added parameter WebAppEndpointPolicy.
+
+### 4.1.787 (2025-03-28 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1012.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon API Gateway
     * Modified cmdlet New-AGDomainName: added parameter EndpointConfiguration_IpAddressType.
