@@ -101,6 +101,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.NotebookInstanceLifecycleHook[] OnStart { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging
+        /// Amazon Web Services Resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'NotebookInstanceLifecycleConfigArn'.
@@ -178,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.OnStart = new List<Amazon.SageMaker.Model.NotebookInstanceLifecycleHook>(this.OnStart);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.OnStart != null)
             {
                 request.OnStart = cmdletContext.OnStart;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -270,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String NotebookInstanceLifecycleConfigName { get; set; }
             public List<Amazon.SageMaker.Model.NotebookInstanceLifecycleHook> OnCreate { get; set; }
             public List<Amazon.SageMaker.Model.NotebookInstanceLifecycleHook> OnStart { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateNotebookInstanceLifecycleConfigResponse, NewSMNotebookInstanceLifecycleConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NotebookInstanceLifecycleConfigArn;
         }

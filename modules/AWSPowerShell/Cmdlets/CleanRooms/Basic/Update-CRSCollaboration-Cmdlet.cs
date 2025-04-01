@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AnalyticsEngine
+        /// <summary>
+        /// <para>
+        /// <para>The analytics engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CleanRooms.AnalyticsEngine")]
+        public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
+        #endregion
+        
         #region Parameter CollaborationIdentifier
         /// <summary>
         /// <para>
@@ -142,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.Select = (response, cmdlet) => this.CollaborationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnalyticsEngine = this.AnalyticsEngine;
             context.CollaborationIdentifier = this.CollaborationIdentifier;
             #if MODULAR
             if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
@@ -167,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             // create request
             var request = new Amazon.CleanRooms.Model.UpdateCollaborationRequest();
             
+            if (cmdletContext.AnalyticsEngine != null)
+            {
+                request.AnalyticsEngine = cmdletContext.AnalyticsEngine;
+            }
             if (cmdletContext.CollaborationIdentifier != null)
             {
                 request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
@@ -240,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CleanRooms.AnalyticsEngine AnalyticsEngine { get; set; }
             public System.String CollaborationIdentifier { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }

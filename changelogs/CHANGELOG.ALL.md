@@ -1,4 +1,11 @@
-﻿### 4.1.788 (2025-03-31 21:19Z)
+﻿### 4.1.789 (2025-04-01 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1014.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Update-CRSCollaboration: added parameter AnalyticsEngine.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMNotebookInstanceLifecycleConfig: added parameter Tag.
+
+### 4.1.788 (2025-03-31 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1013.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Disable-EC2RouteServerPropagation leveraging the DisableRouteServerPropagation service API.

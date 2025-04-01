@@ -10585,7 +10585,10 @@ $CRS_Completers = {
         }
 
         # Amazon.CleanRooms.AnalyticsEngine
-        "New-CRSCollaboration/AnalyticsEngine"
+        {
+            ($_ -eq "New-CRSCollaboration/AnalyticsEngine") -Or
+            ($_ -eq "Update-CRSCollaboration/AnalyticsEngine")
+        }
         {
             $v = "CLEAN_ROOMS_SQL","SPARK"
             break
@@ -10772,7 +10775,7 @@ $CRS_map = @{
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable","Update-CRSConfiguredTable")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
-    "AnalyticsEngine"=@("New-CRSCollaboration")
+    "AnalyticsEngine"=@("New-CRSCollaboration","Update-CRSCollaboration")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
     "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Format"=@("New-CRSAnalysisTemplate")
