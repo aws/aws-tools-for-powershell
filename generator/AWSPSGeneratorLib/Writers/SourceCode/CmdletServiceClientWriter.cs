@@ -23,8 +23,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="serviceConfig"></param>
         /// <param name="clientName"></param>
         /// <param name="serviceApiVersion"></param>
-        /// <param name="awsSignerAttributeTypeValue"></param>
-        public static void Write(IndentedTextWriter writer, ConfigModel serviceConfig, string clientName, string serviceApiVersion, string awsSignerAttributeTypeValue)
+        public static void Write(IndentedTextWriter writer, ConfigModel serviceConfig, string clientName, string serviceApiVersion)
         {
             WriteSourceLicenseHeader(writer);
             WriteNamespaces(writer, serviceConfig.ServiceNamespace);
@@ -34,12 +33,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("namespace Amazon.PowerShell.Cmdlets.{0}", prefix);
             writer.OpenRegion();
             {
-                WriteServiceCmdletClass(writer, serviceConfig, clientName, prefix, serviceApiVersion, false, awsSignerAttributeTypeValue);
+                WriteServiceCmdletClass(writer, serviceConfig, clientName, prefix, serviceApiVersion, false);
 
                 if (serviceConfig.RequiresAnonymousServiceCmdletClass)
                 {
                     writer.WriteLine();
-                    WriteServiceCmdletClass(writer, serviceConfig, clientName, prefix, serviceApiVersion, true, awsSignerAttributeTypeValue);
+                    WriteServiceCmdletClass(writer, serviceConfig, clientName, prefix, serviceApiVersion, true);
                 }
             }
             writer.CloseRegion();
@@ -50,8 +49,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                                     string clientName, 
                                                     string prefix, 
                                                     string serviceApiVersion, 
-                                                    bool useAnonymousServiceCmdletBase,
-                                                    string awsSignerAttributeTypeValue)
+                                                    bool useAnonymousServiceCmdletBase)
         {
             var serviceCmdletBaseClass = useAnonymousServiceCmdletBase ? AnonymousServiceCmdletBaseClassName : AuthenticatedServiceCmdletBaseClassName;
             var serviceCmdletClass = serviceConfig.GetServiceCmdletClassName(useAnonymousServiceCmdletBase);
@@ -115,7 +113,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                      * it with the non-null region parameter which is earlier resolved in TryGetRegion() from explicitly passed region, session parameter, etc. */
                     writer.WriteLine("if (region != null) config.RegionEndpoint = region;");
 
-                    if(awsSignerAttributeTypeValue == "bearer")
+                    if (!useAnonymousServiceCmdletBase)
                     {
                         writer.WriteLine("if (!string.IsNullOrEmpty(ProfileName))");
                         writer.OpenRegion();

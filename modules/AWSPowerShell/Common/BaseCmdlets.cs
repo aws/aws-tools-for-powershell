@@ -651,7 +651,6 @@ namespace Amazon.PowerShell.Common
         public RegionEndpoint _RegionEndpoint { get; private set; }
         protected bool _ExecuteWithAnonymousCredentials { get; set; }
         protected ClientConfig _ClientConfig { get; set; }
-        protected string _AWSSignerType { get; set; }
 
         /// <summary>
         /// <para>
@@ -680,14 +679,10 @@ namespace Amazon.PowerShell.Common
             // if user passes $null as value, we see a bound parameter
             if (ParameterWasBound("EndpointUrl") && !string.IsNullOrEmpty(this.EndpointUrl))
             {
-                if(_AWSSignerType != "bearer" || (_AWSSignerType == "bearer" && config?.AWSTokenProvider == null))
-                {
-                    // To allow use of urls that do not contain region info, swap any region
-                    // we've already detected for the command into AuthRegion for the config;
-                    // setting ServiceUrl will clear RegionEndpoint on the config.
-                    config.AuthenticationRegion = config.RegionEndpoint.SystemName;
-                }
-
+                // To allow use of urls that do not contain region info, swap any region
+                // we've already detected for the command into AuthRegion for the config;
+                // setting ServiceUrl will clear RegionEndpoint on the config.
+                config.AuthenticationRegion = config.RegionEndpoint.SystemName;
                 config.ServiceURL = this.EndpointUrl.ToString();
             }
         }
@@ -743,19 +738,7 @@ namespace Amazon.PowerShell.Common
                 }
             }
 
-            if(_AWSSignerType == "bearer")
-            {
-                //Bearer tokens using AWSTokenProvider/Profiles do not require a region as it will be resolved by the .NET SDK.
-
-                //AWSTokenProvider is set as:
-                //  1. $config.AWSTokenProvider = New-Object -TypeName Amazon.Runtime.ProfileTokenProvider("SOME_PROFILE")
-                //  2. $config.AWSTokenProvider = New-Object -TypeName Amazon.Runtime.StaticTokenProvider("SOME_TOKEN")
-
-                _RegionEndpoint = null;
-                regionSource = RegionSource.String;
-                WriteRegionSourceDiagnostic("bearer-token", null);
-            }
-            else if (_RegionEndpoint == null)
+            if (_RegionEndpoint == null)
             {
                 if (String.IsNullOrEmpty(_DefaultRegion))
                     ThrowExecutionError("No region specified or obtained from persisted/shell defaults.", this);
@@ -795,7 +778,6 @@ namespace Amazon.PowerShell.Common
     {
         protected RegionEndpoint _RegionEndpoint { get; private set; }
         protected ClientConfig _ClientConfig { get; set; }
-        protected string _AWSSignerType { get; set; }
 
         #region Parameter EndpointURL
         /// <summary>
