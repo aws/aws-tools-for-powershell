@@ -1,4 +1,20 @@
-﻿### 4.1.789 (2025-04-01 20:56Z)
+﻿### 4.1.790 (2025-04-02 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1015.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet Get-CWASServiceLevelObjectiveList: added parameters DependencyConfig_DependencyKeyAttribute, DependencyConfig_DependencyOperationName and MetricSourceType.
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameters RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes, RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName, SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes and SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameters RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes, RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName, SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes and SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLInput: added parameter Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup.
+    * Modified cmdlet Update-EMLInput: added parameter Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Bot: added parameter ErrorLogSettings_Enabled.
+    * Modified cmdlet New-LMBV2Intent: added parameter QInConnectAssistantConfiguration_AssistantArn.
+    * Modified cmdlet Start-LMBV2Import: added parameter ErrorLogSettings_Enabled.
+    * Modified cmdlet Update-LMBV2Bot: added parameter ErrorLogSettings_Enabled.
+    * Modified cmdlet Update-LMBV2Intent: added parameter QInConnectAssistantConfiguration_AssistantArn.
+
+### 4.1.789 (2025-04-01 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1014.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Modified cmdlet Update-CRSCollaboration: added parameter AnalyticsEngine.

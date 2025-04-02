@@ -154,6 +154,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String TestSetImportResourceSpecification_Description { get; set; }
         #endregion
         
+        #region Parameter ErrorLogSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Settings parameters for the error logs, when it is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceSpecification_BotImportSpecification_ErrorLogSettings_Enabled")]
+        public System.Boolean? ErrorLogSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter VoiceSettings_Engine
         /// <summary>
         /// <para>
@@ -500,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 }
             }
             context.DataPrivacy_ChildDirected = this.DataPrivacy_ChildDirected;
+            context.ErrorLogSettings_Enabled = this.ErrorLogSettings_Enabled;
             context.BotImportSpecification_IdleSessionTTLInSecond = this.BotImportSpecification_IdleSessionTTLInSecond;
             context.BotImportSpecification_RoleArn = this.BotImportSpecification_RoleArn;
             if (this.BotImportSpecification_TestBotAliasTag != null)
@@ -783,6 +795,31 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 requestResourceSpecification_resourceSpecification_BotImportSpecification.DataPrivacy = requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_DataPrivacy;
                 requestResourceSpecification_resourceSpecification_BotImportSpecificationIsNull = false;
             }
+            Amazon.LexModelsV2.Model.ErrorLogSettings requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings = null;
+            
+             // populate ErrorLogSettings
+            var requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettingsIsNull = true;
+            requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings = new Amazon.LexModelsV2.Model.ErrorLogSettings();
+            System.Boolean? requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings_errorLogSettings_Enabled = null;
+            if (cmdletContext.ErrorLogSettings_Enabled != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings_errorLogSettings_Enabled = cmdletContext.ErrorLogSettings_Enabled.Value;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings_errorLogSettings_Enabled != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings.Enabled = requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings_errorLogSettings_Enabled.Value;
+                requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettingsIsNull = false;
+            }
+             // determine if requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings should be set to null
+            if (requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettingsIsNull)
+            {
+                requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings = null;
+            }
+            if (requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings != null)
+            {
+                requestResourceSpecification_resourceSpecification_BotImportSpecification.ErrorLogSettings = requestResourceSpecification_resourceSpecification_BotImportSpecification_resourceSpecification_BotImportSpecification_ErrorLogSettings;
+                requestResourceSpecification_resourceSpecification_BotImportSpecificationIsNull = false;
+            }
              // determine if requestResourceSpecification_resourceSpecification_BotImportSpecification should be set to null
             if (requestResourceSpecification_resourceSpecification_BotImportSpecificationIsNull)
             {
@@ -1010,6 +1047,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotImportSpecification_BotName { get; set; }
             public Dictionary<System.String, System.String> BotImportSpecification_BotTag { get; set; }
             public System.Boolean? DataPrivacy_ChildDirected { get; set; }
+            public System.Boolean? ErrorLogSettings_Enabled { get; set; }
             public System.Int32? BotImportSpecification_IdleSessionTTLInSecond { get; set; }
             public System.String BotImportSpecification_RoleArn { get; set; }
             public Dictionary<System.String, System.String> BotImportSpecification_TestBotAliasTag { get; set; }

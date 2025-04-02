@@ -224,7 +224,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
+            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
             break
         }
 

@@ -607,6 +607,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String QnAIntentConfiguration_DataSourceConfiguration_OpensearchConfiguration_ExactResponseFields_AnswerField { get; set; }
         #endregion
         
+        #region Parameter QInConnectAssistantConfiguration_AssistantArn
+        /// <summary>
+        /// <para>
+        /// <para>The assistant Arn details of the Qinconnect assistant configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QInConnectIntentConfiguration_QInConnectAssistantConfiguration_AssistantArn")]
+        public System.String QInConnectAssistantConfiguration_AssistantArn { get; set; }
+        #endregion
+        
         #region Parameter BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn
         /// <summary>
         /// <para>
@@ -4343,6 +4354,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.OutputContext = new List<Amazon.LexModelsV2.Model.OutputContext>(this.OutputContext);
             }
             context.ParentIntentSignature = this.ParentIntentSignature;
+            context.QInConnectAssistantConfiguration_AssistantArn = this.QInConnectAssistantConfiguration_AssistantArn;
             context.BedrockModelConfiguration_CustomPrompt = this.BedrockModelConfiguration_CustomPrompt;
             context.Guardrail_Identifier = this.Guardrail_Identifier;
             context.Guardrail_Version = this.Guardrail_Version;
@@ -9539,6 +9551,40 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.ParentIntentSignature = cmdletContext.ParentIntentSignature;
             }
             
+             // populate QInConnectIntentConfiguration
+            var requestQInConnectIntentConfigurationIsNull = true;
+            request.QInConnectIntentConfiguration = new Amazon.LexModelsV2.Model.QInConnectIntentConfiguration();
+            Amazon.LexModelsV2.Model.QInConnectAssistantConfiguration requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration = null;
+            
+             // populate QInConnectAssistantConfiguration
+            var requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfigurationIsNull = true;
+            requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration = new Amazon.LexModelsV2.Model.QInConnectAssistantConfiguration();
+            System.String requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration_qInConnectAssistantConfiguration_AssistantArn = null;
+            if (cmdletContext.QInConnectAssistantConfiguration_AssistantArn != null)
+            {
+                requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration_qInConnectAssistantConfiguration_AssistantArn = cmdletContext.QInConnectAssistantConfiguration_AssistantArn;
+            }
+            if (requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration_qInConnectAssistantConfiguration_AssistantArn != null)
+            {
+                requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration.AssistantArn = requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration_qInConnectAssistantConfiguration_AssistantArn;
+                requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfigurationIsNull = false;
+            }
+             // determine if requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration should be set to null
+            if (requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfigurationIsNull)
+            {
+                requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration = null;
+            }
+            if (requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration != null)
+            {
+                request.QInConnectIntentConfiguration.QInConnectAssistantConfiguration = requestQInConnectIntentConfiguration_qInConnectIntentConfiguration_QInConnectAssistantConfiguration;
+                requestQInConnectIntentConfigurationIsNull = false;
+            }
+             // determine if request.QInConnectIntentConfiguration should be set to null
+            if (requestQInConnectIntentConfigurationIsNull)
+            {
+                request.QInConnectIntentConfiguration = null;
+            }
+            
              // populate QnAIntentConfiguration
             var requestQnAIntentConfigurationIsNull = true;
             request.QnAIntentConfiguration = new Amazon.LexModelsV2.Model.QnAIntentConfiguration();
@@ -10206,6 +10252,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String LocaleId { get; set; }
             public List<Amazon.LexModelsV2.Model.OutputContext> OutputContext { get; set; }
             public System.String ParentIntentSignature { get; set; }
+            public System.String QInConnectAssistantConfiguration_AssistantArn { get; set; }
             public System.String BedrockModelConfiguration_CustomPrompt { get; set; }
             public System.String Guardrail_Identifier { get; set; }
             public System.String Guardrail_Version { get; set; }
