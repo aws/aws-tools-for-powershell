@@ -82,6 +82,7 @@
   <IncludeLibraries>
     <!-- This service is excluded from generation but we have hand written cmdlets for it -->
     <Library Name="AWSSDK.CloudSearchDomain" AddAsReference="true" />
+    <Library Name="AWSSDK.TranscribeStreaming" AddAsReference="false" />
 
     <!-- Not used. These libraries were previously included in the AWSPowerShell distribution, so we need to keep them for backward compatibility -->
     <Library Name="AWSSDK.IoTAnalytics" />
