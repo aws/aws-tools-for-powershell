@@ -1,4 +1,7 @@
-﻿### 4.1.790 (2025-04-02 21:27Z)
+﻿### 4.1.791 (2025-04-03 03:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1015.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.790 (2025-04-02 21:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1015.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Application Signals
     * Modified cmdlet Get-CWASServiceLevelObjectiveList: added parameters DependencyConfig_DependencyKeyAttribute, DependencyConfig_DependencyOperationName and MetricSourceType.
