@@ -355,7 +355,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IdentityCenterOptions_EnabledAPIAccess
         /// <summary>
         /// <para>
-        /// <para>True to enable IAM Identity Center for API access in Amazon OpenSearch Service.</para>
+        /// <para>Indicates whether IAM Identity Center is enabled for API access in Amazon OpenSearch
+        /// Service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,8 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IdentityCenterOptions_IdentityCenterInstanceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN for IAM Identity Center Instance which will be used for IAM Identity Center
-        /// Application creation.</para>
+        /// <para>The ARN of the IAM Identity Center instance used to create an OpenSearch UI application
+        /// that uses IAM Identity Center for authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -657,8 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IdentityCenterOptions_RolesKey
         /// <summary>
         /// <para>
-        /// <para>Specify the attribute that contains the backend role (groupName, groupID) of IAM Identity
-        /// Center</para>
+        /// <para>Specifies the attribute that contains the backend role identifier (such as group name
+        /// or group ID) in IAM Identity Center.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -730,8 +731,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IdentityCenterOptions_SubjectKey
         /// <summary>
         /// <para>
-        /// <para>Specify the attribute that contains the subject (username, userID, email) of IAM Identity
-        /// Center.</para>
+        /// <para>Specifies the attribute that contains the subject identifier (such as username, user
+        /// ID, or email) in IAM Identity Center.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

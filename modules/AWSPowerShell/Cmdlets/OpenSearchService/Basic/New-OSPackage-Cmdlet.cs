@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageEncryptionOptions_EncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>This indicates whether encryption is enabled for the package.</para>
+        /// <para>Whether encryption is enabled for the package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageEncryptionOptions_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para> KMS key ID for encrypting the package.</para>
+        /// <para>KMS key ID for encrypting the package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageVendingOptions_VendingEnabled
         /// <summary>
         /// <para>
-        /// <para>This indicates whether vending is enabled for the package to determine if package
-        /// can be used by other users. </para>
+        /// <para>Indicates whether the package vending feature is enabled, allowing the package to
+        /// be used by other users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Update the OpenSearch Application.
+    /// Updates the configuration and settings of an existing OpenSearch application.
     /// </summary>
     [Cmdlet("Update", "OSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.UpdateApplicationResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AppConfig
         /// <summary>
         /// <para>
-        /// <para>Configurations to be changed for the OpenSearch Application.</para>
+        /// <para>The configuration settings to modify for the OpenSearch application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DataSource
         /// <summary>
         /// <para>
-        /// <para>Data sources to be associated with the OpenSearch Application.</para>
+        /// <para>The data sources to associate with the OpenSearch application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the OpenSearch Application to be updated.</para>
+        /// <para>The unique identifier for the OpenSearch application to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

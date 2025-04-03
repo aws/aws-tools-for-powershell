@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Check the configuration and status of an existing OpenSearch Application.
+    /// Retrieves the configuration and status of an existing OpenSearch application.
     /// </summary>
     [Cmdlet("Get", "OSApplication")]
     [OutputType("Amazon.OpenSearchService.Model.GetApplicationResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the checked OpenSearch Application.</para>
+        /// <para>The unique identifier of the OpenSearch application to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,16 @@
-﻿### 4.1.791 (2025-04-03 03:37Z)
+﻿### 4.1.792 (2025-04-03 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1016.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters FieldMapping_CustomMetadataField and MongoDbAtlasConfiguration_TextIndexName.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters FieldMapping_CustomMetadataField and MongoDbAtlasConfiguration_TextIndexName.
+  * Amazon SES Mail Manager
+    * Modified cmdlet New-MMGRIngressPoint: added parameters PrivateNetworkConfiguration_VpcEndpointId and PublicNetworkConfiguration_IpType.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2DeliverabilityTestReport: added parameters Simple_Attachment and Template_Attachment.
+    * Modified cmdlet Send-SES2BulkEmail: added parameter Template_Attachment.
+    * Modified cmdlet Send-SES2Email: added parameters Simple_Attachment and Template_Attachment.
+
+### 4.1.791 (2025-04-03 03:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1015.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.790 (2025-04-02 21:27Z)

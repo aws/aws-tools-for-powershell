@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         public System.String IngressPointName { get; set; }
         #endregion
         
+        #region Parameter PublicNetworkConfiguration_IpType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type for the public ingress point. Valid values are IPV4 and DUAL_STACK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_PublicNetworkConfiguration_IpType")]
+        [AWSConstantClassSource("Amazon.MailManager.IpType")]
+        public Amazon.MailManager.IpType PublicNetworkConfiguration_IpType { get; set; }
+        #endregion
+        
         #region Parameter RuleSetId
         /// <summary>
         /// <para>
@@ -145,6 +157,17 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         public Amazon.MailManager.IngressPointType Type { get; set; }
         #endregion
         
+        #region Parameter PrivateNetworkConfiguration_VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the VPC endpoint to associate with this private ingress point.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_PrivateNetworkConfiguration_VpcEndpointId")]
+        public System.String PrivateNetworkConfiguration_VpcEndpointId { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -227,6 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
                 WriteWarning("You are passing $null as a value for parameter IngressPointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PrivateNetworkConfiguration_VpcEndpointId = this.PrivateNetworkConfiguration_VpcEndpointId;
+            context.PublicNetworkConfiguration_IpType = this.PublicNetworkConfiguration_IpType;
             context.RuleSetId = this.RuleSetId;
             #if MODULAR
             if (this.RuleSetId == null && ParameterWasBound(nameof(this.RuleSetId)))
@@ -304,6 +329,65 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             if (cmdletContext.IngressPointName != null)
             {
                 request.IngressPointName = cmdletContext.IngressPointName;
+            }
+            
+             // populate NetworkConfiguration
+            var requestNetworkConfigurationIsNull = true;
+            request.NetworkConfiguration = new Amazon.MailManager.Model.NetworkConfiguration();
+            Amazon.MailManager.Model.PrivateNetworkConfiguration requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration = null;
+            
+             // populate PrivateNetworkConfiguration
+            var requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfigurationIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration = new Amazon.MailManager.Model.PrivateNetworkConfiguration();
+            System.String requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration_privateNetworkConfiguration_VpcEndpointId = null;
+            if (cmdletContext.PrivateNetworkConfiguration_VpcEndpointId != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration_privateNetworkConfiguration_VpcEndpointId = cmdletContext.PrivateNetworkConfiguration_VpcEndpointId;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration_privateNetworkConfiguration_VpcEndpointId != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration.VpcEndpointId = requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration_privateNetworkConfiguration_VpcEndpointId;
+                requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfigurationIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfigurationIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration != null)
+            {
+                request.NetworkConfiguration.PrivateNetworkConfiguration = requestNetworkConfiguration_networkConfiguration_PrivateNetworkConfiguration;
+                requestNetworkConfigurationIsNull = false;
+            }
+            Amazon.MailManager.Model.PublicNetworkConfiguration requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration = null;
+            
+             // populate PublicNetworkConfiguration
+            var requestNetworkConfiguration_networkConfiguration_PublicNetworkConfigurationIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration = new Amazon.MailManager.Model.PublicNetworkConfiguration();
+            Amazon.MailManager.IpType requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration_publicNetworkConfiguration_IpType = null;
+            if (cmdletContext.PublicNetworkConfiguration_IpType != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration_publicNetworkConfiguration_IpType = cmdletContext.PublicNetworkConfiguration_IpType;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration_publicNetworkConfiguration_IpType != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration.IpType = requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration_publicNetworkConfiguration_IpType;
+                requestNetworkConfiguration_networkConfiguration_PublicNetworkConfigurationIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_PublicNetworkConfigurationIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration != null)
+            {
+                request.NetworkConfiguration.PublicNetworkConfiguration = requestNetworkConfiguration_networkConfiguration_PublicNetworkConfiguration;
+                requestNetworkConfigurationIsNull = false;
+            }
+             // determine if request.NetworkConfiguration should be set to null
+            if (requestNetworkConfigurationIsNull)
+            {
+                request.NetworkConfiguration = null;
             }
             if (cmdletContext.RuleSetId != null)
             {
@@ -386,6 +470,8 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
             public System.String IngressPointConfiguration_SecretArn { get; set; }
             public System.String IngressPointConfiguration_SmtpPassword { get; set; }
             public System.String IngressPointName { get; set; }
+            public System.String PrivateNetworkConfiguration_VpcEndpointId { get; set; }
+            public Amazon.MailManager.IpType PublicNetworkConfiguration_IpType { get; set; }
             public System.String RuleSetId { get; set; }
             public List<Amazon.MailManager.Model.Tag> Tag { get; set; }
             public System.String TrafficPolicyId { get; set; }

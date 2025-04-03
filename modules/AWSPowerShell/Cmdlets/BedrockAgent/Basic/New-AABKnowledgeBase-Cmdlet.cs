@@ -187,6 +187,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public Amazon.BedrockAgent.Model.CuratedQuery[] GenerationContext_CuratedQuery { get; set; }
         #endregion
         
+        #region Parameter FieldMapping_CustomMetadataField
+        /// <summary>
+        /// <para>
+        /// <para>Provide a name for the universal metadata field where Amazon Bedrock will store any
+        /// custom metadata from your data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_RdsConfiguration_FieldMapping_CustomMetadataField")]
+        public System.String FieldMapping_CustomMetadataField { get; set; }
+        #endregion
+        
         #region Parameter MongoDbAtlasConfiguration_DatabaseName
         /// <summary>
         /// <para>
@@ -634,6 +646,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField { get; set; }
         #endregion
         
+        #region Parameter MongoDbAtlasConfiguration_TextIndexName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the text search index in the MongoDB collection. This is required for
+        /// using the hybrid search feature.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_TextIndexName")]
+        public System.String MongoDbAtlasConfiguration_TextIndexName { get; set; }
+        #endregion
+        
         #region Parameter KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type
         /// <summary>
         /// <para>
@@ -977,6 +1001,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField;
             context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField;
+            context.MongoDbAtlasConfiguration_TextIndexName = this.MongoDbAtlasConfiguration_TextIndexName;
             context.MongoDbAtlasConfiguration_VectorIndexName = this.MongoDbAtlasConfiguration_VectorIndexName;
             context.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField = this.StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField;
@@ -999,6 +1024,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.PineconeConfiguration_Namespace = this.PineconeConfiguration_Namespace;
             context.RdsConfiguration_CredentialsSecretArn = this.RdsConfiguration_CredentialsSecretArn;
             context.RdsConfiguration_DatabaseName = this.RdsConfiguration_DatabaseName;
+            context.FieldMapping_CustomMetadataField = this.FieldMapping_CustomMetadataField;
             context.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField;
             context.FieldMapping_PrimaryKeyField = this.FieldMapping_PrimaryKeyField;
             context.StorageConfiguration_RdsConfiguration_FieldMapping_TextField = this.StorageConfiguration_RdsConfiguration_FieldMapping_TextField;
@@ -1925,6 +1951,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
              // populate FieldMapping
             var requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = true;
             requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping = new Amazon.BedrockAgent.Model.RdsFieldMapping();
+            System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_CustomMetadataField = null;
+            if (cmdletContext.FieldMapping_CustomMetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_CustomMetadataField = cmdletContext.FieldMapping_CustomMetadataField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_CustomMetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping.CustomMetadataField = requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_fieldMapping_CustomMetadataField;
+                requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMappingIsNull = false;
+            }
             System.String requestStorageConfiguration_storageConfiguration_RdsConfiguration_storageConfiguration_RdsConfiguration_FieldMapping_storageConfiguration_RdsConfiguration_FieldMapping_MetadataField = null;
             if (cmdletContext.StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField != null)
             {
@@ -2038,6 +2074,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_EndpointServiceName != null)
             {
                 requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.EndpointServiceName = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_EndpointServiceName;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_TextIndexName = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_TextIndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_TextIndexName = cmdletContext.MongoDbAtlasConfiguration_TextIndexName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_TextIndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.TextIndexName = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_TextIndexName;
                 requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
             }
             System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_VectorIndexName = null;
@@ -2206,6 +2252,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField { get; set; }
             public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField { get; set; }
+            public System.String MongoDbAtlasConfiguration_TextIndexName { get; set; }
             public System.String MongoDbAtlasConfiguration_VectorIndexName { get; set; }
             public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_NeptuneAnalyticsConfiguration_FieldMapping_TextField { get; set; }
@@ -2228,6 +2275,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String PineconeConfiguration_Namespace { get; set; }
             public System.String RdsConfiguration_CredentialsSecretArn { get; set; }
             public System.String RdsConfiguration_DatabaseName { get; set; }
+            public System.String FieldMapping_CustomMetadataField { get; set; }
             public System.String StorageConfiguration_RdsConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String FieldMapping_PrimaryKeyField { get; set; }
             public System.String StorageConfiguration_RdsConfiguration_FieldMapping_TextField { get; set; }

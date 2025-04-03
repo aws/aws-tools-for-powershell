@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Creates an OpenSearch Application.
+    /// Creates an OpenSearch UI application. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html">Using
+    /// the OpenSearch user interface in Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("New", "OSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.CreateApplicationResponse")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AppConfig
         /// <summary>
         /// <para>
-        /// <para>Configurations of the OpenSearch Application, inlcuding admin configuration.</para>
+        /// <para>Configuration settings for the OpenSearch application, including administrative options.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DataSource
         /// <summary>
         /// <para>
-        /// <para>Data sources to be associated with the OpenSearch Application.</para>
+        /// <para>The data sources to link to the OpenSearch application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IamIdentityCenterOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>Enable/disable settings for IAM Identity Center.</para>
+        /// <para>Specifies whether IAM Identity Center is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter IamIdentityCenterOptions_IamRoleForIdentityCenterApplicationArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name of IAM Identity Center's application.</para>
+        /// <para>The ARN of the IAM role associated with the IAM Identity Center application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the OpenSearch Appication to create. Application names are unique across the
-        /// applications owned by an account within an Amazon Web Services Region.</para>
+        /// <para>The unique name of the OpenSearch application. Names must be unique within an Amazon
+        /// Web Services Region for each account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique client idempotency token. It will be auto generated if not provided.</para>
+        /// <para>Unique, case-sensitive identifier to ensure idempotency of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
