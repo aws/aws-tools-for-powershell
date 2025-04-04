@@ -388,18 +388,10 @@ namespace Amazon.PowerShell.Common
         protected void RequestEventHandler(object sender, RequestEventArgs args)
         {
             var wsrea = args as WebServiceRequestEventArgs;
-            if (wsrea == null)
-            {  
-                return; 
-            }
-            else
+            if (wsrea != null && wsrea.Request != null)
             {
-                wsrea.Headers[AWSSDKUtils.UserAgentHeader] += $" {UserAgentAddition}";
+                ((Runtime.Internal.IAmazonWebServiceRequest)wsrea.Request).UserAgentDetails.AddUserAgentComponent(UserAgentAddition);
             }
-
-            var request = wsrea.Request;
-
-            if (request == null) return;
         }
 
         #endregion
