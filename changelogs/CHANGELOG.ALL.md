@@ -1,4 +1,10 @@
-﻿### 4.1.792 (2025-04-03 21:15Z)
+﻿### 4.1.793 (2025-04-04 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1017.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EventBridge
+    * Modified cmdlet New-EVBArchive: added parameter KmsKeyIdentifier.
+    * Modified cmdlet Update-EVBArchive: added parameter KmsKeyIdentifier.
+
+### 4.1.792 (2025-04-03 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1016.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters FieldMapping_CustomMetadataField and MongoDbAtlasConfiguration_TextIndexName.

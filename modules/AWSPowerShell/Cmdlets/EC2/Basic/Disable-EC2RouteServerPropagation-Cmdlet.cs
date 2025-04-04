@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// Amazon VPC Route Server simplifies routing for traffic between workloads that are
     /// deployed within a VPC and its internet gateways. With this feature, VPC Route Server
-    /// dynamically updates VPC and gateway route tables with your preferred IPv4 or IPv6
-    /// routes to achieve routing fault tolerance for those workloads. This enables you to
-    /// automatically reroute traffic within a VPC, which increases the manageability of VPC
-    /// routing and interoperability with third-party workloads.
+    /// dynamically updates VPC and internet gateway route tables with your preferred IPv4
+    /// or IPv6 routes to achieve routing fault tolerance for those workloads. This enables
+    /// you to automatically reroute traffic within a VPC, which increases the manageability
+    /// of VPC routing and interoperability with third-party workloads.
     /// </para><para>
     /// Route server supports the follow route table types:
     /// </para><ul><li><para>
-    /// VPC route tables
+    /// VPC route tables not associated with subnets
     /// </para></li><li><para>
     /// Subnet route tables
     /// </para></li><li><para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// To propagate routes into a transit gateway route table, use <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html">Transit
     /// Gateway Connect</a>.
     /// </para><para>
-    /// For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Dynamic
+    /// For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic
     /// routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>

@@ -34,21 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// events sent to the archive, all events are sent to the archive except replayed events.
     /// Replayed events are not sent to an archive.
     /// 
-    ///  <note><para>
-    /// Archives and schema discovery are not supported for event buses encrypted using a
-    /// customer managed key. EventBridge returns an error if:
-    /// </para><ul><li><para>
-    /// You call <c><a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">CreateArchive</a></c> on an event bus set to use a customer managed key for encryption.
-    /// </para></li><li><para>
-    /// You call <c><a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a></c> on an event bus set to use a customer managed key for encryption.
-    /// </para></li><li><para>
-    /// You call <c><a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a></c> to set a customer managed key on an event bus with an archives or schema discovery
-    /// enabled.
-    /// </para></li></ul><para>
-    /// To enable archives or schema discovery on an event bus, choose to use an Amazon Web
-    /// Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data
-    /// encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.
-    /// </para></note>
+    ///  <important><para>
+    /// If you have specified that EventBridge use a customer managed key for encrypting the
+    /// source event bus, we strongly recommend you also specify a customer managed key for
+    /// any archives for the event bus as well. 
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html">Encrypting
+    /// archives</a> in the <i>Amazon EventBridge User Guide</i>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "EVBArchive", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridge.Model.CreateArchiveResponse")]
@@ -113,6 +106,23 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EventSourceArn { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the KMS customer managed key for EventBridge to use, if you choose
+        /// to use a customer managed key to encrypt this archive. The identifier can be the key
+        /// Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</para><para>If you do not specify a customer managed key identifier, EventBridge uses an Amazon
+        /// Web Services owned key to encrypt the archive.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html">Identify
+        /// and view keys</a> in the <i>Key Management Service Developer Guide</i>. </para><important><para>If you have specified that EventBridge use a customer managed key for encrypting the
+        /// source event bus, we strongly recommend you also specify a customer managed key for
+        /// any archives for the event bus as well. </para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html">Encrypting
+        /// archives</a> in the <i>Amazon EventBridge User Guide</i>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
         #endregion
         
         #region Parameter RetentionDay
@@ -205,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
                 WriteWarning("You are passing $null as a value for parameter EventSourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.RetentionDay = this.RetentionDay;
             
             // allow further manipulation of loaded context prior to processing
@@ -237,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (cmdletContext.EventSourceArn != null)
             {
                 request.EventSourceArn = cmdletContext.EventSourceArn;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             if (cmdletContext.RetentionDay != null)
             {
@@ -307,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             public System.String Description { get; set; }
             public System.String EventPattern { get; set; }
             public System.String EventSourceArn { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.Int32? RetentionDay { get; set; }
             public System.Func<Amazon.EventBridge.Model.CreateArchiveResponse, NewEVBArchiveCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

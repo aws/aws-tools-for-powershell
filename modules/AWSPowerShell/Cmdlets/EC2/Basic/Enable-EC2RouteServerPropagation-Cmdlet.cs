@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// When enabled, route server propagation installs the routes in the FIB on the route
     /// table you've specified. Route server supports IPv4 and IPv6 route propagation.
     /// </para><para>
-    /// For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Dynamic
+    /// For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic
     /// routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>

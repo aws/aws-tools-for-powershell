@@ -78,6 +78,23 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         public System.String EventPattern { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the KMS customer managed key for EventBridge to use, if you choose
+        /// to use a customer managed key to encrypt this archive. The identifier can be the key
+        /// Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</para><para>If you do not specify a customer managed key identifier, EventBridge uses an Amazon
+        /// Web Services owned key to encrypt the archive.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html">Identify
+        /// and view keys</a> in the <i>Key Management Service Developer Guide</i>. </para><important><para>If you have specified that EventBridge use a customer managed key for encrypting the
+        /// source event bus, we strongly recommend you also specify a customer managed key for
+        /// any archives for the event bus as well. </para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html">Encrypting
+        /// archives</a> in the <i>Amazon EventBridge User Guide</i>.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter RetentionDay
         /// <summary>
         /// <para>
@@ -160,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             #endif
             context.Description = this.Description;
             context.EventPattern = this.EventPattern;
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.RetentionDay = this.RetentionDay;
             
             // allow further manipulation of loaded context prior to processing
@@ -188,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (cmdletContext.EventPattern != null)
             {
                 request.EventPattern = cmdletContext.EventPattern;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             if (cmdletContext.RetentionDay != null)
             {
@@ -257,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             public System.String ArchiveName { get; set; }
             public System.String Description { get; set; }
             public System.String EventPattern { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.Int32? RetentionDay { get; set; }
             public System.Func<Amazon.EventBridge.Model.UpdateArchiveResponse, UpdateEVBArchiveCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

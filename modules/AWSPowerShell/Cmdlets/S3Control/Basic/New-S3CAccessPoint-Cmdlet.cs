@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>You can specify any amount of prefixes, but the total length of characters of all
-        /// prefixes must be less than 512 KB in size.</para>
+        /// prefixes must be less than 256 bytes in size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

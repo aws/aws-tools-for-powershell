@@ -33,10 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// A route server association is the connection established between a route server and
-    /// a VPC. This is a fundamental configuration step that enables the route server to work
-    /// with appliances in your VPC.
+    /// a VPC.
     /// </para><para>
-    /// For more information see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Dynamic
+    /// For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic
     /// routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>

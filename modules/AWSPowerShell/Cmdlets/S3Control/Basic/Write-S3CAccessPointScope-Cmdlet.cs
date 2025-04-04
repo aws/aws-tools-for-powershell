@@ -32,12 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// access point scope to restrict access to specific prefixes, API operations, or a combination
     /// of both.
     /// 
-    ///  
-    /// <para>
-    /// You can include one or more of the following API operations as permissions:
-    /// </para><ul><li><para><c>PutObjet</c></para></li><li><para><c>GetObject</c></para></li><li><para><c>DeleteObject</c></para></li><li><para><c>ListBucket</c></para></li><li><para><c>GetObjectAttributes</c></para></li><li><para><c>AbortMultipartUpload</c></para></li><li><para><c>ListBucketMultipartUpload</c></para></li><li><para><c>ListMultiPartUploadParts</c></para></li></ul><note><para>
+    ///  <note><para>
     /// You can specify any amount of prefixes, but the total length of characters of all
-    /// prefixes must be less than 512 KB in size.
+    /// prefixes must be less than 256 bytes in size.
     /// </para></note><para>
     /// To use this operation, you must have the permission to perform the <c>s3express:PutAccessPointScope</c>
     /// action.
@@ -108,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>You can specify any amount of prefixes, but the total length of characters of all
-        /// prefixes must be less than 512 KB in size.</para>
+        /// prefixes must be less than 256 bytes in size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

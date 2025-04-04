@@ -33,8 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// A route server endpoint is an Amazon Web Services-managed component inside a subnet
-    /// that facilitates BGP (Border Gateway Protocol) connections between your route server
-    /// and your BGP peers. Create two endpoints per subnet for redundancy.
+    /// that facilitates <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP
+    /// (Border Gateway Protocol)</a> connections between your route server and your BGP peers.
+    /// </para><para>
+    /// For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic
+    /// routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2RouteServerEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

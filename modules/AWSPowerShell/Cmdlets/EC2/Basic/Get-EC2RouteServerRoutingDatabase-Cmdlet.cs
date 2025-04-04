@@ -39,14 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// Amazon VPC Route Server simplifies routing for traffic between workloads that are
     /// deployed within a VPC and its internet gateways. With this feature, VPC Route Server
-    /// dynamically updates VPC and gateway route tables with your preferred IPv4 or IPv6
-    /// routes to achieve routing fault tolerance for those workloads. This enables you to
-    /// automatically reroute traffic within a VPC, which increases the manageability of VPC
-    /// routing and interoperability with third-party workloads.
+    /// dynamically updates VPC and internet gateway route tables with your preferred IPv4
+    /// or IPv6 routes to achieve routing fault tolerance for those workloads. This enables
+    /// you to automatically reroute traffic within a VPC, which increases the manageability
+    /// of VPC routing and interoperability with third-party workloads.
     /// </para><para>
     /// Route server supports the follow route table types:
     /// </para><ul><li><para>
-    /// VPC route tables
+    /// VPC route tables not associated with subnets
     /// </para></li><li><para>
     /// Subnet route tables
     /// </para></li><li><para>

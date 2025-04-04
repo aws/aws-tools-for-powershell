@@ -32,16 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// A route server peer is a network appliance or function deployed in Amazon Web Services,
-    /// such as firewall appliances and other network security functions, that meet these
-    /// requirements:
+    /// A route server peer is a session between a route server endpoint and the device deployed
+    /// in Amazon Web Services (such as a firewall appliance or other network security function
+    /// running on an EC2 instance). The device must meet these requirements:
     /// </para><ul><li><para>
     /// Have an elastic network interface in the VPC
     /// </para></li><li><para>
     /// Support BGP (Border Gateway Protocol)
     /// </para></li><li><para>
     /// Can initiate BGP sessions
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic
+    /// routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2RouteServerPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.RouteServerPeer")]
@@ -58,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PeerAddress
         /// <summary>
         /// <para>
-        /// <para>The IPv4 address of the peer.</para>
+        /// <para>The IPv4 address of the peer device.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
