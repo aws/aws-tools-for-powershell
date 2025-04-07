@@ -419,6 +419,8 @@ $TFR_SelectMap = @{
                "Send-TFRWorkflowStepState",
                "Start-TFRDirectoryListing",
                "Start-TFRFileTransfer",
+               "Start-TFRRemoteDelete",
+               "Start-TFRRemoteMove",
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",

@@ -101,6 +101,21 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.String GuardrailVersion { get; set; }
         #endregion
         
+        #region Parameter OutputScope
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the scope of the output that you get in the response. Set to <c>FULL</c>
+        /// to return the entire output, including any detected and non-detected entries in the
+        /// response for enhanced debugging.</para><para>Note that the full output scope doesn't apply to word filters or regex in sensitive
+        /// information filters. It does apply to all other filtering policies, including sensitive
+        /// information with filters that can detect personally identifiable information (PII).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.GuardrailOutputScope")]
+        public Amazon.BedrockRuntime.GuardrailOutputScope OutputScope { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
@@ -204,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
                 WriteWarning("You are passing $null as a value for parameter GuardrailVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputScope = this.OutputScope;
             context.Source = this.Source;
             #if MODULAR
             if (this.Source == null && ParameterWasBound(nameof(this.Source)))
@@ -238,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (cmdletContext.GuardrailVersion != null)
             {
                 request.GuardrailVersion = cmdletContext.GuardrailVersion;
+            }
+            if (cmdletContext.OutputScope != null)
+            {
+                request.OutputScope = cmdletContext.OutputScope;
             }
             if (cmdletContext.Source != null)
             {
@@ -307,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             public List<Amazon.BedrockRuntime.Model.GuardrailContentBlock> Content { get; set; }
             public System.String GuardrailIdentifier { get; set; }
             public System.String GuardrailVersion { get; set; }
+            public Amazon.BedrockRuntime.GuardrailOutputScope OutputScope { get; set; }
             public Amazon.BedrockRuntime.GuardrailContentSource Source { get; set; }
             public System.Func<Amazon.BedrockRuntime.Model.ApplyGuardrailResponse, InvokeBDRRGuardrailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

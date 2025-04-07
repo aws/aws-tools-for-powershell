@@ -22,32 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Personalize;
-using Amazon.Personalize.Model;
+using Amazon.Transfer;
+using Amazon.Transfer.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PERS
+namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Add a list of tags to a resource.
+    /// Deletes a file or directory on the remote SFTP server.
     /// </summary>
-    [Cmdlet("Add", "PERSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Personalize TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Personalize.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Personalize.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Start", "TFRRemoteDelete", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Transfer for SFTP StartRemoteDelete API operation.", Operation = new[] {"StartRemoteDelete"}, SelectReturnType = typeof(Amazon.Transfer.Model.StartRemoteDeleteResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Transfer.Model.StartRemoteDeleteResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Transfer.Model.StartRemoteDeleteResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddPERSResourceTagCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
+    public partial class StartTFRRemoteDeleteCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ConnectorId
         /// <summary>
         /// <para>
-        /// <para>The resource's Amazon Resource Name (ARN).</para>
+        /// <para>The unique identifier for the connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,44 +56,44 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ConnectorId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter DeletePath
         /// <summary>
         /// <para>
-        /// <para>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging
-        /// Amazon Personalize resources</a>.</para>
+        /// <para>The absolute path of the file or directory to delete. You can only specify one path
+        /// per call to this operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        public System.String DeletePath { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DeleteId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Transfer.Model.StartRemoteDeleteResponse).
+        /// Specifying the name of a property of type Amazon.Transfer.Model.StartRemoteDeleteResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DeleteId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConnectorId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConnectorId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectorId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-PERSResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectorId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-TFRRemoteDelete (StartRemoteDelete)"))
             {
                 return;
             }
@@ -129,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.TagResourceResponse, AddPERSResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Transfer.Model.StartRemoteDeleteResponse, StartTFRRemoteDeleteCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,24 +136,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ConnectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ConnectorId = this.ConnectorId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ConnectorId == null && ParameterWasBound(nameof(this.ConnectorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
-            }
+            context.DeletePath = this.DeletePath;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.DeletePath == null && ParameterWasBound(nameof(this.DeletePath)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DeletePath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Personalize.Model.TagResourceRequest();
+            var request = new Amazon.Transfer.Model.StartRemoteDeleteRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ConnectorId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ConnectorId = cmdletContext.ConnectorId;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.DeletePath != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.DeletePath = cmdletContext.DeletePath;
             }
             
             CmdletOutput output;
@@ -215,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region AWS Service Operation Call
         
-        private Amazon.Personalize.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.TagResourceRequest request)
+        private Amazon.Transfer.Model.StartRemoteDeleteResponse CallAWSServiceOperation(IAmazonTransfer client, Amazon.Transfer.Model.StartRemoteDeleteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "StartRemoteDelete");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.StartRemoteDelete(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.StartRemoteDeleteAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,10 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Personalize.Model.TagResourceResponse, AddPERSResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ConnectorId { get; set; }
+            public System.String DeletePath { get; set; }
+            public System.Func<Amazon.Transfer.Model.StartRemoteDeleteResponse, StartTFRRemoteDeleteCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DeleteId;
         }
         
     }

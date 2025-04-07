@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that
-        /// allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents.
+        /// allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events.
         /// When set, you can view user activity in your CloudWatch logs.</para>
         /// </para>
         /// </summary>

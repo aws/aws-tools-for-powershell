@@ -22,32 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Personalize;
-using Amazon.Personalize.Model;
+using Amazon.CodeBuild;
+using Amazon.CodeBuild.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PERS
+namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Add a list of tags to a resource.
+    /// Stops a sandbox.
     /// </summary>
-    [Cmdlet("Add", "PERSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Personalize TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Personalize.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Personalize.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Stop", "CBSandbox", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CodeBuild.Model.Sandbox")]
+    [AWSCmdlet("Calls the AWS CodeBuild StopSandbox API operation.", Operation = new[] {"StopSandbox"}, SelectReturnType = typeof(Amazon.CodeBuild.Model.StopSandboxResponse))]
+    [AWSCmdletOutput("Amazon.CodeBuild.Model.Sandbox or Amazon.CodeBuild.Model.StopSandboxResponse",
+        "This cmdlet returns an Amazon.CodeBuild.Model.Sandbox object.",
+        "The service call response (type Amazon.CodeBuild.Model.StopSandboxResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddPERSResourceTagCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
+    public partial class StopCBSandboxCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The resource's Amazon Resource Name (ARN).</para>
+        /// <para>Information about the requested sandbox ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,44 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging
-        /// Amazon Personalize resources</a>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Sandbox'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeBuild.Model.StopSandboxResponse).
+        /// Specifying the name of a property of type Amazon.CodeBuild.Model.StopSandboxResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Sandbox";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-PERSResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CBSandbox (StopSandbox)"))
             {
                 return;
             }
@@ -129,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.TagResourceResponse, AddPERSResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeBuild.Model.StopSandboxResponse, StopCBSandboxCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,24 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
-            }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,15 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Personalize.Model.TagResourceRequest();
+            var request = new Amazon.CodeBuild.Model.StopSandboxRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.Id != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -215,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region AWS Service Operation Call
         
-        private Amazon.Personalize.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.TagResourceRequest request)
+        private Amazon.CodeBuild.Model.StopSandboxResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.StopSandboxRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "StopSandbox");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.StopSandbox(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.StopSandboxAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,10 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Personalize.Model.TagResourceResponse, AddPERSResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.CodeBuild.Model.StopSandboxResponse, StopCBSandboxCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Sandbox;
         }
         
     }

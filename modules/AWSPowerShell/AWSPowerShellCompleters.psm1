@@ -7985,6 +7985,13 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.GuardrailOutputScope
+        "Invoke-BDRRGuardrail/OutputScope"
+        {
+            $v = "FULL","INTERVENTIONS"
+            break
+        }
+
         # Amazon.BedrockRuntime.GuardrailStreamProcessingMode
         "Invoke-BDRRConverseStream/GuardrailConfig_StreamProcessingMode"
         {
@@ -7998,7 +8005,7 @@ $BDRR_Completers = {
             ($_ -eq "Invoke-BDRRConverseStream/GuardrailConfig_Trace")
         }
         {
-            $v = "disabled","enabled"
+            $v = "disabled","enabled","enabled_full"
             break
         }
 
@@ -8034,7 +8041,7 @@ $BDRR_Completers = {
             ($_ -eq "Invoke-BDRRModelWithResponseStream/Trace")
         }
         {
-            $v = "DISABLED","ENABLED"
+            $v = "DISABLED","ENABLED","ENABLED_FULL"
             break
         }
 
@@ -8049,6 +8056,7 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "OutputScope"=@("Invoke-BDRRGuardrail")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
     "SortBy"=@("Get-BDRRAsyncInvokeList")
@@ -13518,6 +13526,13 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.CommandType
+        "Start-CBCommandExecution/Type"
+        {
+            $v = "SHELL"
+            break
+        }
+
         # Amazon.CodeBuild.ComputeType
         {
             ($_ -eq "New-CBFleet/ComputeType") -Or
@@ -13738,11 +13753,14 @@ $CB_Completers = {
             ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
             ($_ -eq "Get-CBBuildIdListForProject/SortOrder") -Or
             ($_ -eq "Get-CBCodeCoverage/SortOrder") -Or
+            ($_ -eq "Get-CBCommandExecutionListForSandbox/SortOrder") -Or
             ($_ -eq "Get-CBFleetList/SortOrder") -Or
             ($_ -eq "Get-CBProjectList/SortOrder") -Or
             ($_ -eq "Get-CBReportGroupList/SortOrder") -Or
             ($_ -eq "Get-CBReportList/SortOrder") -Or
             ($_ -eq "Get-CBReportsForReportGroupList/SortOrder") -Or
+            ($_ -eq "Get-CBSandboxIdList/SortOrder") -Or
+            ($_ -eq "Get-CBSandboxIdListForProject/SortOrder") -Or
             ($_ -eq "Get-CBSharedProjectList/SortOrder") -Or
             ($_ -eq "Get-CBSharedReportGroupList/SortOrder")
         }
@@ -13851,12 +13869,12 @@ $CB_map = @{
     "ScopeConfiguration_Scope"=@("New-CBWebhook")
     "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
-    "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
+    "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBCommandExecutionListForSandbox","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSandboxIdList","Get-CBSandboxIdListForProject","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "SourceTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "TrendField"=@("Get-CBReportGroupTrend")
-    "Type"=@("New-CBReportGroup")
+    "Type"=@("New-CBReportGroup","Start-CBCommandExecution")
 }
 
 _awsArgumentCompleterRegistration $CB_Completers $CB_map
@@ -13912,10 +13930,12 @@ $CB_SelectMap = @{
     "Select"=@("Remove-CBBuildBatch",
                "Get-CBBatch",
                "Get-CBBuildBatch",
+               "Get-CBCommandExecutionBatch",
                "Get-CBCBFleetBatch",
                "Get-CBProjectBatch",
                "Get-CBReportGroupBatch",
                "Get-CBReportBatch",
+               "Get-CBSandboxBatch",
                "New-CBFleet",
                "New-CBProject",
                "New-CBReportGroup",
@@ -13938,12 +13958,15 @@ $CB_SelectMap = @{
                "Get-CBBatchIdListForProject",
                "Get-CBBuildIdList",
                "Get-CBBuildIdListForProject",
+               "Get-CBCommandExecutionListForSandbox",
                "Get-CBCuratedEnvironmentImageList",
                "Get-CBFleetList",
                "Get-CBProjectList",
                "Get-CBReportGroupList",
                "Get-CBReportList",
                "Get-CBReportsForReportGroupList",
+               "Get-CBSandboxIdList",
+               "Get-CBSandboxIdListForProject",
                "Get-CBSharedProjectList",
                "Get-CBSharedReportGroupList",
                "Get-CBSourceCredentialList",
@@ -13952,8 +13975,12 @@ $CB_SelectMap = @{
                "Redo-CBBatch",
                "Start-CBBuild",
                "Start-CBBatch",
+               "Start-CBCommandExecution",
+               "Start-CBSandbox",
+               "Start-CBSandboxConnection",
                "Stop-CBBuild",
                "Stop-CBBatch",
+               "Stop-CBSandbox",
                "Update-CBFleet",
                "Update-CBProject",
                "Update-CBProjectVisibility",
@@ -48139,7 +48166,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
+            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
             break
         }
 
@@ -48201,6 +48228,26 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.SdiSourceMode
+        {
+            ($_ -eq "New-EMLSdiSource/Mode") -Or
+            ($_ -eq "Update-EMLSdiSource/Mode")
+        }
+        {
+            $v = "INTERLEAVE","QUADRANT"
+            break
+        }
+
+        # Amazon.MediaLive.SdiSourceType
+        {
+            ($_ -eq "New-EMLSdiSource/Type") -Or
+            ($_ -eq "Update-EMLSdiSource/Type")
+        }
+        {
+            $v = "QUAD","SINGLE"
+            break
+        }
+
         # Amazon.MediaLive.UpdateNodeState
         "Update-EMLNodeState/State"
         {
@@ -48232,6 +48279,7 @@ $EML_map = @{
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
+    "Mode"=@("New-EMLSdiSource","Update-EMLSdiSource")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Role"=@("New-EMLNode","New-EMLNodeRegistrationScript","Update-EMLNode")
@@ -48239,7 +48287,7 @@ $EML_map = @{
     "Statistic"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "TargetResourceType"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "TreatMissingData"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
-    "Type"=@("New-EMLInput")
+    "Type"=@("New-EMLInput","New-EMLSdiSource","Update-EMLSdiSource")
     "UhdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
 }
@@ -48316,6 +48364,7 @@ $EML_SelectMap = @{
                "New-EMLNode",
                "New-EMLNodeRegistrationScript",
                "New-EMLPartnerInput",
+               "New-EMLSdiSource",
                "New-EMLSignalMap",
                "Add-EMLResourceTag",
                "Remove-EMLChannel",
@@ -48333,6 +48382,7 @@ $EML_SelectMap = @{
                "Remove-EMLNode",
                "Remove-EMLReservation",
                "Remove-EMLSchedule",
+               "Remove-EMLSdiSource",
                "Remove-EMLSignalMap",
                "Remove-EMLResourceTag",
                "Get-EMLAccountConfiguration",
@@ -48350,6 +48400,7 @@ $EML_SelectMap = @{
                "Get-EMLOffering",
                "Get-EMLReservation",
                "Get-EMLSchedule",
+               "Get-EMLSdiSource",
                "Get-EMLThumbnail",
                "Get-EMLCloudWatchAlarmTemplate",
                "Get-EMLCloudWatchAlarmTemplateGroup",
@@ -48373,6 +48424,7 @@ $EML_SelectMap = @{
                "Get-EMLNodeList",
                "Get-EMLOfferingList",
                "Get-EMLReservationList",
+               "Get-EMLSdiSourceList",
                "Get-EMLSignalMapList",
                "Get-EMLResourceTag",
                "Get-EMLVersionList",
@@ -48408,7 +48460,8 @@ $EML_SelectMap = @{
                "Update-EMLNetwork",
                "Update-EMLNode",
                "Update-EMLNodeState",
-               "Update-EMLReservation")
+               "Update-EMLReservation",
+               "Update-EMLSdiSource")
 }
 
 _awsArgumentCompleterRegistration $EML_SelectCompleters $EML_SelectMap
@@ -75357,6 +75410,8 @@ $TFR_SelectMap = @{
                "Send-TFRWorkflowStepState",
                "Start-TFRDirectoryListing",
                "Start-TFRFileTransfer",
+               "Start-TFRRemoteDelete",
+               "Start-TFRRemoteMove",
                "Start-TFRServer",
                "Stop-TFRServer",
                "Add-TFRResourceTag",

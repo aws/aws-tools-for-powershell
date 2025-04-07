@@ -22,32 +22,57 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Personalize;
-using Amazon.Personalize.Model;
+using Amazon.MediaLive;
+using Amazon.MediaLive.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PERS
+namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
-    /// Add a list of tags to a resource.
+    /// Change some of the settings in an SdiSource.
     /// </summary>
-    [Cmdlet("Add", "PERSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Personalize TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Personalize.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Personalize.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Personalize.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Update", "EMLSdiSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaLive.Model.SdiSource")]
+    [AWSCmdlet("Calls the AWS Elemental MediaLive UpdateSdiSource API operation.", Operation = new[] {"UpdateSdiSource"}, SelectReturnType = typeof(Amazon.MediaLive.Model.UpdateSdiSourceResponse))]
+    [AWSCmdletOutput("Amazon.MediaLive.Model.SdiSource or Amazon.MediaLive.Model.UpdateSdiSourceResponse",
+        "This cmdlet returns an Amazon.MediaLive.Model.SdiSource object.",
+        "The service call response (type Amazon.MediaLive.Model.UpdateSdiSourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddPERSResourceTagCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
+    public partial class UpdateEMLSdiSourceCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter Mode
         /// <summary>
         /// <para>
-        /// <para>The resource's Amazon Resource Name (ARN).</para>
+        /// Include this parameter only if you want to change
+        /// the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend
+        /// you assign a name that describes the source, for example curling-cameraA. Names are
+        /// case-sensitive.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.SdiSourceMode")]
+        public Amazon.MediaLive.SdiSourceMode Mode { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// Include this parameter only if you want to change
+        /// the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend
+        /// you assign a name that describes the source, for example curling-cameraA. Names are
+        /// case-sensitive.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter SdiSourceId
+        /// <summary>
+        /// <para>
+        /// The ID of the SdiSource
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,44 +83,39 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String SdiSourceId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging
-        /// Amazon Personalize resources</a>.</para>
+        /// Include this parameter only if you want to change
+        /// the mode. Specify the type of the SDI source: SINGLE: The source is a single-link
+        /// source. QUAD: The source is one part of a quad-link source.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.Personalize.Model.Tag[] Tag { get; set; }
+        [AWSConstantClassSource("Amazon.MediaLive.SdiSourceType")]
+        public Amazon.MediaLive.SdiSourceType Type { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SdiSource'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaLive.Model.UpdateSdiSourceResponse).
+        /// Specifying the name of a property of type Amazon.MediaLive.Model.UpdateSdiSourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "SdiSource";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SdiSourceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SdiSourceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SdiSourceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-PERSResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SdiSourceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-EMLSdiSource (UpdateSdiSource)"))
             {
                 return;
             }
@@ -129,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.TagResourceResponse, AddPERSResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaLive.Model.UpdateSdiSourceResponse, UpdateEMLSdiSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,26 +158,19 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.SdiSourceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.Mode = this.Mode;
+            context.Name = this.Name;
+            context.SdiSourceId = this.SdiSourceId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.SdiSourceId == null && ParameterWasBound(nameof(this.SdiSourceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SdiSourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.Personalize.Model.Tag>(this.Tag);
-            }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,15 +185,23 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Personalize.Model.TagResourceRequest();
+            var request = new Amazon.MediaLive.Model.UpdateSdiSourceRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.Mode != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.Mode = cmdletContext.Mode;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.Name != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.SdiSourceId != null)
+            {
+                request.SdiSourceId = cmdletContext.SdiSourceId;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -215,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region AWS Service Operation Call
         
-        private Amazon.Personalize.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.TagResourceRequest request)
+        private Amazon.MediaLive.Model.UpdateSdiSourceResponse CallAWSServiceOperation(IAmazonMediaLive client, Amazon.MediaLive.Model.UpdateSdiSourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "UpdateSdiSource");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.UpdateSdiSource(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.UpdateSdiSourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,10 +264,12 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Personalize.Model.TagResourceResponse, AddPERSResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public Amazon.MediaLive.SdiSourceMode Mode { get; set; }
+            public System.String Name { get; set; }
+            public System.String SdiSourceId { get; set; }
+            public Amazon.MediaLive.SdiSourceType Type { get; set; }
+            public System.Func<Amazon.MediaLive.Model.UpdateSdiSourceResponse, UpdateEMLSdiSourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SdiSource;
         }
         
     }

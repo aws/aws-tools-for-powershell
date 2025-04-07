@@ -94,6 +94,13 @@ $BDRR_Completers = {
             break
         }
 
+        # Amazon.BedrockRuntime.GuardrailOutputScope
+        "Invoke-BDRRGuardrail/OutputScope"
+        {
+            $v = "FULL","INTERVENTIONS"
+            break
+        }
+
         # Amazon.BedrockRuntime.GuardrailStreamProcessingMode
         "Invoke-BDRRConverseStream/GuardrailConfig_StreamProcessingMode"
         {
@@ -107,7 +114,7 @@ $BDRR_Completers = {
             ($_ -eq "Invoke-BDRRConverseStream/GuardrailConfig_Trace")
         }
         {
-            $v = "disabled","enabled"
+            $v = "disabled","enabled","enabled_full"
             break
         }
 
@@ -143,7 +150,7 @@ $BDRR_Completers = {
             ($_ -eq "Invoke-BDRRModelWithResponseStream/Trace")
         }
         {
-            $v = "DISABLED","ENABLED"
+            $v = "DISABLED","ENABLED","ENABLED_FULL"
             break
         }
 
@@ -158,6 +165,7 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "OutputScope"=@("Invoke-BDRRGuardrail")
     "PerformanceConfig_Latency"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "PerformanceConfigLatency"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
     "SortBy"=@("Get-BDRRAsyncInvokeList")

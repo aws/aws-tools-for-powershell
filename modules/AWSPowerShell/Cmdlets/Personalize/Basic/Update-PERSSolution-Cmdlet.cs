@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EventsConfig_EventParametersList
+        /// <summary>
+        /// <para>
+        /// <para>A list of event parameters, which includes event types and their event value thresholds
+        /// and weights.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionUpdateConfig_EventsConfig_EventParametersList")]
+        public Amazon.Personalize.Model.EventParameters[] EventsConfig_EventParametersList { get; set; }
+        #endregion
+        
         #region Parameter PerformAutoTraining
         /// <summary>
         /// <para>
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             #endif
             context.AutoTrainingConfig_SchedulingExpression = this.AutoTrainingConfig_SchedulingExpression;
+            if (this.EventsConfig_EventParametersList != null)
+            {
+                context.EventsConfig_EventParametersList = new List<Amazon.Personalize.Model.EventParameters>(this.EventsConfig_EventParametersList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -230,6 +246,31 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestSolutionUpdateConfig_solutionUpdateConfig_AutoTrainingConfig != null)
             {
                 request.SolutionUpdateConfig.AutoTrainingConfig = requestSolutionUpdateConfig_solutionUpdateConfig_AutoTrainingConfig;
+                requestSolutionUpdateConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.EventsConfig requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig = null;
+            
+             // populate EventsConfig
+            var requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfigIsNull = true;
+            requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig = new Amazon.Personalize.Model.EventsConfig();
+            List<Amazon.Personalize.Model.EventParameters> requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig_eventsConfig_EventParametersList = null;
+            if (cmdletContext.EventsConfig_EventParametersList != null)
+            {
+                requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig_eventsConfig_EventParametersList = cmdletContext.EventsConfig_EventParametersList;
+            }
+            if (requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig_eventsConfig_EventParametersList != null)
+            {
+                requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig.EventParametersList = requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig_eventsConfig_EventParametersList;
+                requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfigIsNull = false;
+            }
+             // determine if requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig should be set to null
+            if (requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfigIsNull)
+            {
+                requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig = null;
+            }
+            if (requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig != null)
+            {
+                request.SolutionUpdateConfig.EventsConfig = requestSolutionUpdateConfig_solutionUpdateConfig_EventsConfig;
                 requestSolutionUpdateConfigIsNull = false;
             }
              // determine if request.SolutionUpdateConfig should be set to null
@@ -301,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.Boolean? PerformAutoTraining { get; set; }
             public System.String SolutionArn { get; set; }
             public System.String AutoTrainingConfig_SchedulingExpression { get; set; }
+            public List<Amazon.Personalize.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
             public System.Func<Amazon.Personalize.Model.UpdateSolutionResponse, UpdatePERSSolutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SolutionArn;
         }

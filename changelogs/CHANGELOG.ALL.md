@@ -1,4 +1,34 @@
-﻿### 4.1.793 (2025-04-04 21:19Z)
+﻿### 4.1.794 (2025-04-07 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1018.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRGuardrail: added parameter OutputScope.
+  * Amazon CodeBuild
+    * Added cmdlet Get-CBCommandExecutionBatch leveraging the BatchGetCommandExecutions service API.
+    * Added cmdlet Get-CBCommandExecutionListForSandbox leveraging the ListCommandExecutionsForSandbox service API.
+    * Added cmdlet Get-CBSandboxBatch leveraging the BatchGetSandboxes service API.
+    * Added cmdlet Get-CBSandboxIdList leveraging the ListSandboxes service API.
+    * Added cmdlet Get-CBSandboxIdListForProject leveraging the ListSandboxesForProject service API.
+    * Added cmdlet Start-CBCommandExecution leveraging the StartCommandExecution service API.
+    * Added cmdlet Start-CBSandbox leveraging the StartSandbox service API.
+    * Added cmdlet Start-CBSandboxConnection leveraging the StartSandboxConnection service API.
+    * Added cmdlet Stop-CBSandbox leveraging the StopSandbox service API.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLSdiSource leveraging the DescribeSdiSource service API.
+    * Added cmdlet Get-EMLSdiSourceList leveraging the ListSdiSources service API.
+    * Added cmdlet New-EMLSdiSource leveraging the CreateSdiSource service API.
+    * Added cmdlet Remove-EMLSdiSource leveraging the DeleteSdiSource service API.
+    * Added cmdlet Update-EMLSdiSource leveraging the UpdateSdiSource service API.
+    * Modified cmdlet New-EMLInput: added parameter SdiSource.
+    * Modified cmdlet Update-EMLInput: added parameter SdiSource.
+    * Modified cmdlet Update-EMLNode: added parameter SdiSourceMapping.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSSolution: added parameter EventsConfig_EventParametersList.
+    * Modified cmdlet Update-PERSSolution: added parameter EventsConfig_EventParametersList.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Start-TFRRemoteDelete leveraging the StartRemoteDelete service API.
+    * Added cmdlet Start-TFRRemoteMove leveraging the StartRemoteMove service API.
+
+### 4.1.793 (2025-04-04 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1017.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EventBridge
     * Modified cmdlet New-EVBArchive: added parameter KmsKeyIdentifier.

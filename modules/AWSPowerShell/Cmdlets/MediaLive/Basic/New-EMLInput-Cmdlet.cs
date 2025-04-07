@@ -135,6 +135,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter SdiSource
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SdiSources")]
+        public System.String[] SdiSource { get; set; }
+        #endregion
+        
         #region Parameter Vpc_SecurityGroupId
         /// <summary>
         /// <para>
@@ -314,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Name = this.Name;
             context.RequestId = this.RequestId;
             context.RoleArn = this.RoleArn;
+            if (this.SdiSource != null)
+            {
+                context.SdiSource = new List<System.String>(this.SdiSource);
+            }
             if (this.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup != null)
             {
                 context.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup = new List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup>(this.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup);
@@ -409,6 +424,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.SdiSource != null)
+            {
+                request.SdiSources = cmdletContext.SdiSource;
             }
             
              // populate Smpte2110ReceiverGroupSettings
@@ -559,6 +578,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             public System.String RoleArn { get; set; }
+            public List<System.String> SdiSource { get; set; }
             public List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup> Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }
             public List<Amazon.MediaLive.Model.SrtCallerSourceRequest> SrtSettings_SrtCallerSource { get; set; }

@@ -4865,6 +4865,9 @@ Set-Alias -Name CB-BatchGetBuildBatches -Value Get-CBBatch
 Set-Alias -Name Batch-CBGetBuilds -Value Get-CBBuildBatch
 Set-Alias -Name Batch-CBBuildBatch -Value Get-CBBuildBatch
 Set-Alias -Name CB-BatchGetBuilds -Value Get-CBBuildBatch
+Set-Alias -Name Batch-CBGetCommandExecutions -Value Get-CBCommandExecutionBatch
+Set-Alias -Name Batch-CBCommandExecutionBatch -Value Get-CBCommandExecutionBatch
+Set-Alias -Name CB-BatchGetCommandExecutions -Value Get-CBCommandExecutionBatch
 Set-Alias -Name Batch-CBGetFleets -Value Get-CBCBFleetBatch
 Set-Alias -Name Batch-CBCBFleetBatch -Value Get-CBCBFleetBatch
 Set-Alias -Name CB-BatchGetFleets -Value Get-CBCBFleetBatch
@@ -4877,6 +4880,9 @@ Set-Alias -Name CB-BatchGetReportGroups -Value Get-CBReportGroupBatch
 Set-Alias -Name Batch-CBGetReports -Value Get-CBReportBatch
 Set-Alias -Name Batch-CBReportBatch -Value Get-CBReportBatch
 Set-Alias -Name CB-BatchGetReports -Value Get-CBReportBatch
+Set-Alias -Name Batch-CBGetSandboxes -Value Get-CBSandboxBatch
+Set-Alias -Name Batch-CBSandboxBatch -Value Get-CBSandboxBatch
+Set-Alias -Name CB-BatchGetSandboxes -Value Get-CBSandboxBatch
 Set-Alias -Name Create-CBFleet -Value New-CBFleet
 Set-Alias -Name CB-CreateFleet -Value New-CBFleet
 Set-Alias -Name Create-CBProject -Value New-CBProject
@@ -4927,6 +4933,9 @@ Set-Alias -Name CB-ListBuilds -Value Get-CBBuildIdList
 Set-Alias -Name List-CBBuildsForProject -Value Get-CBBuildIdListForProject
 Set-Alias -Name List-CBBuildIdListForProject -Value Get-CBBuildIdListForProject
 Set-Alias -Name CB-ListBuildsForProject -Value Get-CBBuildIdListForProject
+Set-Alias -Name List-CBCommandExecutionsForSandbox -Value Get-CBCommandExecutionListForSandbox
+Set-Alias -Name List-CBCommandExecutionListForSandbox -Value Get-CBCommandExecutionListForSandbox
+Set-Alias -Name CB-ListCommandExecutionsForSandbox -Value Get-CBCommandExecutionListForSandbox
 Set-Alias -Name List-CBCuratedEnvironmentImages -Value Get-CBCuratedEnvironmentImageList
 Set-Alias -Name List-CBCuratedEnvironmentImageList -Value Get-CBCuratedEnvironmentImageList
 Set-Alias -Name CB-ListCuratedEnvironmentImages -Value Get-CBCuratedEnvironmentImageList
@@ -4945,6 +4954,12 @@ Set-Alias -Name CB-ListReports -Value Get-CBReportList
 Set-Alias -Name List-CBReportsForReportGroup -Value Get-CBReportsForReportGroupList
 Set-Alias -Name List-CBReportsForReportGroupList -Value Get-CBReportsForReportGroupList
 Set-Alias -Name CB-ListReportsForReportGroup -Value Get-CBReportsForReportGroupList
+Set-Alias -Name List-CBSandboxes -Value Get-CBSandboxIdList
+Set-Alias -Name List-CBSandboxIdList -Value Get-CBSandboxIdList
+Set-Alias -Name CB-ListSandboxes -Value Get-CBSandboxIdList
+Set-Alias -Name List-CBSandboxesForProject -Value Get-CBSandboxIdListForProject
+Set-Alias -Name List-CBSandboxIdListForProject -Value Get-CBSandboxIdListForProject
+Set-Alias -Name CB-ListSandboxesForProject -Value Get-CBSandboxIdListForProject
 Set-Alias -Name List-CBSharedProjects -Value Get-CBSharedProjectList
 Set-Alias -Name List-CBSharedProjectList -Value Get-CBSharedProjectList
 Set-Alias -Name CB-ListSharedProjects -Value Get-CBSharedProjectList
@@ -4964,9 +4979,13 @@ Set-Alias -Name CB-RetryBuildBatch -Value Redo-CBBatch
 Set-Alias -Name CB-StartBuild -Value Start-CBBuild
 Set-Alias -Name Start-CBBuildBatch -Value Start-CBBatch
 Set-Alias -Name CB-StartBuildBatch -Value Start-CBBatch
+Set-Alias -Name CB-StartCommandExecution -Value Start-CBCommandExecution
+Set-Alias -Name CB-StartSandbox -Value Start-CBSandbox
+Set-Alias -Name CB-StartSandboxConnection -Value Start-CBSandboxConnection
 Set-Alias -Name CB-StopBuild -Value Stop-CBBuild
 Set-Alias -Name Stop-CBBuildBatch -Value Stop-CBBatch
 Set-Alias -Name CB-StopBuildBatch -Value Stop-CBBatch
+Set-Alias -Name CB-StopSandbox -Value Stop-CBSandbox
 Set-Alias -Name CB-UpdateFleet -Value Update-CBFleet
 Set-Alias -Name CB-UpdateProject -Value Update-CBProject
 Set-Alias -Name CB-UpdateProjectVisibility -Value Update-CBProjectVisibility
@@ -19632,6 +19651,8 @@ Set-Alias -Name Create-EMLNodeRegistrationScript -Value New-EMLNodeRegistrationS
 Set-Alias -Name EML-CreateNodeRegistrationScript -Value New-EMLNodeRegistrationScript
 Set-Alias -Name Create-EMLPartnerInput -Value New-EMLPartnerInput
 Set-Alias -Name EML-CreatePartnerInput -Value New-EMLPartnerInput
+Set-Alias -Name Create-EMLSdiSource -Value New-EMLSdiSource
+Set-Alias -Name EML-CreateSdiSource -Value New-EMLSdiSource
 Set-Alias -Name Create-EMLSignalMap -Value New-EMLSignalMap
 Set-Alias -Name EML-CreateSignalMap -Value New-EMLSignalMap
 Set-Alias -Name Create-EMLTags -Value Add-EMLResourceTag
@@ -19667,6 +19688,8 @@ Set-Alias -Name Delete-EMLReservation -Value Remove-EMLReservation
 Set-Alias -Name EML-DeleteReservation -Value Remove-EMLReservation
 Set-Alias -Name Delete-EMLSchedule -Value Remove-EMLSchedule
 Set-Alias -Name EML-DeleteSchedule -Value Remove-EMLSchedule
+Set-Alias -Name Delete-EMLSdiSource -Value Remove-EMLSdiSource
+Set-Alias -Name EML-DeleteSdiSource -Value Remove-EMLSdiSource
 Set-Alias -Name Delete-EMLSignalMap -Value Remove-EMLSignalMap
 Set-Alias -Name EML-DeleteSignalMap -Value Remove-EMLSignalMap
 Set-Alias -Name Delete-EMLTags -Value Remove-EMLResourceTag
@@ -19702,6 +19725,8 @@ Set-Alias -Name Describe-EMLReservation -Value Get-EMLReservation
 Set-Alias -Name EML-DescribeReservation -Value Get-EMLReservation
 Set-Alias -Name Describe-EMLSchedule -Value Get-EMLSchedule
 Set-Alias -Name EML-DescribeSchedule -Value Get-EMLSchedule
+Set-Alias -Name Describe-EMLSdiSource -Value Get-EMLSdiSource
+Set-Alias -Name EML-DescribeSdiSource -Value Get-EMLSdiSource
 Set-Alias -Name Describe-EMLThumbnails -Value Get-EMLThumbnail
 Set-Alias -Name Describe-EMLThumbnail -Value Get-EMLThumbnail
 Set-Alias -Name EML-DescribeThumbnails -Value Get-EMLThumbnail
@@ -19761,6 +19786,9 @@ Set-Alias -Name EML-ListOfferings -Value Get-EMLOfferingList
 Set-Alias -Name List-EMLReservations -Value Get-EMLReservationList
 Set-Alias -Name List-EMLReservationList -Value Get-EMLReservationList
 Set-Alias -Name EML-ListReservations -Value Get-EMLReservationList
+Set-Alias -Name List-EMLSdiSources -Value Get-EMLSdiSourceList
+Set-Alias -Name List-EMLSdiSourceList -Value Get-EMLSdiSourceList
+Set-Alias -Name EML-ListSdiSources -Value Get-EMLSdiSourceList
 Set-Alias -Name List-EMLSignalMaps -Value Get-EMLSignalMapList
 Set-Alias -Name List-EMLSignalMapList -Value Get-EMLSignalMapList
 Set-Alias -Name EML-ListSignalMaps -Value Get-EMLSignalMapList
@@ -19807,6 +19835,7 @@ Set-Alias -Name EML-UpdateNetwork -Value Update-EMLNetwork
 Set-Alias -Name EML-UpdateNode -Value Update-EMLNode
 Set-Alias -Name EML-UpdateNodeState -Value Update-EMLNodeState
 Set-Alias -Name EML-UpdateReservation -Value Update-EMLReservation
+Set-Alias -Name EML-UpdateSdiSource -Value Update-EMLSdiSource
 Set-Alias -Name Configure-EMPLogs -Value Update-EMPLogConfiguration
 Set-Alias -Name Configure-EMPLogConfiguration -Value Update-EMPLogConfiguration
 Set-Alias -Name EMP-ConfigureLogs -Value Update-EMPLogConfiguration
@@ -30407,6 +30436,8 @@ Set-Alias -Name TFR-ListWorkflows -Value Get-TFRWorkflowList
 Set-Alias -Name TFR-SendWorkflowStepState -Value Send-TFRWorkflowStepState
 Set-Alias -Name TFR-StartDirectoryListing -Value Start-TFRDirectoryListing
 Set-Alias -Name TFR-StartFileTransfer -Value Start-TFRFileTransfer
+Set-Alias -Name TFR-StartRemoteDelete -Value Start-TFRRemoteDelete
+Set-Alias -Name TFR-StartRemoteMove -Value Start-TFRRemoteMove
 Set-Alias -Name TFR-StartServer -Value Start-TFRServer
 Set-Alias -Name TFR-StopServer -Value Stop-TFRServer
 Set-Alias -Name TFR-TagResource -Value Add-TFRResourceTag

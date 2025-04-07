@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.NodeRole Role { get; set; }
         #endregion
         
+        #region Parameter SdiSourceMapping
+        /// <summary>
+        /// <para>
+        /// The mappings of a SDI capture card port
+        /// to a logical SDI data stream
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SdiSourceMappings")]
+        public Amazon.MediaLive.Model.SdiSourceMappingUpdateRequest[] SdiSourceMapping { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -178,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #endif
             context.Role = this.Role;
+            if (this.SdiSourceMapping != null)
+            {
+                context.SdiSourceMapping = new List<Amazon.MediaLive.Model.SdiSourceMappingUpdateRequest>(this.SdiSourceMapping);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
+            }
+            if (cmdletContext.SdiSourceMapping != null)
+            {
+                request.SdiSourceMappings = cmdletContext.SdiSourceMapping;
             }
             
             CmdletOutput output;
@@ -275,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Name { get; set; }
             public System.String NodeId { get; set; }
             public Amazon.MediaLive.NodeRole Role { get; set; }
+            public List<Amazon.MediaLive.Model.SdiSourceMappingUpdateRequest> SdiSourceMapping { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateNodeResponse, UpdateEMLNodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

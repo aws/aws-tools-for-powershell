@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// <summary>
     /// Imports the signing and encryption certificates that you need to create local (AS2)
     /// profiles and partner profiles.
+    /// 
+    ///  
+    /// <para>
+    /// You can import both the certificate and its chain in the <c>Certificate</c> parameter.
+    /// </para><note><para>
+    /// If you use the <c>Certificate</c> parameter to upload both the certificate and its
+    /// chain, don't use the <c>CertificateChain</c> parameter.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Import", "TFRCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ActiveDate
         /// <summary>
         /// <para>
-        /// <para>An optional date that specifies when the certificate becomes active.</para>
+        /// <para>An optional date that specifies when the certificate becomes active. If you do not
+        /// specify a value, <c>ActiveDate</c> takes the same value as <c>NotBeforeDate</c>, which
+        /// is specified by the CA. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <ul><li><para>For the CLI, provide a file path for a certificate in URI format. For example, <c>--certificate
         /// file://encryption-cert.pem</c>. Alternatively, you can provide the raw content.</para></li><li><para>For the SDK, specify the raw content of a certificate file. For example, <c>--certificate
-        /// "`cat encryption-cert.pem`"</c>.</para></li></ul>
+        /// "`cat encryption-cert.pem`"</c>.</para></li></ul><note><para>You can provide both the certificate and its chain in this parameter, without needing
+        /// to use the <c>CertificateChain</c> parameter. If you use this parameter for both the
+        /// certificate and its chain, do not use the <c>CertificateChain</c> parameter.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter InactiveDate
         /// <summary>
         /// <para>
-        /// <para>An optional date that specifies when the certificate becomes inactive.</para>
+        /// <para>An optional date that specifies when the certificate becomes inactive. If you do not
+        /// specify a value, <c>InactiveDate</c> takes the same value as <c>NotAfterDate</c>,
+        /// which is specified by the CA.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PrivateKey
         /// <summary>
         /// <para>
-        /// <ul><li><para>For the CLI, provide a file path for a private key in URI format.For example, <c>--private-key
+        /// <ul><li><para>For the CLI, provide a file path for a private key in URI format. For example, <c>--private-key
         /// file://encryption-key.pem</c>. Alternatively, you can provide the raw content of the
         /// private key file.</para></li><li><para>For the SDK, specify the raw content of a private key file. For example, <c>--private-key
         /// "`cat encryption-key.pem`"</c></para></li></ul>

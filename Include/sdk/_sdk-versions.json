@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1017.0",
+    "ProductVersion"    : "3.7.1018.0",
     "CoreVersion"       : "3.7.402.35",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -660,7 +660,7 @@
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.415.3",
+            "Version" : "3.7.416.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.414.16",
+            "Version" : "3.7.415.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"
@@ -860,7 +860,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "3.7.414.3",
+            "Version" : "3.7.415.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"
@@ -1212,7 +1212,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.405.5",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"
@@ -1388,7 +1388,7 @@
             "InPreview"               : false
         },
         "Personalize"                     : {
-            "Version" : "3.7.401.117",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"
@@ -2748,7 +2748,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.416.5",
+            "Version" : "3.7.417.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"
@@ -2756,7 +2756,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.417.11",
+            "Version" : "3.7.418.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.35"

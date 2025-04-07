@@ -107,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSdiSource" OutputProperty="SdiSource" Verb="New" Noun="SdiSource" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSignalMap" OutputProperty="*" Verb="New" Noun="SignalMap" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +179,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSdiSource" OutputProperty="SdiSource" Verb="Remove" Noun="SdiSource" ShouldProcessTarget="SdiSourceId" PipelineParameter="SdiSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSignalMap" Verb="Remove" Noun="SignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -240,6 +248,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSchedule" OutputProperty="ScheduleActions" Verb="Get" Noun="Schedule" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSdiSource" OutputProperty="SdiSource" Verb="Get" Noun="SdiSource" PipelineParameter="SdiSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -332,6 +344,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSdiSources" OutputProperty="SdiSources" Verb="Get" Noun="SdiSourceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -487,6 +503,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateReservation" OutputProperty="Reservation" Verb="Update" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSdiSource" OutputProperty="SdiSource" Verb="Update" Noun="SdiSource" ShouldProcessTarget="SdiSourceId" PipelineParameter="SdiSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
