@@ -74,7 +74,7 @@
     <Content Include="HelpMaterials\WebHelp\StaticContent\feedbackyes.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="HelpMaterials\WebHelp\StaticContent\Index.html">
+    <Content Include="HelpMaterials\WebHelp\StaticContent\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\pstoolsref-legacyaliases.html" />
