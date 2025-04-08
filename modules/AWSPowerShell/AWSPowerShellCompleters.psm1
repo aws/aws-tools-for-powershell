@@ -73965,6 +73965,16 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType
+        {
+            ($_ -eq "Write-TSATaxRegistration/UzbekistanAdditionalInfo_TaxRegistrationNumberType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/UzbekistanAdditionalInfo_TaxRegistrationNumberType")
+        }
+        {
+            $v = "Business","Individual"
+            break
+        }
+
 
     }
 
@@ -73986,6 +73996,7 @@ $TSA_map = @{
     "TaxRegistrationEntry_Sector"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "TurkeyAdditionalInfo_Industry"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "UkraineAdditionalInfo_UkraineTrnType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
+    "UzbekistanAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
 }
 
 _awsArgumentCompleterRegistration $TSA_Completers $TSA_map

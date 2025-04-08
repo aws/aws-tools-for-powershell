@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IFW
 {
     /// <summary>
     /// Updates a vehicle.
+    /// 
+    ///  <important><para>
+    /// Access to certain Amazon Web Services IoT FleetWise features is currently gated. For
+    /// more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon
+    /// Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT
+    /// FleetWise Developer Guide</i>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "IFWVehicle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTFleetWise.Model.UpdateVehicleResponse")]
@@ -103,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] StateTemplatesToRemove { get; set; }
+        #endregion
+        
+        #region Parameter StateTemplatesToUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Change the <c>stateTemplateUpdateStrategy</c> of state templates already associated
+        /// with the vehicle.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoTFleetWise.Model.StateTemplateAssociation[] StateTemplatesToUpdate { get; set; }
         #endregion
         
         #region Parameter VehicleName
@@ -203,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             {
                 context.StateTemplatesToRemove = new List<System.String>(this.StateTemplatesToRemove);
             }
+            if (this.StateTemplatesToUpdate != null)
+            {
+                context.StateTemplatesToUpdate = new List<Amazon.IoTFleetWise.Model.StateTemplateAssociation>(this.StateTemplatesToUpdate);
+            }
             context.VehicleName = this.VehicleName;
             #if MODULAR
             if (this.VehicleName == null && ParameterWasBound(nameof(this.VehicleName)))
@@ -249,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             if (cmdletContext.StateTemplatesToRemove != null)
             {
                 request.StateTemplatesToRemove = cmdletContext.StateTemplatesToRemove;
+            }
+            if (cmdletContext.StateTemplatesToUpdate != null)
+            {
+                request.StateTemplatesToUpdate = cmdletContext.StateTemplatesToUpdate;
             }
             if (cmdletContext.VehicleName != null)
             {
@@ -321,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             public System.String ModelManifestArn { get; set; }
             public List<Amazon.IoTFleetWise.Model.StateTemplateAssociation> StateTemplatesToAdd { get; set; }
             public List<System.String> StateTemplatesToRemove { get; set; }
+            public List<Amazon.IoTFleetWise.Model.StateTemplateAssociation> StateTemplatesToUpdate { get; set; }
             public System.String VehicleName { get; set; }
             public System.Func<Amazon.IoTFleetWise.Model.UpdateVehicleResponse, UpdateIFWVehicleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

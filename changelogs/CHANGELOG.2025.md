@@ -1,4 +1,12 @@
-﻿### 4.1.794 (2025-04-07 21:06Z)
+﻿### 4.1.795 (2025-04-08 21:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1019.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT FleetWise
+    * Modified cmdlet Update-IFWVehicle: added parameter StateTemplatesToUpdate.
+  * Amazon Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters UzbekistanAdditionalInfo_TaxRegistrationNumberType and UzbekistanAdditionalInfo_VatRegistrationNumber.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters UzbekistanAdditionalInfo_TaxRegistrationNumberType and UzbekistanAdditionalInfo_VatRegistrationNumber.
+
+### 4.1.794 (2025-04-07 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1018.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Runtime
     * Modified cmdlet Invoke-BDRRGuardrail: added parameter OutputScope.

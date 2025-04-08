@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Request a cost allocation tag backfill. This will backfill the activation status
     /// (either <c>active</c> or <c>inactive</c>) for all tag keys from <c>para:BackfillFrom</c>
-    /// up to the when this request is made.
+    /// up to the time this request is made.
     /// 
     ///  
     /// <para>

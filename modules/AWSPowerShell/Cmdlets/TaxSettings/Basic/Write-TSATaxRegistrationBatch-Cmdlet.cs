@@ -782,6 +782,19 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public Amazon.TaxSettings.SaudiArabiaTaxRegistrationNumberType SaudiArabiaAdditionalInfo_TaxRegistrationNumberType { get; set; }
         #endregion
         
+        #region Parameter UzbekistanAdditionalInfo_TaxRegistrationNumberType
+        /// <summary>
+        /// <para>
+        /// <para> The tax registration number type. The tax registration number type valid values are
+        /// <c>Business</c> and <c>Individual</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_TaxRegistrationNumberType")]
+        [AWSConstantClassSource("Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType")]
+        public Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType UzbekistanAdditionalInfo_TaxRegistrationNumberType { get; set; }
+        #endregion
+        
         #region Parameter UkraineAdditionalInfo_UkraineTrnType
         /// <summary>
         /// <para>
@@ -815,6 +828,18 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaxRegistrationEntry_AdditionalTaxInformation_EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate")]
         public System.String EgyptAdditionalInfo_UniqueIdentificationNumberExpirationDate { get; set; }
+        #endregion
+        
+        #region Parameter UzbekistanAdditionalInfo_VatRegistrationNumber
+        /// <summary>
+        /// <para>
+        /// <para> The unique 12-digit number issued to identify VAT-registered identities in Uzbekistan.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_VatRegistrationNumber")]
+        public System.String UzbekistanAdditionalInfo_VatRegistrationNumber { get; set; }
         #endregion
         
         #region Parameter Select
@@ -924,6 +949,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             context.TurkeyAdditionalInfo_SecondaryTaxId = this.TurkeyAdditionalInfo_SecondaryTaxId;
             context.TurkeyAdditionalInfo_TaxOffice = this.TurkeyAdditionalInfo_TaxOffice;
             context.UkraineAdditionalInfo_UkraineTrnType = this.UkraineAdditionalInfo_UkraineTrnType;
+            context.UzbekistanAdditionalInfo_TaxRegistrationNumberType = this.UzbekistanAdditionalInfo_TaxRegistrationNumberType;
+            context.UzbekistanAdditionalInfo_VatRegistrationNumber = this.UzbekistanAdditionalInfo_VatRegistrationNumber;
             context.VietnamAdditionalInfo_ElectronicTransactionCodeNumber = this.VietnamAdditionalInfo_ElectronicTransactionCodeNumber;
             context.VietnamAdditionalInfo_EnterpriseIdentificationNumber = this.VietnamAdditionalInfo_EnterpriseIdentificationNumber;
             context.VietnamAdditionalInfo_PaymentVoucherNumber = this.VietnamAdditionalInfo_PaymentVoucherNumber;
@@ -1472,6 +1499,41 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.PolandAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_PolandAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
+            Amazon.TaxSettings.Model.UzbekistanAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo = null;
+            
+             // populate UzbekistanAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo = new Amazon.TaxSettings.Model.UzbekistanAdditionalInfo();
+            Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_TaxRegistrationNumberType = null;
+            if (cmdletContext.UzbekistanAdditionalInfo_TaxRegistrationNumberType != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_TaxRegistrationNumberType = cmdletContext.UzbekistanAdditionalInfo_TaxRegistrationNumberType;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_TaxRegistrationNumberType != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo.TaxRegistrationNumberType = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_TaxRegistrationNumberType;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_VatRegistrationNumber = null;
+            if (cmdletContext.UzbekistanAdditionalInfo_VatRegistrationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_VatRegistrationNumber = cmdletContext.UzbekistanAdditionalInfo_VatRegistrationNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_VatRegistrationNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo.VatRegistrationNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo_uzbekistanAdditionalInfo_VatRegistrationNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.UzbekistanAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
             Amazon.TaxSettings.Model.MalaysiaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = null;
             
              // populate MalaysiaAdditionalInfo
@@ -1891,6 +1953,8 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String TurkeyAdditionalInfo_SecondaryTaxId { get; set; }
             public System.String TurkeyAdditionalInfo_TaxOffice { get; set; }
             public Amazon.TaxSettings.UkraineTrnType UkraineAdditionalInfo_UkraineTrnType { get; set; }
+            public Amazon.TaxSettings.UzbekistanTaxRegistrationNumberType UzbekistanAdditionalInfo_TaxRegistrationNumberType { get; set; }
+            public System.String UzbekistanAdditionalInfo_VatRegistrationNumber { get; set; }
             public System.String VietnamAdditionalInfo_ElectronicTransactionCodeNumber { get; set; }
             public System.String VietnamAdditionalInfo_EnterpriseIdentificationNumber { get; set; }
             public System.String VietnamAdditionalInfo_PaymentVoucherNumber { get; set; }
