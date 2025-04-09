@@ -1,4 +1,12 @@
-﻿### 4.1.795 (2025-04-08 21:44Z)
+﻿### 4.1.796 (2025-04-09 23:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1020.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Ground Station
+    * Modified cmdlet Register-GSAgent: added parameter Tag.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameter SftpConfig_MaxConcurrentConnection.
+    * Modified cmdlet Update-TFRConnector: added parameter SftpConfig_MaxConcurrentConnection.
+
+### 4.1.795 (2025-04-08 21:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1019.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT FleetWise
     * Modified cmdlet Update-IFWVehicle: added parameter StateTemplatesToUpdate.

@@ -153,6 +153,20 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String LoggingRole { get; set; }
         #endregion
         
+        #region Parameter SftpConfig_MaxConcurrentConnection
+        /// <summary>
+        /// <para>
+        /// <para>Specify the number of concurrent connections that your connector creates to the remote
+        /// server. The default value is <c>5</c> (this is also the maximum value allowed).</para><para>This parameter specifies the number of active connections that your connector can
+        /// establish with the remote server at the same time. Increasing this value can enhance
+        /// connector performance when transferring large file batches by enabling parallel operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SftpConfig_MaxConcurrentConnections")]
+        public System.Int32? SftpConfig_MaxConcurrentConnection { get; set; }
+        #endregion
+        
         #region Parameter As2Config_MdnResponse
         /// <summary>
         /// <para>
@@ -251,7 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>The public portion of the host key, or keys, that are used to identify the external
         /// server to which you are connecting. You can use the <c>ssh-keyscan</c> command against
-        /// the SFTP server to retrieve the necessary key.</para><para>The three standard SSH public key format elements are <c>&lt;key type&gt;</c>, <c>&lt;body
+        /// the SFTP server to retrieve the necessary key.</para><note><para><c>TrustedHostKeys</c> is optional for <c>CreateConnector</c>. If not provided, you
+        /// can use <c>TestConnection</c> to retrieve the server host key during the initial connection
+        /// attempt, and subsequently update the connector with the observed host key.</para></note><para>The three standard SSH public key format elements are <c>&lt;key type&gt;</c>, <c>&lt;body
         /// base64&gt;</c>, and an optional <c>&lt;comment&gt;</c>, with spaces between each element.
         /// Specify only the <c>&lt;key type&gt;</c> and <c>&lt;body base64&gt;</c>: do not enter
         /// the <c>&lt;comment&gt;</c> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the <c>&lt;key type&gt;</c> string is <c>ssh-rsa</c>.</para></li><li><para>For ECDSA keys, the <c>&lt;key type&gt;</c> string is either <c>ecdsa-sha2-nistp256</c>,
@@ -288,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains
         /// the SFTP user's private key, password, or both. The identifier must be the Amazon
-        /// Resource Name (ARN) of the secret.</para>
+        /// Resource Name (ARN) of the secret.</para><note><ul><li><para>Required when creating an SFTP connector</para></li><li><para>Optional when updating an existing SFTP connector</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.As2Config_SigningAlgorithm = this.As2Config_SigningAlgorithm;
             context.LoggingRole = this.LoggingRole;
             context.SecurityPolicyName = this.SecurityPolicyName;
+            context.SftpConfig_MaxConcurrentConnection = this.SftpConfig_MaxConcurrentConnection;
             if (this.SftpConfig_TrustedHostKey != null)
             {
                 context.SftpConfig_TrustedHostKey = new List<System.String>(this.SftpConfig_TrustedHostKey);
@@ -513,6 +530,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate SftpConfig
             var requestSftpConfigIsNull = true;
             request.SftpConfig = new Amazon.Transfer.Model.SftpConnectorConfig();
+            System.Int32? requestSftpConfig_sftpConfig_MaxConcurrentConnection = null;
+            if (cmdletContext.SftpConfig_MaxConcurrentConnection != null)
+            {
+                requestSftpConfig_sftpConfig_MaxConcurrentConnection = cmdletContext.SftpConfig_MaxConcurrentConnection.Value;
+            }
+            if (requestSftpConfig_sftpConfig_MaxConcurrentConnection != null)
+            {
+                request.SftpConfig.MaxConcurrentConnections = requestSftpConfig_sftpConfig_MaxConcurrentConnection.Value;
+                requestSftpConfigIsNull = false;
+            }
             List<System.String> requestSftpConfig_sftpConfig_TrustedHostKey = null;
             if (cmdletContext.SftpConfig_TrustedHostKey != null)
             {
@@ -620,6 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.SigningAlg As2Config_SigningAlgorithm { get; set; }
             public System.String LoggingRole { get; set; }
             public System.String SecurityPolicyName { get; set; }
+            public System.Int32? SftpConfig_MaxConcurrentConnection { get; set; }
             public List<System.String> SftpConfig_TrustedHostKey { get; set; }
             public System.String SftpConfig_UserSecretId { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }

@@ -427,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 }
                 
                 ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 0));
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
             
             
             if (useParameterSelect)

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter EndpointDetail
         /// <summary>
         /// <para>
-        /// <para>Endpoint details of each endpoint in the dataflow endpoint group.</para>
+        /// Amazon.GroundStation.Model.CreateDataflowEndpointGroupRequest.EndpointDetails
         /// </para>
         /// </summary>
         #if !MODULAR
