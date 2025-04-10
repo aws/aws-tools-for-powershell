@@ -172,6 +172,7 @@ $AMM_SelectCompleters = {
 $AMM_SelectMap = @{
     "Select"=@("Stop-AMMBatchJobExecution",
                "New-AMMApplication",
+               "New-AMMDataSetExportTask",
                "New-AMMDataSetImportTask",
                "New-AMMDeployment",
                "New-AMMEnvironment",
@@ -182,6 +183,7 @@ $AMM_SelectMap = @{
                "Get-AMMApplicationVersion",
                "Get-AMMBatchJobExecution",
                "Get-AMMDataSetDetail",
+               "Get-AMMDataSetExportTask",
                "Get-AMMDataSetImportTask",
                "Get-AMMDeployment",
                "Get-AMMEnvironment",
@@ -191,6 +193,7 @@ $AMM_SelectMap = @{
                "Get-AMMBatchJobDefinitionList",
                "Get-AMMBatchJobExecutionList",
                "Get-AMMBatchJobRestartPointList",
+               "Get-AMMDataSetExportHistoryList",
                "Get-AMMDataSetImportHistoryList",
                "Get-AMMDataSetList",
                "Get-AMMDeploymentList",

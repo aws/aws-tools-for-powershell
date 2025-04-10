@@ -1,4 +1,26 @@
-﻿### 4.1.796 (2025-04-09 23:18Z)
+﻿### 4.1.797 (2025-04-10 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1021.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECCacheCluster: added parameters ScaleConfig_ScaleIntervalMinute and ScaleConfig_ScalePercentage.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLSdiSource: added parameter PassThru.
+    * Modified cmdlet Update-EMLInputDevice: added parameters HdDeviceSettings_InputResolution and UhdDeviceSettings_InputResolution.
+  * Amazon M2
+    * Added cmdlet Get-AMMDataSetExportHistoryList leveraging the ListDataSetExportHistory service API.
+    * Added cmdlet Get-AMMDataSetExportTask leveraging the GetDataSetExportTask service API.
+    * Added cmdlet New-AMMDataSetExportTask leveraging the CreateDataSetExportTask service API.
+    * Modified cmdlet Start-AMMBatchJob: added parameters JobStepRestartMarker_Skip and JobStepRestartMarker_StepCheckpoint.
+  * Amazon QBusiness
+    * Modified cmdlet Update-QBUSChatControlsConfiguration: added parameter HallucinationReductionConfiguration_HallucinationReductionControl.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSAnalysis: added parameter HighlightOperation_Trigger.
+    * Modified cmdlet New-QSDashboard: added parameter HighlightOperation_Trigger.
+    * Modified cmdlet New-QSTemplate: added parameter HighlightOperation_Trigger.
+    * Modified cmdlet Update-QSAnalysis: added parameter HighlightOperation_Trigger.
+    * Modified cmdlet Update-QSDashboard: added parameter HighlightOperation_Trigger.
+    * Modified cmdlet Update-QSTemplate: added parameter HighlightOperation_Trigger.
+
+### 4.1.796 (2025-04-09 23:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1020.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Ground Station
     * Modified cmdlet Register-GSAgent: added parameter Tag.

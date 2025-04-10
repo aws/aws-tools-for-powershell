@@ -18975,6 +18975,8 @@ Set-Alias -Name Cancel-AMMBatchJobExecution -Value Stop-AMMBatchJobExecution
 Set-Alias -Name AMM-CancelBatchJobExecution -Value Stop-AMMBatchJobExecution
 Set-Alias -Name Create-AMMApplication -Value New-AMMApplication
 Set-Alias -Name AMM-CreateApplication -Value New-AMMApplication
+Set-Alias -Name Create-AMMDataSetExportTask -Value New-AMMDataSetExportTask
+Set-Alias -Name AMM-CreateDataSetExportTask -Value New-AMMDataSetExportTask
 Set-Alias -Name Create-AMMDataSetImportTask -Value New-AMMDataSetImportTask
 Set-Alias -Name AMM-CreateDataSetImportTask -Value New-AMMDataSetImportTask
 Set-Alias -Name Create-AMMDeployment -Value New-AMMDeployment
@@ -18992,6 +18994,7 @@ Set-Alias -Name AMM-GetApplicationVersion -Value Get-AMMApplicationVersion
 Set-Alias -Name AMM-GetBatchJobExecution -Value Get-AMMBatchJobExecution
 Set-Alias -Name Get-AMMDataSetDetails -Value Get-AMMDataSetDetail
 Set-Alias -Name AMM-GetDataSetDetails -Value Get-AMMDataSetDetail
+Set-Alias -Name AMM-GetDataSetExportTask -Value Get-AMMDataSetExportTask
 Set-Alias -Name AMM-GetDataSetImportTask -Value Get-AMMDataSetImportTask
 Set-Alias -Name AMM-GetDeployment -Value Get-AMMDeployment
 Set-Alias -Name AMM-GetEnvironment -Value Get-AMMEnvironment
@@ -19011,6 +19014,9 @@ Set-Alias -Name AMM-ListBatchJobExecutions -Value Get-AMMBatchJobExecutionList
 Set-Alias -Name List-AMMBatchJobRestartPoints -Value Get-AMMBatchJobRestartPointList
 Set-Alias -Name List-AMMBatchJobRestartPointList -Value Get-AMMBatchJobRestartPointList
 Set-Alias -Name AMM-ListBatchJobRestartPoints -Value Get-AMMBatchJobRestartPointList
+Set-Alias -Name List-AMMDataSetExportHistory -Value Get-AMMDataSetExportHistoryList
+Set-Alias -Name List-AMMDataSetExportHistoryList -Value Get-AMMDataSetExportHistoryList
+Set-Alias -Name AMM-ListDataSetExportHistory -Value Get-AMMDataSetExportHistoryList
 Set-Alias -Name List-AMMDataSetImportHistory -Value Get-AMMDataSetImportHistoryList
 Set-Alias -Name List-AMMDataSetImportHistoryList -Value Get-AMMDataSetImportHistoryList
 Set-Alias -Name AMM-ListDataSetImportHistory -Value Get-AMMDataSetImportHistoryList

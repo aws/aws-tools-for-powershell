@@ -496,14 +496,14 @@
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="Dashboard_ExecutiveSummary_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="Console_ExecutiveSummary_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled" NewName="Dashboard_RecentSnapshots_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled" NewName="Console_RecentSnapshots_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled" NewName="Dashboard_Schedules_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" NewName="Console_Schedules_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Dashboard_ThresholdAlerts_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Console_ThresholdAlerts_Enabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -513,14 +513,14 @@
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" />
-                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="Dashboard_ExecutiveSummary_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled" NewName="Console_ExecutiveSummary_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled" NewName="Dashboard_RecentSnapshots_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled" NewName="Console_RecentSnapshots_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled" NewName="Dashboard_Schedules_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled" NewName="Console_Schedules_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Dashboard_ThresholdAlerts_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled" NewName="Console_ThresholdAlerts_Enabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

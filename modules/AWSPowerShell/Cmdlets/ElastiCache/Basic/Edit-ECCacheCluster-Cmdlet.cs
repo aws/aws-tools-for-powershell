@@ -180,8 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Modifies the engine listed in a cluster message. The options are redis, memcached
-        /// or valkey.</para>
+        /// <para>The engine type used by the cache cluster. The options are valkey, memcached or redis.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -315,6 +314,29 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter ScaleConfig_ScaleIntervalMinute
+        /// <summary>
+        /// <para>
+        /// <para>The time interval in seconds between scaling operations when performing gradual scaling
+        /// for a Memcached cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScaleConfig_ScaleIntervalMinutes")]
+        public System.Int32? ScaleConfig_ScaleIntervalMinute { get; set; }
+        #endregion
+        
+        #region Parameter ScaleConfig_ScalePercentage
+        /// <summary>
+        /// <para>
+        /// <para>The percentage by which to scale the Memcached cluster, either horizontally by adding
+        /// nodes or vertically by increasing resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScaleConfig_ScalePercentage { get; set; }
         #endregion
         
         #region Parameter SecurityGroupId
@@ -452,6 +474,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.NotificationTopicStatus = this.NotificationTopicStatus;
             context.NumCacheNode = this.NumCacheNode;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.ScaleConfig_ScaleIntervalMinute = this.ScaleConfig_ScaleIntervalMinute;
+            context.ScaleConfig_ScalePercentage = this.ScaleConfig_ScalePercentage;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -550,6 +574,35 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
             }
+            
+             // populate ScaleConfig
+            var requestScaleConfigIsNull = true;
+            request.ScaleConfig = new Amazon.ElastiCache.Model.ScaleConfig();
+            System.Int32? requestScaleConfig_scaleConfig_ScaleIntervalMinute = null;
+            if (cmdletContext.ScaleConfig_ScaleIntervalMinute != null)
+            {
+                requestScaleConfig_scaleConfig_ScaleIntervalMinute = cmdletContext.ScaleConfig_ScaleIntervalMinute.Value;
+            }
+            if (requestScaleConfig_scaleConfig_ScaleIntervalMinute != null)
+            {
+                request.ScaleConfig.ScaleIntervalMinutes = requestScaleConfig_scaleConfig_ScaleIntervalMinute.Value;
+                requestScaleConfigIsNull = false;
+            }
+            System.Int32? requestScaleConfig_scaleConfig_ScalePercentage = null;
+            if (cmdletContext.ScaleConfig_ScalePercentage != null)
+            {
+                requestScaleConfig_scaleConfig_ScalePercentage = cmdletContext.ScaleConfig_ScalePercentage.Value;
+            }
+            if (requestScaleConfig_scaleConfig_ScalePercentage != null)
+            {
+                request.ScaleConfig.ScalePercentage = requestScaleConfig_scaleConfig_ScalePercentage.Value;
+                requestScaleConfigIsNull = false;
+            }
+             // determine if request.ScaleConfig should be set to null
+            if (requestScaleConfigIsNull)
+            {
+                request.ScaleConfig = null;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -642,6 +695,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String NotificationTopicStatus { get; set; }
             public System.Int32? NumCacheNode { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Int32? ScaleConfig_ScaleIntervalMinute { get; set; }
+            public System.Int32? ScaleConfig_ScalePercentage { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.Int32? SnapshotRetentionLimit { get; set; }
             public System.String SnapshotWindow { get; set; }

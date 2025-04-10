@@ -196,6 +196,30 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String ScriptBatchJobIdentifier_ScriptName { get; set; }
         #endregion
         
+        #region Parameter JobStepRestartMarker_Skip
+        /// <summary>
+        /// <para>
+        /// <para>The step-level checkpoint timestamp (creation or last modification) for an Amazon
+        /// Web Services Blu Age application batch job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_Skip")]
+        public System.Boolean? JobStepRestartMarker_Skip { get; set; }
+        #endregion
+        
+        #region Parameter JobStepRestartMarker_StepCheckpoint
+        /// <summary>
+        /// <para>
+        /// <para>Skip selected step and issue a restart from immediate successor step for an Amazon
+        /// Web Services Blu Age application batch job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BatchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_StepCheckpoint")]
+        public System.Int32? JobStepRestartMarker_StepCheckpoint { get; set; }
+        #endregion
+        
         #region Parameter JobStepRestartMarker_ToProcStep
         /// <summary>
         /// <para>
@@ -293,6 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             context.RestartBatchJobIdentifier_ExecutionId = this.RestartBatchJobIdentifier_ExecutionId;
             context.JobStepRestartMarker_FromProcStep = this.JobStepRestartMarker_FromProcStep;
             context.JobStepRestartMarker_FromStep = this.JobStepRestartMarker_FromStep;
+            context.JobStepRestartMarker_Skip = this.JobStepRestartMarker_Skip;
+            context.JobStepRestartMarker_StepCheckpoint = this.JobStepRestartMarker_StepCheckpoint;
             context.JobStepRestartMarker_ToProcStep = this.JobStepRestartMarker_ToProcStep;
             context.JobStepRestartMarker_ToStep = this.JobStepRestartMarker_ToStep;
             context.S3BatchJobIdentifier_Bucket = this.S3BatchJobIdentifier_Bucket;
@@ -434,6 +460,26 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_FromStep != null)
             {
                 requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker.FromStep = requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_FromStep;
+                requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarkerIsNull = false;
+            }
+            System.Boolean? requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_Skip = null;
+            if (cmdletContext.JobStepRestartMarker_Skip != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_Skip = cmdletContext.JobStepRestartMarker_Skip.Value;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_Skip != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker.Skip = requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_Skip.Value;
+                requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarkerIsNull = false;
+            }
+            System.Int32? requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_StepCheckpoint = null;
+            if (cmdletContext.JobStepRestartMarker_StepCheckpoint != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_StepCheckpoint = cmdletContext.JobStepRestartMarker_StepCheckpoint.Value;
+            }
+            if (requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_StepCheckpoint != null)
+            {
+                requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker.StepCheckpoint = requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_StepCheckpoint.Value;
                 requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarkerIsNull = false;
             }
             System.String requestBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_batchJobIdentifier_RestartBatchJobIdentifier_JobStepRestartMarker_jobStepRestartMarker_ToProcStep = null;
@@ -623,6 +669,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public System.String RestartBatchJobIdentifier_ExecutionId { get; set; }
             public System.String JobStepRestartMarker_FromProcStep { get; set; }
             public System.String JobStepRestartMarker_FromStep { get; set; }
+            public System.Boolean? JobStepRestartMarker_Skip { get; set; }
+            public System.Int32? JobStepRestartMarker_StepCheckpoint { get; set; }
             public System.String JobStepRestartMarker_ToProcStep { get; set; }
             public System.String JobStepRestartMarker_ToStep { get; set; }
             public System.String S3BatchJobIdentifier_Bucket { get; set; }

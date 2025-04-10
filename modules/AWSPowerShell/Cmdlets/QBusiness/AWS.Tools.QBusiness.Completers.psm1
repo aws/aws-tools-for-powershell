@@ -150,6 +150,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.HallucinationReductionControl
+        "Update-QBUSChatControlsConfiguration/HallucinationReductionConfiguration_HallucinationReductionControl"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.IdentityType
         "New-QBUSApplication/IdentityType"
         {
@@ -302,6 +309,7 @@ $QBUS_map = @{
     "CustomPluginConfiguration_ApiSchemaType"=@("New-QBUSPlugin","Update-QBUSPlugin")
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "HallucinationReductionConfiguration_HallucinationReductionControl"=@("Update-QBUSChatControlsConfiguration")
     "IdentityType"=@("New-QBUSApplication")
     "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")

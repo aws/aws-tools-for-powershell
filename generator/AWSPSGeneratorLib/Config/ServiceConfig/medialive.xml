@@ -107,7 +107,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSdiSource" OutputProperty="SdiSource" Verb="New" Noun="SdiSource" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSdiSource" OutputProperty="SdiSource" Verb="New" Noun="SdiSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -347,7 +347,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSdiSources" OutputProperty="SdiSources" Verb="Get" Noun="SdiSourceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSdiSources" OutputProperty="SdiSources" Verb="Get" Noun="SdiSourceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

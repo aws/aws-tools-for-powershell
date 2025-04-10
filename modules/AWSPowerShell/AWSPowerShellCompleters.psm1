@@ -2540,7 +2540,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantConcurrentRequestsPerModelHighResolution","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsagePercentage","ElastiCacheEngineCPUUtilization","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantConcurrentRequestsPerModelHighResolution","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
             break
         }
 
@@ -2580,7 +2580,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","neptune:cluster:ReadReplicaCount","rds:cluster:ReadReplicaCount","sagemaker:inference-component:DesiredCopyCount","sagemaker:variant:DesiredInstanceCount","sagemaker:variant:DesiredProvisionedConcurrency","workspaces:workspacespool:DesiredUserSessions"
+            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:cache-cluster:Nodes","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","neptune:cluster:ReadReplicaCount","rds:cluster:ReadReplicaCount","sagemaker:inference-component:DesiredCopyCount","sagemaker:variant:DesiredInstanceCount","sagemaker:variant:DesiredProvisionedConcurrency","workspaces:workspacespool:DesiredUserSessions"
             break
         }
 
@@ -45994,6 +45994,7 @@ $AMM_SelectCompleters = {
 $AMM_SelectMap = @{
     "Select"=@("Stop-AMMBatchJobExecution",
                "New-AMMApplication",
+               "New-AMMDataSetExportTask",
                "New-AMMDataSetImportTask",
                "New-AMMDeployment",
                "New-AMMEnvironment",
@@ -46004,6 +46005,7 @@ $AMM_SelectMap = @{
                "Get-AMMApplicationVersion",
                "Get-AMMBatchJobExecution",
                "Get-AMMDataSetDetail",
+               "Get-AMMDataSetExportTask",
                "Get-AMMDataSetImportTask",
                "Get-AMMDeployment",
                "Get-AMMEnvironment",
@@ -46013,6 +46015,7 @@ $AMM_SelectMap = @{
                "Get-AMMBatchJobDefinitionList",
                "Get-AMMBatchJobExecutionList",
                "Get-AMMBatchJobRestartPointList",
+               "Get-AMMDataSetExportHistoryList",
                "Get-AMMDataSetImportHistoryList",
                "Get-AMMDataSetList",
                "Get-AMMDeploymentList",
@@ -59116,6 +59119,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.HallucinationReductionControl
+        "Update-QBUSChatControlsConfiguration/HallucinationReductionConfiguration_HallucinationReductionControl"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.IdentityType
         "New-QBUSApplication/IdentityType"
         {
@@ -59268,6 +59278,7 @@ $QBUS_map = @{
     "CustomPluginConfiguration_ApiSchemaType"=@("New-QBUSPlugin","Update-QBUSPlugin")
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "HallucinationReductionConfiguration_HallucinationReductionControl"=@("Update-QBUSChatControlsConfiguration")
     "IdentityType"=@("New-QBUSApplication")
     "ImageExtractionConfiguration_ImageExtractionStatus"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
@@ -60465,6 +60476,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.VisualHighlightTrigger
+        {
+            ($_ -eq "New-QSAnalysis/HighlightOperation_Trigger") -Or
+            ($_ -eq "New-QSDashboard/HighlightOperation_Trigger") -Or
+            ($_ -eq "New-QSTemplate/HighlightOperation_Trigger") -Or
+            ($_ -eq "Update-QSAnalysis/HighlightOperation_Trigger") -Or
+            ($_ -eq "Update-QSDashboard/HighlightOperation_Trigger") -Or
+            ($_ -eq "Update-QSTemplate/HighlightOperation_Trigger")
+        }
+        {
+            $v = "DATA_POINT_CLICK","DATA_POINT_HOVER","NONE"
+            break
+        }
+
 
     }
 
@@ -60508,6 +60533,7 @@ $QS_map = @{
     "ExportWithHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "FailureAction"=@("Start-QSAssetBundleImportJob")
     "FolderType"=@("New-QSFolder")
+    "HighlightOperation_Trigger"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")

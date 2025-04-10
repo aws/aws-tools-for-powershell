@@ -103,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public Amazon.QBusiness.CreatorModeControl CreatorModeConfiguration_CreatorModeControl { get; set; }
         #endregion
         
+        #region Parameter HallucinationReductionConfiguration_HallucinationReductionControl
+        /// <summary>
+        /// <para>
+        /// <para>Controls whether hallucination reduction has been enabled or disabled for your application.
+        /// The default status is <c>DISABLED</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.HallucinationReductionControl")]
+        public Amazon.QBusiness.HallucinationReductionControl HallucinationReductionConfiguration_HallucinationReductionControl { get; set; }
+        #endregion
+        
         #region Parameter ResponseScope
         /// <summary>
         /// <para>
@@ -238,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.BlockedPhrasesConfigurationUpdate_SystemMessageOverride = this.BlockedPhrasesConfigurationUpdate_SystemMessageOverride;
             context.ClientToken = this.ClientToken;
             context.CreatorModeConfiguration_CreatorModeControl = this.CreatorModeConfiguration_CreatorModeControl;
+            context.HallucinationReductionConfiguration_HallucinationReductionControl = this.HallucinationReductionConfiguration_HallucinationReductionControl;
             context.OrchestrationConfiguration_Control = this.OrchestrationConfiguration_Control;
             context.ResponseScope = this.ResponseScope;
             if (this.TopicConfigurationsToCreateOrUpdate != null)
@@ -329,6 +342,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestCreatorModeConfigurationIsNull)
             {
                 request.CreatorModeConfiguration = null;
+            }
+            
+             // populate HallucinationReductionConfiguration
+            var requestHallucinationReductionConfigurationIsNull = true;
+            request.HallucinationReductionConfiguration = new Amazon.QBusiness.Model.HallucinationReductionConfiguration();
+            Amazon.QBusiness.HallucinationReductionControl requestHallucinationReductionConfiguration_hallucinationReductionConfiguration_HallucinationReductionControl = null;
+            if (cmdletContext.HallucinationReductionConfiguration_HallucinationReductionControl != null)
+            {
+                requestHallucinationReductionConfiguration_hallucinationReductionConfiguration_HallucinationReductionControl = cmdletContext.HallucinationReductionConfiguration_HallucinationReductionControl;
+            }
+            if (requestHallucinationReductionConfiguration_hallucinationReductionConfiguration_HallucinationReductionControl != null)
+            {
+                request.HallucinationReductionConfiguration.HallucinationReductionControl = requestHallucinationReductionConfiguration_hallucinationReductionConfiguration_HallucinationReductionControl;
+                requestHallucinationReductionConfigurationIsNull = false;
+            }
+             // determine if request.HallucinationReductionConfiguration should be set to null
+            if (requestHallucinationReductionConfigurationIsNull)
+            {
+                request.HallucinationReductionConfiguration = null;
             }
             
              // populate OrchestrationConfiguration
@@ -428,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String BlockedPhrasesConfigurationUpdate_SystemMessageOverride { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.QBusiness.CreatorModeControl CreatorModeConfiguration_CreatorModeControl { get; set; }
+            public Amazon.QBusiness.HallucinationReductionControl HallucinationReductionConfiguration_HallucinationReductionControl { get; set; }
             public Amazon.QBusiness.OrchestrationControl OrchestrationConfiguration_Control { get; set; }
             public Amazon.QBusiness.ResponseScope ResponseScope { get; set; }
             public List<Amazon.QBusiness.Model.TopicConfiguration> TopicConfigurationsToCreateOrUpdate { get; set; }
