@@ -188,7 +188,8 @@ namespace Amazon.PowerShell.Common
         {
             var missingProperties = SSOUtils.GetSSOMissingProperties(options);
 
-            if (missingProperties.Any())
+            //it's possible that the source_profile contains the information needed.
+            if (string.IsNullOrEmpty(options.SourceProfile) && missingProperties.Any())
             {
                 string beginErrorMessage = $"There are missing SSO properties for the profile {ProfileName}. Use Initialize-AWSSSOConfiguration to configure SSO profile.";
                 string missingPropertiesMessage = "missing SSO properties: " + string.Join(", ", missingProperties) + ".";
@@ -792,7 +793,7 @@ namespace Amazon.PowerShell.Common
         {
             var missingProperties = SSOUtils.GetSSOMissingProperties(options);
 
-            if (missingProperties.Any())
+            if (string.IsNullOrEmpty(options.SourceProfile) && missingProperties.Any())
             {
                 var beginErrorMessage = $"There are missing SSO properties for the profile {ProfileName}. Update profile to add the following properties or use Invoke-AWSSSOLogoff to logoff all SSO tokens.";
                 var missingPropertiesMessage = "missing SSO properties: " + string.Join(", ", missingProperties) + ".";
