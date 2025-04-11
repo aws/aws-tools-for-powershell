@@ -1,4 +1,10 @@
-﻿### 4.1.797 (2025-04-10 21:15Z)
+﻿### 4.1.798 (2025-04-11 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1022.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Verified Permissions
+    * Modified cmdlet New-AVPPolicyStore: added parameter DeletionProtection.
+    * Modified cmdlet Update-AVPPolicyStore: added parameter DeletionProtection.
+
+### 4.1.797 (2025-04-10 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1021.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ElastiCache
     * Modified cmdlet Edit-ECCacheCluster: added parameters ScaleConfig_ScaleIntervalMinute and ScaleConfig_ScalePercentage.

@@ -75850,6 +75850,16 @@ $AVP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.VerifiedPermissions.DeletionProtection
+        {
+            ($_ -eq "New-AVPPolicyStore/DeletionProtection") -Or
+            ($_ -eq "Update-AVPPolicyStore/DeletionProtection")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.VerifiedPermissions.PolicyType
         "Get-AVPPolicyList/Filter_PolicyType"
         {
@@ -75876,6 +75886,7 @@ $AVP_Completers = {
 }
 
 $AVP_map = @{
+    "DeletionProtection"=@("New-AVPPolicyStore","Update-AVPPolicyStore")
     "Filter_PolicyType"=@("Get-AVPPolicyList")
     "ValidationSettings_Mode"=@("New-AVPPolicyStore","Update-AVPPolicyStore")
 }

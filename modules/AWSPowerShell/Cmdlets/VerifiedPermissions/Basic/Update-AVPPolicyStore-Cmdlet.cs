@@ -49,6 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the policy store can be deleted. If enabled, the policy store can't
+        /// be deleted.</para><para>When you call <c>UpdatePolicyStore</c>, this parameter is unchanged unless explicitly
+        /// included in the call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.VerifiedPermissions.DeletionProtection")]
+        public Amazon.VerifiedPermissions.DeletionProtection DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -161,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 context.Select = (response, cmdlet) => this.PolicyStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
             context.PolicyStoreId = this.PolicyStoreId;
             #if MODULAR
@@ -192,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             // create request
             var request = new Amazon.VerifiedPermissions.Model.UpdatePolicyStoreRequest();
             
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -280,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.VerifiedPermissions.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
             public System.String PolicyStoreId { get; set; }
             public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
