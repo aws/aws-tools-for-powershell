@@ -1781,10 +1781,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DisableRouteServerPropagation" OutputProperty="RouteServerPropagation" Verb="Disable" Noun="RouteServerPropagation" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1938,10 +1934,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableRouteServerPropagation" OutputProperty="RouteServerPropagation" Verb="Enable" Noun="RouteServerPropagation" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
