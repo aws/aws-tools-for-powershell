@@ -73882,6 +73882,16 @@ $TSA_Completers = {
             break
         }
 
+        # Amazon.TaxSettings.IndonesiaTaxRegistrationNumberType
+        {
+            ($_ -eq "Write-TSATaxRegistration/IndonesiaAdditionalInfo_TaxRegistrationNumberType") -Or
+            ($_ -eq "Write-TSATaxRegistrationBatch/IndonesiaAdditionalInfo_TaxRegistrationNumberType")
+        }
+        {
+            $v = "NIK","NITKU","NPWP","PassportNumber"
+            break
+        }
+
         # Amazon.TaxSettings.Industries
         {
             ($_ -eq "Write-TSATaxRegistration/TurkeyAdditionalInfo_Industry") -Or
@@ -74012,6 +74022,7 @@ $TSA_Completers = {
 $TSA_map = @{
     "GeorgiaAdditionalInfo_PersonType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "HeritageStatus"=@("Write-TSATaxInheritance")
+    "IndonesiaAdditionalInfo_TaxRegistrationNumberType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "IsraelAdditionalInfo_CustomerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "IsraelAdditionalInfo_DealerType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")
     "KenyaAdditionalInfo_PersonType"=@("Write-TSATaxRegistration","Write-TSATaxRegistrationBatch")

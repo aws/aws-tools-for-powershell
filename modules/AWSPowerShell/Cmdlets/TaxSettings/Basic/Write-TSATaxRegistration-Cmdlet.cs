@@ -47,6 +47,35 @@ namespace Amazon.PowerShell.Cmdlets.TSA
     /// API operation when you don't have a billing address.
     /// </para></li></ul><para><b>Georgia</b></para><ul><li><para>
     /// The valid <c>personType</c> values are <c>Physical Person</c> and <c>Business</c>.
+    /// </para></li></ul><para><b>Indonesia</b></para><ul><li><para><c>PutTaxRegistration</c>: The use of this operation to submit tax information is
+    /// subject to the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services
+    /// service terms</a>. By submitting, you’re providing consent for Amazon Web Services
+    /// to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General
+    /// of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK)
+    /// Number 112/PMK.03/2022.
+    /// </para></li><li><para><c>BatchPutTaxRegistration</c>: The use of this operation to submit tax information
+    /// is subject to the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services
+    /// service terms</a>. By submitting, you’re providing consent for Amazon Web Services
+    /// to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General
+    /// of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK)
+    /// Number 112/PMK.03/2022, through our third-party partner PT Achilles Advanced Management
+    /// (OnlinePajak).
+    /// </para></li><li><para>
+    /// You must specify the <c>taxRegistrationNumberType</c> in the <c>indonesiaAdditionalInfo</c>
+    /// field of the <c>additionalTaxInformation</c> object.
+    /// </para></li><li><para>
+    /// If you specify <c>decisionNumber</c>, you must specify the <c>ppnExceptionDesignationCode</c>
+    /// in the <c>indonesiaAdditionalInfo</c> field of the <c>additionalTaxInformation</c>
+    /// object. If the <c>taxRegistrationNumberType</c> is set to NPWP or NITKU, valid values
+    /// for <c>ppnExceptionDesignationCode</c> are either <c>01</c>, <c>02</c>, <c>03</c>,
+    /// <c>07</c>, or <c>08</c>.
+    /// </para><para>
+    /// For other <c>taxRegistrationNumberType</c> values, <c>ppnExceptionDesignationCode</c>
+    /// must be either <c>01</c>, <c>07</c>, or <c>08</c>.
+    /// </para></li><li><para>
+    /// If <c>ppnExceptionDesignationCode</c> is <c>07</c>, you must specify the <c>decisionNumber</c>
+    /// in the <c>indonesiaAdditionalInfo</c> field of the <c>additionalTaxInformation</c>
+    /// object.
     /// </para></li></ul><para><b>Kenya</b></para><ul><li><para>
     /// You must specify the <c>personType</c> in the <c>kenyaAdditionalInfo</c> field of
     /// the <c>additionalTaxInformation</c> object.
@@ -358,6 +387,19 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public Amazon.TaxSettings.IsraelDealerType IsraelAdditionalInfo_DealerType { get; set; }
         #endregion
         
+        #region Parameter IndonesiaAdditionalInfo_DecisionNumber
+        /// <summary>
+        /// <para>
+        /// <para>VAT-exempt customers have a Directorate General of Taxation (DGT) exemption letter
+        /// or certificate (Surat Keterangan Bebas) decision number. Non-collected VAT have a
+        /// DGT letter or certificate (Surat Keterangan Tidak Dipungut).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_DecisionNumber")]
+        public System.String IndonesiaAdditionalInfo_DecisionNumber { get; set; }
+        #endregion
+        
         #region Parameter LegalAddress_DistrictOrCounty
         /// <summary>
         /// <para>
@@ -554,6 +596,18 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public System.String LegalAddress_PostalCode { get; set; }
         #endregion
         
+        #region Parameter IndonesiaAdditionalInfo_PpnExceptionDesignationCode
+        /// <summary>
+        /// <para>
+        /// <para>Exception code if you are designated by Directorate General of Taxation (DGT) as a
+        /// VAT collector, non-collected VAT, or VAT-exempt customer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_PpnExceptionDesignationCode")]
+        public System.String IndonesiaAdditionalInfo_PpnExceptionDesignationCode { get; set; }
+        #endregion
+        
         #region Parameter CanadaAdditionalInfo_ProvincialSalesTaxId
         /// <summary>
         /// <para>
@@ -747,6 +801,18 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         public Amazon.TaxSettings.Model.TaxRegistrationDocument[] VerificationDetails_TaxRegistrationDocument { get; set; }
         #endregion
         
+        #region Parameter IndonesiaAdditionalInfo_TaxRegistrationNumberType
+        /// <summary>
+        /// <para>
+        /// <para>The tax registration number type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_TaxRegistrationNumberType")]
+        [AWSConstantClassSource("Amazon.TaxSettings.IndonesiaTaxRegistrationNumberType")]
+        public Amazon.TaxSettings.IndonesiaTaxRegistrationNumberType IndonesiaAdditionalInfo_TaxRegistrationNumberType { get; set; }
+        #endregion
+        
         #region Parameter RomaniaAdditionalInfo_TaxRegistrationNumberType
         /// <summary>
         /// <para>
@@ -904,6 +970,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             context.EstoniaAdditionalInfo_RegistryCommercialCode = this.EstoniaAdditionalInfo_RegistryCommercialCode;
             context.GeorgiaAdditionalInfo_PersonType = this.GeorgiaAdditionalInfo_PersonType;
             context.GreeceAdditionalInfo_ContractingAuthorityCode = this.GreeceAdditionalInfo_ContractingAuthorityCode;
+            context.IndonesiaAdditionalInfo_DecisionNumber = this.IndonesiaAdditionalInfo_DecisionNumber;
+            context.IndonesiaAdditionalInfo_PpnExceptionDesignationCode = this.IndonesiaAdditionalInfo_PpnExceptionDesignationCode;
+            context.IndonesiaAdditionalInfo_TaxRegistrationNumberType = this.IndonesiaAdditionalInfo_TaxRegistrationNumberType;
             context.IsraelAdditionalInfo_CustomerType = this.IsraelAdditionalInfo_CustomerType;
             context.IsraelAdditionalInfo_DealerType = this.IsraelAdditionalInfo_DealerType;
             context.ItalyAdditionalInfo_CigNumber = this.ItalyAdditionalInfo_CigNumber;
@@ -1515,6 +1584,51 @@ namespace Amazon.PowerShell.Cmdlets.TSA
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.UzbekistanAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_UzbekistanAdditionalInfo;
                 requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
             }
+            Amazon.TaxSettings.Model.IndonesiaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo = null;
+            
+             // populate IndonesiaAdditionalInfo
+            var requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfoIsNull = true;
+            requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo = new Amazon.TaxSettings.Model.IndonesiaAdditionalInfo();
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_DecisionNumber = null;
+            if (cmdletContext.IndonesiaAdditionalInfo_DecisionNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_DecisionNumber = cmdletContext.IndonesiaAdditionalInfo_DecisionNumber;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_DecisionNumber != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo.DecisionNumber = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_DecisionNumber;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfoIsNull = false;
+            }
+            System.String requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_PpnExceptionDesignationCode = null;
+            if (cmdletContext.IndonesiaAdditionalInfo_PpnExceptionDesignationCode != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_PpnExceptionDesignationCode = cmdletContext.IndonesiaAdditionalInfo_PpnExceptionDesignationCode;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_PpnExceptionDesignationCode != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo.PpnExceptionDesignationCode = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_PpnExceptionDesignationCode;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfoIsNull = false;
+            }
+            Amazon.TaxSettings.IndonesiaTaxRegistrationNumberType requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_TaxRegistrationNumberType = null;
+            if (cmdletContext.IndonesiaAdditionalInfo_TaxRegistrationNumberType != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_TaxRegistrationNumberType = cmdletContext.IndonesiaAdditionalInfo_TaxRegistrationNumberType;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_TaxRegistrationNumberType != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo.TaxRegistrationNumberType = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo_indonesiaAdditionalInfo_TaxRegistrationNumberType;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfoIsNull = false;
+            }
+             // determine if requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo should be set to null
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfoIsNull)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo = null;
+            }
+            if (requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo != null)
+            {
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation.IndonesiaAdditionalInfo = requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_IndonesiaAdditionalInfo;
+                requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformationIsNull = false;
+            }
             Amazon.TaxSettings.Model.MalaysiaAdditionalInfo requestTaxRegistrationEntry_taxRegistrationEntry_AdditionalTaxInformation_taxRegistrationEntry_AdditionalTaxInformation_MalaysiaAdditionalInfo = null;
             
              // populate MalaysiaAdditionalInfo
@@ -1911,6 +2025,9 @@ namespace Amazon.PowerShell.Cmdlets.TSA
             public System.String EstoniaAdditionalInfo_RegistryCommercialCode { get; set; }
             public Amazon.TaxSettings.PersonType GeorgiaAdditionalInfo_PersonType { get; set; }
             public System.String GreeceAdditionalInfo_ContractingAuthorityCode { get; set; }
+            public System.String IndonesiaAdditionalInfo_DecisionNumber { get; set; }
+            public System.String IndonesiaAdditionalInfo_PpnExceptionDesignationCode { get; set; }
+            public Amazon.TaxSettings.IndonesiaTaxRegistrationNumberType IndonesiaAdditionalInfo_TaxRegistrationNumberType { get; set; }
             public Amazon.TaxSettings.IsraelCustomerType IsraelAdditionalInfo_CustomerType { get; set; }
             public Amazon.TaxSettings.IsraelDealerType IsraelAdditionalInfo_DealerType { get; set; }
             public System.String ItalyAdditionalInfo_CigNumber { get; set; }
