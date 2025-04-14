@@ -1441,15 +1441,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteServerEndpoints" OutputProperty="RouteServerEndpoints" Verb="Get" Noun="RouteServerEndpoint" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRouteServerEndpoints" OutputProperty="RouteServerEndpoints" Verb="Get" Noun="RouteServerEndpoint" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteServerPeers" OutputProperty="RouteServerPeers" Verb="Get" Noun="RouteServerPeer" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRouteServerPeers" OutputProperty="RouteServerPeers" Verb="Get" Noun="RouteServerPeer" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteServers" OutputProperty="RouteServers" Verb="Get" Noun="RouteServer" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRouteServers" OutputProperty="RouteServers" Verb="Get" Noun="RouteServer" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1785,7 +1785,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
