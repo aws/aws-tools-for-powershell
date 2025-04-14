@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageEncryptionOptions_EncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>This indicates whether encryption is enabled for the package.</para>
+        /// <para>Whether encryption is enabled for the package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageEncryptionOptions_KmsKeyIdentifier
         /// <summary>
         /// <para>
-        /// <para> KMS key ID for encrypting the package.</para>
+        /// <para>KMS key ID for encrypting the package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

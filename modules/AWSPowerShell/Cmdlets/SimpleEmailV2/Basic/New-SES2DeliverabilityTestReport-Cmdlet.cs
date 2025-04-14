@@ -49,6 +49,30 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Simple_Attachment
+        /// <summary>
+        /// <para>
+        /// <para> The List of attachments to include in your email. All recipients will receive the
+        /// same attachments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Simple_Attachments")]
+        public Amazon.SimpleEmailV2.Model.Attachment[] Simple_Attachment { get; set; }
+        #endregion
+        
+        #region Parameter Template_Attachment
+        /// <summary>
+        /// <para>
+        /// <para> The List of attachments to include in your email. All recipients will receive the
+        /// same attachments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Template_Attachments")]
+        public Amazon.SimpleEmailV2.Model.Attachment[] Template_Attachment { get; set; }
+        #endregion
+        
         #region Parameter Html_Charset
         /// <summary>
         /// <para>
@@ -322,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Raw_Data = this.Raw_Data;
+            if (this.Simple_Attachment != null)
+            {
+                context.Simple_Attachment = new List<Amazon.SimpleEmailV2.Model.Attachment>(this.Simple_Attachment);
+            }
             context.Html_Charset = this.Html_Charset;
             context.Html_Data = this.Html_Data;
             context.Text_Charset = this.Text_Charset;
@@ -332,6 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             context.Subject_Charset = this.Subject_Charset;
             context.Subject_Data = this.Subject_Data;
+            if (this.Template_Attachment != null)
+            {
+                context.Template_Attachment = new List<Amazon.SimpleEmailV2.Model.Attachment>(this.Template_Attachment);
+            }
             if (this.Template_Header != null)
             {
                 context.Template_Header = new List<Amazon.SimpleEmailV2.Model.MessageHeader>(this.Template_Header);
@@ -409,6 +441,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                  // populate Simple
                 var requestContent_content_SimpleIsNull = true;
                 requestContent_content_Simple = new Amazon.SimpleEmailV2.Model.Message();
+                List<Amazon.SimpleEmailV2.Model.Attachment> requestContent_content_Simple_simple_Attachment = null;
+                if (cmdletContext.Simple_Attachment != null)
+                {
+                    requestContent_content_Simple_simple_Attachment = cmdletContext.Simple_Attachment;
+                }
+                if (requestContent_content_Simple_simple_Attachment != null)
+                {
+                    requestContent_content_Simple.Attachments = requestContent_content_Simple_simple_Attachment;
+                    requestContent_content_SimpleIsNull = false;
+                }
                 List<Amazon.SimpleEmailV2.Model.MessageHeader> requestContent_content_Simple_simple_Header = null;
                 if (cmdletContext.Simple_Header != null)
                 {
@@ -554,6 +596,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                  // populate Template
                 var requestContent_content_TemplateIsNull = true;
                 requestContent_content_Template = new Amazon.SimpleEmailV2.Model.Template();
+                List<Amazon.SimpleEmailV2.Model.Attachment> requestContent_content_Template_template_Attachment = null;
+                if (cmdletContext.Template_Attachment != null)
+                {
+                    requestContent_content_Template_template_Attachment = cmdletContext.Template_Attachment;
+                }
+                if (requestContent_content_Template_template_Attachment != null)
+                {
+                    requestContent_content_Template.Attachments = requestContent_content_Template_template_Attachment;
+                    requestContent_content_TemplateIsNull = false;
+                }
                 List<Amazon.SimpleEmailV2.Model.MessageHeader> requestContent_content_Template_template_Header = null;
                 if (cmdletContext.Template_Header != null)
                 {
@@ -730,6 +782,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         internal partial class CmdletContext : ExecutorContext
         {
             public byte[] Raw_Data { get; set; }
+            public List<Amazon.SimpleEmailV2.Model.Attachment> Simple_Attachment { get; set; }
             public System.String Html_Charset { get; set; }
             public System.String Html_Data { get; set; }
             public System.String Text_Charset { get; set; }
@@ -737,6 +790,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public List<Amazon.SimpleEmailV2.Model.MessageHeader> Simple_Header { get; set; }
             public System.String Subject_Charset { get; set; }
             public System.String Subject_Data { get; set; }
+            public List<Amazon.SimpleEmailV2.Model.Attachment> Template_Attachment { get; set; }
             public List<Amazon.SimpleEmailV2.Model.MessageHeader> Template_Header { get; set; }
             public System.String Template_TemplateArn { get; set; }
             public System.String TemplateContent_Html { get; set; }

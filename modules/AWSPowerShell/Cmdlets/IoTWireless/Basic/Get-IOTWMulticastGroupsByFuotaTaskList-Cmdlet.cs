@@ -29,7 +29,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// List all multicast groups associated with a fuota task.
+    /// List all multicast groups associated with a FUOTA task.
     /// </summary>
     [Cmdlet("Get", "IOTWMulticastGroupsByFuotaTaskList")]
     [OutputType("Amazon.IoTWireless.Model.MulticastGroupByFuotaTask")]

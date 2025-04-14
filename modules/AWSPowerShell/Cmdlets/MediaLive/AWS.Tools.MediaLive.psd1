@@ -123,6 +123,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMLReservationList', 
         'Get-EMLResourceTag', 
         'Get-EMLSchedule', 
+        'Get-EMLSdiSource', 
+        'Get-EMLSdiSourceList', 
         'Get-EMLSignalMap', 
         'Get-EMLSignalMapList', 
         'Get-EMLThumbnail', 
@@ -144,6 +146,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMLNodeRegistrationScript', 
         'New-EMLOfferingPurchase', 
         'New-EMLPartnerInput', 
+        'New-EMLSdiSource', 
         'New-EMLSignalMap', 
         'Receive-EMLInputDeviceTransfer', 
         'Remove-EMLChannel', 
@@ -163,6 +166,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EMLResourceBatch', 
         'Remove-EMLResourceTag', 
         'Remove-EMLSchedule', 
+        'Remove-EMLSdiSource', 
         'Remove-EMLSignalMap', 
         'Request-EMLDevice', 
         'Restart-EMLChannelPipeline', 
@@ -198,7 +202,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-EMLNode', 
         'Update-EMLNodeState', 
         'Update-EMLReservation', 
-        'Update-EMLScheduleBatch')
+        'Update-EMLScheduleBatch', 
+        'Update-EMLSdiSource')
 
     # Variables to export from this module
     VariablesToExport = '*'

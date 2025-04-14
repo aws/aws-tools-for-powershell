@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// <summary>
         /// <para>
         /// <para>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the
-        /// highest priority. If two environments share the same priority value, the environment
-        /// created first takes higher priority.</para>
+        /// highest priority (activated first and deactivated last). If two environments share
+        /// the same priority value, the environment created first takes higher priority.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

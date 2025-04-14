@@ -87,6 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSSolutionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
@@ -138,6 +140,18 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatasetGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter EventsConfig_EventParametersList
+        /// <summary>
+        /// <para>
+        /// <para>A list of event parameters, which includes event types and their event value thresholds
+        /// and weights.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionConfig_EventsConfig_EventParametersList")]
+        public Amazon.Personalize.Model.EventParameters[] EventsConfig_EventParametersList { get; set; }
         #endregion
         
         #region Parameter EventType
@@ -492,6 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.AutoMLConfig_RecipeList = new List<System.String>(this.AutoMLConfig_RecipeList);
             }
             context.AutoTrainingConfig_SchedulingExpression = this.AutoTrainingConfig_SchedulingExpression;
+            if (this.EventsConfig_EventParametersList != null)
+            {
+                context.EventsConfig_EventParametersList = new List<Amazon.Personalize.Model.EventParameters>(this.EventsConfig_EventParametersList);
+            }
             context.SolutionConfig_EventValueThreshold = this.SolutionConfig_EventValueThreshold;
             if (this.SolutionConfig_FeatureTransformationParameter != null)
             {
@@ -645,6 +663,31 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestSolutionConfig_solutionConfig_AutoTrainingConfig != null)
             {
                 request.SolutionConfig.AutoTrainingConfig = requestSolutionConfig_solutionConfig_AutoTrainingConfig;
+                requestSolutionConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.EventsConfig requestSolutionConfig_solutionConfig_EventsConfig = null;
+            
+             // populate EventsConfig
+            var requestSolutionConfig_solutionConfig_EventsConfigIsNull = true;
+            requestSolutionConfig_solutionConfig_EventsConfig = new Amazon.Personalize.Model.EventsConfig();
+            List<Amazon.Personalize.Model.EventParameters> requestSolutionConfig_solutionConfig_EventsConfig_eventsConfig_EventParametersList = null;
+            if (cmdletContext.EventsConfig_EventParametersList != null)
+            {
+                requestSolutionConfig_solutionConfig_EventsConfig_eventsConfig_EventParametersList = cmdletContext.EventsConfig_EventParametersList;
+            }
+            if (requestSolutionConfig_solutionConfig_EventsConfig_eventsConfig_EventParametersList != null)
+            {
+                requestSolutionConfig_solutionConfig_EventsConfig.EventParametersList = requestSolutionConfig_solutionConfig_EventsConfig_eventsConfig_EventParametersList;
+                requestSolutionConfig_solutionConfig_EventsConfigIsNull = false;
+            }
+             // determine if requestSolutionConfig_solutionConfig_EventsConfig should be set to null
+            if (requestSolutionConfig_solutionConfig_EventsConfigIsNull)
+            {
+                requestSolutionConfig_solutionConfig_EventsConfig = null;
+            }
+            if (requestSolutionConfig_solutionConfig_EventsConfig != null)
+            {
+                request.SolutionConfig.EventsConfig = requestSolutionConfig_solutionConfig_EventsConfig;
                 requestSolutionConfigIsNull = false;
             }
             Amazon.Personalize.Model.TrainingDataConfig requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
@@ -957,6 +1000,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String AutoMLConfig_MetricName { get; set; }
             public List<System.String> AutoMLConfig_RecipeList { get; set; }
             public System.String AutoTrainingConfig_SchedulingExpression { get; set; }
+            public List<Amazon.Personalize.Model.EventParameters> EventsConfig_EventParametersList { get; set; }
             public System.String SolutionConfig_EventValueThreshold { get; set; }
             public Dictionary<System.String, System.String> SolutionConfig_FeatureTransformationParameter { get; set; }
             public List<Amazon.Personalize.Model.CategoricalHyperParameterRange> AlgorithmHyperParameterRanges_CategoricalHyperParameterRange { get; set; }

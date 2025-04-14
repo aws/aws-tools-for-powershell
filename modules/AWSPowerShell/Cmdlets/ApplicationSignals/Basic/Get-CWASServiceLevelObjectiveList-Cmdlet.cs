@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.ApplicationSignals;
 using Amazon.ApplicationSignals.Model;
 
@@ -42,7 +41,31 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter DependencyConfig_DependencyKeyAttribute
+        /// <summary>
+        /// <para>
+        /// <para>This is a string-to-string map. It can include the following fields.</para><ul><li><para><c>Type</c> designates the type of object this is.</para></li><li><para><c>ResourceType</c> specifies the type of the resource. This field is used only when
+        /// the value of the <c>Type</c> field is <c>Resource</c> or <c>AWS::Resource</c>.</para></li><li><para><c>Name</c> specifies the name of the object. This is used only if the value of the
+        /// <c>Type</c> field is <c>Service</c>, <c>RemoteService</c>, or <c>AWS::Service</c>.</para></li><li><para><c>Identifier</c> identifies the resource objects of this resource. This is used
+        /// only if the value of the <c>Type</c> field is <c>Resource</c> or <c>AWS::Resource</c>.</para></li><li><para><c>Environment</c> specifies the location where this object is hosted, or what it
+        /// belongs to.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DependencyConfig_DependencyKeyAttributes")]
+        public System.Collections.Hashtable DependencyConfig_DependencyKeyAttribute { get; set; }
+        #endregion
+        
+        #region Parameter DependencyConfig_DependencyOperationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the called operation in the dependency.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DependencyConfig_DependencyOperationName { get; set; }
+        #endregion
         
         #region Parameter IncludeLinkedAccount
         /// <summary>
@@ -69,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyAttributes")]
         public System.Collections.Hashtable KeyAttribute { get; set; }
+        #endregion
+        
+        #region Parameter MetricSourceType
+        /// <summary>
+        /// <para>
+        /// <para>Use this optional field to only include SLOs with the specified metric source types
+        /// in the output. Supported types are:</para><ul><li><para>Service operation</para></li><li><para>Service dependency</para></li><li><para>CloudWatch metric</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricSourceTypes")]
+        public System.String[] MetricSourceType { get; set; }
         #endregion
         
         #region Parameter OperationName
@@ -129,6 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public string Select { get; set; } = "SloSummaries";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the OperationName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OperationName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OperationName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -139,11 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -154,11 +194,30 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListServiceLevelObjectivesResponse, GetCWASServiceLevelObjectiveListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.OperationName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.DependencyConfig_DependencyKeyAttribute != null)
+            {
+                context.DependencyConfig_DependencyKeyAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DependencyConfig_DependencyKeyAttribute.Keys)
+                {
+                    context.DependencyConfig_DependencyKeyAttribute.Add((String)hashKey, (System.String)(this.DependencyConfig_DependencyKeyAttribute[hashKey]));
+                }
+            }
+            context.DependencyConfig_DependencyOperationName = this.DependencyConfig_DependencyOperationName;
             context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             if (this.KeyAttribute != null)
             {
@@ -169,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 }
             }
             context.MaxResult = this.MaxResult;
+            if (this.MetricSourceType != null)
+            {
+                context.MetricSourceType = new List<System.String>(this.MetricSourceType);
+            }
             context.NextToken = this.NextToken;
             context.OperationName = this.OperationName;
             context.SloOwnerAwsAccountId = this.SloOwnerAwsAccountId;
@@ -185,11 +248,42 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.ApplicationSignals.Model.ListServiceLevelObjectivesRequest();
             
+            
+             // populate DependencyConfig
+            var requestDependencyConfigIsNull = true;
+            request.DependencyConfig = new Amazon.ApplicationSignals.Model.DependencyConfig();
+            Dictionary<System.String, System.String> requestDependencyConfig_dependencyConfig_DependencyKeyAttribute = null;
+            if (cmdletContext.DependencyConfig_DependencyKeyAttribute != null)
+            {
+                requestDependencyConfig_dependencyConfig_DependencyKeyAttribute = cmdletContext.DependencyConfig_DependencyKeyAttribute;
+            }
+            if (requestDependencyConfig_dependencyConfig_DependencyKeyAttribute != null)
+            {
+                request.DependencyConfig.DependencyKeyAttributes = requestDependencyConfig_dependencyConfig_DependencyKeyAttribute;
+                requestDependencyConfigIsNull = false;
+            }
+            System.String requestDependencyConfig_dependencyConfig_DependencyOperationName = null;
+            if (cmdletContext.DependencyConfig_DependencyOperationName != null)
+            {
+                requestDependencyConfig_dependencyConfig_DependencyOperationName = cmdletContext.DependencyConfig_DependencyOperationName;
+            }
+            if (requestDependencyConfig_dependencyConfig_DependencyOperationName != null)
+            {
+                request.DependencyConfig.DependencyOperationName = requestDependencyConfig_dependencyConfig_DependencyOperationName;
+                requestDependencyConfigIsNull = false;
+            }
+             // determine if request.DependencyConfig should be set to null
+            if (requestDependencyConfigIsNull)
+            {
+                request.DependencyConfig = null;
+            }
             if (cmdletContext.IncludeLinkedAccount != null)
             {
                 request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
@@ -201,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.MetricSourceType != null)
+            {
+                request.MetricSourceTypes = cmdletContext.MetricSourceType;
             }
             if (cmdletContext.OperationName != null)
             {
@@ -272,7 +370,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "ListServiceLevelObjectives");
             try
             {
-                return client.ListServiceLevelObjectivesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.ListServiceLevelObjectives(request);
+                #elif CORECLR
+                return client.ListServiceLevelObjectivesAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -289,9 +393,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> DependencyConfig_DependencyKeyAttribute { get; set; }
+            public System.String DependencyConfig_DependencyOperationName { get; set; }
             public System.Boolean? IncludeLinkedAccount { get; set; }
             public Dictionary<System.String, System.String> KeyAttribute { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public List<System.String> MetricSourceType { get; set; }
             public System.String NextToken { get; set; }
             public System.String OperationName { get; set; }
             public System.String SloOwnerAwsAccountId { get; set; }

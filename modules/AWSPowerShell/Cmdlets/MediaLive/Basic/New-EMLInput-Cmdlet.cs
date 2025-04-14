@@ -137,6 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter SdiSource
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SdiSources")]
+        public System.String[] SdiSource { get; set; }
+        #endregion
+        
         #region Parameter Vpc_SecurityGroupId
         /// <summary>
         /// <para>
@@ -148,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Vpc_SecurityGroupIds")]
         public System.String[] Vpc_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroups")]
+        public Amazon.MediaLive.Model.Smpte2110ReceiverGroup[] Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup { get; set; }
         #endregion
         
         #region Parameter MulticastSettings_Source
@@ -290,6 +312,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Name = this.Name;
             context.RequestId = this.RequestId;
             context.RoleArn = this.RoleArn;
+            if (this.SdiSource != null)
+            {
+                context.SdiSource = new List<System.String>(this.SdiSource);
+            }
+            if (this.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup != null)
+            {
+                context.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup = new List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup>(this.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup);
+            }
             if (this.Source != null)
             {
                 context.Source = new List<Amazon.MediaLive.Model.InputSourceRequest>(this.Source);
@@ -381,6 +411,29 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.SdiSource != null)
+            {
+                request.SdiSources = cmdletContext.SdiSource;
+            }
+            
+             // populate Smpte2110ReceiverGroupSettings
+            var requestSmpte2110ReceiverGroupSettingsIsNull = true;
+            request.Smpte2110ReceiverGroupSettings = new Amazon.MediaLive.Model.Smpte2110ReceiverGroupSettings();
+            List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup> requestSmpte2110ReceiverGroupSettings_smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup = null;
+            if (cmdletContext.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup != null)
+            {
+                requestSmpte2110ReceiverGroupSettings_smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup = cmdletContext.Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup;
+            }
+            if (requestSmpte2110ReceiverGroupSettings_smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup != null)
+            {
+                request.Smpte2110ReceiverGroupSettings.Smpte2110ReceiverGroups = requestSmpte2110ReceiverGroupSettings_smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup;
+                requestSmpte2110ReceiverGroupSettingsIsNull = false;
+            }
+             // determine if request.Smpte2110ReceiverGroupSettings should be set to null
+            if (requestSmpte2110ReceiverGroupSettingsIsNull)
+            {
+                request.Smpte2110ReceiverGroupSettings = null;
             }
             if (cmdletContext.Source != null)
             {
@@ -506,6 +559,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             public System.String RoleArn { get; set; }
+            public List<System.String> SdiSource { get; set; }
+            public List<Amazon.MediaLive.Model.Smpte2110ReceiverGroup> Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }
             public List<Amazon.MediaLive.Model.SrtCallerSourceRequest> SrtSettings_SrtCallerSource { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

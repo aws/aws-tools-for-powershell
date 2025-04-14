@@ -29,11 +29,10 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// <note><para>
-    /// This operation is not supported by directory buckets.
-    /// </para></note><para>
     /// Returns the access point policy associated with the specified access point.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// The following actions are related to <c>GetAccessPointPolicy</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html">PutAccessPointPolicy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html">DeleteAccessPointPolicy</a></para></li></ul>
     /// </summary>

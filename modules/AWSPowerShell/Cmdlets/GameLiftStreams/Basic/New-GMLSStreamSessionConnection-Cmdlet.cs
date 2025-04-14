@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</c>
-        /// or ID-<c>1AB2C3De4</c>. </para><para> The stream group that you want to run this stream session with. The stream group
+        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
+        /// or ID-<c>sg-1AB2C3De4</c>. </para><para> The stream group that you want to run this stream session with. The stream group
         /// must be in <c>ACTIVE</c> status and have idle stream capacity. </para>
         /// </para>
         /// </summary>

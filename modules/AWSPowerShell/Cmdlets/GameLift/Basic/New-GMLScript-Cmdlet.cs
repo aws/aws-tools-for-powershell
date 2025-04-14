@@ -29,10 +29,11 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new script record for your Realtime Servers script. Realtime scripts are
-    /// JavaScript that provide configuration settings and optional custom game logic for
-    /// your game. The script is deployed when you create a Realtime Servers fleet to host
-    /// your game sessions. Script logic is executed during an active game session. 
+    /// Creates a new script record for your Amazon GameLift Realtime script. Realtime scripts
+    /// are JavaScript that provide configuration settings and optional custom game logic
+    /// for your game. The script is deployed when you create a Amazon GameLift Realtime fleet
+    /// to host your game sessions. Script logic is executed during an active game session.
+    /// 
     /// 
     ///  
     /// <para>
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If the script file is provided as an S3 bucket, Amazon GameLift accesses the file
     /// at this storage location as needed for deployment.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
+    /// GameLift Amazon GameLift Realtime</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
     /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>

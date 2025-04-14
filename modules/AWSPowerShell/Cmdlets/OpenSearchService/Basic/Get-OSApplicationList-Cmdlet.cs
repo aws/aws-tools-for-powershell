@@ -29,7 +29,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// List all OpenSearch Applications under your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all OpenSearch applications under your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSApplicationList")]
     [OutputType("Amazon.OpenSearchService.Model.ApplicationSummary")]
@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>OpenSearch Application Status can be used as filters for the listing request. Possible
-        /// values are <c>CREATING</c>, <c>UPDATING</c>, <c>DELETING</c>, <c>FAILED</c>, <c>ACTIVE</c>,
-        /// and <c>DELETED</c>.</para>
+        /// <para>Filters the list of OpenSearch applications by status. Possible values: <c>CREATING</c>,
+        /// <c>UPDATING</c>, <c>DELETING</c>, <c>FAILED</c>, <c>ACTIVE</c>, and <c>DELETED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

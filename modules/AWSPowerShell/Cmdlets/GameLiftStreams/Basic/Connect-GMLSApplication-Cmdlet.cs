@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// When you associate, or link, an application with a stream group, then Amazon GameLift
     /// Streams can launch the application using the stream group's allocated compute resources.
     /// The stream group must be in <c>ACTIVE</c> status. You can reverse this action by using
-    /// <a>DisassociateApplications</a>.
+    /// <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html">DisassociateApplications</a>.
     /// </summary>
     [Cmdlet("Connect", "GMLSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLiftStreams.Model.AssociateApplicationsResponse")]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>A set of applications to associate with the stream group.</para><para>This value is a set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format
-        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</c>
-        /// or ID-<c>9ZY8X7Wv6</c>. </para>
+        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</c>
+        /// or ID-<c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>A stream group to associate to the applications.</para><para>This value is a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</c>
-        /// or ID-<c>1AB2C3De4</c>. </para>
+        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
+        /// or ID-<c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -130,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Source_Buildspec { get; set; }
         #endregion
         
+        #region Parameter Cache_CacheNamespace
+        /// <summary>
+        /// <para>
+        /// <para>Defines the scope of the cache. You can use this namespace to share a cache across
+        /// multiple projects. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/caching-s3.html#caching-s3-sharing">Cache
+        /// sharing between projects</a> in the <i>CodeBuild User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Cache_CacheNamespace { get; set; }
+        #endregion
+        
         #region Parameter Environment_Certificate
         /// <summary>
         /// <para>
@@ -1081,6 +1093,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Restrictions_MaximumBuildsAllowed = this.Restrictions_MaximumBuildsAllowed;
             context.BuildBatchConfig_ServiceRole = this.BuildBatchConfig_ServiceRole;
             context.BuildBatchConfig_TimeoutInMin = this.BuildBatchConfig_TimeoutInMin;
+            context.Cache_CacheNamespace = this.Cache_CacheNamespace;
             context.Cache_Location = this.Cache_Location;
             if (this.Cache_Mode != null)
             {
@@ -1397,6 +1410,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate Cache
             var requestCacheIsNull = true;
             request.Cache = new Amazon.CodeBuild.Model.ProjectCache();
+            System.String requestCache_cache_CacheNamespace = null;
+            if (cmdletContext.Cache_CacheNamespace != null)
+            {
+                requestCache_cache_CacheNamespace = cmdletContext.Cache_CacheNamespace;
+            }
+            if (requestCache_cache_CacheNamespace != null)
+            {
+                request.Cache.CacheNamespace = requestCache_cache_CacheNamespace;
+                requestCacheIsNull = false;
+            }
             System.String requestCache_cache_Location = null;
             if (cmdletContext.Cache_Location != null)
             {
@@ -2074,6 +2097,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
             public System.String BuildBatchConfig_ServiceRole { get; set; }
             public System.Int32? BuildBatchConfig_TimeoutInMin { get; set; }
+            public System.String Cache_CacheNamespace { get; set; }
             public System.String Cache_Location { get; set; }
             public List<System.String> Cache_Mode { get; set; }
             public Amazon.CodeBuild.CacheType Cache_Type { get; set; }

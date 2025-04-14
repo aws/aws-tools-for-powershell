@@ -420,8 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>Key-value pair tags to be applied to Amazon EC2 resources that are launched in the
         /// compute environment. For Batch, these take the form of <c>"String1": "String2"</c>,
-        /// where <c>String1</c> is the tag key and <c>String2</c> is the tag value-for example,
-        /// <c>{ "Name": "Batch Instance - C4OnDemand" }</c>. This is helpful for recognizing
+        /// where <c>String1</c> is the tag key and <c>String2</c> is the tag value (for example,
+        /// <c>{ "Name": "Batch Instance - C4OnDemand" }</c>). This is helpful for recognizing
         /// your Batch instances in the Amazon EC2 console. These tags aren't seen when using
         /// the Batch <c>ListTagsForResource</c> API operation.</para><para>When updating a compute environment, changing this setting requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
@@ -467,8 +467,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The maximum number of vCPUs expected to be used for an unmanaged compute environment.
         /// Don't specify this parameter for a managed compute environment. This parameter is
-        /// only used for fair share scheduling to reserve vCPU capacity for new share identifiers.
-        /// If this parameter isn't provided for a fair share job queue, no vCPU capacity is reserved.</para>
+        /// only used for fair-share scheduling to reserve vCPU capacity for new share identifiers.
+        /// If this parameter isn't provided for a fair-share job queue, no vCPU capacity is reserved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

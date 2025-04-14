@@ -1038,6 +1038,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String CredentialPair_Username { get; set; }
         #endregion
         
+        #region Parameter OracleParameters_UseServiceName
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether the <c>Database</c> uses a service name or
+        /// an SID. If this value is left blank, the default value is <c>SID</c>. If this value
+        /// is set to <c>false</c>, the value is <c>SID</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_OracleParameters_UseServiceName")]
+        public System.Boolean? OracleParameters_UseServiceName { get; set; }
+        #endregion
+        
         #region Parameter DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderVpcConnectionProperties_VpcConnectionArn
         /// <summary>
         /// <para>
@@ -1187,6 +1200,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.OracleParameters_Database = this.OracleParameters_Database;
             context.OracleParameters_Host = this.OracleParameters_Host;
             context.OracleParameters_Port = this.OracleParameters_Port;
+            context.OracleParameters_UseServiceName = this.OracleParameters_UseServiceName;
             context.PostgreSqlParameters_Database = this.PostgreSqlParameters_Database;
             context.PostgreSqlParameters_Host = this.PostgreSqlParameters_Host;
             context.PostgreSqlParameters_Port = this.PostgreSqlParameters_Port;
@@ -1974,51 +1988,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.MySqlParameters = requestDataSourceParameters_dataSourceParameters_MySqlParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.OracleParameters requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
-            
-             // populate OracleParameters
-            var requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_OracleParameters = new Amazon.QuickSight.Model.OracleParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database = null;
-            if (cmdletContext.OracleParameters_Database != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database = cmdletContext.OracleParameters_Database;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters.Database = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database;
-                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host = null;
-            if (cmdletContext.OracleParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host = cmdletContext.OracleParameters_Host;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters.Host = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host;
-                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
-            }
-            System.Int32? requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port = null;
-            if (cmdletContext.OracleParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port = cmdletContext.OracleParameters_Port.Value;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters.Port = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port.Value;
-                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_OracleParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_OracleParameters != null)
-            {
-                request.DataSourceParameters.OracleParameters = requestDataSourceParameters_dataSourceParameters_OracleParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.PostgreSqlParameters requestDataSourceParameters_dataSourceParameters_PostgreSqlParameters = null;
             
              // populate PostgreSqlParameters
@@ -2242,6 +2211,61 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_TrinoParameters != null)
             {
                 request.DataSourceParameters.TrinoParameters = requestDataSourceParameters_dataSourceParameters_TrinoParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.OracleParameters requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
+            
+             // populate OracleParameters
+            var requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_OracleParameters = new Amazon.QuickSight.Model.OracleParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database = null;
+            if (cmdletContext.OracleParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database = cmdletContext.OracleParameters_Database;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.Database = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Database;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host = null;
+            if (cmdletContext.OracleParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host = cmdletContext.OracleParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.Host = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port = null;
+            if (cmdletContext.OracleParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port = cmdletContext.OracleParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.Port = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+            System.Boolean? requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_UseServiceName = null;
+            if (cmdletContext.OracleParameters_UseServiceName != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_UseServiceName = cmdletContext.OracleParameters_UseServiceName.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_UseServiceName != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters.UseServiceName = requestDataSourceParameters_dataSourceParameters_OracleParameters_oracleParameters_UseServiceName.Value;
+                requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_OracleParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_OracleParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_OracleParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_OracleParameters != null)
+            {
+                request.DataSourceParameters.OracleParameters = requestDataSourceParameters_dataSourceParameters_OracleParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.RedshiftParameters requestDataSourceParameters_dataSourceParameters_RedshiftParameters = null;
@@ -2796,6 +2820,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String OracleParameters_Database { get; set; }
             public System.String OracleParameters_Host { get; set; }
             public System.Int32? OracleParameters_Port { get; set; }
+            public System.Boolean? OracleParameters_UseServiceName { get; set; }
             public System.String PostgreSqlParameters_Database { get; set; }
             public System.String PostgreSqlParameters_Host { get; set; }
             public System.Int32? PostgreSqlParameters_Port { get; set; }

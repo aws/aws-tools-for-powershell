@@ -139,6 +139,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-TFRWorkflowStepState', 
         'Start-TFRDirectoryListing', 
         'Start-TFRFileTransfer', 
+        'Start-TFRRemoteDelete', 
+        'Start-TFRRemoteMove', 
         'Start-TFRServer', 
         'Stop-TFRServer', 
         'Test-TFRConnection', 

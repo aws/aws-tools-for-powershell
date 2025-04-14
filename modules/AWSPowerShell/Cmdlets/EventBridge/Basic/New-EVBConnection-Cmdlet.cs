@@ -243,7 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter AuthParameters_ConnectivityParameters_ResourceParameters_ResourceConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource configuration for the resource endpoint.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for
+        /// the resource endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource configuration for the resource endpoint.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for
+        /// the resource endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

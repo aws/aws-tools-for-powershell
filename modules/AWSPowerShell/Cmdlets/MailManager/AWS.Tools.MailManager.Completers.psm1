@@ -111,6 +111,13 @@ $MMGR_Completers = {
             break
         }
 
+        # Amazon.MailManager.IpType
+        "New-MMGRIngressPoint/PublicNetworkConfiguration_IpType"
+        {
+            $v = "DUAL_STACK","IPV4"
+            break
+        }
+
         # Amazon.MailManager.RetentionPeriod
         {
             ($_ -eq "New-MMGRArchive/Retention_RetentionPeriod") -Or
@@ -132,6 +139,7 @@ $MMGR_Completers = {
 $MMGR_map = @{
     "DefaultAction"=@("New-MMGRTrafficPolicy","Update-MMGRTrafficPolicy")
     "ImportDataFormat_ImportDataType"=@("New-MMGRAddressListImportJob")
+    "PublicNetworkConfiguration_IpType"=@("New-MMGRIngressPoint")
     "Retention_RetentionPeriod"=@("New-MMGRArchive","Update-MMGRArchive")
     "StatusToUpdate"=@("Update-MMGRIngressPoint")
     "Type"=@("New-MMGRIngressPoint")

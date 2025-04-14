@@ -57,10 +57,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// key certificates, or a <i>trusted public key certificate</i> under an already established
     /// root public key certificate.
     /// </para><para><b>To import a public root key certificate</b></para><para>
-    /// You can also import a <i>root public key certificate</i>, used to sign other public
-    /// key certificates, or a <i>trusted public key certificate</i> under an already established
-    /// root public key certificate.
-    /// </para><para><b>To import a public root key certificate</b></para><para>
     /// Using this operation, you can import the public component (in PEM cerificate format)
     /// of your private root key. You can use the imported public root key certificate for
     /// digital signatures, for example signing wrapping key or signing key in TR-34, within
@@ -153,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyARN</c> of the certificate that signed the client's <c>PublicKeyCertificate</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier")]
+        public System.String DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Tr34KeyBlock_CertificateAuthorityPublicKeyIdentifier
         /// <summary>
         /// <para>
@@ -243,6 +250,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_TrustedCertificatePublicKey_KeyAttributes_KeyModesOfUse_DeriveKey")]
         public System.Boolean? KeyModesOfUse_DeriveKey { get; set; }
+        #endregion
+        
+        #region Parameter DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The key algorithm of the derived ECDH key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.SymmetricKeyAlgorithm")]
+        public Amazon.PaymentCryptography.SymmetricKeyAlgorithm DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm { get; set; }
         #endregion
         
         #region Parameter Enabled
@@ -470,6 +489,30 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public Amazon.PaymentCryptography.KeyClass KeyAttributes_KeyClass { get; set; }
         #endregion
         
+        #region Parameter DiffieHellmanTr31KeyBlock_KeyDerivationFunction
+        /// <summary>
+        /// <para>
+        /// <para>The key derivation function to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationFunction")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyDerivationFunction")]
+        public Amazon.PaymentCryptography.KeyDerivationFunction DiffieHellmanTr31KeyBlock_KeyDerivationFunction { get; set; }
+        #endregion
+        
+        #region Parameter DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The hash type to use for deriving a key using ECDH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm")]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.KeyDerivationHashAlgorithm")]
+        public Amazon.PaymentCryptography.KeyDerivationHashAlgorithm DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage
         /// <summary>
         /// <para>
@@ -541,6 +584,29 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_NoRestriction { get; set; }
         #endregion
         
+        #region Parameter DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The <c>keyARN</c> of the asymmetric ECC key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier")]
+        public System.String DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter DiffieHellmanTr31KeyBlock_PublicKeyCertificate
+        /// <summary>
+        /// <para>
+        /// <para>The client's public key certificate in PEM format (base64 encoded) to use for ECDH
+        /// key derivation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_PublicKeyCertificate")]
+        public System.String DiffieHellmanTr31KeyBlock_PublicKeyCertificate { get; set; }
+        #endregion
+        
         #region Parameter RootCertificatePublicKey_PublicKeyCertificate
         /// <summary>
         /// <para>
@@ -574,6 +640,20 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyMaterial_Tr34KeyBlock_RandomNonce")]
         public System.String Tr34KeyBlock_RandomNonce { get; set; }
+        #endregion
+        
+        #region Parameter DerivationData_SharedInformation
+        /// <summary>
+        /// <para>
+        /// <para>A byte string containing information that binds the ECDH derived key to the two parties
+        /// involved or to the context of the key.</para><para>It may include details like identities of the two parties deriving the key, context
+        /// of the operation, session IDs, and optionally a nonce. It must not contain zero bytes,
+        /// and re-using shared information for multiple ECDH key derivations is not recommended.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_SharedInformation")]
+        public System.String DerivationData_SharedInformation { get; set; }
         #endregion
         
         #region Parameter KeyMaterial_KeyCryptogram_KeyAttributes_KeyModesOfUse_Sign
@@ -741,6 +821,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public System.Boolean? KeyModesOfUse_Wrap { get; set; }
         #endregion
         
+        #region Parameter DiffieHellmanTr31KeyBlock_WrappedKeyBlock
+        /// <summary>
+        /// <para>
+        /// <para>The ECDH wrapped key block to import.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyMaterial_DiffieHellmanTr31KeyBlock_WrappedKeyBlock")]
+        public System.String DiffieHellmanTr31KeyBlock_WrappedKeyBlock { get; set; }
+        #endregion
+        
         #region Parameter Tr31KeyBlock_WrappedKeyBlock
         /// <summary>
         /// <para>
@@ -847,6 +938,14 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             }
             context.Enabled = this.Enabled;
             context.KeyCheckValueAlgorithm = this.KeyCheckValueAlgorithm;
+            context.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = this.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+            context.DerivationData_SharedInformation = this.DerivationData_SharedInformation;
+            context.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = this.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
+            context.DiffieHellmanTr31KeyBlock_KeyDerivationFunction = this.DiffieHellmanTr31KeyBlock_KeyDerivationFunction;
+            context.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm = this.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm;
+            context.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier = this.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier;
+            context.DiffieHellmanTr31KeyBlock_PublicKeyCertificate = this.DiffieHellmanTr31KeyBlock_PublicKeyCertificate;
+            context.DiffieHellmanTr31KeyBlock_WrappedKeyBlock = this.DiffieHellmanTr31KeyBlock_WrappedKeyBlock;
             context.KeyCryptogram_Exportable = this.KeyCryptogram_Exportable;
             context.KeyCryptogram_ImportToken = this.KeyCryptogram_ImportToken;
             context.KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm = this.KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm;
@@ -1605,6 +1704,116 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
                 request.KeyMaterial.Tr34KeyBlock = requestKeyMaterial_keyMaterial_Tr34KeyBlock;
                 requestKeyMaterialIsNull = false;
             }
+            Amazon.PaymentCryptography.Model.ImportDiffieHellmanTr31KeyBlock requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
+            
+             // populate DiffieHellmanTr31KeyBlock
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = true;
+            requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = new Amazon.PaymentCryptography.Model.ImportDiffieHellmanTr31KeyBlock();
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier = cmdletContext.DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.CertificateAuthorityPublicKeyIdentifier = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.SymmetricKeyAlgorithm requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm = cmdletContext.DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.DeriveKeyAlgorithm = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_DeriveKeyAlgorithm;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.KeyDerivationFunction requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationFunction != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction = cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationFunction;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.KeyDerivationFunction = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationFunction;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.KeyDerivationHashAlgorithm requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm = cmdletContext.DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.KeyDerivationHashAlgorithm = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier = cmdletContext.DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.PrivateKeyIdentifier = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PrivateKeyIdentifier;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_PublicKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate = cmdletContext.DiffieHellmanTr31KeyBlock_PublicKeyCertificate;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.PublicKeyCertificate = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_PublicKeyCertificate;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_WrappedKeyBlock = null;
+            if (cmdletContext.DiffieHellmanTr31KeyBlock_WrappedKeyBlock != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_WrappedKeyBlock = cmdletContext.DiffieHellmanTr31KeyBlock_WrappedKeyBlock;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_WrappedKeyBlock != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.WrappedKeyBlock = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_diffieHellmanTr31KeyBlock_WrappedKeyBlock;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+            Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
+            
+             // populate DerivationData
+            var requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = true;
+            requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = new Amazon.PaymentCryptography.Model.DiffieHellmanDerivationData();
+            System.String requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation = null;
+            if (cmdletContext.DerivationData_SharedInformation != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation = cmdletContext.DerivationData_SharedInformation;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData.SharedInformation = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData_derivationData_SharedInformation;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationDataIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData = null;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData != null)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock.DerivationData = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock_keyMaterial_DiffieHellmanTr31KeyBlock_DerivationData;
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull = false;
+            }
+             // determine if requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock should be set to null
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlockIsNull)
+            {
+                requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock = null;
+            }
+            if (requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock != null)
+            {
+                request.KeyMaterial.DiffieHellmanTr31KeyBlock = requestKeyMaterial_keyMaterial_DiffieHellmanTr31KeyBlock;
+                requestKeyMaterialIsNull = false;
+            }
              // determine if request.KeyMaterial should be set to null
             if (requestKeyMaterialIsNull)
             {
@@ -1671,6 +1880,14 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         {
             public System.Boolean? Enabled { get; set; }
             public Amazon.PaymentCryptography.KeyCheckValueAlgorithm KeyCheckValueAlgorithm { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier { get; set; }
+            public System.String DerivationData_SharedInformation { get; set; }
+            public Amazon.PaymentCryptography.SymmetricKeyAlgorithm DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm { get; set; }
+            public Amazon.PaymentCryptography.KeyDerivationFunction DiffieHellmanTr31KeyBlock_KeyDerivationFunction { get; set; }
+            public Amazon.PaymentCryptography.KeyDerivationHashAlgorithm DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_PublicKeyCertificate { get; set; }
+            public System.String DiffieHellmanTr31KeyBlock_WrappedKeyBlock { get; set; }
             public System.Boolean? KeyCryptogram_Exportable { get; set; }
             public System.String KeyCryptogram_ImportToken { get; set; }
             public Amazon.PaymentCryptography.KeyAlgorithm KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm { get; set; }

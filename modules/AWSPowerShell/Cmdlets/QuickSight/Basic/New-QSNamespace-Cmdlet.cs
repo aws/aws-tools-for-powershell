@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// in other namespaces. You can create a namespace after your Amazon Web Services account
     /// is subscribed to Amazon QuickSight. The namespace must be unique within the Amazon
     /// Web Services account. By default, there is a limit of 100 namespaces per Amazon Web
-    /// Services account. To increase your limit, create a ticket with Amazon Web Services
-    /// Support. 
+    /// Services account. To increase your limit, create a ticket with Amazon Web ServicesSupport.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -31,10 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <summary>
     /// Updates an Amazon EKS cluster configuration. Your cluster continues to function during
     /// the update. The response output includes an update ID that you can use to track the
-    /// status of your cluster update with <c>DescribeUpdate</c>"/&gt;.
+    /// status of your cluster update with <c>DescribeUpdate</c>.
     /// 
     ///  
     /// <para>
+    /// You can use this operation to do the following actions:
+    /// </para><ul><li><para>
     /// You can use this API operation to enable or disable exporting the Kubernetes control
     /// plane logs for your cluster to CloudWatch Logs. By default, cluster control plane
     /// logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
@@ -43,22 +45,28 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
     /// control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">CloudWatch
     /// Pricing</a>.
-    /// </para></note><para>
+    /// </para></note></li><li><para>
     /// You can also use this API operation to enable or disable public and private access
     /// to your cluster's Kubernetes API server endpoint. By default, public access is enabled,
     /// and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
     /// EKS cluster endpoint access control</a> in the <i><i>Amazon EKS User Guide</i></i>.
-    /// </para><para>
+    /// </para></li><li><para>
     /// You can also use this API operation to choose different subnets and security groups
     /// for the cluster. You must specify at least two subnets that are in different Availability
     /// Zones. You can't change which VPC the subnets are from, the subnets must be in the
     /// same VPC as the subnets that the cluster was created with. For more information about
     /// the VPC requirements, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html</a>
     /// in the <i><i>Amazon EKS User Guide</i></i>.
-    /// </para><para>
+    /// </para></li><li><para>
     /// You can also use this API operation to enable or disable ARC zonal shift. If zonal
     /// shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.
-    /// </para><para>
+    /// </para></li><li><para>
+    /// You can also use this API operation to add, change, or remove the configuration in
+    /// the cluster for EKS Hybrid Nodes. To remove the configuration, use the <c>remoteNetworkConfig</c>
+    /// key with an object containing both subkeys with empty arrays for each. Here is an
+    /// inline example: <c>"remoteNetworkConfig": { "remoteNodeNetworks": [], "remotePodNetworks":
+    /// [] }</c>.
+    /// </para></li></ul><para>
     /// Cluster updates are asynchronous, and they should finish within a few minutes. During
     /// an update, the cluster status moves to <c>UPDATING</c> (this status transition is
     /// eventually consistent). When the update is complete (either <c>Failed</c> or <c>Successful</c>),
@@ -225,6 +233,44 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ComputeConfig_NodeRoleArn { get; set; }
         #endregion
         
+        #region Parameter RemoteNetworkConfig_RemoteNodeNetwork
+        /// <summary>
+        /// <para>
+        /// <para>The list of network CIDRs that can contain hybrid nodes.</para><para>These CIDR blocks define the expected IP address range of the hybrid nodes that join
+        /// the cluster. These blocks are typically determined by your network administrator.
+        /// </para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
+        /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
+        /// is /24, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
+        /// or the block of the Kubernetes service IP range.</para></li><li><para>Each block must have a route to the VPC that uses the VPC CIDR blocks, not public
+        /// IPs or Elastic IPs. There are many options including Transit Gateway, Site-to-Site
+        /// VPN, or Direct Connect.</para></li><li><para>Each host must allow outbound connection to the EKS cluster control plane on TCP ports
+        /// <c>443</c> and <c>10250</c>.</para></li><li><para>Each host must allow inbound connection from the EKS cluster control plane on TCP
+        /// port 10250 for logs, exec and port-forward operations.</para></li><li><para> Each host must allow TCP and UDP network connectivity to and from other hosts that
+        /// are running <c>CoreDNS</c> on UDP port <c>53</c> for service and pod DNS names.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoteNetworkConfig_RemoteNodeNetworks")]
+        public Amazon.EKS.Model.RemoteNodeNetwork[] RemoteNetworkConfig_RemoteNodeNetwork { get; set; }
+        #endregion
+        
+        #region Parameter RemoteNetworkConfig_RemotePodNetwork
+        /// <summary>
+        /// <para>
+        /// <para>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid
+        /// nodes.</para><para>These CIDR blocks are determined by configuring your Container Network Interface (CNI)
+        /// plugin. We recommend the Calico CNI or Cilium CNI. Note that the Amazon VPC CNI plugin
+        /// for Kubernetes isn't available for on-premises and edge locations.</para><para>Enter one or more IPv4 CIDR blocks in decimal dotted-quad notation (for example, <c>
+        /// 10.2.0.0/16</c>).</para><para>It must satisfy the following requirements:</para><ul><li><para>Each block must be within an <c>IPv4</c> RFC-1918 network range. Minimum allowed size
+        /// is /24, maximum allowed size is /8. Publicly-routable addresses aren't supported.</para></li><li><para>Each block cannot overlap with the range of the VPC CIDR blocks for your EKS resources,
+        /// or the block of the Kubernetes service IP range.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RemoteNetworkConfig_RemotePodNetworks")]
+        public Amazon.EKS.Model.RemotePodNetwork[] RemoteNetworkConfig_RemotePodNetwork { get; set; }
+        #endregion
+        
         #region Parameter ResourcesVpcConfig
         /// <summary>
         /// <para>
@@ -335,6 +381,14 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RemoteNetworkConfig_RemoteNodeNetwork != null)
+            {
+                context.RemoteNetworkConfig_RemoteNodeNetwork = new List<Amazon.EKS.Model.RemoteNodeNetwork>(this.RemoteNetworkConfig_RemoteNodeNetwork);
+            }
+            if (this.RemoteNetworkConfig_RemotePodNetwork != null)
+            {
+                context.RemoteNetworkConfig_RemotePodNetwork = new List<Amazon.EKS.Model.RemotePodNetwork>(this.RemoteNetworkConfig_RemotePodNetwork);
+            }
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
             context.BlockStorage_Enabled = this.BlockStorage_Enabled;
             context.UpgradePolicy_SupportType = this.UpgradePolicy_SupportType;
@@ -494,6 +548,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate RemoteNetworkConfig
+            var requestRemoteNetworkConfigIsNull = true;
+            request.RemoteNetworkConfig = new Amazon.EKS.Model.RemoteNetworkConfigRequest();
+            List<Amazon.EKS.Model.RemoteNodeNetwork> requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork = null;
+            if (cmdletContext.RemoteNetworkConfig_RemoteNodeNetwork != null)
+            {
+                requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork = cmdletContext.RemoteNetworkConfig_RemoteNodeNetwork;
+            }
+            if (requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork != null)
+            {
+                request.RemoteNetworkConfig.RemoteNodeNetworks = requestRemoteNetworkConfig_remoteNetworkConfig_RemoteNodeNetwork;
+                requestRemoteNetworkConfigIsNull = false;
+            }
+            List<Amazon.EKS.Model.RemotePodNetwork> requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork = null;
+            if (cmdletContext.RemoteNetworkConfig_RemotePodNetwork != null)
+            {
+                requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork = cmdletContext.RemoteNetworkConfig_RemotePodNetwork;
+            }
+            if (requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork != null)
+            {
+                request.RemoteNetworkConfig.RemotePodNetworks = requestRemoteNetworkConfig_remoteNetworkConfig_RemotePodNetwork;
+                requestRemoteNetworkConfigIsNull = false;
+            }
+             // determine if request.RemoteNetworkConfig should be set to null
+            if (requestRemoteNetworkConfigIsNull)
+            {
+                request.RemoteNetworkConfig = null;
+            }
             if (cmdletContext.ResourcesVpcConfig != null)
             {
                 request.ResourcesVpcConfig = cmdletContext.ResourcesVpcConfig;
@@ -635,6 +718,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.EKS.Model.RemoteNodeNetwork> RemoteNetworkConfig_RemoteNodeNetwork { get; set; }
+            public List<Amazon.EKS.Model.RemotePodNetwork> RemoteNetworkConfig_RemotePodNetwork { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
             public System.Boolean? BlockStorage_Enabled { get; set; }
             public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }

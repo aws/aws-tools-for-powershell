@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// location where it is stored.
     /// </para></li><li><para><c>TransformOutput</c> - Identifies the Amazon S3 location where you want Amazon
     /// SageMaker to save the results from the transform job.
-    /// </para></li><li><para><c>TransformResources</c> - Identifies the ML compute instances for the transform
-    /// job.
+    /// </para></li><li><para><c>TransformResources</c> - Identifies the ML compute instances and AMI image versions
+    /// for the transform job.
     /// </para></li></ul><para>
     /// For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
     /// Transform</a>.
@@ -492,6 +492,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter TransformResources_TransformAmiVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an option from a collection of preconfigured Amazon Machine Image (AMI)
+        /// images. Each image is configured by Amazon Web Services with a set of software and
+        /// driver versions.</para><dl><dt>al2-ami-sagemaker-batch-gpu-470</dt><dd><ul><li><para>Accelerator: GPU</para></li><li><para>NVIDIA driver version: 470</para></li></ul></dd><dt>al2-ami-sagemaker-batch-gpu-535</dt><dd><ul><li><para>Accelerator: GPU</para></li><li><para>NVIDIA driver version: 535</para></li></ul></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransformResources_TransformAmiVersion { get; set; }
+        #endregion
+        
         #region Parameter TransformJobName
         /// <summary>
         /// <para>
@@ -677,6 +689,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter TransformResources_InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TransformResources_TransformAmiVersion = this.TransformResources_TransformAmiVersion;
             context.TransformResources_VolumeKmsKeyId = this.TransformResources_VolumeKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
@@ -1040,6 +1053,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.TransformResources.InstanceType = requestTransformResources_transformResources_InstanceType;
                 requestTransformResourcesIsNull = false;
             }
+            System.String requestTransformResources_transformResources_TransformAmiVersion = null;
+            if (cmdletContext.TransformResources_TransformAmiVersion != null)
+            {
+                requestTransformResources_transformResources_TransformAmiVersion = cmdletContext.TransformResources_TransformAmiVersion;
+            }
+            if (requestTransformResources_transformResources_TransformAmiVersion != null)
+            {
+                request.TransformResources.TransformAmiVersion = requestTransformResources_transformResources_TransformAmiVersion;
+                requestTransformResourcesIsNull = false;
+            }
             System.String requestTransformResources_transformResources_VolumeKmsKeyId = null;
             if (cmdletContext.TransformResources_VolumeKmsKeyId != null)
             {
@@ -1140,6 +1163,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String TransformOutput_S3OutputPath { get; set; }
             public System.Int32? TransformResources_InstanceCount { get; set; }
             public Amazon.SageMaker.TransformInstanceType TransformResources_InstanceType { get; set; }
+            public System.String TransformResources_TransformAmiVersion { get; set; }
             public System.String TransformResources_VolumeKmsKeyId { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateTransformJobResponse, NewSMTransformJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TransformJobArn;

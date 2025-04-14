@@ -186,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The locale to which specifies the language and region settings that determine the
-        /// response language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</para><note><para>Changing this locale to anything other than <c>en_US</c> will turn off recommendations
-        /// triggered by contact transcripts for agent assistance, as this feature is not supported
-        /// in multiple languages.</para></note>
+        /// response language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</para><note><para>Changing this locale to anything other than <c>en_US</c>, <c>en_GB</c>, or <c>en_AU</c>
+        /// will turn off recommendations triggered by contact transcripts for agent assistance,
+        /// as this feature is not supported in multiple languages.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

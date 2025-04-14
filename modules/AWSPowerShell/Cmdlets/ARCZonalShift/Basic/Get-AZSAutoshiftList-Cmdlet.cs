@@ -29,9 +29,9 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Returns a list of autoshifts for an Amazon Web Services Region. By default, the call
-    /// returns only <c>ACTIVE</c> autoshifts. Optionally, you can specify the <c>status</c>
-    /// parameter to return <c>COMPLETED</c> autoshifts.
+    /// Returns the autoshifts for an Amazon Web Services Region. By default, the call returns
+    /// only <c>ACTIVE</c> autoshifts. Optionally, you can specify the <c>status</c> parameter
+    /// to return <c>COMPLETED</c> autoshifts.
     /// </summary>
     [Cmdlet("Get", "AZSAutoshiftList")]
     [OutputType("Amazon.ARCZonalShift.Model.AutoshiftSummary")]
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
+        /// a <c>nextToken</c> response in the previous request. If you did, it indicates that
         /// more output is available. Set this parameter to the value provided by the previous
-        /// call's <c>NextToken</c> response to request the next page of results.</para>
+        /// call's <c>nextToken</c> response to request the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -171,6 +171,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateRouteServer" OutputProperty="RouteServerAssociation" Verb="Register" Noun="RouteServer" ShouldProcessTarget="RouteServerId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateRouteTable" OutputProperty="AssociationId" Verb="Register" Noun="RouteTable" ShouldProcessTarget="RouteTableId" PositionalParameters="SubnetId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -505,6 +509,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouteServer" OutputProperty="RouteServer" Verb="New" Noun="RouteServer" ShouldProcessTarget="AmazonSideAsn" PipelineParameter="AmazonSideAsn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouteServerEndpoint" OutputProperty="RouteServerEndpoint" Verb="New" Noun="RouteServerEndpoint" ShouldProcessTarget="RouteServerId" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouteServerPeer" OutputProperty="RouteServerPeer" Verb="New" Noun="RouteServerPeer" ShouldProcessTarget="RouteServerEndpointId" PipelineParameter="PeerAddress" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRouteTable" OutputProperty="RouteTable" Verb="New" Noun="RouteTable" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -822,6 +838,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRoute" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteTableId" PositionalParameters="DestinationCidrBlock" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteServer" OutputProperty="RouteServer" Verb="Remove" Noun="RouteServer" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteServerEndpoint" OutputProperty="RouteServerEndpoint" Verb="Remove" Noun="RouteServerEndpoint" ShouldProcessTarget="RouteServerEndpointId" PipelineParameter="RouteServerEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteServerPeer" OutputProperty="RouteServerPeer" Verb="Remove" Noun="RouteServerPeer" ShouldProcessTarget="RouteServerPeerId" PipelineParameter="RouteServerPeerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1413,6 +1441,18 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouteServerEndpoints" OutputProperty="RouteServerEndpoints" Verb="Get" Noun="RouteServerEndpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouteServerPeers" OutputProperty="RouteServerPeers" Verb="Get" Noun="RouteServerPeer" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouteServers" OutputProperty="RouteServers" Verb="Get" Noun="RouteServer" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRouteTables" OutputProperty="RouteTables" Verb="Get" Noun="RouteTable" PositionalParameters="Filters" PipelineParameter="RouteTableIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1745,6 +1785,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableRouteServerPropagation" OutputProperty="RouteServerPropagation" Verb="Disable" Noun="RouteServerPropagation" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Disable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableSnapshotBlockPublicAccess" OutputProperty="State" Verb="Disable" Noun="SnapshotBlockPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1798,6 +1846,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateNatGatewayAddress" OutputProperty="*" Verb="Unregister" Noun="NatGatewayAddress" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRouteServer" OutputProperty="RouteServerAssociation" Verb="Unregister" Noun="RouteServer" ShouldProcessTarget="RouteServerId" PipelineParameter="VpcId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1882,6 +1934,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableRouteServerPropagation" OutputProperty="RouteServerPropagation" Verb="Enable" Noun="RouteServerPropagation" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableSerialConsoleAccess" OutputProperty="SerialConsoleAccessEnabled" Verb="Enable" Noun="SerialConsoleAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2062,6 +2122,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" OutputProperty="*" Verb="Get" Noun="ReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouteServerAssociations" OutputProperty="RouteServerAssociations" Verb="Get" Noun="RouteServerAssociation" PipelineParameter="RouteServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouteServerPropagations" OutputProperty="RouteServerPropagations" Verb="Get" Noun="RouteServerPropagation" PipelineParameter="RouteServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRouteServerRoutingDatabase" OutputProperty="*" Verb="Get" Noun="RouteServerRoutingDatabase" PipelineParameter="RouteServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2319,6 +2391,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyReservedInstances" OutputProperty="ReservedInstancesModificationId" Verb="Edit" Noun="ReservedInstance" ShouldProcessTarget="ReservedInstancesIds" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyRouteServer" OutputProperty="RouteServer" Verb="Edit" Noun="RouteServer" ShouldProcessTarget="RouteServerId" PipelineParameter="RouteServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

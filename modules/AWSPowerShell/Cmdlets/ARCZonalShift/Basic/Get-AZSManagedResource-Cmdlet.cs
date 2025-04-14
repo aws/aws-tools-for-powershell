@@ -31,15 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// <summary>
     /// Get information about a resource that's been registered for zonal shifts with Amazon
     /// Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources
-    /// that are registered for zonal shifts are managed resources in Route 53 ARC. You can
-    /// start zonal shifts and configure zonal autoshift for managed resources.
-    /// 
-    ///  
-    /// <para>
-    /// At this time, you can only start a zonal shift or configure zonal autoshift for Network
-    /// Load Balancers and Application Load Balancers with cross-zone load balancing turned
-    /// off.
-    /// </para>
+    /// that are registered for zonal shifts are managed resources in ARC. You can start zonal
+    /// shifts and configure zonal autoshift for managed resources.
     /// </summary>
     [Cmdlet("Get", "AZSManagedResource")]
     [OutputType("Amazon.ARCZonalShift.Model.GetManagedResourceResponse")]

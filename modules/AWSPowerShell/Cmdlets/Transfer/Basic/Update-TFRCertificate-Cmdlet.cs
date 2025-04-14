@@ -47,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ActiveDate
         /// <summary>
         /// <para>
-        /// <para>An optional date that specifies when the certificate becomes active.</para>
+        /// <para>An optional date that specifies when the certificate becomes active. If you do not
+        /// specify a value, <c>ActiveDate</c> takes the same value as <c>NotBeforeDate</c>, which
+        /// is specified by the CA. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter InactiveDate
         /// <summary>
         /// <para>
-        /// <para>An optional date that specifies when the certificate becomes inactive.</para>
+        /// <para>An optional date that specifies when the certificate becomes inactive. If you do not
+        /// specify a value, <c>InactiveDate</c> takes the same value as <c>NotAfterDate</c>,
+        /// which is specified by the CA.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

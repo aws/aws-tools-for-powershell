@@ -73,13 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>Specifies the S3 bucket whose ACL is being requested.</para><para>When you use this API operation with an access point, provide the alias of the access
-        /// point in place of the bucket name.</para><para>When you use this API operation with an Object Lambda access point, provide the alias
-        /// of the Object Lambda access point in place of the bucket name. If the Object Lambda
-        /// access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code>
-        /// is returned. For more information about <code>InvalidAccessPointAliasError</code>,
-        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
-        /// of Error Codes</a>.</para>
+        /// <para>The bucket name that contains the object for which to get the ACL information. </para><para><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the 
+        /// access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory 
+        /// buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests 
+        /// to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When 
+        /// using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket 
+        /// name. For more information about access point ARNs, see 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

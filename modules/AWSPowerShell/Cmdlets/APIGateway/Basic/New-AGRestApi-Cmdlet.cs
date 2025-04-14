@@ -102,6 +102,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.Boolean? DisableExecuteApiEndpoint { get; set; }
         #endregion
         
+        #region Parameter EndpointConfiguration_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address types that can invoke an API (RestApi) or a DomainName. Use <c>ipv4</c>
+        /// to allow only IPv4 addresses to invoke an API or DomainName, or use <c>dualstack</c>
+        /// to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the <c>PRIVATE</c>
+        /// endpoint type, only <c>dualstack</c> is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.IpAddressType")]
+        public Amazon.APIGateway.IpAddressType EndpointConfiguration_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter MinimumCompressionSize
         /// <summary>
         /// <para>
@@ -248,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.CloneFrom = this.CloneFrom;
             context.Description = this.Description;
             context.DisableExecuteApiEndpoint = this.DisableExecuteApiEndpoint;
+            context.EndpointConfiguration_IpAddressType = this.EndpointConfiguration_IpAddressType;
             if (this.EndpointConfiguration_Type != null)
             {
                 context.EndpointConfiguration_Type = new List<System.String>(this.EndpointConfiguration_Type);
@@ -314,6 +329,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
              // populate EndpointConfiguration
             var requestEndpointConfigurationIsNull = true;
             request.EndpointConfiguration = new Amazon.APIGateway.Model.EndpointConfiguration();
+            Amazon.APIGateway.IpAddressType requestEndpointConfiguration_endpointConfiguration_IpAddressType = null;
+            if (cmdletContext.EndpointConfiguration_IpAddressType != null)
+            {
+                requestEndpointConfiguration_endpointConfiguration_IpAddressType = cmdletContext.EndpointConfiguration_IpAddressType;
+            }
+            if (requestEndpointConfiguration_endpointConfiguration_IpAddressType != null)
+            {
+                request.EndpointConfiguration.IpAddressType = requestEndpointConfiguration_endpointConfiguration_IpAddressType;
+                requestEndpointConfigurationIsNull = false;
+            }
             List<System.String> requestEndpointConfiguration_endpointConfiguration_Type = null;
             if (cmdletContext.EndpointConfiguration_Type != null)
             {
@@ -419,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String CloneFrom { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DisableExecuteApiEndpoint { get; set; }
+            public Amazon.APIGateway.IpAddressType EndpointConfiguration_IpAddressType { get; set; }
             public List<System.String> EndpointConfiguration_Type { get; set; }
             public List<System.String> EndpointConfiguration_VpcEndpointId { get; set; }
             public System.Int32? MinimumCompressionSize { get; set; }

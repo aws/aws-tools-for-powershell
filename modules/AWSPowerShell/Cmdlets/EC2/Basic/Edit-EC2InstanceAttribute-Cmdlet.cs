@@ -60,7 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify.</para><important><para>You can modify the following attributes only: <c>disableApiTermination</c> | <c>instanceType</c>
+        /// <para>The name of the attribute to modify.</para><note><para>When changing the instance type: If the original instance type is configured for configurable
+        /// bandwidth, and the desired instance type doesn't support configurable bandwidth, first
+        /// set the existing bandwidth configuration to <c>default</c> using the <a>ModifyInstanceNetworkPerformanceOptions</a>
+        /// operation.</para></note><important><para>You can modify the following attributes only: <c>disableApiTermination</c> | <c>instanceType</c>
         /// | <c>kernel</c> | <c>ramdisk</c> | <c>instanceInitiatedShutdownBehavior</c> | <c>blockDeviceMapping</c>
         /// | <c>userData</c> | <c>sourceDestCheck</c> | <c>groupSet</c> | <c>ebsOptimized</c>
         /// | <c>sriovNetSupport</c> | <c>enaSupport</c> | <c>nvmeSupport</c> | <c>disableApiStop</c>

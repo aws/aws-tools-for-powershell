@@ -10,6 +10,193 @@
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview001 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
+### 4.1.795 (2025-04-08 21:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1019.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT FleetWise
+    * Modified cmdlet Update-IFWVehicle: added parameter StateTemplatesToUpdate.
+  * Amazon Tax Settings
+    * Modified cmdlet Write-TSATaxRegistration: added parameters UzbekistanAdditionalInfo_TaxRegistrationNumberType and UzbekistanAdditionalInfo_VatRegistrationNumber.
+    * Modified cmdlet Write-TSATaxRegistrationBatch: added parameters UzbekistanAdditionalInfo_TaxRegistrationNumberType and UzbekistanAdditionalInfo_VatRegistrationNumber.
+
+### 4.1.794 (2025-04-07 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1018.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRGuardrail: added parameter OutputScope.
+  * Amazon CodeBuild
+    * Added cmdlet Get-CBCommandExecutionBatch leveraging the BatchGetCommandExecutions service API.
+    * Added cmdlet Get-CBCommandExecutionListForSandbox leveraging the ListCommandExecutionsForSandbox service API.
+    * Added cmdlet Get-CBSandboxBatch leveraging the BatchGetSandboxes service API.
+    * Added cmdlet Get-CBSandboxIdList leveraging the ListSandboxes service API.
+    * Added cmdlet Get-CBSandboxIdListForProject leveraging the ListSandboxesForProject service API.
+    * Added cmdlet Start-CBCommandExecution leveraging the StartCommandExecution service API.
+    * Added cmdlet Start-CBSandbox leveraging the StartSandbox service API.
+    * Added cmdlet Start-CBSandboxConnection leveraging the StartSandboxConnection service API.
+    * Added cmdlet Stop-CBSandbox leveraging the StopSandbox service API.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLSdiSource leveraging the DescribeSdiSource service API.
+    * Added cmdlet Get-EMLSdiSourceList leveraging the ListSdiSources service API.
+    * Added cmdlet New-EMLSdiSource leveraging the CreateSdiSource service API.
+    * Added cmdlet Remove-EMLSdiSource leveraging the DeleteSdiSource service API.
+    * Added cmdlet Update-EMLSdiSource leveraging the UpdateSdiSource service API.
+    * Modified cmdlet New-EMLInput: added parameter SdiSource.
+    * Modified cmdlet Update-EMLInput: added parameter SdiSource.
+    * Modified cmdlet Update-EMLNode: added parameter SdiSourceMapping.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSSolution: added parameter EventsConfig_EventParametersList.
+    * Modified cmdlet Update-PERSSolution: added parameter EventsConfig_EventParametersList.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Start-TFRRemoteDelete leveraging the StartRemoteDelete service API.
+    * Added cmdlet Start-TFRRemoteMove leveraging the StartRemoteMove service API.
+
+### 4.1.793 (2025-04-04 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1017.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EventBridge
+    * Modified cmdlet New-EVBArchive: added parameter KmsKeyIdentifier.
+    * Modified cmdlet Update-EVBArchive: added parameter KmsKeyIdentifier.
+
+### 4.1.792 (2025-04-03 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1016.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters FieldMapping_CustomMetadataField and MongoDbAtlasConfiguration_TextIndexName.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters FieldMapping_CustomMetadataField and MongoDbAtlasConfiguration_TextIndexName.
+  * Amazon SES Mail Manager
+    * Modified cmdlet New-MMGRIngressPoint: added parameters PrivateNetworkConfiguration_VpcEndpointId and PublicNetworkConfiguration_IpType.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2DeliverabilityTestReport: added parameters Simple_Attachment and Template_Attachment.
+    * Modified cmdlet Send-SES2BulkEmail: added parameter Template_Attachment.
+    * Modified cmdlet Send-SES2Email: added parameters Simple_Attachment and Template_Attachment.
+
+### 4.1.791 (2025-04-03 03:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1015.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.790 (2025-04-02 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1015.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet Get-CWASServiceLevelObjectiveList: added parameters DependencyConfig_DependencyKeyAttribute, DependencyConfig_DependencyOperationName and MetricSourceType.
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameters RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes, RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName, SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes and SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameters RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes, RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName, SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes and SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLInput: added parameter Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup.
+    * Modified cmdlet Update-EMLInput: added parameter Smpte2110ReceiverGroupSettings_Smpte2110ReceiverGroup.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Bot: added parameter ErrorLogSettings_Enabled.
+    * Modified cmdlet New-LMBV2Intent: added parameter QInConnectAssistantConfiguration_AssistantArn.
+    * Modified cmdlet Start-LMBV2Import: added parameter ErrorLogSettings_Enabled.
+    * Modified cmdlet Update-LMBV2Bot: added parameter ErrorLogSettings_Enabled.
+    * Modified cmdlet Update-LMBV2Intent: added parameter QInConnectAssistantConfiguration_AssistantArn.
+
+### 4.1.789 (2025-04-01 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1014.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Update-CRSCollaboration: added parameter AnalyticsEngine.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMNotebookInstanceLifecycleConfig: added parameter Tag.
+
+### 4.1.788 (2025-03-31 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1013.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2RouteServerPropagation leveraging the DisableRouteServerPropagation service API.
+    * Added cmdlet Edit-EC2RouteServer leveraging the ModifyRouteServer service API.
+    * Added cmdlet Enable-EC2RouteServerPropagation leveraging the EnableRouteServerPropagation service API.
+    * Added cmdlet Get-EC2RouteServer leveraging the DescribeRouteServers service API.
+    * Added cmdlet Get-EC2RouteServerAssociation leveraging the GetRouteServerAssociations service API.
+    * Added cmdlet Get-EC2RouteServerEndpoint leveraging the DescribeRouteServerEndpoints service API.
+    * Added cmdlet Get-EC2RouteServerPeer leveraging the DescribeRouteServerPeers service API.
+    * Added cmdlet Get-EC2RouteServerPropagation leveraging the GetRouteServerPropagations service API.
+    * Added cmdlet Get-EC2RouteServerRoutingDatabase leveraging the GetRouteServerRoutingDatabase service API.
+    * Added cmdlet New-EC2RouteServer leveraging the CreateRouteServer service API.
+    * Added cmdlet New-EC2RouteServerEndpoint leveraging the CreateRouteServerEndpoint service API.
+    * Added cmdlet New-EC2RouteServerPeer leveraging the CreateRouteServerPeer service API.
+    * Added cmdlet Register-EC2RouteServer leveraging the AssociateRouteServer service API.
+    * Added cmdlet Remove-EC2RouteServer leveraging the DeleteRouteServer service API.
+    * Added cmdlet Remove-EC2RouteServerEndpoint leveraging the DeleteRouteServerEndpoint service API.
+    * Added cmdlet Remove-EC2RouteServerPeer leveraging the DeleteRouteServerPeer service API.
+    * Added cmdlet Unregister-EC2RouteServer leveraging the DisassociateRouteServer service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet Update-EKSClusterConfig: added parameters RemoteNetworkConfig_RemoteNodeNetwork and RemoteNetworkConfig_RemotePodNetwork.
+  * Amazon Outposts
+    * Modified cmdlet Get-OUTPOutpostSupportedInstanceType: added parameter AssetId.
+    * Modified cmdlet Start-OUTPCapacityTask: added parameter AssetId.
+  * Amazon S3 Control
+    * Added cmdlet Get-S3CAccessPointScope leveraging the GetAccessPointScope service API.
+    * Added cmdlet Get-S3CAccessPointsForDirectoryBucketList leveraging the ListAccessPointsForDirectoryBuckets service API.
+    * Added cmdlet Remove-S3CAccessPointScope leveraging the DeleteAccessPointScope service API.
+    * Added cmdlet Write-S3CAccessPointScope leveraging the PutAccessPointScope service API.
+    * Modified cmdlet New-S3CAccessPoint: added parameters Scope_Permission and Scope_Prefix.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRWebApp: added parameter WebAppEndpointPolicy.
+
+### 4.1.787 (2025-03-28 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1012.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon API Gateway
+    * Modified cmdlet New-AGDomainName: added parameter EndpointConfiguration_IpAddressType.
+    * Modified cmdlet New-AGRestApi: added parameter EndpointConfiguration_IpAddressType.
+  * Amazon API Gateway V2
+    * Modified cmdlet New-AG2Api: added parameter IpAddressType.
+    * Modified cmdlet Update-AG2Api: added parameter IpAddressType.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameter Cache_CacheNamespace.
+    * Modified cmdlet Start-CBBatch: added parameter CacheOverride_CacheNamespace.
+    * Modified cmdlet Start-CBBuild: added parameter CacheOverride_CacheNamespace.
+    * Modified cmdlet Update-CBProject: added parameter Cache_CacheNamespace.
+  * Amazon Payment Cryptography Control Plane
+    * Modified cmdlet Export-PAYCCKey: added parameters DerivationData_SharedInformation, DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier, DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm, DiffieHellmanTr31KeyBlock_KeyDerivationFunction, DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm, DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier, DiffieHellmanTr31KeyBlock_PublicKeyCertificate, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap, KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyVersion and KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_OptionalBlocks.
+    * Modified cmdlet Import-PAYCCKey: added parameters DerivationData_SharedInformation, DiffieHellmanTr31KeyBlock_CertificateAuthorityPublicKeyIdentifier, DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm, DiffieHellmanTr31KeyBlock_KeyDerivationFunction, DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm, DiffieHellmanTr31KeyBlock_PrivateKeyIdentifier, DiffieHellmanTr31KeyBlock_PublicKeyCertificate and DiffieHellmanTr31KeyBlock_WrappedKeyBlock.
+    * Modified cmdlet New-PAYCCKey: added parameter DeriveKeyUsage.
+  * Amazon QuickSight
+    * Modified cmdlet Initialize-QSEmbedUrlForRegisteredUserWithIdentity: added parameters DataQnA_Enabled, DataStories_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled and GenerativeAuthoring_Enabled.
+    * Modified cmdlet New-QSAnalysis: added parameters Options_ExcludedDataSetArn and Options_QBusinessInsightsStatus.
+    * Modified cmdlet New-QSDashboard: added parameters DataQAEnabledOption_AvailabilityStatus, Options_ExcludedDataSetArn and Options_QBusinessInsightsStatus.
+    * Modified cmdlet New-QSDataSet: added parameter UseAs.
+    * Modified cmdlet New-QSDataSource: added parameter OracleParameters_UseServiceName.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameters DataQnA_Enabled, DataStories_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_RecentSnapshots_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_Schedules_Enabled, ExperienceConfiguration_Dashboard_FeatureConfigurations_ThresholdAlerts_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_AmazonQInQuickSight_ExecutiveSummary_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_RecentSnapshots_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Schedules_Enabled, ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_ThresholdAlerts_Enabled and GenerativeAuthoring_Enabled.
+    * Modified cmdlet New-QSTemplate: added parameters Options_ExcludedDataSetArn and Options_QBusinessInsightsStatus.
+    * Modified cmdlet Update-QSAnalysis: added parameters Options_ExcludedDataSetArn and Options_QBusinessInsightsStatus.
+    * Modified cmdlet Update-QSDashboard: added parameters DataQAEnabledOption_AvailabilityStatus, Options_ExcludedDataSetArn and Options_QBusinessInsightsStatus.
+    * Modified cmdlet Update-QSDataSource: added parameter OracleParameters_UseServiceName.
+    * Modified cmdlet Update-QSTemplate: added parameters Options_ExcludedDataSetArn and Options_QBusinessInsightsStatus.
+    * Modified cmdlet Write-QSDataSetRefreshProperty: added parameter EmailAlert_AlertStatus.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMTransformJob: added parameter TransformResources_TransformAmiVersion.
+
+### 4.1.786 (2025-03-27 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1011.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameter ContainerProperties_EnableExecuteCommand.
+  * Amazon CloudFormation
+    * Modified cmdlet Get-CFNResourceScanList: added parameter ScanTypeFilter.
+    * Modified cmdlet Start-CFNResourceScan: added parameter ScanFilter.
+  * Amazon Pricing Calculator
+    * Modified cmdlet Update-BCMPCPreference: added parameter StandaloneAccountRateTypeSelection.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMApp: added parameter RecoveryMode.
+
+### 4.1.785 (2025-03-26 21:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1010.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Direct Connect
+    * Modified cmdlet New-DCGateway: added parameter Tag.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Add-EMTLogsForPlaybackConfiguration: added parameters AdsInteractionLog_ExcludeEventType, AdsInteractionLog_PublishOptInEventType and ManifestServiceInteractionLog_ExcludeEventType.
+  * Amazon WAF V2
+    * Modified cmdlet Get-WAF2WebACL: added parameter ARN.
+
+### 4.1.784 (2025-03-25 22:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1009.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters OpensearchManagedClusterConfiguration_DomainArn, OpensearchManagedClusterConfiguration_DomainEndpoint, OpensearchManagedClusterConfiguration_VectorIndexName, StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField, StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField and StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters OpensearchManagedClusterConfiguration_DomainArn, OpensearchManagedClusterConfiguration_DomainEndpoint, OpensearchManagedClusterConfiguration_VectorIndexName, StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField, StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField and StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet Update-EKSClusterVersion: added parameter ForceUpdate.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMPartnerApp: added parameter KmsKeyId.
+
+### 4.1.783 (2025-03-24 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1008.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Systems Manager
+    * Modified cmdlet Get-SSMDeployablePatchSnapshotForInstance: added parameter BaselineOverride_AvailableSecurityUpdatesComplianceStatus.
+    * Modified cmdlet New-SSMPatchBaseline: added parameter AvailableSecurityUpdatesComplianceStatus.
+    * Modified cmdlet Update-SSMPatchBaseline: added parameter AvailableSecurityUpdatesComplianceStatus.
+
 ### 4.1.782 (2025-03-21 21:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1007.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone

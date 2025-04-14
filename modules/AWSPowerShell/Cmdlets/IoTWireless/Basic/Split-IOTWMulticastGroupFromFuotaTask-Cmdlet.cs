@@ -29,7 +29,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Disassociates a multicast group from a fuota task.
+    /// Disassociates a multicast group from a FUOTA task.
     /// </summary>
     [Cmdlet("Split", "IOTWMulticastGroupFromFuotaTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

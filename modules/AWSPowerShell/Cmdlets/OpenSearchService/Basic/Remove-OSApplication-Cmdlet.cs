@@ -29,7 +29,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Deletes an existing OpenSearch Application.
+    /// Deletes a specified OpenSearch application.
     /// </summary>
     [Cmdlet("Remove", "OSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the OpenSearch Application that you want to delete.</para>
+        /// <para>The unique identifier of the OpenSearch application to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

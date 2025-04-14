@@ -5,7 +5,7 @@
     "CoreVersion"       : "4.0.0.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : true,
-    "PreviewLabel"        : "preview.11",
+    "PreviewLabel"        : "preview.13",
     "ServiceVersions"     : {
         "CloudHSM" : {
             "Version" : "4.0.0.0",
@@ -1035,14 +1035,14 @@
             },
             "InPreview"               : false
         },
-        "TranscribeStreaming"               : {
+        "TranscribeStreaming"             : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
                 "Core" : "4.0.0.0"
             },
             "InPreview"               : false
-        },		
+        },
         "Connect"                         : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",

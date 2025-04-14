@@ -255,6 +255,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.ScanType
+        "Get-CFNResourceScanList/ScanTypeFilter"
+        {
+            $v = "FULL","PARTIAL"
+            break
+        }
+
         # Amazon.CloudFormation.StackSetStatus
         "Get-CFNStackSetList/Status"
         {
@@ -337,6 +344,7 @@ $CFN_map = @{
     "PermissionModel"=@("New-CFNStackSet","Update-CFNStackSet")
     "ProvisioningType"=@("Get-CFNTypeList")
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
+    "ScanTypeFilter"=@("Get-CFNResourceScanList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
     "TargetType"=@("Get-CFNHookResult")
     "TemplateConfiguration_DeletionPolicy"=@("New-CFNGeneratedTemplate","Update-CFNGeneratedTemplate")

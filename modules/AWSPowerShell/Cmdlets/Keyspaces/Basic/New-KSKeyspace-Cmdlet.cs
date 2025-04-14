@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter ReplicationSpecification_RegionList
         /// <summary>
         /// <para>
-        /// <para> The <c>regionList</c> can contain up to six Amazon Web Services Regions where the
-        /// keyspace is replicated in. </para>
+        /// <para> The <c>regionList</c> contains the Amazon Web Services Regions where the keyspace
+        /// is replicated in. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

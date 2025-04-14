@@ -241,7 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The type of log collection to use for a fleet.</para><ul><li><para><c>CLOUDWATCH</c> -- (default value) Send logs to an Amazon CloudWatch log group
         /// that you define. Each container emits a log stream, which is organized in the log
-        /// group. </para></li><li><para><c>S3</c> -- Store logs in an Amazon S3 bucket that you define.</para></li><li><para><c>NONE</c> -- Don't collect container logs.</para></li></ul>
+        /// group. </para></li><li><para><c>S3</c> -- Store logs in an Amazon S3 bucket that you define. This bucket must
+        /// reside in the fleet's home Amazon Web Services Region.</para></li><li><para><c>NONE</c> -- Don't collect container logs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

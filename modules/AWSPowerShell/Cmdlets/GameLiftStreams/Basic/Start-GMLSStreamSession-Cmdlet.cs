@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// To start a new stream session, specify a stream group and application ID, along with
     /// the transport protocol and signal request settings to use with the stream. You must
     /// have associated at least one application to the stream group before starting a stream
-    /// session, either when creating the stream group, or by using <a>AssociateApplications</a>.
+    /// session, either when creating the stream group, or by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AssociateApplications.html">AssociateApplications</a>.
     /// </para><para>
     ///  For stream groups that have multiple locations, provide a set of locations ordered
     /// by priority by setting <c>Locations</c>. Amazon GameLift Streams will start a single
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format
-        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</c>
-        /// or ID-<c>9ZY8X7Wv6</c>. </para>
+        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</c>
+        /// or ID-<c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>The stream group to run this stream session with.</para><para>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource.
-        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</c>
-        /// or ID-<c>1AB2C3De4</c>. </para>
+        /// Format example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</c>
+        /// or ID-<c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -180,7 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// Amazon.GameLiftStreams.Model.StartStreamSessionRequest.Locations
+        /// <para> A list of locations, in order of priority, where you want Amazon GameLift Streams
+        /// to start a stream from. Amazon GameLift Streams selects the location with the next
+        /// available capacity to start a single stream session in. If this value is empty, Amazon
+        /// GameLift Streams attempts to start a stream session in the primary location. </para><para> This value is A set of location names. For example, <c>us-east-1</c>. For a complete
+        /// list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions
+        /// and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

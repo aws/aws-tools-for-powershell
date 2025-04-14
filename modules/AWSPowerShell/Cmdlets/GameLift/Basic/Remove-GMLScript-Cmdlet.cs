@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// check for script updates, and if the script record no longer exists, the instance
     /// will go into an error state and be unable to host game sessions.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
-    /// GameLift Realtime Servers</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// GameLift Amazon GameLift Realtime</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLScript", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

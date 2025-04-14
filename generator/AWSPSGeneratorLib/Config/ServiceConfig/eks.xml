@@ -228,7 +228,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterVersion" OutputProperty="Update" Verb="Update" Noun="ClusterVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="ForceUpdate" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEksAnywhereSubscription" OutputProperty="Subscription" Verb="Update" Noun="EksAnywhereSubscription" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
