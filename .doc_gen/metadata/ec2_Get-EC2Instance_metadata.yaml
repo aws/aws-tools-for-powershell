@@ -107,6 +107,7 @@ ec2_DescribeInstances:
             i-066b...57b7b08888 t3.medium    Windows  10.0.1.11                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
             i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
             i-0a68...274cc5043b t3.medium    Windows  10.0.1.6                         ...            subnet-1a2b3c4d vpc-1a2b3c4d</programlisting>
+          snippet_files: []
         - description: '<emphasis role="bold">Example 5: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped and using the Select-Object cmdlet for choosing specific values to output.</emphasis>'
           snippet_files: []
         - description:
@@ -123,6 +124,16 @@ ec2_DescribeInstances:
             i-066b...57b7b08888 t3.medium    Windows  10.0.1.11        ec2-name-04  stopped
             i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5         ec2-name-05  running
             i-0a68...274cc5043b t3.medium    Windows  10.0.1.6         ec2-name-06  stopped</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 6: This example validates permissions for getting EC2 instances using the DryRun parameter without actually fetching them. Note: This throws an exception if succeeded which is the expected behavior.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Instance.6.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Get-EC2Instance: Request would have succeeded, but DryRun flag is set.</programlisting>
           snippet_files: []
   services:
     ec2:
