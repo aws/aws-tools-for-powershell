@@ -224,7 +224,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
+            $v = "AWS_CDI","INPUT_DEVICE","MEDIACONNECT","MP4_FILE","MULTICAST","RTMP_PULL","RTMP_PUSH","RTP_PUSH","SDI","SMPTE_2110_RECEIVER_GROUP","SRT_CALLER","TS_FILE","UDP_PUSH","URL_PULL"
             break
         }
 
@@ -286,6 +286,26 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.SdiSourceMode
+        {
+            ($_ -eq "New-EMLSdiSource/Mode") -Or
+            ($_ -eq "Update-EMLSdiSource/Mode")
+        }
+        {
+            $v = "INTERLEAVE","QUADRANT"
+            break
+        }
+
+        # Amazon.MediaLive.SdiSourceType
+        {
+            ($_ -eq "New-EMLSdiSource/Type") -Or
+            ($_ -eq "Update-EMLSdiSource/Type")
+        }
+        {
+            $v = "QUAD","SINGLE"
+            break
+        }
+
         # Amazon.MediaLive.UpdateNodeState
         "Update-EMLNodeState/State"
         {
@@ -317,6 +337,7 @@ $EML_map = @{
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
     "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
+    "Mode"=@("New-EMLSdiSource","Update-EMLSdiSource")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
     "Role"=@("New-EMLNode","New-EMLNodeRegistrationScript","Update-EMLNode")
@@ -324,7 +345,7 @@ $EML_map = @{
     "Statistic"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "TargetResourceType"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "TreatMissingData"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
-    "Type"=@("New-EMLInput")
+    "Type"=@("New-EMLInput","New-EMLSdiSource","Update-EMLSdiSource")
     "UhdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
 }
@@ -401,6 +422,7 @@ $EML_SelectMap = @{
                "New-EMLNode",
                "New-EMLNodeRegistrationScript",
                "New-EMLPartnerInput",
+               "New-EMLSdiSource",
                "New-EMLSignalMap",
                "Add-EMLResourceTag",
                "Remove-EMLChannel",
@@ -418,6 +440,7 @@ $EML_SelectMap = @{
                "Remove-EMLNode",
                "Remove-EMLReservation",
                "Remove-EMLSchedule",
+               "Remove-EMLSdiSource",
                "Remove-EMLSignalMap",
                "Remove-EMLResourceTag",
                "Get-EMLAccountConfiguration",
@@ -435,6 +458,7 @@ $EML_SelectMap = @{
                "Get-EMLOffering",
                "Get-EMLReservation",
                "Get-EMLSchedule",
+               "Get-EMLSdiSource",
                "Get-EMLThumbnail",
                "Get-EMLCloudWatchAlarmTemplate",
                "Get-EMLCloudWatchAlarmTemplateGroup",
@@ -458,6 +482,7 @@ $EML_SelectMap = @{
                "Get-EMLNodeList",
                "Get-EMLOfferingList",
                "Get-EMLReservationList",
+               "Get-EMLSdiSourceList",
                "Get-EMLSignalMapList",
                "Get-EMLResourceTag",
                "Get-EMLVersionList",
@@ -493,7 +518,8 @@ $EML_SelectMap = @{
                "Update-EMLNetwork",
                "Update-EMLNode",
                "Update-EMLNodeState",
-               "Update-EMLReservation")
+               "Update-EMLReservation",
+               "Update-EMLSdiSource")
 }
 
 _awsArgumentCompleterRegistration $EML_SelectCompleters $EML_SelectMap

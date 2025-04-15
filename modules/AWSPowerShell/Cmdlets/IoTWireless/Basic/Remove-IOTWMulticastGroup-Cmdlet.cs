@@ -29,7 +29,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Deletes a multicast group if it is not in use by a fuota task.
+    /// Deletes a multicast group if it is not in use by a FUOTA task.
     /// </summary>
     [Cmdlet("Remove", "IOTWMulticastGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

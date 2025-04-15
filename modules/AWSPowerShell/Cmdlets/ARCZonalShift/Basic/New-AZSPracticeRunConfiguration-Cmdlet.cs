@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// 
     ///  
     /// <para>
-    /// When a resource has a practice run configuration, Route 53 ARC starts zonal shifts
-    /// for the resource weekly, to shift traffic for practice runs. Practice runs help you
-    /// to ensure that shifting away traffic from an Availability Zone during an autoshift
-    /// is safe for your application.
+    /// When a resource has a practice run configuration, ARC starts zonal shifts for the
+    /// resource weekly, to shift traffic for practice runs. Practice runs help you to ensure
+    /// that shifting away traffic from an Availability Zone during an autoshift is safe for
+    /// your application.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html">
     /// Considerations when you configure zonal autoshift</a> in the Amazon Route 53 Application
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter BlockedDate
         /// <summary>
         /// <para>
-        /// <para>Optionally, you can block Route 53 ARC from starting practice runs for a resource
-        /// on specific calendar dates.</para><para>The format for blocked dates is: YYYY-MM-DD. Keep in mind, when you specify dates,
+        /// <para>Optionally, you can block ARC from starting practice runs for a resource on specific
+        /// calendar dates.</para><para>The format for blocked dates is: YYYY-MM-DD. Keep in mind, when you specify dates,
         /// that dates and times for practice runs are in UTC. Separate multiple blocked dates
         /// with spaces.</para><para>For example, if you have an application update scheduled to launch on May 1, 2024,
         /// and you don't want practice runs to shift traffic away at that time, you could set
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter BlockedWindow
         /// <summary>
         /// <para>
-        /// <para>Optionally, you can block Route 53 ARC from starting practice runs for specific windows
-        /// of days and times. </para><para>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
+        /// <para>Optionally, you can block ARC from starting practice runs for specific windows of
+        /// days and times. </para><para>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify
         /// dates, that dates and times for practice runs are in UTC. Also, be aware of potential
         /// time adjustments that might be required for daylight saving time differences. Separate
         /// multiple blocked windows with spaces.</para><para>For example, say you run business report summaries three days a week. For this scenario,
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>An Amazon CloudWatch alarm that you can specify for zonal autoshift practice runs.
-        /// This alarm blocks Route 53 ARC from starting practice run zonal shifts, and ends a
-        /// practice run that's in progress, when the alarm is in an <c>ALARM</c> state. </para>
+        /// This alarm blocks ARC from starting practice run zonal shifts, and ends a practice
+        /// run that's in progress, when the alarm is in an <c>ALARM</c> state. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <para>
         /// <para>The <i>outcome alarm</i> for practice runs is a required Amazon CloudWatch alarm that
         /// you specify that ends a practice run when the alarm is in an <c>ALARM</c> state.</para><para>Configure the alarm to monitor the health of your application when traffic is shifted
-        /// away from an Availability Zone during each weekly practice run. You should configure
-        /// the alarm to go into an <c>ALARM</c> state if your application is impacted by the
-        /// zonal shift, and you want to stop the zonal shift, to let traffic for the resource
-        /// return to the Availability Zone.</para>
+        /// away from an Availability Zone during each practice run. You should configure the
+        /// alarm to go into an <c>ALARM</c> state if your application is impacted by the zonal
+        /// shift, and you want to stop the zonal shift, to let traffic for the resource return
+        /// to the Availability Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

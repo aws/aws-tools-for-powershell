@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCommandExecutions" OutputProperty="*" Verb="Get" Noun="CommandExecutionBatch" PipelineParameter="CommandExecutionIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetFleets" OutputProperty="*" Verb="Get" Noun="CBFleetBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetReports" OutputProperty="Reports" Verb="Get" Noun="ReportBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetSandboxes" OutputProperty="*" Verb="Get" Noun="SandboxBatch" PipelineParameter="Ids" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +143,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCommandExecutionsForSandbox" OutputProperty="CommandExecutions" Verb="Get" Noun="CommandExecutionListForSandbox" PipelineParameter="SandboxId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCuratedEnvironmentImages" OutputProperty="Platforms" Verb="Get" Noun="CuratedEnvironmentImageList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -156,6 +168,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListReportsForReportGroup" OutputProperty="Reports" Verb="Get" Noun="ReportsForReportGroupList" PipelineParameter="ReportGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSandboxes" OutputProperty="Ids" Verb="Get" Noun="SandboxIdList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSandboxesForProject" OutputProperty="Ids" Verb="Get" Noun="SandboxIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,11 +211,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartCommandExecution" OutputProperty="CommandExecution" Verb="Start" Noun="CommandExecution" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSandbox" OutputProperty="Sandbox" Verb="Start" Noun="Sandbox" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSandboxConnection" OutputProperty="*" Verb="Start" Noun="SandboxConnection" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopBuild" OutputProperty="Build" Verb="Stop" Noun="Build" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopBuildBatch" OutputProperty="BuildBatch" Verb="Stop" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopSandbox" OutputProperty="Sandbox" Verb="Stop" Noun="Sandbox" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

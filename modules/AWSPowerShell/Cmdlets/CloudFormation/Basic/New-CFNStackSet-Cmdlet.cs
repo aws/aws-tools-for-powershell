@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role to use to create this stack set.</para><para>Specify an IAM role only if you are using customized administrator roles to control
         /// which users or groups can manage specific stack sets within the same administrator
-        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites
-        /// for using StackSets</a> in the <i>CloudFormation User Guide</i>.</para>
+        /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+        /// self-managed permissions</a> in the <i>CloudFormation User Guide</i>.</para><para>Valid only if the permissions model is <c>SELF_MANAGED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,15 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter CallAs
         /// <summary>
         /// <para>
-        /// <para>[Service-managed permissions] Specifies whether you are acting as an account administrator
-        /// in the organization's management account or as a delegated administrator in a member
-        /// account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
+        /// <para>Specifies whether you are acting as an account administrator in the organization's
+        /// management account or as a delegated administrator in a member account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for stack sets with self-managed
         /// permissions.</para><ul><li><para>To create a stack set with service-managed permissions while signed in to the management
         /// account, specify <c>SELF</c>.</para></li><li><para>To create a stack set with service-managed permissions while signed in to a delegated
         /// administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated admin in the management
         /// account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
         /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul><para>Stack sets with service-managed permissions are created in the management account,
-        /// including stack sets that are created by delegated administrators.</para>
+        /// including stack sets that are created by delegated administrators.</para><para>Valid only if the permissions model is <c>SERVICE_MANAGED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The name of the IAM execution role to use to create the stack set. If you do not specify
         /// an execution role, CloudFormation uses the <c>AWSCloudFormationStackSetExecutionRole</c>
         /// role for the stack set operation.</para><para>Specify an IAM role only if you are using customized execution roles to control which
-        /// stack resources users and groups can include in their stack sets.</para>
+        /// stack resources users and groups can include in their stack sets.</para><para>Valid only if the permissions model is <c>SELF_MANAGED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

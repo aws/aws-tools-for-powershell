@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// Amazon.GameLiftStreams.Model.RemoveStreamGroupLocationsRequest.Identifier
+        /// <para> A stream group to remove the specified locations from. </para><para> This value is a Amazon Resource Name (ARN) that uniquely identifies the stream group
+        /// resource. Format example: <c>sg-1AB2C3De4</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// Amazon.GameLiftStreams.Model.RemoveStreamGroupLocationsRequest.Locations
+        /// <para> A set of locations to remove this stream group. </para><para> A set of location names. For example, <c>us-east-1</c>. For a complete list of locations
+        /// that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions
+        /// and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

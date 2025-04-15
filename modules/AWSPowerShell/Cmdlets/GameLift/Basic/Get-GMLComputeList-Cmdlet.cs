@@ -33,20 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// pagination parameters to retrieve results in a set of sequential pages.
     /// 
     ///  
-    /// <para><b>Request options:</b></para><ul><li><para>
+    /// <para><b>Request options</b></para><ul><li><para>
     /// Retrieve a list of all computes in a fleet. Specify a fleet ID. 
     /// </para></li><li><para>
     /// Retrieve a list of all computes in a specific fleet location. Specify a fleet ID and
     /// location.
-    /// </para></li></ul><para><b>Results:</b></para><para>
+    /// </para></li></ul><para><b>Results</b></para><para>
     /// If successful, this operation returns information on a set of computes. Depending
     /// on the type of fleet, the result includes the following information: 
     /// </para><ul><li><para>
-    /// For managed EC2 fleets (compute type <c>EC2</c>), this operation returns information
+    /// For a managed EC2 fleet (compute type <c>EC2</c>), this operation returns information
     /// about the EC2 instance. Compute names are EC2 instance IDs.
     /// </para></li><li><para>
-    /// For Anywhere fleets (compute type <c>ANYWHERE</c>), this operation returns compute
-    /// names and details as provided when the compute was registered with <c>RegisterCompute</c>.
+    /// For an Anywhere fleet (compute type <c>ANYWHERE</c>), this operation returns compute
+    /// names and details from when the compute was registered with <c>RegisterCompute</c>.
     /// This includes <c>GameLiftServiceSdkEndpoint</c> or <c>GameLiftAgentEndpoint</c>.
     /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

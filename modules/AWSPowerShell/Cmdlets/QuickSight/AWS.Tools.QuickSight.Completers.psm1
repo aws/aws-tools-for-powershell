@@ -176,6 +176,8 @@ $QS_Completers = {
             ($_ -eq "Update-QSDashboard/DataPointMenuLabelOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DataQAEnabledOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DataQAEnabledOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/ExportToCSVOption_AvailabilityStatus") -Or
@@ -218,6 +220,13 @@ $QS_Completers = {
         }
         {
             $v = "DIRECT_QUERY","SPICE"
+            break
+        }
+
+        # Amazon.QuickSight.DataSetUseAs
+        "New-QSDataSet/UseAs"
+        {
+            $v = "RLS_RULES"
             break
         }
 
@@ -378,6 +387,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.QBusinessInsightsStatus
+        {
+            ($_ -eq "New-QSAnalysis/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "New-QSDashboard/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "New-QSTemplate/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "Update-QSAnalysis/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "Update-QSDashboard/Options_QBusinessInsightsStatus") -Or
+            ($_ -eq "Update-QSTemplate/Options_QBusinessInsightsStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.QSearchStatus
         "Update-QSQuickSightQSearchConfiguration/QSearchStatus"
         {
@@ -394,6 +417,13 @@ $QS_Completers = {
         }
         {
             $v = "AUTO","MANUAL"
+            break
+        }
+
+        # Amazon.QuickSight.RefreshFailureAlertStatus
+        "Write-QSDataSetRefreshProperty/EmailAlert_AlertStatus"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -592,8 +622,10 @@ $QS_map = @{
     "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataQAEnabledOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
+    "EmailAlert_AlertStatus"=@("Write-QSDataSetRefreshProperty")
     "ExportFormat"=@("Start-QSAssetBundleExportJob")
     "ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
@@ -609,6 +641,7 @@ $QS_map = @{
     "IngestionType"=@("New-QSIngestion")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
+    "Options_QBusinessInsightsStatus"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -635,6 +668,7 @@ $QS_map = @{
     "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
+    "UseAs"=@("New-QSDataSet")
     "UserRole"=@("Register-QSUser")
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")

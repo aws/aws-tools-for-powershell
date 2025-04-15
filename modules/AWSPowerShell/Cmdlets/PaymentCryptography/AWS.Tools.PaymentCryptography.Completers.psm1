@@ -80,6 +80,13 @@ $PAYCC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PaymentCryptography.DeriveKeyUsage
+        "New-PAYCCKey/DeriveKeyUsage"
+        {
+            $v = "TR31_B0_BASE_DERIVATION_KEY","TR31_C0_CARD_VERIFICATION_KEY","TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY","TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS","TR31_E1_EMV_MKEY_CONFIDENTIALITY","TR31_E2_EMV_MKEY_INTEGRITY","TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS","TR31_E5_EMV_MKEY_CARD_PERSONALIZATION","TR31_E6_EMV_MKEY_OTHER","TR31_K0_KEY_ENCRYPTION_KEY","TR31_K1_KEY_BLOCK_PROTECTION_KEY","TR31_M1_ISO_9797_1_MAC_KEY","TR31_M3_ISO_9797_3_MAC_KEY","TR31_M6_ISO_9797_5_CMAC_KEY","TR31_M7_HMAC_KEY","TR31_P0_PIN_ENCRYPTION_KEY","TR31_P1_PIN_GENERATION_KEY","TR31_V1_IBM3624_PIN_VERIFICATION_KEY","TR31_V2_VISA_PIN_VERIFICATION_KEY"
+            break
+        }
+
         # Amazon.PaymentCryptography.KeyAlgorithm
         {
             ($_ -eq "Import-PAYCCKey/KeyAttributes_KeyAlgorithm") -Or
@@ -90,7 +97,7 @@ $PAYCC_Completers = {
             ($_ -eq "Get-PAYCCParametersForImport/WrappingKeyAlgorithm")
         }
         {
-            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
+            $v = "AES_128","AES_192","AES_256","ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","RSA_2048","RSA_3072","RSA_4096","TDES_2KEY","TDES_3KEY"
             break
         }
 
@@ -117,9 +124,30 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.KeyDerivationFunction
+        {
+            ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationFunction") -Or
+            ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationFunction")
+        }
+        {
+            $v = "ANSI_X963","NIST_SP800"
+            break
+        }
+
+        # Amazon.PaymentCryptography.KeyDerivationHashAlgorithm
+        {
+            ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm")
+        }
+        {
+            $v = "SHA_256","SHA_384","SHA_512"
+            break
+        }
+
         # Amazon.PaymentCryptography.KeyExportability
         {
             ($_ -eq "Export-PAYCCKey/KeyBlockHeaders_KeyExportability") -Or
+            ($_ -eq "Export-PAYCCKey/KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability") -Or
             ($_ -eq "Export-PAYCCKey/KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability")
         }
         {
@@ -156,6 +184,16 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.SymmetricKeyAlgorithm
+        {
+            ($_ -eq "Export-PAYCCKey/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm") -Or
+            ($_ -eq "Import-PAYCCKey/DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm")
+        }
+        {
+            $v = "AES_128","AES_192","AES_256","TDES_2KEY","TDES_3KEY"
+            break
+        }
+
         # Amazon.PaymentCryptography.Tr34KeyBlockFormat
         {
             ($_ -eq "Export-PAYCCKey/Tr34KeyBlock_KeyBlockFormat") -Or
@@ -185,6 +223,10 @@ $PAYCC_Completers = {
 }
 
 $PAYCC_map = @{
+    "DeriveKeyUsage"=@("New-PAYCCKey")
+    "DiffieHellmanTr31KeyBlock_DeriveKeyAlgorithm"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationFunction"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "DiffieHellmanTr31KeyBlock_KeyDerivationHashAlgorithm"=@("Export-PAYCCKey","Import-PAYCCKey")
     "ExportAttributes_KeyCheckValueAlgorithm"=@("Export-PAYCCKey")
     "KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyAttributes_KeyClass"=@("Import-PAYCCKey","New-PAYCCKey")
@@ -192,6 +234,7 @@ $PAYCC_map = @{
     "KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyCheckValueAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyCryptogram_WrappingSpec"=@("Export-PAYCCKey","Import-PAYCCKey")
+    "KeyMaterial_DiffieHellmanTr31KeyBlock_KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyUsage"=@("Import-PAYCCKey")

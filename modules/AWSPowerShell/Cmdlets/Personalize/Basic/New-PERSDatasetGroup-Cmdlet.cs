@@ -79,6 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSDatasetGroupCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         

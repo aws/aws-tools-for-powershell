@@ -29,15 +29,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Removes a compute resource from an Amazon GameLift Anywhere fleet. Deregistered computes
-    /// can no longer host game sessions through Amazon GameLift.
+    /// Removes a compute resource from an Anywhere fleet. Deregistered computes can no longer
+    /// host game sessions through Amazon GameLift. Use this operation with an Anywhere fleet
+    /// that doesn't use the Amazon GameLift Agent For Anywhere fleets with the Agent, the
+    /// Agent handles all compute registry tasks for you. 
     /// 
     ///  
     /// <para>
-    /// For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent handles
-    /// all compute registry tasks for you. For an Anywhere fleet that doesn't use the Agent,
-    /// call this operation to deregister fleet computes. 
-    /// </para><para>
     /// To deregister a compute, call this operation from the compute that's being deregistered
     /// and specify the compute name and the fleet ID. 
     /// </para>

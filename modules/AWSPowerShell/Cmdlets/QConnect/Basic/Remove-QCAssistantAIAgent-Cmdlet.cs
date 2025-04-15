@@ -29,7 +29,7 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Removes the AI Agent that is set for use by defafult on an Amazon Q in Connect Assistant.
+    /// Removes the AI Agent that is set for use by default on an Amazon Q in Connect Assistant.
     /// </summary>
     [Cmdlet("Remove", "QCAssistantAIAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

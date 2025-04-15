@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter Template_Attachment
+        /// <summary>
+        /// <para>
+        /// <para> The List of attachments to include in your email. All recipients will receive the
+        /// same attachments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_Attachments")]
+        public Amazon.SimpleEmailV2.Model.Attachment[] Template_Attachment { get; set; }
+        #endregion
+        
         #region Parameter BulkEmailEntry
         /// <summary>
         /// <para>
@@ -299,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             #endif
             context.ConfigurationSetName = this.ConfigurationSetName;
+            if (this.Template_Attachment != null)
+            {
+                context.Template_Attachment = new List<Amazon.SimpleEmailV2.Model.Attachment>(this.Template_Attachment);
+            }
             if (this.Template_Header != null)
             {
                 context.Template_Header = new List<Amazon.SimpleEmailV2.Model.MessageHeader>(this.Template_Header);
@@ -355,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
              // populate Template
             var requestDefaultContent_defaultContent_TemplateIsNull = true;
             requestDefaultContent_defaultContent_Template = new Amazon.SimpleEmailV2.Model.Template();
+            List<Amazon.SimpleEmailV2.Model.Attachment> requestDefaultContent_defaultContent_Template_template_Attachment = null;
+            if (cmdletContext.Template_Attachment != null)
+            {
+                requestDefaultContent_defaultContent_Template_template_Attachment = cmdletContext.Template_Attachment;
+            }
+            if (requestDefaultContent_defaultContent_Template_template_Attachment != null)
+            {
+                requestDefaultContent_defaultContent_Template.Attachments = requestDefaultContent_defaultContent_Template_template_Attachment;
+                requestDefaultContent_defaultContent_TemplateIsNull = false;
+            }
             List<Amazon.SimpleEmailV2.Model.MessageHeader> requestDefaultContent_defaultContent_Template_template_Header = null;
             if (cmdletContext.Template_Header != null)
             {
@@ -540,6 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             public List<Amazon.SimpleEmailV2.Model.BulkEmailEntry> BulkEmailEntry { get; set; }
             public System.String ConfigurationSetName { get; set; }
+            public List<Amazon.SimpleEmailV2.Model.Attachment> Template_Attachment { get; set; }
             public List<Amazon.SimpleEmailV2.Model.MessageHeader> Template_Header { get; set; }
             public System.String Template_TemplateArn { get; set; }
             public System.String TemplateContent_Html { get; set; }

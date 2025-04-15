@@ -36,12 +36,21 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// and <c>ProductCode</c>.
     /// 
     ///  <note><para>
-    /// The API needs to called from the seller account id used to publish the SaaS application
-    /// to successfully resolve the token.
+    /// To successfully resolve the token, the API must be called from the account that was
+    /// used to publish the SaaS application. For an example of using <c>ResolveCustomer</c>,
+    /// see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example">
+    /// ResolveCustomer code example</a> in the <i>Amazon Web Services Marketplace Seller
+    /// Guide</i>.
+    /// </para></note><para>
+    /// Permission is required for this operation. Your IAM role or user performing this operation
+    /// requires a policy to allow the <c>aws-marketplace:ResolveCustomer</c> action. For
+    /// more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsmarketplacemeteringservice.html">Actions,
+    /// resources, and condition keys for Amazon Web Services Marketplace Metering Service</a>
+    /// in the <i>Service Authorization Reference</i>.
     /// </para><para>
-    /// For an example of using <c>ResolveCustomer</c>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example">
-    /// ResolveCustomer code example</a> in the <i>AWS Marketplace Seller Guide</i>.
-    /// </para></note>
+    /// For Amazon Web Services Regions that support <c>ResolveCustomer</c>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#resolvecustomer-region-support">ResolveCustomer
+    /// Region support</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "MMCustomerMetadata")]
     [OutputType("Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse")]

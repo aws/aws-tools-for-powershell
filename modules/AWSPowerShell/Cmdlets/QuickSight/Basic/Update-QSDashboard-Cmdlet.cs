@@ -108,6 +108,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.DashboardBehavior DataPointTooltipOption_AvailabilityStatus { get; set; }
         #endregion
         
+        #region Parameter DataQAEnabledOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the Data Q&amp;A option on the dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_DataQAEnabledOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior DataQAEnabledOption_AvailabilityStatus { get; set; }
+        #endregion
+        
         #region Parameter ExportToCSVOption_AvailabilityStatus
         /// <summary>
         /// <para>
@@ -295,6 +307,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DecimalParameter[] Parameters_DecimalParameter { get; set; }
         #endregion
         
+        #region Parameter Options_ExcludedDataSetArn
+        /// <summary>
+        /// <para>
+        /// <para>A list of dataset ARNS to exclude from Dashboard Q&amp;A.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_ExcludedDataSetArns")]
+        public System.String[] Options_ExcludedDataSetArn { get; set; }
+        #endregion
+        
         #region Parameter Definition_FilterGroup
         /// <summary>
         /// <para>
@@ -416,6 +439,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Definition_ParameterDeclarations")]
         public Amazon.QuickSight.Model.ParameterDeclaration[] Definition_ParameterDeclaration { get; set; }
+        #endregion
+        
+        #region Parameter Options_QBusinessInsightsStatus
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether insight summaries from Amazon Q Business are allowed in Dashboard
+        /// Q&amp;A.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_QBusinessInsightsStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.QBusinessInsightsStatus")]
+        public Amazon.QuickSight.QBusinessInsightsStatus Options_QBusinessInsightsStatus { get; set; }
         #endregion
         
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
@@ -622,6 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.DataPointDrillUpDownOption_AvailabilityStatus = this.DataPointDrillUpDownOption_AvailabilityStatus;
             context.DataPointMenuLabelOption_AvailabilityStatus = this.DataPointMenuLabelOption_AvailabilityStatus;
             context.DataPointTooltipOption_AvailabilityStatus = this.DataPointTooltipOption_AvailabilityStatus;
+            context.DataQAEnabledOption_AvailabilityStatus = this.DataQAEnabledOption_AvailabilityStatus;
             context.ExportToCSVOption_AvailabilityStatus = this.ExportToCSVOption_AvailabilityStatus;
             context.ExportWithHiddenFieldsOption_AvailabilityStatus = this.ExportWithHiddenFieldsOption_AvailabilityStatus;
             context.SheetControlsOption_VisibilityState = this.SheetControlsOption_VisibilityState;
@@ -655,6 +692,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Definition_FilterGroup = new List<Amazon.QuickSight.Model.FilterGroup>(this.Definition_FilterGroup);
             }
+            if (this.Options_ExcludedDataSetArn != null)
+            {
+                context.Options_ExcludedDataSetArn = new List<System.String>(this.Options_ExcludedDataSetArn);
+            }
+            context.Options_QBusinessInsightsStatus = this.Options_QBusinessInsightsStatus;
             context.Options_Timezone = this.Options_Timezone;
             context.Options_WeekStart = this.Options_WeekStart;
             if (this.Definition_ParameterDeclaration != null)
@@ -826,6 +868,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption != null)
             {
                 request.DashboardPublishOptions.DataPointTooltipOption = requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.DataQAEnabledOption requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption = null;
+            
+             // populate DataQAEnabledOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption = new Amazon.QuickSight.Model.DataQAEnabledOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption_dataQAEnabledOption_AvailabilityStatus = null;
+            if (cmdletContext.DataQAEnabledOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption_dataQAEnabledOption_AvailabilityStatus = cmdletContext.DataQAEnabledOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption_dataQAEnabledOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption_dataQAEnabledOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption != null)
+            {
+                request.DashboardPublishOptions.DataQAEnabledOption = requestDashboardPublishOptions_dashboardPublishOptions_DataQAEnabledOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
             Amazon.QuickSight.Model.ExportToCSVOption requestDashboardPublishOptions_dashboardPublishOptions_ExportToCSVOption = null;
@@ -1414,6 +1481,26 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate Options
             var requestDefinition_definition_OptionsIsNull = true;
             requestDefinition_definition_Options = new Amazon.QuickSight.Model.AssetOptions();
+            List<System.String> requestDefinition_definition_Options_options_ExcludedDataSetArn = null;
+            if (cmdletContext.Options_ExcludedDataSetArn != null)
+            {
+                requestDefinition_definition_Options_options_ExcludedDataSetArn = cmdletContext.Options_ExcludedDataSetArn;
+            }
+            if (requestDefinition_definition_Options_options_ExcludedDataSetArn != null)
+            {
+                requestDefinition_definition_Options.ExcludedDataSetArns = requestDefinition_definition_Options_options_ExcludedDataSetArn;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
+            Amazon.QuickSight.QBusinessInsightsStatus requestDefinition_definition_Options_options_QBusinessInsightsStatus = null;
+            if (cmdletContext.Options_QBusinessInsightsStatus != null)
+            {
+                requestDefinition_definition_Options_options_QBusinessInsightsStatus = cmdletContext.Options_QBusinessInsightsStatus;
+            }
+            if (requestDefinition_definition_Options_options_QBusinessInsightsStatus != null)
+            {
+                requestDefinition_definition_Options.QBusinessInsightsStatus = requestDefinition_definition_Options_options_QBusinessInsightsStatus;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
             System.String requestDefinition_definition_Options_options_Timezone = null;
             if (cmdletContext.Options_Timezone != null)
             {
@@ -1634,6 +1721,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.DashboardBehavior DataPointDrillUpDownOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior DataPointMenuLabelOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior DataPointTooltipOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior DataQAEnabledOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportWithHiddenFieldsOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardUIState SheetControlsOption_VisibilityState { get; set; }
@@ -1655,6 +1743,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnConfiguration> Definition_ColumnConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.DataSetIdentifierDeclaration> Definition_DataSetIdentifierDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.FilterGroup> Definition_FilterGroup { get; set; }
+            public List<System.String> Options_ExcludedDataSetArn { get; set; }
+            public Amazon.QuickSight.QBusinessInsightsStatus Options_QBusinessInsightsStatus { get; set; }
             public System.String Options_Timezone { get; set; }
             public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }

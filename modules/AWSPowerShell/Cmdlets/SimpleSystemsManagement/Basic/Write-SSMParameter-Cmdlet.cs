@@ -114,10 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// (/) when you create or reference a parameter. For example: <c>/Dev/DBServer/MySQL/db-string13</c></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an Amazon Web Services Region</para></li><li><para>A parameter name can't be prefixed with "<c>aws</c>" or "<c>ssm</c>" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <c>a-zA-Z0-9_.-</c></para><para>In addition, the slash character ( / ) is used to delineate hierarchies in parameter
         /// names. For example: <c>/Dev/Production/East/Project-ABC/MyParameter</c></para></li><li><para>A parameter name can't include spaces.</para></li><li><para>Parameter hierarchies are limited to a maximum depth of fifteen levels.</para></li></ul><para>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html">Creating
         /// Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User
-        /// Guide</i>.</para><note><para>The maximum length constraint of 2048 characters listed below includes 1037 characters
-        /// reserved for internal use by Systems Manager. The maximum length for a parameter name
-        /// that you create is 1011 characters. This includes the characters in the ARN that precede
-        /// the name you specify, such as <c>arn:aws:ssm:us-east-2:111122223333:parameter/</c>.</para></note>
+        /// Guide</i>.</para><note><para>The reported maximum length of 2048 characters for a parameter name includes 1037
+        /// characters that are reserved for internal use by Systems Manager. The maximum length
+        /// for a parameter name that you specify is 1011 characters.</para><para>This count of 1011 characters includes the characters in the ARN that precede the
+        /// name you specify. This ARN length will vary depending on your partition and Region.
+        /// For example, the following 45 characters count toward the 1011 character maximum for
+        /// a parameter created in the US East (Ohio) Region: <c>arn:aws:ssm:us-east-2:111122223333:parameter/</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

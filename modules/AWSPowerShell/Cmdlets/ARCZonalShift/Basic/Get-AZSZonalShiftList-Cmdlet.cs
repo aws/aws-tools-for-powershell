@@ -32,12 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery
     /// Controller in your Amazon Web Services account in this Amazon Web Services Region.
     /// <c>ListZonalShifts</c> returns customer-initiated zonal shifts, as well as practice
-    /// run zonal shifts that Route 53 ARC started on your behalf for zonal autoshift.
+    /// run zonal shifts that ARC started on your behalf for zonal autoshift.
     /// 
     ///  
     /// <para>
-    /// The <c>ListZonalShifts</c> operation does not list autoshifts. For more information
-    /// about listing autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.
+    /// For more information about listing autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "AZSZonalShiftList")]
@@ -90,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
+        /// a <c>nextToken</c> response in the previous request. If you did, it indicates that
         /// more output is available. Set this parameter to the value provided by the previous
-        /// call's <c>NextToken</c> response to request the next page of results.</para>
+        /// call's <c>nextToken</c> response to request the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

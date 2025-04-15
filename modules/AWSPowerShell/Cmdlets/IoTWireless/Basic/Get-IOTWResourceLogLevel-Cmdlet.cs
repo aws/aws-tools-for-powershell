@@ -29,8 +29,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Fetches the log-level override, if any, for a given resource-ID and resource-type.
-    /// It can be used for a wireless device, wireless gateway or fuota task.
+    /// Fetches the log-level override, if any, for a given resource ID and resource type..
     /// </summary>
     [Cmdlet("Get", "IOTWResourceLogLevel")]
     [OutputType("Amazon.IoTWireless.LogLevel")]
@@ -65,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of the resource, which can be <c>WirelessDevice</c>, <c>WirelessGateway</c>
+        /// <para>The type of resource, which can be <c>WirelessDevice</c>, <c>WirelessGateway</c>,
         /// or <c>FuotaTask</c>.</para>
         /// </para>
         /// </summary>

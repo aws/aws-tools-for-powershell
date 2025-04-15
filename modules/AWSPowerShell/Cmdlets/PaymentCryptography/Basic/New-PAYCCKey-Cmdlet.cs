@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.PaymentCryptography;
 using Amazon.PaymentCryptography.Model;
 
@@ -67,7 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter KeyModesOfUse_Decrypt
         /// <summary>
@@ -91,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KeyAttributes_KeyModesOfUse_DeriveKey")]
         public System.Boolean? KeyModesOfUse_DeriveKey { get; set; }
+        #endregion
+        
+        #region Parameter DeriveKeyUsage
+        /// <summary>
+        /// <para>
+        /// <para>The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31
+        /// spec.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptography.DeriveKeyUsage")]
+        public Amazon.PaymentCryptography.DeriveKeyUsage DeriveKeyUsage { get; set; }
         #endregion
         
         #region Parameter Enabled
@@ -306,6 +316,16 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public string Select { get; set; } = "Key";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Exportable parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Exportable' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Exportable' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -316,11 +336,6 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -337,11 +352,22 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.PaymentCryptography.Model.CreateKeyResponse, NewPAYCCKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Exportable;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeriveKeyUsage = this.DeriveKeyUsage;
             context.Enabled = this.Enabled;
             context.Exportable = this.Exportable;
             #if MODULAR
@@ -401,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             // create request
             var request = new Amazon.PaymentCryptography.Model.CreateKeyRequest();
             
+            if (cmdletContext.DeriveKeyUsage != null)
+            {
+                request.DeriveKeyUsage = cmdletContext.DeriveKeyUsage;
+            }
             if (cmdletContext.Enabled != null)
             {
                 request.Enabled = cmdletContext.Enabled.Value;
@@ -599,7 +629,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Payment Cryptography Control Plane", "CreateKey");
             try
             {
-                return client.CreateKeyAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.CreateKey(request);
+                #elif CORECLR
+                return client.CreateKeyAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -616,6 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.PaymentCryptography.DeriveKeyUsage DeriveKeyUsage { get; set; }
             public System.Boolean? Enabled { get; set; }
             public System.Boolean? Exportable { get; set; }
             public Amazon.PaymentCryptography.KeyAlgorithm KeyAttributes_KeyAlgorithm { get; set; }

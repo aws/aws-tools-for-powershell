@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetPortSettings">https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetPortSettings</a>
         /// to set it before players can connect to game sessions. As a best practice, we recommend
         /// opening ports for remote access only when you need them and closing them when you're
-        /// finished. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and
-        /// UDP ranges.</para>
+        /// finished. For Amazon GameLift Realtime fleets, Amazon GameLift automatically sets
+        /// TCP and UDP ranges.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

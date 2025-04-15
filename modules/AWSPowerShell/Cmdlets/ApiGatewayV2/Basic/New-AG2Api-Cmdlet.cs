@@ -159,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String[] CorsConfiguration_ExposeHeader { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address types that can invoke the API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApiGatewayV2.IpAddressType")]
+        public Amazon.ApiGatewayV2.IpAddressType IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter CorsConfiguration_MaxAge
         /// <summary>
         /// <para>
@@ -335,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             context.Description = this.Description;
             context.DisableExecuteApiEndpoint = this.DisableExecuteApiEndpoint;
             context.DisableSchemaValidation = this.DisableSchemaValidation;
+            context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -466,6 +478,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 request.DisableSchemaValidation = cmdletContext.DisableSchemaValidation.Value;
             }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -560,6 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.String Description { get; set; }
             public System.Boolean? DisableExecuteApiEndpoint { get; set; }
             public System.Boolean? DisableSchemaValidation { get; set; }
+            public Amazon.ApiGatewayV2.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public Amazon.ApiGatewayV2.ProtocolType ProtocolType { get; set; }
             public System.String RouteKey { get; set; }

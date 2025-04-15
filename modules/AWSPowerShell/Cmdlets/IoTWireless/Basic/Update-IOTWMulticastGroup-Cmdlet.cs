@@ -68,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ParticipatingGateways_GatewayList
         /// <summary>
         /// <para>
-        /// <para>The list of gateways that you want to use for sending the multicast downlink. Each
-        /// downlink will be sent to all the gateways in the list with transmission interval between
-        /// them. If list is empty the gateway list will be dynamically selected similar to the
-        /// case of no ParticipatingGateways </para>
+        /// <para>The list of gateways that you want to use for sending the multicast downlink message.
+        /// Each downlink message will be sent to all the gateways in the list in the order that
+        /// you provided. If the gateway list is empty, then AWS IoT Core for LoRaWAN chooses
+        /// the gateways that were most recently used by the devices to send an uplink message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter ParticipatingGateways_TransmissionInterval
         /// <summary>
         /// <para>
-        /// <para>The duration of time for which AWS IoT Core for LoRaWAN will wait before transmitting
-        /// the multicast payload to the next gateway in the list.</para>
+        /// <para>The duration of time in milliseconds for which AWS IoT Core for LoRaWAN will wait
+        /// before transmitting the multicast payload to the next gateway in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

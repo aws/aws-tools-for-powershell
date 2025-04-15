@@ -162,6 +162,13 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.CommandType
+        "Start-CBCommandExecution/Type"
+        {
+            $v = "SHELL"
+            break
+        }
+
         # Amazon.CodeBuild.ComputeType
         {
             ($_ -eq "New-CBFleet/ComputeType") -Or
@@ -198,7 +205,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "ARM_CONTAINER","ARM_EC2","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_EC2","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","MAC_ARM","WINDOWS_CONTAINER","WINDOWS_EC2","WINDOWS_SERVER_2019_CONTAINER"
+            $v = "ARM_CONTAINER","ARM_EC2","ARM_LAMBDA_CONTAINER","LINUX_CONTAINER","LINUX_EC2","LINUX_GPU_CONTAINER","LINUX_LAMBDA_CONTAINER","MAC_ARM","WINDOWS_CONTAINER","WINDOWS_EC2","WINDOWS_SERVER_2019_CONTAINER","WINDOWS_SERVER_2022_CONTAINER"
             break
         }
 
@@ -382,11 +389,14 @@ $CB_Completers = {
             ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
             ($_ -eq "Get-CBBuildIdListForProject/SortOrder") -Or
             ($_ -eq "Get-CBCodeCoverage/SortOrder") -Or
+            ($_ -eq "Get-CBCommandExecutionListForSandbox/SortOrder") -Or
             ($_ -eq "Get-CBFleetList/SortOrder") -Or
             ($_ -eq "Get-CBProjectList/SortOrder") -Or
             ($_ -eq "Get-CBReportGroupList/SortOrder") -Or
             ($_ -eq "Get-CBReportList/SortOrder") -Or
             ($_ -eq "Get-CBReportsForReportGroupList/SortOrder") -Or
+            ($_ -eq "Get-CBSandboxIdList/SortOrder") -Or
+            ($_ -eq "Get-CBSandboxIdListForProject/SortOrder") -Or
             ($_ -eq "Get-CBSharedProjectList/SortOrder") -Or
             ($_ -eq "Get-CBSharedReportGroupList/SortOrder")
         }
@@ -495,12 +505,12 @@ $CB_map = @{
     "ScopeConfiguration_Scope"=@("New-CBWebhook")
     "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
-    "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
+    "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBCommandExecutionListForSandbox","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSandboxIdList","Get-CBSandboxIdListForProject","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "SourceTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "TrendField"=@("Get-CBReportGroupTrend")
-    "Type"=@("New-CBReportGroup")
+    "Type"=@("New-CBReportGroup","Start-CBCommandExecution")
 }
 
 _awsArgumentCompleterRegistration $CB_Completers $CB_map
@@ -556,10 +566,12 @@ $CB_SelectMap = @{
     "Select"=@("Remove-CBBuildBatch",
                "Get-CBBatch",
                "Get-CBBuildBatch",
+               "Get-CBCommandExecutionBatch",
                "Get-CBCBFleetBatch",
                "Get-CBProjectBatch",
                "Get-CBReportGroupBatch",
                "Get-CBReportBatch",
+               "Get-CBSandboxBatch",
                "New-CBFleet",
                "New-CBProject",
                "New-CBReportGroup",
@@ -582,12 +594,15 @@ $CB_SelectMap = @{
                "Get-CBBatchIdListForProject",
                "Get-CBBuildIdList",
                "Get-CBBuildIdListForProject",
+               "Get-CBCommandExecutionListForSandbox",
                "Get-CBCuratedEnvironmentImageList",
                "Get-CBFleetList",
                "Get-CBProjectList",
                "Get-CBReportGroupList",
                "Get-CBReportList",
                "Get-CBReportsForReportGroupList",
+               "Get-CBSandboxIdList",
+               "Get-CBSandboxIdListForProject",
                "Get-CBSharedProjectList",
                "Get-CBSharedReportGroupList",
                "Get-CBSourceCredentialList",
@@ -596,8 +611,12 @@ $CB_SelectMap = @{
                "Redo-CBBatch",
                "Start-CBBuild",
                "Start-CBBatch",
+               "Start-CBCommandExecution",
+               "Start-CBSandbox",
+               "Start-CBSandboxConnection",
                "Stop-CBBuild",
                "Stop-CBBatch",
+               "Stop-CBSandbox",
                "Update-CBFleet",
                "Update-CBProject",
                "Update-CBProjectVisibility",

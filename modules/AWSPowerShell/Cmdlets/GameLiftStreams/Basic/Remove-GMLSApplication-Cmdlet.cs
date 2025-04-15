@@ -42,14 +42,14 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// that's in <c>PROCESSING</c> or <c>INITIALIZED</c> status.
     /// </para></li><li><para>
     /// The application is not the default application of any stream groups. You must first
-    /// delete the stream group by using <a>DeleteStreamGroup</a>.
+    /// delete the stream group by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DeleteStreamGroup.html">DeleteStreamGroup</a>.
     /// </para></li><li><para>
     /// The application is not linked to any stream groups. You must first unlink the stream
-    /// group by using <a>DisassociateApplications</a>.
+    /// group by using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_DisassociateApplications.html">DisassociateApplications</a>.
     /// </para></li><li><para>
     ///  An application is not streaming in any ongoing stream session. You must wait until
-    /// the client ends the stream session or call <a>TerminateStreamSession</a> to end the
-    /// stream. 
+    /// the client ends the stream session or call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TerminateStreamSession.html">TerminateStreamSession</a>
+    /// to end the stream. 
     /// </para></li></ul><para>
     /// If any active stream groups exist for this application, this request returns a <c>ValidationException</c>.
     /// 
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         /// <para>
         /// <para>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon
         /// Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format
-        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</c>
-        /// or ID-<c>9ZY8X7Wv6</c>. </para>
+        /// example: ARN-<c>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</c>
+        /// or ID-<c>a-9ZY8X7Wv6</c>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

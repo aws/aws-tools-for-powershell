@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>The <c>AccessEndpoint</c> is the URL that you provide to your users for them to interact
         /// with the Transfer Family web app. You can specify a custom URL or use the default
-        /// value.</para>
+        /// value.</para><para>Before you enter a custom URL for this parameter, follow the steps described in <a href="https://docs.aws.amazon.com/transfer/latest/userguide/webapp-customize.html">Update
+        /// your access endpoint with a custom URL</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -101,6 +102,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Transfer.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter WebAppEndpointPolicy
+        /// <summary>
+        /// <para>
+        /// <para> Setting for the type of endpoint policy for the web app. The default value is <c>STANDARD</c>.
+        /// </para><para>If you are creating the web app in an Amazon Web Services GovCloud (US) Region, you
+        /// can set this parameter to <c>FIPS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.WebAppEndpointPolicy")]
+        public Amazon.Transfer.WebAppEndpointPolicy WebAppEndpointPolicy { get; set; }
         #endregion
         
         #region Parameter Select
@@ -157,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
             }
+            context.WebAppEndpointPolicy = this.WebAppEndpointPolicy;
             context.WebAppUnits_Provisioned = this.WebAppUnits_Provisioned;
             
             // allow further manipulation of loaded context prior to processing
@@ -225,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.WebAppEndpointPolicy != null)
+            {
+                request.WebAppEndpointPolicy = cmdletContext.WebAppEndpointPolicy;
             }
             
              // populate WebAppUnits
@@ -304,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityCenterConfig_InstanceArn { get; set; }
             public System.String IdentityCenterConfig_Role { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
+            public Amazon.Transfer.WebAppEndpointPolicy WebAppEndpointPolicy { get; set; }
             public System.Int32? WebAppUnits_Provisioned { get; set; }
             public System.Func<Amazon.Transfer.Model.CreateWebAppResponse, NewTFRWebAppCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WebAppId;

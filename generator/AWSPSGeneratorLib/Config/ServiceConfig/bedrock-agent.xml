@@ -94,6 +94,9 @@
                 <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" Alias="FieldMapping_TextField" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -373,6 +376,9 @@
                 <Param Name="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RdsConfiguration_FieldMapping_TextField" Alias="FieldMapping_TextField" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_Type" />
                 <Param Name="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" NewName="KnowledgeBaseConfiguration_SqlKnowledgeBaseConfiguration_RedshiftConfiguration_QueryEngineConfiguration_ProvisionedConfiguration_AuthConfiguration_UsernamePasswordSecretArn" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_OpensearchManagedClusterConfiguration_FieldMapping_VectorField" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

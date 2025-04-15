@@ -33,7 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// in time before <c>LatestRestorableTime</c> for up to <c>BackupRetentionPeriod</c>
     /// days. The target DB cluster is created from the source DB cluster with the same configuration
     /// as the original DB cluster, except that the new DB cluster is created with the default
-    /// DB security group.
+    /// DB security group. Unless the <c>RestoreType</c> is set to <c>copy-on-write</c>, the
+    /// restore may occur in a different Availability Zone (AZ) from the original DB cluster.
+    /// The AZ where RDS restores the DB cluster depends on the AZs in the specified subnet
+    /// group.
     /// 
     ///  <note><para>
     /// For Aurora, this operation only restores the DB cluster, not the DB instances for

@@ -28,7 +28,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateServiceLevelObjective" OutputProperty="Slo" Verb="New" Noun="ServiceLevelObjective" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
+                <Param Name="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
+                <Param Name="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName" NewName="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName" />
+                <Param Name="SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName" NewName="SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteServiceLevelObjective" Verb="Remove" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
@@ -84,7 +89,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServiceLevelObjective" OutputProperty="Slo" Verb="Update" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
+                <Param Name="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
+                <Param Name="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName" NewName="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyOperationName" />
+                <Param Name="SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName" NewName="SliConfig_SliMetricConfig_DependencyConfig_DependencyOperationName" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

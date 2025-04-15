@@ -29,7 +29,7 @@ using Amazon.BCMPricingCalculator.Model;
 namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
-    /// Retrieves the current preferences for the Amazon Web Services Cost Explorer service.
+    /// Retrieves the current preferences for Pricing Calculator.
     /// </summary>
     [Cmdlet("Get", "BCMPCPreference")]
     [OutputType("Amazon.BCMPricingCalculator.Model.GetPreferencesResponse")]

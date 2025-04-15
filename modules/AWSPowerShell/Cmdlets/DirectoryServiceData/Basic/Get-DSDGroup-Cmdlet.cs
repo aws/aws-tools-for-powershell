@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
         /// <summary>
         /// <para>
         /// <para> One or more attributes to be returned for the group. For a list of supported attributes,
-        /// see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data-attributes.html">Directory
+        /// see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory
         /// Service Data Attributes</a>. </para>
         /// </para>
         /// </summary>

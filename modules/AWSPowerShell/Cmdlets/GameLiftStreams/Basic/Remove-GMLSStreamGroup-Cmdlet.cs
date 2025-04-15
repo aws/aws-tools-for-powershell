@@ -32,9 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
     /// To delete a stream group, specify the unique stream group identifier. During the deletion
     /// process, the stream group's status is <c>DELETING</c>. This operation stops streams
     /// in progress and prevents new streams from starting. As a best practice, before deleting
-    /// the stream group, call <a>ListStreamSessions</a> to check for streams in progress
-    /// and take action to stop them. When you delete a stream group, any application associations
-    /// referring to that stream group are automatically removed.
+    /// the stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListStreamSessions.html">ListStreamSessions</a>
+    /// to check for streams in progress and take action to stop them. When you delete a stream
+    /// group, any application associations referring to that stream group are automatically
+    /// removed.
     /// </summary>
     [Cmdlet("Remove", "GMLSStreamGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -51,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GMLS
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique ID value of the stream group resource to delete. Format example: <c>1AB2C3De4</c>.</para>
+        /// <para>The unique ID value of the stream group resource to delete. Format example: <c>sg-1AB2C3De4</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

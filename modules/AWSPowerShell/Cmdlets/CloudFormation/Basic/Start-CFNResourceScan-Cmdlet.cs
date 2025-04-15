@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ScanFilter
+        /// <summary>
+        /// <para>
+        /// <para>The scan filters to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScanFilters")]
+        public Amazon.CloudFormation.Model.ScanFilter[] ScanFilter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceScanId'.
@@ -105,6 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.ScanFilter != null)
+            {
+                context.ScanFilter = new List<Amazon.CloudFormation.Model.ScanFilter>(this.ScanFilter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ScanFilter != null)
+            {
+                request.ScanFilters = cmdletContext.ScanFilter;
             }
             
             CmdletOutput output;
@@ -181,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<Amazon.CloudFormation.Model.ScanFilter> ScanFilter { get; set; }
             public System.Func<Amazon.CloudFormation.Model.StartResourceScanResponse, StartCFNResourceScanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResourceScanId;
         }

@@ -360,7 +360,7 @@ $DZ_Completers = {
             ($_ -eq "New-DZRule/Action")
         }
         {
-            $v = "CREATE_SUBSCRIPTION_REQUEST"
+            $v = "CREATE_LISTING_CHANGE_SET","CREATE_SUBSCRIPTION_REQUEST"
             break
         }
 

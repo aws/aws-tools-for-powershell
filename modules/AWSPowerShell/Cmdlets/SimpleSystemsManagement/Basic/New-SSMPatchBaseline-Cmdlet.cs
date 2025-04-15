@@ -88,6 +88,23 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean? ApprovedPatchesEnableNonSecurity { get; set; }
         #endregion
         
+        #region Parameter AvailableSecurityUpdatesComplianceStatus
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the status you want to assign to security patches that are available but
+        /// not approved because they don't meet the installation criteria specified in the patch
+        /// baseline.</para><para>Example scenario: Security patches that you might want installed can be skipped if
+        /// you have specified a long period to wait after a patch is released before installation.
+        /// If an update to the patch is released during your specified waiting period, the waiting
+        /// period for installing the patch starts over. If the waiting period is too long, multiple
+        /// versions of the patch could be released but never installed.</para><para>Supported for Windows Server managed nodes only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchComplianceStatus")]
+        public Amazon.SimpleSystemsManagement.PatchComplianceStatus AvailableSecurityUpdatesComplianceStatus { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -278,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.ApprovedPatchesComplianceLevel = this.ApprovedPatchesComplianceLevel;
             context.ApprovedPatchesEnableNonSecurity = this.ApprovedPatchesEnableNonSecurity;
+            context.AvailableSecurityUpdatesComplianceStatus = this.AvailableSecurityUpdatesComplianceStatus;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.GlobalFilters_PatchFilter != null)
@@ -351,6 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ApprovedPatchesEnableNonSecurity != null)
             {
                 request.ApprovedPatchesEnableNonSecurity = cmdletContext.ApprovedPatchesEnableNonSecurity.Value;
+            }
+            if (cmdletContext.AvailableSecurityUpdatesComplianceStatus != null)
+            {
+                request.AvailableSecurityUpdatesComplianceStatus = cmdletContext.AvailableSecurityUpdatesComplianceStatus;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -462,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<System.String> ApprovedPatch { get; set; }
             public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
             public System.Boolean? ApprovedPatchesEnableNonSecurity { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchComplianceStatus AvailableSecurityUpdatesComplianceStatus { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilter { get; set; }

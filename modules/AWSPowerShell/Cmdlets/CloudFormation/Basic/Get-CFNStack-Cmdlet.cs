@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <c>ListStacks</c> and <c>DescribeStacks</c> permissions.</para><para>Consider using the <a>ListStacks</a> API if you're not passing a parameter to <c>StackName</c>.</para><para>The IAM policy below can be added to IAM policies when you want to limit resource-level
         /// permissions and avoid returning a response when no parameter is sent in the request:</para><para>{ "Version": "2012-10-17", "Statement": [{ "Effect": "Deny", "Action": "cloudformation:DescribeStacks",
         /// "NotResource": "arn:aws:cloudformation:*:*:stack/*/*" }] }</para></note><para>The name or the unique stack ID that's associated with the stack, which aren't always
-        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul><para>Default: There is no default value.</para>
+        /// interchangeable:</para><ul><li><para>Running stacks: You can specify either the stack's name or its unique stack ID.</para></li><li><para>Deleted stacks: You must specify the unique stack ID.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

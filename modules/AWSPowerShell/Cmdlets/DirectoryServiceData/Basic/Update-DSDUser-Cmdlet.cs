@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DSD
         /// <para>
         /// <para> An expression that defines one or more attribute names with the data type and value
         /// of each attribute. A key is an attribute name, and the value is a list of maps. For
-        /// a list of supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data-attributes.html">Directory
+        /// a list of supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory
         /// Service Data Attributes</a>. </para><note><para> Attribute names are case insensitive. </para></note>
         /// </para>
         /// </summary>

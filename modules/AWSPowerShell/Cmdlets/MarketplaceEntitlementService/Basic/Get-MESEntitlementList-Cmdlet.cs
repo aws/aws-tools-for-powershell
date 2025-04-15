@@ -30,7 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.MES
 {
     /// <summary>
     /// GetEntitlements retrieves entitlement values for a given product. The results can
-    /// be filtered based on customer identifier or product dimensions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// be filtered based on customer identifier, AWS account ID, or product dimensions.
+    /// 
+    ///  <important><para>
+    ///  The <c>CustomerIdentifier</c> parameter is on path for deprecation. Use <c>CustomerAWSAccountID</c>
+    /// instead.
+    /// </para><para>
+    /// These parameters are mutually exclusive. You can't specify both <c>CustomerIdentifier</c>
+    /// and <c>CustomerAWSAccountID</c> in the same request. 
+    /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MESEntitlementList")]
     [OutputType("Amazon.MarketplaceEntitlementService.Model.Entitlement")]
@@ -50,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.MES
         /// <para>
         /// <para>Filter is used to return entitlements for a specific customer or for a specific dimension.
         /// Filters are described as keys mapped to a lists of values. Filtered requests are <i>unioned</i>
-        /// for each value in the value list, and then <i>intersected</i> for each filter key.</para>
+        /// for each value in the value list, and then <i>intersected</i> for each filter key.</para><para><c>CustomerIdentifier</c> and <c>CustomerAWSAccountID</c> are mutually exclusive.
+        /// You can't specify both in the same request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

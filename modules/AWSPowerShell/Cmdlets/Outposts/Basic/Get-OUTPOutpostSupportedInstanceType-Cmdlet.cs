@@ -22,7 +22,6 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.Outposts;
 using Amazon.Outposts.Model;
 
@@ -44,7 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        
+        #region Parameter AssetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts
+        /// rack or an Outposts server configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetId { get; set; }
+        #endregion
         
         #region Parameter OrderId
         /// <summary>
@@ -109,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public string Select { get; set; } = "InstanceTypes";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the OutpostIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OutpostIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OutpostIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -119,11 +138,6 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
@@ -134,11 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesResponse, GetOUTPOutpostSupportedInstanceTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.OutpostIdentifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetId = this.AssetId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.OrderId = this.OrderId;
@@ -162,11 +187,17 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.Outposts.Model.GetOutpostSupportedInstanceTypesRequest();
             
+            if (cmdletContext.AssetId != null)
+            {
+                request.AssetId = cmdletContext.AssetId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -241,7 +272,13 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Outposts", "GetOutpostSupportedInstanceTypes");
             try
             {
-                return client.GetOutpostSupportedInstanceTypesAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.GetOutpostSupportedInstanceTypes(request);
+                #elif CORECLR
+                return client.GetOutpostSupportedInstanceTypesAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -258,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OrderId { get; set; }

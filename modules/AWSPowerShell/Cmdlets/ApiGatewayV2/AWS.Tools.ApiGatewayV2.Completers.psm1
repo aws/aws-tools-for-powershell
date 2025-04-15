@@ -132,6 +132,16 @@ $AG2_Completers = {
             break
         }
 
+        # Amazon.ApiGatewayV2.IpAddressType
+        {
+            ($_ -eq "New-AG2Api/IpAddressType") -Or
+            ($_ -eq "Update-AG2Api/IpAddressType")
+        }
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.ApiGatewayV2.LoggingLevel
         {
             ($_ -eq "New-AG2Stage/DefaultRouteSettings_LoggingLevel") -Or
@@ -174,6 +184,7 @@ $AG2_map = @{
     "ContentHandlingStrategy"=@("New-AG2Integration","New-AG2IntegrationResponse","Update-AG2Integration","Update-AG2IntegrationResponse")
     "DefaultRouteSettings_LoggingLevel"=@("New-AG2Stage","Update-AG2Stage")
     "IntegrationType"=@("New-AG2Integration","Update-AG2Integration")
+    "IpAddressType"=@("New-AG2Api","Update-AG2Api")
     "PassthroughBehavior"=@("New-AG2Integration","Update-AG2Integration")
     "ProtocolType"=@("New-AG2Api")
 }

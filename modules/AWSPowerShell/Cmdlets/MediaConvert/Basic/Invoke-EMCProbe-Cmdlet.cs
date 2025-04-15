@@ -29,8 +29,10 @@ using Amazon.MediaConvert.Model;
 namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
-    /// The Probe operation analyzes the provided media file and returns comprehensive metadata
-    /// about its container format, tracks, and any encountered errors.
+    /// Use Probe to obtain detailed information about your input media files. Probe returns
+    /// a JSON that includes container, codec, frame rate, resolution, track count, audio
+    /// layout, captions, and more. You can use this information to learn more about your
+    /// media files, or to help make decisions while automating your transcoding workflow.
     /// </summary>
     [Cmdlet("Invoke", "EMCProbe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConvert.Model.ProbeResponse")]
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter InputFile
         /// <summary>
         /// <para>
-        /// The list of input media files to be probed.
+        /// Specify a media file to probe.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

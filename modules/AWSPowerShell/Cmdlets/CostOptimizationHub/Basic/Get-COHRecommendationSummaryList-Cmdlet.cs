@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter Filter_AccountId
         /// <summary>
         /// <para>
-        /// <para>The account that the recommendation is for.</para>
+        /// <para>The account to which the recommendation applies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

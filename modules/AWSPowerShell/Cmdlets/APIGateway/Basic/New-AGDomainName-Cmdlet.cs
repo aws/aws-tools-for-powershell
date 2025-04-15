@@ -119,6 +119,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter EndpointConfiguration_IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address types that can invoke an API (RestApi) or a DomainName. Use <c>ipv4</c>
+        /// to allow only IPv4 addresses to invoke an API or DomainName, or use <c>dualstack</c>
+        /// to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the <c>PRIVATE</c>
+        /// endpoint type, only <c>dualstack</c> is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.APIGateway.IpAddressType")]
+        public Amazon.APIGateway.IpAddressType EndpointConfiguration_IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter OwnershipVerificationCertificateArn
         /// <summary>
         /// <para>
@@ -300,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EndpointConfiguration_IpAddressType = this.EndpointConfiguration_IpAddressType;
             if (this.EndpointConfiguration_Type != null)
             {
                 context.EndpointConfiguration_Type = new List<System.String>(this.EndpointConfiguration_Type);
@@ -367,6 +382,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
              // populate EndpointConfiguration
             var requestEndpointConfigurationIsNull = true;
             request.EndpointConfiguration = new Amazon.APIGateway.Model.EndpointConfiguration();
+            Amazon.APIGateway.IpAddressType requestEndpointConfiguration_endpointConfiguration_IpAddressType = null;
+            if (cmdletContext.EndpointConfiguration_IpAddressType != null)
+            {
+                requestEndpointConfiguration_endpointConfiguration_IpAddressType = cmdletContext.EndpointConfiguration_IpAddressType;
+            }
+            if (requestEndpointConfiguration_endpointConfiguration_IpAddressType != null)
+            {
+                request.EndpointConfiguration.IpAddressType = requestEndpointConfiguration_endpointConfiguration_IpAddressType;
+                requestEndpointConfigurationIsNull = false;
+            }
             List<System.String> requestEndpointConfiguration_endpointConfiguration_Type = null;
             if (cmdletContext.EndpointConfiguration_Type != null)
             {
@@ -506,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String CertificateName { get; set; }
             public System.String CertificatePrivateKey { get; set; }
             public System.String DomainName { get; set; }
+            public Amazon.APIGateway.IpAddressType EndpointConfiguration_IpAddressType { get; set; }
             public List<System.String> EndpointConfiguration_Type { get; set; }
             public List<System.String> EndpointConfiguration_VpcEndpointId { get; set; }
             public System.String MutualTlsAuthentication_TruststoreUri { get; set; }

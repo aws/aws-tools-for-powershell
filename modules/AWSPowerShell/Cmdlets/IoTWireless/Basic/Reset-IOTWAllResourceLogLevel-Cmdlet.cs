@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// Removes the log-level overrides for all resources; wireless devices, wireless gateways,
-    /// and fuota tasks.
+    /// and FUOTA tasks.
     /// </summary>
     [Cmdlet("Reset", "IOTWAllResourceLogLevel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

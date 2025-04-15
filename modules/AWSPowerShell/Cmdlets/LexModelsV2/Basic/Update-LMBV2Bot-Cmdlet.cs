@@ -145,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ErrorLogSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Settings parameters for the error logs, when it is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ErrorLogSettings_Enabled { get; set; }
+        #endregion
+        
         #region Parameter IdleSessionTTLInSecond
         /// <summary>
         /// <para>
@@ -256,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             #endif
             context.Description = this.Description;
+            context.ErrorLogSettings_Enabled = this.ErrorLogSettings_Enabled;
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
             #if MODULAR
             if (this.IdleSessionTTLInSecond == null && ParameterWasBound(nameof(this.IdleSessionTTLInSecond)))
@@ -324,6 +335,25 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ErrorLogSettings
+            var requestErrorLogSettingsIsNull = true;
+            request.ErrorLogSettings = new Amazon.LexModelsV2.Model.ErrorLogSettings();
+            System.Boolean? requestErrorLogSettings_errorLogSettings_Enabled = null;
+            if (cmdletContext.ErrorLogSettings_Enabled != null)
+            {
+                requestErrorLogSettings_errorLogSettings_Enabled = cmdletContext.ErrorLogSettings_Enabled.Value;
+            }
+            if (requestErrorLogSettings_errorLogSettings_Enabled != null)
+            {
+                request.ErrorLogSettings.Enabled = requestErrorLogSettings_errorLogSettings_Enabled.Value;
+                requestErrorLogSettingsIsNull = false;
+            }
+             // determine if request.ErrorLogSettings should be set to null
+            if (requestErrorLogSettingsIsNull)
+            {
+                request.ErrorLogSettings = null;
             }
             if (cmdletContext.IdleSessionTTLInSecond != null)
             {
@@ -394,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public Amazon.LexModelsV2.BotType BotType { get; set; }
             public System.Boolean? DataPrivacy_ChildDirected { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? ErrorLogSettings_Enabled { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.LexModelsV2.Model.UpdateBotResponse, UpdateLMBV2BotCmdlet, object> Select { get; set; } =

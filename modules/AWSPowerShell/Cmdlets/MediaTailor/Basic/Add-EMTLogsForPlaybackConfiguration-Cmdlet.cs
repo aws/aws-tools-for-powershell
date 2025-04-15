@@ -60,6 +60,30 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String[] EnabledLoggingStrategy { get; set; }
         #endregion
         
+        #region Parameter AdsInteractionLog_ExcludeEventType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that MediaTailor won't emit the selected events in the logs for playback
+        /// sessions that are initialized with this configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsInteractionLog_ExcludeEventTypes")]
+        public System.String[] AdsInteractionLog_ExcludeEventType { get; set; }
+        #endregion
+        
+        #region Parameter ManifestServiceInteractionLog_ExcludeEventType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that MediaTailor won't emit the selected events in the logs for playback
+        /// sessions that are initialized with this configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestServiceInteractionLog_ExcludeEventTypes")]
+        public System.String[] ManifestServiceInteractionLog_ExcludeEventType { get; set; }
+        #endregion
+        
         #region Parameter PercentEnabled
         /// <summary>
         /// <para>
@@ -96,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PlaybackConfigurationName { get; set; }
+        #endregion
+        
+        #region Parameter AdsInteractionLog_PublishOptInEventType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that MediaTailor emits <c>RAW_ADS_RESPONSE</c> logs for playback sessions
+        /// that are initialized with this configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdsInteractionLog_PublishOptInEventTypes")]
+        public System.String[] AdsInteractionLog_PublishOptInEventType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -145,9 +181,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse, AddEMTLogsForPlaybackConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AdsInteractionLog_ExcludeEventType != null)
+            {
+                context.AdsInteractionLog_ExcludeEventType = new List<System.String>(this.AdsInteractionLog_ExcludeEventType);
+            }
+            if (this.AdsInteractionLog_PublishOptInEventType != null)
+            {
+                context.AdsInteractionLog_PublishOptInEventType = new List<System.String>(this.AdsInteractionLog_PublishOptInEventType);
+            }
             if (this.EnabledLoggingStrategy != null)
             {
                 context.EnabledLoggingStrategy = new List<System.String>(this.EnabledLoggingStrategy);
+            }
+            if (this.ManifestServiceInteractionLog_ExcludeEventType != null)
+            {
+                context.ManifestServiceInteractionLog_ExcludeEventType = new List<System.String>(this.ManifestServiceInteractionLog_ExcludeEventType);
             }
             context.PercentEnabled = this.PercentEnabled;
             #if MODULAR
@@ -179,9 +227,57 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             // create request
             var request = new Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationRequest();
             
+            
+             // populate AdsInteractionLog
+            var requestAdsInteractionLogIsNull = true;
+            request.AdsInteractionLog = new Amazon.MediaTailor.Model.AdsInteractionLog();
+            List<System.String> requestAdsInteractionLog_adsInteractionLog_ExcludeEventType = null;
+            if (cmdletContext.AdsInteractionLog_ExcludeEventType != null)
+            {
+                requestAdsInteractionLog_adsInteractionLog_ExcludeEventType = cmdletContext.AdsInteractionLog_ExcludeEventType;
+            }
+            if (requestAdsInteractionLog_adsInteractionLog_ExcludeEventType != null)
+            {
+                request.AdsInteractionLog.ExcludeEventTypes = requestAdsInteractionLog_adsInteractionLog_ExcludeEventType;
+                requestAdsInteractionLogIsNull = false;
+            }
+            List<System.String> requestAdsInteractionLog_adsInteractionLog_PublishOptInEventType = null;
+            if (cmdletContext.AdsInteractionLog_PublishOptInEventType != null)
+            {
+                requestAdsInteractionLog_adsInteractionLog_PublishOptInEventType = cmdletContext.AdsInteractionLog_PublishOptInEventType;
+            }
+            if (requestAdsInteractionLog_adsInteractionLog_PublishOptInEventType != null)
+            {
+                request.AdsInteractionLog.PublishOptInEventTypes = requestAdsInteractionLog_adsInteractionLog_PublishOptInEventType;
+                requestAdsInteractionLogIsNull = false;
+            }
+             // determine if request.AdsInteractionLog should be set to null
+            if (requestAdsInteractionLogIsNull)
+            {
+                request.AdsInteractionLog = null;
+            }
             if (cmdletContext.EnabledLoggingStrategy != null)
             {
                 request.EnabledLoggingStrategies = cmdletContext.EnabledLoggingStrategy;
+            }
+            
+             // populate ManifestServiceInteractionLog
+            var requestManifestServiceInteractionLogIsNull = true;
+            request.ManifestServiceInteractionLog = new Amazon.MediaTailor.Model.ManifestServiceInteractionLog();
+            List<System.String> requestManifestServiceInteractionLog_manifestServiceInteractionLog_ExcludeEventType = null;
+            if (cmdletContext.ManifestServiceInteractionLog_ExcludeEventType != null)
+            {
+                requestManifestServiceInteractionLog_manifestServiceInteractionLog_ExcludeEventType = cmdletContext.ManifestServiceInteractionLog_ExcludeEventType;
+            }
+            if (requestManifestServiceInteractionLog_manifestServiceInteractionLog_ExcludeEventType != null)
+            {
+                request.ManifestServiceInteractionLog.ExcludeEventTypes = requestManifestServiceInteractionLog_manifestServiceInteractionLog_ExcludeEventType;
+                requestManifestServiceInteractionLogIsNull = false;
+            }
+             // determine if request.ManifestServiceInteractionLog should be set to null
+            if (requestManifestServiceInteractionLogIsNull)
+            {
+                request.ManifestServiceInteractionLog = null;
             }
             if (cmdletContext.PercentEnabled != null)
             {
@@ -246,7 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdsInteractionLog_ExcludeEventType { get; set; }
+            public List<System.String> AdsInteractionLog_PublishOptInEventType { get; set; }
             public List<System.String> EnabledLoggingStrategy { get; set; }
+            public List<System.String> ManifestServiceInteractionLog_ExcludeEventType { get; set; }
             public System.Int32? PercentEnabled { get; set; }
             public System.String PlaybackConfigurationName { get; set; }
             public System.Func<Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse, AddEMTLogsForPlaybackConfigurationCmdlet, object> Select { get; set; } =

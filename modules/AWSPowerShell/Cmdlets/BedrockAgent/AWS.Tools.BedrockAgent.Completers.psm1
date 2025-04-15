@@ -237,7 +237,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABKnowledgeBase/StorageConfiguration_Type")
         }
         {
-            $v = "MONGO_DB_ATLAS","NEPTUNE_ANALYTICS","OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD"
+            $v = "MONGO_DB_ATLAS","NEPTUNE_ANALYTICS","OPENSEARCH_MANAGED_CLUSTER","OPENSEARCH_SERVERLESS","PINECONE","RDS","REDIS_ENTERPRISE_CLOUD"
             break
         }
 

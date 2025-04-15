@@ -29,10 +29,10 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Returns the summary information for stacks whose status matches the specified StackStatusFilter.
+    /// Returns the summary information for stacks whose status matches the specified <c>StackStatusFilter</c>.
     /// Summary information for stacks that have been deleted is kept for 90 days after the
-    /// stack is deleted. If no StackStatusFilter is specified, summary information for all
-    /// stacks is returned (including existing stacks and stacks that have been deleted).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// stack is deleted. If no <c>StackStatusFilter</c> is specified, summary information
+    /// for all stacks is returned (including existing stacks and stacks that have been deleted).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStackSummary")]
     [OutputType("Amazon.CloudFormation.Model.StackSummary")]
