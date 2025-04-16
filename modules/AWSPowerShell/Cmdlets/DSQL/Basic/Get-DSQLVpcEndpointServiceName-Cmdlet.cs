@@ -22,38 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectCases;
-using Amazon.ConnectCases.Model;
+using Amazon.DSQL;
+using Amazon.DSQL.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CCAS
+namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
-    /// Creates a domain, which is a container for all case data, such as cases, fields, templates
-    /// and layouts. Each Amazon Connect instance can be associated with only one Cases domain.
-    /// 
-    ///  <important><para>
-    /// This will not associate your connect instance to Cases domain. Instead, use the Amazon
-    /// Connect <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a>
-    /// API. You need specific IAM permissions to successfully associate the Cases domain.
-    /// For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard
-    /// to Cases</a>.
-    /// </para></important>
+    /// Retrieves the VPC endpoint service name.
     /// </summary>
-    [Cmdlet("New", "CCASDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ConnectCases.Model.CreateDomainResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.CreateDomainResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.CreateDomainResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.CreateDomainResponse object containing multiple properties."
+    [Cmdlet("Get", "DSQLVpcEndpointServiceName")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Aurora DSQL GetVpcEndpointServiceName API operation.", Operation = new[] {"GetVpcEndpointServiceName"}, SelectReturnType = typeof(Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse))]
+    [AWSCmdletOutput("System.String or Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewCCASDomainCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GetDSQLVpcEndpointServiceNameCmdlet : AmazonDSQLClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name for your Cases domain. It must be unique for your Amazon Web Services account.</para>
+        /// <para>The ID of the cluster to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,50 +56,34 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.CreateDomainResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.CreateDomainResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceName'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse).
+        /// Specifying the name of a property of type Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ServiceName";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCASDomain (CreateDomain)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -117,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.CreateDomainResponse, NewCCASDomainCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse, GetDSQLVpcEndpointServiceNameCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.CreateDomainRequest();
+            var request = new Amazon.DSQL.Model.GetVpcEndpointServiceNameRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -189,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.CreateDomainResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.CreateDomainRequest request)
+        private Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse CallAWSServiceOperation(IAmazonDSQL client, Amazon.DSQL.Model.GetVpcEndpointServiceNameRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "CreateDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Aurora DSQL", "GetVpcEndpointServiceName");
             try
             {
                 #if DESKTOP
-                return client.CreateDomain(request);
+                return client.GetVpcEndpointServiceName(request);
                 #elif CORECLR
-                return client.CreateDomainAsync(request).GetAwaiter().GetResult();
+                return client.GetVpcEndpointServiceNameAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -217,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.CreateDomainResponse, NewCCASDomainCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.DSQL.Model.GetVpcEndpointServiceNameResponse, GetDSQLVpcEndpointServiceNameCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ServiceName;
         }
         
     }

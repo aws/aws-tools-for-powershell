@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #region Parameter IcebergUnreferencedFileRemoval_NonCurrentDay
         /// <summary>
         /// <para>
-        /// Amazon.S3Tables.Model.IcebergUnreferencedFileRemovalSettings.NonCurrentDays
+        /// <para>The number of days an object has to be non-current before it is deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #region Parameter IcebergUnreferencedFileRemoval_UnreferencedDay
         /// <summary>
         /// <para>
-        /// Amazon.S3Tables.Model.IcebergUnreferencedFileRemovalSettings.UnreferencedDays
+        /// <para>The number of days an object has to be unreferenced before it is marked as non-current.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

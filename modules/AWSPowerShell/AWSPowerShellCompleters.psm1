@@ -18598,7 +18598,14 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.RelatedItemType
         "New-CCASRelatedItem/Type"
         {
-            $v = "Comment","Contact","File"
+            $v = "Comment","Contact","File","Sla"
+            break
+        }
+
+        # Amazon.ConnectCases.SlaType
+        "New-CCASRelatedItem/SlaInputConfiguration_Type"
+        {
+            $v = "CaseField"
             break
         }
 
@@ -18622,6 +18629,7 @@ $CCAS_Completers = {
 
 $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
+    "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
 }
@@ -24300,6 +24308,7 @@ $DSQL_SelectMap = @{
                "Remove-DSQLCluster",
                "Remove-DSQLMultiRegionCluster",
                "Get-DSQLCluster",
+               "Get-DSQLVpcEndpointServiceName",
                "Get-DSQLClusterList",
                "Get-DSQLResourceTag",
                "Add-DSQLResourceTag",
@@ -27684,7 +27693,7 @@ $EKS_Completers = {
         # Amazon.EKS.AMITypes
         "New-EKSNodegroup/AmiType"
         {
-            $v = "AL2023_ARM_64_STANDARD","AL2023_x86_64_NEURON","AL2023_x86_64_NVIDIA","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_FIPS","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_FIPS","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
+            $v = "AL2023_ARM_64_NVIDIA","AL2023_ARM_64_STANDARD","AL2023_x86_64_NEURON","AL2023_x86_64_NVIDIA","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_FIPS","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_FIPS","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
             break
         }
 
@@ -65676,6 +65685,17 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.SSEAlgorithm
+        {
+            ($_ -eq "New-S3TTable/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3TTableBucket/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "Write-S3TTableBucketEncryption/EncryptionConfiguration_SseAlgorithm")
+        }
+        {
+            $v = "AES256","aws:kms"
+            break
+        }
+
         # Amazon.S3Tables.TableBucketMaintenanceType
         "Write-S3TTableBucketMaintenanceConfiguration/Type"
         {
@@ -65699,6 +65719,7 @@ $S3T_Completers = {
 }
 
 $S3T_map = @{
+    "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
@@ -65760,13 +65781,16 @@ $S3T_SelectMap = @{
                "Remove-S3TNamespace",
                "Remove-S3TTable",
                "Remove-S3TTableBucket",
+               "Remove-S3TTableBucketEncryption",
                "Remove-S3TTableBucketPolicy",
                "Remove-S3TTablePolicy",
                "Get-S3TNamespace",
                "Get-S3TTable",
                "Get-S3TTableBucket",
+               "Get-S3TTableBucketEncryption",
                "Get-S3TTableBucketMaintenanceConfiguration",
                "Get-S3TTableBucketPolicy",
+               "Get-S3TTableEncryption",
                "Get-S3TTableMaintenanceConfiguration",
                "Get-S3TTableMaintenanceJobStatus",
                "Get-S3TTableMetadataLocation",
@@ -65774,6 +65798,7 @@ $S3T_SelectMap = @{
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
                "Get-S3TTableList",
+               "Write-S3TTableBucketEncryption",
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketPolicy",
                "Write-S3TTableMaintenanceConfiguration",

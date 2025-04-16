@@ -97,6 +97,17 @@ $S3T_Completers = {
             break
         }
 
+        # Amazon.S3Tables.SSEAlgorithm
+        {
+            ($_ -eq "New-S3TTable/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "New-S3TTableBucket/EncryptionConfiguration_SseAlgorithm") -Or
+            ($_ -eq "Write-S3TTableBucketEncryption/EncryptionConfiguration_SseAlgorithm")
+        }
+        {
+            $v = "AES256","aws:kms"
+            break
+        }
+
         # Amazon.S3Tables.TableBucketMaintenanceType
         "Write-S3TTableBucketMaintenanceConfiguration/Type"
         {
@@ -120,6 +131,7 @@ $S3T_Completers = {
 }
 
 $S3T_map = @{
+    "EncryptionConfiguration_SseAlgorithm"=@("New-S3TTable","New-S3TTableBucket","Write-S3TTableBucketEncryption")
     "Format"=@("New-S3TTable")
     "Type"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
     "Value_Status"=@("Write-S3TTableBucketMaintenanceConfiguration","Write-S3TTableMaintenanceConfiguration")
@@ -181,13 +193,16 @@ $S3T_SelectMap = @{
                "Remove-S3TNamespace",
                "Remove-S3TTable",
                "Remove-S3TTableBucket",
+               "Remove-S3TTableBucketEncryption",
                "Remove-S3TTableBucketPolicy",
                "Remove-S3TTablePolicy",
                "Get-S3TNamespace",
                "Get-S3TTable",
                "Get-S3TTableBucket",
+               "Get-S3TTableBucketEncryption",
                "Get-S3TTableBucketMaintenanceConfiguration",
                "Get-S3TTableBucketPolicy",
+               "Get-S3TTableEncryption",
                "Get-S3TTableMaintenanceConfiguration",
                "Get-S3TTableMaintenanceJobStatus",
                "Get-S3TTableMetadataLocation",
@@ -195,6 +210,7 @@ $S3T_SelectMap = @{
                "Get-S3TNamespaceList",
                "Get-S3TTableBucketList",
                "Get-S3TTableList",
+               "Write-S3TTableBucketEncryption",
                "Write-S3TTableBucketMaintenanceConfiguration",
                "Write-S3TTableBucketPolicy",
                "Write-S3TTableMaintenanceConfiguration",

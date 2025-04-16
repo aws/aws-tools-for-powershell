@@ -32,11 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-create.html">Creating
     /// an Amazon S3 table</a> in the <i>Amazon Simple Storage Service User Guide</i>.
     /// 
-    ///  <dl><dt>Permissions</dt><dd><para>
+    ///  <dl><dt>Permissions</dt><dd><ul><li><para>
     /// You must have the <c>s3tables:CreateTable</c> permission to use this operation. 
-    /// </para><note><para>
-    /// Additionally, you must have the <c>s3tables:PutTableData</c> permission to use this
-    /// operation with the optional <c>metadata</c> request parameter. 
+    /// </para></li><li><para>
+    /// If you use this operation with the optional <c>metadata</c> request parameter you
+    /// must have the <c>s3tables:PutTableData</c> permission. 
+    /// </para></li><li><para>
+    /// If you use this operation with the optional <c>encryptionConfiguration</c> request
+    /// parameter you must have the <c>s3tables:PutTableEncryption</c> permission. 
+    /// </para></li></ul><note><para>
+    /// Additionally, 
     /// </para></note></dd></dl>
     /// </summary>
     [Cmdlet("New", "S3TTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public Amazon.S3Tables.OpenTableFormat Format { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfiguration_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is
+        /// required only when <c>sseAlgorithm</c> is set to <c>aws:kms</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -110,6 +126,21 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_SseAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The server-side encryption algorithm to use. Valid values are <c>AES256</c> for S3-managed
+        /// encryption keys, or <c>aws:kms</c> for Amazon Web Services KMS-managed encryption
+        /// keys. If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal
+        /// access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions
+        /// requirements for S3 Tables SSE-KMS encryption</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3Tables.SSEAlgorithm")]
+        public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
         #endregion
         
         #region Parameter TableBucketARN
@@ -171,6 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.S3T
                 context.Select = CreateSelectDelegate<Amazon.S3Tables.Model.CreateTableResponse, NewS3TTableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
+            context.EncryptionConfiguration_SseAlgorithm = this.EncryptionConfiguration_SseAlgorithm;
             context.Format = this.Format;
             #if MODULAR
             if (this.Format == null && ParameterWasBound(nameof(this.Format)))
@@ -219,6 +252,35 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             // create request
             var request = new Amazon.S3Tables.Model.CreateTableRequest();
             
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.S3Tables.Model.EncryptionConfiguration();
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyArn != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn = cmdletContext.EncryptionConfiguration_KmsKeyArn;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn != null)
+            {
+                request.EncryptionConfiguration.KmsKeyArn = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyArn;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            Amazon.S3Tables.SSEAlgorithm requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm = null;
+            if (cmdletContext.EncryptionConfiguration_SseAlgorithm != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm = cmdletContext.EncryptionConfiguration_SseAlgorithm;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm != null)
+            {
+                request.EncryptionConfiguration.SseAlgorithm = requestEncryptionConfiguration_encryptionConfiguration_SseAlgorithm;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
+            }
             if (cmdletContext.Format != null)
             {
                 request.Format = cmdletContext.Format;
@@ -345,6 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
+            public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
             public Amazon.S3Tables.OpenTableFormat Format { get; set; }
             public List<Amazon.S3Tables.Model.SchemaField> Schema_Field { get; set; }
             public System.String Name { get; set; }

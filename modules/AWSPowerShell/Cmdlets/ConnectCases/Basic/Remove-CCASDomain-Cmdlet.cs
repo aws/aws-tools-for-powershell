@@ -30,10 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// <summary>
     /// Deletes a Cases domain.
     /// 
-    ///  <pre><c> &lt;note&gt; &lt;p&gt;After deleting your domain you must disassociate the
-    /// deleted domain from your Amazon Connect instance with another API call before being
-    /// able to use Cases again with this Amazon Connect instance. See &lt;a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html"&gt;DeleteIntegrationAssociation&lt;/a&gt;.&lt;/p&gt;
-    /// &lt;/note&gt; </c></pre>
+    ///  <note><para>
+    /// After deleting your domain you must disassociate the deleted domain from your Amazon
+    /// Connect instance with another API call before being able to use Cases again with this
+    /// Amazon Connect instance. See <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html">DeleteIntegrationAssociation</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CCASDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

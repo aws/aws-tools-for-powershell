@@ -9319,6 +9319,7 @@ Set-Alias -Name Delete-DSQLMultiRegionClusters -Value Remove-DSQLMultiRegionClus
 Set-Alias -Name Delete-DSQLMultiRegionCluster -Value Remove-DSQLMultiRegionCluster
 Set-Alias -Name DSQL-DeleteMultiRegionClusters -Value Remove-DSQLMultiRegionCluster
 Set-Alias -Name DSQL-GetCluster -Value Get-DSQLCluster
+Set-Alias -Name DSQL-GetVpcEndpointServiceName -Value Get-DSQLVpcEndpointServiceName
 Set-Alias -Name List-DSQLClusters -Value Get-DSQLClusterList
 Set-Alias -Name List-DSQLClusterList -Value Get-DSQLClusterList
 Set-Alias -Name DSQL-ListClusters -Value Get-DSQLClusterList
@@ -26770,6 +26771,8 @@ Set-Alias -Name Delete-S3TTable -Value Remove-S3TTable
 Set-Alias -Name S3T-DeleteTable -Value Remove-S3TTable
 Set-Alias -Name Delete-S3TTableBucket -Value Remove-S3TTableBucket
 Set-Alias -Name S3T-DeleteTableBucket -Value Remove-S3TTableBucket
+Set-Alias -Name Delete-S3TTableBucketEncryption -Value Remove-S3TTableBucketEncryption
+Set-Alias -Name S3T-DeleteTableBucketEncryption -Value Remove-S3TTableBucketEncryption
 Set-Alias -Name Delete-S3TTableBucketPolicy -Value Remove-S3TTableBucketPolicy
 Set-Alias -Name S3T-DeleteTableBucketPolicy -Value Remove-S3TTableBucketPolicy
 Set-Alias -Name Delete-S3TTablePolicy -Value Remove-S3TTablePolicy
@@ -26777,8 +26780,10 @@ Set-Alias -Name S3T-DeleteTablePolicy -Value Remove-S3TTablePolicy
 Set-Alias -Name S3T-GetNamespace -Value Get-S3TNamespace
 Set-Alias -Name S3T-GetTable -Value Get-S3TTable
 Set-Alias -Name S3T-GetTableBucket -Value Get-S3TTableBucket
+Set-Alias -Name S3T-GetTableBucketEncryption -Value Get-S3TTableBucketEncryption
 Set-Alias -Name S3T-GetTableBucketMaintenanceConfiguration -Value Get-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-GetTableBucketPolicy -Value Get-S3TTableBucketPolicy
+Set-Alias -Name S3T-GetTableEncryption -Value Get-S3TTableEncryption
 Set-Alias -Name S3T-GetTableMaintenanceConfiguration -Value Get-S3TTableMaintenanceConfiguration
 Set-Alias -Name S3T-GetTableMaintenanceJobStatus -Value Get-S3TTableMaintenanceJobStatus
 Set-Alias -Name S3T-GetTableMetadataLocation -Value Get-S3TTableMetadataLocation
@@ -26792,6 +26797,8 @@ Set-Alias -Name S3T-ListTableBuckets -Value Get-S3TTableBucketList
 Set-Alias -Name List-S3TTables -Value Get-S3TTableList
 Set-Alias -Name List-S3TTableList -Value Get-S3TTableList
 Set-Alias -Name S3T-ListTables -Value Get-S3TTableList
+Set-Alias -Name Put-S3TTableBucketEncryption -Value Write-S3TTableBucketEncryption
+Set-Alias -Name S3T-PutTableBucketEncryption -Value Write-S3TTableBucketEncryption
 Set-Alias -Name Put-S3TTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-PutTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name Put-S3TTableBucketPolicy -Value Write-S3TTableBucketPolicy

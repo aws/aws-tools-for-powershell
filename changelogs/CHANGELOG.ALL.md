@@ -1,4 +1,23 @@
-﻿### 4.1.799 (2025-04-14 20:44Z)
+﻿### 4.1.800 (2025-04-16 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1024.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Aurora DSQL
+    * Added cmdlet Get-DSQLVpcEndpointServiceName leveraging the GetVpcEndpointServiceName service API.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASRelatedItem: added parameters SlaInputConfiguration_FieldId, SlaInputConfiguration_Name, SlaInputConfiguration_TargetFieldValue, SlaInputConfiguration_TargetSlaMinute and SlaInputConfiguration_Type.
+  * Amazon EventBridge
+    * Modified cmdlet New-EVBConnection: added parameter KmsKeyIdentifier.
+    * Modified cmdlet Update-EVBConnection: added parameter KmsKeyIdentifier.
+  * Amazon Resource Groups
+    * Modified cmdlet Start-RGTagSyncTask: added parameter ResourceQuery.
+  * Amazon S3 Tables
+    * Added cmdlet Get-S3TTableBucketEncryption leveraging the GetTableBucketEncryption service API.
+    * Added cmdlet Get-S3TTableEncryption leveraging the GetTableEncryption service API.
+    * Added cmdlet Remove-S3TTableBucketEncryption leveraging the DeleteTableBucketEncryption service API.
+    * Added cmdlet Write-S3TTableBucketEncryption leveraging the PutTableBucketEncryption service API.
+    * Modified cmdlet New-S3TTable: added parameters EncryptionConfiguration_KmsKeyArn and EncryptionConfiguration_SseAlgorithm.
+    * Modified cmdlet New-S3TTableBucket: added parameters EncryptionConfiguration_KmsKeyArn and EncryptionConfiguration_SseAlgorithm.
+
+### 4.1.799 (2025-04-14 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1023.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Tax Settings
     * Modified cmdlet Write-TSATaxRegistration: added parameters IndonesiaAdditionalInfo_DecisionNumber, IndonesiaAdditionalInfo_PpnExceptionDesignationCode and IndonesiaAdditionalInfo_TaxRegistrationNumberType.

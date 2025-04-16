@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DSQLCluster', 
         'Get-DSQLClusterList', 
         'Get-DSQLResourceTag', 
+        'Get-DSQLVpcEndpointServiceName', 
         'New-DSQLCluster', 
         'New-DSQLMultiRegionCluster', 
         'Remove-DSQLCluster', 

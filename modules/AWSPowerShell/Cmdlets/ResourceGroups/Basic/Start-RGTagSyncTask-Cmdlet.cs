@@ -29,10 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
     /// Creates a new tag-sync task to onboard and sync resources tagged with a specific tag
-    /// key-value pair to an application. 
+    /// key-value pair to an application. To start a tag-sync task, you need a <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role">resource
+    /// tagging role</a>. The resource tagging role grants permissions to tag and untag applications
+    /// resources and must include a trust policy that allows Resource Groups to assume the
+    /// role and perform resource tagging tasks on your behalf. 
     /// 
     ///  
-    /// <para><b>Minimum permissions</b></para><para>
+    /// <para>
+    /// For instructions on creating a tag-sync task, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#create-tag-sync">Create
+    /// a tag-sync using the Resource Groups API</a> in the <i>Amazon Web Services Service
+    /// Catalog AppRegistry Administrator Guide</i>. 
+    /// </para><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para><c>resource-groups:StartTagSyncTask</c> on the application group
     /// </para></li><li><para><c>resource-groups:CreateGroup</c></para></li><li><para><c>iam:PassRole</c> on the role provided in the request 
@@ -67,6 +74,31 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.String Group { get; set; }
         #endregion
         
+        #region Parameter ResourceQuery
+        /// <summary>
+        /// <para>
+        /// <para>The query you can use to create the tag-sync task. With this method, all resources
+        /// matching the query are added to the specified application group. A <c>ResourceQuery</c>
+        /// specifies both a query <c>Type</c> and a <c>Query</c> string as JSON string objects.
+        /// For more information on defining a resource query for a tag-sync task, see the tag-based
+        /// query type in <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#getting_started-query_types">
+        /// Types of resource group queries</a> in <i>Resource Groups User Guide</i>. </para><para>When using the <c>ResourceQuery</c> parameter, you cannot use the <c>TagKey</c> and
+        /// <c>TagValue</c> parameters. </para><para>When you combine all of the elements together into a single string, any double quotes
+        /// that are embedded inside another double quote pair must be escaped by preceding the
+        /// embedded double quote with a backslash character (\). For example, a complete <c>ResourceQuery</c>
+        /// parameter must be formatted like the following CLI parameter example:</para><para><c>--resource-query '{"Type":"TAG_FILTERS_1_0","Query":"{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[{\"Key\":\"Stage\",\"Values\":[\"Test\"]}]}"}'</c></para><para>In the preceding example, all of the double quote characters in the value part of
+        /// the <c>Query</c> element must be escaped because the value itself is surrounded by
+        /// double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+        /// strings</a> in the <i>Command Line Interface User Guide</i>.</para><para>For the complete list of resource types that you can use in the array value for <c>ResourceTypeFilters</c>,
+        /// see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+        /// you can use with Resource Groups and Tag Editor</a> in the <i>Resource Groups User
+        /// Guide</i>. For example:</para><para><c>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -90,17 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>
         /// <para>The tag key. Resources tagged with this tag key-value pair will be added to the application.
         /// If a resource with this tag is later untagged, the tag-sync task removes the resource
-        /// from the application. </para>
+        /// from the application. </para><para>When using the <c>TagKey</c> parameter, you must also specify the <c>TagValue</c>
+        /// parameter. If you specify a tag key-value pair, you can't use the <c>ResourceQuery</c>
+        /// parameter. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TagKey { get; set; }
         #endregion
         
@@ -109,17 +136,12 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>
         /// <para>The tag value. Resources tagged with this tag key-value pair will be added to the
         /// application. If a resource with this tag is later untagged, the tag-sync task removes
-        /// the resource from the application. </para>
+        /// the resource from the application. </para><para>When using the <c>TagValue</c> parameter, you must also specify the <c>TagKey</c>
+        /// parameter. If you specify a tag key-value pair, you can't use the <c>ResourceQuery</c>
+        /// parameter. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TagValue { get; set; }
         #endregion
         
@@ -192,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 WriteWarning("You are passing $null as a value for parameter Group which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceQuery = this.ResourceQuery;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -200,19 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             #endif
             context.TagKey = this.TagKey;
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TagValue = this.TagValue;
-            #if MODULAR
-            if (this.TagValue == null && ParameterWasBound(nameof(this.TagValue)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagValue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -232,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             if (cmdletContext.Group != null)
             {
                 request.Group = cmdletContext.Group;
+            }
+            if (cmdletContext.ResourceQuery != null)
+            {
+                request.ResourceQuery = cmdletContext.ResourceQuery;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -307,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Group { get; set; }
+            public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
             public System.String RoleArn { get; set; }
             public System.String TagKey { get; set; }
             public System.String TagValue { get; set; }

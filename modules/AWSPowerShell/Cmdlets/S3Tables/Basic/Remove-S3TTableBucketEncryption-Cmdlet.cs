@@ -22,41 +22,35 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectCases;
-using Amazon.ConnectCases.Model;
+using Amazon.S3Tables;
+using Amazon.S3Tables.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CCAS
+namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Deletes a layout from a cases template. You can delete up to 100 layouts per domain.
+    /// Deletes the encryption configuration for a table bucket.
     /// 
-    ///  
-    /// <para>
-    /// After a layout is deleted:
-    /// </para><ul><li><para>
-    /// You can still retrieve the layout by calling <c>GetLayout</c>.
-    /// </para></li><li><para>
-    /// You cannot update a deleted layout by calling <c>UpdateLayout</c>; it throws a <c>ValidationException</c>.
-    /// </para></li><li><para>
-    /// Deleted layouts are not included in the <c>ListLayouts</c> response.
-    /// </para></li></ul>
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:DeleteTableBucketEncryption</c> permission to use this
+    /// operation.
+    /// </para></dd></dl>
     /// </summary>
-    [Cmdlet("Remove", "CCASLayout", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "S3TTableBucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Cases DeleteLayout API operation.", Operation = new[] {"DeleteLayout"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteLayoutResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteLayoutResponse",
+    [AWSCmdlet("Calls the Amazon S3 Tables DeleteTableBucketEncryption API operation.", Operation = new[] {"DeleteTableBucketEncryption"}, SelectReturnType = typeof(Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse))]
+    [AWSCmdletOutput("None or Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.DeleteLayoutResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class RemoveCCASLayoutCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class RemoveS3TTableBucketEncryptionCmdlet : AmazonS3TablesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainId
+        #region Parameter TableBucketARN
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain.</para>
+        /// <para>The Amazon Resource Name (ARN) of the table bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,30 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
-        #endregion
-        
-        #region Parameter LayoutId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the layout.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LayoutId { get; set; }
+        public System.String TableBucketARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.DeleteLayoutResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TableBucketARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TableBucketARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableBucketARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCASLayout (DeleteLayout)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TableBucketARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3TTableBucketEncryption (DeleteTableBucketEncryption)"))
             {
                 return;
             }
@@ -136,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.DeleteLayoutResponse, RemoveCCASLayoutCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse, RemoveS3TTableBucketEncryptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,21 +122,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainId;
+                context.Select = (response, cmdlet) => this.TableBucketARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainId = this.DomainId;
+            context.TableBucketARN = this.TableBucketARN;
             #if MODULAR
-            if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
+            if (this.TableBucketARN == null && ParameterWasBound(nameof(this.TableBucketARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.LayoutId = this.LayoutId;
-            #if MODULAR
-            if (this.LayoutId == null && ParameterWasBound(nameof(this.LayoutId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LayoutId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TableBucketARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,15 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.DeleteLayoutRequest();
+            var request = new Amazon.S3Tables.Model.DeleteTableBucketEncryptionRequest();
             
-            if (cmdletContext.DomainId != null)
+            if (cmdletContext.TableBucketARN != null)
             {
-                request.DomainId = cmdletContext.DomainId;
-            }
-            if (cmdletContext.LayoutId != null)
-            {
-                request.LayoutId = cmdletContext.LayoutId;
+                request.TableBucketARN = cmdletContext.TableBucketARN;
             }
             
             CmdletOutput output;
@@ -219,15 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.DeleteLayoutResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.DeleteLayoutRequest request)
+        private Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3Tables client, Amazon.S3Tables.Model.DeleteTableBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "DeleteLayout");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Tables", "DeleteTableBucketEncryption");
             try
             {
                 #if DESKTOP
-                return client.DeleteLayout(request);
+                return client.DeleteTableBucketEncryption(request);
                 #elif CORECLR
-                return client.DeleteLayoutAsync(request).GetAwaiter().GetResult();
+                return client.DeleteTableBucketEncryptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,9 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainId { get; set; }
-            public System.String LayoutId { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.DeleteLayoutResponse, RemoveCCASLayoutCmdlet, object> Select { get; set; } =
+            public System.String TableBucketARN { get; set; }
+            public System.Func<Amazon.S3Tables.Model.DeleteTableBucketEncryptionResponse, RemoveS3TTableBucketEncryptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

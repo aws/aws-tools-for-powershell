@@ -190,6 +190,20 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         public Amazon.EventBridge.ConnectionOAuthHttpMethod OAuthParameters_HttpMethod { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the KMS customer managed key for EventBridge to use, if you choose
+        /// to use a customer managed key to encrypt this connection. The identifier can be the
+        /// key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</para><para>If you do not specify a customer managed key identifier, EventBridge uses an Amazon
+        /// Web Services owned key to encrypt the connection.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html">Identify
+        /// and view keys</a> in the <i>Key Management Service Developer Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -379,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             }
             context.Description = this.Description;
             context.InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn = this.InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn;
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -723,6 +738,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             {
                 request.InvocationConnectivityParameters = null;
             }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -806,6 +825,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             public List<Amazon.EventBridge.Model.ConnectionQueryStringParameter> OAuthHttpParameters_QueryStringParameter { get; set; }
             public System.String Description { get; set; }
             public System.String InvocationConnectivityParameters_ResourceParameters_ResourceConfigurationArn { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.EventBridge.Model.CreateConnectionResponse, NewEVBConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

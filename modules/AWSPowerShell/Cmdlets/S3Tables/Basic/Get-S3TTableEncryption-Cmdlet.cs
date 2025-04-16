@@ -22,30 +22,26 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectCases;
-using Amazon.ConnectCases.Model;
+using Amazon.S3Tables;
+using Amazon.S3Tables.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CCAS
+namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Creates a domain, which is a container for all case data, such as cases, fields, templates
-    /// and layouts. Each Amazon Connect instance can be associated with only one Cases domain.
+    /// Gets the encryption configuration for a table.
     /// 
-    ///  <important><para>
-    /// This will not associate your connect instance to Cases domain. Instead, use the Amazon
-    /// Connect <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a>
-    /// API. You need specific IAM permissions to successfully associate the Cases domain.
-    /// For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard
-    /// to Cases</a>.
-    /// </para></important>
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:GetTableEncryption</c> permission to use this operation.
+    /// </para></dd></dl>
     /// </summary>
-    [Cmdlet("New", "CCASDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ConnectCases.Model.CreateDomainResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Cases CreateDomain API operation.", Operation = new[] {"CreateDomain"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.CreateDomainResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.CreateDomainResponse",
-        "This cmdlet returns an Amazon.ConnectCases.Model.CreateDomainResponse object containing multiple properties."
+    [Cmdlet("Get", "S3TTableEncryption")]
+    [OutputType("Amazon.S3Tables.Model.EncryptionConfiguration")]
+    [AWSCmdlet("Calls the Amazon S3 Tables GetTableEncryption API operation.", Operation = new[] {"GetTableEncryption"}, SelectReturnType = typeof(Amazon.S3Tables.Model.GetTableEncryptionResponse))]
+    [AWSCmdletOutput("Amazon.S3Tables.Model.EncryptionConfiguration or Amazon.S3Tables.Model.GetTableEncryptionResponse",
+        "This cmdlet returns an Amazon.S3Tables.Model.EncryptionConfiguration object.",
+        "The service call response (type Amazon.S3Tables.Model.GetTableEncryptionResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewCCASDomainCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class GetS3TTableEncryptionCmdlet : AmazonS3TablesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -53,13 +49,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name for your Cases domain. It must be unique for your Amazon Web Services account.</para>
+        /// <para>The name of the table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -67,35 +63,49 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace associated with the table.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter TableBucketARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the table bucket containing the table.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TableBucketARN { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.CreateDomainResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.CreateDomainResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'EncryptionConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Tables.Model.GetTableEncryptionResponse).
+        /// Specifying the name of a property of type Amazon.S3Tables.Model.GetTableEncryptionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "EncryptionConfiguration";
         #endregion
         
         protected override void ProcessRecord()
@@ -103,37 +113,35 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CCASDomain (CreateDomain)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.CreateDomainResponse, NewCCASDomainCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Tables.Model.GetTableEncryptionResponse, GetS3TTableEncryptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Name;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Namespace = this.Namespace;
+            #if MODULAR
+            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TableBucketARN = this.TableBucketARN;
+            #if MODULAR
+            if (this.TableBucketARN == null && ParameterWasBound(nameof(this.TableBucketARN)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TableBucketARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,11 +158,19 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.CreateDomainRequest();
+            var request = new Amazon.S3Tables.Model.GetTableEncryptionRequest();
             
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Namespace != null)
+            {
+                request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.TableBucketARN != null)
+            {
+                request.TableBucketARN = cmdletContext.TableBucketARN;
             }
             
             CmdletOutput output;
@@ -189,15 +205,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.CreateDomainResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.CreateDomainRequest request)
+        private Amazon.S3Tables.Model.GetTableEncryptionResponse CallAWSServiceOperation(IAmazonS3Tables client, Amazon.S3Tables.Model.GetTableEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "CreateDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Tables", "GetTableEncryption");
             try
             {
                 #if DESKTOP
-                return client.CreateDomain(request);
+                return client.GetTableEncryption(request);
                 #elif CORECLR
-                return client.CreateDomainAsync(request).GetAwaiter().GetResult();
+                return client.GetTableEncryptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,8 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.CreateDomainResponse, NewCCASDomainCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Namespace { get; set; }
+            public System.String TableBucketARN { get; set; }
+            public System.Func<Amazon.S3Tables.Model.GetTableEncryptionResponse, GetS3TTableEncryptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.EncryptionConfiguration;
         }
         
     }

@@ -28,25 +28,24 @@ using Amazon.S3Tables.Model;
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
-    /// Creates a table bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-create.html">Creating
-    /// a table bucket</a> in the <i>Amazon Simple Storage Service User Guide</i>.
+    /// Sets the encryption configuration for a table bucket.
     /// 
-    ///  <dl><dt>Permissions</dt><dd><ul><li><para>
-    /// You must have the <c>s3tables:CreateTableBucket</c> permission to use this operation.
-    /// 
-    /// </para></li><li><para>
-    /// If you use this operation with the optional <c>encryptionConfiguration</c> parameter
-    /// you must have the <c>s3tables:PutTableBucketEncryption</c> permission.
-    /// </para></li></ul></dd></dl>
+    ///  <dl><dt>Permissions</dt><dd><para>
+    /// You must have the <c>s3tables:PutTableBucketEncryption</c> permission to use this
+    /// operation.
+    /// </para><note><para>
+    /// If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal
+    /// access to your KMS key. For more information, see <a href="AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions
+    /// requirements for S3 Tables SSE-KMS encryption</a></para></note></dd></dl>
     /// </summary>
-    [Cmdlet("New", "S3TTableBucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Tables CreateTableBucket API operation.", Operation = new[] {"CreateTableBucket"}, SelectReturnType = typeof(Amazon.S3Tables.Model.CreateTableBucketResponse))]
-    [AWSCmdletOutput("System.String or Amazon.S3Tables.Model.CreateTableBucketResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.S3Tables.Model.CreateTableBucketResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Write", "S3TTableBucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon S3 Tables PutTableBucketEncryption API operation.", Operation = new[] {"PutTableBucketEncryption"}, SelectReturnType = typeof(Amazon.S3Tables.Model.PutTableBucketEncryptionResponse))]
+    [AWSCmdletOutput("None or Amazon.S3Tables.Model.PutTableBucketEncryptionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.S3Tables.Model.PutTableBucketEncryptionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class NewS3TTableBucketCmdlet : AmazonS3TablesClientCmdlet, IExecutor
+    public partial class WriteS3TTableBucketEncryptionCmdlet : AmazonS3TablesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -62,23 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
         #endregion
         
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name for the table bucket.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
         #region Parameter EncryptionConfiguration_SseAlgorithm
         /// <summary>
         /// <para>
@@ -89,28 +71,50 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         /// requirements for S3 Tables SSE-KMS encryption</a>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.S3Tables.SSEAlgorithm")]
         public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
         #endregion
         
+        #region Parameter TableBucketARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the table bucket.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TableBucketARN { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Arn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Tables.Model.CreateTableBucketResponse).
-        /// Specifying the name of a property of type Amazon.S3Tables.Model.CreateTableBucketResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Tables.Model.PutTableBucketEncryptionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Arn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TableBucketARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TableBucketARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableBucketARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-S3TTableBucket (CreateTableBucket)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EncryptionConfiguration_KmsKeyArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3TTableBucketEncryption (PutTableBucketEncryption)"))
             {
                 return;
             }
@@ -144,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3Tables.Model.CreateTableBucketResponse, NewS3TTableBucketCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Tables.Model.PutTableBucketEncryptionResponse, WriteS3TTableBucketEncryptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,16 +157,22 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.TableBucketARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EncryptionConfiguration_KmsKeyArn = this.EncryptionConfiguration_KmsKeyArn;
             context.EncryptionConfiguration_SseAlgorithm = this.EncryptionConfiguration_SseAlgorithm;
-            context.Name = this.Name;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.EncryptionConfiguration_SseAlgorithm == null && ParameterWasBound(nameof(this.EncryptionConfiguration_SseAlgorithm)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EncryptionConfiguration_SseAlgorithm which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TableBucketARN = this.TableBucketARN;
+            #if MODULAR
+            if (this.TableBucketARN == null && ParameterWasBound(nameof(this.TableBucketARN)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TableBucketARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -179,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3Tables.Model.CreateTableBucketRequest();
+            var request = new Amazon.S3Tables.Model.PutTableBucketEncryptionRequest();
             
             
              // populate EncryptionConfiguration
@@ -210,9 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             {
                 request.EncryptionConfiguration = null;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.TableBucketARN != null)
             {
-                request.Name = cmdletContext.Name;
+                request.TableBucketARN = cmdletContext.TableBucketARN;
             }
             
             CmdletOutput output;
@@ -247,15 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         
         #region AWS Service Operation Call
         
-        private Amazon.S3Tables.Model.CreateTableBucketResponse CallAWSServiceOperation(IAmazonS3Tables client, Amazon.S3Tables.Model.CreateTableBucketRequest request)
+        private Amazon.S3Tables.Model.PutTableBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3Tables client, Amazon.S3Tables.Model.PutTableBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Tables", "CreateTableBucket");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Tables", "PutTableBucketEncryption");
             try
             {
                 #if DESKTOP
-                return client.CreateTableBucket(request);
+                return client.PutTableBucketEncryption(request);
                 #elif CORECLR
-                return client.CreateTableBucketAsync(request).GetAwaiter().GetResult();
+                return client.PutTableBucketEncryptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -277,9 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         {
             public System.String EncryptionConfiguration_KmsKeyArn { get; set; }
             public Amazon.S3Tables.SSEAlgorithm EncryptionConfiguration_SseAlgorithm { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.S3Tables.Model.CreateTableBucketResponse, NewS3TTableBucketCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Arn;
+            public System.String TableBucketARN { get; set; }
+            public System.Func<Amazon.S3Tables.Model.PutTableBucketEncryptionResponse, WriteS3TTableBucketEncryptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
