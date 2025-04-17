@@ -28,48 +28,22 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves a list of runs.
-    /// 
-    ///  
-    /// <para>
-    /// Amazon Web Services HealthOmics stores a fixed number of runs that are available to
-    /// the console and API. If the ListRuns response doesn't include specific runs that you
-    /// expected, you can find run logs for all runs in the CloudWatch logs. For more information
-    /// about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch
-    /// logs</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
-    /// </para>
+    /// Lists the workflow versions for the specified workflow. For more information, see
+    /// <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
+    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
+    /// User Guide.
     /// </summary>
-    [Cmdlet("Get", "OMICSRunList")]
-    [OutputType("Amazon.Omics.Model.RunListItem")]
-    [AWSCmdlet("Calls the Amazon Omics ListRuns API operation.", Operation = new[] {"ListRuns"}, SelectReturnType = typeof(Amazon.Omics.Model.ListRunsResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.RunListItem or Amazon.Omics.Model.ListRunsResponse",
-        "This cmdlet returns a collection of Amazon.Omics.Model.RunListItem objects.",
-        "The service call response (type Amazon.Omics.Model.ListRunsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "OMICSWorkflowVersionList")]
+    [OutputType("Amazon.Omics.Model.WorkflowVersionListItem")]
+    [AWSCmdlet("Calls the Amazon Omics ListWorkflowVersions API operation.", Operation = new[] {"ListWorkflowVersions"}, SelectReturnType = typeof(Amazon.Omics.Model.ListWorkflowVersionsResponse))]
+    [AWSCmdletOutput("Amazon.Omics.Model.WorkflowVersionListItem or Amazon.Omics.Model.ListWorkflowVersionsResponse",
+        "This cmdlet returns a collection of Amazon.Omics.Model.WorkflowVersionListItem objects.",
+        "The service call response (type Amazon.Omics.Model.ListWorkflowVersionsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSRunListCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetOMICSWorkflowVersionListCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Filter the list by run name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter RunGroupId
-        /// <summary>
-        /// <para>
-        /// <para>Filter the list by run group ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RunGroupId { get; set; }
-        #endregion
         
         #region Parameter StartingToken
         /// <summary>
@@ -82,21 +56,48 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String StartingToken { get; set; }
         #endregion
         
-        #region Parameter Status
+        #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The status of a run.</para>
+        /// <para>The workflow type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Omics.RunStatus")]
-        public Amazon.Omics.RunStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.Omics.WorkflowType")]
+        public Amazon.Omics.WorkflowType Type { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowId
+        /// <summary>
+        /// <para>
+        /// <para>The workflow's ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkflowId { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowOwnerId
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Web Services Id of the owner of the workflow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkflowOwnerId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of runs to return in one page of results.</para>
+        /// <para>The maximum number of workflows to return in one page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,12 +108,22 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListRunsResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.ListRunsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListWorkflowVersionsResponse).
+        /// Specifying the name of a property of type Amazon.Omics.Model.ListWorkflowVersionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Items";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the WorkflowId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkflowId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -125,16 +136,32 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListRunsResponse, GetOMICSRunListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListWorkflowVersionsResponse, GetOMICSWorkflowVersionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.WorkflowId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
-            context.Name = this.Name;
-            context.RunGroupId = this.RunGroupId;
             context.StartingToken = this.StartingToken;
-            context.Status = this.Status;
+            context.Type = this.Type;
+            context.WorkflowId = this.WorkflowId;
+            #if MODULAR
+            if (this.WorkflowId == null && ParameterWasBound(nameof(this.WorkflowId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkflowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.WorkflowOwnerId = this.WorkflowOwnerId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,27 +176,27 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.ListRunsRequest();
+            var request = new Amazon.Omics.Model.ListWorkflowVersionsRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.RunGroupId != null)
-            {
-                request.RunGroupId = cmdletContext.RunGroupId;
-            }
             if (cmdletContext.StartingToken != null)
             {
                 request.StartingToken = cmdletContext.StartingToken;
             }
-            if (cmdletContext.Status != null)
+            if (cmdletContext.Type != null)
             {
-                request.Status = cmdletContext.Status;
+                request.Type = cmdletContext.Type;
+            }
+            if (cmdletContext.WorkflowId != null)
+            {
+                request.WorkflowId = cmdletContext.WorkflowId;
+            }
+            if (cmdletContext.WorkflowOwnerId != null)
+            {
+                request.WorkflowOwnerId = cmdletContext.WorkflowOwnerId;
             }
             
             CmdletOutput output;
@@ -204,15 +231,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.ListRunsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListRunsRequest request)
+        private Amazon.Omics.Model.ListWorkflowVersionsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListWorkflowVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListRuns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListWorkflowVersions");
             try
             {
                 #if DESKTOP
-                return client.ListRuns(request);
+                return client.ListWorkflowVersions(request);
                 #elif CORECLR
-                return client.ListRunsAsync(request).GetAwaiter().GetResult();
+                return client.ListWorkflowVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,11 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResult { get; set; }
-            public System.String Name { get; set; }
-            public System.String RunGroupId { get; set; }
             public System.String StartingToken { get; set; }
-            public Amazon.Omics.RunStatus Status { get; set; }
-            public System.Func<Amazon.Omics.Model.ListRunsResponse, GetOMICSRunListCmdlet, object> Select { get; set; } =
+            public Amazon.Omics.WorkflowType Type { get; set; }
+            public System.String WorkflowId { get; set; }
+            public System.String WorkflowOwnerId { get; set; }
+            public System.Func<Amazon.Omics.Model.ListWorkflowVersionsResponse, GetOMICSWorkflowVersionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
         

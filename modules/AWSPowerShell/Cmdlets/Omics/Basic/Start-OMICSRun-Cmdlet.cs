@@ -28,23 +28,18 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
-    /// remaining parameters are copied from the previous run.
+    /// Starts a new run or duplicates an existing run.
     /// 
     ///  
     /// <para>
-    /// StartRun will not support re-run for a workflow that is shared with you.
+    /// For a new run, specify a unique <c>requestId</c>, the <c>workflowId</c>, and a role
+    /// ARN. If you're using static run storage (the default), specify the required <c>storageCapacity</c>.
     /// </para><para>
-    /// HealthOmics stores a fixed number of runs that are available to the console and API.
-    /// By default, HealthOmics doesn't any remove any runs. If HealthOmics reaches the maximum
-    /// number of runs, you must manually remove runs. To have older runs removed automatically,
-    /// set the retention mode to <c>REMOVE</c>.
+    /// You duplicate a run by specifing a unique <c>requestId</c>, the <c>runID</c> of the
+    /// run to duplicate, and a role ARN.
     /// </para><para>
-    /// By default, the run uses STATIC storage. For STATIC storage, set the <c>storageCapacity</c>
-    /// field. You can set the storage type to DYNAMIC. You do not set <c>storageCapacity</c>,
-    /// because HealthOmics dynamically scales the storage up or down as required. For more
-    /// information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
-    /// workflows</a> in the <i>AWS HealthOmics User Guide</i>.
+    /// For more information about the optional parameters in the StartRun request, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Starting a
+    /// run</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "OMICSRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// <para>The cache behavior for the run. You specify this value if you want to override the
         /// default behavior for the cache. You had set the default value when you created the
         /// cache. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run
-        /// cache behavior</a> in the AWS HealthOmics User Guide.</para>
+        /// cache behavior</a> in the Amazon Web Services HealthOmics User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,13 +143,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RetentionMode
         /// <summary>
         /// <para>
-        /// <para>The retention mode for the run. The default value is RETAIN. </para><para>HealthOmics stores a fixed number of runs that are available to the console and API.
-        /// In the default mode (RETAIN), you need to remove runs manually when the number of
-        /// run exceeds the maximum. If you set the retention mode to <c>REMOVE</c>, HealthOmics
-        /// automatically removes runs (that have mode set to REMOVE) when the number of run exceeds
-        /// the maximum. All run logs are available in CloudWatch logs, if you need information
-        /// about a run that is no longer available to the API.</para><para>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying
-        /// run retention mode</a> in the <i>AWS HealthOmics User Guide</i>.</para>
+        /// <para>The retention mode for the run. The default value is RETAIN. </para><para>Amazon Web Services HealthOmics stores a fixed number of runs that are available to
+        /// the console and API. In the default mode (RETAIN), you need to remove runs manually
+        /// when the number of run exceeds the maximum. If you set the retention mode to <c>REMOVE</c>,
+        /// Amazon Web Services HealthOmics automatically removes runs (that have mode set to
+        /// REMOVE) when the number of run exceeds the maximum. All run logs are available in
+        /// CloudWatch logs, if you need information about a run that is no longer available to
+        /// the API.</para><para>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying
+        /// run retention mode</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>A storage capacity for the run in gibibytes. This field is not required if the storage
-        /// type is dynamic (the system ignores any value that you enter).</para>
+        /// <para>The static storage capacity (in gibibytes) for this run. This field is not required
+        /// if the storage type is dynamic (the system ignores any value that you enter).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,9 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The run's storage type. By default, the run uses STATIC storage type, which allocates
-        /// a fixed amount of storage. If you set the storage type to DYNAMIC, HealthOmics dynamically
-        /// scales the storage up or down, based on file system utilization.</para>
+        /// <para>The storage type for the run. By default, the run uses STATIC storage type, which
+        /// allocates a fixed amount of storage. If you set the storage type to DYNAMIC, Amazon
+        /// Web Services HealthOmics dynamically scales the storage up or down, based on file
+        /// system utilization. For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a>
+        /// in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,6 +261,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Omics.WorkflowType")]
         public Amazon.Omics.WorkflowType WorkflowType { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowVersionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workflow version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkflowVersionName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -358,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.WorkflowId = this.WorkflowId;
             context.WorkflowOwnerId = this.WorkflowOwnerId;
             context.WorkflowType = this.WorkflowType;
+            context.WorkflowVersionName = this.WorkflowVersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -446,6 +455,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 request.WorkflowType = cmdletContext.WorkflowType;
             }
+            if (cmdletContext.WorkflowVersionName != null)
+            {
+                request.WorkflowVersionName = cmdletContext.WorkflowVersionName;
+            }
             
             CmdletOutput output;
             
@@ -525,6 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String WorkflowId { get; set; }
             public System.String WorkflowOwnerId { get; set; }
             public Amazon.Omics.WorkflowType WorkflowType { get; set; }
+            public System.String WorkflowVersionName { get; set; }
             public System.Func<Amazon.Omics.Model.StartRunResponse, StartOMICSRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

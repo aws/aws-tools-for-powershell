@@ -93,7 +93,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.AccessCheckResourceType
         "Test-IAMAANoPublicAccess/ResourceType"
         {
-            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EFS::FileSystem","AWS::IAM::AssumeRolePolicyDocument","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::OpenSearchService::Domain","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::Glacier","AWS::S3Express::DirectoryBucket","AWS::S3Outposts::AccessPoint","AWS::S3Outposts::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::ApiGateway::RestApi","AWS::Backup::BackupVault","AWS::CloudTrail::Dashboard","AWS::CloudTrail::EventDataStore","AWS::CodeArtifact::Domain","AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EFS::FileSystem","AWS::IAM::AssumeRolePolicyDocument","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::OpenSearchService::Domain","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::Glacier","AWS::S3Express::AccessPoint","AWS::S3Express::DirectoryBucket","AWS::S3Outposts::AccessPoint","AWS::S3Outposts::Bucket","AWS::S3Tables::Table","AWS::S3Tables::TableBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 

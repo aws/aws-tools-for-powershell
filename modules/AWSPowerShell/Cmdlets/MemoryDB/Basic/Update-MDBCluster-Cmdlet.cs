@@ -103,6 +103,22 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter IpDiscovery
+        /// <summary>
+        /// <para>
+        /// <para>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid
+        /// values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such
+        /// as cluster slots, cluster shards, and cluster nodes will return IPv4 addresses for
+        /// cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses
+        /// for cluster nodes. The value must be compatible with the NetworkType parameter. If
+        /// not specified, the default is 'ipv4'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MemoryDB.IpDiscovery")]
+        public Amazon.MemoryDB.IpDiscovery IpDiscovery { get; set; }
+        #endregion
+        
         #region Parameter MaintenanceWindow
         /// <summary>
         /// <para>
@@ -283,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             context.Description = this.Description;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.IpDiscovery = this.IpDiscovery;
             context.MaintenanceWindow = this.MaintenanceWindow;
             context.NodeType = this.NodeType;
             context.ParameterGroupName = this.ParameterGroupName;
@@ -331,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.IpDiscovery != null)
+            {
+                request.IpDiscovery = cmdletContext.IpDiscovery;
             }
             if (cmdletContext.MaintenanceWindow != null)
             {
@@ -468,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String Description { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public Amazon.MemoryDB.IpDiscovery IpDiscovery { get; set; }
             public System.String MaintenanceWindow { get; set; }
             public System.String NodeType { get; set; }
             public System.String ParameterGroupName { get; set; }

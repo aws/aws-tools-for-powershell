@@ -112,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter UpdateStrategy
         /// <summary>
         /// <para>
-        /// <para>Whether to force the update even if it may cause data loss.</para>
+        /// <para>The strategy to use for the update operation. Supported values are "coordinated" or
+        /// "uncoordinated".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -93,7 +93,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.AccessCheckResourceType
         "Test-IAMAANoPublicAccess/ResourceType"
         {
-            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EFS::FileSystem","AWS::IAM::AssumeRolePolicyDocument","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::OpenSearchService::Domain","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::Glacier","AWS::S3Express::DirectoryBucket","AWS::S3Outposts::AccessPoint","AWS::S3Outposts::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::ApiGateway::RestApi","AWS::Backup::BackupVault","AWS::CloudTrail::Dashboard","AWS::CloudTrail::EventDataStore","AWS::CodeArtifact::Domain","AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EFS::FileSystem","AWS::IAM::AssumeRolePolicyDocument","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::OpenSearchService::Domain","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::Glacier","AWS::S3Express::AccessPoint","AWS::S3Express::DirectoryBucket","AWS::S3Outposts::AccessPoint","AWS::S3Outposts::Bucket","AWS::S3Tables::Table","AWS::S3Tables::TableBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 
@@ -4369,6 +4369,7 @@ $PROM_SelectMap = @{
                "Get-PROMRuleGroupsNamespace",
                "Get-PROMScraper",
                "Get-PROMWorkspace",
+               "Get-PROMWorkspaceConfiguration",
                "Get-PROMDefaultScraperConfiguration",
                "Get-PROMRuleGroupsNamespaceList",
                "Get-PROMScraperList",
@@ -4380,7 +4381,8 @@ $PROM_SelectMap = @{
                "Remove-PROMResourceTag",
                "Update-PROMLoggingConfiguration",
                "Update-PROMScraper",
-               "Update-PROMWorkspaceAlias")
+               "Update-PROMWorkspaceAlias",
+               "Update-PROMWorkspaceConfiguration")
 }
 
 _awsArgumentCompleterRegistration $PROM_SelectCompleters $PROM_SelectMap
@@ -17529,7 +17531,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnCaseCreate","OnCaseUpdate","OnContactEvaluationSubmit","OnMetricDataUpdate","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnRealTimeChatAnalysisAvailable","OnSalesforceCaseCreate","OnSlaBreach","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -27501,7 +27503,7 @@ $ECS_Completers = {
             ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
-            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","fargateTaskRetirementWaitPeriod","guardDutyActivate","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
+            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","defaultLogDriverMode","fargateFIPSMode","fargateTaskRetirementWaitPeriod","guardDutyActivate","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
             break
         }
 
@@ -49384,6 +49386,23 @@ $MDB_Completers = {
             break
         }
 
+        # Amazon.MemoryDB.IpDiscovery
+        {
+            ($_ -eq "New-MDBCluster/IpDiscovery") -Or
+            ($_ -eq "Update-MDBCluster/IpDiscovery")
+        }
+        {
+            $v = "ipv4","ipv6"
+            break
+        }
+
+        # Amazon.MemoryDB.NetworkType
+        "New-MDBCluster/NetworkType"
+        {
+            $v = "dual_stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.MemoryDB.SourceType
         "Get-MDBEvent/SourceType"
         {
@@ -49408,6 +49427,8 @@ $MDB_Completers = {
 
 $MDB_map = @{
     "AuthenticationMode_Type"=@("New-MDBUser","Update-MDBUser")
+    "IpDiscovery"=@("New-MDBCluster","Update-MDBCluster")
+    "NetworkType"=@("New-MDBCluster")
     "SourceType"=@("Get-MDBEvent")
     "UpdateStrategy"=@("Update-MDBMultiRegionCluster")
 }
@@ -53277,7 +53298,10 @@ $OMICS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Omics.Accelerators
-        "New-OMICSWorkflow/Accelerator"
+        {
+            ($_ -eq "New-OMICSWorkflow/Accelerator") -Or
+            ($_ -eq "New-OMICSWorkflowVersion/Accelerator")
+        }
         {
             $v = "GPU"
             break
@@ -53442,7 +53466,13 @@ $OMICS_Completers = {
         }
 
         # Amazon.Omics.StorageType
-        "Start-OMICSRun/StorageType"
+        {
+            ($_ -eq "New-OMICSWorkflow/StorageType") -Or
+            ($_ -eq "New-OMICSWorkflowVersion/StorageType") -Or
+            ($_ -eq "Start-OMICSRun/StorageType") -Or
+            ($_ -eq "Update-OMICSWorkflow/StorageType") -Or
+            ($_ -eq "Update-OMICSWorkflowVersion/StorageType")
+        }
         {
             $v = "DYNAMIC","STATIC"
             break
@@ -53480,7 +53510,10 @@ $OMICS_Completers = {
         }
 
         # Amazon.Omics.WorkflowEngine
-        "New-OMICSWorkflow/Engine"
+        {
+            ($_ -eq "New-OMICSWorkflow/Engine") -Or
+            ($_ -eq "New-OMICSWorkflowVersion/Engine")
+        }
         {
             $v = "CWL","NEXTFLOW","WDL"
             break
@@ -53490,6 +53523,8 @@ $OMICS_Completers = {
         {
             ($_ -eq "Get-OMICSWorkflow/Type") -Or
             ($_ -eq "Get-OMICSWorkflowList/Type") -Or
+            ($_ -eq "Get-OMICSWorkflowVersion/Type") -Or
+            ($_ -eq "Get-OMICSWorkflowVersionList/Type") -Or
             ($_ -eq "Start-OMICSRun/WorkflowType")
         }
         {
@@ -53506,9 +53541,9 @@ $OMICS_Completers = {
 }
 
 $OMICS_map = @{
-    "Accelerator"=@("New-OMICSWorkflow")
+    "Accelerator"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "CacheBehavior"=@("New-OMICSRunCache","Start-OMICSRun","Update-OMICSRunCache")
-    "Engine"=@("New-OMICSWorkflow")
+    "Engine"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion")
     "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
@@ -53520,11 +53555,11 @@ $OMICS_map = @{
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
-    "StorageType"=@("Start-OMICSRun")
+    "StorageType"=@("New-OMICSWorkflow","New-OMICSWorkflowVersion","Start-OMICSRun","Update-OMICSWorkflow","Update-OMICSWorkflowVersion")
     "StoreFormat"=@("New-OMICSAnnotationStore")
     "TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
     "TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")
-    "Type"=@("Get-OMICSWorkflow","Get-OMICSWorkflowList")
+    "Type"=@("Get-OMICSWorkflow","Get-OMICSWorkflowList","Get-OMICSWorkflowVersion","Get-OMICSWorkflowVersionList")
     "WorkflowType"=@("Start-OMICSRun")
 }
 
@@ -53595,6 +53630,7 @@ $OMICS_SelectMap = @{
                "New-OMICSShare",
                "New-OMICSVariantStore",
                "New-OMICSWorkflow",
+               "New-OMICSWorkflowVersion",
                "Remove-OMICSAnnotationStore",
                "Remove-OMICSAnnotationStoreVersion",
                "Remove-OMICSReference",
@@ -53607,6 +53643,7 @@ $OMICS_SelectMap = @{
                "Remove-OMICSShare",
                "Remove-OMICSVariantStore",
                "Remove-OMICSWorkflow",
+               "Remove-OMICSWorkflowVersion",
                "Get-OMICSAnnotationImportJob",
                "Get-OMICSAnnotationStore",
                "Get-OMICSAnnotationStoreVersion",
@@ -53629,6 +53666,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSVariantImportJob",
                "Get-OMICSVariantStore",
                "Get-OMICSWorkflow",
+               "Get-OMICSWorkflowVersion",
                "Get-OMICSAnnotationImportJobList",
                "Get-OMICSAnnotationStoreList",
                "Get-OMICSAnnotationStoreVersionList",
@@ -53651,6 +53689,7 @@ $OMICS_SelectMap = @{
                "Get-OMICSVariantImportJobList",
                "Get-OMICSVariantStoreList",
                "Get-OMICSWorkflowList",
+               "Get-OMICSWorkflowVersionList",
                "Write-OMICSS3AccessPolicy",
                "Start-OMICSAnnotationImportJob",
                "Start-OMICSReadSetActivationJob",
@@ -53668,6 +53707,7 @@ $OMICS_SelectMap = @{
                "Update-OMICSSequenceStore",
                "Update-OMICSVariantStore",
                "Update-OMICSWorkflow",
+               "Update-OMICSWorkflowVersion",
                "Set-OMICSReadSetPart")
 }
 

@@ -121,8 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the voice contact that is shown to an agent in the Contact Control
-        /// Panel (CCP).</para>
+        /// <para>A description of the voice contact that appears in the agent's snapshot in the CCP
+        /// logs. For more information about CCP logs, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/download-ccp-logs.html">Download
+        /// and review CCP logs</a> in the <i>Amazon Connect Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

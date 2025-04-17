@@ -22,50 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Omics;
-using Amazon.Omics.Model;
+using Amazon.PrometheusService;
+using Amazon.PrometheusService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OMICS
+namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Gets information about a workflow run.
-    /// 
-    ///  
-    /// <para>
-    /// If a workflow is shared with you, you cannot export information about the run.
-    /// </para><para>
-    /// Amazon Web Services HealthOmics stores a fixed number of runs that are available to
-    /// the console and API. If GetRun doesn't return the requested run, you can find run
-    /// logs for all runs in the CloudWatch logs. For more information about viewing the run
-    /// logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch
-    /// logs</a> in the <i>in the Amazon Web Services HealthOmics User Guide</i>.
-    /// </para>
+    /// Use this operation to return information about the configuration of a workspace. The
+    /// configuration details returned include workspace configuration status, label set limits,
+    /// and retention period.
     /// </summary>
-    [Cmdlet("Get", "OMICSRun")]
-    [OutputType("Amazon.Omics.Model.GetRunResponse")]
-    [AWSCmdlet("Calls the Amazon Omics GetRun API operation.", Operation = new[] {"GetRun"}, SelectReturnType = typeof(Amazon.Omics.Model.GetRunResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.GetRunResponse",
-        "This cmdlet returns an Amazon.Omics.Model.GetRunResponse object containing multiple properties."
+    [Cmdlet("Get", "PROMWorkspaceConfiguration")]
+    [OutputType("Amazon.PrometheusService.Model.WorkspaceConfigurationDescription")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service DescribeWorkspaceConfiguration API operation.", Operation = new[] {"DescribeWorkspaceConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.WorkspaceConfigurationDescription or Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.WorkspaceConfigurationDescription object.",
+        "The service call response (type Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSRunCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class GetPROMWorkspaceConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Export
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The run's export format.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Export { get; set; }
-        #endregion
-        
-        #region Parameter Id
-        /// <summary>
-        /// <para>
-        /// <para>The run's ID.</para>
+        /// <para>The ID of the workspace that you want to retrieve information for. To find the IDs
+        /// of your workspaces, use the <a href="https://docs.aws.amazon.com/prometheus/latest/APIReference/API_ListWorkspaces.htm">ListWorkspaces</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,26 +60,26 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.GetRunResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.GetRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkspaceConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "WorkspaceConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkspaceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -113,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.GetRunResponse, GetOMICSRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse, GetPROMWorkspaceConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -122,18 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Export != null)
-            {
-                context.Export = new List<System.String>(this.Export);
-            }
-            context.Id = this.Id;
+            context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.GetRunRequest();
+            var request = new Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationRequest();
             
-            if (cmdletContext.Export != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.Export = cmdletContext.Export;
-            }
-            if (cmdletContext.Id != null)
-            {
-                request.Id = cmdletContext.Id;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -193,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.GetRunResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.GetRunRequest request)
+        private Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "GetRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DescribeWorkspaceConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetRun(request);
+                return client.DescribeWorkspaceConfiguration(request);
                 #elif CORECLR
-                return client.GetRunAsync(request).GetAwaiter().GetResult();
+                return client.DescribeWorkspaceConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,10 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Export { get; set; }
-            public System.String Id { get; set; }
-            public System.Func<Amazon.Omics.Model.GetRunResponse, GetOMICSRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.PrometheusService.Model.DescribeWorkspaceConfigurationResponse, GetPROMWorkspaceConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.WorkspaceConfiguration;
         }
         
     }

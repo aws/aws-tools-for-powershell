@@ -272,7 +272,7 @@ $ECS_Completers = {
             ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
-            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","fargateTaskRetirementWaitPeriod","guardDutyActivate","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
+            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","defaultLogDriverMode","fargateFIPSMode","fargateTaskRetirementWaitPeriod","guardDutyActivate","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
             break
         }
 

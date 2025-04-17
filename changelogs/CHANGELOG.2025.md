@@ -1,4 +1,24 @@
-﻿### 4.1.800 (2025-04-16 20:54Z)
+﻿### 4.1.801 (2025-04-17 20:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1025.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDREvaluationJob: added parameters CustomMetricConfig_CustomMetric and EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels.
+  * Amazon MemoryDB
+    * Modified cmdlet New-MDBCluster: added parameters IpDiscovery and NetworkType.
+    * Modified cmdlet Update-MDBCluster: added parameter IpDiscovery.
+  * Amazon Omics
+    * Added cmdlet Get-OMICSWorkflowVersion leveraging the GetWorkflowVersion service API.
+    * Added cmdlet Get-OMICSWorkflowVersionList leveraging the ListWorkflowVersions service API.
+    * Added cmdlet New-OMICSWorkflowVersion leveraging the CreateWorkflowVersion service API.
+    * Added cmdlet Remove-OMICSWorkflowVersion leveraging the DeleteWorkflowVersion service API.
+    * Added cmdlet Update-OMICSWorkflowVersion leveraging the UpdateWorkflowVersion service API.
+    * Modified cmdlet New-OMICSWorkflow: added parameter StorageType.
+    * Modified cmdlet Start-OMICSRun: added parameter WorkflowVersionName.
+    * Modified cmdlet Update-OMICSWorkflow: added parameters StorageCapacity and StorageType.
+  * Amazon Prometheus Service
+    * Added cmdlet Get-PROMWorkspaceConfiguration leveraging the DescribeWorkspaceConfiguration service API.
+    * Added cmdlet Update-PROMWorkspaceConfiguration leveraging the UpdateWorkspaceConfiguration service API.
+
+### 4.1.800 (2025-04-16 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1024.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Aurora DSQL
     * Added cmdlet Get-DSQLVpcEndpointServiceName leveraging the GetVpcEndpointServiceName service API.

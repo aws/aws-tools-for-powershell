@@ -22,43 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.Omics;
+using Amazon.Omics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// When a contact is being recorded, this API suspends recording whatever is selected
-    /// in the flow configuration: call (IVR or agent), screen, or both. If only call recording
-    /// or only screen recording is enabled, then it would be suspended. For example, you
-    /// might suspend the screen recording while collecting sensitive information, such as
-    /// a credit card number. Then use <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html">ResumeContactRecording</a>
-    /// to restart recording the screen.
-    /// 
-    ///  
-    /// <para>
-    /// The period of time that the recording is suspended is filled with silence in the final
-    /// recording. 
-    /// </para><para>
-    ///  Voice (IVR, agent) and screen recordings are supported.
-    /// </para>
+    /// Updates information about the workflow version. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
+    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
+    /// User Guide.
     /// </summary>
-    [Cmdlet("Suspend", "CONNContactRecording", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "OMICSWorkflowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service SuspendContactRecording API operation.", Operation = new[] {"SuspendContactRecording"}, SelectReturnType = typeof(Amazon.Connect.Model.SuspendContactRecordingResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.SuspendContactRecordingResponse",
+    [AWSCmdlet("Calls the Amazon Omics UpdateWorkflowVersion API operation.", Operation = new[] {"UpdateWorkflowVersion"}, SelectReturnType = typeof(Amazon.Omics.Model.UpdateWorkflowVersionResponse))]
+    [AWSCmdletOutput("None or Amazon.Omics.Model.UpdateWorkflowVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.SuspendContactRecordingResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Omics.Model.UpdateWorkflowVersionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class SuspendCONNContactRecordingCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class UpdateOMICSWorkflowVersionCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ContactId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact.</para>
+        /// <para>Description of the workflow version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter StorageCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The default static storage capacity (in gibibytes) for runs that use this workflow
+        /// or workflow version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The default storage type for runs that use this workflow. STATIC storage allocates
+        /// a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down,
+        /// based on file system utilization. For more information about static and dynamic storage,
+        /// see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
+        /// workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.StorageType")]
+        public Amazon.Omics.StorageType StorageType { get; set; }
+        #endregion
+        
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workflow version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,43 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactId { get; set; }
+        public System.String VersionName { get; set; }
         #endregion
         
-        #region Parameter ContactRecordingType
+        #region Parameter WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The type of recording being operated on.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Connect.ContactRecordingType")]
-        public Amazon.Connect.ContactRecordingType ContactRecordingType { get; set; }
-        #endregion
-        
-        #region Parameter InitialContactId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the contact. This is the identifier of the contact associated with
-        /// the first interaction with the contact center.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InitialContactId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The workflow's ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,13 +111,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String WorkflowId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.SuspendContactRecordingResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.UpdateWorkflowVersionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,10 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkflowId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkflowId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -154,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Suspend-CONNContactRecording (SuspendContactRecording)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VersionName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-OMICSWorkflowVersion (UpdateWorkflowVersion)"))
             {
                 return;
             }
@@ -168,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.SuspendContactRecordingResponse, SuspendCONNContactRecordingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.UpdateWorkflowVersionResponse, UpdateOMICSWorkflowVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -177,29 +172,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.WorkflowId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactId = this.ContactId;
+            context.Description = this.Description;
+            context.StorageCapacity = this.StorageCapacity;
+            context.StorageType = this.StorageType;
+            context.VersionName = this.VersionName;
             #if MODULAR
-            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            if (this.VersionName == null && ParameterWasBound(nameof(this.VersionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter VersionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ContactRecordingType = this.ContactRecordingType;
-            context.InitialContactId = this.InitialContactId;
+            context.WorkflowId = this.WorkflowId;
             #if MODULAR
-            if (this.InitialContactId == null && ParameterWasBound(nameof(this.InitialContactId)))
+            if (this.WorkflowId == null && ParameterWasBound(nameof(this.WorkflowId)))
             {
-                WriteWarning("You are passing $null as a value for parameter InitialContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkflowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -216,23 +206,27 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.SuspendContactRecordingRequest();
+            var request = new Amazon.Omics.Model.UpdateWorkflowVersionRequest();
             
-            if (cmdletContext.ContactId != null)
+            if (cmdletContext.Description != null)
             {
-                request.ContactId = cmdletContext.ContactId;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.ContactRecordingType != null)
+            if (cmdletContext.StorageCapacity != null)
             {
-                request.ContactRecordingType = cmdletContext.ContactRecordingType;
+                request.StorageCapacity = cmdletContext.StorageCapacity.Value;
             }
-            if (cmdletContext.InitialContactId != null)
+            if (cmdletContext.StorageType != null)
             {
-                request.InitialContactId = cmdletContext.InitialContactId;
+                request.StorageType = cmdletContext.StorageType;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.VersionName != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.VersionName = cmdletContext.VersionName;
+            }
+            if (cmdletContext.WorkflowId != null)
+            {
+                request.WorkflowId = cmdletContext.WorkflowId;
             }
             
             CmdletOutput output;
@@ -267,15 +261,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.SuspendContactRecordingResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.SuspendContactRecordingRequest request)
+        private Amazon.Omics.Model.UpdateWorkflowVersionResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.UpdateWorkflowVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "SuspendContactRecording");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "UpdateWorkflowVersion");
             try
             {
                 #if DESKTOP
-                return client.SuspendContactRecording(request);
+                return client.UpdateWorkflowVersion(request);
                 #elif CORECLR
-                return client.SuspendContactRecordingAsync(request).GetAwaiter().GetResult();
+                return client.UpdateWorkflowVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -295,11 +289,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactId { get; set; }
-            public Amazon.Connect.ContactRecordingType ContactRecordingType { get; set; }
-            public System.String InitialContactId { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.SuspendContactRecordingResponse, SuspendCONNContactRecordingCmdlet, object> Select { get; set; } =
+            public System.String Description { get; set; }
+            public System.Int32? StorageCapacity { get; set; }
+            public Amazon.Omics.StorageType StorageType { get; set; }
+            public System.String VersionName { get; set; }
+            public System.String WorkflowId { get; set; }
+            public System.Func<Amazon.Omics.Model.UpdateWorkflowVersionResponse, UpdateOMICSWorkflowVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

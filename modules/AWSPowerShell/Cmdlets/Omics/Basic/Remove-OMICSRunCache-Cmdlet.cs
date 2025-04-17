@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html">Deleting
-    /// a run cache</a> in the AWS HealthOmics User Guide.
+    /// a run cache</a> in the Amazon Web Services HealthOmics User Guide.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "OMICSRunCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

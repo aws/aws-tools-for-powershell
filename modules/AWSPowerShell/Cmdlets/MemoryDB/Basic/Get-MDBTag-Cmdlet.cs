@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     /// key and value are case-sensitive. You can use tags to categorize and track your MemoryDB
     /// resources. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging
     /// your MemoryDB resources</a>.
+    /// 
+    ///  
+    /// <para>
+    /// When you add or remove tags from multi region clusters, you might not immediately
+    /// see the latest effective tags in the ListTags API response due to it being eventually
+    /// consistent specifically for multi region clusters. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging
+    /// your MemoryDB resources</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "MDBTag")]
     [OutputType("Amazon.MemoryDB.Model.Tag")]

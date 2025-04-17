@@ -1503,6 +1503,8 @@ Set-Alias -Name Describe-PROMScraper -Value Get-PROMScraper
 Set-Alias -Name PROM-DescribeScraper -Value Get-PROMScraper
 Set-Alias -Name Describe-PROMWorkspace -Value Get-PROMWorkspace
 Set-Alias -Name PROM-DescribeWorkspace -Value Get-PROMWorkspace
+Set-Alias -Name Describe-PROMWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
+Set-Alias -Name PROM-DescribeWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
 Set-Alias -Name PROM-GetDefaultScraperConfiguration -Value Get-PROMDefaultScraperConfiguration
 Set-Alias -Name List-PROMRuleGroupsNamespaces -Value Get-PROMRuleGroupsNamespaceList
 Set-Alias -Name List-PROMRuleGroupsNamespaceList -Value Get-PROMRuleGroupsNamespaceList
@@ -1523,6 +1525,7 @@ Set-Alias -Name PROM-UntagResource -Value Remove-PROMResourceTag
 Set-Alias -Name PROM-UpdateLoggingConfiguration -Value Update-PROMLoggingConfiguration
 Set-Alias -Name PROM-UpdateScraper -Value Update-PROMScraper
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
+Set-Alias -Name PROM-UpdateWorkspaceConfiguration -Value Update-PROMWorkspaceConfiguration
 Set-Alias -Name Cancel-AZSZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name AZS-CancelZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name Create-AZSPracticeRunConfiguration -Value New-AZSPracticeRunConfiguration
@@ -21683,6 +21686,8 @@ Set-Alias -Name Create-OMICSVariantStore -Value New-OMICSVariantStore
 Set-Alias -Name OMICS-CreateVariantStore -Value New-OMICSVariantStore
 Set-Alias -Name Create-OMICSWorkflow -Value New-OMICSWorkflow
 Set-Alias -Name OMICS-CreateWorkflow -Value New-OMICSWorkflow
+Set-Alias -Name Create-OMICSWorkflowVersion -Value New-OMICSWorkflowVersion
+Set-Alias -Name OMICS-CreateWorkflowVersion -Value New-OMICSWorkflowVersion
 Set-Alias -Name Delete-OMICSAnnotationStore -Value Remove-OMICSAnnotationStore
 Set-Alias -Name OMICS-DeleteAnnotationStore -Value Remove-OMICSAnnotationStore
 Set-Alias -Name Delete-OMICSAnnotationStoreVersions -Value Remove-OMICSAnnotationStoreVersion
@@ -21708,6 +21713,8 @@ Set-Alias -Name Delete-OMICSVariantStore -Value Remove-OMICSVariantStore
 Set-Alias -Name OMICS-DeleteVariantStore -Value Remove-OMICSVariantStore
 Set-Alias -Name Delete-OMICSWorkflow -Value Remove-OMICSWorkflow
 Set-Alias -Name OMICS-DeleteWorkflow -Value Remove-OMICSWorkflow
+Set-Alias -Name Delete-OMICSWorkflowVersion -Value Remove-OMICSWorkflowVersion
+Set-Alias -Name OMICS-DeleteWorkflowVersion -Value Remove-OMICSWorkflowVersion
 Set-Alias -Name OMICS-GetAnnotationImportJob -Value Get-OMICSAnnotationImportJob
 Set-Alias -Name OMICS-GetAnnotationStore -Value Get-OMICSAnnotationStore
 Set-Alias -Name OMICS-GetAnnotationStoreVersion -Value Get-OMICSAnnotationStoreVersion
@@ -21730,6 +21737,7 @@ Set-Alias -Name OMICS-GetShare -Value Get-OMICSShare
 Set-Alias -Name OMICS-GetVariantImportJob -Value Get-OMICSVariantImportJob
 Set-Alias -Name OMICS-GetVariantStore -Value Get-OMICSVariantStore
 Set-Alias -Name OMICS-GetWorkflow -Value Get-OMICSWorkflow
+Set-Alias -Name OMICS-GetWorkflowVersion -Value Get-OMICSWorkflowVersion
 Set-Alias -Name List-OMICSAnnotationImportJobs -Value Get-OMICSAnnotationImportJobList
 Set-Alias -Name List-OMICSAnnotationImportJobList -Value Get-OMICSAnnotationImportJobList
 Set-Alias -Name OMICS-ListAnnotationImportJobs -Value Get-OMICSAnnotationImportJobList
@@ -21794,6 +21802,9 @@ Set-Alias -Name OMICS-ListVariantStores -Value Get-OMICSVariantStoreList
 Set-Alias -Name List-OMICSWorkflows -Value Get-OMICSWorkflowList
 Set-Alias -Name List-OMICSWorkflowList -Value Get-OMICSWorkflowList
 Set-Alias -Name OMICS-ListWorkflows -Value Get-OMICSWorkflowList
+Set-Alias -Name List-OMICSWorkflowVersions -Value Get-OMICSWorkflowVersionList
+Set-Alias -Name List-OMICSWorkflowVersionList -Value Get-OMICSWorkflowVersionList
+Set-Alias -Name OMICS-ListWorkflowVersions -Value Get-OMICSWorkflowVersionList
 Set-Alias -Name Put-OMICSS3AccessPolicy -Value Write-OMICSS3AccessPolicy
 Set-Alias -Name OMICS-PutS3AccessPolicy -Value Write-OMICSS3AccessPolicy
 Set-Alias -Name OMICS-StartAnnotationImportJob -Value Start-OMICSAnnotationImportJob
@@ -21812,6 +21823,7 @@ Set-Alias -Name OMICS-UpdateRunGroup -Value Update-OMICSRunGroup
 Set-Alias -Name OMICS-UpdateSequenceStore -Value Update-OMICSSequenceStore
 Set-Alias -Name OMICS-UpdateVariantStore -Value Update-OMICSVariantStore
 Set-Alias -Name OMICS-UpdateWorkflow -Value Update-OMICSWorkflow
+Set-Alias -Name OMICS-UpdateWorkflowVersion -Value Update-OMICSWorkflowVersion
 Set-Alias -Name Upload-OMICSReadSetPart -Value Set-OMICSReadSetPart
 Set-Alias -Name OMICS-UploadReadSetPart -Value Set-OMICSReadSetPart
 Set-Alias -Name Accept-OSInboundConnection -Value Approve-OSInboundConnection

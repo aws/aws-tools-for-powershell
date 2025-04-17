@@ -89,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter RoleConfiguration_SourceRoleArn
         /// <summary>
         /// <para>
-        /// <para>A ARN identifying the source role configuration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the role used in the source account to enable cross-account
+        /// scraping. For information about the contents of this policy, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#cross-account-remote-write">Cross-account
+        /// setup</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter RoleConfiguration_TargetRoleArn
         /// <summary>
         /// <para>
-        /// <para>A ARN identifying the target role configuration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the role used in the target account to enable cross-account
+        /// scraping. For information about the contents of this policy, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#cross-account-remote-write">Cross-account
+        /// setup</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

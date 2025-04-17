@@ -28,44 +28,49 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Gets information about a workflow run.
+    /// Deletes a workflow version. Deleting a workflow version doesn't affect any ongoing
+    /// runs that are using the workflow version.
     /// 
     ///  
     /// <para>
-    /// If a workflow is shared with you, you cannot export information about the run.
-    /// </para><para>
-    /// Amazon Web Services HealthOmics stores a fixed number of runs that are available to
-    /// the console and API. If GetRun doesn't return the requested run, you can find run
-    /// logs for all runs in the CloudWatch logs. For more information about viewing the run
-    /// logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch
-    /// logs</a> in the <i>in the Amazon Web Services HealthOmics User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-versions.html">Workflow
+    /// versioning in Amazon Web Services HealthOmics</a> in the Amazon Web Services HealthOmics
+    /// User Guide.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "OMICSRun")]
-    [OutputType("Amazon.Omics.Model.GetRunResponse")]
-    [AWSCmdlet("Calls the Amazon Omics GetRun API operation.", Operation = new[] {"GetRun"}, SelectReturnType = typeof(Amazon.Omics.Model.GetRunResponse))]
-    [AWSCmdletOutput("Amazon.Omics.Model.GetRunResponse",
-        "This cmdlet returns an Amazon.Omics.Model.GetRunResponse object containing multiple properties."
+    [Cmdlet("Remove", "OMICSWorkflowVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Omics DeleteWorkflowVersion API operation.", Operation = new[] {"DeleteWorkflowVersion"}, SelectReturnType = typeof(Amazon.Omics.Model.DeleteWorkflowVersionResponse))]
+    [AWSCmdletOutput("None or Amazon.Omics.Model.DeleteWorkflowVersionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Omics.Model.DeleteWorkflowVersionResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetOMICSRunCmdlet : AmazonOmicsClientCmdlet, IExecutor
+    public partial class RemoveOMICSWorkflowVersionCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Export
+        #region Parameter VersionName
         /// <summary>
         /// <para>
-        /// <para>The run's export format.</para>
+        /// <para>The workflow version name.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Export { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String VersionName { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The run's ID.</para>
+        /// <para>The workflow's ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,14 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String WorkflowId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.GetRunResponse).
-        /// Specifying the name of a property of type Amazon.Omics.Model.GetRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.DeleteWorkflowVersionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,18 +96,34 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkflowId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkflowId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VersionName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OMICSWorkflowVersion (DeleteWorkflowVersion)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -113,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Omics.Model.GetRunResponse, GetOMICSRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.DeleteWorkflowVersionResponse, RemoveOMICSWorkflowVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -122,18 +142,21 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.WorkflowId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Export != null)
-            {
-                context.Export = new List<System.String>(this.Export);
-            }
-            context.Id = this.Id;
+            context.VersionName = this.VersionName;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.VersionName == null && ParameterWasBound(nameof(this.VersionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter VersionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.WorkflowId = this.WorkflowId;
+            #if MODULAR
+            if (this.WorkflowId == null && ParameterWasBound(nameof(this.WorkflowId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkflowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Omics.Model.GetRunRequest();
+            var request = new Amazon.Omics.Model.DeleteWorkflowVersionRequest();
             
-            if (cmdletContext.Export != null)
+            if (cmdletContext.VersionName != null)
             {
-                request.Export = cmdletContext.Export;
+                request.VersionName = cmdletContext.VersionName;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.WorkflowId != null)
             {
-                request.Id = cmdletContext.Id;
+                request.WorkflowId = cmdletContext.WorkflowId;
             }
             
             CmdletOutput output;
@@ -193,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         #region AWS Service Operation Call
         
-        private Amazon.Omics.Model.GetRunResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.GetRunRequest request)
+        private Amazon.Omics.Model.DeleteWorkflowVersionResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.DeleteWorkflowVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "GetRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "DeleteWorkflowVersion");
             try
             {
                 #if DESKTOP
-                return client.GetRun(request);
+                return client.DeleteWorkflowVersion(request);
                 #elif CORECLR
-                return client.GetRunAsync(request).GetAwaiter().GetResult();
+                return client.DeleteWorkflowVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,10 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Export { get; set; }
-            public System.String Id { get; set; }
-            public System.Func<Amazon.Omics.Model.GetRunResponse, GetOMICSRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String VersionName { get; set; }
+            public System.String WorkflowId { get; set; }
+            public System.Func<Amazon.Omics.Model.DeleteWorkflowVersionResponse, RemoveOMICSWorkflowVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
