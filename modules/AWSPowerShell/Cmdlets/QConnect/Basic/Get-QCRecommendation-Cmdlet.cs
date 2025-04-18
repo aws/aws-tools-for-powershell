@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter NextChunkToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for the next set of chunks. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of chunks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextChunkToken { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
@@ -170,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.MaxResult = this.MaxResult;
+            context.NextChunkToken = this.NextChunkToken;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -201,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextChunkToken != null)
+            {
+                request.NextChunkToken = cmdletContext.NextChunkToken;
             }
             if (cmdletContext.SessionId != null)
             {
@@ -273,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             public System.String AssistantId { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String NextChunkToken { get; set; }
             public System.String SessionId { get; set; }
             public System.Int32? WaitTimeSecond { get; set; }
             public System.Func<Amazon.QConnect.Model.GetRecommendationsResponse, GetQCRecommendationCmdlet, object> Select { get; set; } =

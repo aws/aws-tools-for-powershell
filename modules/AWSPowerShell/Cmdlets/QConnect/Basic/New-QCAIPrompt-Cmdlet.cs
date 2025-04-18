@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ApiFormat
         /// <summary>
         /// <para>
-        /// <para>The API Format of the AI Prompt.</para>
+        /// <para>The API Format of the AI Prompt.</para><para>Recommended values: <c>MESSAGES | TEXT_COMPLETIONS</c></para><note><para>The values <c>ANTHROPIC_CLAUDE_MESSAGES | ANTHROPIC_CLAUDE_TEXT_COMPLETIONS</c> will
+        /// be deprecated.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the model used for this AI Prompt. Model Ids supported are: <c>anthropic.claude-3-haiku-20240307-v1:0</c></para>
+        /// <para>The identifier of the model used for this AI Prompt.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

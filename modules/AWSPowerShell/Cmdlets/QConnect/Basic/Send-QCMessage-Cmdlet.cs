@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter Configuration_GenerateFillerMessage
+        /// <summary>
+        /// <para>
+        /// <para>Generates a filler response when tool selection is <c>QUESTION</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_GenerateFillerMessage { get; set; }
+        #endregion
+        
         #region Parameter ConversationContext_SelfServiceConversationHistory
         /// <summary>
         /// <para>
@@ -197,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.Configuration_GenerateFillerMessage = this.Configuration_GenerateFillerMessage;
             if (this.ConversationContext_SelfServiceConversationHistory != null)
             {
                 context.ConversationContext_SelfServiceConversationHistory = new List<Amazon.QConnect.Model.SelfServiceConversationHistory>(this.ConversationContext_SelfServiceConversationHistory);
@@ -239,6 +250,25 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.QConnect.Model.MessageConfiguration();
+            System.Boolean? requestConfiguration_configuration_GenerateFillerMessage = null;
+            if (cmdletContext.Configuration_GenerateFillerMessage != null)
+            {
+                requestConfiguration_configuration_GenerateFillerMessage = cmdletContext.Configuration_GenerateFillerMessage.Value;
+            }
+            if (requestConfiguration_configuration_GenerateFillerMessage != null)
+            {
+                request.Configuration.GenerateFillerMessage = requestConfiguration_configuration_GenerateFillerMessage.Value;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
             }
             
              // populate ConversationContext
@@ -379,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             public System.String AssistantId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? Configuration_GenerateFillerMessage { get; set; }
             public List<Amazon.QConnect.Model.SelfServiceConversationHistory> ConversationContext_SelfServiceConversationHistory { get; set; }
             public System.String Text_Value { get; set; }
             public System.String SessionId { get; set; }

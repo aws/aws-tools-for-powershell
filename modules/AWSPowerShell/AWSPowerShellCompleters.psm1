@@ -59493,7 +59493,7 @@ $QC_Completers = {
         # Amazon.QConnect.AIPromptAPIFormat
         "New-QCAIPrompt/ApiFormat"
         {
-            $v = "ANTHROPIC_CLAUDE_MESSAGES","ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"
+            $v = "ANTHROPIC_CLAUDE_MESSAGES","ANTHROPIC_CLAUDE_TEXT_COMPLETIONS","MESSAGES","TEXT_COMPLETIONS"
             break
         }
 

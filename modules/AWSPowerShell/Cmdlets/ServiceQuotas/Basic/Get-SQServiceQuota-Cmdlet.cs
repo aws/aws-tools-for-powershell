@@ -28,9 +28,9 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves the applied quota value for the specified quota. For some quotas, only the
-    /// default values are available. If the applied quota value is not available for a quota,
-    /// the quota is not retrieved.
+    /// Retrieves the applied quota value for the specified account-level or resource-level
+    /// quota. For some quotas, only the default values are available. If the applied quota
+    /// value is not available for a quota, the quota is not retrieved.
     /// </summary>
     [Cmdlet("Get", "SQServiceQuota")]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceQuota")]
@@ -47,9 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ContextId
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Web Services account or resource to which the quota applies.
-        /// The value in this field depends on the context scope associated with the specified
-        /// service quota.</para>
+        /// <para>Specifies the resource with an Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -408,7 +408,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The maximum length of time, in seconds, that a training or compilation job can be
-        /// pending before it is stopped.</para>
+        /// pending before it is stopped.</para><note><para>When working with training jobs that use capacity from <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">training
+        /// plans</a>, not all <c>Pending</c> job states count against the <c>MaxPendingTimeInSeconds</c>
+        /// limit. The following scenarios do not increment the <c>MaxPendingTimeInSeconds</c>
+        /// counter:</para><ul><li><para>The plan is in a <c>Scheduled</c> state: Jobs queued (in <c>Pending</c> status) before
+        /// a plan's start date (waiting for scheduled start time)</para></li><li><para>Between capacity reservations: Jobs temporarily back to <c>Pending</c> status between
+        /// two capacity reservation periods</para></li></ul><para><c>MaxPendingTimeInSeconds</c> only increments when jobs are actively waiting for
+        /// capacity in an <c>Active</c> plan.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

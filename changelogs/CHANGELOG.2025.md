@@ -1,4 +1,12 @@
-﻿### 4.1.801 (2025-04-17 20:30Z)
+﻿### 4.1.802 (2025-04-18 20:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1026.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Q Connect
+    * Modified cmdlet Get-QCRecommendation: added parameter NextChunkToken.
+    * Modified cmdlet Send-QCMessage: added parameter Configuration_GenerateFillerMessage.
+  * Amazon Service Quotas
+    * Modified cmdlet Request-SQServiceQuotaIncrease: added parameter SupportCaseAllowed.
+
+### 4.1.801 (2025-04-17 20:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1025.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet New-BDREvaluationJob: added parameters CustomMetricConfig_CustomMetric and EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels.

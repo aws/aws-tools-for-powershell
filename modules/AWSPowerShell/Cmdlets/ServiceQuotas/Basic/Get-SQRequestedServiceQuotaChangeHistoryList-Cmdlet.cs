@@ -28,7 +28,9 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Retrieves the quota increase requests for the specified Amazon Web Service.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the quota increase requests for the specified Amazon Web Services service.
+    /// Filter responses to return quota requests at either the account level, resource level,
+    /// or all levels. Responses include any open or closed requests within 90 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SQRequestedServiceQuotaChangeHistoryList")]
     [OutputType("Amazon.ServiceQuotas.Model.RequestedServiceQuotaChange")]
@@ -45,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaRequestedAtLevel
         /// <summary>
         /// <para>
-        /// <para>Specifies at which level within the Amazon Web Services account the quota request
-        /// applies to.</para>
+        /// <para>Filters the response to return quota requests for the <c>ACCOUNT</c>, <c>RESOURCE</c>,
+        /// or <c>ALL</c> levels. <c>ACCOUNT</c> is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

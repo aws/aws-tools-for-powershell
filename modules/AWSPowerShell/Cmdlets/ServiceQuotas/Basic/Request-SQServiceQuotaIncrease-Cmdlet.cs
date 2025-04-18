@@ -28,7 +28,8 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Submits a quota increase request for the specified quota.
+    /// Submits a quota increase request for the specified quota at the account or resource
+    /// level.
     /// </summary>
     [Cmdlet("Request", "SQServiceQuotaIncrease", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceQuotas.Model.RequestedServiceQuotaChange")]
@@ -45,9 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter ContextId
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Web Services account or resource to which the quota applies.
-        /// The value in this field depends on the context scope associated with the specified
-        /// service quota.</para>
+        /// <para>Specifies the resource with an Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,6 +104,21 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceCode { get; set; }
+        #endregion
+        
+        #region Parameter SupportCaseAllowed
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if an Amazon Web Services Support case can be opened for the quota increase
+        /// request. This parameter is optional. </para><para>By default, this flag is set to <c>True</c> and Amazon Web Services may create a support
+        /// case for some quota increase requests. You can set this flag to <c>False</c> if you
+        /// do not want a support case created when you request a quota increase. If you set the
+        /// flag to <c>False</c>, Amazon Web Services does not open a support case and updates
+        /// the request status to <c>Not approved</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SupportCaseAllowed { get; set; }
         #endregion
         
         #region Parameter Select
@@ -191,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
                 WriteWarning("You are passing $null as a value for parameter ServiceCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SupportCaseAllowed = this.SupportCaseAllowed;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.SQ
             if (cmdletContext.ServiceCode != null)
             {
                 request.ServiceCode = cmdletContext.ServiceCode;
+            }
+            if (cmdletContext.SupportCaseAllowed != null)
+            {
+                request.SupportCaseAllowed = cmdletContext.SupportCaseAllowed.Value;
             }
             
             CmdletOutput output;
@@ -288,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.SQ
             public System.Double? DesiredValue { get; set; }
             public System.String QuotaCode { get; set; }
             public System.String ServiceCode { get; set; }
+            public System.Boolean? SupportCaseAllowed { get; set; }
             public System.Func<Amazon.ServiceQuotas.Model.RequestServiceQuotaIncreaseResponse, RequestSQServiceQuotaIncreaseCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RequestedQuota;
         }
