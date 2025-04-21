@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     ///  <important><para>
     /// The Request Syntax section shows the <c>BudgetLimit</c> syntax. For <c>PlannedBudgetLimits</c>,
     /// see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudget.html#API_DescribeBudget_Examples">Examples</a>
-    /// section. 
+    /// section.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "BGTBudget")]
@@ -81,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BudgetName { get; set; }
+        #endregion
+        
+        #region Parameter ShowFilterExpression
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the response includes the filter expression associated with the
+        /// budget. By showing the filter expression, you can see detailed filtering logic applied
+        /// to the budget, such as Amazon Web Services services or tags that are being tracked.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ShowFilterExpression { get; set; }
         #endregion
         
         #region Parameter Select
@@ -143,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 WriteWarning("You are passing $null as a value for parameter BudgetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ShowFilterExpression = this.ShowFilterExpression;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (cmdletContext.BudgetName != null)
             {
                 request.BudgetName = cmdletContext.BudgetName;
+            }
+            if (cmdletContext.ShowFilterExpression != null)
+            {
+                request.ShowFilterExpression = cmdletContext.ShowFilterExpression.Value;
             }
             
             CmdletOutput output;
@@ -230,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         {
             public System.String AccountId { get; set; }
             public System.String BudgetName { get; set; }
+            public System.Boolean? ShowFilterExpression { get; set; }
             public System.Func<Amazon.Budgets.Model.DescribeBudgetResponse, GetBGTBudgetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Budget;
         }

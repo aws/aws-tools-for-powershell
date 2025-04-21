@@ -381,6 +381,7 @@ $QBUS_SelectMap = @{
                "Set-QBUSBatchPutDocument",
                "Stop-QBUSSubscription",
                "Set-QBUSChatSync",
+               "Get-QBUSDocumentAccess",
                "New-QBUSApplication",
                "New-QBUSDataAccessor",
                "New-QBUSDataSource",

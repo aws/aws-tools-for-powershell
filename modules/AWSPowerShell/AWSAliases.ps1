@@ -23764,6 +23764,8 @@ Set-Alias -Name QBUS-CancelSubscription -Value Stop-QBUSSubscription
 Set-Alias -Name Chat-QBUSSync -Value Set-QBUSChatSync
 Set-Alias -Name Chat-QBUSChatSync -Value Set-QBUSChatSync
 Set-Alias -Name QBUS-ChatSync -Value Set-QBUSChatSync
+Set-Alias -Name Check-QBUSDocumentAccess -Value Get-QBUSDocumentAccess
+Set-Alias -Name QBUS-CheckDocumentAccess -Value Get-QBUSDocumentAccess
 Set-Alias -Name Create-QBUSApplication -Value New-QBUSApplication
 Set-Alias -Name QBUS-CreateApplication -Value New-QBUSApplication
 Set-Alias -Name Create-QBUSDataAccessor -Value New-QBUSDataAccessor

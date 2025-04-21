@@ -1,4 +1,17 @@
-﻿### 4.1.802 (2025-04-18 20:43Z)
+﻿### 4.1.803 (2025-04-21 20:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1027.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Budgets
+    * Modified cmdlet Get-BGTBudget: added parameter ShowFilterExpression.
+    * Modified cmdlet Get-BGTBudgetList: added parameter ShowFilterExpression.
+    * Modified cmdlet New-BGTBudget: added parameters Budget_FilterExpression and Budget_Metric.
+    * Modified cmdlet Update-BGTBudget: added parameters NewBudget_FilterExpression and NewBudget_Metric.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Get-EMTPrefetchScheduleList: added parameter ScheduleType.
+    * Modified cmdlet New-EMTPrefetchSchedule: added parameters RecurringConsumption_AvailMatchingCriterion, RecurringConsumption_RetrievedAdExpirationSecond, RecurringPrefetchConfiguration_EndTime, RecurringPrefetchConfiguration_StartTime, RecurringRetrieval_DelayAfterAvailEndSecond, RecurringRetrieval_DynamicVariable, RecurringRetrieval_TrafficShapingType, RecurringTrafficShaping_WindowDurationSeconds, Retrieval_TrafficShapingType, ScheduleType and TrafficShaping_WindowDurationSeconds.
+  * Amazon QBusiness
+    * Added cmdlet Get-QBUSDocumentAccess leveraging the CheckDocumentAccess service API.
+
+### 4.1.802 (2025-04-18 20:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1026.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Q Connect
     * Modified cmdlet Get-QCRecommendation: added parameter NextChunkToken.

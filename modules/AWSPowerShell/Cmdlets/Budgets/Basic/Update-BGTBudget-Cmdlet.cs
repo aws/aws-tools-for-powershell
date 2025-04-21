@@ -36,7 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// Only one of <c>BudgetLimit</c> or <c>PlannedBudgetLimits</c> can be present in the
     /// syntax at one time. Use the syntax that matches your case. The Request Syntax section
     /// shows the <c>BudgetLimit</c> syntax. For <c>PlannedBudgetLimits</c>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples">Examples</a>
-    /// section. 
+    /// section.
+    /// </para><para>
+    /// Similarly, only one set of filter and metric selections can be present in the syntax
+    /// at one time. Either <c>FilterExpression</c> and <c>Metrics</c> or <c>CostFilters</c>
+    /// and <c>CostTypes</c>, not both or a different combination. We recommend using <c>FilterExpression</c>
+    /// and <c>Metrics</c> as they provide more flexible and powerful filtering capabilities.
+    /// The Request Syntax section shows the <c>FilterExpression</c>/<c>Metrics</c> syntax.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "BGTBudget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -166,19 +172,6 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public Amazon.Budgets.BudgetType NewBudget_BudgetType { get; set; }
         #endregion
         
-        #region Parameter NewBudget_CostFilter
-        /// <summary>
-        /// <para>
-        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>LinkedAccount</c>, <c>Tag</c>,
-        /// or <c>CostCategory</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
-        /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("NewBudget_CostFilters")]
-        public System.Collections.Hashtable NewBudget_CostFilter { get; set; }
-        #endregion
-        
         #region Parameter TimePeriod_End
         /// <summary>
         /// <para>
@@ -192,6 +185,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NewBudget_TimePeriod_End")]
         public System.DateTime? TimePeriod_End { get; set; }
+        #endregion
+        
+        #region Parameter NewBudget_FilterExpression
+        /// <summary>
+        /// <para>
+        /// <para>The filtering dimensions for the budget and their corresponding values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Budgets.Model.Expression NewBudget_FilterExpression { get; set; }
         #endregion
         
         #region Parameter CostTypes_IncludeCredit
@@ -332,6 +335,17 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Int32? HistoricalOptions_LookBackAvailablePeriod { get; set; }
         #endregion
         
+        #region Parameter NewBudget_Metric
+        /// <summary>
+        /// <para>
+        /// <para>The definition for how the budget data is aggregated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NewBudget_Metrics")]
+        public System.String[] NewBudget_Metric { get; set; }
+        #endregion
+        
         #region Parameter NewBudget_PlannedBudgetLimit
         /// <summary>
         /// <para>
@@ -449,6 +463,21 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Boolean? CostTypes_UseBlended { get; set; }
         #endregion
         
+        #region Parameter NewBudget_CostFilter
+        /// <summary>
+        /// <para>
+        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>LinkedAccount</c>, <c>Tag</c>,
+        /// or <c>CostCategory</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
+        /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("CostFilters lack support for newer dimensions and filtering options. Please consider using the new \u0027FilterExpression\u0027 field.")]
+        [Alias("NewBudget_CostFilters")]
+        public System.Collections.Hashtable NewBudget_CostFilter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -541,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.ActualSpend_Unit = this.ActualSpend_Unit;
             context.ForecastedSpend_Amount = this.ForecastedSpend_Amount;
             context.ForecastedSpend_Unit = this.ForecastedSpend_Unit;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.NewBudget_CostFilter != null)
             {
                 context.NewBudget_CostFilter = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -561,6 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                     context.NewBudget_CostFilter.Add((String)hashKey, valueSet);
                 }
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CostTypes_IncludeCredit = this.CostTypes_IncludeCredit;
             context.CostTypes_IncludeDiscount = this.CostTypes_IncludeDiscount;
             context.CostTypes_IncludeOtherSubscription = this.CostTypes_IncludeOtherSubscription;
@@ -572,7 +603,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.CostTypes_IncludeUpfront = this.CostTypes_IncludeUpfront;
             context.CostTypes_UseAmortized = this.CostTypes_UseAmortized;
             context.CostTypes_UseBlended = this.CostTypes_UseBlended;
+            context.NewBudget_FilterExpression = this.NewBudget_FilterExpression;
             context.NewBudget_LastUpdatedTime = this.NewBudget_LastUpdatedTime;
+            if (this.NewBudget_Metric != null)
+            {
+                context.NewBudget_Metric = new List<System.String>(this.NewBudget_Metric);
+            }
             if (this.NewBudget_PlannedBudgetLimit != null)
             {
                 context.NewBudget_PlannedBudgetLimit = new Dictionary<System.String, Amazon.Budgets.Model.Spend>(StringComparer.Ordinal);
@@ -634,6 +670,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.BudgetType = requestNewBudget_newBudget_BudgetType;
                 requestNewBudgetIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Dictionary<System.String, List<System.String>> requestNewBudget_newBudget_CostFilter = null;
             if (cmdletContext.NewBudget_CostFilter != null)
             {
@@ -644,6 +681,17 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.CostFilters = requestNewBudget_newBudget_CostFilter;
                 requestNewBudgetIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            Amazon.Budgets.Model.Expression requestNewBudget_newBudget_FilterExpression = null;
+            if (cmdletContext.NewBudget_FilterExpression != null)
+            {
+                requestNewBudget_newBudget_FilterExpression = cmdletContext.NewBudget_FilterExpression;
+            }
+            if (requestNewBudget_newBudget_FilterExpression != null)
+            {
+                request.NewBudget.FilterExpression = requestNewBudget_newBudget_FilterExpression;
+                requestNewBudgetIsNull = false;
+            }
             System.DateTime? requestNewBudget_newBudget_LastUpdatedTime = null;
             if (cmdletContext.NewBudget_LastUpdatedTime != null)
             {
@@ -652,6 +700,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestNewBudget_newBudget_LastUpdatedTime != null)
             {
                 request.NewBudget.LastUpdatedTime = requestNewBudget_newBudget_LastUpdatedTime.Value;
+                requestNewBudgetIsNull = false;
+            }
+            List<System.String> requestNewBudget_newBudget_Metric = null;
+            if (cmdletContext.NewBudget_Metric != null)
+            {
+                requestNewBudget_newBudget_Metric = cmdletContext.NewBudget_Metric;
+            }
+            if (requestNewBudget_newBudget_Metric != null)
+            {
+                request.NewBudget.Metrics = requestNewBudget_newBudget_Metric;
                 requestNewBudgetIsNull = false;
             }
             Dictionary<System.String, Amazon.Budgets.Model.Spend> requestNewBudget_newBudget_PlannedBudgetLimit = null;
@@ -899,6 +957,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.AutoAdjustData = requestNewBudget_newBudget_AutoAdjustData;
                 requestNewBudgetIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.Budgets.Model.CostTypes requestNewBudget_newBudget_CostTypes = null;
             
              // populate CostTypes
@@ -1024,6 +1083,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewBudget.CostTypes = requestNewBudget_newBudget_CostTypes;
                 requestNewBudgetIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.NewBudget should be set to null
             if (requestNewBudgetIsNull)
             {
@@ -1103,6 +1163,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.String ActualSpend_Unit { get; set; }
             public System.Decimal? ForecastedSpend_Amount { get; set; }
             public System.String ForecastedSpend_Unit { get; set; }
+            [System.ObsoleteAttribute]
             public Dictionary<System.String, List<System.String>> NewBudget_CostFilter { get; set; }
             public System.Boolean? CostTypes_IncludeCredit { get; set; }
             public System.Boolean? CostTypes_IncludeDiscount { get; set; }
@@ -1115,7 +1176,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.Boolean? CostTypes_IncludeUpfront { get; set; }
             public System.Boolean? CostTypes_UseAmortized { get; set; }
             public System.Boolean? CostTypes_UseBlended { get; set; }
+            public Amazon.Budgets.Model.Expression NewBudget_FilterExpression { get; set; }
             public System.DateTime? NewBudget_LastUpdatedTime { get; set; }
+            public List<System.String> NewBudget_Metric { get; set; }
             public Dictionary<System.String, Amazon.Budgets.Model.Spend> NewBudget_PlannedBudgetLimit { get; set; }
             public System.DateTime? TimePeriod_End { get; set; }
             public System.DateTime? TimePeriod_Start { get; set; }

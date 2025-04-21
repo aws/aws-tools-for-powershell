@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     ///  <important><para>
     /// The Request Syntax section shows the <c>BudgetLimit</c> syntax. For <c>PlannedBudgetLimits</c>,
     /// see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a>
-    /// section. 
+    /// section.
     /// </para></important><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BGTBudgetList")]
@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AccountId { get; set; }
+        #endregion
+        
+        #region Parameter ShowFilterExpression
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the response includes the filter expression associated with the
+        /// budgets. By showing the filter expression, you can see detailed filtering logic applied
+        /// to the budgets, such as Amazon Web Services services or tags that are being tracked.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ShowFilterExpression { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -171,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ShowFilterExpression = this.ShowFilterExpression;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ShowFilterExpression != null)
+            {
+                request.ShowFilterExpression = cmdletContext.ShowFilterExpression.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -258,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
+            }
+            if (cmdletContext.ShowFilterExpression != null)
+            {
+                request.ShowFilterExpression = cmdletContext.ShowFilterExpression.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -381,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.String AccountId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? ShowFilterExpression { get; set; }
             public System.Func<Amazon.Budgets.Model.DescribeBudgetsResponse, GetBGTBudgetListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Budgets;
         }

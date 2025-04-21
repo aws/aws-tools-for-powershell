@@ -49095,6 +49095,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.ListPrefetchScheduleType
+        "Get-EMTPrefetchScheduleList/ScheduleType"
+        {
+            $v = "ALL","RECURRING","SINGLE"
+            break
+        }
+
         # Amazon.MediaTailor.Mode
         "Set-EMTPlaybackConfiguration/AvailSuppression_Mode"
         {
@@ -49106,6 +49113,13 @@ $EMT_Completers = {
         "New-EMTChannel/PlaybackMode"
         {
             $v = "LINEAR","LOOP"
+            break
+        }
+
+        # Amazon.MediaTailor.PrefetchScheduleType
+        "New-EMTPrefetchSchedule/ScheduleType"
+        {
+            $v = "RECURRING","SINGLE"
             break
         }
 
@@ -49130,6 +49144,16 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.TrafficShapingType
+        {
+            ($_ -eq "New-EMTPrefetchSchedule/RecurringRetrieval_TrafficShapingType") -Or
+            ($_ -eq "New-EMTPrefetchSchedule/Retrieval_TrafficShapingType")
+        }
+        {
+            $v = "RETRIEVAL_WINDOW"
+            break
+        }
+
 
     }
 
@@ -49145,6 +49169,9 @@ $EMT_map = @{
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "InsertionMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
+    "RecurringRetrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
+    "Retrieval_TrafficShapingType"=@("New-EMTPrefetchSchedule")
+    "ScheduleType"=@("Get-EMTPrefetchScheduleList","New-EMTPrefetchSchedule")
     "Tier"=@("New-EMTChannel")
     "Transition_RelativePosition"=@("New-EMTProgram")
 }
@@ -59399,6 +59426,7 @@ $QBUS_SelectMap = @{
                "Set-QBUSBatchPutDocument",
                "Stop-QBUSSubscription",
                "Set-QBUSChatSync",
+               "Get-QBUSDocumentAccess",
                "New-QBUSApplication",
                "New-QBUSDataAccessor",
                "New-QBUSDataSource",

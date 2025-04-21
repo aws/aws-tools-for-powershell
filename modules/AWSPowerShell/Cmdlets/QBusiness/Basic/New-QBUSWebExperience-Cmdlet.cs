@@ -125,7 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Origin
         /// <summary>
         /// <para>
-        /// Amazon.QBusiness.Model.CreateWebExperienceRequest.Origins
+        /// <para>Sets the website domain origins that are allowed to embed the Amazon Q Business web
+        /// experience. The <i>domain origin</i> refers to the base URL for accessing a website
+        /// including the protocol (<c>http/https</c>), the domain name, and the port number (if
+        /// specified). </para><note><para>You must only submit a <i>base URL</i> and not a full path. For example, <c>https://docs.aws.amazon.com</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

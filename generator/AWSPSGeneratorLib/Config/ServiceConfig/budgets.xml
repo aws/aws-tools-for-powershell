@@ -124,5 +124,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.Budgets.Model.Expression</Type>
+    </TypesNotToFlatten>
 </ConfigModel>
