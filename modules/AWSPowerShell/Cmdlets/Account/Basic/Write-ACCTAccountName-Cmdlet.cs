@@ -28,34 +28,36 @@ using Amazon.Account.Model;
 namespace Amazon.PowerShell.Cmdlets.ACCT
 {
     /// <summary>
-    /// Enables (opts-in) a particular Region for an account.
+    /// Updates the account name of the specified account. To use this API, IAM principals
+    /// must have the <c>account:PutAccountName</c> IAM permission.
     /// </summary>
-    [Cmdlet("Enable", "ACCTRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Write", "ACCTAccountName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Account EnableRegion API operation.", Operation = new[] {"EnableRegion"}, SelectReturnType = typeof(Amazon.Account.Model.EnableRegionResponse))]
-    [AWSCmdletOutput("None or Amazon.Account.Model.EnableRegionResponse",
+    [AWSCmdlet("Calls the AWS Account PutAccountName API operation.", Operation = new[] {"PutAccountName"}, SelectReturnType = typeof(Amazon.Account.Model.PutAccountNameResponse))]
+    [AWSCmdletOutput("None or Amazon.Account.Model.PutAccountNameResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Account.Model.EnableRegionResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Account.Model.PutAccountNameResponse) be returned by specifying '-Select *'."
     )]
-    public partial class EnableACCTRegionCmdlet : AmazonAccountClientCmdlet, IExecutor
+    public partial class WriteACCTAccountNameCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>Specifies the 12-digit account ID number of the Amazon Web Services account that you
-        /// want to access or modify with this operation. If you don't specify this parameter,
-        /// it defaults to the Amazon Web Services account of the identity used to call the operation.
-        /// To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
-        /// management account</a> or a delegated administrator account. The specified account
+        /// <para>Specifies the 12 digit account ID number of the Amazon Web Services account that you
+        /// want to access or modify with this operation.</para><para>If you do not specify this parameter, it defaults to the Amazon Web Services account
+        /// of the identity used to call the operation.</para><para>To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
+        /// management account</a> or a delegated administrator account, and the specified account
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
-        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">trusted
-        /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#delegated-admin">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
-        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
-        /// specify this parameter. Instead, call the operation using an identity belonging to
+        /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
+        /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
+        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>; it must call the operation
+        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, then
+        /// don't specify this parameter, and call the operation using an identity belonging to
         /// the account whose contacts you wish to retrieve or modify.</para>
         /// </para>
         /// </summary>
@@ -63,36 +65,41 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         public System.String AccountId { get; set; }
         #endregion
         
-        #region Parameter RegionName
+        #region Parameter AccountName
         /// <summary>
         /// <para>
-        /// <para>Specifies the Region-code for a given Region name (for example, <c>af-south-1</c>).
-        /// When you enable a Region, Amazon Web Services performs actions to prepare your account
-        /// in that Region, such as distributing your IAM resources to the Region. This process
-        /// takes a few minutes for most accounts, but it can take several hours. You cannot use
-        /// the Region until this process is complete. Furthermore, you cannot disable the Region
-        /// until the enabling process is fully completed.</para>
+        /// <para>The name of the account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RegionName { get; set; }
+        public System.String AccountName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.EnableRegionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.PutAccountNameResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AccountName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AccountName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -110,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ACCTRegion (EnableRegion)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-ACCTAccountName (PutAccountName)"))
             {
                 return;
             }
@@ -121,17 +128,27 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Account.Model.EnableRegionResponse, EnableACCTRegionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Account.Model.PutAccountNameResponse, WriteACCTAccountNameCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.AccountId = this.AccountId;
-            context.RegionName = this.RegionName;
-            #if MODULAR
-            if (this.RegionName == null && ParameterWasBound(nameof(this.RegionName)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter RegionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.AccountName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountId = this.AccountId;
+            context.AccountName = this.AccountName;
+            #if MODULAR
+            if (this.AccountName == null && ParameterWasBound(nameof(this.AccountName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -148,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Account.Model.EnableRegionRequest();
+            var request = new Amazon.Account.Model.PutAccountNameRequest();
             
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
             }
-            if (cmdletContext.RegionName != null)
+            if (cmdletContext.AccountName != null)
             {
-                request.RegionName = cmdletContext.RegionName;
+                request.AccountName = cmdletContext.AccountName;
             }
             
             CmdletOutput output;
@@ -191,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Account.Model.EnableRegionResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.EnableRegionRequest request)
+        private Amazon.Account.Model.PutAccountNameResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.PutAccountNameRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "EnableRegion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "PutAccountName");
             try
             {
                 #if DESKTOP
-                return client.EnableRegion(request);
+                return client.PutAccountName(request);
                 #elif CORECLR
-                return client.EnableRegionAsync(request).GetAwaiter().GetResult();
+                return client.PutAccountNameAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,8 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
-            public System.String RegionName { get; set; }
-            public System.Func<Amazon.Account.Model.EnableRegionResponse, EnableACCTRegionCmdlet, object> Select { get; set; } =
+            public System.String AccountName { get; set; }
+            public System.Func<Amazon.Account.Model.PutAccountNameResponse, WriteACCTAccountNameCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -198,6 +198,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.FeatureType
+        {
+            ($_ -eq "New-CGIPUserPoolClient/RefreshTokenRotation_Feature") -Or
+            ($_ -eq "Update-CGIPUserPoolClient/RefreshTokenRotation_Feature")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.FeedbackValueType
         {
             ($_ -eq "Update-CGIPAuthEventFeedback/FeedbackValue") -Or
@@ -311,6 +321,7 @@ $CGIP_map = @{
     "PreTokenGenerationConfig_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
+    "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -438,6 +449,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPIdentityProviderByIdentifier",
                "Get-CGIPLogDeliveryConfiguration",
                "Get-CGIPSigningCertificate",
+               "Get-CGIPTokensFromRefreshToken",
                "Get-CGIPUICustomization",
                "Get-CGIPUser",
                "Get-CGIPUserAttributeVerificationCode",

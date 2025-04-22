@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring
-        /// from Amazon Redshift Serverless to a provisioned cluster. Must not be specified at
+        /// from a provisioned cluster to Amazon Redshift Serverless. Must not be specified at
         /// the same time as <c>snapshotName</c>.</para><para>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</para>
         /// </para>
         /// </summary>

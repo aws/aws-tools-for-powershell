@@ -72,6 +72,7 @@ Set-Alias -Name Delete-ACCTAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DeleteAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DisableRegion -Value Disable-ACCTRegion
 Set-Alias -Name ACCT-EnableRegion -Value Enable-ACCTRegion
+Set-Alias -Name ACCT-GetAccountInformation -Value Get-ACCTAccountInformation
 Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
 Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
 Set-Alias -Name ACCT-GetPrimaryEmail -Value Get-ACCTPrimaryEmail
@@ -79,6 +80,8 @@ Set-Alias -Name ACCT-GetRegionOptStatus -Value Get-ACCTRegionOptStatus
 Set-Alias -Name List-ACCTRegions -Value Get-ACCTRegionList
 Set-Alias -Name List-ACCTRegionList -Value Get-ACCTRegionList
 Set-Alias -Name ACCT-ListRegions -Value Get-ACCTRegionList
+Set-Alias -Name Put-ACCTAccountName -Value Write-ACCTAccountName
+Set-Alias -Name ACCT-PutAccountName -Value Write-ACCTAccountName
 Set-Alias -Name Put-ACCTAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name ACCT-PutAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name Put-ACCTContactInformation -Value Write-ACCTContactInformation
@@ -5789,6 +5792,7 @@ Set-Alias -Name CGIP-GetGroup -Value Get-CGIPGroup
 Set-Alias -Name CGIP-GetIdentityProviderByIdentifier -Value Get-CGIPIdentityProviderByIdentifier
 Set-Alias -Name CGIP-GetLogDeliveryConfiguration -Value Get-CGIPLogDeliveryConfiguration
 Set-Alias -Name CGIP-GetSigningCertificate -Value Get-CGIPSigningCertificate
+Set-Alias -Name CGIP-GetTokensFromRefreshToken -Value Get-CGIPTokensFromRefreshToken
 Set-Alias -Name CGIP-GetUICustomization -Value Get-CGIPUICustomization
 Set-Alias -Name CGIP-GetUser -Value Get-CGIPUser
 Set-Alias -Name CGIP-GetUserAttributeVerificationCode -Value Get-CGIPUserAttributeVerificationCode
@@ -20819,6 +20823,8 @@ Set-Alias -Name Create-MQUser -Value New-MQUser
 Set-Alias -Name MQ-CreateUser -Value New-MQUser
 Set-Alias -Name Delete-MQBroker -Value Remove-MQBroker
 Set-Alias -Name MQ-DeleteBroker -Value Remove-MQBroker
+Set-Alias -Name Delete-MQConfiguration -Value Remove-MQConfiguration
+Set-Alias -Name MQ-DeleteConfiguration -Value Remove-MQConfiguration
 Set-Alias -Name Delete-MQTags -Value Remove-MQTag
 Set-Alias -Name Delete-MQTag -Value Remove-MQTag
 Set-Alias -Name MQ-DeleteTags -Value Remove-MQTag
@@ -25305,6 +25311,8 @@ Set-Alias -Name Create-RSSEndpointAccess -Value New-RSSEndpointAccess
 Set-Alias -Name RSS-CreateEndpointAccess -Value New-RSSEndpointAccess
 Set-Alias -Name Create-RSSNamespace -Value New-RSSNamespace
 Set-Alias -Name RSS-CreateNamespace -Value New-RSSNamespace
+Set-Alias -Name Create-RSSReservation -Value New-RSSReservation
+Set-Alias -Name RSS-CreateReservation -Value New-RSSReservation
 Set-Alias -Name Create-RSSScheduledAction -Value New-RSSScheduledAction
 Set-Alias -Name RSS-CreateScheduledAction -Value New-RSSScheduledAction
 Set-Alias -Name Create-RSSSnapshot -Value New-RSSSnapshot
@@ -25339,6 +25347,8 @@ Set-Alias -Name RSS-GetCustomDomainAssociation -Value Get-RSSCustomDomainAssocia
 Set-Alias -Name RSS-GetEndpointAccess -Value Get-RSSEndpointAccess
 Set-Alias -Name RSS-GetNamespace -Value Get-RSSNamespace
 Set-Alias -Name RSS-GetRecoveryPoint -Value Get-RSSRecoveryPoint
+Set-Alias -Name RSS-GetReservation -Value Get-RSSReservation
+Set-Alias -Name RSS-GetReservationOffering -Value Get-RSSReservationOffering
 Set-Alias -Name RSS-GetResourcePolicy -Value Get-RSSResourcePolicy
 Set-Alias -Name RSS-GetScheduledAction -Value Get-RSSScheduledAction
 Set-Alias -Name RSS-GetSnapshot -Value Get-RSSSnapshot
@@ -25361,6 +25371,12 @@ Set-Alias -Name RSS-ListNamespaces -Value Get-RSSNamespaceList
 Set-Alias -Name List-RSSRecoveryPoints -Value Get-RSSRecoveryPointList
 Set-Alias -Name List-RSSRecoveryPointList -Value Get-RSSRecoveryPointList
 Set-Alias -Name RSS-ListRecoveryPoints -Value Get-RSSRecoveryPointList
+Set-Alias -Name List-RSSReservationOfferings -Value Get-RSSReservationOfferingList
+Set-Alias -Name List-RSSReservationOfferingList -Value Get-RSSReservationOfferingList
+Set-Alias -Name RSS-ListReservationOfferings -Value Get-RSSReservationOfferingList
+Set-Alias -Name List-RSSReservations -Value Get-RSSReservationList
+Set-Alias -Name List-RSSReservationList -Value Get-RSSReservationList
+Set-Alias -Name RSS-ListReservations -Value Get-RSSReservationList
 Set-Alias -Name List-RSSScheduledActions -Value Get-RSSScheduledActionList
 Set-Alias -Name List-RSSScheduledActionList -Value Get-RSSScheduledActionList
 Set-Alias -Name RSS-ListScheduledActions -Value Get-RSSScheduledActionList

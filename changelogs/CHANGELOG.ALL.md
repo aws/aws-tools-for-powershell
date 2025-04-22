@@ -1,4 +1,25 @@
-﻿### 4.1.803 (2025-04-21 20:38Z)
+﻿### 4.1.804 (2025-04-22 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1028.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account
+    * Added cmdlet Get-ACCTAccountInformation leveraging the GetAccountInformation service API.
+    * Added cmdlet Write-ACCTAccountName leveraging the PutAccountName service API.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Get-CGIPTokensFromRefreshToken leveraging the GetTokensFromRefreshToken service API.
+    * Modified cmdlet New-CGIPUserPoolClient: added parameters RefreshTokenRotation_Feature and RefreshTokenRotation_RetryGracePeriodSecond.
+    * Modified cmdlet Update-CGIPUserPoolClient: added parameters RefreshTokenRotation_Feature and RefreshTokenRotation_RetryGracePeriodSecond.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2ClientVpnEndpoint: added parameter ClientRouteEnforcementOptions_Enforced.
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameter ClientRouteEnforcementOptions_Enforced.
+  * Amazon MQ
+    * Added cmdlet Remove-MQConfiguration leveraging the DeleteConfiguration service API.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSReservation leveraging the GetReservation service API.
+    * Added cmdlet Get-RSSReservationList leveraging the ListReservations service API.
+    * Added cmdlet Get-RSSReservationOffering leveraging the GetReservationOffering service API.
+    * Added cmdlet Get-RSSReservationOfferingList leveraging the ListReservationOfferings service API.
+    * Added cmdlet New-RSSReservation leveraging the CreateReservation service API.
+
+### 4.1.803 (2025-04-21 20:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1027.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Budgets
     * Modified cmdlet Get-BGTBudget: added parameter ShowFilterExpression.

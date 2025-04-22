@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
     /// Converts a recovery point to a snapshot. For more information about recovery points
-    /// and snapshots, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working
+    /// and snapshots, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working
     /// with snapshots and recovery points</a>.
     /// </summary>
     [Cmdlet("Convert", "RSSRecoveryPointToSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

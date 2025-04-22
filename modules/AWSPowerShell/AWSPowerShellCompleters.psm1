@@ -345,11 +345,13 @@ $ACCT_SelectMap = @{
                "Remove-ACCTAlternateContact",
                "Disable-ACCTRegion",
                "Enable-ACCTRegion",
+               "Get-ACCTAccountInformation",
                "Get-ACCTAlternateContact",
                "Get-ACCTContactInformation",
                "Get-ACCTPrimaryEmail",
                "Get-ACCTRegionOptStatus",
                "Get-ACCTRegionList",
+               "Write-ACCTAccountName",
                "Write-ACCTAlternateContact",
                "Write-ACCTContactInformation",
                "Start-ACCTPrimaryEmailUpdate")
@@ -15908,6 +15910,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.FeatureType
+        {
+            ($_ -eq "New-CGIPUserPoolClient/RefreshTokenRotation_Feature") -Or
+            ($_ -eq "Update-CGIPUserPoolClient/RefreshTokenRotation_Feature")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.FeedbackValueType
         {
             ($_ -eq "Update-CGIPAuthEventFeedback/FeedbackValue") -Or
@@ -16021,6 +16033,7 @@ $CGIP_map = @{
     "PreTokenGenerationConfig_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "PreventUserExistenceError"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
+    "RefreshTokenRotation_Feature"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
@@ -16148,6 +16161,7 @@ $CGIP_SelectMap = @{
                "Get-CGIPIdentityProviderByIdentifier",
                "Get-CGIPLogDeliveryConfiguration",
                "Get-CGIPSigningCertificate",
+               "Get-CGIPTokensFromRefreshToken",
                "Get-CGIPUICustomization",
                "Get-CGIPUser",
                "Get-CGIPUserAttributeVerificationCode",
@@ -51457,6 +51471,7 @@ $MQ_SelectMap = @{
                "New-MQTag",
                "New-MQUser",
                "Remove-MQBroker",
+               "Remove-MQConfiguration",
                "Remove-MQTag",
                "Remove-MQUser",
                "Get-MQBroker",
@@ -62196,6 +62211,7 @@ $RSS_SelectMap = @{
                "New-RSSCustomDomainAssociation",
                "New-RSSEndpointAccess",
                "New-RSSNamespace",
+               "New-RSSReservation",
                "New-RSSScheduledAction",
                "New-RSSSnapshot",
                "New-RSSSnapshotCopyConfiguration",
@@ -62215,6 +62231,8 @@ $RSS_SelectMap = @{
                "Get-RSSEndpointAccess",
                "Get-RSSNamespace",
                "Get-RSSRecoveryPoint",
+               "Get-RSSReservation",
+               "Get-RSSReservationOffering",
                "Get-RSSResourcePolicy",
                "Get-RSSScheduledAction",
                "Get-RSSSnapshot",
@@ -62227,6 +62245,8 @@ $RSS_SelectMap = @{
                "Get-RSSManagedWorkgroupList",
                "Get-RSSNamespaceList",
                "Get-RSSRecoveryPointList",
+               "Get-RSSReservationOfferingList",
+               "Get-RSSReservationList",
                "Get-RSSScheduledActionList",
                "Get-RSSSnapshotCopyConfigurationList",
                "Get-RSSSnapshotList",

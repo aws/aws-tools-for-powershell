@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the principals (service consumers) that are permitted to discover your VPC
-    /// endpoint service.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// endpoint service. Principal ARNs with path components aren't supported.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2EndpointServicePermission")]
     [OutputType("Amazon.EC2.Model.AllowedPrincipal")]

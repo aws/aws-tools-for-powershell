@@ -204,6 +204,7 @@ $MQ_SelectMap = @{
                "New-MQTag",
                "New-MQUser",
                "Remove-MQBroker",
+               "Remove-MQConfiguration",
                "Remove-MQTag",
                "Remove-MQUser",
                "Get-MQBroker",

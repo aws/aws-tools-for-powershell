@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguration" OutputProperty="ConfigurationId" Verb="Remove" Noun="Configuration" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArn" ShouldProcessMsgNoun="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

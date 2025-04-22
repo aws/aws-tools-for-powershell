@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1027.0",
+    "ProductVersion"    : "3.7.1028.0",
     "CoreVersion"       : "3.7.402.43",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.437.13",
+            "Version" : "3.7.438.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"
@@ -540,7 +540,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.407.32",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"
@@ -892,7 +892,7 @@
             "InPreview"               : false
         },
         "MQ"                              : {
-            "Version" : "3.7.400.137",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"
@@ -1148,7 +1148,7 @@
             "InPreview"               : false
         },
         "S3Control"                       : {
-            "Version" : "3.7.407.13",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"
@@ -2180,7 +2180,7 @@
             "InPreview"               : false
         },
         "Account"                         : {
-            "Version" : "3.7.401.72",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"
@@ -2388,7 +2388,7 @@
             "InPreview"               : false
         },
         "RedshiftServerless"                  : {
-            "Version" : "3.7.403.34",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"
@@ -2716,7 +2716,7 @@
             "InPreview"               : false
         },
         "EntityResolution"                    : {
-            "Version" : "3.7.402.3",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.43"

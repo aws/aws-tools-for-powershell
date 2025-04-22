@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateReservation" OutputProperty="Reservation" Verb="New" Noun="Reservation" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="ScheduledAction" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +114,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetReservation" OutputProperty="Reservation" Verb="Get" Noun="Reservation" PipelineParameter="ReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReservationOffering" OutputProperty="ReservationOffering" Verb="Get" Noun="ReservationOffering" PipelineParameter="OfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -155,6 +167,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRecoveryPoints" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReservationOfferings" OutputProperty="ReservationOfferingsList" Verb="Get" Noun="ReservationOfferingList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReservations" OutputProperty="ReservationsList" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,26 +28,43 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Creates a snapshot of all databases in a namespace. For more information about snapshots,
-    /// see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">
-    /// Working with snapshots and recovery points</a>.
+    /// Creates an Amazon Redshift Serverless reservation, which gives you the option to commit
+    /// to a specified number of Redshift Processing Units (RPUs) for a year at a discount
+    /// from Serverless on-demand (OD) rates.
     /// </summary>
-    [Cmdlet("New", "RSSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RedshiftServerless.Model.Snapshot")]
-    [AWSCmdlet("Calls the Redshift Serverless CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.CreateSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Snapshot or Amazon.RedshiftServerless.Model.CreateSnapshotResponse",
-        "This cmdlet returns an Amazon.RedshiftServerless.Model.Snapshot object.",
-        "The service call response (type Amazon.RedshiftServerless.Model.CreateSnapshotResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("New", "RSSReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RedshiftServerless.Model.Reservation")]
+    [AWSCmdlet("Calls the Redshift Serverless CreateReservation API operation.", Operation = new[] {"CreateReservation"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.CreateReservationResponse))]
+    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.Reservation or Amazon.RedshiftServerless.Model.CreateReservationResponse",
+        "This cmdlet returns an Amazon.RedshiftServerless.Model.Reservation object.",
+        "The service call response (type Amazon.RedshiftServerless.Model.CreateReservationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewRSSSnapshotCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
+    public partial class NewRSSReservationCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter NamespaceName
+        #region Parameter Capacity
         /// <summary>
         /// <para>
-        /// <para>The namespace to create a snapshot for.</para>
+        /// <para>The number of Redshift Processing Units (RPUs) to reserve.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? Capacity { get; set; }
+        #endregion
+        
+        #region Parameter OfferingId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the offering associated with the reservation. The offering determines the
+        /// payment schedule for the reservation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,65 +75,39 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NamespaceName { get; set; }
+        public System.String OfferingId { get; set; }
         #endregion
         
-        #region Parameter RetentionPeriod
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>How long to retain the created snapshot.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. This
+        /// token must be a valid UUIDv4 value. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">
+        /// Making retries safe with idempotent APIs </a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? RetentionPeriod { get; set; }
-        #endregion
-        
-        #region Parameter SnapshotName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the snapshot.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SnapshotName { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An array of <a href="https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html">Tag
-        /// objects</a> to associate with the snapshot.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.RedshiftServerless.Model.Tag[] Tag { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Snapshot'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.CreateSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.CreateSnapshotResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Reservation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.CreateReservationResponse).
+        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.CreateReservationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Snapshot";
+        public string Select { get; set; } = "Reservation";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NamespaceName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NamespaceName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OfferingId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OfferingId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NamespaceName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OfferingId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -136,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NamespaceName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSSSnapshot (CreateSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OfferingId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSSReservation (CreateReservation)"))
             {
                 return;
             }
@@ -150,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.CreateSnapshotResponse, NewRSSSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.CreateReservationResponse, NewRSSReservationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,28 +150,24 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NamespaceName;
+                context.Select = (response, cmdlet) => this.OfferingId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.NamespaceName = this.NamespaceName;
+            context.Capacity = this.Capacity;
             #if MODULAR
-            if (this.NamespaceName == null && ParameterWasBound(nameof(this.NamespaceName)))
+            if (this.Capacity == null && ParameterWasBound(nameof(this.Capacity)))
             {
-                WriteWarning("You are passing $null as a value for parameter NamespaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Capacity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RetentionPeriod = this.RetentionPeriod;
-            context.SnapshotName = this.SnapshotName;
+            context.ClientToken = this.ClientToken;
+            context.OfferingId = this.OfferingId;
             #if MODULAR
-            if (this.SnapshotName == null && ParameterWasBound(nameof(this.SnapshotName)))
+            if (this.OfferingId == null && ParameterWasBound(nameof(this.OfferingId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SnapshotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OfferingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.RedshiftServerless.Model.Tag>(this.Tag);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,23 +182,19 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RedshiftServerless.Model.CreateSnapshotRequest();
+            var request = new Amazon.RedshiftServerless.Model.CreateReservationRequest();
             
-            if (cmdletContext.NamespaceName != null)
+            if (cmdletContext.Capacity != null)
             {
-                request.NamespaceName = cmdletContext.NamespaceName;
+                request.Capacity = cmdletContext.Capacity.Value;
             }
-            if (cmdletContext.RetentionPeriod != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.RetentionPeriod = cmdletContext.RetentionPeriod.Value;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.SnapshotName != null)
+            if (cmdletContext.OfferingId != null)
             {
-                request.SnapshotName = cmdletContext.SnapshotName;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.OfferingId = cmdletContext.OfferingId;
             }
             
             CmdletOutput output;
@@ -246,15 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region AWS Service Operation Call
         
-        private Amazon.RedshiftServerless.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.CreateSnapshotRequest request)
+        private Amazon.RedshiftServerless.Model.CreateReservationResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.CreateReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "CreateSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "CreateReservation");
             try
             {
                 #if DESKTOP
-                return client.CreateSnapshot(request);
+                return client.CreateReservation(request);
                 #elif CORECLR
-                return client.CreateSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.CreateReservationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -274,12 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String NamespaceName { get; set; }
-            public System.Int32? RetentionPeriod { get; set; }
-            public System.String SnapshotName { get; set; }
-            public List<Amazon.RedshiftServerless.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.RedshiftServerless.Model.CreateSnapshotResponse, NewRSSSnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Snapshot;
+            public System.Int32? Capacity { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String OfferingId { get; set; }
+            public System.Func<Amazon.RedshiftServerless.Model.CreateReservationResponse, NewRSSReservationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Reservation;
         }
         
     }

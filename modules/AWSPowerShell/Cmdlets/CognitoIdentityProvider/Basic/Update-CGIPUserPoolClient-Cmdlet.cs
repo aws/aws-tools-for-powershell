@@ -306,6 +306,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String AnalyticsConfiguration_ExternalId { get; set; }
         #endregion
         
+        #region Parameter RefreshTokenRotation_Feature
+        /// <summary>
+        /// <para>
+        /// <para>The state of refresh token rotation for the current app client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.FeatureType")]
+        public Amazon.CognitoIdentityProvider.FeatureType RefreshTokenRotation_Feature { get; set; }
+        #endregion
+        
         #region Parameter TokenValidityUnits_IdToken
         /// <summary>
         /// <para>
@@ -419,6 +430,21 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RefreshTokenValidity { get; set; }
+        #endregion
+        
+        #region Parameter RefreshTokenRotation_RetryGracePeriodSecond
+        /// <summary>
+        /// <para>
+        /// <para>When you request a token refresh with <c>GetTokensFromRefreshToken</c>, the original
+        /// refresh token that you're rotating out can remain valid for a period of time of up
+        /// to 60 seconds. This allows for client-side retries. When <c>RetryGracePeriodSeconds</c>
+        /// is <c>0</c>, the grace period is disabled and a successful request immediately invalidates
+        /// the submitted refresh token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RefreshTokenRotation_RetryGracePeriodSeconds")]
+        public System.Int32? RefreshTokenRotation_RetryGracePeriodSecond { get; set; }
         #endregion
         
         #region Parameter AnalyticsConfiguration_RoleArn
@@ -609,6 +635,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.ReadAttribute = new List<System.String>(this.ReadAttribute);
             }
+            context.RefreshTokenRotation_Feature = this.RefreshTokenRotation_Feature;
+            context.RefreshTokenRotation_RetryGracePeriodSecond = this.RefreshTokenRotation_RetryGracePeriodSecond;
             context.RefreshTokenValidity = this.RefreshTokenValidity;
             if (this.SupportedIdentityProvider != null)
             {
@@ -767,6 +795,35 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.ReadAttributes = cmdletContext.ReadAttribute;
             }
+            
+             // populate RefreshTokenRotation
+            var requestRefreshTokenRotationIsNull = true;
+            request.RefreshTokenRotation = new Amazon.CognitoIdentityProvider.Model.RefreshTokenRotationType();
+            Amazon.CognitoIdentityProvider.FeatureType requestRefreshTokenRotation_refreshTokenRotation_Feature = null;
+            if (cmdletContext.RefreshTokenRotation_Feature != null)
+            {
+                requestRefreshTokenRotation_refreshTokenRotation_Feature = cmdletContext.RefreshTokenRotation_Feature;
+            }
+            if (requestRefreshTokenRotation_refreshTokenRotation_Feature != null)
+            {
+                request.RefreshTokenRotation.Feature = requestRefreshTokenRotation_refreshTokenRotation_Feature;
+                requestRefreshTokenRotationIsNull = false;
+            }
+            System.Int32? requestRefreshTokenRotation_refreshTokenRotation_RetryGracePeriodSecond = null;
+            if (cmdletContext.RefreshTokenRotation_RetryGracePeriodSecond != null)
+            {
+                requestRefreshTokenRotation_refreshTokenRotation_RetryGracePeriodSecond = cmdletContext.RefreshTokenRotation_RetryGracePeriodSecond.Value;
+            }
+            if (requestRefreshTokenRotation_refreshTokenRotation_RetryGracePeriodSecond != null)
+            {
+                request.RefreshTokenRotation.RetryGracePeriodSeconds = requestRefreshTokenRotation_refreshTokenRotation_RetryGracePeriodSecond.Value;
+                requestRefreshTokenRotationIsNull = false;
+            }
+             // determine if request.RefreshTokenRotation should be set to null
+            if (requestRefreshTokenRotationIsNull)
+            {
+                request.RefreshTokenRotation = null;
+            }
             if (cmdletContext.RefreshTokenValidity != null)
             {
                 request.RefreshTokenValidity = cmdletContext.RefreshTokenValidity.Value;
@@ -904,6 +961,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public List<System.String> LogoutURLs { get; set; }
             public Amazon.CognitoIdentityProvider.PreventUserExistenceErrorTypes PreventUserExistenceError { get; set; }
             public List<System.String> ReadAttribute { get; set; }
+            public Amazon.CognitoIdentityProvider.FeatureType RefreshTokenRotation_Feature { get; set; }
+            public System.Int32? RefreshTokenRotation_RetryGracePeriodSecond { get; set; }
             public System.Int32? RefreshTokenValidity { get; set; }
             public List<System.String> SupportedIdentityProvider { get; set; }
             public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_AccessToken { get; set; }
