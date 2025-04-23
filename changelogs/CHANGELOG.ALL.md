@@ -1,4 +1,14 @@
-﻿### 4.1.804 (2025-04-22 20:47Z)
+﻿### 4.1.805 (2025-04-23 20:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1029.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBFleet: added parameter ComputeConfiguration_InstanceType.
+    * Modified cmdlet New-CBProject: added parameter ComputeConfiguration_InstanceType.
+    * Modified cmdlet Update-CBFleet: added parameter ComputeConfiguration_InstanceType.
+    * Modified cmdlet Update-CBProject: added parameter ComputeConfiguration_InstanceType.
+  * Amazon EC2 Container Service
+    * Added cmdlet Stop-ECSServiceDeployment leveraging the StopServiceDeployment service API.
+
+### 4.1.804 (2025-04-22 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1028.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account
     * Added cmdlet Get-ACCTAccountInformation leveraging the GetAccountInformation service API.

@@ -283,6 +283,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.StopServiceDeploymentStopType
+        "Stop-ECSServiceDeployment/StopType"
+        {
+            $v = "ABORT","ROLLBACK"
+            break
+        }
+
         # Amazon.ECS.TargetType
         "Get-ECSAttributeList/TargetType"
         {
@@ -335,6 +342,7 @@ $ECS_map = @{
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
+    "StopType"=@("Stop-ECSServiceDeployment")
     "TargetType"=@("Get-ECSAttributeList")
 }
 
@@ -430,6 +438,7 @@ $ECS_SelectMap = @{
                "Register-ECSTaskDefinition",
                "New-ECSTask",
                "Start-ECSTask",
+               "Stop-ECSServiceDeployment",
                "Stop-ECSTask",
                "Submit-ECSAttachmentStateChange",
                "Add-ECSResourceTag",

@@ -11148,6 +11148,7 @@ Set-Alias -Name ECS-RegisterTaskDefinition -Value Register-ECSTaskDefinition
 Set-Alias -Name Run-ECSTask -Value New-ECSTask
 Set-Alias -Name ECS-RunTask -Value New-ECSTask
 Set-Alias -Name ECS-StartTask -Value Start-ECSTask
+Set-Alias -Name ECS-StopServiceDeployment -Value Stop-ECSServiceDeployment
 Set-Alias -Name ECS-StopTask -Value Stop-ECSTask
 Set-Alias -Name Submit-ECSAttachmentStateChanges -Value Submit-ECSAttachmentStateChange
 Set-Alias -Name ECS-SubmitAttachmentStateChanges -Value Submit-ECSAttachmentStateChange

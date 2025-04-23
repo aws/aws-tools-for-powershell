@@ -458,6 +458,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean? Source_InsecureSsl { get; set; }
         #endregion
         
+        #region Parameter ComputeConfiguration_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The EC2 instance type to be launched in your fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Environment_ComputeConfiguration_InstanceType")]
+        public System.String ComputeConfiguration_InstanceType { get; set; }
+        #endregion
+        
         #region Parameter Artifacts_Location
         /// <summary>
         /// <para>
@@ -1162,6 +1173,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.EncryptionKey = this.EncryptionKey;
             context.Environment_Certificate = this.Environment_Certificate;
             context.ComputeConfiguration_Disk = this.ComputeConfiguration_Disk;
+            context.ComputeConfiguration_InstanceType = this.ComputeConfiguration_InstanceType;
             context.ComputeConfiguration_MachineType = this.ComputeConfiguration_MachineType;
             context.ComputeConfiguration_Memory = this.ComputeConfiguration_Memory;
             context.ComputeConfiguration_VCpu = this.ComputeConfiguration_VCpu;
@@ -1703,6 +1715,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 requestEnvironment_environment_ComputeConfiguration.Disk = requestEnvironment_environment_ComputeConfiguration_computeConfiguration_Disk.Value;
                 requestEnvironment_environment_ComputeConfigurationIsNull = false;
             }
+            System.String requestEnvironment_environment_ComputeConfiguration_computeConfiguration_InstanceType = null;
+            if (cmdletContext.ComputeConfiguration_InstanceType != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration_computeConfiguration_InstanceType = cmdletContext.ComputeConfiguration_InstanceType;
+            }
+            if (requestEnvironment_environment_ComputeConfiguration_computeConfiguration_InstanceType != null)
+            {
+                requestEnvironment_environment_ComputeConfiguration.InstanceType = requestEnvironment_environment_ComputeConfiguration_computeConfiguration_InstanceType;
+                requestEnvironment_environment_ComputeConfigurationIsNull = false;
+            }
             Amazon.CodeBuild.MachineType requestEnvironment_environment_ComputeConfiguration_computeConfiguration_MachineType = null;
             if (cmdletContext.ComputeConfiguration_MachineType != null)
             {
@@ -2199,6 +2221,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String EncryptionKey { get; set; }
             public System.String Environment_Certificate { get; set; }
             public System.Int64? ComputeConfiguration_Disk { get; set; }
+            public System.String ComputeConfiguration_InstanceType { get; set; }
             public Amazon.CodeBuild.MachineType ComputeConfiguration_MachineType { get; set; }
             public System.Int64? ComputeConfiguration_Memory { get; set; }
             public System.Int64? ComputeConfiguration_VCpu { get; set; }

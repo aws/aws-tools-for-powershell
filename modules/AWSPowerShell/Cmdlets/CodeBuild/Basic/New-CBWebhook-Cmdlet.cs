@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ScopeConfiguration_Scope
         /// <summary>
         /// <para>
-        /// <para>The type of scope for a GitHub or GitLab webhook.</para>
+        /// <para>The type of scope for a GitHub or GitLab webhook. The scope default is GITHUB_ORGANIZATION.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

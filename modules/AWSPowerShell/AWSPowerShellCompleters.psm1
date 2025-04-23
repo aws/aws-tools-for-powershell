@@ -13547,7 +13547,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
         {
-            $v = "ATTRIBUTE_BASED_COMPUTE","BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_GENERAL1_XLARGE","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB"
+            $v = "ATTRIBUTE_BASED_COMPUTE","BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL","BUILD_GENERAL1_XLARGE","BUILD_LAMBDA_10GB","BUILD_LAMBDA_1GB","BUILD_LAMBDA_2GB","BUILD_LAMBDA_4GB","BUILD_LAMBDA_8GB","CUSTOM_INSTANCE_TYPE"
             break
         }
 
@@ -27528,6 +27528,13 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.StopServiceDeploymentStopType
+        "Stop-ECSServiceDeployment/StopType"
+        {
+            $v = "ABORT","ROLLBACK"
+            break
+        }
+
         # Amazon.ECS.TargetType
         "Get-ECSAttributeList/TargetType"
         {
@@ -27580,6 +27587,7 @@ $ECS_map = @{
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
+    "StopType"=@("Stop-ECSServiceDeployment")
     "TargetType"=@("Get-ECSAttributeList")
 }
 
@@ -27675,6 +27683,7 @@ $ECS_SelectMap = @{
                "Register-ECSTaskDefinition",
                "New-ECSTask",
                "Start-ECSTask",
+               "Stop-ECSServiceDeployment",
                "Stop-ECSTask",
                "Submit-ECSAttachmentStateChange",
                "Add-ECSResourceTag",
