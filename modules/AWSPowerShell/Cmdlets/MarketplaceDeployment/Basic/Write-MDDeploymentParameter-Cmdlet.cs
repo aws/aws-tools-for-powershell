@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.MD
         #region Parameter Catalog
         /// <summary>
         /// <para>
-        /// <para>The catalog related to the request. Fixed value: <c>AWS Marketplace</c></para>
+        /// <para>The catalog related to the request. Fixed value: <c>AWSMarketplace</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.MD
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token for deployment parameters. A unique identifier for the new version.</para>
+        /// <para>The idempotency token for deployment parameters. A unique identifier for the new version.</para><note><para>This field is not required if you're calling using an AWS SDK. Otherwise, a <c>clientToken</c>
+        /// must be provided with the request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
