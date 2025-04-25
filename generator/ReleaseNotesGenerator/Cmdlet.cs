@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+#pragma warning disable CS0168
 namespace PSReleaseNotesGenerator
 {
     public class Cmdlet

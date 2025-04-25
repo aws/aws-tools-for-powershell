@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// form Get-EC2LaunchTemplateData | New-EC2LaunchTemplateData[Version].This works around
         /// the lack of copy constructors in the sdk.
         /// </summary>
-        /// <param name="t"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
         public static RequestLaunchTemplateData FromResponseTemplateData(ResponseLaunchTemplateData input)
         {

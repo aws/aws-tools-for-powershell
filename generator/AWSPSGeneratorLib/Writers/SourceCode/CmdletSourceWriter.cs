@@ -76,6 +76,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
             writer.WriteLine();
 
+            // Adds pragma warning to all files to disable deprecated and obsolete compiler warning similar to .net sdk. 
+            writer.WriteLine("#pragma warning disable CS0618, CS0612");
             writer.WriteLine($"namespace Amazon.PowerShell.Cmdlets.{ServiceConfig.ServiceNounPrefix}");
             writer.OpenRegion();
             {

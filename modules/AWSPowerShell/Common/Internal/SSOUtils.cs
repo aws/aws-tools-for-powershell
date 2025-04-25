@@ -32,6 +32,7 @@ using Amazon.Runtime;
 using Amazon.SSO;
 using Amazon.SSO.Model;
 
+#pragma warning disable CS0168
 namespace Amazon.PowerShell.Common.Internal
 {
     internal class SSOUtils

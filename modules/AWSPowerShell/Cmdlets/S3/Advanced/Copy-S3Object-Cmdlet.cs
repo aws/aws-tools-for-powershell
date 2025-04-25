@@ -35,6 +35,7 @@ using Amazon.Runtime.CredentialManagement;
 using Amazon.Runtime.Internal;
 using Amazon.Util;
 
+#pragma warning disable CS0618
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
@@ -1385,6 +1386,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 _uploadId = uploadId;
                 _context = context;
                 _objectSize = objectSize;
+                _cancellationToken = cancellationToken;
 
                 PartitionIntoParts();
             }

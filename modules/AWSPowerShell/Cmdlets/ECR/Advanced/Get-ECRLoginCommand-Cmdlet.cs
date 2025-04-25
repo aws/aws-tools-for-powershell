@@ -25,6 +25,7 @@ using Amazon.ECR;
 using Amazon.ECR.Model;
 using System.Threading;
 
+#pragma warning disable CS0612,CS0618 
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>

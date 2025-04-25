@@ -10,6 +10,7 @@ using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Utils;
 using System.Collections.Concurrent;
 
+#pragma warning disable CS0168
 namespace AWSPowerShellGenerator.Generators
 {
     public class SimplePropertyInfo

@@ -350,32 +350,19 @@ namespace Amazon.PowerShell.Common
         public string ProfileLocation { get; set; }
 #endregion
 
-#region Parameter ListProfile
-        /// <summary>
-        /// Lists the names of all CredentialProfiles saved in local storage
-        /// </summary>
-        [Parameter(ParameterSetName = "ListName", ValueFromPipelineByPropertyName = true)]
-        [Alias("ListStoredCredentials", "ListProfiles")]
-        public SwitchParameter ListProfile { get; set; }
-#endregion
-
 #region Parameter ListProfileDetail
         /// <summary>
         /// List the name, type, and location of all CredentialProfiles saved in local storage
         /// </summary>
+        /// Have added Alias for backward compatibility as ListProfile was a parameter in v4
         [Parameter(ParameterSetName = "ListDetail", ValueFromPipelineByPropertyName = true)]
+        [Alias("ListProfile")]
         public SwitchParameter ListProfileDetail { get; set; }
 #endregion
 
         protected override void ProcessRecord()
         {
-            if (ListProfile.IsPresent)
-            {
-                WriteWarning("The ListProfile switch is deprecated and will be removed from a future release.  Please use ListProfileDetail instead.");
-                WriteObject(SettingsStore.GetProfileInfo(ProfileLocation).Select(pi => pi.ProfileName), true);
-                return;
-            }
-            else if (ListProfileDetail.IsPresent)
+            if (ListProfileDetail.IsPresent)
             {
                 WriteObject(SettingsStore.GetProfileInfo(ProfileLocation), true);
                 return;

@@ -115,49 +115,55 @@ Describe -Tag "Smoke" "Get-AWSCredentials" {
             $helper.RegisterProfile("custom", "accessCustom", "secretCustom", $helper.CustomSharedPath)
 
             # test getting details from .NET credentials file
-            $profileInfos = (Get-AWSCredentials -ListProfileDetail)
+            $profileInfo = (Get-AWSCredentials -ListProfileDetail)
 
-            $profileInfos[0].ProfileName | Should -Be "net"
-            $profileInfos[0].StoreTypeName | Should -Be "NetSDKCredentialsFile"
-            $profileInfos[0].ProfileLocation | Should -BeNullOrEmpty
+            $profileInfo[0].ProfileName | Should -Be "net"
+            $profileInfo[0].StoreTypeName | Should -Be "NetSDKCredentialsFile"
+            $profileInfo[0].ProfileLocation | Should -BeNullOrEmpty
 
-            $profileInfos[1].ProfileName | Should -Be "default"
-            $profileInfos[1].StoreTypeName | Should -Be "SharedCredentialsFile"
-            $profileInfos[1].ProfileLocation | Should -Be $helper.DefaultSharedPath
+            $profileInfo[1].ProfileName | Should -Be "default"
+            $profileInfo[1].StoreTypeName | Should -Be "SharedCredentialsFile"
+            $profileInfo[1].ProfileLocation | Should -Be $helper.DefaultSharedPath
 
-            $profileInfos.Count | Should -Be 2
+            $profileInfo.Count | Should -Be 2
 
-            # test getting names from .NET credentials file
-            $profileNames = (Get-AWSCredentials -ListProfile)
-            $profileNames[0] | Should -Be "net"
-            $profileNames[1] | Should -Be "default"
-            $profileNames.Count | Should -Be 2
+            # test getting names from .NET credentials file using -ListProfile Alias
+            $profileInfo = (Get-AWSCredentials -ListProfile)
+            $profileInfo[0].ProfileName | Should -Be "net"
+            $profileInfo[1].ProfileName | Should -Be "default"
+            $profileInfo.Count | Should -Be 2
 
             # test getting details from custom shared credentials file
-            $profileInfos = (Get-AWSCredentials -ListProfileDetail -ProfileLocation $helper.CustomSharedPath)
+            $profileInfo = (Get-AWSCredentials -ListProfileDetail -ProfileLocation $helper.CustomSharedPath)
 
-            $profileInfos[0].ProfileName | Should -Be "custom"
-            $profileInfos[0].StoreTypeName | Should -Be "SharedCredentialsFile"
-            $profileInfos[0].ProfileLocation | Should -Be $helper.CustomSharedPath
+            $profileInfo[0].ProfileName | Should -Be "custom"
+            $profileInfo[0].StoreTypeName | Should -Be "SharedCredentialsFile"
+            $profileInfo[0].ProfileLocation | Should -Be $helper.CustomSharedPath
 
-            $profileInfos.Count | Should -Be 1
+            $profileInfo.Count | Should -Be 1
             
-            # test getting names from default shared credentials file
-            $profileName = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.CustomSharedPath)
-            $profileName | Should -Be "custom"
+            # test getting names from default shared credentials file using -ListProfile Alias
+            $profileInfo = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.CustomSharedPath)
+            $profileInfo[0].ProfileName | Should -Be "custom"
+            $profileInfo[0].StoreTypeName | Should -Be "SharedCredentialsFile"
+            $profileInfo[0].ProfileLocation | Should -Be $helper.CustomSharedPath
 
             # test getting details from default shared credentials file
-            $profileInfos = (Get-AWSCredentials -ListProfileDetail -ProfileLocation $helper.DefaultSharedPath)
+            $profileInfo = (Get-AWSCredentials -ListProfileDetail -ProfileLocation $helper.DefaultSharedPath)
 
-            $profileInfos[0].ProfileName | Should -Be "default"
-            $profileInfos[0].StoreTypeName | Should -Be "SharedCredentialsFile"
-            $profileInfos[0].ProfileLocation | Should -Be $helper.DefaultSharedPath
+            $profileInfo[0].ProfileName | Should -Be "default"
+            $profileInfo[0].StoreTypeName | Should -Be "SharedCredentialsFile"
+            $profileInfo[0].ProfileLocation | Should -Be $helper.DefaultSharedPath
 
-            $profileInfos.Count | Should -Be 1
+            $profileInfo.Count | Should -Be 1
             
-            # test getting names from default shared credentials file
-            $profileName = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.DefaultSharedPath)
-            $profileName | Should -Be "default"
+            # test getting names from default shared credentials file using -ListProfile Alias
+            $profileInfo = (Get-AWSCredentials -ListProfile -ProfileLocation $helper.DefaultSharedPath)
+            $profileInfo[0].ProfileName | Should -Be "default"
+            $profileInfo[0].StoreTypeName | Should -Be "SharedCredentialsFile"
+            $profileInfo[0].ProfileLocation | Should -Be $helper.DefaultSharedPath
+
+            $profileInfo.Count | Should -Be 1
         }
     }
 }
