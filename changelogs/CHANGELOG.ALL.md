@@ -1,4 +1,18 @@
-﻿### 4.1.805 (2025-04-23 20:36Z)
+﻿### 4.1.806 (2025-04-24 23:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1030.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Modified cmdlet New-ASYNChannelNamespace: added parameters OnPublish_Behavior, OnPublish_Integration_DataSourceName, OnPublish_LambdaConfig_InvokeType, OnSubscribe_Behavior, OnSubscribe_Integration_DataSourceName and OnSubscribe_LambdaConfig_InvokeType.
+    * Modified cmdlet Update-ASYNChannelNamespace: added parameters OnPublish_Behavior, OnPublish_Integration_DataSourceName, OnPublish_LambdaConfig_InvokeType, OnSubscribe_Behavior, OnSubscribe_Integration_DataSourceName and OnSubscribe_LambdaConfig_InvokeType.
+  * Amazon Data Automation for Amazon Bedrock
+    * Modified cmdlet New-BDADataAutomationProject: added parameters ModalityRouting_Jpeg, ModalityRouting_Mov, ModalityRouting_Mp4, ModalityRouting_Png, OverrideConfiguration_Audio_ModalityProcessing_State, OverrideConfiguration_Document_ModalityProcessing_State, OverrideConfiguration_Image_ModalityProcessing_State and OverrideConfiguration_Video_ModalityProcessing_State.
+    * Modified cmdlet Update-BDADataAutomationProject: added parameters ModalityRouting_Jpeg, ModalityRouting_Mov, ModalityRouting_Mp4, ModalityRouting_Png, OverrideConfiguration_Audio_ModalityProcessing_State, OverrideConfiguration_Document_ModalityProcessing_State, OverrideConfiguration_Image_ModalityProcessing_State and OverrideConfiguration_Video_ModalityProcessing_State.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSTenantDatabase: added parameters ManageMasterUserPassword, MasterUserSecretKmsKeyId and RotateMasterUserPassword.
+    * Modified cmdlet New-RDSTenantDatabase: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+
+### 4.1.805 (2025-04-23 20:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1029.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBFleet: added parameter ComputeConfiguration_InstanceType.

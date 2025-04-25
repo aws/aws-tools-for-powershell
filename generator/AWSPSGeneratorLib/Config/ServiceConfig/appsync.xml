@@ -47,7 +47,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateChannelNamespace" OutputProperty="ChannelNamespace" Verb="New" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="HandlerConfigs_OnPublish_Integration_DataSourceName" NewName="OnPublish_Integration_DataSourceName" />
+                <Param Name="HandlerConfigs_OnSubscribe_Integration_DataSourceName" NewName="OnSubscribe_Integration_DataSourceName" />
+                <Param Name="HandlerConfigs_OnPublish_Integration_LambdaConfig_InvokeType" NewName="OnPublish_LambdaConfig_InvokeType" />
+                <Param Name="HandlerConfigs_OnSubscribe_Integration_LambdaConfig_InvokeType" NewName="OnSubscribe_LambdaConfig_InvokeType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="DataSource" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
@@ -287,7 +292,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChannelNamespace" OutputProperty="ChannelNamespace" Verb="Update" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="HandlerConfigs_OnPublish_Integration_DataSourceName" NewName="OnPublish_Integration_DataSourceName" />
+                <Param Name="HandlerConfigs_OnSubscribe_Integration_DataSourceName" NewName="OnSubscribe_Integration_DataSourceName" />
+                <Param Name="HandlerConfigs_OnPublish_Integration_LambdaConfig_InvokeType" NewName="OnPublish_LambdaConfig_InvokeType" />
+                <Param Name="HandlerConfigs_OnSubscribe_Integration_LambdaConfig_InvokeType" NewName="OnSubscribe_LambdaConfig_InvokeType" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">

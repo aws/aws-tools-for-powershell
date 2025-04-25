@@ -30,20 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Stops an ongoing service deployment.
     /// 
-    ///  
-    /// <para>
-    /// The following stop types are avaiable:
-    /// </para><ul><li><para>
-    /// ROLLBACK - This option rolls back the service deployment to the previous service revision.
-    /// 
-    /// </para><para>
-    /// You can use this option even if you didn't configure the service deployment for the
-    /// rollback option. 
-    /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stop-service-deployment.html">Stopping
-    /// Amazon ECS service deployments</a> in the <i>Amazon Elastic Container Service Developer
-    /// Guide</i>.
-    /// </para>
+    ///  <note><para>
+    /// StopServiceDeployment isn't currently supported.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Stop", "ECSServiceDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.StopServiceDeploymentResponse")]
@@ -76,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter StopType
         /// <summary>
         /// <para>
-        /// <para>How you want Amazon ECS to stop the task. </para><para>The valid values are <c>ROLLBACK</c>.</para>
+        /// <para>How you want Amazon ECS to stop the service. </para><para>The ROLLBACK and ABORT stopType aren't supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

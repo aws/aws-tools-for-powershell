@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether minor version upgrades are applied automatically to the DB instance
-        /// during the maintenance window.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// during the maintenance window.</para><para>This setting doesn't apply to RDS Custom.</para><para>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically
+        /// upgrading the minor engine version</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,6 +372,37 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LicenseModel { get; set; }
+        #endregion
+        
+        #region Parameter ManageMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
+        /// Manager in the restored DB instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide</i>.</para><para>Constraints:</para><ul><li><para>Applies to RDS for Oracle only.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB instance.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>If you don't specify <c>MasterUserSecretKmsKeyId</c>, then the <c>aws/secretsmanager</c>
+        /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
+        /// Services account, then you can't use the <c>aws/secretsmanager</c> KMS key to encrypt
+        /// the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter MaxAllocatedStorage
@@ -716,6 +748,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.Iops = this.Iops;
             context.LicenseModel = this.LicenseModel;
+            context.ManageMasterUserPassword = this.ManageMasterUserPassword;
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MaxAllocatedStorage = this.MaxAllocatedStorage;
             context.MultiAZ = this.MultiAZ;
             context.NetworkType = this.NetworkType;
@@ -873,6 +907,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.LicenseModel != null)
             {
                 request.LicenseModel = cmdletContext.LicenseModel;
+            }
+            if (cmdletContext.ManageMasterUserPassword != null)
+            {
+                request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
+            if (cmdletContext.MasterUserSecretKmsKeyId != null)
+            {
+                request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
             }
             if (cmdletContext.MaxAllocatedStorage != null)
             {
@@ -1051,6 +1093,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String EngineLifecycleSupport { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }
+            public System.Boolean? ManageMasterUserPassword { get; set; }
+            public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.Int32? MaxAllocatedStorage { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String NetworkType { get; set; }

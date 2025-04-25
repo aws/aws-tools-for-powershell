@@ -45,6 +45,10 @@
                 <Param Name="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" />
                 <Param Name="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" />
                 <Param Name="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" />
+                <Param Name="OverrideConfiguration_Audio_ModalityProcessing_State" NewName="OverrideConfiguration_Audio_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Document_ModalityProcessing_State" NewName="OverrideConfiguration_Document_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Image_ModalityProcessing_State" NewName="OverrideConfiguration_Image_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Video_ModalityProcessing_State" NewName="OverrideConfiguration_Video_ModalityProcessing_State" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -106,6 +110,10 @@
                 <Param Name="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Document_Extraction_BoundingBox_State" />
                 <Param Name="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Image_Extraction_BoundingBox_State" />
                 <Param Name="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" NewName="StandardOutputConfiguration_Video_Extraction_BoundingBox_State" />
+                <Param Name="OverrideConfiguration_Audio_ModalityProcessing_State" NewName="OverrideConfiguration_Audio_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Document_ModalityProcessing_State" NewName="OverrideConfiguration_Document_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Image_ModalityProcessing_State" NewName="OverrideConfiguration_Image_ModalityProcessing_State" />
+                <Param Name="OverrideConfiguration_Video_ModalityProcessing_State" NewName="OverrideConfiguration_Video_ModalityProcessing_State" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

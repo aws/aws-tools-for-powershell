@@ -110,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// during the maintenance window. An outage occurs when all the following conditions
         /// are met:</para><ul><li><para>The automatic upgrade is enabled for the maintenance window.</para></li><li><para>A newer minor version is available.</para></li><li><para>RDS has enabled automatic patching for the engine version.</para></li></ul><para>If any of the preceding conditions isn't met, Amazon RDS applies the change as soon
         /// as possible and doesn't cause an outage.</para><para>For an RDS Custom DB instance, don't enable this setting. Otherwise, the operation
-        /// returns an error.</para>
+        /// returns an error.</para><para>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically
+        /// upgrading the minor engine version</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -551,7 +552,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// user specified by <c>MasterUserPassword</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
-        /// <c>MasterUserPassword</c> is specified.</para></li></ul>
+        /// <c>MasterUserPassword</c> is specified.</para></li><li><para>Can't specify for RDS for Oracle CDB instances in the multi-tenant configuration.
+        /// Use <c>ModifyTenantDatabase</c> instead.</para></li><li><para>Can't specify the parameters <c>ManageMasterUserPassword</c> and <c>MultiTenant</c>
+        /// in the same operation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -566,8 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// the request, the <c>MasterUserPassword</c> element exists in the <c>PendingModifiedValues</c>
         /// element of the operation response.</para><note><para>Amazon RDS API operations never return the password, so this operation provides a
         /// way to regain access to a primary instance user if the password is lost. This includes
-        /// restoring privileges that might have been accidentally revoked.</para></note><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora (The password for the master user is managed by the DB cluster. For
-        /// more information, see <c>ModifyDBCluster</c>.)</para></li><li><para>RDS Custom</para></li></ul><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Can't be specified if <c>ManageMasterUserPassword</c> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle,
+        /// restoring privileges that might have been accidentally revoked.</para></note><para>This setting doesn't apply to the following DB instances:</para><ul><li><para>Amazon Aurora</para><para>The password for the master user is managed by the DB cluster. For more information,
+        /// see <c>ModifyDBCluster</c>.</para></li><li><para>RDS Custom</para></li><li><para>RDS for Oracle CDBs in the multi-tenant configuration</para><para>Specify the master password in <c>ModifyTenantDatabase</c> instead.</para></li></ul><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Can't be specified if <c>ManageMasterUserPassword</c> is turned on.</para></li><li><para>Can include any printable ASCII character except "/", """, or "@". For RDS for Oracle,
         /// can't include the "&amp;" (ampersand) or the "'" (single quotes) character.</para></li></ul><para>Length Constraints:</para><ul><li><para>RDS for Db2 - Must contain from 8 to 255 characters.</para></li><li><para>RDS for MariaDB - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Microsoft SQL Server - Must contain from 8 to 128 characters.</para></li><li><para>RDS for MySQL - Must contain from 8 to 41 characters.</para></li><li><para>RDS for Oracle - Must contain from 8 to 30 characters.</para></li><li><para>RDS for PostgreSQL - Must contain from 8 to 128 characters.</para></li></ul>
         /// </para>
         /// </summary>
@@ -847,7 +850,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether to rotate the secret managed by Amazon Web Services Secrets Manager
         /// for the master user password.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
-        /// Web Services Secrets Manager for the DB cluster. The secret value contains the updated
+        /// Web Services Secrets Manager for the DB instance. The secret value contains the updated
         /// password.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
         /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
         /// Guide.</i></para><para>Constraints:</para><ul><li><para>You must apply the change immediately when rotating the master user password.</para></li></ul>

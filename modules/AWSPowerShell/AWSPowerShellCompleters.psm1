@@ -3406,7 +3406,7 @@ $AAR_Completers = {
             ($_ -eq "Update-AARService/CodeConfigurationValues_Runtime")
         }
         {
-            $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","NODEJS_18","PHP_81","PYTHON_3","PYTHON_311","RUBY_31"
+            $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","NODEJS_18","NODEJS_22","PHP_81","PYTHON_3","PYTHON_311","RUBY_31"
             break
         }
 
@@ -3967,6 +3967,30 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.HandlerBehavior
+        {
+            ($_ -eq "New-ASYNChannelNamespace/OnPublish_Behavior") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnPublish_Behavior") -Or
+            ($_ -eq "New-ASYNChannelNamespace/OnSubscribe_Behavior") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnSubscribe_Behavior")
+        }
+        {
+            $v = "CODE","DIRECT"
+            break
+        }
+
+        # Amazon.AppSync.InvokeType
+        {
+            ($_ -eq "New-ASYNChannelNamespace/OnPublish_LambdaConfig_InvokeType") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnPublish_LambdaConfig_InvokeType") -Or
+            ($_ -eq "New-ASYNChannelNamespace/OnSubscribe_LambdaConfig_InvokeType") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnSubscribe_LambdaConfig_InvokeType")
+        }
+        {
+            $v = "EVENT","REQUEST_RESPONSE"
+            break
+        }
+
         # Amazon.AppSync.MergeType
         {
             ($_ -eq "Start-ASYNMergedGraphqlApi/SourceApiAssociationConfig_MergeType") -Or
@@ -4090,6 +4114,10 @@ $ASYN_map = @{
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "LogConfig_LogLevel"=@("New-ASYNApi","Update-ASYNApi")
     "MetricsConfig"=@("New-ASYNDataSource","New-ASYNResolver","Update-ASYNDataSource","Update-ASYNResolver")
+    "OnPublish_Behavior"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
+    "OnPublish_LambdaConfig_InvokeType"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
+    "OnSubscribe_Behavior"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
+    "OnSubscribe_LambdaConfig_InvokeType"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
     "Owner"=@("Get-ASYNGraphqlApiList")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
     "Runtime_Name"=@("New-ASYNFunction","New-ASYNResolver","Test-ASYNCode","Update-ASYNFunction","Update-ASYNResolver")
@@ -7735,6 +7763,22 @@ $BDA_Completers = {
             break
         }
 
+        # Amazon.BedrockDataAutomation.DesiredModality
+        {
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Jpeg") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Jpeg") -Or
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Mov") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Mov") -Or
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Mp4") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Mp4") -Or
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Png") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Png")
+        }
+        {
+            $v = "AUDIO","DOCUMENT","IMAGE","VIDEO"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.ResourceOwner
         {
             ($_ -eq "Get-BDABlueprintList/ResourceOwner") -Or
@@ -7749,6 +7793,14 @@ $BDA_Completers = {
         {
             ($_ -eq "New-BDADataAutomationProject/AdditionalFileFormat_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/AdditionalFileFormat_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Document_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Image_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
             ($_ -eq "New-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Audio_Extraction_Category_State") -Or
@@ -7797,6 +7849,14 @@ $BDA_map = @{
     "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
+    "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ModalityRouting_Png"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Audio_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Document_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Image_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Video_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList")
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")

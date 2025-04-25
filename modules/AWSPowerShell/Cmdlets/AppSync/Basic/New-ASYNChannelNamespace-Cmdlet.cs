@@ -59,6 +59,30 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter OnPublish_Behavior
+        /// <summary>
+        /// <para>
+        /// <para>The behavior for the handler.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HandlerConfigs_OnPublish_Behavior")]
+        [AWSConstantClassSource("Amazon.AppSync.HandlerBehavior")]
+        public Amazon.AppSync.HandlerBehavior OnPublish_Behavior { get; set; }
+        #endregion
+        
+        #region Parameter OnSubscribe_Behavior
+        /// <summary>
+        /// <para>
+        /// <para>The behavior for the handler.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HandlerConfigs_OnSubscribe_Behavior")]
+        [AWSConstantClassSource("Amazon.AppSync.HandlerBehavior")]
+        public Amazon.AppSync.HandlerBehavior OnSubscribe_Behavior { get; set; }
+        #endregion
+        
         #region Parameter CodeHandler
         /// <summary>
         /// <para>
@@ -69,6 +93,52 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CodeHandlers")]
         public System.String CodeHandler { get; set; }
+        #endregion
+        
+        #region Parameter OnPublish_Integration_DataSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the data source that has been configured on the API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HandlerConfigs_OnPublish_Integration_DataSourceName")]
+        public System.String OnPublish_Integration_DataSourceName { get; set; }
+        #endregion
+        
+        #region Parameter OnSubscribe_Integration_DataSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the data source that has been configured on the API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HandlerConfigs_OnSubscribe_Integration_DataSourceName")]
+        public System.String OnSubscribe_Integration_DataSourceName { get; set; }
+        #endregion
+        
+        #region Parameter OnPublish_LambdaConfig_InvokeType
+        /// <summary>
+        /// <para>
+        /// <para>The invocation type for a Lambda data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HandlerConfigs_OnPublish_Integration_LambdaConfig_InvokeType")]
+        [AWSConstantClassSource("Amazon.AppSync.InvokeType")]
+        public Amazon.AppSync.InvokeType OnPublish_LambdaConfig_InvokeType { get; set; }
+        #endregion
+        
+        #region Parameter OnSubscribe_LambdaConfig_InvokeType
+        /// <summary>
+        /// <para>
+        /// <para>The invocation type for a Lambda data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HandlerConfigs_OnSubscribe_Integration_LambdaConfig_InvokeType")]
+        [AWSConstantClassSource("Amazon.AppSync.InvokeType")]
+        public Amazon.AppSync.InvokeType OnSubscribe_LambdaConfig_InvokeType { get; set; }
         #endregion
         
         #region Parameter Name
@@ -193,6 +263,12 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.CodeHandler = this.CodeHandler;
+            context.OnPublish_Behavior = this.OnPublish_Behavior;
+            context.OnPublish_Integration_DataSourceName = this.OnPublish_Integration_DataSourceName;
+            context.OnPublish_LambdaConfig_InvokeType = this.OnPublish_LambdaConfig_InvokeType;
+            context.OnSubscribe_Behavior = this.OnSubscribe_Behavior;
+            context.OnSubscribe_Integration_DataSourceName = this.OnSubscribe_Integration_DataSourceName;
+            context.OnSubscribe_LambdaConfig_InvokeType = this.OnSubscribe_LambdaConfig_InvokeType;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -239,6 +315,165 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.CodeHandler != null)
             {
                 request.CodeHandlers = cmdletContext.CodeHandler;
+            }
+            
+             // populate HandlerConfigs
+            var requestHandlerConfigsIsNull = true;
+            request.HandlerConfigs = new Amazon.AppSync.Model.HandlerConfigs();
+            Amazon.AppSync.Model.HandlerConfig requestHandlerConfigs_handlerConfigs_OnPublish = null;
+            
+             // populate OnPublish
+            var requestHandlerConfigs_handlerConfigs_OnPublishIsNull = true;
+            requestHandlerConfigs_handlerConfigs_OnPublish = new Amazon.AppSync.Model.HandlerConfig();
+            Amazon.AppSync.HandlerBehavior requestHandlerConfigs_handlerConfigs_OnPublish_onPublish_Behavior = null;
+            if (cmdletContext.OnPublish_Behavior != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_onPublish_Behavior = cmdletContext.OnPublish_Behavior;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_onPublish_Behavior != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish.Behavior = requestHandlerConfigs_handlerConfigs_OnPublish_onPublish_Behavior;
+                requestHandlerConfigs_handlerConfigs_OnPublishIsNull = false;
+            }
+            Amazon.AppSync.Model.Integration requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration = null;
+            
+             // populate Integration
+            var requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_IntegrationIsNull = true;
+            requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration = new Amazon.AppSync.Model.Integration();
+            System.String requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_onPublish_Integration_DataSourceName = null;
+            if (cmdletContext.OnPublish_Integration_DataSourceName != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_onPublish_Integration_DataSourceName = cmdletContext.OnPublish_Integration_DataSourceName;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_onPublish_Integration_DataSourceName != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration.DataSourceName = requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_onPublish_Integration_DataSourceName;
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_IntegrationIsNull = false;
+            }
+            Amazon.AppSync.Model.LambdaConfig requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig = null;
+            
+             // populate LambdaConfig
+            var requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfigIsNull = true;
+            requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig = new Amazon.AppSync.Model.LambdaConfig();
+            Amazon.AppSync.InvokeType requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig_onPublish_LambdaConfig_InvokeType = null;
+            if (cmdletContext.OnPublish_LambdaConfig_InvokeType != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig_onPublish_LambdaConfig_InvokeType = cmdletContext.OnPublish_LambdaConfig_InvokeType;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig_onPublish_LambdaConfig_InvokeType != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig.InvokeType = requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig_onPublish_LambdaConfig_InvokeType;
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfigIsNull = false;
+            }
+             // determine if requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig should be set to null
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfigIsNull)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig = null;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration.LambdaConfig = requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration_handlerConfigs_OnPublish_Integration_LambdaConfig;
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_IntegrationIsNull = false;
+            }
+             // determine if requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration should be set to null
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_IntegrationIsNull)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration = null;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish.Integration = requestHandlerConfigs_handlerConfigs_OnPublish_handlerConfigs_OnPublish_Integration;
+                requestHandlerConfigs_handlerConfigs_OnPublishIsNull = false;
+            }
+             // determine if requestHandlerConfigs_handlerConfigs_OnPublish should be set to null
+            if (requestHandlerConfigs_handlerConfigs_OnPublishIsNull)
+            {
+                requestHandlerConfigs_handlerConfigs_OnPublish = null;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnPublish != null)
+            {
+                request.HandlerConfigs.OnPublish = requestHandlerConfigs_handlerConfigs_OnPublish;
+                requestHandlerConfigsIsNull = false;
+            }
+            Amazon.AppSync.Model.HandlerConfig requestHandlerConfigs_handlerConfigs_OnSubscribe = null;
+            
+             // populate OnSubscribe
+            var requestHandlerConfigs_handlerConfigs_OnSubscribeIsNull = true;
+            requestHandlerConfigs_handlerConfigs_OnSubscribe = new Amazon.AppSync.Model.HandlerConfig();
+            Amazon.AppSync.HandlerBehavior requestHandlerConfigs_handlerConfigs_OnSubscribe_onSubscribe_Behavior = null;
+            if (cmdletContext.OnSubscribe_Behavior != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_onSubscribe_Behavior = cmdletContext.OnSubscribe_Behavior;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_onSubscribe_Behavior != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe.Behavior = requestHandlerConfigs_handlerConfigs_OnSubscribe_onSubscribe_Behavior;
+                requestHandlerConfigs_handlerConfigs_OnSubscribeIsNull = false;
+            }
+            Amazon.AppSync.Model.Integration requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration = null;
+            
+             // populate Integration
+            var requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_IntegrationIsNull = true;
+            requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration = new Amazon.AppSync.Model.Integration();
+            System.String requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_onSubscribe_Integration_DataSourceName = null;
+            if (cmdletContext.OnSubscribe_Integration_DataSourceName != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_onSubscribe_Integration_DataSourceName = cmdletContext.OnSubscribe_Integration_DataSourceName;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_onSubscribe_Integration_DataSourceName != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration.DataSourceName = requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_onSubscribe_Integration_DataSourceName;
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_IntegrationIsNull = false;
+            }
+            Amazon.AppSync.Model.LambdaConfig requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig = null;
+            
+             // populate LambdaConfig
+            var requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfigIsNull = true;
+            requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig = new Amazon.AppSync.Model.LambdaConfig();
+            Amazon.AppSync.InvokeType requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig_onSubscribe_LambdaConfig_InvokeType = null;
+            if (cmdletContext.OnSubscribe_LambdaConfig_InvokeType != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig_onSubscribe_LambdaConfig_InvokeType = cmdletContext.OnSubscribe_LambdaConfig_InvokeType;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig_onSubscribe_LambdaConfig_InvokeType != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig.InvokeType = requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig_onSubscribe_LambdaConfig_InvokeType;
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfigIsNull = false;
+            }
+             // determine if requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig should be set to null
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfigIsNull)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig = null;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration.LambdaConfig = requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration_handlerConfigs_OnSubscribe_Integration_LambdaConfig;
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_IntegrationIsNull = false;
+            }
+             // determine if requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration should be set to null
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_IntegrationIsNull)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration = null;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration != null)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe.Integration = requestHandlerConfigs_handlerConfigs_OnSubscribe_handlerConfigs_OnSubscribe_Integration;
+                requestHandlerConfigs_handlerConfigs_OnSubscribeIsNull = false;
+            }
+             // determine if requestHandlerConfigs_handlerConfigs_OnSubscribe should be set to null
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribeIsNull)
+            {
+                requestHandlerConfigs_handlerConfigs_OnSubscribe = null;
+            }
+            if (requestHandlerConfigs_handlerConfigs_OnSubscribe != null)
+            {
+                request.HandlerConfigs.OnSubscribe = requestHandlerConfigs_handlerConfigs_OnSubscribe;
+                requestHandlerConfigsIsNull = false;
+            }
+             // determine if request.HandlerConfigs should be set to null
+            if (requestHandlerConfigsIsNull)
+            {
+                request.HandlerConfigs = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -319,6 +554,12 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             public System.String ApiId { get; set; }
             public System.String CodeHandler { get; set; }
+            public Amazon.AppSync.HandlerBehavior OnPublish_Behavior { get; set; }
+            public System.String OnPublish_Integration_DataSourceName { get; set; }
+            public Amazon.AppSync.InvokeType OnPublish_LambdaConfig_InvokeType { get; set; }
+            public Amazon.AppSync.HandlerBehavior OnSubscribe_Behavior { get; set; }
+            public System.String OnSubscribe_Integration_DataSourceName { get; set; }
+            public Amazon.AppSync.InvokeType OnSubscribe_LambdaConfig_InvokeType { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.AppSync.Model.AuthMode> PublishAuthMode { get; set; }
             public List<Amazon.AppSync.Model.AuthMode> SubscribeAuthMode { get; set; }

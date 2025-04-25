@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Add wait time between subsequent commands, even if the DescribeTasks command returns
     /// an accurate response. Apply an exponential backoff algorithm starting with a couple
     /// of seconds of wait time, and increase gradually up to about five minutes of wait time.
+    /// </para></li></ul><para>
+    /// If you get a <c>ConflictException</c> error, the <c>RunTask</c> request could not
+    /// be processed due to conflicts. The provided <c>clientToken</c> is already in use with
+    /// a different <c>RunTask</c> request. The <c>resourceIds</c> are the existing task ARNs
+    /// which are already associated with the <c>clientToken</c>. 
+    /// </para><para>
+    /// To fix this issue:
+    /// </para><ul><li><para>
+    /// Run <c>RunTask</c> with a unique <c>clientToken</c>.
+    /// </para></li><li><para>
+    /// Run <c>RunTask</c> with the <c>clientToken</c> and the original set of parameters
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
