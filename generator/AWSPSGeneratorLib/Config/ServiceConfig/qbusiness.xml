@@ -41,6 +41,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckDocumentAccess" OutputProperty="*" Verb="Get" Noun="DocumentAccess" PipelineParameter="DocumentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

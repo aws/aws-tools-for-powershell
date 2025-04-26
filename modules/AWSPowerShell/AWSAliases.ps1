@@ -72,6 +72,7 @@ Set-Alias -Name Delete-ACCTAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DeleteAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DisableRegion -Value Disable-ACCTRegion
 Set-Alias -Name ACCT-EnableRegion -Value Enable-ACCTRegion
+Set-Alias -Name ACCT-GetAccountInformation -Value Get-ACCTAccountInformation
 Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
 Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
 Set-Alias -Name ACCT-GetPrimaryEmail -Value Get-ACCTPrimaryEmail
@@ -79,6 +80,8 @@ Set-Alias -Name ACCT-GetRegionOptStatus -Value Get-ACCTRegionOptStatus
 Set-Alias -Name List-ACCTRegions -Value Get-ACCTRegionList
 Set-Alias -Name List-ACCTRegionList -Value Get-ACCTRegionList
 Set-Alias -Name ACCT-ListRegions -Value Get-ACCTRegionList
+Set-Alias -Name Put-ACCTAccountName -Value Write-ACCTAccountName
+Set-Alias -Name ACCT-PutAccountName -Value Write-ACCTAccountName
 Set-Alias -Name Put-ACCTAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name ACCT-PutAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name Put-ACCTContactInformation -Value Write-ACCTContactInformation
@@ -1503,6 +1506,8 @@ Set-Alias -Name Describe-PROMScraper -Value Get-PROMScraper
 Set-Alias -Name PROM-DescribeScraper -Value Get-PROMScraper
 Set-Alias -Name Describe-PROMWorkspace -Value Get-PROMWorkspace
 Set-Alias -Name PROM-DescribeWorkspace -Value Get-PROMWorkspace
+Set-Alias -Name Describe-PROMWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
+Set-Alias -Name PROM-DescribeWorkspaceConfiguration -Value Get-PROMWorkspaceConfiguration
 Set-Alias -Name PROM-GetDefaultScraperConfiguration -Value Get-PROMDefaultScraperConfiguration
 Set-Alias -Name List-PROMRuleGroupsNamespaces -Value Get-PROMRuleGroupsNamespaceList
 Set-Alias -Name List-PROMRuleGroupsNamespaceList -Value Get-PROMRuleGroupsNamespaceList
@@ -1523,6 +1528,7 @@ Set-Alias -Name PROM-UntagResource -Value Remove-PROMResourceTag
 Set-Alias -Name PROM-UpdateLoggingConfiguration -Value Update-PROMLoggingConfiguration
 Set-Alias -Name PROM-UpdateScraper -Value Update-PROMScraper
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
+Set-Alias -Name PROM-UpdateWorkspaceConfiguration -Value Update-PROMWorkspaceConfiguration
 Set-Alias -Name Cancel-AZSZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name AZS-CancelZonalShift -Value Stop-AZSZonalShift
 Set-Alias -Name Create-AZSPracticeRunConfiguration -Value New-AZSPracticeRunConfiguration
@@ -5786,6 +5792,7 @@ Set-Alias -Name CGIP-GetGroup -Value Get-CGIPGroup
 Set-Alias -Name CGIP-GetIdentityProviderByIdentifier -Value Get-CGIPIdentityProviderByIdentifier
 Set-Alias -Name CGIP-GetLogDeliveryConfiguration -Value Get-CGIPLogDeliveryConfiguration
 Set-Alias -Name CGIP-GetSigningCertificate -Value Get-CGIPSigningCertificate
+Set-Alias -Name CGIP-GetTokensFromRefreshToken -Value Get-CGIPTokensFromRefreshToken
 Set-Alias -Name CGIP-GetUICustomization -Value Get-CGIPUICustomization
 Set-Alias -Name CGIP-GetUser -Value Get-CGIPUser
 Set-Alias -Name CGIP-GetUserAttributeVerificationCode -Value Get-CGIPUserAttributeVerificationCode
@@ -9319,6 +9326,7 @@ Set-Alias -Name Delete-DSQLMultiRegionClusters -Value Remove-DSQLMultiRegionClus
 Set-Alias -Name Delete-DSQLMultiRegionCluster -Value Remove-DSQLMultiRegionCluster
 Set-Alias -Name DSQL-DeleteMultiRegionClusters -Value Remove-DSQLMultiRegionCluster
 Set-Alias -Name DSQL-GetCluster -Value Get-DSQLCluster
+Set-Alias -Name DSQL-GetVpcEndpointServiceName -Value Get-DSQLVpcEndpointServiceName
 Set-Alias -Name List-DSQLClusters -Value Get-DSQLClusterList
 Set-Alias -Name List-DSQLClusterList -Value Get-DSQLClusterList
 Set-Alias -Name DSQL-ListClusters -Value Get-DSQLClusterList
@@ -11140,6 +11148,7 @@ Set-Alias -Name ECS-RegisterTaskDefinition -Value Register-ECSTaskDefinition
 Set-Alias -Name Run-ECSTask -Value New-ECSTask
 Set-Alias -Name ECS-RunTask -Value New-ECSTask
 Set-Alias -Name ECS-StartTask -Value Start-ECSTask
+Set-Alias -Name ECS-StopServiceDeployment -Value Stop-ECSServiceDeployment
 Set-Alias -Name ECS-StopTask -Value Stop-ECSTask
 Set-Alias -Name Submit-ECSAttachmentStateChanges -Value Submit-ECSAttachmentStateChange
 Set-Alias -Name ECS-SubmitAttachmentStateChanges -Value Submit-ECSAttachmentStateChange
@@ -18975,6 +18984,8 @@ Set-Alias -Name Cancel-AMMBatchJobExecution -Value Stop-AMMBatchJobExecution
 Set-Alias -Name AMM-CancelBatchJobExecution -Value Stop-AMMBatchJobExecution
 Set-Alias -Name Create-AMMApplication -Value New-AMMApplication
 Set-Alias -Name AMM-CreateApplication -Value New-AMMApplication
+Set-Alias -Name Create-AMMDataSetExportTask -Value New-AMMDataSetExportTask
+Set-Alias -Name AMM-CreateDataSetExportTask -Value New-AMMDataSetExportTask
 Set-Alias -Name Create-AMMDataSetImportTask -Value New-AMMDataSetImportTask
 Set-Alias -Name AMM-CreateDataSetImportTask -Value New-AMMDataSetImportTask
 Set-Alias -Name Create-AMMDeployment -Value New-AMMDeployment
@@ -18992,6 +19003,7 @@ Set-Alias -Name AMM-GetApplicationVersion -Value Get-AMMApplicationVersion
 Set-Alias -Name AMM-GetBatchJobExecution -Value Get-AMMBatchJobExecution
 Set-Alias -Name Get-AMMDataSetDetails -Value Get-AMMDataSetDetail
 Set-Alias -Name AMM-GetDataSetDetails -Value Get-AMMDataSetDetail
+Set-Alias -Name AMM-GetDataSetExportTask -Value Get-AMMDataSetExportTask
 Set-Alias -Name AMM-GetDataSetImportTask -Value Get-AMMDataSetImportTask
 Set-Alias -Name AMM-GetDeployment -Value Get-AMMDeployment
 Set-Alias -Name AMM-GetEnvironment -Value Get-AMMEnvironment
@@ -19011,6 +19023,9 @@ Set-Alias -Name AMM-ListBatchJobExecutions -Value Get-AMMBatchJobExecutionList
 Set-Alias -Name List-AMMBatchJobRestartPoints -Value Get-AMMBatchJobRestartPointList
 Set-Alias -Name List-AMMBatchJobRestartPointList -Value Get-AMMBatchJobRestartPointList
 Set-Alias -Name AMM-ListBatchJobRestartPoints -Value Get-AMMBatchJobRestartPointList
+Set-Alias -Name List-AMMDataSetExportHistory -Value Get-AMMDataSetExportHistoryList
+Set-Alias -Name List-AMMDataSetExportHistoryList -Value Get-AMMDataSetExportHistoryList
+Set-Alias -Name AMM-ListDataSetExportHistory -Value Get-AMMDataSetExportHistoryList
 Set-Alias -Name List-AMMDataSetImportHistory -Value Get-AMMDataSetImportHistoryList
 Set-Alias -Name List-AMMDataSetImportHistoryList -Value Get-AMMDataSetImportHistoryList
 Set-Alias -Name AMM-ListDataSetImportHistory -Value Get-AMMDataSetImportHistoryList
@@ -20809,6 +20824,8 @@ Set-Alias -Name Create-MQUser -Value New-MQUser
 Set-Alias -Name MQ-CreateUser -Value New-MQUser
 Set-Alias -Name Delete-MQBroker -Value Remove-MQBroker
 Set-Alias -Name MQ-DeleteBroker -Value Remove-MQBroker
+Set-Alias -Name Delete-MQConfiguration -Value Remove-MQConfiguration
+Set-Alias -Name MQ-DeleteConfiguration -Value Remove-MQConfiguration
 Set-Alias -Name Delete-MQTags -Value Remove-MQTag
 Set-Alias -Name Delete-MQTag -Value Remove-MQTag
 Set-Alias -Name MQ-DeleteTags -Value Remove-MQTag
@@ -21676,6 +21693,8 @@ Set-Alias -Name Create-OMICSVariantStore -Value New-OMICSVariantStore
 Set-Alias -Name OMICS-CreateVariantStore -Value New-OMICSVariantStore
 Set-Alias -Name Create-OMICSWorkflow -Value New-OMICSWorkflow
 Set-Alias -Name OMICS-CreateWorkflow -Value New-OMICSWorkflow
+Set-Alias -Name Create-OMICSWorkflowVersion -Value New-OMICSWorkflowVersion
+Set-Alias -Name OMICS-CreateWorkflowVersion -Value New-OMICSWorkflowVersion
 Set-Alias -Name Delete-OMICSAnnotationStore -Value Remove-OMICSAnnotationStore
 Set-Alias -Name OMICS-DeleteAnnotationStore -Value Remove-OMICSAnnotationStore
 Set-Alias -Name Delete-OMICSAnnotationStoreVersions -Value Remove-OMICSAnnotationStoreVersion
@@ -21701,6 +21720,8 @@ Set-Alias -Name Delete-OMICSVariantStore -Value Remove-OMICSVariantStore
 Set-Alias -Name OMICS-DeleteVariantStore -Value Remove-OMICSVariantStore
 Set-Alias -Name Delete-OMICSWorkflow -Value Remove-OMICSWorkflow
 Set-Alias -Name OMICS-DeleteWorkflow -Value Remove-OMICSWorkflow
+Set-Alias -Name Delete-OMICSWorkflowVersion -Value Remove-OMICSWorkflowVersion
+Set-Alias -Name OMICS-DeleteWorkflowVersion -Value Remove-OMICSWorkflowVersion
 Set-Alias -Name OMICS-GetAnnotationImportJob -Value Get-OMICSAnnotationImportJob
 Set-Alias -Name OMICS-GetAnnotationStore -Value Get-OMICSAnnotationStore
 Set-Alias -Name OMICS-GetAnnotationStoreVersion -Value Get-OMICSAnnotationStoreVersion
@@ -21723,6 +21744,7 @@ Set-Alias -Name OMICS-GetShare -Value Get-OMICSShare
 Set-Alias -Name OMICS-GetVariantImportJob -Value Get-OMICSVariantImportJob
 Set-Alias -Name OMICS-GetVariantStore -Value Get-OMICSVariantStore
 Set-Alias -Name OMICS-GetWorkflow -Value Get-OMICSWorkflow
+Set-Alias -Name OMICS-GetWorkflowVersion -Value Get-OMICSWorkflowVersion
 Set-Alias -Name List-OMICSAnnotationImportJobs -Value Get-OMICSAnnotationImportJobList
 Set-Alias -Name List-OMICSAnnotationImportJobList -Value Get-OMICSAnnotationImportJobList
 Set-Alias -Name OMICS-ListAnnotationImportJobs -Value Get-OMICSAnnotationImportJobList
@@ -21787,6 +21809,9 @@ Set-Alias -Name OMICS-ListVariantStores -Value Get-OMICSVariantStoreList
 Set-Alias -Name List-OMICSWorkflows -Value Get-OMICSWorkflowList
 Set-Alias -Name List-OMICSWorkflowList -Value Get-OMICSWorkflowList
 Set-Alias -Name OMICS-ListWorkflows -Value Get-OMICSWorkflowList
+Set-Alias -Name List-OMICSWorkflowVersions -Value Get-OMICSWorkflowVersionList
+Set-Alias -Name List-OMICSWorkflowVersionList -Value Get-OMICSWorkflowVersionList
+Set-Alias -Name OMICS-ListWorkflowVersions -Value Get-OMICSWorkflowVersionList
 Set-Alias -Name Put-OMICSS3AccessPolicy -Value Write-OMICSS3AccessPolicy
 Set-Alias -Name OMICS-PutS3AccessPolicy -Value Write-OMICSS3AccessPolicy
 Set-Alias -Name OMICS-StartAnnotationImportJob -Value Start-OMICSAnnotationImportJob
@@ -21805,6 +21830,7 @@ Set-Alias -Name OMICS-UpdateRunGroup -Value Update-OMICSRunGroup
 Set-Alias -Name OMICS-UpdateSequenceStore -Value Update-OMICSSequenceStore
 Set-Alias -Name OMICS-UpdateVariantStore -Value Update-OMICSVariantStore
 Set-Alias -Name OMICS-UpdateWorkflow -Value Update-OMICSWorkflow
+Set-Alias -Name OMICS-UpdateWorkflowVersion -Value Update-OMICSWorkflowVersion
 Set-Alias -Name Upload-OMICSReadSetPart -Value Set-OMICSReadSetPart
 Set-Alias -Name OMICS-UploadReadSetPart -Value Set-OMICSReadSetPart
 Set-Alias -Name Accept-OSInboundConnection -Value Approve-OSInboundConnection
@@ -23745,6 +23771,8 @@ Set-Alias -Name QBUS-CancelSubscription -Value Stop-QBUSSubscription
 Set-Alias -Name Chat-QBUSSync -Value Set-QBUSChatSync
 Set-Alias -Name Chat-QBUSChatSync -Value Set-QBUSChatSync
 Set-Alias -Name QBUS-ChatSync -Value Set-QBUSChatSync
+Set-Alias -Name Check-QBUSDocumentAccess -Value Get-QBUSDocumentAccess
+Set-Alias -Name QBUS-CheckDocumentAccess -Value Get-QBUSDocumentAccess
 Set-Alias -Name Create-QBUSApplication -Value New-QBUSApplication
 Set-Alias -Name QBUS-CreateApplication -Value New-QBUSApplication
 Set-Alias -Name Create-QBUSDataAccessor -Value New-QBUSDataAccessor
@@ -25284,6 +25312,8 @@ Set-Alias -Name Create-RSSEndpointAccess -Value New-RSSEndpointAccess
 Set-Alias -Name RSS-CreateEndpointAccess -Value New-RSSEndpointAccess
 Set-Alias -Name Create-RSSNamespace -Value New-RSSNamespace
 Set-Alias -Name RSS-CreateNamespace -Value New-RSSNamespace
+Set-Alias -Name Create-RSSReservation -Value New-RSSReservation
+Set-Alias -Name RSS-CreateReservation -Value New-RSSReservation
 Set-Alias -Name Create-RSSScheduledAction -Value New-RSSScheduledAction
 Set-Alias -Name RSS-CreateScheduledAction -Value New-RSSScheduledAction
 Set-Alias -Name Create-RSSSnapshot -Value New-RSSSnapshot
@@ -25318,6 +25348,8 @@ Set-Alias -Name RSS-GetCustomDomainAssociation -Value Get-RSSCustomDomainAssocia
 Set-Alias -Name RSS-GetEndpointAccess -Value Get-RSSEndpointAccess
 Set-Alias -Name RSS-GetNamespace -Value Get-RSSNamespace
 Set-Alias -Name RSS-GetRecoveryPoint -Value Get-RSSRecoveryPoint
+Set-Alias -Name RSS-GetReservation -Value Get-RSSReservation
+Set-Alias -Name RSS-GetReservationOffering -Value Get-RSSReservationOffering
 Set-Alias -Name RSS-GetResourcePolicy -Value Get-RSSResourcePolicy
 Set-Alias -Name RSS-GetScheduledAction -Value Get-RSSScheduledAction
 Set-Alias -Name RSS-GetSnapshot -Value Get-RSSSnapshot
@@ -25340,6 +25372,12 @@ Set-Alias -Name RSS-ListNamespaces -Value Get-RSSNamespaceList
 Set-Alias -Name List-RSSRecoveryPoints -Value Get-RSSRecoveryPointList
 Set-Alias -Name List-RSSRecoveryPointList -Value Get-RSSRecoveryPointList
 Set-Alias -Name RSS-ListRecoveryPoints -Value Get-RSSRecoveryPointList
+Set-Alias -Name List-RSSReservationOfferings -Value Get-RSSReservationOfferingList
+Set-Alias -Name List-RSSReservationOfferingList -Value Get-RSSReservationOfferingList
+Set-Alias -Name RSS-ListReservationOfferings -Value Get-RSSReservationOfferingList
+Set-Alias -Name List-RSSReservations -Value Get-RSSReservationList
+Set-Alias -Name List-RSSReservationList -Value Get-RSSReservationList
+Set-Alias -Name RSS-ListReservations -Value Get-RSSReservationList
 Set-Alias -Name List-RSSScheduledActions -Value Get-RSSScheduledActionList
 Set-Alias -Name List-RSSScheduledActionList -Value Get-RSSScheduledActionList
 Set-Alias -Name RSS-ListScheduledActions -Value Get-RSSScheduledActionList
@@ -26764,6 +26802,8 @@ Set-Alias -Name Delete-S3TTable -Value Remove-S3TTable
 Set-Alias -Name S3T-DeleteTable -Value Remove-S3TTable
 Set-Alias -Name Delete-S3TTableBucket -Value Remove-S3TTableBucket
 Set-Alias -Name S3T-DeleteTableBucket -Value Remove-S3TTableBucket
+Set-Alias -Name Delete-S3TTableBucketEncryption -Value Remove-S3TTableBucketEncryption
+Set-Alias -Name S3T-DeleteTableBucketEncryption -Value Remove-S3TTableBucketEncryption
 Set-Alias -Name Delete-S3TTableBucketPolicy -Value Remove-S3TTableBucketPolicy
 Set-Alias -Name S3T-DeleteTableBucketPolicy -Value Remove-S3TTableBucketPolicy
 Set-Alias -Name Delete-S3TTablePolicy -Value Remove-S3TTablePolicy
@@ -26771,8 +26811,10 @@ Set-Alias -Name S3T-DeleteTablePolicy -Value Remove-S3TTablePolicy
 Set-Alias -Name S3T-GetNamespace -Value Get-S3TNamespace
 Set-Alias -Name S3T-GetTable -Value Get-S3TTable
 Set-Alias -Name S3T-GetTableBucket -Value Get-S3TTableBucket
+Set-Alias -Name S3T-GetTableBucketEncryption -Value Get-S3TTableBucketEncryption
 Set-Alias -Name S3T-GetTableBucketMaintenanceConfiguration -Value Get-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-GetTableBucketPolicy -Value Get-S3TTableBucketPolicy
+Set-Alias -Name S3T-GetTableEncryption -Value Get-S3TTableEncryption
 Set-Alias -Name S3T-GetTableMaintenanceConfiguration -Value Get-S3TTableMaintenanceConfiguration
 Set-Alias -Name S3T-GetTableMaintenanceJobStatus -Value Get-S3TTableMaintenanceJobStatus
 Set-Alias -Name S3T-GetTableMetadataLocation -Value Get-S3TTableMetadataLocation
@@ -26786,6 +26828,8 @@ Set-Alias -Name S3T-ListTableBuckets -Value Get-S3TTableBucketList
 Set-Alias -Name List-S3TTables -Value Get-S3TTableList
 Set-Alias -Name List-S3TTableList -Value Get-S3TTableList
 Set-Alias -Name S3T-ListTables -Value Get-S3TTableList
+Set-Alias -Name Put-S3TTableBucketEncryption -Value Write-S3TTableBucketEncryption
+Set-Alias -Name S3T-PutTableBucketEncryption -Value Write-S3TTableBucketEncryption
 Set-Alias -Name Put-S3TTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name S3T-PutTableBucketMaintenanceConfiguration -Value Write-S3TTableBucketMaintenanceConfiguration
 Set-Alias -Name Put-S3TTableBucketPolicy -Value Write-S3TTableBucketPolicy

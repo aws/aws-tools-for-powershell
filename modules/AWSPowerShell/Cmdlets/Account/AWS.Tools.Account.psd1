@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Approve-ACCTPrimaryEmailUpdate', 
         'Disable-ACCTRegion', 
         'Enable-ACCTRegion', 
+        'Get-ACCTAccountInformation', 
         'Get-ACCTAlternateContact', 
         'Get-ACCTContactInformation', 
         'Get-ACCTPrimaryEmail', 
@@ -94,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ACCTRegionOptStatus', 
         'Remove-ACCTAlternateContact', 
         'Start-ACCTPrimaryEmailUpdate', 
+        'Write-ACCTAccountName', 
         'Write-ACCTAlternateContact', 
         'Write-ACCTContactInformation')
 

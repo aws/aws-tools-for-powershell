@@ -196,6 +196,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? ConnectionLogOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter ClientRouteEnforcementOptions_Enforced
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable the client route enforcement feature.</para><para>Valid values: <c>true | false</c></para><para>Default value: <c>false</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ClientRouteEnforcementOptions_Enforced { get; set; }
+        #endregion
+        
         #region Parameter ClientConnectOptions_LambdaFunctionArn
         /// <summary>
         /// <para>
@@ -392,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientConnectOptions_LambdaFunctionArn = this.ClientConnectOptions_LambdaFunctionArn;
             context.ClientLoginBannerOptions_BannerText = this.ClientLoginBannerOptions_BannerText;
             context.ClientLoginBannerOptions_Enabled = this.ClientLoginBannerOptions_Enabled;
+            context.ClientRouteEnforcementOptions_Enforced = this.ClientRouteEnforcementOptions_Enforced;
             context.ClientToken = this.ClientToken;
             context.ConnectionLogOptions_CloudwatchLogGroup = this.ConnectionLogOptions_CloudwatchLogGroup;
             context.ConnectionLogOptions_CloudwatchLogStream = this.ConnectionLogOptions_CloudwatchLogStream;
@@ -505,6 +516,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestClientLoginBannerOptionsIsNull)
             {
                 request.ClientLoginBannerOptions = null;
+            }
+            
+             // populate ClientRouteEnforcementOptions
+            var requestClientRouteEnforcementOptionsIsNull = true;
+            request.ClientRouteEnforcementOptions = new Amazon.EC2.Model.ClientRouteEnforcementOptions();
+            System.Boolean? requestClientRouteEnforcementOptions_clientRouteEnforcementOptions_Enforced = null;
+            if (cmdletContext.ClientRouteEnforcementOptions_Enforced != null)
+            {
+                requestClientRouteEnforcementOptions_clientRouteEnforcementOptions_Enforced = cmdletContext.ClientRouteEnforcementOptions_Enforced.Value;
+            }
+            if (requestClientRouteEnforcementOptions_clientRouteEnforcementOptions_Enforced != null)
+            {
+                request.ClientRouteEnforcementOptions.Enforced = requestClientRouteEnforcementOptions_clientRouteEnforcementOptions_Enforced.Value;
+                requestClientRouteEnforcementOptionsIsNull = false;
+            }
+             // determine if request.ClientRouteEnforcementOptions should be set to null
+            if (requestClientRouteEnforcementOptionsIsNull)
+            {
+                request.ClientRouteEnforcementOptions = null;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -662,6 +692,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientConnectOptions_LambdaFunctionArn { get; set; }
             public System.String ClientLoginBannerOptions_BannerText { get; set; }
             public System.Boolean? ClientLoginBannerOptions_Enabled { get; set; }
+            public System.Boolean? ClientRouteEnforcementOptions_Enforced { get; set; }
             public System.String ClientToken { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogGroup { get; set; }
             public System.String ConnectionLogOptions_CloudwatchLogStream { get; set; }

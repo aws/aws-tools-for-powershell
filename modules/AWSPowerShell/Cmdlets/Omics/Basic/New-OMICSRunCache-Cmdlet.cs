@@ -31,14 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// <summary>
     /// You can create a run cache to save the task outputs from completed tasks in a run
     /// for a private workflow. Subsequent runs use the task outputs from the cache, rather
-    /// than computing the task outputs again. You specify an Amazon S3 location where HealthOmics
-    /// saves the cached data. This data must be immediately accessible (not in an archived
-    /// state).
+    /// than computing the task outputs again. You specify an Amazon S3 location where Amazon
+    /// Web Services HealthOmics saves the cached data. This data must be immediately accessible
+    /// (not in an archived state).
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html">Creating
-    /// a run cache</a> in the AWS HealthOmics User Guide.
+    /// a run cache</a> in the Amazon Web Services HealthOmics User Guide.
     /// </para>
     /// </summary>
     [Cmdlet("New", "OMICSRunCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// run.</para><para><c>CACHE_ALWAYS</c>: Caches task outputs from completed tasks for all runs. This
         /// setting is useful in development mode, but do not use it in a production setting.</para><para>If you don't specify a value, the default behavior is CACHE_ON_FAILURE. When you start
         /// a run that uses this cache, you can override the default cache behavior.</para><para>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run
-        /// cache behavior</a> in the AWS HealthOmics User Guide.</para>
+        /// cache behavior</a> in the Amazon Web Services HealthOmics User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter CacheBucketOwnerId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the expected owner of the S3 bucket for the run cache. If not
-        /// provided, your account ID is set as the owner of the bucket.</para>
+        /// <para>The Amazon Web Services account ID of the expected owner of the S3 bucket for the
+        /// run cache. If not provided, your account ID is set as the owner of the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>A unique request token, to ensure idempotency. If you don't specify a token, HealthOmics
-        /// automatically generates a universally unique identifier (UUID) for the request.</para>
+        /// <para>A unique request token, to ensure idempotency. If you don't specify a token, Amazon
+        /// Web Services HealthOmics automatically generates a universally unique identifier (UUID)
+        /// for the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

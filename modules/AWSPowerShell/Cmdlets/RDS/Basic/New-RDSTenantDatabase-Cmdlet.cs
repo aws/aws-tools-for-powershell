@@ -74,6 +74,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBInstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter ManageMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to manage the master user password with Amazon Web Services Secrets
+        /// Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
+        /// <c>MasterUserPassword</c> is specified.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
@@ -98,18 +112,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The password for the master user in your tenant database.</para><para>Constraints:</para><ul><li><para>Must be 8 to 30 characters.</para></li><li><para>Can include any printable ASCII character except forward slash (<c>/</c>), double
         /// quote (<c>"</c>), at symbol (<c>@</c>), ampersand (<c>&amp;</c>), or single quote
-        /// (<c>'</c>).</para></li></ul>
+        /// (<c>'</c>).</para></li><li><para>Can't be specified when <c>ManageMasterUserPassword</c> is enabled.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB instance.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>If you don't specify <c>MasterUserSecretKmsKeyId</c>, then the <c>aws/secretsmanager</c>
+        /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
+        /// Services account, then you can't use the <c>aws/secretsmanager</c> KMS key to encrypt
+        /// the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter NcharCharacterSetName
@@ -206,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter DBInstanceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ManageMasterUserPassword = this.ManageMasterUserPassword;
             context.MasterUsername = this.MasterUsername;
             #if MODULAR
             if (this.MasterUsername == null && ParameterWasBound(nameof(this.MasterUsername)))
@@ -214,12 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.MasterUserPassword = this.MasterUserPassword;
-            #if MODULAR
-            if (this.MasterUserPassword == null && ParameterWasBound(nameof(this.MasterUserPassword)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MasterUserPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.NcharCharacterSetName = this.NcharCharacterSetName;
             if (this.Tag != null)
             {
@@ -256,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
             }
+            if (cmdletContext.ManageMasterUserPassword != null)
+            {
+                request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
             if (cmdletContext.MasterUsername != null)
             {
                 request.MasterUsername = cmdletContext.MasterUsername;
@@ -263,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUserSecretKmsKeyId != null)
+            {
+                request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
             }
             if (cmdletContext.NcharCharacterSetName != null)
             {
@@ -333,8 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String CharacterSetName { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
+            public System.Boolean? ManageMasterUserPassword { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.String NcharCharacterSetName { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TenantDBName { get; set; }

@@ -31,12 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// <summary>
     /// Deletes a cases template. You can delete up to 100 templates per domain.
     /// 
-    ///  <pre><c> &lt;p&gt;After a cases template is deleted:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;
-    /// &lt;p&gt;You can still retrieve the template by calling &lt;code&gt;GetTemplate&lt;/code&gt;.&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;You cannot update the template. &lt;/p&gt; &lt;/li&gt;
-    /// &lt;li&gt; &lt;p&gt;You cannot create a case by using the deleted template.&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;Deleted templates are not included in the &lt;code&gt;ListTemplates&lt;/code&gt;
-    /// response.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </c></pre>
+    ///  
+    /// <para>
+    /// After a cases template is deleted:
+    /// </para><ul><li><para>
+    /// You can still retrieve the template by calling <c>GetTemplate</c>.
+    /// </para></li><li><para>
+    /// You cannot update the template. 
+    /// </para></li><li><para>
+    /// You cannot create a case by using the deleted template.
+    /// </para></li><li><para>
+    /// Deleted templates are not included in the <c>ListTemplates</c> response.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "CCASTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

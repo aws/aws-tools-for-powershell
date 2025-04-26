@@ -29,7 +29,14 @@ using Amazon.EntityResolution.Model;
 namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Returns the corresponding Match ID of a customer record if the record has been processed.
+    /// Returns the corresponding Match ID of a customer record if the record has been processed
+    /// in a rule-based matching workflow or ML matching workflow.
+    /// 
+    ///  
+    /// <para>
+    /// You can call this API as a dry run of an incremental load on the rule-based matching
+    /// workflow.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ERESMatchId")]
     [OutputType("System.String")]

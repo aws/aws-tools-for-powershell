@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// Note the following requirements:
     /// </para><ul><li><para>
-    /// Transfer is supported for only <c>TASK</c> and <c>EMAIL</c> contacts.
+    /// Transfer is only supported for <c>TASK</c> and <c>EMAIL</c> contacts.
     /// </para></li><li><para>
     /// Do not use both <c>QueueId</c> and <c>UserId</c> in the same call.
     /// </para></li><li><para>

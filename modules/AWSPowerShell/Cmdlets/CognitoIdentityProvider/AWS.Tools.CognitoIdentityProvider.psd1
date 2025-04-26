@@ -120,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CGIPResourceTag', 
         'Get-CGIPRiskConfiguration', 
         'Get-CGIPSigningCertificate', 
+        'Get-CGIPTokensFromRefreshToken', 
         'Get-CGIPUICustomization', 
         'Get-CGIPUser', 
         'Get-CGIPUserAdmin', 

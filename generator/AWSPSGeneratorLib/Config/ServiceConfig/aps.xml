@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceConfiguration" OutputProperty="WorkspaceConfiguration" Verb="Get" Noun="WorkspaceConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDefaultScraperConfiguration" OutputProperty="Configuration" Verb="Get" Noun="DefaultScraperConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -124,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkspaceAlias" Verb="Update" Noun="WorkspaceAlias" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceConfiguration" OutputProperty="Status" Verb="Update" Noun="WorkspaceConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

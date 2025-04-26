@@ -97,7 +97,14 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.RelatedItemType
         "New-CCASRelatedItem/Type"
         {
-            $v = "Comment","Contact","File"
+            $v = "Comment","Contact","File","Sla"
+            break
+        }
+
+        # Amazon.ConnectCases.SlaType
+        "New-CCASRelatedItem/SlaInputConfiguration_Type"
+        {
+            $v = "CaseField"
             break
         }
 
@@ -121,6 +128,7 @@ $CCAS_Completers = {
 
 $CCAS_map = @{
     "Comment_ContentType"=@("New-CCASRelatedItem")
+    "SlaInputConfiguration_Type"=@("New-CCASRelatedItem")
     "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
 }

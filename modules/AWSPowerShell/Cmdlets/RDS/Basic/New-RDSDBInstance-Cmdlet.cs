@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies whether minor engine upgrades are applied automatically to the DB instance
         /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>If you create an RDS Custom DB instance, you must set <c>AutoMinorVersionUpgrade</c>
-        /// to <c>false</c>.</para>
+        /// to <c>false</c>.</para><para>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically
+        /// upgrading the minor engine version</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

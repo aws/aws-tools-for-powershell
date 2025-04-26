@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the policy store can be deleted. If enabled, the policy store can't
+        /// be deleted.</para><para>The default state is <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.VerifiedPermissions.DeletionProtection")]
+        public Amazon.VerifiedPermissions.DeletionProtection DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -153,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
             context.ValidationSettings_Mode = this.ValidationSettings_Mode;
             #if MODULAR
@@ -180,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection;
             }
             if (cmdletContext.Description != null)
             {
@@ -260,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.VerifiedPermissions.DeletionProtection DeletionProtection { get; set; }
             public System.String Description { get; set; }
             public Amazon.VerifiedPermissions.ValidationMode ValidationSettings_Mode { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.CreatePolicyStoreResponse, NewAVPPolicyStoreCmdlet, object> Select { get; set; } =

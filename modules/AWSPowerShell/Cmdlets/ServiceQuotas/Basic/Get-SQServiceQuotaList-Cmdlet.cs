@@ -29,9 +29,10 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Lists the applied quota values for the specified Amazon Web Service. For some quotas,
-    /// only the default values are available. If the applied quota value is not available
-    /// for a quota, the quota is not retrieved.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the applied quota values for the specified Amazon Web Services service. For
+    /// some quotas, only the default values are available. If the applied quota value is
+    /// not available for a quota, the quota is not retrieved. Filter responses to return
+    /// applied quota values at either the account level, resource level, or all levels.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SQServiceQuotaList")]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceQuota")]
@@ -49,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         #region Parameter QuotaAppliedAtLevel
         /// <summary>
         /// <para>
-        /// <para>Specifies at which level of granularity that the quota value is applied.</para>
+        /// <para>Filters the response to return applied quota values for the <c>ACCOUNT</c>, <c>RESOURCE</c>,
+        /// or <c>ALL</c> levels. <c>ACCOUNT</c> is the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -178,6 +178,32 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String InputDeviceId { get; set; }
         #endregion
         
+        #region Parameter HdDeviceSettings_InputResolution
+        /// <summary>
+        /// <para>
+        /// Choose the resolution of the Link device's
+        /// source (HD or UHD). Make sure the resolution matches the current source from the device.
+        /// This value determines MediaLive resource allocation and billing for this input. Only
+        /// UHD devices can specify this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HdDeviceSettings_InputResolution { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_InputResolution
+        /// <summary>
+        /// <para>
+        /// Choose the resolution of the Link device's
+        /// source (HD or UHD). Make sure the resolution matches the current source from the device.
+        /// This value determines MediaLive resource allocation and billing for this input. Only
+        /// UHD devices can specify this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UhdDeviceSettings_InputResolution { get; set; }
+        #endregion
+        
         #region Parameter HdDeviceSettings_LatencyMs
         /// <summary>
         /// <para>
@@ -355,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             context.HdDeviceSettings_Codec = this.HdDeviceSettings_Codec;
             context.HdDeviceSettings_ConfiguredInput = this.HdDeviceSettings_ConfiguredInput;
+            context.HdDeviceSettings_InputResolution = this.HdDeviceSettings_InputResolution;
             context.HdDeviceSettings_LatencyMs = this.HdDeviceSettings_LatencyMs;
             context.HdDeviceSettings_MaxBitrate = this.HdDeviceSettings_MaxBitrate;
             context.HdDeviceSettings_MediaconnectSettings_FlowArn = this.HdDeviceSettings_MediaconnectSettings_FlowArn;
@@ -375,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             context.UhdDeviceSettings_Codec = this.UhdDeviceSettings_Codec;
             context.UhdDeviceSettings_ConfiguredInput = this.UhdDeviceSettings_ConfiguredInput;
+            context.UhdDeviceSettings_InputResolution = this.UhdDeviceSettings_InputResolution;
             context.UhdDeviceSettings_LatencyMs = this.UhdDeviceSettings_LatencyMs;
             context.UhdDeviceSettings_MaxBitrate = this.UhdDeviceSettings_MaxBitrate;
             context.UhdDeviceSettings_MediaconnectSettings_FlowArn = this.UhdDeviceSettings_MediaconnectSettings_FlowArn;
@@ -433,6 +461,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestHdDeviceSettings_hdDeviceSettings_ConfiguredInput != null)
             {
                 request.HdDeviceSettings.ConfiguredInput = requestHdDeviceSettings_hdDeviceSettings_ConfiguredInput;
+                requestHdDeviceSettingsIsNull = false;
+            }
+            System.String requestHdDeviceSettings_hdDeviceSettings_InputResolution = null;
+            if (cmdletContext.HdDeviceSettings_InputResolution != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_InputResolution = cmdletContext.HdDeviceSettings_InputResolution;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_InputResolution != null)
+            {
+                request.HdDeviceSettings.InputResolution = requestHdDeviceSettings_hdDeviceSettings_InputResolution;
                 requestHdDeviceSettingsIsNull = false;
             }
             System.Int32? requestHdDeviceSettings_hdDeviceSettings_LatencyMs = null;
@@ -555,6 +593,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput != null)
             {
                 request.UhdDeviceSettings.ConfiguredInput = requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput;
+                requestUhdDeviceSettingsIsNull = false;
+            }
+            System.String requestUhdDeviceSettings_uhdDeviceSettings_InputResolution = null;
+            if (cmdletContext.UhdDeviceSettings_InputResolution != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_InputResolution = cmdletContext.UhdDeviceSettings_InputResolution;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_InputResolution != null)
+            {
+                request.UhdDeviceSettings.InputResolution = requestUhdDeviceSettings_uhdDeviceSettings_InputResolution;
                 requestUhdDeviceSettingsIsNull = false;
             }
             System.Int32? requestUhdDeviceSettings_uhdDeviceSettings_LatencyMs = null;
@@ -696,6 +744,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig> HdDeviceSettings_AudioChannelPair { get; set; }
             public Amazon.MediaLive.InputDeviceCodec HdDeviceSettings_Codec { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput HdDeviceSettings_ConfiguredInput { get; set; }
+            public System.String HdDeviceSettings_InputResolution { get; set; }
             public System.Int32? HdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? HdDeviceSettings_MaxBitrate { get; set; }
             public System.String HdDeviceSettings_MediaconnectSettings_FlowArn { get; set; }
@@ -707,6 +756,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public List<Amazon.MediaLive.Model.InputDeviceConfigurableAudioChannelPairConfig> UhdDeviceSettings_AudioChannelPair { get; set; }
             public Amazon.MediaLive.InputDeviceCodec UhdDeviceSettings_Codec { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
+            public System.String UhdDeviceSettings_InputResolution { get; set; }
             public System.Int32? UhdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? UhdDeviceSettings_MaxBitrate { get; set; }
             public System.String UhdDeviceSettings_MediaconnectSettings_FlowArn { get; set; }

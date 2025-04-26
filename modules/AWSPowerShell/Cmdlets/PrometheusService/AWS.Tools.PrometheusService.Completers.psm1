@@ -138,6 +138,7 @@ $PROM_SelectMap = @{
                "Get-PROMRuleGroupsNamespace",
                "Get-PROMScraper",
                "Get-PROMWorkspace",
+               "Get-PROMWorkspaceConfiguration",
                "Get-PROMDefaultScraperConfiguration",
                "Get-PROMRuleGroupsNamespaceList",
                "Get-PROMScraperList",
@@ -149,7 +150,8 @@ $PROM_SelectMap = @{
                "Remove-PROMResourceTag",
                "Update-PROMLoggingConfiguration",
                "Update-PROMScraper",
-               "Update-PROMWorkspaceAlias")
+               "Update-PROMWorkspaceAlias",
+               "Update-PROMWorkspaceConfiguration")
 }
 
 _awsArgumentCompleterRegistration $PROM_SelectCompleters $PROM_SelectMap

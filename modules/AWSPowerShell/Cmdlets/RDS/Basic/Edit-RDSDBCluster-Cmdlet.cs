@@ -108,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies whether minor engine upgrades are applied automatically to the DB cluster
-        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// during the maintenance window. By default, minor engine upgrades are applied automatically.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters.</para><para>For more information about automatic minor version upgrades, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades">Automatically
+        /// upgrading the minor engine version</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

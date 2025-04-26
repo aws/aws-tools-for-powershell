@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountInformation" OutputProperty="*" Verb="Get" Noun="AccountInformation" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAlternateContact" OutputProperty="AlternateContact" Verb="Get" Noun="AlternateContact" PipelineParameter="AlternateContactType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRegions" OutputProperty="Regions" Verb="Get" Noun="RegionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountName" Verb="Write" Noun="AccountName" ShouldProcessTarget="AccountName" PipelineParameter="AccountName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

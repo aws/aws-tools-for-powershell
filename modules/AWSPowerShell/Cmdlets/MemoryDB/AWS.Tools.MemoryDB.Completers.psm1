@@ -90,6 +90,23 @@ $MDB_Completers = {
             break
         }
 
+        # Amazon.MemoryDB.IpDiscovery
+        {
+            ($_ -eq "New-MDBCluster/IpDiscovery") -Or
+            ($_ -eq "Update-MDBCluster/IpDiscovery")
+        }
+        {
+            $v = "ipv4","ipv6"
+            break
+        }
+
+        # Amazon.MemoryDB.NetworkType
+        "New-MDBCluster/NetworkType"
+        {
+            $v = "dual_stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.MemoryDB.SourceType
         "Get-MDBEvent/SourceType"
         {
@@ -114,6 +131,8 @@ $MDB_Completers = {
 
 $MDB_map = @{
     "AuthenticationMode_Type"=@("New-MDBUser","Update-MDBUser")
+    "IpDiscovery"=@("New-MDBCluster","Update-MDBCluster")
+    "NetworkType"=@("New-MDBCluster")
     "SourceType"=@("Get-MDBEvent")
     "UpdateStrategy"=@("Update-MDBMultiRegionCluster")
 }

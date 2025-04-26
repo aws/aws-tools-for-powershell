@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVpcEndpointServiceName" OutputProperty="ServiceName" Verb="Get" Noun="VpcEndpointServiceName" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

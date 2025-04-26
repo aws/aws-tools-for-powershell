@@ -493,8 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// in one location. Otherwise, you can separate them by Region for more granularity.
         /// Make sure that the specified log group exists in the Region that you specify with
         /// this option.</para></dd><dt>awslogs-group</dt><dd><para>Required: Yes</para><para>Make sure to specify a log group that the <c>awslogs</c> log driver sends its log
-        /// streams to.</para></dd><dt>awslogs-stream-prefix</dt><dd><para>Required: Yes, when using the Fargate launch type.Optional for the EC2 launch type,
-        /// required for the Fargate launch type.</para><para>Use the <c>awslogs-stream-prefix</c> option to associate a log stream with the specified
+        /// streams to.</para></dd><dt>awslogs-stream-prefix</dt><dd><para>Required: Yes, when using Fargate.Optional when using EC2.</para><para>Use the <c>awslogs-stream-prefix</c> option to associate a log stream with the specified
         /// prefix, the container name, and the ID of the Amazon ECS task that the container belongs
         /// to. If you specify a prefix with this option, then the log stream takes the format
         /// <c>prefix-name/container-name/ecs-task-id</c>.</para><para>If you don't specify a prefix with this option, then the log stream is named after
@@ -514,18 +513,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// message consists of a line that matches the pattern and any following lines that don’t
         /// match the pattern. The matched line is the delimiter between log messages.</para><para>For more information, see <a href="https://docs.docker.com/config/containers/logging/awslogs/#awslogs-multiline-pattern">awslogs-multiline-pattern</a>.</para><para>This option is ignored if <c>awslogs-datetime-format</c> is also configured.</para><para>You cannot configure both the <c>awslogs-datetime-format</c> and <c>awslogs-multiline-pattern</c>
         /// options.</para><note><para>Multiline logging performs regular expression parsing and matching of all log messages.
-        /// This might have a negative impact on logging performance.</para></note></dd><dt>mode</dt><dd><para>Required: No</para><para>Valid values: <c>non-blocking</c> | <c>blocking</c></para><para>This option defines the delivery mode of log messages from the container to CloudWatch
-        /// Logs. The delivery mode you choose affects application availability when the flow
-        /// of logs from container to CloudWatch is interrupted.</para><para>If you use the <c>blocking</c> mode and the flow of logs to CloudWatch is interrupted,
-        /// calls from container code to write to the <c>stdout</c> and <c>stderr</c> streams
-        /// will block. The logging thread of the application will block as a result. This may
-        /// cause the application to become unresponsive and lead to container healthcheck failure.
-        /// </para><para>If you use the <c>non-blocking</c> mode, the container's logs are instead stored in
+        /// This might have a negative impact on logging performance.</para></note></dd></dl><para>The following options apply to all supported log drivers.</para><dl><dt>mode</dt><dd><para>Required: No</para><para>Valid values: <c>non-blocking</c> | <c>blocking</c></para><para>This option defines the delivery mode of log messages from the container to the log
+        /// driver specified using <c>logDriver</c>. The delivery mode you choose affects application
+        /// availability when the flow of logs from container is interrupted.</para><para>If you use the <c>blocking</c> mode and the flow of logs is interrupted, calls from
+        /// container code to write to the <c>stdout</c> and <c>stderr</c> streams will block.
+        /// The logging thread of the application will block as a result. This may cause the application
+        /// to become unresponsive and lead to container healthcheck failure. </para><para>If you use the <c>non-blocking</c> mode, the container's logs are instead stored in
         /// an in-memory intermediate buffer configured with the <c>max-buffer-size</c> option.
-        /// This prevents the application from becoming unresponsive when logs cannot be sent
-        /// to CloudWatch. We recommend using this mode if you want to ensure service availability
-        /// and are okay with some log loss. For more information, see <a href="http://aws.amazon.com/blogs/containers/preventing-log-loss-with-non-blocking-mode-in-the-awslogs-container-log-driver/">Preventing
-        /// log loss with non-blocking mode in the <c>awslogs</c> container log driver</a>.</para></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
+        /// This prevents the application from becoming unresponsive when logs cannot be sent.
+        /// We recommend using this mode if you want to ensure service availability and are okay
+        /// with some log loss. For more information, see <a href="http://aws.amazon.com/blogs/containers/preventing-log-loss-with-non-blocking-mode-in-the-awslogs-container-log-driver/">Preventing
+        /// log loss with non-blocking mode in the <c>awslogs</c> container log driver</a>.</para><para>You can set a default <c>mode</c> for all containers in a specific Amazon Web Services
+        /// Region by using the <c>defaultLogDriverMode</c> account setting. If you don't specify
+        /// the <c>mode</c> option or configure the account setting, Amazon ECS will default to
+        /// the <c>blocking</c> mode. For more information about the account setting, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#default-log-driver-mode">Default
+        /// log driver mode</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
         /// the size of the buffer that's used for intermediate message storage. Make sure to
         /// specify an adequate buffer size based on your application. When the buffer fills up,
         /// further logs cannot be stored. Logs that cannot be stored are lost. </para></dd></dl><para>To route logs using the <c>splunk</c> log router, you need to specify a <c>splunk-token</c>

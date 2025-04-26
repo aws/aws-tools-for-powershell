@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.ApplicationType ApplicationType { get; set; }
         #endregion
         
+        #region Parameter EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels
+        /// <summary>
+        /// <para>
+        /// <para>Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation
+        /// job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EvaluatorModelConfig_CustomMetricConfig_BedrockEvaluatorModel")]
+        public Amazon.Bedrock.Model.CustomMetricBedrockEvaluatorModel[] EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels { get; set; }
+        #endregion
+        
         #region Parameter EvaluatorModelConfig_BedrockEvaluatorModel
         /// <summary>
         /// <para>
@@ -90,6 +102,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CustomerEncryptionKeyId { get; set; }
+        #endregion
+        
+        #region Parameter CustomMetricConfig_CustomMetric
+        /// <summary>
+        /// <para>
+        /// <para>Defines a list of custom metrics to be used in an Amazon Bedrock evaluation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EvaluationConfig_Automated_CustomMetricConfig_CustomMetrics")]
+        public Amazon.Bedrock.Model.AutomatedEvaluationCustomMetricSource[] CustomMetricConfig_CustomMetric { get; set; }
         #endregion
         
         #region Parameter Human_CustomMetric
@@ -300,6 +323,14 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             context.ApplicationType = this.ApplicationType;
             context.ClientRequestToken = this.ClientRequestToken;
             context.CustomerEncryptionKeyId = this.CustomerEncryptionKeyId;
+            if (this.CustomMetricConfig_CustomMetric != null)
+            {
+                context.CustomMetricConfig_CustomMetric = new List<Amazon.Bedrock.Model.AutomatedEvaluationCustomMetricSource>(this.CustomMetricConfig_CustomMetric);
+            }
+            if (this.EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels != null)
+            {
+                context.EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels = new List<Amazon.Bedrock.Model.CustomMetricBedrockEvaluatorModel>(this.EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels);
+            }
             if (this.Automated_DatasetMetricConfig != null)
             {
                 context.Automated_DatasetMetricConfig = new List<Amazon.Bedrock.Model.EvaluationDatasetMetricConfig>(this.Automated_DatasetMetricConfig);
@@ -422,6 +453,56 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig != null)
             {
                 requestEvaluationConfig_evaluationConfig_Automated.EvaluatorModelConfig = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_EvaluatorModelConfig;
+                requestEvaluationConfig_evaluationConfig_AutomatedIsNull = false;
+            }
+            Amazon.Bedrock.Model.AutomatedEvaluationCustomMetricConfig requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig = null;
+            
+             // populate CustomMetricConfig
+            var requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfigIsNull = true;
+            requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig = new Amazon.Bedrock.Model.AutomatedEvaluationCustomMetricConfig();
+            List<Amazon.Bedrock.Model.AutomatedEvaluationCustomMetricSource> requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_customMetricConfig_CustomMetric = null;
+            if (cmdletContext.CustomMetricConfig_CustomMetric != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_customMetricConfig_CustomMetric = cmdletContext.CustomMetricConfig_CustomMetric;
+            }
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_customMetricConfig_CustomMetric != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig.CustomMetrics = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_customMetricConfig_CustomMetric;
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfigIsNull = false;
+            }
+            Amazon.Bedrock.Model.CustomMetricEvaluatorModelConfig requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig = null;
+            
+             // populate EvaluatorModelConfig
+            var requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfigIsNull = true;
+            requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig = new Amazon.Bedrock.Model.CustomMetricEvaluatorModelConfig();
+            List<Amazon.Bedrock.Model.CustomMetricBedrockEvaluatorModel> requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels = null;
+            if (cmdletContext.EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels = cmdletContext.EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels;
+            }
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig.BedrockEvaluatorModels = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels;
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfigIsNull = false;
+            }
+             // determine if requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig should be set to null
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfigIsNull)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig = null;
+            }
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig.EvaluatorModelConfig = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig_evaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig;
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfigIsNull = false;
+            }
+             // determine if requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig should be set to null
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfigIsNull)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig = null;
+            }
+            if (requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig != null)
+            {
+                requestEvaluationConfig_evaluationConfig_Automated.CustomMetricConfig = requestEvaluationConfig_evaluationConfig_Automated_evaluationConfig_Automated_CustomMetricConfig;
                 requestEvaluationConfig_evaluationConfig_AutomatedIsNull = false;
             }
              // determine if requestEvaluationConfig_evaluationConfig_Automated should be set to null
@@ -631,6 +712,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public Amazon.Bedrock.ApplicationType ApplicationType { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String CustomerEncryptionKeyId { get; set; }
+            public List<Amazon.Bedrock.Model.AutomatedEvaluationCustomMetricSource> CustomMetricConfig_CustomMetric { get; set; }
+            public List<Amazon.Bedrock.Model.CustomMetricBedrockEvaluatorModel> EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels { get; set; }
             public List<Amazon.Bedrock.Model.EvaluationDatasetMetricConfig> Automated_DatasetMetricConfig { get; set; }
             public List<Amazon.Bedrock.Model.BedrockEvaluatorModel> EvaluatorModelConfig_BedrockEvaluatorModel { get; set; }
             public List<Amazon.Bedrock.Model.HumanEvaluationCustomMetric> Human_CustomMetric { get; set; }

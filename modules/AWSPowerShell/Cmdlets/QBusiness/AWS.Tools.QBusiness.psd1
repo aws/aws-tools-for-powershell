@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QBUSDataSource', 
         'Get-QBUSDataSourceList', 
         'Get-QBUSDataSourceSyncJobList', 
+        'Get-QBUSDocumentAccess', 
         'Get-QBUSDocumentList', 
         'Get-QBUSGroup', 
         'Get-QBUSGroupList', 

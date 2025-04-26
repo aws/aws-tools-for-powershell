@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTableBucketEncryption" Verb="Remove" Noun="TableBucketEncryption" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTableBucketPolicy" Verb="Remove" Noun="TableBucketPolicy" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -62,11 +66,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableBucketEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableBucketEncryption" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTableBucketMaintenanceConfiguration" OutputProperty="*" Verb="Get" Noun="TableBucketMaintenanceConfiguration" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTableBucketPolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="TableBucketPolicy" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableEncryption" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,6 +107,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTables" OutputProperty="*" Verb="Get" Noun="TableList" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTableBucketEncryption" Verb="Write" Noun="TableBucketEncryption" ShouldProcessTarget="EncryptionConfiguration_KmsKeyArn" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

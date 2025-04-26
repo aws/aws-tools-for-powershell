@@ -134,6 +134,22 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter IpDiscovery
+        /// <summary>
+        /// <para>
+        /// <para>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid
+        /// values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such
+        /// as cluster slots, cluster shards, and cluster nodes return IPv4 addresses for cluster
+        /// nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for
+        /// cluster nodes. The value must be compatible with the NetworkType parameter. If not
+        /// specified, the default is 'ipv4'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MemoryDB.IpDiscovery")]
+        public Amazon.MemoryDB.IpDiscovery IpDiscovery { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -164,6 +180,21 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MultiRegionClusterName { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the IP address type for the cluster. Valid values are 'ipv4', 'ipv6', or
+        /// 'dual_stack'. When set to 'ipv4', the cluster will only be accessible via IPv4 addresses.
+        /// When set to 'ipv6', the cluster will only be accessible via IPv6 addresses. When set
+        /// to 'dual_stack', the cluster will be accessible via both IPv4 and IPv6 addresses.
+        /// If not specified, the default is 'ipv4'.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MemoryDB.NetworkType")]
+        public Amazon.MemoryDB.NetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter NodeType
@@ -394,9 +425,11 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             context.Description = this.Description;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.IpDiscovery = this.IpDiscovery;
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceWindow = this.MaintenanceWindow;
             context.MultiRegionClusterName = this.MultiRegionClusterName;
+            context.NetworkType = this.NetworkType;
             context.NodeType = this.NodeType;
             #if MODULAR
             if (this.NodeType == null && ParameterWasBound(nameof(this.NodeType)))
@@ -470,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.IpDiscovery != null)
+            {
+                request.IpDiscovery = cmdletContext.IpDiscovery;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -481,6 +518,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.MultiRegionClusterName != null)
             {
                 request.MultiRegionClusterName = cmdletContext.MultiRegionClusterName;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.NodeType != null)
             {
@@ -600,9 +641,11 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String Description { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public Amazon.MemoryDB.IpDiscovery IpDiscovery { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceWindow { get; set; }
             public System.String MultiRegionClusterName { get; set; }
+            public Amazon.MemoryDB.NetworkType NetworkType { get; set; }
             public System.String NodeType { get; set; }
             public System.Int32? NumReplicasPerShard { get; set; }
             public System.Int32? NumShard { get; set; }
