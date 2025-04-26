@@ -216,7 +216,7 @@ namespace PSReleaseNotesGenerator
 
         private static string CreatePreviewReleaseNotes(string sdkNewVersion)
         {
-            return $"  * AWS Tools for PowerShell now use AWS .NET SDK {sdkNewVersion} and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.";
+            return $"  * AWS Tools for PowerShell now use AWS .NET SDK {sdkNewVersion} and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.";
         }
 
         private static string CreateReleaseNotes(IDictionary<string, Cmdlet> newModule, 
