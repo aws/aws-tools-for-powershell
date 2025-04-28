@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkflowVersion" OutputProperty="*" Verb="New" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAnnotationStore" OutputProperty="Status" Verb="Remove" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="Compel" AutoApplyAlias="false" />
@@ -138,6 +142,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkflow" Verb="Remove" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkflowVersion" Verb="Remove" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -229,6 +237,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowVersion" OutputProperty="*" Verb="Get" Noun="WorkflowVersion" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAnnotationImportJobs" OutputProperty="AnnotationImportJobs" Verb="Get" Noun="AnnotationImportJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -317,6 +329,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowVersions" OutputProperty="Items" Verb="Get" Noun="WorkflowVersionList" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutS3AccessPolicy" OutputProperty="*" Verb="Write" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -382,6 +398,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkflow" Verb="Update" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkflowVersion" Verb="Update" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

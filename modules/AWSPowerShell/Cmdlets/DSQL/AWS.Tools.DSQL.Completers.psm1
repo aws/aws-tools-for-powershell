@@ -128,6 +128,7 @@ $DSQL_SelectMap = @{
                "Remove-DSQLCluster",
                "Remove-DSQLMultiRegionCluster",
                "Get-DSQLCluster",
+               "Get-DSQLVpcEndpointServiceName",
                "Get-DSQLClusterList",
                "Get-DSQLResourceTag",
                "Add-DSQLResourceTag",

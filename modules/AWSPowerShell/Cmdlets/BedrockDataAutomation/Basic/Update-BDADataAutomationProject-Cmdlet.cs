@@ -54,6 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.Model.BlueprintItem[] CustomOutputConfiguration_Blueprint { get; set; }
         #endregion
         
+        #region Parameter ModalityRouting_Jpeg
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_ModalityRouting_Jpeg")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.DesiredModality")]
+        public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Jpeg { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_KmsEncryptionContext
         /// <summary>
         /// <para>
@@ -72,6 +84,42 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ModalityRouting_Mov
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_ModalityRouting_Mov")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.DesiredModality")]
+        public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mov { get; set; }
+        #endregion
+        
+        #region Parameter ModalityRouting_Mp4
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_ModalityRouting_Mp4")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.DesiredModality")]
+        public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mp4 { get; set; }
+        #endregion
+        
+        #region Parameter ModalityRouting_Png
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideConfiguration_ModalityRouting_Png")]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.DesiredModality")]
+        public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Png { get; set; }
         #endregion
         
         #region Parameter ProjectArn
@@ -112,6 +160,28 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         public Amazon.BedrockDataAutomation.DataAutomationProjectStage ProjectStage { get; set; }
         #endregion
         
+        #region Parameter OverrideConfiguration_Audio_ModalityProcessing_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
+        public Amazon.BedrockDataAutomation.State OverrideConfiguration_Audio_ModalityProcessing_State { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Document_ModalityProcessing_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
+        public Amazon.BedrockDataAutomation.State OverrideConfiguration_Document_ModalityProcessing_State { get; set; }
+        #endregion
+        
         #region Parameter Splitter_State
         /// <summary>
         /// <para>
@@ -122,6 +192,28 @@ namespace Amazon.PowerShell.Cmdlets.BDA
         [Alias("OverrideConfiguration_Document_Splitter_State")]
         [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
         public Amazon.BedrockDataAutomation.State Splitter_State { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Image_ModalityProcessing_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
+        public Amazon.BedrockDataAutomation.State OverrideConfiguration_Image_ModalityProcessing_State { get; set; }
+        #endregion
+        
+        #region Parameter OverrideConfiguration_Video_ModalityProcessing_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockDataAutomation.State")]
+        public Amazon.BedrockDataAutomation.State OverrideConfiguration_Video_ModalityProcessing_State { get; set; }
         #endregion
         
         #region Parameter StandardOutputConfiguration_Audio_Extraction_Category_State
@@ -388,7 +480,15 @@ namespace Amazon.PowerShell.Cmdlets.BDA
                 }
             }
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
+            context.OverrideConfiguration_Audio_ModalityProcessing_State = this.OverrideConfiguration_Audio_ModalityProcessing_State;
+            context.OverrideConfiguration_Document_ModalityProcessing_State = this.OverrideConfiguration_Document_ModalityProcessing_State;
             context.Splitter_State = this.Splitter_State;
+            context.OverrideConfiguration_Image_ModalityProcessing_State = this.OverrideConfiguration_Image_ModalityProcessing_State;
+            context.ModalityRouting_Jpeg = this.ModalityRouting_Jpeg;
+            context.ModalityRouting_Mov = this.ModalityRouting_Mov;
+            context.ModalityRouting_Mp4 = this.ModalityRouting_Mp4;
+            context.ModalityRouting_Png = this.ModalityRouting_Png;
+            context.OverrideConfiguration_Video_ModalityProcessing_State = this.OverrideConfiguration_Video_ModalityProcessing_State;
             context.ProjectArn = this.ProjectArn;
             #if MODULAR
             if (this.ProjectArn == null && ParameterWasBound(nameof(this.ProjectArn)))
@@ -509,11 +609,156 @@ namespace Amazon.PowerShell.Cmdlets.BDA
              // populate OverrideConfiguration
             var requestOverrideConfigurationIsNull = true;
             request.OverrideConfiguration = new Amazon.BedrockDataAutomation.Model.OverrideConfiguration();
+            Amazon.BedrockDataAutomation.Model.AudioOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Audio = null;
+            
+             // populate Audio
+            var requestOverrideConfiguration_overrideConfiguration_AudioIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio = new Amazon.BedrockDataAutomation.Model.AudioOverrideConfiguration();
+            Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = null;
+            
+             // populate ModalityProcessing
+            var requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = new Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration();
+            Amazon.BedrockDataAutomation.State requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State = null;
+            if (cmdletContext.OverrideConfiguration_Audio_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State = cmdletContext.OverrideConfiguration_Audio_ModalityProcessing_State;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing.State = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing_overrideConfiguration_Audio_ModalityProcessing_State;
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessingIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Audio_overrideConfiguration_Audio_ModalityProcessing;
+                requestOverrideConfiguration_overrideConfiguration_AudioIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Audio should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_AudioIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Audio = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Audio != null)
+            {
+                request.OverrideConfiguration.Audio = requestOverrideConfiguration_overrideConfiguration_Audio;
+                requestOverrideConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.ImageOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Image = null;
+            
+             // populate Image
+            var requestOverrideConfiguration_overrideConfiguration_ImageIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Image = new Amazon.BedrockDataAutomation.Model.ImageOverrideConfiguration();
+            Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing = null;
+            
+             // populate ModalityProcessing
+            var requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessingIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing = new Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration();
+            Amazon.BedrockDataAutomation.State requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing_overrideConfiguration_Image_ModalityProcessing_State = null;
+            if (cmdletContext.OverrideConfiguration_Image_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing_overrideConfiguration_Image_ModalityProcessing_State = cmdletContext.OverrideConfiguration_Image_ModalityProcessing_State;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing_overrideConfiguration_Image_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing.State = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing_overrideConfiguration_Image_ModalityProcessing_State;
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessingIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessingIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Image_overrideConfiguration_Image_ModalityProcessing;
+                requestOverrideConfiguration_overrideConfiguration_ImageIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Image should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_ImageIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Image = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Image != null)
+            {
+                request.OverrideConfiguration.Image = requestOverrideConfiguration_overrideConfiguration_Image;
+                requestOverrideConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.VideoOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Video = null;
+            
+             // populate Video
+            var requestOverrideConfiguration_overrideConfiguration_VideoIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Video = new Amazon.BedrockDataAutomation.Model.VideoOverrideConfiguration();
+            Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing = null;
+            
+             // populate ModalityProcessing
+            var requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessingIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing = new Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration();
+            Amazon.BedrockDataAutomation.State requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing_overrideConfiguration_Video_ModalityProcessing_State = null;
+            if (cmdletContext.OverrideConfiguration_Video_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing_overrideConfiguration_Video_ModalityProcessing_State = cmdletContext.OverrideConfiguration_Video_ModalityProcessing_State;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing_overrideConfiguration_Video_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing.State = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing_overrideConfiguration_Video_ModalityProcessing_State;
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessingIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessingIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Video_overrideConfiguration_Video_ModalityProcessing;
+                requestOverrideConfiguration_overrideConfiguration_VideoIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Video should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_VideoIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Video = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Video != null)
+            {
+                request.OverrideConfiguration.Video = requestOverrideConfiguration_overrideConfiguration_Video;
+                requestOverrideConfigurationIsNull = false;
+            }
             Amazon.BedrockDataAutomation.Model.DocumentOverrideConfiguration requestOverrideConfiguration_overrideConfiguration_Document = null;
             
              // populate Document
             var requestOverrideConfiguration_overrideConfiguration_DocumentIsNull = true;
             requestOverrideConfiguration_overrideConfiguration_Document = new Amazon.BedrockDataAutomation.Model.DocumentOverrideConfiguration();
+            Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing = null;
+            
+             // populate ModalityProcessing
+            var requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessingIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing = new Amazon.BedrockDataAutomation.Model.ModalityProcessingConfiguration();
+            Amazon.BedrockDataAutomation.State requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing_overrideConfiguration_Document_ModalityProcessing_State = null;
+            if (cmdletContext.OverrideConfiguration_Document_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing_overrideConfiguration_Document_ModalityProcessing_State = cmdletContext.OverrideConfiguration_Document_ModalityProcessing_State;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing_overrideConfiguration_Document_ModalityProcessing_State != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing.State = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing_overrideConfiguration_Document_ModalityProcessing_State;
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessingIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessingIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_Document.ModalityProcessing = requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_ModalityProcessing;
+                requestOverrideConfiguration_overrideConfiguration_DocumentIsNull = false;
+            }
             Amazon.BedrockDataAutomation.Model.SplitterConfiguration requestOverrideConfiguration_overrideConfiguration_Document_overrideConfiguration_Document_Splitter = null;
             
              // populate Splitter
@@ -547,6 +792,61 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             if (requestOverrideConfiguration_overrideConfiguration_Document != null)
             {
                 request.OverrideConfiguration.Document = requestOverrideConfiguration_overrideConfiguration_Document;
+                requestOverrideConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.Model.ModalityRoutingConfiguration requestOverrideConfiguration_overrideConfiguration_ModalityRouting = null;
+            
+             // populate ModalityRouting
+            var requestOverrideConfiguration_overrideConfiguration_ModalityRoutingIsNull = true;
+            requestOverrideConfiguration_overrideConfiguration_ModalityRouting = new Amazon.BedrockDataAutomation.Model.ModalityRoutingConfiguration();
+            Amazon.BedrockDataAutomation.DesiredModality requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Jpeg = null;
+            if (cmdletContext.ModalityRouting_Jpeg != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Jpeg = cmdletContext.ModalityRouting_Jpeg;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Jpeg != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting.Jpeg = requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Jpeg;
+                requestOverrideConfiguration_overrideConfiguration_ModalityRoutingIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.DesiredModality requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mov = null;
+            if (cmdletContext.ModalityRouting_Mov != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mov = cmdletContext.ModalityRouting_Mov;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mov != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting.Mov = requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mov;
+                requestOverrideConfiguration_overrideConfiguration_ModalityRoutingIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.DesiredModality requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mp4 = null;
+            if (cmdletContext.ModalityRouting_Mp4 != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mp4 = cmdletContext.ModalityRouting_Mp4;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mp4 != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting.Mp4 = requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Mp4;
+                requestOverrideConfiguration_overrideConfiguration_ModalityRoutingIsNull = false;
+            }
+            Amazon.BedrockDataAutomation.DesiredModality requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Png = null;
+            if (cmdletContext.ModalityRouting_Png != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Png = cmdletContext.ModalityRouting_Png;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Png != null)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting.Png = requestOverrideConfiguration_overrideConfiguration_ModalityRouting_modalityRouting_Png;
+                requestOverrideConfiguration_overrideConfiguration_ModalityRoutingIsNull = false;
+            }
+             // determine if requestOverrideConfiguration_overrideConfiguration_ModalityRouting should be set to null
+            if (requestOverrideConfiguration_overrideConfiguration_ModalityRoutingIsNull)
+            {
+                requestOverrideConfiguration_overrideConfiguration_ModalityRouting = null;
+            }
+            if (requestOverrideConfiguration_overrideConfiguration_ModalityRouting != null)
+            {
+                request.OverrideConfiguration.ModalityRouting = requestOverrideConfiguration_overrideConfiguration_ModalityRouting;
                 requestOverrideConfigurationIsNull = false;
             }
              // determine if request.OverrideConfiguration should be set to null
@@ -1153,7 +1453,15 @@ namespace Amazon.PowerShell.Cmdlets.BDA
             public List<Amazon.BedrockDataAutomation.Model.BlueprintItem> CustomOutputConfiguration_Blueprint { get; set; }
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+            public Amazon.BedrockDataAutomation.State OverrideConfiguration_Audio_ModalityProcessing_State { get; set; }
+            public Amazon.BedrockDataAutomation.State OverrideConfiguration_Document_ModalityProcessing_State { get; set; }
             public Amazon.BedrockDataAutomation.State Splitter_State { get; set; }
+            public Amazon.BedrockDataAutomation.State OverrideConfiguration_Image_ModalityProcessing_State { get; set; }
+            public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Jpeg { get; set; }
+            public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mov { get; set; }
+            public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Mp4 { get; set; }
+            public Amazon.BedrockDataAutomation.DesiredModality ModalityRouting_Png { get; set; }
+            public Amazon.BedrockDataAutomation.State OverrideConfiguration_Video_ModalityProcessing_State { get; set; }
             public System.String ProjectArn { get; set; }
             public System.String ProjectDescription { get; set; }
             public Amazon.BedrockDataAutomation.DataAutomationProjectStage ProjectStage { get; set; }

@@ -29,7 +29,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Updates a workflow.
+    /// Updates information about a workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html">Update
+    /// a private workflow</a> in the Amazon Web Services HealthOmics User Guide.
     /// </summary>
     [Cmdlet("Update", "OMICSWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -79,6 +80,32 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter StorageCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The default static storage capacity (in gibibytes) for runs that use this workflow
+        /// or workflow version. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The default storage type for runs that use this workflow. STATIC storage allocates
+        /// a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down,
+        /// based on file system utilization. For more information about static and dynamic storage,
+        /// see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
+        /// workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.StorageType")]
+        public Amazon.Omics.StorageType StorageType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -136,6 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #endif
             context.Name = this.Name;
+            context.StorageCapacity = this.StorageCapacity;
+            context.StorageType = this.StorageType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +192,14 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.StorageCapacity != null)
+            {
+                request.StorageCapacity = cmdletContext.StorageCapacity.Value;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             
             CmdletOutput output;
@@ -222,6 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? StorageCapacity { get; set; }
+            public Amazon.Omics.StorageType StorageType { get; set; }
             public System.Func<Amazon.Omics.Model.UpdateWorkflowResponse, UpdateOMICSWorkflowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

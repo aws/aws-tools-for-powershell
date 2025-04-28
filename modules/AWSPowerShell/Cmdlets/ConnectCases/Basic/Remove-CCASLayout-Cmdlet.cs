@@ -31,12 +31,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     /// <summary>
     /// Deletes a layout from a cases template. You can delete up to 100 layouts per domain.
     /// 
-    ///  <pre><c> &lt;p&gt;After a layout is deleted:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;You
-    /// can still retrieve the layout by calling &lt;code&gt;GetLayout&lt;/code&gt;.&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;You cannot update a deleted layout by calling &lt;code&gt;UpdateLayout&lt;/code&gt;;
-    /// it throws a &lt;code&gt;ValidationException&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt;
-    /// &lt;p&gt;Deleted layouts are not included in the &lt;code&gt;ListLayouts&lt;/code&gt;
-    /// response.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </c></pre>
+    ///  
+    /// <para>
+    /// After a layout is deleted:
+    /// </para><ul><li><para>
+    /// You can still retrieve the layout by calling <c>GetLayout</c>.
+    /// </para></li><li><para>
+    /// You cannot update a deleted layout by calling <c>UpdateLayout</c>; it throws a <c>ValidationException</c>.
+    /// </para></li><li><para>
+    /// Deleted layouts are not included in the <c>ListLayouts</c> response.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "CCASLayout", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

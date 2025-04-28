@@ -30,10 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// <important><para>
-    /// Only the EMAIL channel is supported. The supported initiation methods are: OUTBOUND,
-    /// AGENT_REPLY, and FLOW.
+    /// Only the EMAIL and VOICE channels are supported. The supported initiation methods
+    /// for EMAIL are: OUTBOUND, AGENT_REPLY, and FLOW. For VOICE the supported initiation
+    /// methods are TRANSFER and the subtype connect:ExternalAudio. 
     /// </para></important><para>
-    /// Creates a new EMAIL contact. 
+    /// Creates a new EMAIL or VOICE contact. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,8 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// <para>The channel for the contact</para><important><para>CreateContact only supports the EMAIL channel. The following information that states
-        /// other channels are supported is incorrect. We are working to update this topic.</para></important>
+        /// <para>The channel for the contact</para><important><para>CreateContact only supports the EMAIL and VOICE channels. The following information
+        /// that states other channels are supported is incorrect. We are working to update this
+        /// topic.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,9 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitiationMethod
         /// <summary>
         /// <para>
-        /// <para>Indicates how the contact was initiated. </para><important><para>CreateContact only supports the following initiation methods: OUTBOUND, AGENT_REPLY,
-        /// and FLOW. The following information that states other initiation methods are supported
-        /// is incorrect. We are working to update this topic.</para></important>
+        /// <para>Indicates how the contact was initiated. </para><important><para>CreateContact only supports the following initiation methods: </para><ul><li><para>For EMAIL: OUTBOUND, AGENT_REPLY, and FLOW. </para></li><li><para>For VOICE: TRANSFER and the subtype connect:ExternalAudio. </para></li></ul><para>The following information that states other initiation methods are supported is incorrect.
+        /// We are working to update this topic.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,8 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter RelatedContactId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for an Amazon Connect contact. This identifier is related to
-        /// the contact starting.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

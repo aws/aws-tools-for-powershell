@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
         /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
         /// Set this parameter to the value of the previous call's <c>NextToken</c> response to
         /// indicate where the output should continue from. The pagination tokens expire after
-        /// 24 hours.</para>
+        /// 24 hours.</para><note><para>The <c>ListResources</c> operation does not generate a <c>NextToken</c> if you set
+        /// <c>MaxResults</c> to 1000. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

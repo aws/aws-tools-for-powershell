@@ -197,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopServiceDeployment" OutputProperty="*" Verb="Stop" Noun="ServiceDeployment" ShouldProcessTarget="ServiceDeploymentArn" PipelineParameter="ServiceDeploymentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopTask" OutputProperty="Task" Verb="Stop" Noun="Task" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

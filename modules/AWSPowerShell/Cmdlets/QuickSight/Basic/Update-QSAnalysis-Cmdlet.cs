@@ -432,6 +432,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String PaperMargin_Top { get; set; }
         #endregion
         
+        #region Parameter HighlightOperation_Trigger
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether a highlight operation is initiated by a click or hover, or whether
+        /// it's disabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Options_CustomActionDefaults_HighlightOperation_Trigger")]
+        [AWSConstantClassSource("Amazon.QuickSight.VisualHighlightTrigger")]
+        public Amazon.QuickSight.VisualHighlightTrigger HighlightOperation_Trigger { get; set; }
+        #endregion
+        
         #region Parameter Options_WeekStart
         /// <summary>
         /// <para>
@@ -531,6 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Definition_FilterGroup = new List<Amazon.QuickSight.Model.FilterGroup>(this.Definition_FilterGroup);
             }
+            context.HighlightOperation_Trigger = this.HighlightOperation_Trigger;
             if (this.Options_ExcludedDataSetArn != null)
             {
                 context.Options_ExcludedDataSetArn = new List<System.String>(this.Options_ExcludedDataSetArn);
@@ -1059,6 +1073,46 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 requestDefinition_definition_Options.WeekStart = requestDefinition_definition_Options_options_WeekStart;
                 requestDefinition_definition_OptionsIsNull = false;
             }
+            Amazon.QuickSight.Model.VisualCustomActionDefaults requestDefinition_definition_Options_definition_Options_CustomActionDefaults = null;
+            
+             // populate CustomActionDefaults
+            var requestDefinition_definition_Options_definition_Options_CustomActionDefaultsIsNull = true;
+            requestDefinition_definition_Options_definition_Options_CustomActionDefaults = new Amazon.QuickSight.Model.VisualCustomActionDefaults();
+            Amazon.QuickSight.Model.VisualHighlightOperation requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation = null;
+            
+             // populate HighlightOperation
+            var requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperationIsNull = true;
+            requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation = new Amazon.QuickSight.Model.VisualHighlightOperation();
+            Amazon.QuickSight.VisualHighlightTrigger requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation_highlightOperation_Trigger = null;
+            if (cmdletContext.HighlightOperation_Trigger != null)
+            {
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation_highlightOperation_Trigger = cmdletContext.HighlightOperation_Trigger;
+            }
+            if (requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation_highlightOperation_Trigger != null)
+            {
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation.Trigger = requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation_highlightOperation_Trigger;
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperationIsNull = false;
+            }
+             // determine if requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation should be set to null
+            if (requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperationIsNull)
+            {
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation = null;
+            }
+            if (requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation != null)
+            {
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaults.HighlightOperation = requestDefinition_definition_Options_definition_Options_CustomActionDefaults_definition_Options_CustomActionDefaults_HighlightOperation;
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaultsIsNull = false;
+            }
+             // determine if requestDefinition_definition_Options_definition_Options_CustomActionDefaults should be set to null
+            if (requestDefinition_definition_Options_definition_Options_CustomActionDefaultsIsNull)
+            {
+                requestDefinition_definition_Options_definition_Options_CustomActionDefaults = null;
+            }
+            if (requestDefinition_definition_Options_definition_Options_CustomActionDefaults != null)
+            {
+                requestDefinition_definition_Options.CustomActionDefaults = requestDefinition_definition_Options_definition_Options_CustomActionDefaults;
+                requestDefinition_definition_OptionsIsNull = false;
+            }
              // determine if requestDefinition_definition_Options should be set to null
             if (requestDefinition_definition_OptionsIsNull)
             {
@@ -1265,6 +1319,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnConfiguration> Definition_ColumnConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.DataSetIdentifierDeclaration> Definition_DataSetIdentifierDeclaration { get; set; }
             public List<Amazon.QuickSight.Model.FilterGroup> Definition_FilterGroup { get; set; }
+            public Amazon.QuickSight.VisualHighlightTrigger HighlightOperation_Trigger { get; set; }
             public List<System.String> Options_ExcludedDataSetArn { get; set; }
             public Amazon.QuickSight.QBusinessInsightsStatus Options_QBusinessInsightsStatus { get; set; }
             public System.String Options_Timezone { get; set; }

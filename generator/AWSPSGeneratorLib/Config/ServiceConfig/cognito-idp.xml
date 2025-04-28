@@ -10,7 +10,7 @@
     <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
     <ServiceModuleGuid>33933d0d-16f2-4659-8dae-d93fc7aa6b6a</ServiceModuleGuid>
     <DefaultRegion />
-    <PipelineParameter>UserPoolId</PipelineParameter>
+    <PipelineParameter>RefreshToken</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" PageSizeIsRequired="true" />
     <VerbMappings />
     <NounMappings />
@@ -296,6 +296,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSigningCertificate" OutputProperty="Certificate" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTokensFromRefreshToken" OutputProperty="AuthenticationResult" Verb="Get" Noun="TokensFromRefreshToken" PipelineParameter="RefreshToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

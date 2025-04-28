@@ -29,7 +29,27 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a workflow.
+    /// Creates a private workflow.Private workflows depend on a variety of resources that
+    /// you create and configure before creating the workflow:
+    /// 
+    ///  <ul><li><para><i>Input data</i>: Input data for the workflow, stored in an S3 bucket or a Amazon
+    /// Web Services HealthOmics sequence store. 
+    /// </para></li><li><para><i>Workflow definition files</i>: Define your workflow in one or more workflow definition
+    /// files, written in WDL, Nextflow, or CWL. The workflow definition specifies the inputs
+    /// and outputs for runs that use the workflow. It also includes specifications for the
+    /// runs and run tasks for your workflow, including compute and memory requirements.
+    /// </para></li><li><para><i>Parameter template files</i>: Define run parameters using a parameter template
+    /// file (written in JSON). 
+    /// </para></li><li><para><i>ECR container images</i>: Create one or more container images for the workflow.
+    /// Store the images in a private ECR repository.
+    /// </para></li><li><para>
+    /// (Optional) <i>Sentieon licenses</i>: Request a Sentieon license if you plan to use
+    /// Sentieon software in a private workflow.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/creating-private-workflows.html">Creating
+    /// or updating a private workflow in Amazon Web Services HealthOmics</a> in the Amazon
+    /// Web Services HealthOmics User Guide.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "OMICSWorkflow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateWorkflowResponse")]
@@ -90,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>An engine for the workflow.</para>
+        /// <para>The workflow engine for the workflow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,11 +161,27 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>The default storage capacity for the workflow runs, in gibibytes.</para>
+        /// <para>The default static storage capacity (in gibibytes) for runs that use this workflow
+        /// or workflow version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para> The default storage type for runs that use this workflow. STATIC storage allocates
+        /// a fixed amount of storage. DYNAMIC storage dynamically scales the storage up or down,
+        /// based on file system utilization. For more information about static and dynamic storage,
+        /// see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
+        /// workflows</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.StorageType")]
+        public Amazon.Omics.StorageType StorageType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -223,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             context.RequestId = this.RequestId;
             context.StorageCapacity = this.StorageCapacity;
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -291,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 if (cmdletContext.StorageCapacity != null)
                 {
                     request.StorageCapacity = cmdletContext.StorageCapacity.Value;
+                }
+                if (cmdletContext.StorageType != null)
+                {
+                    request.StorageType = cmdletContext.StorageType;
                 }
                 if (cmdletContext.Tag != null)
                 {
@@ -369,6 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public Dictionary<System.String, Amazon.Omics.Model.WorkflowParameter> ParameterTemplate { get; set; }
             public System.String RequestId { get; set; }
             public System.Int32? StorageCapacity { get; set; }
+            public Amazon.Omics.StorageType StorageType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Omics.Model.CreateWorkflowResponse, NewOMICSWorkflowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

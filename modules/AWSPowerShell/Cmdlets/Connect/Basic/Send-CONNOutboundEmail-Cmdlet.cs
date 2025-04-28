@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TrafficType
         /// <summary>
         /// <para>
-        /// <para>Denotes the class of traffic.</para>
+        /// <para>Denotes the class of traffic.</para><note><para>Only the CAMPAIGN traffic type is supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

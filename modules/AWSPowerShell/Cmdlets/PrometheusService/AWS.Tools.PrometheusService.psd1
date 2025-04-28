@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PROMScraper', 
         'Get-PROMScraperList', 
         'Get-PROMWorkspace', 
+        'Get-PROMWorkspaceConfiguration', 
         'Get-PROMWorkspaceList', 
         'New-PROMAlertManagerDefinition', 
         'New-PROMLoggingConfiguration', 
@@ -109,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-PROMLoggingConfiguration', 
         'Update-PROMScraper', 
         'Update-PROMWorkspaceAlias', 
+        'Update-PROMWorkspaceConfiguration', 
         'Write-PROMAlertManagerDefinition', 
         'Write-PROMRuleGroupsNamespace')
 

@@ -24,7 +24,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluationJob" OutputProperty="JobArn" Verb="New" Noun="EvaluationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" NewName="EvaluationConfig_Automated_CustomMetricConfig_EvaluatorModelConfig_BedrockEvaluatorModels" Alias="EvaluatorModelConfig_CustomMetricConfig_BedrockEvaluatorModel" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGuardrail" OutputProperty="*" Verb="New" Noun="Guardrail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">

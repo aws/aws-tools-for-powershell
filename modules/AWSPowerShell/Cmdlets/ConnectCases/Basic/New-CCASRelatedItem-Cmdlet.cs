@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
     public partial class NewCCASRelatedItemCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
@@ -123,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter SlaInputConfiguration_FieldId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier of a field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Sla_SlaInputConfiguration_FieldId")]
+        public System.String SlaInputConfiguration_FieldId { get; set; }
+        #endregion
+        
         #region Parameter File_FileArn
         /// <summary>
         /// <para>
@@ -132,6 +145,53 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Content_File_FileArn")]
         public System.String File_FileArn { get; set; }
+        #endregion
+        
+        #region Parameter SlaInputConfiguration_Name
+        /// <summary>
+        /// <para>
+        /// <para>Name of an SLA.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Sla_SlaInputConfiguration_Name")]
+        public System.String SlaInputConfiguration_Name { get; set; }
+        #endregion
+        
+        #region Parameter SlaInputConfiguration_TargetFieldValue
+        /// <summary>
+        /// <para>
+        /// <para>Represents a list of target field values for the fieldId specified in SlaInputConfiguration.
+        /// The SLA is considered met if any one of these target field values matches the actual
+        /// field value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Sla_SlaInputConfiguration_TargetFieldValues")]
+        public Amazon.ConnectCases.Model.FieldValueUnion[] SlaInputConfiguration_TargetFieldValue { get; set; }
+        #endregion
+        
+        #region Parameter SlaInputConfiguration_TargetSlaMinute
+        /// <summary>
+        /// <para>
+        /// <para>Target duration in minutes within which an SLA should be completed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Sla_SlaInputConfiguration_TargetSlaMinutes")]
+        public System.Int64? SlaInputConfiguration_TargetSlaMinute { get; set; }
+        #endregion
+        
+        #region Parameter SlaInputConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>Type of SLA.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Sla_SlaInputConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.ConnectCases.SlaType")]
+        public Amazon.ConnectCases.SlaType SlaInputConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter Type
@@ -219,6 +279,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             context.Comment_ContentType = this.Comment_ContentType;
             context.Contact_ContactArn = this.Contact_ContactArn;
             context.File_FileArn = this.File_FileArn;
+            context.SlaInputConfiguration_FieldId = this.SlaInputConfiguration_FieldId;
+            context.SlaInputConfiguration_Name = this.SlaInputConfiguration_Name;
+            if (this.SlaInputConfiguration_TargetFieldValue != null)
+            {
+                context.SlaInputConfiguration_TargetFieldValue = new List<Amazon.ConnectCases.Model.FieldValueUnion>(this.SlaInputConfiguration_TargetFieldValue);
+            }
+            context.SlaInputConfiguration_TargetSlaMinute = this.SlaInputConfiguration_TargetSlaMinute;
+            context.SlaInputConfiguration_Type = this.SlaInputConfiguration_Type;
             context.DomainId = this.DomainId;
             #if MODULAR
             if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
@@ -306,6 +374,86 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_File != null)
             {
                 request.Content.File = requestContent_content_File;
+                requestContentIsNull = false;
+            }
+            Amazon.ConnectCases.Model.SlaInputContent requestContent_content_Sla = null;
+            
+             // populate Sla
+            var requestContent_content_SlaIsNull = true;
+            requestContent_content_Sla = new Amazon.ConnectCases.Model.SlaInputContent();
+            Amazon.ConnectCases.Model.SlaInputConfiguration requestContent_content_Sla_content_Sla_SlaInputConfiguration = null;
+            
+             // populate SlaInputConfiguration
+            var requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull = true;
+            requestContent_content_Sla_content_Sla_SlaInputConfiguration = new Amazon.ConnectCases.Model.SlaInputConfiguration();
+            System.String requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_FieldId = null;
+            if (cmdletContext.SlaInputConfiguration_FieldId != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_FieldId = cmdletContext.SlaInputConfiguration_FieldId;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_FieldId != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration.FieldId = requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_FieldId;
+                requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull = false;
+            }
+            System.String requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Name = null;
+            if (cmdletContext.SlaInputConfiguration_Name != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Name = cmdletContext.SlaInputConfiguration_Name;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Name != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration.Name = requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Name;
+                requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull = false;
+            }
+            List<Amazon.ConnectCases.Model.FieldValueUnion> requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetFieldValue = null;
+            if (cmdletContext.SlaInputConfiguration_TargetFieldValue != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetFieldValue = cmdletContext.SlaInputConfiguration_TargetFieldValue;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetFieldValue != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration.TargetFieldValues = requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetFieldValue;
+                requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull = false;
+            }
+            System.Int64? requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetSlaMinute = null;
+            if (cmdletContext.SlaInputConfiguration_TargetSlaMinute != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetSlaMinute = cmdletContext.SlaInputConfiguration_TargetSlaMinute.Value;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetSlaMinute != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration.TargetSlaMinutes = requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_TargetSlaMinute.Value;
+                requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull = false;
+            }
+            Amazon.ConnectCases.SlaType requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Type = null;
+            if (cmdletContext.SlaInputConfiguration_Type != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Type = cmdletContext.SlaInputConfiguration_Type;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Type != null)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration.Type = requestContent_content_Sla_content_Sla_SlaInputConfiguration_slaInputConfiguration_Type;
+                requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull = false;
+            }
+             // determine if requestContent_content_Sla_content_Sla_SlaInputConfiguration should be set to null
+            if (requestContent_content_Sla_content_Sla_SlaInputConfigurationIsNull)
+            {
+                requestContent_content_Sla_content_Sla_SlaInputConfiguration = null;
+            }
+            if (requestContent_content_Sla_content_Sla_SlaInputConfiguration != null)
+            {
+                requestContent_content_Sla.SlaInputConfiguration = requestContent_content_Sla_content_Sla_SlaInputConfiguration;
+                requestContent_content_SlaIsNull = false;
+            }
+             // determine if requestContent_content_Sla should be set to null
+            if (requestContent_content_SlaIsNull)
+            {
+                requestContent_content_Sla = null;
+            }
+            if (requestContent_content_Sla != null)
+            {
+                request.Content.Sla = requestContent_content_Sla;
                 requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.CommentContent requestContent_content_Comment = null;
@@ -435,6 +583,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public Amazon.ConnectCases.CommentBodyTextType Comment_ContentType { get; set; }
             public System.String Contact_ContactArn { get; set; }
             public System.String File_FileArn { get; set; }
+            public System.String SlaInputConfiguration_FieldId { get; set; }
+            public System.String SlaInputConfiguration_Name { get; set; }
+            public List<Amazon.ConnectCases.Model.FieldValueUnion> SlaInputConfiguration_TargetFieldValue { get; set; }
+            public System.Int64? SlaInputConfiguration_TargetSlaMinute { get; set; }
+            public Amazon.ConnectCases.SlaType SlaInputConfiguration_Type { get; set; }
             public System.String DomainId { get; set; }
             public System.String PerformedBy_UserArn { get; set; }
             public Amazon.ConnectCases.RelatedItemType Type { get; set; }

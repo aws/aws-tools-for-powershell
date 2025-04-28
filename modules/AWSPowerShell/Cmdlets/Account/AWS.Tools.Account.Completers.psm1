@@ -157,11 +157,13 @@ $ACCT_SelectMap = @{
                "Remove-ACCTAlternateContact",
                "Disable-ACCTRegion",
                "Enable-ACCTRegion",
+               "Get-ACCTAccountInformation",
                "Get-ACCTAlternateContact",
                "Get-ACCTContactInformation",
                "Get-ACCTPrimaryEmail",
                "Get-ACCTRegionOptStatus",
                "Get-ACCTRegionList",
+               "Write-ACCTAccountName",
                "Write-ACCTAlternateContact",
                "Write-ACCTContactInformation",
                "Start-ACCTPrimaryEmailUpdate")

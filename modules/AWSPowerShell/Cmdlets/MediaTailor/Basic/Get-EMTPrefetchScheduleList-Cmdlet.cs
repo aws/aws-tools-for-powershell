@@ -61,6 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String PlaybackConfigurationName { get; set; }
         #endregion
         
+        #region Parameter ScheduleType
+        /// <summary>
+        /// <para>
+        /// <para>The type of prefetch schedules that you want to list. <c>SINGLE</c> indicates that
+        /// you want to list the configured single prefetch schedules. <c>RECURRING</c> indicates
+        /// that you want to list the configured recurring prefetch schedules. <c>ALL</c> indicates
+        /// that you want to list all configured prefetch schedules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.ListPrefetchScheduleType")]
+        public Amazon.MediaTailor.ListPrefetchScheduleType ScheduleType { get; set; }
+        #endregion
+        
         #region Parameter StreamId
         /// <summary>
         /// <para>
@@ -152,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 WriteWarning("You are passing $null as a value for parameter PlaybackConfigurationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ScheduleType = this.ScheduleType;
             context.StreamId = this.StreamId;
             
             // allow further manipulation of loaded context prior to processing
@@ -178,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.PlaybackConfigurationName != null)
             {
                 request.PlaybackConfigurationName = cmdletContext.PlaybackConfigurationName;
+            }
+            if (cmdletContext.ScheduleType != null)
+            {
+                request.ScheduleType = cmdletContext.ScheduleType;
             }
             if (cmdletContext.StreamId != null)
             {
@@ -265,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String PlaybackConfigurationName { get; set; }
+            public Amazon.MediaTailor.ListPrefetchScheduleType ScheduleType { get; set; }
             public System.String StreamId { get; set; }
             public System.Func<Amazon.MediaTailor.Model.ListPrefetchSchedulesResponse, GetEMTPrefetchScheduleListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;

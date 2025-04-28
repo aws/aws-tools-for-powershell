@@ -118,6 +118,22 @@ $BDA_Completers = {
             break
         }
 
+        # Amazon.BedrockDataAutomation.DesiredModality
+        {
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Jpeg") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Jpeg") -Or
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Mov") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Mov") -Or
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Mp4") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Mp4") -Or
+            ($_ -eq "New-BDADataAutomationProject/ModalityRouting_Png") -Or
+            ($_ -eq "Update-BDADataAutomationProject/ModalityRouting_Png")
+        }
+        {
+            $v = "AUDIO","DOCUMENT","IMAGE","VIDEO"
+            break
+        }
+
         # Amazon.BedrockDataAutomation.ResourceOwner
         {
             ($_ -eq "Get-BDABlueprintList/ResourceOwner") -Or
@@ -132,6 +148,14 @@ $BDA_Completers = {
         {
             ($_ -eq "New-BDADataAutomationProject/AdditionalFileFormat_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/AdditionalFileFormat_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Audio_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Document_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Document_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Image_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Image_ModalityProcessing_State") -Or
+            ($_ -eq "New-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
+            ($_ -eq "Update-BDADataAutomationProject/OverrideConfiguration_Video_ModalityProcessing_State") -Or
             ($_ -eq "New-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "Update-BDADataAutomationProject/Splitter_State") -Or
             ($_ -eq "New-BDADataAutomationProject/StandardOutputConfiguration_Audio_Extraction_Category_State") -Or
@@ -180,6 +204,14 @@ $BDA_map = @{
     "BlueprintFilter_BlueprintStage"=@("Get-BDADataAutomationProjectList")
     "BlueprintStage"=@("Get-BDABlueprint","New-BDABlueprint","Update-BDABlueprint")
     "BlueprintStageFilter"=@("Get-BDABlueprintList")
+    "ModalityRouting_Jpeg"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ModalityRouting_Mov"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ModalityRouting_Mp4"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "ModalityRouting_Png"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Audio_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Document_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Image_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
+    "OverrideConfiguration_Video_ModalityProcessing_State"=@("New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectFilter_ProjectStage"=@("Get-BDABlueprintList")
     "ProjectStage"=@("Get-BDADataAutomationProject","New-BDADataAutomationProject","Update-BDADataAutomationProject")
     "ProjectStageFilter"=@("Get-BDADataAutomationProjectList")

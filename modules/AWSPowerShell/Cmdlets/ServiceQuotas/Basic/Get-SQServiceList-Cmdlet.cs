@@ -29,7 +29,8 @@ using Amazon.ServiceQuotas.Model;
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
-    /// Lists the names and codes for the Amazon Web Services integrated with Service Quotas.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the names and codes for the Amazon Web Services services integrated with Service
+    /// Quotas.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SQServiceList")]
     [OutputType("Amazon.ServiceQuotas.Model.ServiceInfo")]

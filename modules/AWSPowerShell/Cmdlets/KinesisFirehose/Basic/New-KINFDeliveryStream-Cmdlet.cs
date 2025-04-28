@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 
     ///  
     /// <para>
-    /// By default, you can create up to 50 Firehose streams per Amazon Web Services Region.
+    /// By default, you can create up to 5,000 Firehose streams per Amazon Web Services Region.
     /// </para><para>
     /// This is an asynchronous operation that immediately returns. The initial status of
     /// the Firehose stream is <c>CREATING</c>. After the Firehose stream is created, its

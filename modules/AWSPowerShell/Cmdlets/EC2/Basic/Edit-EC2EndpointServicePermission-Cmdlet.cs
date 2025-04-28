@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Modifies the permissions for your VPC endpoint service. You can add or remove permissions
     /// for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect
-    /// to your endpoint service.
+    /// to your endpoint service. Principal ARNs with path components aren't supported.
     /// 
     ///  
     /// <para>

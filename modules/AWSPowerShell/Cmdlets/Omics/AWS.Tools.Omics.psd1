@@ -130,6 +130,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OMICSVariantStoreList', 
         'Get-OMICSWorkflow', 
         'Get-OMICSWorkflowList', 
+        'Get-OMICSWorkflowVersion', 
+        'Get-OMICSWorkflowVersionList', 
         'New-OMICSAnnotationStore', 
         'New-OMICSAnnotationStoreVersion', 
         'New-OMICSMultipartReadSetUpload', 
@@ -140,6 +142,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-OMICSShare', 
         'New-OMICSVariantStore', 
         'New-OMICSWorkflow', 
+        'New-OMICSWorkflowVersion', 
         'Receive-OMICSShare', 
         'Remove-OMICSAnnotationStore', 
         'Remove-OMICSAnnotationStoreVersion', 
@@ -156,6 +159,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-OMICSShare', 
         'Remove-OMICSVariantStore', 
         'Remove-OMICSWorkflow', 
+        'Remove-OMICSWorkflowVersion', 
         'Set-OMICSReadSetPart', 
         'Start-OMICSAnnotationImportJob', 
         'Start-OMICSReadSetActivationJob', 
@@ -174,6 +178,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-OMICSSequenceStore', 
         'Update-OMICSVariantStore', 
         'Update-OMICSWorkflow', 
+        'Update-OMICSWorkflowVersion', 
         'Write-OMICSS3AccessPolicy')
 
     # Variables to export from this module

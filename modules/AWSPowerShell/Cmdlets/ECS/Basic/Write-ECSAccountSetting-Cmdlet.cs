@@ -101,7 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Amazon Web Services performs additional authorization to verify if users or roles
         /// have permissions to create tags. Therefore, you must grant explicit permissions to
         /// use the <c>ecs:TagResource</c> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant
-        /// permission to tag resources on creation</a> in the <i>Amazon ECS Developer Guide</i>.</para></li><li><para><c>guardDutyActivate</c> - The <c>guardDutyActivate</c> parameter is read-only in
+        /// permission to tag resources on creation</a> in the <i>Amazon ECS Developer Guide</i>.</para></li><li><para><c>defaultLogDriverMode</c> - Amazon ECS supports setting a default delivery mode
+        /// of log messages from a container to the <c>logDriver</c> that you specify in the container's
+        /// <c>logConfiguration</c>. The delivery mode affects application stability when the
+        /// flow of logs from the container to the log driver is interrupted. The <c>defaultLogDriverMode</c>
+        /// setting supports two values: <c>blocking</c> and <c>non-blocking</c>. If you don't
+        /// specify a delivery mode in your container definition's <c>logConfiguration</c>, the
+        /// mode you specify using this account setting will be used as the default. For more
+        /// information about log delivery modes, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a>.</para></li><li><para><c>guardDutyActivate</c> - The <c>guardDutyActivate</c> parameter is read-only in
         /// Amazon ECS and indicates whether Amazon ECS Runtime Monitoring is enabled or disabled
         /// by your security administrator in your Amazon ECS account. Amazon GuardDuty controls
         /// this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting

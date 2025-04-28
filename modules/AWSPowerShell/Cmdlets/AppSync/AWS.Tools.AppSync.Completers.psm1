@@ -221,6 +221,30 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.HandlerBehavior
+        {
+            ($_ -eq "New-ASYNChannelNamespace/OnPublish_Behavior") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnPublish_Behavior") -Or
+            ($_ -eq "New-ASYNChannelNamespace/OnSubscribe_Behavior") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnSubscribe_Behavior")
+        }
+        {
+            $v = "CODE","DIRECT"
+            break
+        }
+
+        # Amazon.AppSync.InvokeType
+        {
+            ($_ -eq "New-ASYNChannelNamespace/OnPublish_LambdaConfig_InvokeType") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnPublish_LambdaConfig_InvokeType") -Or
+            ($_ -eq "New-ASYNChannelNamespace/OnSubscribe_LambdaConfig_InvokeType") -Or
+            ($_ -eq "Update-ASYNChannelNamespace/OnSubscribe_LambdaConfig_InvokeType")
+        }
+        {
+            $v = "EVENT","REQUEST_RESPONSE"
+            break
+        }
+
         # Amazon.AppSync.MergeType
         {
             ($_ -eq "Start-ASYNMergedGraphqlApi/SourceApiAssociationConfig_MergeType") -Or
@@ -344,6 +368,10 @@ $ASYN_map = @{
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "LogConfig_LogLevel"=@("New-ASYNApi","Update-ASYNApi")
     "MetricsConfig"=@("New-ASYNDataSource","New-ASYNResolver","Update-ASYNDataSource","Update-ASYNResolver")
+    "OnPublish_Behavior"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
+    "OnPublish_LambdaConfig_InvokeType"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
+    "OnSubscribe_Behavior"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
+    "OnSubscribe_LambdaConfig_InvokeType"=@("New-ASYNChannelNamespace","Update-ASYNChannelNamespace")
     "Owner"=@("Get-ASYNGraphqlApiList")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
     "Runtime_Name"=@("New-ASYNFunction","New-ASYNResolver","Test-ASYNCode","Update-ASYNFunction","Update-ASYNResolver")

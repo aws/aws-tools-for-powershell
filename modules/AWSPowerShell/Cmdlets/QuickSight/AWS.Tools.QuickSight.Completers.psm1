@@ -589,6 +589,20 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.VisualHighlightTrigger
+        {
+            ($_ -eq "New-QSAnalysis/HighlightOperation_Trigger") -Or
+            ($_ -eq "New-QSDashboard/HighlightOperation_Trigger") -Or
+            ($_ -eq "New-QSTemplate/HighlightOperation_Trigger") -Or
+            ($_ -eq "Update-QSAnalysis/HighlightOperation_Trigger") -Or
+            ($_ -eq "Update-QSDashboard/HighlightOperation_Trigger") -Or
+            ($_ -eq "Update-QSTemplate/HighlightOperation_Trigger")
+        }
+        {
+            $v = "DATA_POINT_CLICK","DATA_POINT_HOVER","NONE"
+            break
+        }
+
 
     }
 
@@ -632,6 +646,7 @@ $QS_map = @{
     "ExportWithHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "FailureAction"=@("Start-QSAssetBundleImportJob")
     "FolderType"=@("New-QSFolder")
+    "HighlightOperation_Trigger"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")

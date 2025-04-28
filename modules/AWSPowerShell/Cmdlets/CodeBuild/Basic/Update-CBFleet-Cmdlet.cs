@@ -182,6 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ImageId { get; set; }
         #endregion
         
+        #region Parameter ComputeConfiguration_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The EC2 instance type to be launched in your fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComputeConfiguration_InstanceType { get; set; }
+        #endregion
+        
         #region Parameter ComputeConfiguration_MachineType
         /// <summary>
         /// <para>
@@ -373,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             #endif
             context.BaseCapacity = this.BaseCapacity;
             context.ComputeConfiguration_Disk = this.ComputeConfiguration_Disk;
+            context.ComputeConfiguration_InstanceType = this.ComputeConfiguration_InstanceType;
             context.ComputeConfiguration_MachineType = this.ComputeConfiguration_MachineType;
             context.ComputeConfiguration_Memory = this.ComputeConfiguration_Memory;
             context.ComputeConfiguration_VCpu = this.ComputeConfiguration_VCpu;
@@ -441,6 +452,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestComputeConfiguration_computeConfiguration_Disk != null)
             {
                 request.ComputeConfiguration.Disk = requestComputeConfiguration_computeConfiguration_Disk.Value;
+                requestComputeConfigurationIsNull = false;
+            }
+            System.String requestComputeConfiguration_computeConfiguration_InstanceType = null;
+            if (cmdletContext.ComputeConfiguration_InstanceType != null)
+            {
+                requestComputeConfiguration_computeConfiguration_InstanceType = cmdletContext.ComputeConfiguration_InstanceType;
+            }
+            if (requestComputeConfiguration_computeConfiguration_InstanceType != null)
+            {
+                request.ComputeConfiguration.InstanceType = requestComputeConfiguration_computeConfiguration_InstanceType;
                 requestComputeConfigurationIsNull = false;
             }
             Amazon.CodeBuild.MachineType requestComputeConfiguration_computeConfiguration_MachineType = null;
@@ -667,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Arn { get; set; }
             public System.Int32? BaseCapacity { get; set; }
             public System.Int64? ComputeConfiguration_Disk { get; set; }
+            public System.String ComputeConfiguration_InstanceType { get; set; }
             public Amazon.CodeBuild.MachineType ComputeConfiguration_MachineType { get; set; }
             public System.Int64? ComputeConfiguration_Memory { get; set; }
             public System.Int64? ComputeConfiguration_VCpu { get; set; }

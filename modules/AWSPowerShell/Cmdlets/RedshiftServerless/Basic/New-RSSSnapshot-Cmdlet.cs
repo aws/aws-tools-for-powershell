@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
     /// Creates a snapshot of all databases in a namespace. For more information about snapshots,
-    /// see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">
+    /// see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">
     /// Working with snapshots and recovery points</a>.
     /// </summary>
     [Cmdlet("New", "RSSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

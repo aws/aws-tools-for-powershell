@@ -36,7 +36,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePrefetchSchedule" OutputProperty="*" Verb="New" Noun="PrefetchSchedule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="RecurringPrefetchConfiguration_RecurringRetrieval_TrafficShapingRetrievalWindow_RetrievalWindowDurationSeconds" NewName="RecurringTrafficShaping_WindowDurationSeconds" Alias="RecurringTrafficShaping_RetrievalWindowDurationSeconds" />
+                <Param Name="Retrieval_TrafficShapingRetrievalWindow_RetrievalWindowDurationSeconds" NewName="TrafficShaping_WindowDurationSeconds" Alias="TrafficShaping_RetrievalWindowDurationSeconds" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProgram" OutputProperty="*" Verb="New" Noun="Program" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">

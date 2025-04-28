@@ -79,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// nonexistent items consume the minimum read capacity units according to the type of
     /// read. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations">Working
     /// with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.
-    /// </para>
+    /// </para><note><para><c>BatchGetItem</c> will result in a <c>ValidationException</c> if the same key is
+    /// specified multiple times.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DDBBatchItem")]
     [OutputType("System.String")]
