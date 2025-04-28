@@ -28,52 +28,43 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Creates an Anycast static IP list.
+    /// Moves a domain from its current distribution or distribution tenant to another one.
     /// </summary>
-    [Cmdlet("New", "CFAnycastIpList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudFront.Model.AnycastIpList")]
-    [AWSCmdlet("Calls the Amazon CloudFront CreateAnycastIpList API operation.", Operation = new[] {"CreateAnycastIpList"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateAnycastIpListResponse))]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.AnycastIpList or Amazon.CloudFront.Model.CreateAnycastIpListResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.AnycastIpList object.",
-        "The service call response (type Amazon.CloudFront.Model.CreateAnycastIpListResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Update", "CFDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudFront.Model.UpdateDomainAssociationResponse")]
+    [AWSCmdlet("Calls the Amazon CloudFront UpdateDomainAssociation API operation.", Operation = new[] {"UpdateDomainAssociation"}, SelectReturnType = typeof(Amazon.CloudFront.Model.UpdateDomainAssociationResponse))]
+    [AWSCmdletOutput("Amazon.CloudFront.Model.UpdateDomainAssociationResponse",
+        "This cmdlet returns an Amazon.CloudFront.Model.UpdateDomainAssociationResponse object containing multiple properties."
     )]
-    public partial class NewCFAnycastIpListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class UpdateCFDomainAssociationCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IpCount
+        #region Parameter TargetResource_DistributionId
         /// <summary>
         /// <para>
-        /// <para>The number of static IP addresses that are allocated to the Anycast static IP list.
-        /// Valid values: 21 or 3.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? IpCount { get; set; }
-        #endregion
-        
-        #region Parameter Tags_Item
-        /// <summary>
-        /// <para>
-        /// <para>A complex type that contains <c>Tag</c> elements.</para>
+        /// <para>The ID of the multi-tenant distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags_Items")]
-        public Amazon.CloudFront.Model.Tag[] Tags_Item { get; set; }
+        public System.String TargetResource_DistributionId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter TargetResource_DistributionTenantId
         /// <summary>
         /// <para>
-        /// <para>Name of the Anycast static IP list.</para>
+        /// <para>The ID of the distribution tenant.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetResource_DistributionTenantId { get; set; }
+        #endregion
+        
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para>The domain to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,26 +75,37 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter IfMatch
+        /// <summary>
+        /// <para>
+        /// <para>The value of the <c>ETag</c> identifier for the distribution or distribution tenant
+        /// that will be associated with the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IfMatch { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnycastIpList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.CreateAnycastIpListResponse).
-        /// Specifying the name of a property of type Amazon.CloudFront.Model.CreateAnycastIpListResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.UpdateDomainAssociationResponse).
+        /// Specifying the name of a property of type Amazon.CloudFront.Model.UpdateDomainAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AnycastIpList";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Domain parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CFAnycastIpList (CreateAnycastIpList)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CFDomainAssociation (UpdateDomainAssociation)"))
             {
                 return;
             }
@@ -137,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.UpdateDomainAssociationResponse, UpdateCFDomainAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,27 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.Domain;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IpCount = this.IpCount;
+            context.Domain = this.Domain;
             #if MODULAR
-            if (this.IpCount == null && ParameterWasBound(nameof(this.IpCount)))
+            if (this.Domain == null && ParameterWasBound(nameof(this.Domain)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tags_Item != null)
-            {
-                context.Tags_Item = new List<Amazon.CloudFront.Model.Tag>(this.Tags_Item);
-            }
+            context.IfMatch = this.IfMatch;
+            context.TargetResource_DistributionId = this.TargetResource_DistributionId;
+            context.TargetResource_DistributionTenantId = this.TargetResource_DistributionTenantId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,34 +175,44 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.CreateAnycastIpListRequest();
+            var request = new Amazon.CloudFront.Model.UpdateDomainAssociationRequest();
             
-            if (cmdletContext.IpCount != null)
+            if (cmdletContext.Domain != null)
             {
-                request.IpCount = cmdletContext.IpCount.Value;
+                request.Domain = cmdletContext.Domain;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.IfMatch != null)
             {
-                request.Name = cmdletContext.Name;
+                request.IfMatch = cmdletContext.IfMatch;
             }
             
-             // populate Tags
-            var requestTagsIsNull = true;
-            request.Tags = new Amazon.CloudFront.Model.Tags();
-            List<Amazon.CloudFront.Model.Tag> requestTags_tags_Item = null;
-            if (cmdletContext.Tags_Item != null)
+             // populate TargetResource
+            var requestTargetResourceIsNull = true;
+            request.TargetResource = new Amazon.CloudFront.Model.DistributionResourceId();
+            System.String requestTargetResource_targetResource_DistributionId = null;
+            if (cmdletContext.TargetResource_DistributionId != null)
             {
-                requestTags_tags_Item = cmdletContext.Tags_Item;
+                requestTargetResource_targetResource_DistributionId = cmdletContext.TargetResource_DistributionId;
             }
-            if (requestTags_tags_Item != null)
+            if (requestTargetResource_targetResource_DistributionId != null)
             {
-                request.Tags.Items = requestTags_tags_Item;
-                requestTagsIsNull = false;
+                request.TargetResource.DistributionId = requestTargetResource_targetResource_DistributionId;
+                requestTargetResourceIsNull = false;
             }
-             // determine if request.Tags should be set to null
-            if (requestTagsIsNull)
+            System.String requestTargetResource_targetResource_DistributionTenantId = null;
+            if (cmdletContext.TargetResource_DistributionTenantId != null)
             {
-                request.Tags = null;
+                requestTargetResource_targetResource_DistributionTenantId = cmdletContext.TargetResource_DistributionTenantId;
+            }
+            if (requestTargetResource_targetResource_DistributionTenantId != null)
+            {
+                request.TargetResource.DistributionTenantId = requestTargetResource_targetResource_DistributionTenantId;
+                requestTargetResourceIsNull = false;
+            }
+             // determine if request.TargetResource should be set to null
+            if (requestTargetResourceIsNull)
+            {
+                request.TargetResource = null;
             }
             
             CmdletOutput output;
@@ -243,15 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.CreateAnycastIpListResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateAnycastIpListRequest request)
+        private Amazon.CloudFront.Model.UpdateDomainAssociationResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.UpdateDomainAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "CreateAnycastIpList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "UpdateDomainAssociation");
             try
             {
                 #if DESKTOP
-                return client.CreateAnycastIpList(request);
+                return client.UpdateDomainAssociation(request);
                 #elif CORECLR
-                return client.CreateAnycastIpListAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDomainAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -271,11 +275,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? IpCount { get; set; }
-            public System.String Name { get; set; }
-            public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }
-            public System.Func<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AnycastIpList;
+            public System.String Domain { get; set; }
+            public System.String IfMatch { get; set; }
+            public System.String TargetResource_DistributionId { get; set; }
+            public System.String TargetResource_DistributionTenantId { get; set; }
+            public System.Func<Amazon.CloudFront.Model.UpdateDomainAssociationResponse, UpdateCFDomainAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

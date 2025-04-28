@@ -167,6 +167,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Boolean? DefaultCacheBehavior_Compress { get; set; }
         #endregion
         
+        #region Parameter DistributionConfig_ConnectionMode
+        /// <summary>
+        /// <para>
+        /// <para>The connection mode to filter distributions by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_ConnectionMode")]
+        [AWSConstantClassSource("Amazon.CloudFront.ConnectionMode")]
+        public Amazon.CloudFront.ConnectionMode DistributionConfig_ConnectionMode { get; set; }
+        #endregion
+        
         #region Parameter DistributionConfig_ContinuousDeploymentPolicyId
         /// <summary>
         /// <para>
@@ -618,6 +630,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String DefaultCacheBehavior_OriginRequestPolicyId { get; set; }
         #endregion
         
+        #region Parameter TenantConfig_ParameterDefinition
+        /// <summary>
+        /// <para>
+        /// <para>The parameters that you specify for a distribution tenant.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_TenantConfig_ParameterDefinitions")]
+        public Amazon.CloudFront.Model.ParameterDefinition[] TenantConfig_ParameterDefinition { get; set; }
+        #endregion
+        
         #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
@@ -926,7 +949,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// charges from CloudFront.</para></li><li><para><c>static-ip</c> - Do not specify this value unless your distribution has been enabled
         /// for this feature by the CloudFront team. If you have a use case that requires static
         /// IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">Amazon
-        /// Web ServicesSupport Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>,
+        /// Web Services Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <c>d111111abcdef8.cloudfront.net</c>,
         /// don't set a value for this field.</para>
         /// </para>
         /// </summary>
@@ -1179,6 +1202,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter DistributionConfig_Comment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DistributionConfig_ConnectionMode = this.DistributionConfig_ConnectionMode;
             context.DistributionConfig_ContinuousDeploymentPolicyId = this.DistributionConfig_ContinuousDeploymentPolicyId;
             if (this.CustomErrorResponses_Item != null)
             {
@@ -1309,6 +1333,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
             context.DistributionConfig_Staging = this.DistributionConfig_Staging;
+            if (this.TenantConfig_ParameterDefinition != null)
+            {
+                context.TenantConfig_ParameterDefinition = new List<Amazon.CloudFront.Model.ParameterDefinition>(this.TenantConfig_ParameterDefinition);
+            }
             context.ViewerCertificate_ACMCertificateArn = this.ViewerCertificate_ACMCertificateArn;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
@@ -1403,6 +1431,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_Comment != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.Comment = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_Comment;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.ConnectionMode requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_ConnectionMode = null;
+            if (cmdletContext.DistributionConfig_ConnectionMode != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_ConnectionMode = cmdletContext.DistributionConfig_ConnectionMode;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_ConnectionMode != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.ConnectionMode = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_ConnectionMode;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfig_ContinuousDeploymentPolicyId = null;
@@ -1543,6 +1581,31 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Restrictions != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.Restrictions = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Restrictions;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.TenantConfig requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig = null;
+            
+             // populate TenantConfig
+            var requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfigIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig = new Amazon.CloudFront.Model.TenantConfig();
+            List<Amazon.CloudFront.Model.ParameterDefinition> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig_tenantConfig_ParameterDefinition = null;
+            if (cmdletContext.TenantConfig_ParameterDefinition != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig_tenantConfig_ParameterDefinition = cmdletContext.TenantConfig_ParameterDefinition;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig_tenantConfig_ParameterDefinition != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig.ParameterDefinitions = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig_tenantConfig_ParameterDefinition;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfigIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfigIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.TenantConfig = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_TenantConfig;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             Amazon.CloudFront.Model.Aliases requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Aliases = null;
@@ -2500,6 +2563,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? CacheBehaviors_Quantity { get; set; }
             public System.String DistributionConfig_CallerReference { get; set; }
             public System.String DistributionConfig_Comment { get; set; }
+            public Amazon.CloudFront.ConnectionMode DistributionConfig_ConnectionMode { get; set; }
             public System.String DistributionConfig_ContinuousDeploymentPolicyId { get; set; }
             public List<Amazon.CloudFront.Model.CustomErrorResponse> CustomErrorResponses_Item { get; set; }
             public System.Int32? CustomErrorResponses_Quantity { get; set; }
@@ -2558,6 +2622,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? GeoRestriction_Quantity { get; set; }
             public Amazon.CloudFront.GeoRestrictionType GeoRestriction_RestrictionType { get; set; }
             public System.Boolean? DistributionConfig_Staging { get; set; }
+            public List<Amazon.CloudFront.Model.ParameterDefinition> TenantConfig_ParameterDefinition { get; set; }
             public System.String ViewerCertificate_ACMCertificateArn { get; set; }
             [System.ObsoleteAttribute]
             public System.String ViewerCertificate_Certificate { get; set; }

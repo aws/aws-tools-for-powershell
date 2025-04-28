@@ -1,4 +1,39 @@
-﻿### 4.1.807 (2025-04-25 20:35Z)
+﻿### 4.1.808 (2025-04-28 20:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1032.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Certificate Manager
+    * Modified cmdlet Get-ACMCertificateList: added parameter Includes_ManagedBy.
+    * Modified cmdlet New-ACMCertificate: added parameter ManagedBy.
+  * Amazon CloudFront
+    * Added cmdlet Add-CFDistributionTenantWebACL leveraging the AssociateDistributionTenantWebACL service API.
+    * Added cmdlet Add-CFDistributionWebACL leveraging the AssociateDistributionWebACL service API.
+    * Added cmdlet Get-CFConnectionGroup leveraging the GetConnectionGroup service API.
+    * Added cmdlet Get-CFConnectionGroupByRoutingEndpoint leveraging the GetConnectionGroupByRoutingEndpoint service API.
+    * Added cmdlet Get-CFConnectionGroupList leveraging the ListConnectionGroups service API.
+    * Added cmdlet Get-CFDistributionsByConnectionMode leveraging the ListDistributionsByConnectionMode service API.
+    * Added cmdlet Get-CFDistributionTenant leveraging the GetDistributionTenant service API.
+    * Added cmdlet Get-CFDistributionTenantByDomain leveraging the GetDistributionTenantByDomain service API.
+    * Added cmdlet Get-CFDistributionTenantList leveraging the ListDistributionTenants service API.
+    * Added cmdlet Get-CFDistributionTenantsByCustomization leveraging the ListDistributionTenantsByCustomization service API.
+    * Added cmdlet Get-CFDomainConflict leveraging the ListDomainConflicts service API.
+    * Added cmdlet Get-CFInvalidationForDistributionTenant leveraging the GetInvalidationForDistributionTenant service API.
+    * Added cmdlet Get-CFInvalidationsForDistributionTenant leveraging the ListInvalidationsForDistributionTenant service API.
+    * Added cmdlet Get-CFManagedCertificateDetail leveraging the GetManagedCertificateDetails service API.
+    * Added cmdlet New-CFConnectionGroup leveraging the CreateConnectionGroup service API.
+    * Added cmdlet New-CFDistributionTenant leveraging the CreateDistributionTenant service API.
+    * Added cmdlet New-CFInvalidationForDistributionTenant leveraging the CreateInvalidationForDistributionTenant service API.
+    * Added cmdlet Remove-CFConnectionGroup leveraging the DeleteConnectionGroup service API.
+    * Added cmdlet Remove-CFDistributionTenant leveraging the DeleteDistributionTenant service API.
+    * Added cmdlet Remove-CFDistributionTenantWebACL leveraging the DisassociateDistributionTenantWebACL service API.
+    * Added cmdlet Remove-CFDistributionWebACL leveraging the DisassociateDistributionWebACL service API.
+    * Added cmdlet Test-CFDnsConfiguration leveraging the VerifyDnsConfiguration service API.
+    * Added cmdlet Update-CFConnectionGroup leveraging the UpdateConnectionGroup service API.
+    * Added cmdlet Update-CFDistributionTenant leveraging the UpdateDistributionTenant service API.
+    * Added cmdlet Update-CFDomainAssociation leveraging the UpdateDomainAssociation service API.
+    * Modified cmdlet New-CFDistribution: added parameters DistributionConfig_ConnectionMode and TenantConfig_ParameterDefinition.
+    * Modified cmdlet New-CFDistributionWithTag: added parameters DistributionConfig_ConnectionMode and TenantConfig_ParameterDefinition.
+    * Modified cmdlet Update-CFDistribution: added parameters DistributionConfig_ConnectionMode and TenantConfig_ParameterDefinition.
+
+### 4.1.807 (2025-04-25 20:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1031.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.806 (2025-04-24 23:56Z)

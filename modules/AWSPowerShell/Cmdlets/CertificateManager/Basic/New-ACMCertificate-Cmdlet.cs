@@ -161,6 +161,18 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         public Amazon.CertificateManager.KeyAlgorithm KeyAlgorithm { get; set; }
         #endregion
         
+        #region Parameter ManagedBy
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the Amazon Web Services service that manages the certificate issued by
+        /// ACM.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateManagedBy")]
+        public Amazon.CertificateManager.CertificateManagedBy ManagedBy { get; set; }
+        #endregion
+        
         #region Parameter SubjectAlternativeName
         /// <summary>
         /// <para>
@@ -263,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             }
             context.IdempotencyToken = this.IdempotencyToken;
             context.KeyAlgorithm = this.KeyAlgorithm;
+            context.ManagedBy = this.ManagedBy;
             context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
             if (this.SubjectAlternativeName != null)
             {
@@ -308,6 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.KeyAlgorithm != null)
             {
                 request.KeyAlgorithm = cmdletContext.KeyAlgorithm;
+            }
+            if (cmdletContext.ManagedBy != null)
+            {
+                request.ManagedBy = cmdletContext.ManagedBy;
             }
             
              // populate Options
@@ -406,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public List<Amazon.CertificateManager.Model.DomainValidationOption> DomainValidationOption { get; set; }
             public System.String IdempotencyToken { get; set; }
             public Amazon.CertificateManager.KeyAlgorithm KeyAlgorithm { get; set; }
+            public Amazon.CertificateManager.CertificateManagedBy ManagedBy { get; set; }
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public List<System.String> SubjectAlternativeName { get; set; }
             public List<Amazon.CertificateManager.Model.Tag> Tag { get; set; }

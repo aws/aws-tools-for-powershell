@@ -28,52 +28,31 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Creates an Anycast static IP list.
+    /// Deletes a distribution tenant. If you use this API operation to delete a distribution
+    /// tenant that is currently enabled, the request will fail.
+    /// 
+    ///  
+    /// <para>
+    /// To delete a distribution tenant, you must first disable the distribution tenant by
+    /// using the <c>UpdateDistributionTenant</c> API operation.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "CFAnycastIpList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudFront.Model.AnycastIpList")]
-    [AWSCmdlet("Calls the Amazon CloudFront CreateAnycastIpList API operation.", Operation = new[] {"CreateAnycastIpList"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateAnycastIpListResponse))]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.AnycastIpList or Amazon.CloudFront.Model.CreateAnycastIpListResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.AnycastIpList object.",
-        "The service call response (type Amazon.CloudFront.Model.CreateAnycastIpListResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "CFDistributionTenant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon CloudFront DeleteDistributionTenant API operation.", Operation = new[] {"DeleteDistributionTenant"}, SelectReturnType = typeof(Amazon.CloudFront.Model.DeleteDistributionTenantResponse))]
+    [AWSCmdletOutput("None or Amazon.CloudFront.Model.DeleteDistributionTenantResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CloudFront.Model.DeleteDistributionTenantResponse) be returned by specifying '-Select *'."
     )]
-    public partial class NewCFAnycastIpListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class RemoveCFDistributionTenantCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IpCount
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The number of static IP addresses that are allocated to the Anycast static IP list.
-        /// Valid values: 21 or 3.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? IpCount { get; set; }
-        #endregion
-        
-        #region Parameter Tags_Item
-        /// <summary>
-        /// <para>
-        /// <para>A complex type that contains <c>Tag</c> elements.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags_Items")]
-        public Amazon.CloudFront.Model.Tag[] Tags_Item { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Name of the Anycast static IP list.</para>
+        /// <para>The ID of the distribution tenant to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,26 +63,44 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter IfMatch
+        /// <summary>
+        /// <para>
+        /// <para>The value of the <c>ETag</c> header that you received when retrieving the distribution
+        /// tenant. This value is returned in the response of the <c>GetDistributionTenant</c>
+        /// API operation.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IfMatch { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnycastIpList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.CreateAnycastIpListResponse).
-        /// Specifying the name of a property of type Amazon.CloudFront.Model.CreateAnycastIpListResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.DeleteDistributionTenantResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AnycastIpList";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CFAnycastIpList (CreateAnycastIpList)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CFDistributionTenant (DeleteDistributionTenant)"))
             {
                 return;
             }
@@ -137,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.DeleteDistributionTenantResponse, RemoveCFDistributionTenantCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,27 +143,23 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IpCount = this.IpCount;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.IpCount == null && ParameterWasBound(nameof(this.IpCount)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            context.IfMatch = this.IfMatch;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.IfMatch == null && ParameterWasBound(nameof(this.IfMatch)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IfMatch which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tags_Item != null)
-            {
-                context.Tags_Item = new List<Amazon.CloudFront.Model.Tag>(this.Tags_Item);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,34 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.CreateAnycastIpListRequest();
+            var request = new Amazon.CloudFront.Model.DeleteDistributionTenantRequest();
             
-            if (cmdletContext.IpCount != null)
+            if (cmdletContext.Id != null)
             {
-                request.IpCount = cmdletContext.IpCount.Value;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.IfMatch != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            
-             // populate Tags
-            var requestTagsIsNull = true;
-            request.Tags = new Amazon.CloudFront.Model.Tags();
-            List<Amazon.CloudFront.Model.Tag> requestTags_tags_Item = null;
-            if (cmdletContext.Tags_Item != null)
-            {
-                requestTags_tags_Item = cmdletContext.Tags_Item;
-            }
-            if (requestTags_tags_Item != null)
-            {
-                request.Tags.Items = requestTags_tags_Item;
-                requestTagsIsNull = false;
-            }
-             // determine if request.Tags should be set to null
-            if (requestTagsIsNull)
-            {
-                request.Tags = null;
+                request.IfMatch = cmdletContext.IfMatch;
             }
             
             CmdletOutput output;
@@ -243,15 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.CreateAnycastIpListResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateAnycastIpListRequest request)
+        private Amazon.CloudFront.Model.DeleteDistributionTenantResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.DeleteDistributionTenantRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "CreateAnycastIpList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "DeleteDistributionTenant");
             try
             {
                 #if DESKTOP
-                return client.CreateAnycastIpList(request);
+                return client.DeleteDistributionTenant(request);
                 #elif CORECLR
-                return client.CreateAnycastIpListAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDistributionTenantAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -271,11 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? IpCount { get; set; }
-            public System.String Name { get; set; }
-            public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }
-            public System.Func<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AnycastIpList;
+            public System.String Id { get; set; }
+            public System.String IfMatch { get; set; }
+            public System.Func<Amazon.CloudFront.Model.DeleteDistributionTenantResponse, RemoveCFDistributionTenantCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
