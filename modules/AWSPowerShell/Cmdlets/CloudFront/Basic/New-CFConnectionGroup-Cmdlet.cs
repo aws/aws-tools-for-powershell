@@ -22,43 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using System.Threading;
 using Amazon.CloudFront;
 using Amazon.CloudFront.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Creates an Anycast static IP list.
+    /// Creates a connection group.
     /// </summary>
-    [Cmdlet("New", "CFAnycastIpList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudFront.Model.AnycastIpList")]
-    [AWSCmdlet("Calls the Amazon CloudFront CreateAnycastIpList API operation.", Operation = new[] {"CreateAnycastIpList"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateAnycastIpListResponse))]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.AnycastIpList or Amazon.CloudFront.Model.CreateAnycastIpListResponse",
-        "This cmdlet returns an Amazon.CloudFront.Model.AnycastIpList object.",
-        "The service call response (type Amazon.CloudFront.Model.CreateAnycastIpListResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("New", "CFConnectionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudFront.Model.ConnectionGroup")]
+    [AWSCmdlet("Calls the Amazon CloudFront CreateConnectionGroup API operation.", Operation = new[] {"CreateConnectionGroup"}, SelectReturnType = typeof(Amazon.CloudFront.Model.CreateConnectionGroupResponse))]
+    [AWSCmdletOutput("Amazon.CloudFront.Model.ConnectionGroup or Amazon.CloudFront.Model.CreateConnectionGroupResponse",
+        "This cmdlet returns an Amazon.CloudFront.Model.ConnectionGroup object.",
+        "The service call response (type Amazon.CloudFront.Model.CreateConnectionGroupResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class NewCFAnycastIpListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public partial class NewCFConnectionGroupCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
-        #region Parameter IpCount
+        #region Parameter AnycastIpListId
         /// <summary>
         /// <para>
-        /// <para>The number of static IP addresses that are allocated to the Anycast static IP list.
-        /// Valid values: 21 or 3.</para>
+        /// <para>The ID of the Anycast static IP list.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? IpCount { get; set; }
+        public System.String AnycastIpListId { get; set; }
+        #endregion
+        
+        #region Parameter Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enable the connection group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enable IPv6 for the connection group. The default is <c>true</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesEnableIPv6">Enable
+        /// IPv6</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Ipv6Enabled { get; set; }
         #endregion
         
         #region Parameter Tags_Item
@@ -75,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the Anycast static IP list.</para>
+        /// <para>The name of the connection group. Enter a friendly identifier that is unique within
+        /// your Amazon Web Services account. This name can't be updated after you create the
+        /// connection group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,13 +106,23 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnycastIpList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.CreateAnycastIpListResponse).
-        /// Specifying the name of a property of type Amazon.CloudFront.Model.CreateAnycastIpListResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectionGroup'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFront.Model.CreateConnectionGroupResponse).
+        /// Specifying the name of a property of type Amazon.CloudFront.Model.CreateConnectionGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AnycastIpList";
+        public string Select { get; set; } = "ConnectionGroup";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -110,18 +135,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public SwitchParameter Force { get; set; }
         #endregion
         
-        protected override void StopProcessing()
-        {
-            base.StopProcessing();
-            _cancellationTokenSource.Cancel();
-        }
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CFAnycastIpList (CreateAnycastIpList)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CFConnectionGroup (CreateConnectionGroup)"))
             {
                 return;
             }
@@ -131,18 +151,24 @@ namespace Amazon.PowerShell.Cmdlets.CF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFront.Model.CreateConnectionGroupResponse, NewCFConnectionGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.IpCount = this.IpCount;
-            #if MODULAR
-            if (this.IpCount == null && ParameterWasBound(nameof(this.IpCount)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter IpCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.Name;
             }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnycastIpListId = this.AnycastIpListId;
+            context.Enabled = this.Enabled;
+            context.Ipv6Enabled = this.Ipv6Enabled;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -168,11 +194,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudFront.Model.CreateAnycastIpListRequest();
+            var request = new Amazon.CloudFront.Model.CreateConnectionGroupRequest();
             
-            if (cmdletContext.IpCount != null)
+            if (cmdletContext.AnycastIpListId != null)
             {
-                request.IpCount = cmdletContext.IpCount.Value;
+                request.AnycastIpListId = cmdletContext.AnycastIpListId;
+            }
+            if (cmdletContext.Enabled != null)
+            {
+                request.Enabled = cmdletContext.Enabled.Value;
+            }
+            if (cmdletContext.Ipv6Enabled != null)
+            {
+                request.Ipv6Enabled = cmdletContext.Ipv6Enabled.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -230,12 +264,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudFront.Model.CreateAnycastIpListResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateAnycastIpListRequest request)
+        private Amazon.CloudFront.Model.CreateConnectionGroupResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateConnectionGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "CreateAnycastIpList");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "CreateConnectionGroup");
             try
             {
-                return client.CreateAnycastIpListAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
+                #if DESKTOP
+                return client.CreateConnectionGroup(request);
+                #elif CORECLR
+                return client.CreateConnectionGroupAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -252,11 +292,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? IpCount { get; set; }
+            public System.String AnycastIpListId { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public System.Boolean? Ipv6Enabled { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CloudFront.Model.Tag> Tags_Item { get; set; }
-            public System.Func<Amazon.CloudFront.Model.CreateAnycastIpListResponse, NewCFAnycastIpListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AnycastIpList;
+            public System.Func<Amazon.CloudFront.Model.CreateConnectionGroupResponse, NewCFConnectionGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ConnectionGroup;
         }
         
     }

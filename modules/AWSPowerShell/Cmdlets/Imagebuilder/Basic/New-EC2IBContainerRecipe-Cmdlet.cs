@@ -127,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InstanceConfiguration_Image
         /// <summary>
         /// <para>
-        /// <para>The AMI ID to use as the base image for a container build and test instance. If not
-        /// specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.</para>
+        /// <para>The base image for a container build and test instance. This can contain an AMI ID
+        /// or it can specify an Amazon Web Services Systems Manager (SSM) Parameter Store Parameter,
+        /// prefixed by <c>ssm:</c>, followed by the parameter name or ARN.</para><para>If not specified, Image Builder uses the appropriate ECS-optimized AMI as a base image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

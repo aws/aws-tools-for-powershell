@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDistributionTenantWebACL" OutputProperty="*" Verb="Add" Noun="DistributionTenantWebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDistributionWebACL" OutputProperty="*" Verb="Add" Noun="DistributionWebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CopyDistribution" OutputProperty="*" Verb="Copy" Noun="Distribution" ShouldProcessTarget="PrimaryDistributionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -43,11 +51,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectionGroup" OutputProperty="ConnectionGroup" Verb="New" Noun="ConnectionGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateContinuousDeploymentPolicy" OutputProperty="*" Verb="New" Noun="ContinuousDeploymentPolicy" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDistribution" OutputProperty="*" Verb="New" Noun="Distribution" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDistributionTenant" OutputProperty="DistributionTenant" Verb="New" Noun="DistributionTenant" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateInvalidation" OutputProperty="*" Verb="New" Noun="Invalidation" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInvalidationForDistributionTenant" OutputProperty="*" Verb="New" Noun="InvalidationForDistributionTenant" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,11 +147,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectionGroup" Verb="Remove" Noun="ConnectionGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteContinuousDeploymentPolicy" Verb="Remove" Noun="ContinuousDeploymentPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDistribution" Verb="Remove" Noun="Distribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDistributionTenant" Verb="Remove" Noun="DistributionTenant" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,6 +223,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDistributionTenantWebACL" OutputProperty="Id" Verb="Remove" Noun="DistributionTenantWebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDistributionWebACL" OutputProperty="Id" Verb="Remove" Noun="DistributionWebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAnycastIpList" OutputProperty="AnycastIpList" Verb="Get" Noun="AnycastIpList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -215,6 +251,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectionGroup" OutputProperty="ConnectionGroup" Verb="Get" Noun="ConnectionGroup" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectionGroupByRoutingEndpoint" OutputProperty="ConnectionGroup" Verb="Get" Noun="ConnectionGroupByRoutingEndpoint" PipelineParameter="RoutingEndpoint" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetContinuousDeploymentPolicy" OutputProperty="ContinuousDeploymentPolicy" Verb="Get" Noun="ContinuousDeploymentPolicy" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -228,6 +272,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDistributionConfig" OutputProperty="DistributionConfig" Verb="Get" Noun="DistributionConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionTenant" OutputProperty="DistributionTenant" Verb="Get" Noun="DistributionTenant" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionTenantByDomain" OutputProperty="DistributionTenant" Verb="Get" Noun="DistributionTenantByDomain" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -255,11 +307,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInvalidationForDistributionTenant" OutputProperty="Invalidation" Verb="Get" Noun="InvalidationForDistributionTenant" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetKeyGroup" OutputProperty="KeyGroup" Verb="Get" Noun="KeyGroup" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetKeyGroupConfig" OutputProperty="KeyGroupConfig" Verb="Get" Noun="KeyGroupConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedCertificateDetails" OutputProperty="ManagedCertificateDetails" Verb="Get" Noun="ManagedCertificateDetail" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -331,6 +391,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectionGroups" OutputProperty="ConnectionGroups" Verb="Get" Noun="ConnectionGroupList" PipelineParameter="AssociationFilter_AnycastIpListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContinuousDeploymentPolicies" OutputProperty="ContinuousDeploymentPolicyList" Verb="Get" Noun="ContinuousDeploymentPolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -344,6 +408,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDistributionsByCachePolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByCachePolicyId" PipelineParameter="CachePolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByConnectionMode" OutputProperty="DistributionList" Verb="Get" Noun="DistributionsByConnectionMode" PipelineParameter="ConnectionMode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -371,6 +439,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionTenants" OutputProperty="DistributionTenantList" Verb="Get" Noun="DistributionTenantList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionTenantsByCustomization" OutputProperty="DistributionTenantList" Verb="Get" Noun="DistributionTenantsByCustomization" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainConflicts" OutputProperty="DomainConflicts" Verb="Get" Noun="DomainConflict" PipelineParameter="Domain" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFieldLevelEncryptionConfigs" OutputProperty="FieldLevelEncryptionList.Items" OutputWrapper="FieldLevelEncryptionList" Verb="Get" Noun="FieldLevelEncryptionConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -384,6 +464,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFInvalidations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInvalidationsForDistributionTenant" OutputProperty="InvalidationList" Verb="Get" Noun="InvalidationsForDistributionTenant" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -455,6 +539,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectionGroup" OutputProperty="ConnectionGroup" Verb="Update" Noun="ConnectionGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateContinuousDeploymentPolicy" OutputProperty="ContinuousDeploymentPolicy" Verb="Update" Noun="ContinuousDeploymentPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -463,7 +551,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDistributionTenant" OutputProperty="DistributionTenant" Verb="Update" Noun="DistributionTenant" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDistributionWithStagingConfig" OutputProperty="Distribution" Verb="Update" Noun="DistributionWithStagingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainAssociation" OutputProperty="*" Verb="Update" Noun="DomainAssociation" ShouldProcessTarget="" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -512,6 +608,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVpcOrigin" OutputProperty="VpcOrigin" Verb="Update" Noun="VpcOrigin" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyDnsConfiguration" OutputProperty="DnsConfigurationList" Verb="Test" Noun="DnsConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

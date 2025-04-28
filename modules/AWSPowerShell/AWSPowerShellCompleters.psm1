@@ -366,6 +366,16 @@ $ACM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CertificateManager.CertificateManagedBy
+        {
+            ($_ -eq "Get-ACMCertificateList/Includes_ManagedBy") -Or
+            ($_ -eq "New-ACMCertificate/ManagedBy")
+        }
+        {
+            $v = "CLOUDFRONT"
+            break
+        }
+
         # Amazon.CertificateManager.CertificateTransparencyLoggingPreference
         {
             ($_ -eq "New-ACMCertificate/Options_CertificateTransparencyLoggingPreference") -Or
@@ -400,7 +410,7 @@ $ACM_Completers = {
         # Amazon.CertificateManager.ValidationMethod
         "New-ACMCertificate/ValidationMethod"
         {
-            $v = "DNS","EMAIL"
+            $v = "DNS","EMAIL","HTTP"
             break
         }
 
@@ -413,7 +423,9 @@ $ACM_Completers = {
 }
 
 $ACM_map = @{
+    "Includes_ManagedBy"=@("Get-ACMCertificateList")
     "KeyAlgorithm"=@("New-ACMCertificate")
+    "ManagedBy"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "SortBy"=@("Get-ACMCertificateList")
     "SortOrder"=@("Get-ACMCertificateList")
@@ -12053,6 +12065,28 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.CertificateTransparencyLoggingPreference
+        {
+            ($_ -eq "New-CFDistributionTenant/ManagedCertificateRequest_CertificateTransparencyLoggingPreference") -Or
+            ($_ -eq "Update-CFDistributionTenant/ManagedCertificateRequest_CertificateTransparencyLoggingPreference")
+        }
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.CloudFront.ConnectionMode
+        {
+            ($_ -eq "Get-CFDistributionsByConnectionMode/ConnectionMode") -Or
+            ($_ -eq "New-CFDistribution/DistributionConfig_ConnectionMode") -Or
+            ($_ -eq "New-CFDistributionWithTag/DistributionConfig_ConnectionMode") -Or
+            ($_ -eq "Update-CFDistribution/DistributionConfig_ConnectionMode")
+        }
+        {
+            $v = "direct","tenant-only"
+            break
+        }
+
         # Amazon.CloudFront.ContinuousDeploymentPolicyType
         {
             ($_ -eq "New-CFContinuousDeploymentPolicy/TrafficConfig_Type") -Or
@@ -12060,6 +12094,16 @@ $CF_Completers = {
         }
         {
             $v = "SingleHeader","SingleWeight"
+            break
+        }
+
+        # Amazon.CloudFront.CustomizationActionType
+        {
+            ($_ -eq "New-CFDistributionTenant/WebAcl_Action") -Or
+            ($_ -eq "Update-CFDistributionTenant/WebAcl_Action")
+        }
+        {
+            $v = "disable","override"
             break
         }
 
@@ -12099,7 +12143,9 @@ $CF_Completers = {
         {
             ($_ -eq "New-CFDistribution/GeoRestriction_RestrictionType") -Or
             ($_ -eq "New-CFDistributionWithTag/GeoRestriction_RestrictionType") -Or
-            ($_ -eq "Update-CFDistribution/GeoRestriction_RestrictionType")
+            ($_ -eq "Update-CFDistribution/GeoRestriction_RestrictionType") -Or
+            ($_ -eq "New-CFDistributionTenant/GeoRestrictions_RestrictionType") -Or
+            ($_ -eq "Update-CFDistributionTenant/GeoRestrictions_RestrictionType")
         }
         {
             $v = "blacklist","none","whitelist"
@@ -12233,7 +12279,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFStreamingDistribution/StreamingDistributionConfig_PriceClass")
         }
         {
-            $v = "PriceClass_100","PriceClass_200","PriceClass_All"
+            $v = "None","PriceClass_100","PriceClass_200","PriceClass_All"
             break
         }
 
@@ -12272,6 +12318,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.ValidationTokenHost
+        {
+            ($_ -eq "New-CFDistributionTenant/ManagedCertificateRequest_ValidationTokenHost") -Or
+            ($_ -eq "Update-CFDistributionTenant/ManagedCertificateRequest_ValidationTokenHost")
+        }
+        {
+            $v = "cloudfront","self-hosted"
+            break
+        }
+
         # Amazon.CloudFront.ViewerProtocolPolicy
         {
             ($_ -eq "New-CFDistribution/DefaultCacheBehavior_ViewerProtocolPolicy") -Or
@@ -12292,16 +12348,21 @@ $CF_Completers = {
 }
 
 $CF_map = @{
+    "ConnectionMode"=@("Get-CFDistributionsByConnectionMode")
     "Cookies_Forward"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "CookiesConfig_CookieBehavior"=@("New-CFCachePolicy","New-CFOriginRequestPolicy","Update-CFCachePolicy","Update-CFOriginRequestPolicy")
     "DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "DistributionConfig_ConnectionMode"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "DistributionConfig_HttpVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "DistributionConfig_PriceClass"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "FrameOptions_FrameOption"=@("New-CFResponseHeadersPolicy","Update-CFResponseHeadersPolicy")
     "FunctionConfig_Runtime"=@("New-CFFunction","Update-CFFunction")
     "GeoRestriction_RestrictionType"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "GeoRestrictions_RestrictionType"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","New-CFOriginRequestPolicy","Update-CFCachePolicy","Update-CFOriginRequestPolicy")
     "ImportSource_SourceType"=@("New-CFKeyValueStore")
+    "ManagedCertificateRequest_CertificateTransparencyLoggingPreference"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
+    "ManagedCertificateRequest_ValidationTokenHost"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
     "OriginAccessControlConfig_OriginAccessControlOriginType"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningBehavior"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningProtocol"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
@@ -12316,6 +12377,7 @@ $CF_map = @{
     "ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
     "VpcOriginEndpointConfig_OriginProtocolPolicy"=@("New-CFVpcOrigin","Update-CFVpcOrigin")
+    "WebAcl_Action"=@("New-CFDistributionTenant","Update-CFDistributionTenant")
 }
 
 _awsArgumentCompleterRegistration $CF_Completers $CF_map
@@ -12369,17 +12431,22 @@ $CF_SelectCompleters = {
 
 $CF_SelectMap = @{
     "Select"=@("Move-CFAlias",
+               "Add-CFDistributionTenantWebACL",
+               "Add-CFDistributionWebACL",
                "Copy-CFDistribution",
                "New-CFAnycastIpList",
                "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
+               "New-CFConnectionGroup",
                "New-CFContinuousDeploymentPolicy",
                "New-CFDistribution",
+               "New-CFDistributionTenant",
                "New-CFDistributionWithTag",
                "New-CFFieldLevelEncryptionConfig",
                "New-CFFieldLevelEncryptionProfile",
                "New-CFFunction",
                "New-CFInvalidation",
+               "New-CFInvalidationForDistributionTenant",
                "New-CFKeyGroup",
                "New-CFKeyValueStore",
                "New-CFMonitoringSubscription",
@@ -12394,8 +12461,10 @@ $CF_SelectMap = @{
                "Remove-CFAnycastIpList",
                "Remove-CFCachePolicy",
                "Remove-CFCloudFrontOriginAccessIdentity",
+               "Remove-CFConnectionGroup",
                "Remove-CFContinuousDeploymentPolicy",
                "Remove-CFDistribution",
+               "Remove-CFDistributionTenant",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
                "Remove-CFFunction",
@@ -12411,23 +12480,31 @@ $CF_SelectMap = @{
                "Remove-CFVpcOrigin",
                "Get-CFFunctionSummary",
                "Get-CFKeyValueStore",
+               "Remove-CFDistributionTenantWebACL",
+               "Remove-CFDistributionWebACL",
                "Get-CFAnycastIpList",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
                "Get-CFCloudFrontOriginAccessIdentityConfig",
+               "Get-CFConnectionGroup",
+               "Get-CFConnectionGroupByRoutingEndpoint",
                "Get-CFContinuousDeploymentPolicy",
                "Get-CFContinuousDeploymentPolicyConfig",
                "Get-CFDistribution",
                "Get-CFDistributionConfig",
+               "Get-CFDistributionTenant",
+               "Get-CFDistributionTenantByDomain",
                "Get-CFFieldLevelEncryption",
                "Get-CFFieldLevelEncryptionConfig",
                "Get-CFFieldLevelEncryptionProfile",
                "Get-CFFieldLevelEncryptionProfileConfig",
                "Get-CFFunction",
                "Get-CFInvalidation",
+               "Get-CFInvalidationForDistributionTenant",
                "Get-CFKeyGroup",
                "Get-CFKeyGroupConfig",
+               "Get-CFManagedCertificateDetail",
                "Get-CFMonitoringSubscription",
                "Get-CFOriginAccessControl",
                "Get-CFOriginAccessControlConfig",
@@ -12445,20 +12522,26 @@ $CF_SelectMap = @{
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFConflictingAlias",
+               "Get-CFConnectionGroupList",
                "Get-CFContinuousDeploymentPolicyList",
                "Get-CFDistributionList",
                "Get-CFDistributionsByAnycastIpListId",
                "Get-CFDistributionsByCachePolicyId",
+               "Get-CFDistributionsByConnectionMode",
                "Get-CFDistributionsByKeyGroup",
                "Get-CFDistributionsByOriginRequestPolicyId",
                "Get-CFDistributionsByRealtimeLogConfig",
                "Get-CFDistributionsByResponseHeadersPolicyId",
                "Get-CFDistributionsByVpcOriginId",
                "Get-CFDistributionListByWebACLId",
+               "Get-CFDistributionTenantList",
+               "Get-CFDistributionTenantsByCustomization",
+               "Get-CFDomainConflict",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
                "Get-CFFunctionList",
                "Get-CFInvalidationList",
+               "Get-CFInvalidationsForDistributionTenant",
                "Get-CFKeyGroupList",
                "Get-CFKeyValueStoreListItem",
                "Get-CFOriginAccessControlList",
@@ -12475,9 +12558,12 @@ $CF_SelectMap = @{
                "Remove-CFResourceTag",
                "Update-CFCachePolicy",
                "Update-CFCloudFrontOriginAccessIdentity",
+               "Update-CFConnectionGroup",
                "Update-CFContinuousDeploymentPolicy",
                "Update-CFDistribution",
+               "Update-CFDistributionTenant",
                "Update-CFDistributionWithStagingConfig",
+               "Update-CFDomainAssociation",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",
                "Update-CFFunction",
@@ -12490,6 +12576,7 @@ $CF_SelectMap = @{
                "Update-CFResponseHeadersPolicy",
                "Update-CFStreamingDistribution",
                "Update-CFVpcOrigin",
+               "Test-CFDnsConfiguration",
                "New-CFSignedCookie",
                "New-CFSignedUrl")
 }
