@@ -45,6 +45,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAnonymousWebExperienceUrl" OutputProperty="AnonymousUrl" Verb="New" Noun="AnonymousWebExperienceUrl" ShouldProcessTarget="WebExperienceId" PipelineParameter="WebExperienceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

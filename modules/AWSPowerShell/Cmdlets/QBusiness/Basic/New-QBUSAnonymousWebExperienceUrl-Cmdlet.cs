@@ -22,34 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.PinpointSMSVoiceV2;
-using Amazon.PinpointSMSVoiceV2.Model;
+using Amazon.QBusiness;
+using Amazon.QBusiness.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SMSV
+namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Adds or overwrites only the specified tags for the specified resource. When you specify
-    /// an existing tag key, the value is overwritten with the new value. Each tag consists
-    /// of a key and an optional value. Tag keys must be unique per resource. For more information
-    /// about tags, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html">Tags
-    /// </a> in the <i>AWS End User Messaging SMS User Guide</i>.
+    /// Creates a unique URL for anonymous Amazon Q Business web experience. This URL can
+    /// only be used once and must be used within 5 minutes after it's generated.
     /// </summary>
-    [Cmdlet("Add", "SMSVResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("New", "QBUSAnonymousWebExperienceUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon QBusiness CreateAnonymousWebExperienceUrl API operation.", Operation = new[] {"CreateAnonymousWebExperienceUrl"}, SelectReturnType = typeof(Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse))]
+    [AWSCmdletOutput("System.String or Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddSMSVResourceTagCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
+    public partial class NewQBUSAnonymousWebExperienceUrlCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>The identifier of the Amazon Q Business application environment attached to the web
+        /// experience.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter SessionDurationInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The duration of the session associated with the unique URL for the web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionDurationInMinutes")]
+        public System.Int32? SessionDurationInMinute { get; set; }
+        #endregion
+        
+        #region Parameter WebExperienceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the web experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,43 +86,26 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An array of key and value pair tags that are associated with the resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.PinpointSMSVoiceV2.Model.Tag[] Tag { get; set; }
+        public System.String WebExperienceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AnonymousUrl'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse).
+        /// Specifying the name of a property of type Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AnonymousUrl";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WebExperienceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WebExperienceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WebExperienceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SMSVResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WebExperienceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-QBUSAnonymousWebExperienceUrl (CreateAnonymousWebExperienceUrl)"))
             {
                 return;
             }
@@ -130,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse, AddSMSVResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse, NewQBUSAnonymousWebExperienceUrlCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,24 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.WebExperienceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ApplicationId = this.ApplicationId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.PinpointSMSVoiceV2.Model.Tag>(this.Tag);
-            }
+            context.SessionDurationInMinute = this.SessionDurationInMinute;
+            context.WebExperienceId = this.WebExperienceId;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.WebExperienceId == null && ParameterWasBound(nameof(this.WebExperienceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WebExperienceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -173,15 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PinpointSMSVoiceV2.Model.TagResourceRequest();
+            var request = new Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.SessionDurationInMinute != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.SessionDurationInMinutes = cmdletContext.SessionDurationInMinute.Value;
+            }
+            if (cmdletContext.WebExperienceId != null)
+            {
+                request.WebExperienceId = cmdletContext.WebExperienceId;
             }
             
             CmdletOutput output;
@@ -216,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region AWS Service Operation Call
         
-        private Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.TagResourceRequest request)
+        private Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse CallAWSServiceOperation(IAmazonQBusiness client, Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QBusiness", "CreateAnonymousWebExperienceUrl");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.CreateAnonymousWebExperienceUrl(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.CreateAnonymousWebExperienceUrlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,10 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.PinpointSMSVoiceV2.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.PinpointSMSVoiceV2.Model.TagResourceResponse, AddSMSVResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ApplicationId { get; set; }
+            public System.Int32? SessionDurationInMinute { get; set; }
+            public System.String WebExperienceId { get; set; }
+            public System.Func<Amazon.QBusiness.Model.CreateAnonymousWebExperienceUrlResponse, NewQBUSAnonymousWebExperienceUrlCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AnonymousUrl;
         }
         
     }

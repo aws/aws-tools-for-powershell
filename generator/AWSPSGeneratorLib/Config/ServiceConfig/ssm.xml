@@ -284,6 +284,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessToken" OutputProperty="*" Verb="Get" Noun="AccessToken" PipelineParameter="AccessRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAutomationExecution" OutputProperty="AutomationExecution" Verb="Get" Noun="AutomationExecution" PipelineParameter="AutomationExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -519,6 +523,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendCommand" OutputProperty="Command" Verb="Send" Noun="Command" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAccessRequest" OutputProperty="AccessRequestId" Verb="Start" Noun="AccessRequest" ShouldProcessTarget="Reason" PipelineParameter="Reason" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

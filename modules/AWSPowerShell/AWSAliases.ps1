@@ -17496,6 +17496,7 @@ Set-Alias -Name KIN-ListStreamConsumers -Value Get-KINStreamConsumerList
 Set-Alias -Name List-KINStreams -Value Get-KINStreamList
 Set-Alias -Name List-KINStreamList -Value Get-KINStreamList
 Set-Alias -Name KIN-ListStreams -Value Get-KINStreamList
+Set-Alias -Name KIN-ListTagsForResource -Value Get-KINResourceTag
 Set-Alias -Name List-KINTagsForStream -Value Get-KINTagsForStream
 Set-Alias -Name KIN-ListTagsForStream -Value Get-KINTagsForStream
 Set-Alias -Name Merge-KINShards -Value Merge-KINShard
@@ -17512,6 +17513,8 @@ Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
 Set-Alias -Name KIN-StartStreamEncryption -Value Start-KINStreamEncryption
 Set-Alias -Name KIN-StopStreamEncryption -Value Stop-KINStreamEncryption
+Set-Alias -Name KIN-TagResource -Value Add-KINResourceTag
+Set-Alias -Name KIN-UntagResource -Value Remove-KINResourceTag
 Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KIN-UpdateStreamMode -Value Update-KINStreamMode
 Set-Alias -Name KINA-AddApplicationCloudWatchLoggingOption -Value Add-KINAApplicationCloudWatchLoggingOption
@@ -23818,6 +23821,8 @@ Set-Alias -Name Chat-QBUSChatSync -Value Set-QBUSChatSync
 Set-Alias -Name QBUS-ChatSync -Value Set-QBUSChatSync
 Set-Alias -Name Check-QBUSDocumentAccess -Value Get-QBUSDocumentAccess
 Set-Alias -Name QBUS-CheckDocumentAccess -Value Get-QBUSDocumentAccess
+Set-Alias -Name Create-QBUSAnonymousWebExperienceUrl -Value New-QBUSAnonymousWebExperienceUrl
+Set-Alias -Name QBUS-CreateAnonymousWebExperienceUrl -Value New-QBUSAnonymousWebExperienceUrl
 Set-Alias -Name Create-QBUSApplication -Value New-QBUSApplication
 Set-Alias -Name QBUS-CreateApplication -Value New-QBUSApplication
 Set-Alias -Name Create-QBUSDataAccessor -Value New-QBUSDataAccessor
@@ -29151,6 +29156,7 @@ Set-Alias -Name Describe-SSMSession -Value Get-SSMSession
 Set-Alias -Name SSM-DescribeSessions -Value Get-SSMSession
 Set-Alias -Name Disassociate-SSMOpsItemRelatedItem -Value Unregister-SSMOpsItemRelatedItem
 Set-Alias -Name SSM-DisassociateOpsItemRelatedItem -Value Unregister-SSMOpsItemRelatedItem
+Set-Alias -Name SSM-GetAccessToken -Value Get-SSMAccessToken
 Set-Alias -Name SSM-GetAutomationExecution -Value Get-SSMAutomationExecution
 Set-Alias -Name SSM-GetCalendarState -Value Get-SSMCalendarState
 Set-Alias -Name Get-SSMCommandInvocation -Value Get-SSMCommandInvocationDetail
@@ -29254,6 +29260,7 @@ Set-Alias -Name SSM-ResetServiceSetting -Value Reset-SSMServiceSetting
 Set-Alias -Name SSM-ResumeSession -Value Resume-SSMSession
 Set-Alias -Name SSM-SendAutomationSignal -Value Send-SSMAutomationSignal
 Set-Alias -Name SSM-SendCommand -Value Send-SSMCommand
+Set-Alias -Name SSM-StartAccessRequest -Value Start-SSMAccessRequest
 Set-Alias -Name SSM-StartAssociationsOnce -Value Start-SSMAssociationsOnce
 Set-Alias -Name SSM-StartAutomationExecution -Value Start-SSMAutomationExecution
 Set-Alias -Name SSM-StartChangeRequestExecution -Value Start-SSMChangeRequestExecution
@@ -29354,6 +29361,13 @@ Set-Alias -Name SMC-UntagResource -Value Remove-SMCResourceTag
 Set-Alias -Name SMC-UpdateContact -Value Update-SMCContact
 Set-Alias -Name SMC-UpdateContactChannel -Value Update-SMCContactChannel
 Set-Alias -Name SMC-UpdateRotation -Value Update-SMCRotation
+Set-Alias -Name Delete-SSMGConnectionRecordingPreferences -Value Remove-SSMGConnectionRecordingPreference
+Set-Alias -Name Delete-SSMGConnectionRecordingPreference -Value Remove-SSMGConnectionRecordingPreference
+Set-Alias -Name SSMG-DeleteConnectionRecordingPreferences -Value Remove-SSMGConnectionRecordingPreference
+Set-Alias -Name Get-SSMGConnectionRecordingPreferences -Value Get-SSMGConnectionRecordingPreference
+Set-Alias -Name SSMG-GetConnectionRecordingPreferences -Value Get-SSMGConnectionRecordingPreference
+Set-Alias -Name Update-SSMGConnectionRecordingPreferences -Value Update-SSMGConnectionRecordingPreference
+Set-Alias -Name SSMG-UpdateConnectionRecordingPreferences -Value Update-SSMGConnectionRecordingPreference
 Set-Alias -Name Batch-SSMIGetIncidentFindings -Value Get-SSMIBatchIncidentFinding
 Set-Alias -Name Batch-SSMIBatchIncidentFinding -Value Get-SSMIBatchIncidentFinding
 Set-Alias -Name SSMI-BatchGetIncidentFindings -Value Get-SSMIBatchIncidentFinding

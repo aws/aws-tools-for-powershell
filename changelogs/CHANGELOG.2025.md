@@ -1,4 +1,22 @@
-﻿### 4.1.808 (2025-04-28 20:38Z)
+﻿### 4.1.809 (2025-04-29 22:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1033.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Modified cmdlet New-CCASCase: added parameter PerformedBy_CustomEntity.
+    * Modified cmdlet New-CCASRelatedItem: added parameter PerformedBy_CustomEntity.
+    * Modified cmdlet Update-CCASCase: added parameter PerformedBy_CustomEntity.
+  * Amazon Kinesis
+    * Added cmdlet Add-KINResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-KINResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-KINResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Register-KINStreamConsumer: added parameter Tag.
+  * Amazon QBusiness
+    * Added cmdlet New-QBUSAnonymousWebExperienceUrl leveraging the CreateAnonymousWebExperienceUrl service API.
+  * Amazon SSM-GUIConnect. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SSMG and can be listed using the command 'Get-AWSCmdletName -Service SSMG'.
+  * Amazon Systems Manager
+    * Added cmdlet Get-SSMAccessToken leveraging the GetAccessToken service API.
+    * Added cmdlet Start-SSMAccessRequest leveraging the StartAccessRequest service API.
+
+### 4.1.808 (2025-04-28 20:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1032.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Certificate Manager
     * Modified cmdlet Get-ACMCertificateList: added parameter Includes_ManagedBy.

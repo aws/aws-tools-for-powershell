@@ -35,7 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// An event destination is a location where you send message events. The event options
     /// are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message
     /// is delivered successfully, you can send information about that event to an event destination,
-    /// or send notifications to endpoints that are subscribed to an Amazon SNS topic.
+    /// or send notifications to endpoints that are subscribed to an Amazon SNS topic. 
+    /// </para><para>
+    /// You can only create one event destination at a time. You must provide a value for
+    /// a single event destination using either <c>CloudWatchLogsDestination</c>, <c>KinesisFirehoseDestination</c>
+    /// or <c>SnsDestination</c>. If an event destination isn't provided then an exception
+    /// is returned.
     /// </para><para>
     /// Each configuration set can contain between 0 and 5 event destinations. Each event
     /// destination can contain a reference to a single destination, such as a CloudWatch

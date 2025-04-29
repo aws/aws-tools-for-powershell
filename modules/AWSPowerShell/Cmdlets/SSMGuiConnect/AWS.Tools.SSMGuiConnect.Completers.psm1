@@ -72,77 +72,13 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Kinesis
+# Argument completions for service AWS SSM-GUIConnect
 
 
-$KIN_Completers = {
+$SSMG_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.Kinesis.EncryptionType
-        {
-            ($_ -eq "Start-KINStreamEncryption/EncryptionType") -Or
-            ($_ -eq "Stop-KINStreamEncryption/EncryptionType")
-        }
-        {
-            $v = "KMS","NONE"
-            break
-        }
-
-        # Amazon.Kinesis.ScalingType
-        "Update-KINShardCount/ScalingType"
-        {
-            $v = "UNIFORM_SCALING"
-            break
-        }
-
-        # Amazon.Kinesis.ShardFilterType
-        "Get-KINShardList/ShardFilter_Type"
-        {
-            $v = "AFTER_SHARD_ID","AT_LATEST","AT_TIMESTAMP","AT_TRIM_HORIZON","FROM_TIMESTAMP","FROM_TRIM_HORIZON"
-            break
-        }
-
-        # Amazon.Kinesis.ShardIteratorType
-        "Get-KINShardIterator/ShardIteratorType"
-        {
-            $v = "AFTER_SEQUENCE_NUMBER","AT_SEQUENCE_NUMBER","AT_TIMESTAMP","LATEST","TRIM_HORIZON"
-            break
-        }
-
-        # Amazon.Kinesis.StreamMode
-        {
-            ($_ -eq "New-KINStream/StreamModeDetails_StreamMode") -Or
-            ($_ -eq "Update-KINStreamMode/StreamModeDetails_StreamMode")
-        }
-        {
-            $v = "ON_DEMAND","PROVISIONED"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$KIN_map = @{
-    "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
-    "ScalingType"=@("Update-KINShardCount")
-    "ShardFilter_Type"=@("Get-KINShardList")
-    "ShardIteratorType"=@("Get-KINShardIterator")
-    "StreamModeDetails_StreamMode"=@("New-KINStream","Update-KINStreamMode")
-}
-
-_awsArgumentCompleterRegistration $KIN_Completers $KIN_map
-
-$KIN_SelectCompleters = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.KIN.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SSMG.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -186,42 +122,11 @@ $KIN_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$KIN_SelectMap = @{
-    "Select"=@("Add-KINTagsToStream",
-               "New-KINStream",
-               "Request-KINStreamRetentionPeriodDecrease",
-               "Remove-KINResourcePolicy",
-               "Remove-KINStream",
-               "Unregister-KINStreamConsumer",
-               "Get-KINLimit",
-               "Get-KINStream",
-               "Get-KINStreamConsumer",
-               "Get-KINStreamSummary",
-               "Disable-KINEnhancedMonitoring",
-               "Enable-KINEnhancedMonitoring",
-               "Get-KINRecord",
-               "Get-KINResourcePolicy",
-               "Get-KINShardIterator",
-               "Request-KINStreamRetentionPeriodIncrease",
-               "Get-KINShardList",
-               "Get-KINStreamConsumerList",
-               "Get-KINStreamList",
-               "Get-KINResourceTag",
-               "Get-KINTagsForStream",
-               "Merge-KINShard",
-               "Write-KINRecord",
-               "Write-KINMultipleRecord",
-               "Write-KINResourcePolicy",
-               "Register-KINStreamConsumer",
-               "Remove-KINTagsFromStream",
-               "Split-KINShard",
-               "Start-KINStreamEncryption",
-               "Stop-KINStreamEncryption",
-               "Add-KINResourceTag",
-               "Remove-KINResourceTag",
-               "Update-KINShardCount",
-               "Update-KINStreamMode")
+$SSMG_SelectMap = @{
+    "Select"=@("Remove-SSMGConnectionRecordingPreference",
+               "Get-SSMGConnectionRecordingPreference",
+               "Update-SSMGConnectionRecordingPreference")
 }
 
-_awsArgumentCompleterRegistration $KIN_SelectCompleters $KIN_SelectMap
+_awsArgumentCompleterRegistration $SSMG_SelectCompleters $SSMG_SelectMap
 

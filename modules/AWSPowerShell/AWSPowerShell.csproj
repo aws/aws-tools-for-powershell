@@ -1147,6 +1147,9 @@
     <Reference Include="AWSSDK.SSMContacts">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMContacts.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SSMGuiConnect">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMGuiConnect.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SSMIncidents">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMIncidents.dll</HintPath>
     </Reference>
@@ -2345,6 +2348,9 @@
     </Reference>
     <Reference Include="AWSSDK.SSMContacts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMContacts.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSMGuiConnect">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMGuiConnect.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSMIncidents">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMIncidents.dll</HintPath>

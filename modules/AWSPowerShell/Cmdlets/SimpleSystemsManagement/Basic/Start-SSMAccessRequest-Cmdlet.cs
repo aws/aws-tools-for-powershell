@@ -22,62 +22,58 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
-    /// tags to a data stream.
-    /// 
-    ///  <note><para>
-    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
-    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
-    /// when you invoke this API.
-    /// </para></note><para>
-    /// If tags have already been assigned to the stream, <c>AddTagsToStream</c> overwrites
-    /// any existing tags that correspond to the specified tag keys.
-    /// </para><para><a>AddTagsToStream</a> has a limit of five transactions per second per account.
-    /// </para>
+    /// Starts the workflow for just-in-time node access sessions.
     /// </summary>
-    [Cmdlet("Add", "KINTagsToStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kinesis AddTagsToStream API operation.", Operation = new[] {"AddTagsToStream"}, SelectReturnType = typeof(Amazon.Kinesis.Model.AddTagsToStreamResponse))]
-    [AWSCmdletOutput("None or Amazon.Kinesis.Model.AddTagsToStreamResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Start", "SSMAccessRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Systems Manager StartAccessRequest API operation.", Operation = new[] {"StartAccessRequest"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class StartSSMAccessRequestCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter StreamARN
+        #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>The ARN of the stream.</para>
+        /// <para>A brief description explaining why you are requesting access to the node.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StreamARN { get; set; }
-        #endregion
-        
-        #region Parameter StreamName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the stream.</para>
-        /// </para>
-        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Reason { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required
-        /// key and an optional value. You can add up to 50 tags per resource.</para>
+        /// <para>Key-value pairs of metadata you want to assign to the access request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Target
+        /// <summary>
+        /// <para>
+        /// <para>The node you are requesting access to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,26 +84,27 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [Alias("Targets")]
+        public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.AddTagsToStreamResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessRequestId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse).
+        /// Specifying the name of a property of type Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AccessRequestId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StreamName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Reason parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Reason' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Reason' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StreamName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINTagsToStream (AddTagsToStream)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Reason), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-SSMAccessRequest (StartAccessRequest)"))
             {
                 return;
             }
@@ -141,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.AddTagsToStreamResponse, AddKINTagsToStreamCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse, StartSSMAccessRequestCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,23 +147,28 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StreamName;
+                context.Select = (response, cmdlet) => this.Reason;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.StreamARN = this.StreamARN;
-            context.StreamName = this.StreamName;
+            context.Reason = this.Reason;
+            #if MODULAR
+            if (this.Reason == null && ParameterWasBound(nameof(this.Reason)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Reason which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                context.Tag = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+            }
+            if (this.Target != null)
+            {
+                context.Target = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
             }
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.Target == null && ParameterWasBound(nameof(this.Target)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Target which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,19 +185,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.StartAccessRequestRequest();
             
-            if (cmdletContext.StreamARN != null)
+            if (cmdletContext.Reason != null)
             {
-                request.StreamARN = cmdletContext.StreamARN;
-            }
-            if (cmdletContext.StreamName != null)
-            {
-                request.StreamName = cmdletContext.StreamName;
+                request.Reason = cmdletContext.Reason;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Target != null)
+            {
+                request.Targets = cmdletContext.Target;
             }
             
             CmdletOutput output;
@@ -230,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.AddTagsToStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.AddTagsToStreamRequest request)
+        private Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.StartAccessRequestRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "AddTagsToStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "StartAccessRequest");
             try
             {
                 #if DESKTOP
-                return client.AddTagsToStream(request);
+                return client.StartAccessRequest(request);
                 #elif CORECLR
-                return client.AddTagsToStreamAsync(request).GetAwaiter().GetResult();
+                return client.StartAccessRequestAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -258,11 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String StreamARN { get; set; }
-            public System.String StreamName { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Kinesis.Model.AddTagsToStreamResponse, AddKINTagsToStreamCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Reason { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }
+            public System.Func<Amazon.SimpleSystemsManagement.Model.StartAccessRequestResponse, StartSSMAccessRequestCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccessRequestId;
         }
         
     }

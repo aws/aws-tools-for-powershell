@@ -28,56 +28,36 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
-    /// tags to a data stream.
-    /// 
-    ///  <note><para>
-    /// When invoking this API, you must use either the <c>StreamARN</c> or the <c>StreamName</c>
-    /// parameter, or both. It is recommended that you use the <c>StreamARN</c> input parameter
-    /// when you invoke this API.
-    /// </para></note><para>
-    /// If tags have already been assigned to the stream, <c>AddTagsToStream</c> overwrites
-    /// any existing tags that correspond to the specified tag keys.
-    /// </para><para><a>AddTagsToStream</a> has a limit of five transactions per second per account.
-    /// </para>
+    /// Removes tags from the specified Kinesis resource. Removed tags are deleted and can't
+    /// be recovered after this operation completes successfully.
     /// </summary>
-    [Cmdlet("Add", "KINTagsToStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "KINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kinesis AddTagsToStream API operation.", Operation = new[] {"AddTagsToStream"}, SelectReturnType = typeof(Amazon.Kinesis.Model.AddTagsToStreamResponse))]
-    [AWSCmdletOutput("None or Amazon.Kinesis.Model.AddTagsToStreamResponse",
+    [AWSCmdlet("Calls the Amazon Kinesis UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Kinesis.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.Kinesis.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) be returned by specifying '-Select *'."
+        "The service response (type Amazon.Kinesis.Model.UntagResourceResponse) be returned by specifying '-Select *'."
     )]
-    public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class RemoveKINResourceTagCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter StreamARN
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the stream.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StreamARN { get; set; }
-        #endregion
-        
-        #region Parameter StreamName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the stream.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Kinesis resource from which to remove tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A set of up to 50 key-value pairs to use to create the tags. A tag consists of a required
-        /// key and an optional value. You can add up to 50 tags per resource.</para>
+        /// <para>A list of tag key-value pairs. Existing tags of the resource whose keys are members
+        /// of this list will be removed from the Kinesis resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,14 +68,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.AddTagsToStreamResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StreamName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StreamName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINTagsToStream (AddTagsToStream)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -141,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.AddTagsToStreamResponse, AddKINTagsToStreamCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.UntagResourceResponse, RemoveKINResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,23 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StreamName;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.StreamARN = this.StreamARN;
-            context.StreamName = this.StreamName;
-            if (this.Tag != null)
+            context.ResourceARN = this.ResourceARN;
+            if (this.TagKey != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
+                context.TagKey = new List<System.String>(this.TagKey);
             }
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,19 +158,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
+            var request = new Amazon.Kinesis.Model.UntagResourceRequest();
             
-            if (cmdletContext.StreamARN != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.StreamARN = cmdletContext.StreamARN;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.StreamName != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.StreamName = cmdletContext.StreamName;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -230,15 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.AddTagsToStreamResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.AddTagsToStreamRequest request)
+        private Amazon.Kinesis.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "AddTagsToStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.AddTagsToStream(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.AddTagsToStreamAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -258,10 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String StreamARN { get; set; }
-            public System.String StreamName { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Kinesis.Model.AddTagsToStreamResponse, AddKINTagsToStreamCmdlet, object> Select { get; set; } =
+            public System.String ResourceARN { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.Kinesis.Model.UntagResourceResponse, RemoveKINResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

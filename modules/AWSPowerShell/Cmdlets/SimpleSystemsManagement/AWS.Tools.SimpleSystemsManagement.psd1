@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-SSMResourceTag', 
         'Edit-SSMDocumentPermission', 
+        'Get-SSMAccessToken', 
         'Get-SSMActivation', 
         'Get-SSMAssociation', 
         'Get-SSMAssociationExecution', 
@@ -201,6 +202,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SSMAutomationSignal', 
         'Send-SSMCommand', 
         'Set-SSMParameterVersionLabel', 
+        'Start-SSMAccessRequest', 
         'Start-SSMAssociationsOnce', 
         'Start-SSMAutomationExecution', 
         'Start-SSMChangeRequestExecution', 

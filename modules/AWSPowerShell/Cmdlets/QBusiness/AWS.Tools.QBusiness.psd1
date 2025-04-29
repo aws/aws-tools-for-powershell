@@ -121,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QBUSUser', 
         'Get-QBUSWebExperience', 
         'Get-QBUSWebExperienceList', 
+        'New-QBUSAnonymousWebExperienceUrl', 
         'New-QBUSApplication', 
         'New-QBUSDataAccessor', 
         'New-QBUSDataSource', 
