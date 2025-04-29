@@ -29,17 +29,10 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Retrieves a list of certificate ARNs and domain names. By default, the API returns
-    /// RSA_2048 certificates. To return all certificates in the account, include the <c>keyType</c>
-    /// filter with the values <c>[RSA_1024, RSA_2048, RSA_3072, RSA_4096, EC_prime256v1,
-    /// EC_secp384r1, EC_secp521r1]</c>.
-    /// 
-    ///  
-    /// <para>
-    /// In addition to <c>keyType</c>, you can also filter by the <c>CertificateStatuses</c>,
-    /// <c>keyUsage</c>, and <c>extendedKeyUsage</c> attributes on the certificate. For more
-    /// information, see <a>Filters</a>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of certificate ARNs and domain names. You can request that only certificates
+    /// that match a specific status be listed. You can also filter by specific attributes
+    /// of the certificate. Default filtering returns only <c>RSA_2048</c> certificates. For
+    /// more information, see <a>Filters</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
@@ -97,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] Includes_KeyUsage { get; set; }
+        #endregion
+        
+        #region Parameter Includes_ManagedBy
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the Amazon Web Services service that manages the certificate issued by
+        /// ACM.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.CertificateManagedBy")]
+        public Amazon.CertificateManager.CertificateManagedBy Includes_ManagedBy { get; set; }
         #endregion
         
         #region Parameter SortBy
@@ -215,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 context.Includes_KeyUsage = new List<System.String>(this.Includes_KeyUsage);
             }
+            context.Includes_ManagedBy = this.Includes_ManagedBy;
             context.MaxItem = this.MaxItem;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxItem)) && this.MaxItem.HasValue)
@@ -283,6 +289,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestIncludes_includes_KeyUsage != null)
             {
                 request.Includes.KeyUsage = requestIncludes_includes_KeyUsage;
+                requestIncludesIsNull = false;
+            }
+            Amazon.CertificateManager.CertificateManagedBy requestIncludes_includes_ManagedBy = null;
+            if (cmdletContext.Includes_ManagedBy != null)
+            {
+                requestIncludes_includes_ManagedBy = cmdletContext.Includes_ManagedBy;
+            }
+            if (requestIncludes_includes_ManagedBy != null)
+            {
+                request.Includes.ManagedBy = requestIncludes_includes_ManagedBy;
                 requestIncludesIsNull = false;
             }
              // determine if request.Includes should be set to null
@@ -393,6 +409,16 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestIncludes_includes_KeyUsage != null)
             {
                 request.Includes.KeyUsage = requestIncludes_includes_KeyUsage;
+                requestIncludesIsNull = false;
+            }
+            Amazon.CertificateManager.CertificateManagedBy requestIncludes_includes_ManagedBy = null;
+            if (cmdletContext.Includes_ManagedBy != null)
+            {
+                requestIncludes_includes_ManagedBy = cmdletContext.Includes_ManagedBy;
+            }
+            if (requestIncludes_includes_ManagedBy != null)
+            {
+                request.Includes.ManagedBy = requestIncludes_includes_ManagedBy;
                 requestIncludesIsNull = false;
             }
              // determine if request.Includes should be set to null
@@ -525,6 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public List<System.String> Includes_ExtendedKeyUsage { get; set; }
             public List<System.String> Includes_KeyType { get; set; }
             public List<System.String> Includes_KeyUsage { get; set; }
+            public Amazon.CertificateManager.CertificateManagedBy Includes_ManagedBy { get; set; }
             public int? MaxItem { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.CertificateManager.SortBy SortBy { get; set; }

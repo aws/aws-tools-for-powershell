@@ -80,6 +80,16 @@ $ACM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CertificateManager.CertificateManagedBy
+        {
+            ($_ -eq "Get-ACMCertificateList/Includes_ManagedBy") -Or
+            ($_ -eq "New-ACMCertificate/ManagedBy")
+        }
+        {
+            $v = "CLOUDFRONT"
+            break
+        }
+
         # Amazon.CertificateManager.CertificateTransparencyLoggingPreference
         {
             ($_ -eq "New-ACMCertificate/Options_CertificateTransparencyLoggingPreference") -Or
@@ -114,7 +124,7 @@ $ACM_Completers = {
         # Amazon.CertificateManager.ValidationMethod
         "New-ACMCertificate/ValidationMethod"
         {
-            $v = "DNS","EMAIL"
+            $v = "DNS","EMAIL","HTTP"
             break
         }
 
@@ -127,7 +137,9 @@ $ACM_Completers = {
 }
 
 $ACM_map = @{
+    "Includes_ManagedBy"=@("Get-ACMCertificateList")
     "KeyAlgorithm"=@("New-ACMCertificate")
+    "ManagedBy"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "SortBy"=@("Get-ACMCertificateList")
     "SortOrder"=@("Get-ACMCertificateList")
