@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTManagedIntegrations;
 using Amazon.IoTManagedIntegrations.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
@@ -41,9 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
     public partial class NewIOTMINotificationConfigurationCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter DestinationName
         /// <summary>
@@ -123,9 +124,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DestinationName), MyInvocation.BoundParameters);
@@ -237,13 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "CreateNotificationConfiguration");
             try
             {
-                #if DESKTOP
-                return client.CreateNotificationConfiguration(request);
-                #elif CORECLR
-                return client.CreateNotificationConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.CreateNotificationConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

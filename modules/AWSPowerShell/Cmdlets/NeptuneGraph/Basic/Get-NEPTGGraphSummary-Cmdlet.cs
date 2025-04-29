@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.NeptuneGraph;
 using Amazon.NeptuneGraph.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
@@ -89,7 +90,6 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

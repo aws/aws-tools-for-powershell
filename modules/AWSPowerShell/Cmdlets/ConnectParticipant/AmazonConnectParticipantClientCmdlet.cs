@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         {
             var config = this.ClientConfig ?? new AmazonConnectParticipantConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonConnectParticipantClient(credentials, config);

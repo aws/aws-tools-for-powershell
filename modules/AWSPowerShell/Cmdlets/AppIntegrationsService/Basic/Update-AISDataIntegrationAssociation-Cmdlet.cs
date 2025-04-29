@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AppIntegrationsService;
 using Amazon.AppIntegrationsService.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
@@ -183,7 +184,6 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataIntegrationIdentifier), MyInvocation.BoundParameters);

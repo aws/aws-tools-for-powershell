@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MediaConvert;
 using Amazon.MediaConvert.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
@@ -103,7 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);

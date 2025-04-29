@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SageMakerRuntime;
 using Amazon.SageMakerRuntime.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SMR
 {
     /// <summary>
@@ -202,7 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EndpointName), MyInvocation.BoundParameters);

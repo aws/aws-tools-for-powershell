@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Route53Domains;
 using Amazon.Route53Domains.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
@@ -80,7 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

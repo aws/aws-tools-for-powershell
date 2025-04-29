@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTManagedIntegrations;
 using Amazon.IoTManagedIntegrations.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
@@ -40,9 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
     public partial class GetIOTMIManagedThingStateCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter ManagedThingId
         /// <summary>
@@ -72,19 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public string Select { get; set; } = "Endpoints";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ManagedThingId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ManagedThingId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ManagedThingId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -92,21 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.GetManagedThingStateResponse, GetIOTMIManagedThingStateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ManagedThingId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ManagedThingId = this.ManagedThingId;
             #if MODULAR
             if (this.ManagedThingId == null && ParameterWasBound(nameof(this.ManagedThingId)))
@@ -172,13 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "GetManagedThingState");
             try
             {
-                #if DESKTOP
-                return client.GetManagedThingState(request);
-                #elif CORECLR
-                return client.GetManagedThingStateAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetManagedThingStateAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

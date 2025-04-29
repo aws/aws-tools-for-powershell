@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SSOOIDC;
 using Amazon.SSOOIDC.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SSOOIDC
 {
     /// <summary>
@@ -168,7 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClientName), MyInvocation.BoundParameters);

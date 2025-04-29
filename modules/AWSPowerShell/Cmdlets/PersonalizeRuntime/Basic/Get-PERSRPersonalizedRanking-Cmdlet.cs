@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PersonalizeRuntime;
 using Amazon.PersonalizeRuntime.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PERSR
 {
     /// <summary>
@@ -179,7 +180,6 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

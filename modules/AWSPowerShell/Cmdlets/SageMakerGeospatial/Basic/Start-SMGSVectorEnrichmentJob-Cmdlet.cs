@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SageMakerGeospatial;
 using Amazon.SageMakerGeospatial.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SMGS
 {
     /// <summary>
@@ -243,7 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.DeviceFarm;
 using Amazon.DeviceFarm.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
@@ -134,7 +135,6 @@ namespace Amazon.PowerShell.Cmdlets.DF
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);

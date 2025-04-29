@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.WAFRegional;
 using Amazon.WAFRegional.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
@@ -112,7 +113,6 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);

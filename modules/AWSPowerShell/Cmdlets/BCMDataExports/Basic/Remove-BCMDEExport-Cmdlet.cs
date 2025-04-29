@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.BCMDataExports;
 using Amazon.BCMDataExports.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.BCMDE
 {
     /// <summary>
@@ -89,7 +90,6 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExportArn), MyInvocation.BoundParameters);

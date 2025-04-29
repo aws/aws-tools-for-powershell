@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ServerMigrationService;
 using Amazon.ServerMigrationService.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
@@ -82,7 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppId), MyInvocation.BoundParameters);

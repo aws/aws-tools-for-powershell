@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.EMRServerless;
 using Amazon.EMRServerless.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EMRServerless
 {
     /// <summary>
@@ -105,7 +106,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobRunId), MyInvocation.BoundParameters);

@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         {
             var config = this.ClientConfig ?? new AmazonMediaPackageVodConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaPackageVodClient(credentials, config);

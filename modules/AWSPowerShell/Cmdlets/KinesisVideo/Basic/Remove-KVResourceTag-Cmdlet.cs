@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.KinesisVideo;
 using Amazon.KinesisVideo.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
@@ -108,7 +109,6 @@ namespace Amazon.PowerShell.Cmdlets.KV
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);

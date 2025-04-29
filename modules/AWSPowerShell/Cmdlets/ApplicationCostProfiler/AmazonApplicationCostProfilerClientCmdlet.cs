@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.ACP
         {
             var config = this.ClientConfig ?? new AmazonApplicationCostProfilerConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApplicationCostProfilerClient(credentials, config);

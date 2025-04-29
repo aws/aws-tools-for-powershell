@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MQ;
 using Amazon.MQ.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MQ
 {
     /// <summary>
@@ -79,7 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.RedshiftServerless;
 using Amazon.RedshiftServerless.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
@@ -41,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter MaxResult
         /// <summary>
@@ -76,9 +79,13 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public string Select { get; set; } = "ReservationOfferingsList";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -155,13 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "ListReservationOfferings");
             try
             {
-                #if DESKTOP
-                return client.ListReservationOfferings(request);
-                #elif CORECLR
-                return client.ListReservationOfferingsAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.ListReservationOfferingsAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SSOAdmin;
 using Amazon.SSOAdmin.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
@@ -143,7 +144,6 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrustedTokenIssuerArn), MyInvocation.BoundParameters);

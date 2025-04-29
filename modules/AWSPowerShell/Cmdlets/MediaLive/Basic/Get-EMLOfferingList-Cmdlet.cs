@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MediaLive;
 using Amazon.MediaLive.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
@@ -210,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.EML
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

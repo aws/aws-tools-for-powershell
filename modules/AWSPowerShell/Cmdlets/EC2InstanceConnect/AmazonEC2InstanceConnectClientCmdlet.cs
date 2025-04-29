@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
         {
             var config = this.ClientConfig ?? new AmazonEC2InstanceConnectConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEC2InstanceConnectClient(credentials, config);

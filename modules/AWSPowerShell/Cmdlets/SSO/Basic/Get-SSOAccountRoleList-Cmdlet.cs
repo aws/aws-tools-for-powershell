@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SSO;
 using Amazon.SSO.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SSO
 {
     /// <summary>
@@ -132,7 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.SSO
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

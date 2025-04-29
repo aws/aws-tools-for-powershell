@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Invoicing;
 using Amazon.Invoicing.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.INV
 {
     /// <summary>
@@ -106,7 +107,6 @@ namespace Amazon.PowerShell.Cmdlets.INV
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.TimestreamInfluxDB;
 using Amazon.TimestreamInfluxDB.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
@@ -87,7 +88,6 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

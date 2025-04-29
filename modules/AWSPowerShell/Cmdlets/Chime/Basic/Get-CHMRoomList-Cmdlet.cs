@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Chime;
 using Amazon.Chime.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
@@ -132,7 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.DataPipeline;
 using Amazon.DataPipeline.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.DP
 {
     /// <summary>
@@ -131,7 +132,6 @@ namespace Amazon.PowerShell.Cmdlets.DP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Outposts;
 using Amazon.Outposts.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
@@ -107,7 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

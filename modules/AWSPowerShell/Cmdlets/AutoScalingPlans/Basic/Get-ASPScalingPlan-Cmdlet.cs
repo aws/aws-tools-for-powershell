@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AutoScalingPlans;
 using Amazon.AutoScalingPlans.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ASP
 {
     /// <summary>
@@ -138,7 +139,6 @@ namespace Amazon.PowerShell.Cmdlets.ASP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

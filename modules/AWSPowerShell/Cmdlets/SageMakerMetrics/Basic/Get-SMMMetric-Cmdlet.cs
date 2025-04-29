@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SageMakerMetrics;
 using Amazon.SageMakerMetrics.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SMM
 {
     /// <summary>
@@ -80,7 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.SMM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

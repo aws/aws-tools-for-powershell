@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CleanRoomsML;
 using Amazon.CleanRoomsML.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CRML
 {
     /// <summary>
@@ -106,7 +107,6 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

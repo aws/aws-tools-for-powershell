@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.IoTEvents;
 using Amazon.IoTEvents.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTE
 {
     /// <summary>
@@ -89,7 +90,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AlarmModelName), MyInvocation.BoundParameters);

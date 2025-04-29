@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var config = this.ClientConfig ?? new AmazonSimpleNotificationServiceConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSimpleNotificationServiceClient(credentials, config);

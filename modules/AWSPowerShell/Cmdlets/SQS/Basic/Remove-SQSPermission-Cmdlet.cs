@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
@@ -119,7 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Label), MyInvocation.BoundParameters);

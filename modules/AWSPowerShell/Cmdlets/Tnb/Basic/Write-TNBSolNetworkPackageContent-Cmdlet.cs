@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Tnb;
 using Amazon.Tnb.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.TNB
 {
     /// <summary>
@@ -124,7 +125,6 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NsdInfoId), MyInvocation.BoundParameters);

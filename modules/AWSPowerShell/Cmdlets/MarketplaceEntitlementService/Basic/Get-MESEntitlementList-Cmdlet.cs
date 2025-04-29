@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MarketplaceEntitlementService;
 using Amazon.MarketplaceEntitlementService.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MES
 {
     /// <summary>
@@ -143,7 +144,6 @@ namespace Amazon.PowerShell.Cmdlets.MES
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

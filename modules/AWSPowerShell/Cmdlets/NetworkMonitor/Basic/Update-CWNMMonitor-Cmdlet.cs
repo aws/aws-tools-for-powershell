@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.NetworkMonitor;
 using Amazon.NetworkMonitor.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
@@ -107,7 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MonitorName), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.GroundStation;
 using Amazon.GroundStation.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
@@ -82,7 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.GS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

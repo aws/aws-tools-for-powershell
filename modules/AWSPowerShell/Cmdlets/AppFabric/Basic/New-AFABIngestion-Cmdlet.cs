@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AppFabric;
 using Amazon.AppFabric.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AFAB
 {
     /// <summary>
@@ -169,7 +170,6 @@ namespace Amazon.PowerShell.Cmdlets.AFAB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppBundleIdentifier), MyInvocation.BoundParameters);

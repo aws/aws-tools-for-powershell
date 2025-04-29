@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Chatbot;
 using Amazon.Chatbot.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
@@ -88,7 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChatConfigurationArn), MyInvocation.BoundParameters);

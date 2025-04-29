@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AccessAnalyzer;
 using Amazon.AccessAnalyzer.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
@@ -139,7 +140,6 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RuleName), MyInvocation.BoundParameters);

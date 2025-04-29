@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Repostspace;
 using Amazon.Repostspace.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.RESP
 {
     /// <summary>
@@ -140,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.RESP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SpaceId), MyInvocation.BoundParameters);

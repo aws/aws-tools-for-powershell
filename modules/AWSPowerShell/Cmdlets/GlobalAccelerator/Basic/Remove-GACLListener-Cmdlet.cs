@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.GlobalAccelerator;
 using Amazon.GlobalAccelerator.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
@@ -88,7 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ListenerArn), MyInvocation.BoundParameters);

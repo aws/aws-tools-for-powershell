@@ -22,6 +22,7 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTManagedIntegrations;
 using Amazon.IoTManagedIntegrations.Model;
 
@@ -49,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         {
             var config = this.ClientConfig ?? new AmazonIoTManagedIntegrationsConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTManagedIntegrationsClient(credentials, config);

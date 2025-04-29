@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Shield;
 using Amazon.Shield.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
@@ -86,7 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EmergencyContactList), MyInvocation.BoundParameters);

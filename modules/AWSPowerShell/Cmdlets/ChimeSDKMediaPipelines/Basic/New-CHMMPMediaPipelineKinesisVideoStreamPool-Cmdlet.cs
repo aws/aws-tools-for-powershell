@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ChimeSDKMediaPipelines;
 using Amazon.ChimeSDKMediaPipelines.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
@@ -157,7 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PoolName), MyInvocation.BoundParameters);

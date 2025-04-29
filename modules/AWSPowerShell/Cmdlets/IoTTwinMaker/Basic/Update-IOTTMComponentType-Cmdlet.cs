@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.IoTTwinMaker;
 using Amazon.IoTTwinMaker.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTTM
 {
     /// <summary>
@@ -193,7 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ComponentTypeId), MyInvocation.BoundParameters);

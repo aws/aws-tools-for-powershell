@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.OpsWorksCM;
 using Amazon.OpsWorksCM.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
@@ -97,7 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BackupId), MyInvocation.BoundParameters);

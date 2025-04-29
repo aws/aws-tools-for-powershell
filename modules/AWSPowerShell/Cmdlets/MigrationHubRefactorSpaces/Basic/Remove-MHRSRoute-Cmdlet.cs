@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MigrationHubRefactorSpaces;
 using Amazon.MigrationHubRefactorSpaces.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MHRS
 {
     /// <summary>
@@ -122,7 +123,6 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RouteIdentifier), MyInvocation.BoundParameters);

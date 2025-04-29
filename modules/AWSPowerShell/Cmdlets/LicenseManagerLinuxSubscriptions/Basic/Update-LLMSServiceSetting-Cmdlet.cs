@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.LicenseManagerLinuxSubscriptions;
 using Amazon.LicenseManagerLinuxSubscriptions.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LLMS
 {
     /// <summary>
@@ -135,7 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LinuxSubscriptionsDiscovery), MyInvocation.BoundParameters);

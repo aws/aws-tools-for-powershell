@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CloudSearch;
 using Amazon.CloudSearch.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CS
 {
     /// <summary>
@@ -106,7 +107,6 @@ namespace Amazon.PowerShell.Cmdlets.CS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

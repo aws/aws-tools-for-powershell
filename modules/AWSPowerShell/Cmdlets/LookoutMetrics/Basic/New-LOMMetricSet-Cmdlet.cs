@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.LookoutMetrics;
 using Amazon.LookoutMetrics.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LOM
 {
     /// <summary>
@@ -659,7 +660,6 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MetricSetName), MyInvocation.BoundParameters);

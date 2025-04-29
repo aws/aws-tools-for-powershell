@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.RedshiftDataAPIService;
 using Amazon.RedshiftDataAPIService.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.RSD
 {
     /// <summary>
@@ -185,7 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

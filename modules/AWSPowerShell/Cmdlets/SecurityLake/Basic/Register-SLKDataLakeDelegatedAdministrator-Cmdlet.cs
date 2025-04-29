@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SecurityLake;
 using Amazon.SecurityLake.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
@@ -90,7 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);

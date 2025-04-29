@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.S3Tables;
 using Amazon.S3Tables.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.S3T
 {
     /// <summary>
@@ -45,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter Name
         /// <summary>
@@ -108,9 +111,13 @@ namespace Amazon.PowerShell.Cmdlets.S3T
         public string Select { get; set; } = "EncryptionConfiguration";
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();
@@ -210,13 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.S3T
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Tables", "GetTableEncryption");
             try
             {
-                #if DESKTOP
-                return client.GetTableEncryption(request);
-                #elif CORECLR
-                return client.GetTableEncryptionAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.GetTableEncryptionAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

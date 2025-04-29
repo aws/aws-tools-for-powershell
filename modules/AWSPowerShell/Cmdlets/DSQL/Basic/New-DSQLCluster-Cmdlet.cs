@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.DSQL;
 using Amazon.DSQL.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
@@ -108,7 +109,6 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DeletionProtectionEnabled), MyInvocation.BoundParameters);

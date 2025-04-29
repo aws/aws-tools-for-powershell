@@ -1,3 +1,7 @@
+﻿### 5.0.0-preview004 (2025-04-29 14:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Please find a description of the changes for 5.0.0-preview004 at https://github.com/aws/aws-tools-for-powershell/issues/357
+
 ### 5.0.0-preview003 (2025-03-17 16:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview003 at https://github.com/aws/aws-tools-for-powershell/issues/357

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.RoboMaker;
 using Amazon.RoboMaker.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
@@ -98,7 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Batch), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.LexModelBuildingService;
 using Amazon.LexModelBuildingService.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
@@ -85,7 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

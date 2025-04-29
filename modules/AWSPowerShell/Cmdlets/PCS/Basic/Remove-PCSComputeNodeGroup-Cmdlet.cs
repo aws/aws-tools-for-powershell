@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PCS;
 using Amazon.PCS.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
@@ -121,7 +122,6 @@ namespace Amazon.PowerShell.Cmdlets.PCS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ComputeNodeGroupIdentifier), MyInvocation.BoundParameters);

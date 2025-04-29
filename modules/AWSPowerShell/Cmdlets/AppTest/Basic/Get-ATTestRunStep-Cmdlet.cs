@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AppTest;
 using Amazon.AppTest.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AT
 {
     /// <summary>
@@ -115,7 +116,6 @@ namespace Amazon.PowerShell.Cmdlets.AT
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

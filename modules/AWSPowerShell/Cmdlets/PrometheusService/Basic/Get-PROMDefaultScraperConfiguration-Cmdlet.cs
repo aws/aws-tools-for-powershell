@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PrometheusService;
 using Amazon.PrometheusService.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
@@ -63,7 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

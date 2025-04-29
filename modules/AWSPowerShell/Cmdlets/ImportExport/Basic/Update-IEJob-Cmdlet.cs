@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ImportExport;
 using Amazon.ImportExport.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IE
 {
     /// <summary>
@@ -151,7 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.IE
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v2";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);

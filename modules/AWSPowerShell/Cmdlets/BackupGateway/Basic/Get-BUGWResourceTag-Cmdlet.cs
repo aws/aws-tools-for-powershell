@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.BackupGateway;
 using Amazon.BackupGateway.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.BUGW
 {
     /// <summary>
@@ -78,7 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

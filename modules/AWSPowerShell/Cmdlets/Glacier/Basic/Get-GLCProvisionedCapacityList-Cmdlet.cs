@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Glacier;
 using Amazon.Glacier.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GLC
 {
     /// <summary>
@@ -76,7 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

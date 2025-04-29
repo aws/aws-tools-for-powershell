@@ -151,7 +151,7 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/v5-main/CHANGELOG.md'
-            Prerelease = 'preview003'
+            Prerelease = 'preview004'
         }
     }
 }

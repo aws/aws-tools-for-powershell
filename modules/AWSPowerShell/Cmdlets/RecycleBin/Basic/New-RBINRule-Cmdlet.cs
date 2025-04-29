@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.RecycleBin;
 using Amazon.RecycleBin.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
@@ -218,7 +219,6 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceType), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Drs;
 using Amazon.Drs.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
@@ -108,7 +109,6 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CfnStackName), MyInvocation.BoundParameters);

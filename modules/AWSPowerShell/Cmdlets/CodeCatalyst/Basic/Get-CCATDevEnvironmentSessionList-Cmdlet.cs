@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CodeCatalyst;
 using Amazon.CodeCatalyst.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
@@ -137,8 +138,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         }
         protected override void ProcessRecord()
         {
-            this._ExecuteWithAnonymousCredentials = true;
-            this._AWSSignerType = "bearer";
             base.ProcessRecord();
             
             var context = new CmdletContext();

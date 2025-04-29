@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.OAM;
 using Amazon.OAM.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CWOAM
 {
     /// <summary>
@@ -113,7 +114,6 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);

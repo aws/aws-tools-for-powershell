@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Notifications;
 using Amazon.Notifications.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.UNO
 {
     /// <summary>
@@ -157,7 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.UNO
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

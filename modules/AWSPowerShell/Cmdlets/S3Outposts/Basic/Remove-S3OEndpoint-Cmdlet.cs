@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.S3Outposts;
 using Amazon.S3Outposts.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.S3O
 {
     /// <summary>
@@ -111,7 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.S3O
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EndpointId), MyInvocation.BoundParameters);

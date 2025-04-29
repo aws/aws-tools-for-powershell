@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Snowball;
 using Amazon.Snowball.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SNOW
 {
     /// <summary>
@@ -90,7 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobId), MyInvocation.BoundParameters);

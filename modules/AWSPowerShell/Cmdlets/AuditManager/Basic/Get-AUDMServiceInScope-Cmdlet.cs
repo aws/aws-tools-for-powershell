@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AuditManager;
 using Amazon.AuditManager.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
@@ -76,7 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

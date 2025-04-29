@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.WorkMailMessageFlow;
 using Amazon.WorkMailMessageFlow.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.WMMF
 {
     /// <summary>
@@ -148,7 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MessageId), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.EC2InstanceConnect;
 using Amazon.EC2InstanceConnect.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EC2IC
 {
     /// <summary>
@@ -121,7 +122,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);

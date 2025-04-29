@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Synthetics;
 using Amazon.Synthetics.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
@@ -458,7 +459,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);

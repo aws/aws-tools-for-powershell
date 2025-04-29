@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PartnerCentralSelling;
 using Amazon.PartnerCentralSelling.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PC
 {
     /// <summary>
@@ -107,7 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.PC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceSnapshotJobIdentifier), MyInvocation.BoundParameters);

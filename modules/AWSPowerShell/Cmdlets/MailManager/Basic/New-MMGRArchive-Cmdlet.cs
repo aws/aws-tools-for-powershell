@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MailManager;
 using Amazon.MailManager.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MMGR
 {
     /// <summary>
@@ -132,7 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.MMGR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ArchiveName), MyInvocation.BoundParameters);

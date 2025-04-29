@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Textract;
 using Amazon.Textract.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
@@ -119,7 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

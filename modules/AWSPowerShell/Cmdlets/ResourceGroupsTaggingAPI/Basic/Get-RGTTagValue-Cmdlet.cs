@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ResourceGroupsTaggingAPI;
 using Amazon.ResourceGroupsTaggingAPI.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
@@ -118,7 +119,6 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

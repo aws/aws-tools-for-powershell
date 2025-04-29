@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.LicenseManagerUserSubscriptions;
 using Amazon.LicenseManagerUserSubscriptions.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LMUS
 {
     /// <summary>
@@ -194,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

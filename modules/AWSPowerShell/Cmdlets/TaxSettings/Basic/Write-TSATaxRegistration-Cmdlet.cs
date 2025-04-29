@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.TaxSettings;
 using Amazon.TaxSettings.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.TSA
 {
     /// <summary>
@@ -926,7 +927,6 @@ namespace Amazon.PowerShell.Cmdlets.TSA
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaxRegistrationEntry_RegistrationId), MyInvocation.BoundParameters);

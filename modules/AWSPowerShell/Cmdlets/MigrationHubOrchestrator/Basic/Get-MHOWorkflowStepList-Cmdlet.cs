@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MigrationHubOrchestrator;
 using Amazon.MigrationHubOrchestrator.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MHO
 {
     /// <summary>
@@ -116,7 +117,6 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

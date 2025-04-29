@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PI;
 using Amazon.PI.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PI
 {
     /// <summary>
@@ -216,7 +217,6 @@ namespace Amazon.PowerShell.Cmdlets.PI
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

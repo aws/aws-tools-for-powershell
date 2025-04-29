@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Appflow;
 using Amazon.Appflow.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AF
 {
     /// <summary>
@@ -91,7 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.AF
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FlowName), MyInvocation.BoundParameters);

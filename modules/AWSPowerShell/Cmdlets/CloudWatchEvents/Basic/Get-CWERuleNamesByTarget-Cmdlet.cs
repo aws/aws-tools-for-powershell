@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CloudWatchEvents;
 using Amazon.CloudWatchEvents.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
@@ -131,7 +132,6 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

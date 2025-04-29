@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Neptunedata;
 using Amazon.Neptunedata.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.NEPT
 {
     /// <summary>
@@ -137,7 +138,6 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

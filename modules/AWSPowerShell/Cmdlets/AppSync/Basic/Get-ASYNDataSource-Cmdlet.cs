@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AppSync;
 using Amazon.AppSync.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
@@ -96,7 +97,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

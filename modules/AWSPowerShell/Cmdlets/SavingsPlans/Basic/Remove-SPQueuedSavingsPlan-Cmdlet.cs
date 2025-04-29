@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SavingsPlans;
 using Amazon.SavingsPlans.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SP
 {
     /// <summary>
@@ -88,7 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.SP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SavingsPlanId), MyInvocation.BoundParameters);

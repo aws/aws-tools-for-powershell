@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.FinSpaceData;
 using Amazon.FinSpaceData.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.FNSP
 {
     /// <summary>
@@ -90,7 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

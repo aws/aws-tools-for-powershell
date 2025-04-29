@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Neptune;
 using Amazon.Neptune.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
@@ -97,7 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DBClusterIdentifier), MyInvocation.BoundParameters);

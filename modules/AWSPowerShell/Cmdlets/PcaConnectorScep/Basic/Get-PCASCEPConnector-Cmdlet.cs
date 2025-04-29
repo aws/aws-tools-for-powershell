@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PcaConnectorScep;
 using Amazon.PcaConnectorScep.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PCASCEP
 {
     /// <summary>
@@ -81,7 +82,6 @@ namespace Amazon.PowerShell.Cmdlets.PCASCEP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

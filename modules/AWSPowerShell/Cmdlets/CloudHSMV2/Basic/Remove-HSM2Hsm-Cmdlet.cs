@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CloudHSMV2;
 using Amazon.CloudHSMV2.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
@@ -127,7 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HsmId), MyInvocation.BoundParameters);

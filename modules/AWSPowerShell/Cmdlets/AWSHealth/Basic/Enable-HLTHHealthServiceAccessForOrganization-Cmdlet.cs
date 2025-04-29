@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AWSHealth;
 using Amazon.AWSHealth.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
@@ -94,7 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

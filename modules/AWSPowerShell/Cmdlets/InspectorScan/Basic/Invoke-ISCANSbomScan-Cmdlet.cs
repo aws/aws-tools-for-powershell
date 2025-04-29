@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.InspectorScan;
 using Amazon.InspectorScan.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ISCAN
 {
     /// <summary>
@@ -101,7 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.ISCAN
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OutputFormat), MyInvocation.BoundParameters);

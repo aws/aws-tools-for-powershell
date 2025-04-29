@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CodeStarconnections;
 using Amazon.CodeStarconnections.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CSTC
 {
     /// <summary>
@@ -98,7 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.FraudDetector;
 using Amazon.FraudDetector.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
@@ -130,7 +131,6 @@ namespace Amazon.PowerShell.Cmdlets.FD
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var config = this.ClientConfig ?? new AmazonAutoScalingConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAutoScalingClient(credentials, config);

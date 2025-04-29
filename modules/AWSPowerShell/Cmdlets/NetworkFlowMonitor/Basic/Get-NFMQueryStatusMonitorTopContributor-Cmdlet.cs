@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.NetworkFlowMonitor;
 using Amazon.NetworkFlowMonitor.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.NFM
 {
     /// <summary>
@@ -110,7 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.NFM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

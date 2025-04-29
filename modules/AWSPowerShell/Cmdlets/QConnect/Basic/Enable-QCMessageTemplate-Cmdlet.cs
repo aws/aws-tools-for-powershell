@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.QConnect;
 using Amazon.QConnect.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
@@ -126,7 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.QC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MessageTemplateId), MyInvocation.BoundParameters);

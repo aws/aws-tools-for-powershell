@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SSMContacts;
 using Amazon.SSMContacts.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
@@ -100,7 +101,6 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

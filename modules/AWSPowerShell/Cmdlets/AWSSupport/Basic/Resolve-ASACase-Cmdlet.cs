@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AWSSupport;
 using Amazon.AWSSupport.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
@@ -93,7 +94,6 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CaseId), MyInvocation.BoundParameters);

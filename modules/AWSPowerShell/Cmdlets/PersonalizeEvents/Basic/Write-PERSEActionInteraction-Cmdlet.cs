@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.PersonalizeEvents;
 using Amazon.PersonalizeEvents.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PERSE
 {
     /// <summary>
@@ -119,7 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrackingId), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.VerifiedPermissions;
 using Amazon.VerifiedPermissions.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
@@ -140,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PolicyStoreId), MyInvocation.BoundParameters);
@@ -159,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.UpdatePolicyStoreResponse, UpdateAVPPolicyStoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeletionProtection = this.DeletionProtection;
             context.Description = this.Description;
             context.PolicyStoreId = this.PolicyStoreId;
             #if MODULAR

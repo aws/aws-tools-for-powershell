@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.IoTThingsGraph;
 using Amazon.IoTThingsGraph.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTTG
 {
     /// <summary>
@@ -91,7 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MediaStoreData;
 using Amazon.MediaStoreData.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EMSD
 {
     /// <summary>
@@ -122,7 +123,6 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

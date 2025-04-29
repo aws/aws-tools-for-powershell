@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.QLDB;
 using Amazon.QLDB.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
@@ -128,7 +129,6 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

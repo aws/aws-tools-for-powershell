@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var config = this.ClientConfig ?? new AmazonElasticsearchConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticsearchClient(credentials, config);

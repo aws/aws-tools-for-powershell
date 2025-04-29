@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Greengrass;
 using Amazon.Greengrass.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
@@ -111,7 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.GG
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConnectorDefinitionId), MyInvocation.BoundParameters);

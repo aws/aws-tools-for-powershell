@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SecurityIR;
 using Amazon.SecurityIR.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SecurityIR
 {
     /// <summary>
@@ -111,7 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.SecurityIR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CaseId), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.NetworkManager;
 using Amazon.NetworkManager.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
@@ -124,7 +125,6 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

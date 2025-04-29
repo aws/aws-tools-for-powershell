@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var config = this.ClientConfig ?? new AmazonEC2Config();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEC2Client(credentials, config);

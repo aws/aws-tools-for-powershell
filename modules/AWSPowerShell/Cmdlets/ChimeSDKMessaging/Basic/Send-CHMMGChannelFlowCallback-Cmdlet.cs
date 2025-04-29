@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ChimeSDKMessaging;
 using Amazon.ChimeSDKMessaging.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
@@ -235,7 +236,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelMessage_MessageId), MyInvocation.BoundParameters);

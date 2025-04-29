@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ChimeSDKMeetings;
 using Amazon.ChimeSDKMeetings.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CHMTG
 {
     /// <summary>
@@ -266,7 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalMeetingId), MyInvocation.BoundParameters);

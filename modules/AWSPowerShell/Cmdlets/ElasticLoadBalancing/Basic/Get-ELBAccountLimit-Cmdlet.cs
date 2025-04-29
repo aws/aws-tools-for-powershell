@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ElasticLoadBalancing;
 using Amazon.ElasticLoadBalancing.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
@@ -110,7 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.DocDB;
 using Amazon.DocDB.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
@@ -135,7 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

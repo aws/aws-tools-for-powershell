@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Lex;
 using Amazon.Lex.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LEX
 {
     /// <summary>
@@ -122,7 +123,6 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BotName), MyInvocation.BoundParameters);

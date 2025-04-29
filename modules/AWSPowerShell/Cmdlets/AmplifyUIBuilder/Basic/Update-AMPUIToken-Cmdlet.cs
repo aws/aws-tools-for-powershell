@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AmplifyUIBuilder;
 using Amazon.AmplifyUIBuilder.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
@@ -120,7 +121,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Provider), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.IVS;
 using Amazon.IVS.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IVS
 {
     /// <summary>
@@ -235,7 +236,6 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);

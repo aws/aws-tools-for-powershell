@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CodeConnections;
 using Amazon.CodeConnections.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CCON
 {
     /// <summary>
@@ -140,7 +141,6 @@ namespace Amazon.PowerShell.Cmdlets.CCON
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

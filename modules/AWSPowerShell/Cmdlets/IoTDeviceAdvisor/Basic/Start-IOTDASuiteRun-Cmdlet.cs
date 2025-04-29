@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.IoTDeviceAdvisor;
 using Amazon.IoTDeviceAdvisor.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTDA
 {
     /// <summary>
@@ -168,7 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SuiteDefinitionId), MyInvocation.BoundParameters);

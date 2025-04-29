@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         {
             var config = this.ClientConfig ?? new AmazonRoboMakerConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRoboMakerClient(credentials, config);

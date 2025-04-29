@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         {
             var config = this.ClientConfig ?? new AmazonKafkaConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKafkaClient(credentials, config);

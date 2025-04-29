@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Backup;
 using Amazon.Backup.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
@@ -222,7 +223,6 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RestoreTestingPlan_RestoreTestingPlanName), MyInvocation.BoundParameters);

@@ -22,9 +22,11 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
+using System.Threading;
 using Amazon.IoTManagedIntegrations;
 using Amazon.IoTManagedIntegrations.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTMI
 {
     /// <summary>
@@ -34,13 +36,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
     [OutputType("System.Int64")]
     [AWSCmdlet("Calls the Managed integrations for AWS IoT Device Management PutHubConfiguration API operation.", Operation = new[] {"PutHubConfiguration"}, SelectReturnType = typeof(Amazon.IoTManagedIntegrations.Model.PutHubConfigurationResponse))]
     [AWSCmdletOutput("System.Int64 or Amazon.IoTManagedIntegrations.Model.PutHubConfigurationResponse",
-        "This cmdlet returns a System.Int64 object.",
+        "This cmdlet returns a collection of System.Int64 objects.",
         "The service call response (type Amazon.IoTManagedIntegrations.Model.PutHubConfigurationResponse) can be returned by specifying '-Select *'."
     )]
     public partial class WriteIOTMIHubConfigurationCmdlet : AmazonIoTManagedIntegrationsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         
         #region Parameter HubTokenTimerExpirySettingInSecond
         /// <summary>
@@ -71,16 +74,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public string Select { get; set; } = "HubTokenTimerExpirySettingInSeconds";
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the HubTokenTimerExpirySettingInSecond parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^HubTokenTimerExpirySettingInSecond' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HubTokenTimerExpirySettingInSecond' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -91,9 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
         public SwitchParameter Force { get; set; }
         #endregion
         
+        protected override void StopProcessing()
+        {
+            base.StopProcessing();
+            _cancellationTokenSource.Cancel();
+        }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HubTokenTimerExpirySettingInSecond), MyInvocation.BoundParameters);
@@ -107,21 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.IoTManagedIntegrations.Model.PutHubConfigurationResponse, WriteIOTMIHubConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.HubTokenTimerExpirySettingInSecond;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HubTokenTimerExpirySettingInSecond = this.HubTokenTimerExpirySettingInSecond;
             #if MODULAR
             if (this.HubTokenTimerExpirySettingInSecond == null && ParameterWasBound(nameof(this.HubTokenTimerExpirySettingInSecond)))
@@ -187,13 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTMI
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed integrations for AWS IoT Device Management", "PutHubConfiguration");
             try
             {
-                #if DESKTOP
-                return client.PutHubConfiguration(request);
-                #elif CORECLR
-                return client.PutHubConfigurationAsync(request).GetAwaiter().GetResult();
-                #else
-                        #error "Unknown build edition"
-                #endif
+                return client.PutHubConfigurationAsync(request, _cancellationTokenSource.Token).GetAwaiter().GetResult();
             }
             catch (AmazonServiceException exc)
             {

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.KendraRanking;
 using Amazon.KendraRanking.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
@@ -123,7 +124,6 @@ namespace Amazon.PowerShell.Cmdlets.KNRK
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);

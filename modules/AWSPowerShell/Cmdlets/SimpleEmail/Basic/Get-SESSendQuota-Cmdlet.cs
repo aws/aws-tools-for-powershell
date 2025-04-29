@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SimpleEmail;
 using Amazon.SimpleEmail.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
@@ -66,7 +67,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

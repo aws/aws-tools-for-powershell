@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MedicalImaging;
 using Amazon.MedicalImaging.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
@@ -104,7 +105,6 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

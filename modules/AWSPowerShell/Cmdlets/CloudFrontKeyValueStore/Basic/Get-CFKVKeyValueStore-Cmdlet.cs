@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.CloudFrontKeyValueStore;
 using Amazon.CloudFrontKeyValueStore.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.CFKV
 {
     /// <summary>
@@ -78,7 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.CFKV
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

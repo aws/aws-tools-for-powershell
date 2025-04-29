@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Route53RecoveryControlConfig;
 using Amazon.Route53RecoveryControlConfig.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.R53RC
 {
     /// <summary>
@@ -90,7 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SafetyRuleArn), MyInvocation.BoundParameters);

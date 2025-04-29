@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Scheduler;
 using Amazon.Scheduler.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SCH
 {
     /// <summary>
@@ -95,7 +96,6 @@ namespace Amazon.PowerShell.Cmdlets.SCH
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

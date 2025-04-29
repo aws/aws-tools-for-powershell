@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.LaunchWizard;
 using Amazon.LaunchWizard.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.LWIZ
 {
     /// <summary>
@@ -172,7 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);

@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.BCMPricingCalculator;
 using Amazon.BCMPricingCalculator.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.BCMPC
 {
     /// <summary>
@@ -113,7 +114,6 @@ namespace Amazon.PowerShell.Cmdlets.BCMPC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkloadEstimateId), MyInvocation.BoundParameters);

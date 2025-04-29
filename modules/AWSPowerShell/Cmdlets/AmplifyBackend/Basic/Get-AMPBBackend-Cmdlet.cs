@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.AmplifyBackend;
 using Amazon.AmplifyBackend.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AMPB
 {
     /// <summary>
@@ -88,7 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

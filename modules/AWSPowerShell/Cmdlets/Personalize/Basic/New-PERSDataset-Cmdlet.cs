@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Personalize;
 using Amazon.Personalize.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
@@ -68,8 +69,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     )]
     public partial class NewPERSDatasetCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
@@ -183,7 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);

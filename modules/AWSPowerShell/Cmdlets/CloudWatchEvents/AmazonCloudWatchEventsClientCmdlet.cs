@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         {
             var config = this.ClientConfig ?? new AmazonCloudWatchEventsConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudWatchEventsClient(credentials, config);

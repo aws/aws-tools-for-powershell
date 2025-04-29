@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.IoTSecureTunneling;
 using Amazon.IoTSecureTunneling.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.IOTST
 {
     /// <summary>
@@ -85,7 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

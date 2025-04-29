@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.MainframeModernization;
 using Amazon.MainframeModernization.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
@@ -153,7 +154,6 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

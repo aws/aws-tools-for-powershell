@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.DynamoDBStreams;
 using Amazon.DynamoDBStreams.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.DDBS
 {
     /// <summary>
@@ -112,7 +113,6 @@ namespace Amazon.PowerShell.Cmdlets.DDBS
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

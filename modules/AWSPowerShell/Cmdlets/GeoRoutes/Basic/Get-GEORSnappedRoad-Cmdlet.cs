@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.GeoRoutes;
 using Amazon.GeoRoutes.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.GEOR
 {
     /// <summary>
@@ -202,7 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.GEOR
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

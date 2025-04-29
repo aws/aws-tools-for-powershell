@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
         {
             var config = this.ClientConfig ?? new AmazonNeptunedataConfig();
             if (region != null) config.RegionEndpoint = region;
+            if (!string.IsNullOrEmpty(ProfileName))
+            {
+                config.AWSTokenProvider = new ProfileTokenProvider(ProfileName);
+            }
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonNeptunedataClient(credentials, config);

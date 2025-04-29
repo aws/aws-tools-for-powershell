@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.Elasticsearch;
 using Amazon.Elasticsearch.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
@@ -91,7 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.ES
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);

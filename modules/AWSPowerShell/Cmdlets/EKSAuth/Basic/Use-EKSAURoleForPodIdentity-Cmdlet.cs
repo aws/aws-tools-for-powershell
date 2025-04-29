@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.EKSAuth;
 using Amazon.EKSAuth.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.EKSAU
 {
     /// <summary>
@@ -103,7 +104,6 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

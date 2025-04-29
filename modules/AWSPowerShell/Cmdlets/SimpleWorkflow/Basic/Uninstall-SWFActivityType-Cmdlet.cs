@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.SimpleWorkflow;
 using Amazon.SimpleWorkflow.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SWF
 {
     /// <summary>
@@ -149,7 +150,6 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActivityType_Name), MyInvocation.BoundParameters);

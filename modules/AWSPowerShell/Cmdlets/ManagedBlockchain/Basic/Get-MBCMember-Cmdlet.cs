@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ManagedBlockchain;
 using Amazon.ManagedBlockchain.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
@@ -101,7 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

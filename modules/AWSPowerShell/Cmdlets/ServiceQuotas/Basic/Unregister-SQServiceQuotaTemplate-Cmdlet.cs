@@ -26,6 +26,7 @@ using System.Threading;
 using Amazon.ServiceQuotas;
 using Amazon.ServiceQuotas.Model;
 
+#pragma warning disable CS0618, CS0612
 namespace Amazon.PowerShell.Cmdlets.SQ
 {
     /// <summary>
@@ -74,7 +75,6 @@ namespace Amazon.PowerShell.Cmdlets.SQ
         }
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
