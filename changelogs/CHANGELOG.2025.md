@@ -6,9 +6,6 @@
   * AWS Tools for PowerShell now use AWS .NET SDK 4.0.0.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/v4-release/changelogs/SDK.CHANGELOG.ALL.md.
   * Please find a description of the changes for 5.0.0-preview002 at https://github.com/aws/aws-tools-for-powershell/issues/357
 
-### 4.1.807 (2025-04-25 20:35Z)
-  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1031.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
-
 ### 4.1.808 (2025-04-28 20:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1032.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Certificate Manager
