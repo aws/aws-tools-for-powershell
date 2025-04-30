@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Shuts down the specified instances. This operation is idempotent; if you terminate
-    /// an instance more than once, each call succeeds. 
+    /// Shuts down the specified instances. This operation is <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">idempotent</a>;
+    /// if you terminate an instance more than once, each call succeeds.
     /// 
     ///  
     /// <para>
@@ -71,15 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// launched. Volumes attached after instance launch continue running.
     /// </para><para>
     /// You can stop, start, and terminate EBS-backed instances. You can only terminate instance
-    /// store-backed instances. What happens to an instance differs if you stop it or terminate
+    /// store-backed instances. What happens to an instance differs if you stop or terminate
     /// it. For example, when you stop an instance, the root device and any other devices
     /// attached to the instance persist. When you terminate an instance, any attached EBS
     /// volumes with the <c>DeleteOnTermination</c> block device mapping parameter set to
     /// <c>true</c> are automatically deleted. For more information about the differences
-    /// between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
-    /// lifecycle</a> in the <i>Amazon EC2 User Guide</i>.
+    /// between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon
+    /// EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
-    /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting
+    /// For information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting
     /// terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>

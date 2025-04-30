@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// To see data protection policies, you must have the <c>logs:GetDataProtectionPolicy</c>
     /// and <c>logs:DescribeAccountPolicies</c> permissions.
     /// </para></li><li><para>
-    /// To see subscription filter policies, you must have the <c>logs:DescrubeSubscriptionFilters</c>
+    /// To see subscription filter policies, you must have the <c>logs:DescribeSubscriptionFilters</c>
     /// and <c>logs:DescribeAccountPolicies</c> permissions.
     /// </para></li><li><para>
     /// To see transformer policies, you must have the <c>logs:GetTransformer</c> and <c>logs:DescribeAccountPolicies</c>

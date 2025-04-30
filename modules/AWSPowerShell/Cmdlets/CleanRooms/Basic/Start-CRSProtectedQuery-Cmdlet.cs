@@ -89,6 +89,19 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String S3_KeyPrefix { get; set; }
         #endregion
         
+        #region Parameter Distribute_Location
+        /// <summary>
+        /// <para>
+        /// <para> A list of locations where you want to distribute the protected query results. Each
+        /// location must specify either an S3 destination or a collaboration member destination.</para><important><para>You can't specify more than one S3 location.</para><para>You can't specify the query runner's account as a member location.</para><para>You must include either an S3 or member output configuration for each location, but
+        /// not both.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResultConfiguration_OutputConfiguration_Distribute_Locations")]
+        public Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation[] Distribute_Location { get; set; }
+        #endregion
+        
         #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
@@ -264,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Distribute_Location != null)
+            {
+                context.Distribute_Location = new List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation>(this.Distribute_Location);
+            }
             context.Member_AccountId = this.Member_AccountId;
             context.S3_Bucket = this.S3_Bucket;
             context.S3_KeyPrefix = this.S3_KeyPrefix;
@@ -359,6 +376,31 @@ namespace Amazon.PowerShell.Cmdlets.CRS
              // populate OutputConfiguration
             var requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = true;
             requestResultConfiguration_resultConfiguration_OutputConfiguration = new Amazon.CleanRooms.Model.ProtectedQueryOutputConfiguration();
+            Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute = null;
+            
+             // populate Distribute
+            var requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_DistributeIsNull = true;
+            requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute = new Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfiguration();
+            List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation> requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute_distribute_Location = null;
+            if (cmdletContext.Distribute_Location != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute_distribute_Location = cmdletContext.Distribute_Location;
+            }
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute_distribute_Location != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute.Locations = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute_distribute_Location;
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_DistributeIsNull = false;
+            }
+             // determine if requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute should be set to null
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_DistributeIsNull)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute = null;
+            }
+            if (requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute != null)
+            {
+                requestResultConfiguration_resultConfiguration_OutputConfiguration.Distribute = requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Distribute;
+                requestResultConfiguration_resultConfiguration_OutputConfigurationIsNull = false;
+            }
             Amazon.CleanRooms.Model.ProtectedQueryMemberOutputConfiguration requestResultConfiguration_resultConfiguration_OutputConfiguration_resultConfiguration_OutputConfiguration_Member = null;
             
              // populate Member
@@ -561,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.Int32? Worker_Number { get; set; }
             public Amazon.CleanRooms.WorkerComputeType Worker_Type { get; set; }
             public System.String MembershipIdentifier { get; set; }
+            public List<Amazon.CleanRooms.Model.ProtectedQueryDistributeOutputConfigurationLocation> Distribute_Location { get; set; }
             public System.String Member_AccountId { get; set; }
             public System.String S3_Bucket { get; set; }
             public System.String S3_KeyPrefix { get; set; }

@@ -111,6 +111,18 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String[] IpAddresses_IpV6Address { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Each tag consists of a tag key and a tag value. Tag keys and values are both required,
+        /// but tag values can be empty strings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -186,6 +198,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             if (this.IpAddresses_IpV6Address != null)
             {
                 context.IpAddresses_IpV6Address = new List<System.String>(this.IpAddresses_IpV6Address);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -269,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.HostProperties = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -336,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String HostProperties_HostName { get; set; }
             public List<System.String> IpAddresses_IpV4Address { get; set; }
             public List<System.String> IpAddresses_IpV6Address { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Deadline.Model.CreateWorkerResponse, NewADCWorkerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WorkerId;
         }

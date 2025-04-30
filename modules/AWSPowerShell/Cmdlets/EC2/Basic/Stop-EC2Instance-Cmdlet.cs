@@ -33,40 +33,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled
-    /// for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
-    /// prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+    /// When you stop an instance, we shut it down. You can restart your instance at any time.
+    /// </para><para>
+    /// You can use the Stop operation together with the Hibernate parameter to hibernate
+    /// an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled
+    /// for hibernation</a> and meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
+    /// prerequisites</a>. Stopping an instance doesn't preserve data stored in RAM, while
+    /// hibernation does. If hibernation fails, a normal shutdown occurs. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
     /// your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
-    /// We don't charge usage for a stopped instance, or data transfer fees; however, your
-    /// root partition Amazon EBS volume remains and continues to persist your data, and you
-    /// are charged for Amazon EBS volume usage. Every time you start your instance, Amazon
-    /// EC2 charges a one-minute minimum for instance usage, and thereafter charges per second
-    /// for instance usage.
+    /// If your instance appears stuck in the <c>stopping</c> state, there might be an issue
+    /// with the underlying host computer. You can use the Stop operation together with the
+    /// Force parameter to force stop your instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
+    /// Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
-    /// You can't stop or hibernate instance store-backed instances. You can't use the Stop
-    /// action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
-    /// Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
-    /// interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.
+    /// Stopping and hibernating an instance differs from rebooting or terminating it. For
+    /// example, a stopped or hibernated instance retains its root volume and any data volumes,
+    /// unlike terminated instances where these volumes are automatically deleted. For more
+    /// information about the differences between stopping, hibernating, rebooting, and terminating
+    /// instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon
+    /// EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
-    /// When you stop or hibernate an instance, we shut it down. You can restart your instance
-    /// at any time. Before stopping or hibernating an instance, make sure it is in a state
-    /// from which it can be restarted. Stopping an instance does not preserve data stored
-    /// in RAM, but hibernating an instance does preserve data stored in RAM. If an instance
-    /// cannot hibernate successfully, a normal shutdown occurs.
+    /// We don't charge for instance usage or data transfer fees when an instance is stopped.
+    /// However, the root volume and any data volumes remain and continue to persist your
+    /// data, and you're charged for volume usage. Every time you start your instance, Amazon
+    /// EC2 charges a one-minute minimum for instance usage, followed by per-second billing.
     /// </para><para>
-    /// Stopping and hibernating an instance is different to rebooting or terminating it.
-    /// For example, when you stop or hibernate an instance, the root device and any other
-    /// devices attached to the instance persist. When you terminate an instance, the root
-    /// device and any other devices attached during the instance launch are automatically
-    /// deleted. For more information about the differences between rebooting, stopping, hibernating,
-    /// and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
-    /// lifecycle</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><para>
-    /// When you stop an instance, we attempt to shut it down forcibly after a short while.
-    /// If your instance appears stuck in the stopping state after a period of time, there
-    /// may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
-    /// stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.
+    /// You can't stop or hibernate instance store-backed instances.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,9 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Enforce
         /// <summary>
         /// <para>
-        /// <para>Forces the instances to stop. The instances do not have an opportunity to flush file
-        /// system caches or file system metadata. If you use this option, you must perform file
-        /// system check and repair procedures. This option is not recommended for Windows instances.</para><para>Default: <c>false</c></para>
+        /// <para>Forces the instance to stop. The instance will first attempt a graceful shutdown,
+        /// which includes flushing file system caches and metadata. If the graceful shutdown
+        /// fails to complete within the timeout period, the instance shuts down forcibly without
+        /// flushing the file system caches and metadata.</para><para>After using this option, you must perform file system check and repair procedures.
+        /// This option is not recommended for Windows instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshoot
+        /// Amazon EC2 instance stop issues</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

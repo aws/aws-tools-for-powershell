@@ -1,4 +1,18 @@
-﻿### 4.1.809 (2025-04-29 22:22Z)
+﻿### 4.1.810 (2025-04-30 20:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1034.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFleet: added parameter CustomerManaged_TagPropagationMode.
+    * Modified cmdlet New-ADCWorker: added parameter Tag.
+    * Modified cmdlet Update-ADCFleet: added parameter CustomerManaged_TagPropagationMode.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARInlineAgent: added parameters AgentName, Executor_Lambda and OrchestrationType.
+  * Amazon Clean Rooms Service
+    * Modified cmdlet Start-CRSProtectedQuery: added parameter Distribute_Location.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2Ipam: added parameter MeteredAccount.
+    * Modified cmdlet New-EC2Ipam: added parameter MeteredAccount.
+
+### 4.1.809 (2025-04-29 22:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1033.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Modified cmdlet New-CCASCase: added parameter PerformedBy_CustomEntity.

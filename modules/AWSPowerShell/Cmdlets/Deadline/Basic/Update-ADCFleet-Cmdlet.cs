@@ -468,6 +468,21 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String CustomerManaged_StorageProfileId { get; set; }
         #endregion
         
+        #region Parameter CustomerManaged_TagPropagationMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether tags associated with a fleet are attached to workers when the worker
+        /// is launched. </para><para>When the <c>tagPropagationMode</c> is set to <c>PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH</c>
+        /// any tag associated with a fleet is attached to workers when they launch. If the tags
+        /// for a fleet change, the tags associated with running workers <b>do not</b> change.</para><para>If you don't specify <c>tagPropagationMode</c>, the default is <c>NO_PROPAGATION</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_CustomerManaged_TagPropagationMode")]
+        [AWSConstantClassSource("Amazon.Deadline.TagPropagationMode")]
+        public Amazon.Deadline.TagPropagationMode CustomerManaged_TagPropagationMode { get; set; }
+        #endregion
+        
         #region Parameter RootEbsVolume_ThroughputMiB
         /// <summary>
         /// <para>
@@ -545,6 +560,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.ClientToken = this.ClientToken;
             context.CustomerManaged_Mode = this.CustomerManaged_Mode;
             context.CustomerManaged_StorageProfileId = this.CustomerManaged_StorageProfileId;
+            context.CustomerManaged_TagPropagationMode = this.CustomerManaged_TagPropagationMode;
             context.AcceleratorCount_Max = this.AcceleratorCount_Max;
             context.AcceleratorCount_Min = this.AcceleratorCount_Min;
             context.AcceleratorTotalMemoryMiB_Max = this.AcceleratorTotalMemoryMiB_Max;
@@ -957,6 +973,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 requestConfiguration_configuration_CustomerManaged.StorageProfileId = requestConfiguration_configuration_CustomerManaged_customerManaged_StorageProfileId;
                 requestConfiguration_configuration_CustomerManagedIsNull = false;
             }
+            Amazon.Deadline.TagPropagationMode requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = null;
+            if (cmdletContext.CustomerManaged_TagPropagationMode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode = cmdletContext.CustomerManaged_TagPropagationMode;
+            }
+            if (requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode != null)
+            {
+                requestConfiguration_configuration_CustomerManaged.TagPropagationMode = requestConfiguration_configuration_CustomerManaged_customerManaged_TagPropagationMode;
+                requestConfiguration_configuration_CustomerManagedIsNull = false;
+            }
             Amazon.Deadline.Model.CustomerManagedWorkerCapabilities requestConfiguration_configuration_CustomerManaged_configuration_CustomerManaged_WorkerCapabilities = null;
             
              // populate WorkerCapabilities
@@ -1269,6 +1295,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String ClientToken { get; set; }
             public Amazon.Deadline.AutoScalingMode CustomerManaged_Mode { get; set; }
             public System.String CustomerManaged_StorageProfileId { get; set; }
+            public Amazon.Deadline.TagPropagationMode CustomerManaged_TagPropagationMode { get; set; }
             public System.Int32? AcceleratorCount_Max { get; set; }
             public System.Int32? AcceleratorCount_Min { get; set; }
             public System.Int32? AcceleratorTotalMemoryMiB_Max { get; set; }

@@ -95,6 +95,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String IpamId { get; set; }
         #endregion
         
+        #region Parameter MeteredAccount
+        /// <summary>
+        /// <para>
+        /// <para>A metered account is an Amazon Web Services account that is charged for active IP
+        /// addresses managed in IPAM. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html">Enable
+        /// cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</para><para>Possible values:</para><ul><li><para><c>ipam-owner</c> (default): The Amazon Web Services account which owns the IPAM
+        /// is charged for all active IP addresses managed in IPAM.</para></li><li><para><c>resource-owner</c>: The Amazon Web Services account that owns the IP address is
+        /// charged for the active IP address.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpamMeteredAccount")]
+        public Amazon.EC2.IpamMeteredAccount MeteredAccount { get; set; }
+        #endregion
+        
         #region Parameter RemoveOperatingRegion
         /// <summary>
         /// <para>
@@ -194,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter IpamId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MeteredAccount = this.MeteredAccount;
             if (this.RemoveOperatingRegion != null)
             {
                 context.RemoveOperatingRegion = new List<Amazon.EC2.Model.RemoveIpamOperatingRegion>(this.RemoveOperatingRegion);
@@ -230,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.IpamId != null)
             {
                 request.IpamId = cmdletContext.IpamId;
+            }
+            if (cmdletContext.MeteredAccount != null)
+            {
+                request.MeteredAccount = cmdletContext.MeteredAccount;
             }
             if (cmdletContext.RemoveOperatingRegion != null)
             {
@@ -304,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public System.Boolean? EnablePrivateGua { get; set; }
             public System.String IpamId { get; set; }
+            public Amazon.EC2.IpamMeteredAccount MeteredAccount { get; set; }
             public List<Amazon.EC2.Model.RemoveIpamOperatingRegion> RemoveOperatingRegion { get; set; }
             public Amazon.EC2.IpamTier Tier { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyIpamResponse, EditEC2IpamCmdlet, object> Select { get; set; } =

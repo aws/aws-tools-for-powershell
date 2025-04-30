@@ -7532,6 +7532,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.OrchestrationType
+        "Invoke-BARInlineAgent/OrchestrationType"
+        {
+            $v = "CUSTOM_ORCHESTRATION","DEFAULT"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.PerformanceConfigLatency
         {
             ($_ -eq "Invoke-BARRetrieveAndGenerate/ExternalSourcesConfig_PerformanceConfig_Latency") -Or
@@ -7638,6 +7645,7 @@ $BAR_map = @{
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
+    "OrchestrationType"=@("Invoke-BARInlineAgent")
     "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent")
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
@@ -21685,6 +21693,16 @@ $ADC_Completers = {
             break
         }
 
+        # Amazon.Deadline.TagPropagationMode
+        {
+            ($_ -eq "New-ADCFleet/CustomerManaged_TagPropagationMode") -Or
+            ($_ -eq "Update-ADCFleet/CustomerManaged_TagPropagationMode")
+        }
+        {
+            $v = "NO_PROPAGATION","PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH"
+            break
+        }
+
         # Amazon.Deadline.TaskTargetRunStatus
         "Update-ADCTask/TargetRunStatus"
         {
@@ -21731,6 +21749,7 @@ $ADC_Completers = {
 $ADC_map = @{
     "Attachments_FileSystem"=@("New-ADCJob")
     "CustomerManaged_Mode"=@("New-ADCFleet","Update-ADCFleet")
+    "CustomerManaged_TagPropagationMode"=@("New-ADCFleet","Update-ADCFleet")
     "DefaultBudgetAction"=@("New-ADCQueue","Update-ADCQueue")
     "FilterExpressions_Operator"=@("Search-ADCJob","Search-ADCStep","Search-ADCTask","Search-ADCWorker")
     "InstanceCapabilities_CpuArchitectureType"=@("New-ADCFleet","Update-ADCFleet")
@@ -25713,6 +25732,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamMeteredAccount
+        {
+            ($_ -eq "Edit-EC2Ipam/MeteredAccount") -Or
+            ($_ -eq "New-EC2Ipam/MeteredAccount")
+        }
+        {
+            $v = "ipam-owner","resource-owner"
+            break
+        }
+
         # Amazon.EC2.IpamPoolAwsService
         "New-EC2IpamPool/AwsService"
         {
@@ -26357,6 +26386,7 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpToken"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTag"=@("New-EC2Instance")
+    "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
@@ -45331,7 +45361,7 @@ $CWL_Completers = {
             ($_ -eq "New-CWLLogGroup/LogGroupClass")
         }
         {
-            $v = "INFREQUENT_ACCESS","STANDARD"
+            $v = "DELIVERY","INFREQUENT_ACCESS","STANDARD"
             break
         }
 

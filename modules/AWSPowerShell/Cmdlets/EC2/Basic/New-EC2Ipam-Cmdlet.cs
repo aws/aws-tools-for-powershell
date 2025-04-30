@@ -72,6 +72,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? EnablePrivateGua { get; set; }
         #endregion
         
+        #region Parameter MeteredAccount
+        /// <summary>
+        /// <para>
+        /// <para>A metered account is an Amazon Web Services account that is charged for active IP
+        /// addresses managed in IPAM. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/ipam-enable-cost-distro.html">Enable
+        /// cost distribution</a> in the <i>Amazon VPC IPAM User Guide</i>.</para><para>Possible values:</para><ul><li><para><c>ipam-owner</c> (default): The Amazon Web Services account which owns the IPAM
+        /// is charged for all active IP addresses managed in IPAM.</para></li><li><para><c>resource-owner</c>: The Amazon Web Services account that owns the IP address is
+        /// charged for the active IP address.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpamMeteredAccount")]
+        public Amazon.EC2.IpamMeteredAccount MeteredAccount { get; set; }
+        #endregion
+        
         #region Parameter OperatingRegion
         /// <summary>
         /// <para>
@@ -190,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.EnablePrivateGua = this.EnablePrivateGua;
+            context.MeteredAccount = this.MeteredAccount;
             if (this.OperatingRegion != null)
             {
                 context.OperatingRegion = new List<Amazon.EC2.Model.AddIpamOperatingRegion>(this.OperatingRegion);
@@ -226,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.EnablePrivateGua != null)
             {
                 request.EnablePrivateGua = cmdletContext.EnablePrivateGua.Value;
+            }
+            if (cmdletContext.MeteredAccount != null)
+            {
+                request.MeteredAccount = cmdletContext.MeteredAccount;
             }
             if (cmdletContext.OperatingRegion != null)
             {
@@ -303,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? EnablePrivateGua { get; set; }
+            public Amazon.EC2.IpamMeteredAccount MeteredAccount { get; set; }
             public List<Amazon.EC2.Model.AddIpamOperatingRegion> OperatingRegion { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.IpamTier Tier { get; set; }

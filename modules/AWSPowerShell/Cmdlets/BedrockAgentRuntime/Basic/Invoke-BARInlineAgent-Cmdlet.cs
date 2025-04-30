@@ -88,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.AgentCollaboration AgentCollaboration { get; set; }
         #endregion
         
+        #region Parameter AgentName
+        /// <summary>
+        /// <para>
+        /// <para>The name for the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AgentName { get; set; }
+        #endregion
+        
         #region Parameter StreamingConfigurations_ApplyGuardrailInterval
         /// <summary>
         /// <para>
@@ -138,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter EnableTrace
         /// <summary>
         /// <para>
-        /// Amazon.BedrockAgentRuntime.Model.InvokeInlineAgentRequest.EnableTrace
+        /// <para> Specifies whether to turn on the trace or not to track the agent's reasoning process.
+        /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using
+        /// trace</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,6 +285,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.KnowledgeBase[] KnowledgeBases { get; set; }
         #endregion
         
+        #region Parameter Executor_Lambda
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function containing the business logic
+        /// that is carried out upon invoking the action. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomOrchestration_Executor_Lambda")]
+        public System.String Executor_Lambda { get; set; }
+        #endregion
+        
         #region Parameter PerformanceConfig_Latency
         /// <summary>
         /// <para>
@@ -294,6 +318,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InlineSessionState_ConversationHistory_Messages")]
         public Amazon.BedrockAgentRuntime.Model.Message[] ConversationHistory_Message { get; set; }
+        #endregion
+        
+        #region Parameter OrchestrationType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of orchestration strategy for the agent. This is set to DEFAULT
+        /// orchestration type, by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.OrchestrationType")]
+        public Amazon.BedrockAgentRuntime.OrchestrationType OrchestrationType { get; set; }
         #endregion
         
         #region Parameter PromptOverrideConfiguration_OverrideLambda
@@ -457,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 context.ActionGroup = new List<Amazon.BedrockAgentRuntime.Model.AgentActionGroup>(this.ActionGroup);
             }
             context.AgentCollaboration = this.AgentCollaboration;
+            context.AgentName = this.AgentName;
             context.PerformanceConfig_Latency = this.PerformanceConfig_Latency;
             if (this.CollaboratorConfiguration != null)
             {
@@ -467,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 context.Collaborator = new List<Amazon.BedrockAgentRuntime.Model.Collaborator>(this.Collaborator);
             }
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
+            context.Executor_Lambda = this.Executor_Lambda;
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
             context.FoundationModel = this.FoundationModel;
@@ -520,6 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 context.KnowledgeBases = new List<Amazon.BedrockAgentRuntime.Model.KnowledgeBase>(this.KnowledgeBases);
             }
+            context.OrchestrationType = this.OrchestrationType;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
             if (this.PromptOverrideConfiguration_PromptConfiguration != null)
             {
@@ -557,6 +596,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.AgentCollaboration != null)
             {
                 request.AgentCollaboration = cmdletContext.AgentCollaboration;
+            }
+            if (cmdletContext.AgentName != null)
+            {
+                request.AgentName = cmdletContext.AgentName;
             }
             
              // populate BedrockModelConfigurations
@@ -603,6 +646,40 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (cmdletContext.CustomerEncryptionKeyArn != null)
             {
                 request.CustomerEncryptionKeyArn = cmdletContext.CustomerEncryptionKeyArn;
+            }
+            
+             // populate CustomOrchestration
+            var requestCustomOrchestrationIsNull = true;
+            request.CustomOrchestration = new Amazon.BedrockAgentRuntime.Model.CustomOrchestration();
+            Amazon.BedrockAgentRuntime.Model.OrchestrationExecutor requestCustomOrchestration_customOrchestration_Executor = null;
+            
+             // populate Executor
+            var requestCustomOrchestration_customOrchestration_ExecutorIsNull = true;
+            requestCustomOrchestration_customOrchestration_Executor = new Amazon.BedrockAgentRuntime.Model.OrchestrationExecutor();
+            System.String requestCustomOrchestration_customOrchestration_Executor_executor_Lambda = null;
+            if (cmdletContext.Executor_Lambda != null)
+            {
+                requestCustomOrchestration_customOrchestration_Executor_executor_Lambda = cmdletContext.Executor_Lambda;
+            }
+            if (requestCustomOrchestration_customOrchestration_Executor_executor_Lambda != null)
+            {
+                requestCustomOrchestration_customOrchestration_Executor.Lambda = requestCustomOrchestration_customOrchestration_Executor_executor_Lambda;
+                requestCustomOrchestration_customOrchestration_ExecutorIsNull = false;
+            }
+             // determine if requestCustomOrchestration_customOrchestration_Executor should be set to null
+            if (requestCustomOrchestration_customOrchestration_ExecutorIsNull)
+            {
+                requestCustomOrchestration_customOrchestration_Executor = null;
+            }
+            if (requestCustomOrchestration_customOrchestration_Executor != null)
+            {
+                request.CustomOrchestration.Executor = requestCustomOrchestration_customOrchestration_Executor;
+                requestCustomOrchestrationIsNull = false;
+            }
+             // determine if request.CustomOrchestration should be set to null
+            if (requestCustomOrchestrationIsNull)
+            {
+                request.CustomOrchestration = null;
             }
             if (cmdletContext.EnableTrace != null)
             {
@@ -745,6 +822,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 request.KnowledgeBases = cmdletContext.KnowledgeBases;
             }
+            if (cmdletContext.OrchestrationType != null)
+            {
+                request.OrchestrationType = cmdletContext.OrchestrationType;
+            }
             
              // populate PromptOverrideConfiguration
             var requestPromptOverrideConfigurationIsNull = true;
@@ -870,10 +951,12 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         {
             public List<Amazon.BedrockAgentRuntime.Model.AgentActionGroup> ActionGroup { get; set; }
             public Amazon.BedrockAgentRuntime.AgentCollaboration AgentCollaboration { get; set; }
+            public System.String AgentName { get; set; }
             public Amazon.BedrockAgentRuntime.PerformanceConfigLatency PerformanceConfig_Latency { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.CollaboratorConfiguration> CollaboratorConfiguration { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.Collaborator> Collaborator { get; set; }
             public System.String CustomerEncryptionKeyArn { get; set; }
+            public System.String Executor_Lambda { get; set; }
             public System.Boolean? EnableTrace { get; set; }
             public System.Boolean? EndSession { get; set; }
             public System.String FoundationModel { get; set; }
@@ -889,6 +972,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String InputText { get; set; }
             public System.String Instruction { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.KnowledgeBase> KnowledgeBases { get; set; }
+            public Amazon.BedrockAgentRuntime.OrchestrationType OrchestrationType { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.PromptConfiguration> PromptOverrideConfiguration_PromptConfiguration { get; set; }
             public System.String SessionId { get; set; }

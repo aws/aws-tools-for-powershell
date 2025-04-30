@@ -707,6 +707,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamMeteredAccount
+        {
+            ($_ -eq "Edit-EC2Ipam/MeteredAccount") -Or
+            ($_ -eq "New-EC2Ipam/MeteredAccount")
+        }
+        {
+            $v = "ipam-owner","resource-owner"
+            break
+        }
+
         # Amazon.EC2.IpamPoolAwsService
         "New-EC2IpamPool/AwsService"
         {
@@ -1351,6 +1361,7 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpToken"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTag"=@("New-EC2Instance")
+    "MeteredAccount"=@("Edit-EC2Ipam","New-EC2Ipam")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")

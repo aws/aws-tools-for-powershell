@@ -127,7 +127,7 @@ $CWL_Completers = {
             ($_ -eq "New-CWLLogGroup/LogGroupClass")
         }
         {
-            $v = "INFREQUENT_ACCESS","STANDARD"
+            $v = "DELIVERY","INFREQUENT_ACCESS","STANDARD"
             break
         }
 

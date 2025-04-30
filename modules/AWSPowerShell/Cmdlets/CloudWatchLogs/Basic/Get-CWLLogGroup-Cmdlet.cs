@@ -88,8 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupClass
         /// <summary>
         /// <para>
-        /// <para>Specifies the log group class for this log group. There are two classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
-        /// and incurs lower costs.</para></li></ul><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
+        /// <para>Specifies the log group class for this log group. There are three classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
+        /// and incurs lower costs.</para></li><li><para>Use the <c>Delivery</c> log class only for delivering Lambda logs to store in Amazon
+        /// S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept
+        /// in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch
+        /// Logs capabilities such as CloudWatch Logs Insights queries.</para></li></ul><para>For details about the features supported by each class, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log
         /// classes</a></para>
         /// </para>
         /// </summary>

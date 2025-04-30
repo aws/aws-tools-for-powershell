@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// A batch of log events in a single request cannot span more than 24 hours. Otherwise,
     /// the operation fails.
     /// </para></li><li><para>
-    /// Each log event can be no larger than 256 KB.
+    /// Each log event can be no larger than 1 MB.
     /// </para></li><li><para>
     /// The maximum number of log events in a batch is 10,000.
     /// </para></li><li><important><para>
