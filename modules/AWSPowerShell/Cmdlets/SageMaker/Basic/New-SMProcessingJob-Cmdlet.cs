@@ -90,7 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The environment variables to set in the Docker container. Up to 100 key and values
-        /// entries in the map are supported.</para>
+        /// entries in the map are supported.</para><important><para>Do not include any security-sensitive information including account access IDs, secrets,
+        /// or tokens in any environment fields. As part of the shared responsibility model, you
+        /// are responsible for any potential exposure, unauthorized access, or compromise of
+        /// your sensitive data if caused by security-sensitive information included in the request
+        /// environment variable or plain text fields.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,7 +286,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
         /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-        /// User Guide</i>.</para>
+        /// User Guide</i>.</para><important><para>Do not include any security-sensitive information including account access IDs, secrets,
+        /// or tokens in any tags. As part of the shared responsibility model, you are responsible
+        /// for any potential exposure, unauthorized access, or compromise of your sensitive data
+        /// if caused by security-sensitive information included in the request tag variable or
+        /// plain text fields.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

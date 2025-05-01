@@ -966,6 +966,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.NodeUnavailabilityType
+        {
+            ($_ -eq "Update-SMClusterSoftware/MaximumBatchSize_Type") -Or
+            ($_ -eq "Update-SMClusterSoftware/RollbackMaximumBatchSize_Type")
+        }
+        {
+            $v = "CAPACITY_PERCENTAGE","INSTANCE_COUNT"
+            break
+        }
+
         # Amazon.SageMaker.NotebookInstanceLifecycleConfigSortKey
         "Get-SMNotebookInstanceLifecycleConfigList/SortBy"
         {
@@ -1748,7 +1758,7 @@ $SM_map = @{
     "InstanceType"=@("New-SMNotebookInstance","Search-SMTrainingPlanOffering","Update-SMNotebookInstance")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
-    "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint","Update-SMInferenceComponent")
+    "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
@@ -1767,7 +1777,7 @@ $SM_map = @{
     "ResourceSharingConfig_Strategy"=@("New-SMComputeQuota","Update-SMComputeQuota")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
-    "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint","Update-SMInferenceComponent")
+    "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMClusterSoftware","Update-SMEndpoint","Update-SMInferenceComponent")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "S3DataSource_S3DataType"=@("New-SMTransformJob")
     "SchedulerConfig_FairShare"=@("New-SMClusterSchedulerConfig","Update-SMClusterSchedulerConfig")

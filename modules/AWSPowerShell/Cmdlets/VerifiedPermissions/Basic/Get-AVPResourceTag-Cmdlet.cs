@@ -28,25 +28,25 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Retrieves details about a policy store.
+    /// Returns the tags associated with the specified Amazon Verified Permissions resource.
+    /// In Verified Permissions, policy stores can be tagged.
     /// </summary>
-    [Cmdlet("Get", "AVPPolicyStore")]
-    [OutputType("Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions GetPolicyStore API operation.", Operation = new[] {"GetPolicyStore"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse))]
-    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse object containing multiple properties."
+    [Cmdlet("Get", "AVPResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetAVPPolicyStoreCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class GetAVPResourceTagCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter PolicyStoreId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of the policy store that you want information about.</para>
+        /// <para>The ARN of the resource for which you want to view tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,40 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyStoreId { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to return the tags that are attached to the policy store. If this
-        /// parameter is included in the API call, the tags are returned, otherwise they are not
-        /// returned.</para><note><para>If this parameter is included in the API call but there are no tags attached to the
-        /// policy store, the <c>tags</c> response parameter is omitted from the response.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Boolean? Tag { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse).
-        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PolicyStoreId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PolicyStoreId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PolicyStoreId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse, GetAVPPolicyStoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse, GetAVPResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,17 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PolicyStoreId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PolicyStoreId = this.PolicyStoreId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.PolicyStoreId == null && ParameterWasBound(nameof(this.PolicyStoreId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Tag = this.Tag;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,15 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.GetPolicyStoreRequest();
+            var request = new Amazon.VerifiedPermissions.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.PolicyStoreId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.PolicyStoreId = cmdletContext.PolicyStoreId;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag.Value;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -185,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.GetPolicyStoreRequest request)
+        private Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "GetPolicyStore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetPolicyStore(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetPolicyStoreAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,10 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyStoreId { get; set; }
-            public System.Boolean? Tag { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.GetPolicyStoreResponse, GetAVPPolicyStoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.ListTagsForResourceResponse, GetAVPResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

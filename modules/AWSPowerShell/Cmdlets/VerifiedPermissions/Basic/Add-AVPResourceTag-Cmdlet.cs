@@ -22,43 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.VerifiedPermissions;
+using Amazon.VerifiedPermissions.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
+    /// Assigns one or more tags (key-value pairs) to the specified Amazon Verified Permissions
+    /// resource. Tags can help you organize and categorize your resources. You can also use
+    /// them to scope user permissions by granting a user permission to access or change only
+    /// resources with certain tag values. In Verified Permissions, policy stores can be tagged.
     /// 
     ///  
     /// <para>
-    /// Describes the specified contact. 
-    /// </para><important><ul><li><para><c>SystemEndpoint</c> is not populated for contacts with initiation method of MONITOR,
-    /// QUEUE_TRANSFER, or CALLBACK
-    /// </para></li><li><para>
-    /// Contact information remains available in Amazon Connect for 24 months from the <c>InitiationTimestamp</c>,
-    /// and then it is deleted. Only contact information that is available in Amazon Connect
-    /// is returned by this API.
-    /// </para></li></ul></important>
+    /// Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
+    /// as strings of characters.
+    /// </para><para>
+    /// You can use the TagResource action with a resource that already has tags. If you specify
+    /// a new tag key, this tag is appended to the list of tags associated with the resource.
+    /// If you specify a tag key that is already associated with the resource, the new tag
+    /// value that you specify replaces the previous value for that tag.
+    /// </para><para>
+    /// You can associate as many as 50 tags with a resource.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CONNContact")]
-    [OutputType("Amazon.Connect.Model.Contact")]
-    [AWSCmdlet("Calls the Amazon Connect Service DescribeContact API operation.", Operation = new[] {"DescribeContact"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeContactResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.Contact or Amazon.Connect.Model.DescribeContactResponse",
-        "This cmdlet returns an Amazon.Connect.Model.Contact object.",
-        "The service call response (type Amazon.Connect.Model.DescribeContactResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Add", "AVPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.VerifiedPermissions.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.VerifiedPermissions.Model.TagResourceResponse) be returned by specifying '-Select *'."
     )]
-    public partial class GetCONNContactCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class AddAVPResourceTagCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ContactId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact.</para>
+        /// <para>The ARN of the resource that you're adding tags to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,52 +72,67 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The list of key-value pairs to associate with the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Contact'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeContactResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeContactResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Contact";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-AVPResourceTag (TagResource)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -124,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeContactResponse, GetCONNContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.TagResourceResponse, AddAVPResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -133,21 +151,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactId = this.ContactId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,15 +189,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.DescribeContactRequest();
+            var request = new Amazon.VerifiedPermissions.Model.TagResourceRequest();
             
-            if (cmdletContext.ContactId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ContactId = cmdletContext.ContactId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.Tag != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -207,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.DescribeContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeContactRequest request)
+        private Amazon.VerifiedPermissions.Model.TagResourceResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.DescribeContact(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.DescribeContactAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,10 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactId { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.DescribeContactResponse, GetCONNContactCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Contact;
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.TagResourceResponse, AddAVPResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

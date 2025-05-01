@@ -30664,8 +30664,11 @@ Set-Alias -Name AVP-ListPolicyStores -Value Get-AVPPolicyStoreList
 Set-Alias -Name List-AVPPolicyTemplates -Value Get-AVPPolicyTemplateList
 Set-Alias -Name List-AVPPolicyTemplateList -Value Get-AVPPolicyTemplateList
 Set-Alias -Name AVP-ListPolicyTemplates -Value Get-AVPPolicyTemplateList
+Set-Alias -Name AVP-ListTagsForResource -Value Get-AVPResourceTag
 Set-Alias -Name Put-AVPSchema -Value Write-AVPSchema
 Set-Alias -Name AVP-PutSchema -Value Write-AVPSchema
+Set-Alias -Name AVP-TagResource -Value Add-AVPResourceTag
+Set-Alias -Name AVP-UntagResource -Value Remove-AVPResourceTag
 Set-Alias -Name AVP-UpdateIdentitySource -Value Update-AVPIdentitySource
 Set-Alias -Name AVP-UpdatePolicy -Value Update-AVPPolicy
 Set-Alias -Name AVP-UpdatePolicyStore -Value Update-AVPPolicyStore

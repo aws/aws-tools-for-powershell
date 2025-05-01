@@ -1,4 +1,15 @@
-﻿### 4.1.810 (2025-04-30 20:40Z)
+﻿### 4.1.811 (2025-05-01 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1035.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMClusterSoftware: added parameters DeploymentConfig_AutoRollbackConfiguration, DeploymentConfig_WaitIntervalInSecond, InstanceGroup, MaximumBatchSize_Type, MaximumBatchSize_Value, RollbackMaximumBatchSize_Type and RollbackMaximumBatchSize_Value.
+  * Amazon Verified Permissions
+    * Added cmdlet Add-AVPResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-AVPResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-AVPResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Get-AVPPolicyStore: added parameter Tag.
+    * Modified cmdlet New-AVPPolicyStore: added parameter Tag.
+
+### 4.1.810 (2025-04-30 20:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1034.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCFleet: added parameter CustomerManaged_TagPropagationMode.
