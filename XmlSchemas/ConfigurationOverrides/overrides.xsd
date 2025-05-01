@@ -413,6 +413,11 @@
                             <xsd:documentation>Defaults to false. When set to true, allows to set PipelineParameter="" even if the cmdlet has non-metadata parameters.</xsd:documentation>
                           </xsd:annotation>
                         </xsd:attribute>
+                        <xsd:attribute name="LegacyV4Pagination" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>This should not be set for new operations. Defaults to false. When set to true, auto-iteration defined in the config will be used. otherwise .NET SDK's Paginator attributes will be used.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
                         <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional">
                           <xsd:annotation>
                             <xsd:documentation>ADVANCED CONFIGURATION. Semicolumn-separated list of parameter names that can be used positionally. Using positional parameters has backward compatibility concerns, don't use this configuration except to maintain backward compatibility when converting handwritten ("advanced") cmdlets to generated.</xsd:documentation>

@@ -926,6 +926,15 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         public AutoIteration AutoIterate;
 
+        /// <summary>
+        /// This should not be set to true for new operations. 
+        /// When set to true, auto-iteration defined in the config will be used.
+        /// otherwise .NET SDK's Paginator attributes will be used.
+        /// </summary>
+        [XmlAttribute]
+        [DefaultValue(false)]
+        public bool LegacyV4Pagination = false;
+
         public enum LegacyPaginationType
         {
             Default,

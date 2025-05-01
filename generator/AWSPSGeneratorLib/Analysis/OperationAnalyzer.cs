@@ -12,6 +12,7 @@ using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Utils;
 using System.Text.RegularExpressions;
 using Pluralize.NET.Core;
+using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace AWSPowerShellGenerator.Analysis
 {
@@ -49,6 +50,10 @@ namespace AWSPowerShellGenerator.Analysis
                 //Custom parameters added to every service cmdlet
                 "Select"},
             StringComparer.OrdinalIgnoreCase);
+
+        // Static cache to store paginator attributes per service assembly
+        private static readonly Dictionary<Assembly, Dictionary<string, AutoIteration>> PaginatorAttributesCache =
+            new Dictionary<Assembly, Dictionary<string, AutoIteration>>();
 
         #region Construction-time properties
 
@@ -134,19 +139,28 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
-                var autoIteration = AutoIteration.Combine(CurrentModel.AutoIterate, CurrentOperation.AutoIterate);
+                AutoIteration autoIteration;
 
-                //If autoiteration has configured field names for at least Start (input parameter idicating the pagination token) and Next
-                //(output value idicating the next pagination token) and the Start parameter is actually present in the input type
-                //and the Next value is present in the returned type
+                // If LegacyV4Pagination is false, try to use the .NET SDK's pagination attributes if available
+                if (!CurrentOperation.LegacyV4Pagination)
+                {
+                    // Try to get pagination attributes from the SDK
+                    autoIteration = GetPaginatorAttributes();
+                }
+                else
+                {
+                    // Use the legacy approach with existing configuration
+                    autoIteration = AutoIteration.Combine(CurrentModel.AutoIterate, CurrentOperation.AutoIterate);
+                }
+
+                // Existing validation code
                 if (autoIteration != null &&
                     !string.IsNullOrEmpty(autoIteration.Start) &&
                     !string.IsNullOrEmpty(autoIteration.Next) &&
                     AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.Start) &&
                     AreResultFieldsPresent(ReturnType, autoIteration.Next))
                 {
-                    //If autoiteration also has configured a field name for EmitLimit (input parameter idicating the max number of items
-                    //to be returned by the service) and the EmitLimit parameter is actually present in the input type
+                    // If autoiteration also has configured a field name for EmitLimit and the EmitLimit parameter is actually present
                     if (String.IsNullOrEmpty(autoIteration.EmitLimit) ||
                         CurrentOperation.LegacyPagination != ServiceOperation.LegacyPaginationType.UseEmitLimit ||
                         !AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.EmitLimit))
@@ -1807,6 +1821,95 @@ namespace AWSPowerShellGenerator.Analysis
 
             var props = inspectedType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
             return fieldNames.Intersect(props.Select(p => p.Name)).Count() == fieldNames.Count();
+        }
+
+        /// <summary>
+        /// Gets pagination attributes from the .NET SDK Paginators attribute with caching.
+        /// </summary>
+        /// <returns>AutoIteration settings based on SDK pagination attributes</returns>
+        private AutoIteration GetPaginatorAttributes()
+        {
+            try
+            {
+                // Check if paginator attributes are already cached for this assembly
+                if (!PaginatorAttributesCache.TryGetValue(CurrentModel.Assembly, out var serviceCache))
+                {
+                    // If not, load and cache all paginator attributes for this service
+                    serviceCache = LoadPaginatorAttributes();
+                    PaginatorAttributesCache[CurrentModel.Assembly] = serviceCache;
+                }
+
+                // Look for the current operation in the cache
+                if (serviceCache.TryGetValue(CurrentOperation.MethodName, out var autoIteration))
+                {
+                    return autoIteration;
+                }
+            }
+            catch (Exception e)
+            {
+                // Add error to the analysis errors collection
+                AnalysisError.ExceptionWhileGettingPaginatorAttributes(CurrentModel, CurrentOperation, e);
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Loads all paginator attributes for the current service assembly.
+        /// </summary>
+        /// <returns>Dictionary mapping operation names to their paginator attributes</returns>
+        private Dictionary<string, AutoIteration> LoadPaginatorAttributes()
+        {
+            var paginatorAttributes = new Dictionary<string, AutoIteration>(StringComparer.OrdinalIgnoreCase);
+
+            try
+            {
+                // Format the paginator factory interface type name
+                var pageFactoryInterfaceTypeName = string.Format("{0}.Model.I{1}PaginatorFactory",
+                    CurrentModel.ServiceNamespace, CurrentModel.AssemblyName);
+
+                // Get the paginator factory interface type
+                var pageFactoryInterfaceType = CurrentModel.Assembly.GetType(pageFactoryInterfaceTypeName);
+
+                if (pageFactoryInterfaceType != null)
+                {
+                    // Get all methods of the paginator factory interface
+                    var pageFactoryInterfaceMethods = pageFactoryInterfaceType.GetMethods()
+                        .OrderBy(m => m.Name).ToList();
+
+                    // Process each method in the interface
+                    foreach (var pageFactoryMethod in pageFactoryInterfaceMethods)
+                    {
+                        // Find the paginator attribute
+                        dynamic awsPaginatorFactoryAttribute = pageFactoryMethod
+                            .GetCustomAttributes()
+                            .SingleOrDefault(attribute =>
+                                attribute.GetType().FullName == "Amazon.Runtime.Internal.AWSPaginatorAttribute");
+
+                        if (awsPaginatorFactoryAttribute != null)
+                        {
+                            string methodName = pageFactoryMethod.Name;
+
+                            var autoIteration = new AutoIteration
+                            {
+                                Start = awsPaginatorFactoryAttribute.InputToken[0],
+                                Next = awsPaginatorFactoryAttribute.OutputToken[0],
+                                EmitLimit = awsPaginatorFactoryAttribute.LimitKey
+                            };
+
+                            // Add to cache
+                            paginatorAttributes[methodName] = autoIteration;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // Add error to the analysis errors collection
+                AnalysisError.ExceptionWhileLoadingPaginatorAttributes(CurrentModel, e);
+            }
+
+            return paginatorAttributes;
         }
     }
 }

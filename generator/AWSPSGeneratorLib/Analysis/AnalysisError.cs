@@ -281,5 +281,13 @@ namespace AWSPowerShellGenerator.Analysis
         {
             return string.Join(", ", list);
         }
+        public static void ExceptionWhileGettingPaginatorAttributes(ConfigModel service, ServiceOperation operation, Exception exception)
+        {
+            new AnalysisError(service, operation, $"Error while getting paginator attributes: {exception}");
+        }
+        public static void ExceptionWhileLoadingPaginatorAttributes(ConfigModel service, Exception exception)
+        {
+            new AnalysisError(service, $"Error while loading paginator attributes: {exception}");
+        }
     }
 }
