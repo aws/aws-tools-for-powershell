@@ -19,70 +19,70 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchCreateAttendee" OutputProperty="*" Verb="New" Noun="AttendeeBatch" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCreateAttendee" OutputProperty="*" Verb="New" Noun="AttendeeBatch" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateAttendeeCapabilitiesExcept" Verb="Update" Noun="UpdateAttendeeCapabilitiesExcept" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateAttendeeCapabilitiesExcept" Verb="Update" Noun="UpdateAttendeeCapabilitiesExcept" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAttendee" OutputProperty="Attendee" Verb="New" Noun="Attendee" ShouldProcessTarget="ExternalUserId" PipelineParameter="ExternalUserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAttendee" OutputProperty="Attendee" Verb="New" Noun="Attendee" ShouldProcessTarget="ExternalUserId" PipelineParameter="ExternalUserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMeeting" OutputProperty="Meeting" Verb="New" Noun="Meeting" ShouldProcessTarget="ExternalMeetingId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMeeting" OutputProperty="Meeting" Verb="New" Noun="Meeting" ShouldProcessTarget="ExternalMeetingId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMeetingWithAttendees" OutputProperty="*" Verb="New" Noun="MeetingWithAttendee" ShouldProcessTarget="ExternalMeetingId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMeetingWithAttendees" OutputProperty="*" Verb="New" Noun="MeetingWithAttendee" ShouldProcessTarget="ExternalMeetingId" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAttendee" Verb="Remove" Noun="Attendee" ShouldProcessTarget="AttendeeId" PipelineParameter="AttendeeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAttendee" Verb="Remove" Noun="Attendee" ShouldProcessTarget="AttendeeId" PipelineParameter="AttendeeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMeeting" Verb="Remove" Noun="Meeting" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMeeting" Verb="Remove" Noun="Meeting" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttendee" OutputProperty="Attendee" Verb="Get" Noun="Attendee" PipelineParameter="AttendeeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAttendee" OutputProperty="Attendee" Verb="Get" Noun="Attendee" PipelineParameter="AttendeeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMeeting" OutputProperty="Meeting" Verb="Get" Noun="Meeting" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMeeting" OutputProperty="Meeting" Verb="Get" Noun="Meeting" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttendees" OutputProperty="Attendees" Verb="Get" Noun="AttendeeList" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAttendees" OutputProperty="Attendees" Verb="Get" Noun="AttendeeList" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMeetingTranscription" Verb="Start" Noun="MeetingTranscription" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMeetingTranscription" Verb="Start" Noun="MeetingTranscription" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames" NewName="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames" Alias="EngineTranscribeSettings_VocabularyNames" />
                 <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames" NewName="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames" Alias="EngineTranscribeSettings_VocabularyFilterNames" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopMeetingTranscription" Verb="Stop" Noun="MeetingTranscription" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopMeetingTranscription" Verb="Stop" Noun="MeetingTranscription" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAttendeeCapabilities" OutputProperty="Attendee" Verb="Update" Noun="AttendeeCapability" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAttendeeCapabilities" OutputProperty="Attendee" Verb="Update" Noun="AttendeeCapability" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

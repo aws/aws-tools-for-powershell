@@ -19,107 +19,107 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAlarmModel" OutputProperty="*" Verb="New" Noun="AlarmModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAlarmModel" OutputProperty="*" Verb="New" Noun="AlarmModel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="New" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="New" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInput" OutputProperty="InputConfiguration" Verb="New" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInput" OutputProperty="InputConfiguration" Verb="New" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlarmModel" Verb="Remove" Noun="AlarmModel" ShouldProcessTarget="AlarmModelName" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAlarmModel" Verb="Remove" Noun="AlarmModel" ShouldProcessTarget="AlarmModelName" PipelineParameter="AlarmModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDetectorModel" Verb="Remove" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDetectorModel" Verb="Remove" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInput" Verb="Remove" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInput" Verb="Remove" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmModel" OutputProperty="*" Verb="Get" Noun="AlarmModel" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlarmModel" OutputProperty="*" Verb="Get" Noun="AlarmModel" PipelineParameter="AlarmModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDetectorModel" OutputProperty="DetectorModel" Verb="Get" Noun="DetectorModel" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDetectorModel" OutputProperty="DetectorModel" Verb="Get" Noun="DetectorModel" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDetectorModelAnalysis" OutputProperty="Status" Verb="Get" Noun="DetectorModelAnalysis" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDetectorModelAnalysis" OutputProperty="Status" Verb="Get" Noun="DetectorModelAnalysis" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInput" OutputProperty="Input" Verb="Get" Noun="Input" PipelineParameter="InputName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInput" OutputProperty="Input" Verb="Get" Noun="Input" PipelineParameter="InputName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoggingOptions" OutputProperty="LoggingOptions" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoggingOptions" OutputProperty="LoggingOptions" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDetectorModelAnalysisResults" OutputProperty="AnalysisResults" Verb="Get" Noun="DetectorModelAnalysisResult" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDetectorModelAnalysisResults" OutputProperty="AnalysisResults" Verb="Get" Noun="DetectorModelAnalysisResult" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAlarmModels" OutputProperty="AlarmModelSummaries" Verb="Get" Noun="AlarmModelList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAlarmModels" OutputProperty="AlarmModelSummaries" Verb="Get" Noun="AlarmModelList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAlarmModelVersions" OutputProperty="AlarmModelVersionSummaries" Verb="Get" Noun="AlarmModelVersionList" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAlarmModelVersions" OutputProperty="AlarmModelVersionSummaries" Verb="Get" Noun="AlarmModelVersionList" PipelineParameter="AlarmModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectorModels" OutputProperty="DetectorModelSummaries" Verb="Get" Noun="DetectorModelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDetectorModels" OutputProperty="DetectorModelSummaries" Verb="Get" Noun="DetectorModelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectorModelVersions" OutputProperty="DetectorModelVersionSummaries" Verb="Get" Noun="DetectorModelVersionList" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDetectorModelVersions" OutputProperty="DetectorModelVersionSummaries" Verb="Get" Noun="DetectorModelVersionList" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputRoutings" OutputProperty="RoutedResources" Verb="Get" Noun="InputRoutingList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListInputRoutings" OutputProperty="RoutedResources" Verb="Get" Noun="InputRoutingList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputs" OutputProperty="InputSummaries" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListInputs" OutputProperty="InputSummaries" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDetectorModelAnalysis" OutputProperty="AnalysisId" Verb="Start" Noun="DetectorModelAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartDetectorModelAnalysis" OutputProperty="AnalysisId" Verb="Start" Noun="DetectorModelAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAlarmModel" OutputProperty="*" Verb="Update" Noun="AlarmModel" AnonymousShouldProcessTarget="true" PipelineParameter="AlarmModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAlarmModel" OutputProperty="*" Verb="Update" Noun="AlarmModel" AnonymousShouldProcessTarget="true" PipelineParameter="AlarmModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="Update" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="Update" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInput" OutputProperty="InputConfiguration" Verb="Update" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInput" OutputProperty="InputConfiguration" Verb="Update" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

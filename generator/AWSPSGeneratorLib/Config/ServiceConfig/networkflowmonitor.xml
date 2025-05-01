@@ -19,103 +19,103 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateMonitor" OutputProperty="*" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMonitor" OutputProperty="*" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScope" OutputProperty="*" Verb="New" Noun="Scope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateScope" OutputProperty="*" Verb="New" Noun="Scope" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScope" Verb="Remove" Noun="Scope" ShouldProcessTarget="ScopeId" PipelineParameter="ScopeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScope" Verb="Remove" Noun="Scope" ShouldProcessTarget="ScopeId" PipelineParameter="ScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResultsMonitorTopContributors" OutputProperty="*" Verb="Get" Noun="QueryResultsMonitorTopContributor" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryResultsMonitorTopContributors" OutputProperty="*" Verb="Get" Noun="QueryResultsMonitorTopContributor" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResultsWorkloadInsightsTopContributors" OutputProperty="TopContributors" Verb="Get" Noun="QueryResultsWorkloadInsightsTopContributor" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetQueryResultsWorkloadInsightsTopContributors" OutputProperty="TopContributors" Verb="Get" Noun="QueryResultsWorkloadInsightsTopContributor" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResultsWorkloadInsightsTopContributorsData" OutputProperty="*" Verb="Get" Noun="QueryResultsWorkloadInsightsTopContributorsData" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetQueryResultsWorkloadInsightsTopContributorsData" OutputProperty="*" Verb="Get" Noun="QueryResultsWorkloadInsightsTopContributorsData" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryStatusMonitorTopContributors" OutputProperty="Status" Verb="Get" Noun="QueryStatusMonitorTopContributor" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryStatusMonitorTopContributors" OutputProperty="Status" Verb="Get" Noun="QueryStatusMonitorTopContributor" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryStatusWorkloadInsightsTopContributors" OutputProperty="Status" Verb="Get" Noun="QueryStatusWorkloadInsightsTopContributor" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryStatusWorkloadInsightsTopContributors" OutputProperty="Status" Verb="Get" Noun="QueryStatusWorkloadInsightsTopContributor" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryStatusWorkloadInsightsTopContributorsData" OutputProperty="Status" Verb="Get" Noun="QueryStatusWorkloadInsightsTopContributorsData" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryStatusWorkloadInsightsTopContributorsData" OutputProperty="Status" Verb="Get" Noun="QueryStatusWorkloadInsightsTopContributorsData" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetScope" OutputProperty="*" Verb="Get" Noun="Scope" PipelineParameter="ScopeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetScope" OutputProperty="*" Verb="Get" Noun="Scope" PipelineParameter="ScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="MonitorStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="MonitorStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScopes" OutputProperty="Scopes" Verb="Get" Noun="ScopeList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListScopes" OutputProperty="Scopes" Verb="Get" Noun="ScopeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQueryMonitorTopContributors" OutputProperty="QueryId" Verb="Start" Noun="QueryMonitorTopContributor" ShouldProcessTarget="MonitorName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartQueryMonitorTopContributors" OutputProperty="QueryId" Verb="Start" Noun="QueryMonitorTopContributor" ShouldProcessTarget="MonitorName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQueryWorkloadInsightsTopContributors" OutputProperty="QueryId" Verb="Start" Noun="QueryWorkloadInsightsTopContributor" ShouldProcessTarget="ScopeId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartQueryWorkloadInsightsTopContributors" OutputProperty="QueryId" Verb="Start" Noun="QueryWorkloadInsightsTopContributor" ShouldProcessTarget="ScopeId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQueryWorkloadInsightsTopContributorsData" OutputProperty="QueryId" Verb="Start" Noun="QueryWorkloadInsightsTopContributorsData" ShouldProcessTarget="ScopeId" PipelineParameter="ScopeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartQueryWorkloadInsightsTopContributorsData" OutputProperty="QueryId" Verb="Start" Noun="QueryWorkloadInsightsTopContributorsData" ShouldProcessTarget="ScopeId" PipelineParameter="ScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQueryMonitorTopContributors" Verb="Stop" Noun="QueryMonitorTopContributor" ShouldProcessTarget="MonitorName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StopQueryMonitorTopContributors" Verb="Stop" Noun="QueryMonitorTopContributor" ShouldProcessTarget="MonitorName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQueryWorkloadInsightsTopContributors" Verb="Stop" Noun="QueryWorkloadInsightsTopContributor" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StopQueryWorkloadInsightsTopContributors" Verb="Stop" Noun="QueryWorkloadInsightsTopContributor" ShouldProcessTarget="QueryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQueryWorkloadInsightsTopContributorsData" Verb="Stop" Noun="QueryWorkloadInsightsTopContributorsData" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopQueryWorkloadInsightsTopContributorsData" Verb="Stop" Noun="QueryWorkloadInsightsTopContributorsData" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScope" OutputProperty="*" Verb="Update" Noun="Scope" ShouldProcessTarget="ScopeId" PipelineParameter="ScopeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScope" OutputProperty="*" Verb="Update" Noun="Scope" ShouldProcessTarget="ScopeId" PipelineParameter="ScopeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,71 +29,71 @@
         <Property>HasMoreResults</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivatePipeline" Verb="Enable" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ActivatePipeline" Verb="Enable" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyAlias="Add-DPTags">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyAlias="Add-DPTags" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePipeline" OutputProperty="PipelineId" Verb="New" Noun="Pipeline" ShouldProcessTarget="Name" PositionalParameters="UniqueId;Description" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePipeline" OutputProperty="PipelineId" Verb="New" Noun="Pipeline" ShouldProcessTarget="Name" PositionalParameters="UniqueId;Description" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivatePipeline" Verb="Disable" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeactivatePipeline" Verb="Disable" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeObjects" OutputProperty="PipelineObjects" Verb="Get" Noun="Object" PositionalParameters="ObjectIds;EvaluateExpressions" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeObjects" OutputProperty="PipelineObjects" Verb="Get" Noun="Object" PositionalParameters="ObjectIds;EvaluateExpressions" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePipelines" OutputProperty="PipelineDescriptionList" Verb="Get" Noun="PipelineDescription" PipelineParameter="PipelineIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePipelines" OutputProperty="PipelineDescriptionList" Verb="Get" Noun="PipelineDescription" PipelineParameter="PipelineIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EvaluateExpression" OutputProperty="EvaluatedExpression" Verb="Invoke" Noun="Expression" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectId;Expression" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EvaluateExpression" OutputProperty="EvaluatedExpression" Verb="Invoke" Noun="Expression" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectId;Expression" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipelineDefinition" OutputProperty="*" Verb="Get" Noun="PipelineDefinition" PositionalParameters="Version" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPipelineDefinition" OutputProperty="*" Verb="Get" Noun="PipelineDefinition" PositionalParameters="Version" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelines" OutputProperty="PipelineIdList" Verb="Get" Noun="Pipeline" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPipelines" OutputProperty="PipelineIdList" Verb="Get" Noun="Pipeline" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForTask" OutputProperty="TaskObject" Verb="Get" Noun="Task" PositionalParameters="Hostname" PipelineParameter="WorkerGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PollForTask" OutputProperty="TaskObject" Verb="Get" Noun="Task" PositionalParameters="Hostname" PipelineParameter="WorkerGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPipelineDefinition" OutputProperty="*" Verb="Write" Noun="PipelineDefinition" ShouldProcessTarget="PipelineId" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutPipelineDefinition" OutputProperty="*" Verb="Write" Noun="PipelineDefinition" ShouldProcessTarget="PipelineId" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="QueryObjects" OutputProperty="Ids" Verb="Find" Noun="Object" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="QueryObjects" OutputProperty="Ids" Verb="Find" Noun="Object" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyAlias="Remove-DPTags">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyAlias="Remove-DPTags" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReportTaskProgress" OutputProperty="Canceled" Verb="Update" Noun="TaskProgress" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReportTaskProgress" OutputProperty="Canceled" Verb="Update" Noun="TaskProgress" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReportTaskRunnerHeartbeat" OutputProperty="Terminate" Verb="Update" Noun="TaskRunnerHeartbeat" ShouldProcessTarget="TaskrunnerId" PositionalParameters="WorkerGroup;Hostname" PipelineParameter="TaskrunnerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReportTaskRunnerHeartbeat" OutputProperty="Terminate" Verb="Update" Noun="TaskRunnerHeartbeat" ShouldProcessTarget="TaskrunnerId" PositionalParameters="WorkerGroup;Hostname" PipelineParameter="TaskrunnerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetStatus" Verb="Set" Noun="Status" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectIds;Status" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetStatus" Verb="Set" Noun="Status" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectIds;Status" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <PassThru>
                 <Expression>context.ObjectId</Expression>
@@ -102,11 +102,11 @@
             </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTaskStatus" Verb="Set" Noun="TaskStatus" ShouldProcessTarget="TaskId" PositionalParameters="TaskStatus;ErrorId;ErrorMessage;ErrorStackTrace" PipelineParameter="TaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetTaskStatus" Verb="Set" Noun="TaskStatus" ShouldProcessTarget="TaskId" PositionalParameters="TaskStatus;ErrorId;ErrorMessage;ErrorStackTrace" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidatePipelineDefinition" OutputProperty="*" Verb="Test" Noun="PipelineDefinition" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ValidatePipelineDefinition" OutputProperty="*" Verb="Test" Noun="PipelineDefinition" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

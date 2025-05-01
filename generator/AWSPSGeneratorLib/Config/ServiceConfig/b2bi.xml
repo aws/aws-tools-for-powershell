@@ -18,23 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCapability" OutputProperty="*" Verb="New" Noun="Capability" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCapability" OutputProperty="*" Verb="New" Noun="Capability" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePartnership" OutputProperty="*" Verb="New" Noun="Partnership" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePartnership" OutputProperty="*" Verb="New" Noun="Partnership" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProfile" OutputProperty="*" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="*" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStarterMappingTemplate" OutputProperty="MappingTemplate" Verb="New" Noun="StarterMappingTemplate" ShouldProcessTarget="OutputSampleLocation_BucketName" PipelineParameter="MappingType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStarterMappingTemplate" OutputProperty="MappingTemplate" Verb="New" Noun="StarterMappingTemplate" ShouldProcessTarget="OutputSampleLocation_BucketName" PipelineParameter="MappingType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTransformer" OutputProperty="*" Verb="New" Noun="Transformer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTransformer" OutputProperty="*" Verb="New" Noun="Transformer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="InputConversion_FormatOptions_X12_TransactionSet" NewName="InputConversion_FormatOptions_X12_TransactionSet" />
                 <Param Name="InputConversion_FormatOptions_X12_Version" NewName="InputConversion_FormatOptions_X12_Version" />
@@ -43,103 +43,103 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCapability" Verb="Remove" Noun="Capability" ShouldProcessTarget="CapabilityId" PipelineParameter="CapabilityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCapability" Verb="Remove" Noun="Capability" ShouldProcessTarget="CapabilityId" PipelineParameter="CapabilityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePartnership" Verb="Remove" Noun="Partnership" ShouldProcessTarget="PartnershipId" PipelineParameter="PartnershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePartnership" Verb="Remove" Noun="Partnership" ShouldProcessTarget="PartnershipId" PipelineParameter="PartnershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTransformer" Verb="Remove" Noun="Transformer" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTransformer" Verb="Remove" Noun="Transformer" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateMapping" OutputProperty="*" Verb="Get" Noun="GeneratedMapping" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GenerateMapping" OutputProperty="*" Verb="Get" Noun="GeneratedMapping" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCapability" OutputProperty="*" Verb="Get" Noun="Capability" PipelineParameter="CapabilityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCapability" OutputProperty="*" Verb="Get" Noun="Capability" PipelineParameter="CapabilityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPartnership" OutputProperty="*" Verb="Get" Noun="Partnership" PipelineParameter="PartnershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPartnership" OutputProperty="*" Verb="Get" Noun="Partnership" PipelineParameter="PartnershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfile" OutputProperty="*" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfile" OutputProperty="*" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="TransformerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTransformer" OutputProperty="*" Verb="Get" Noun="Transformer" PipelineParameter="TransformerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTransformerJob" OutputProperty="*" Verb="Get" Noun="TransformerJob" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTransformerJob" OutputProperty="*" Verb="Get" Noun="TransformerJob" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCapabilities" OutputProperty="Capabilities" Verb="Get" Noun="CapabilityList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCapabilities" OutputProperty="Capabilities" Verb="Get" Noun="CapabilityList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPartnerships" OutputProperty="Partnerships" Verb="Get" Noun="PartnershipList" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPartnerships" OutputProperty="Partnerships" Verb="Get" Noun="PartnershipList" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTransformers" OutputProperty="Transformers" Verb="Get" Noun="TransformerList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTransformers" OutputProperty="Transformers" Verb="Get" Noun="TransformerList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTransformerJob" OutputProperty="TransformerJobId" Verb="Start" Noun="TransformerJob" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartTransformerJob" OutputProperty="TransformerJobId" Verb="Start" Noun="TransformerJob" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestConversion" OutputProperty="*" Verb="Test" Noun="Conversion" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TestConversion" OutputProperty="*" Verb="Test" Noun="Conversion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestMapping" OutputProperty="MappedFileContent" Verb="Test" Noun="Mapping" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TestMapping" OutputProperty="MappedFileContent" Verb="Test" Noun="Mapping" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestParsing" OutputProperty="ParsedFileContent" Verb="Test" Noun="Parsing" PipelineParameter="FileFormat" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestParsing" OutputProperty="ParsedFileContent" Verb="Test" Noun="Parsing" PipelineParameter="FileFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCapability" OutputProperty="*" Verb="Update" Noun="Capability" ShouldProcessTarget="CapabilityId" PipelineParameter="CapabilityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCapability" OutputProperty="*" Verb="Update" Noun="Capability" ShouldProcessTarget="CapabilityId" PipelineParameter="CapabilityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePartnership" OutputProperty="*" Verb="Update" Noun="Partnership" ShouldProcessTarget="PartnershipId" PipelineParameter="PartnershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePartnership" OutputProperty="*" Verb="Update" Noun="Partnership" ShouldProcessTarget="PartnershipId" PipelineParameter="PartnershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfile" OutputProperty="*" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProfile" OutputProperty="*" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTransformer" OutputProperty="*" Verb="Update" Noun="Transformer" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTransformer" OutputProperty="*" Verb="Update" Noun="Transformer" ShouldProcessTarget="TransformerId" PipelineParameter="TransformerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="InputConversion_FormatOptions_X12_TransactionSet" NewName="InputConversion_FormatOptions_X12_TransactionSet" />
                 <Param Name="InputConversion_FormatOptions_X12_Version" NewName="InputConversion_FormatOptions_X12_Version" />

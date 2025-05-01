@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchMeterUsage" OutputProperty="*" Verb="Send" Noun="MeteringDataBatch" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchMeterUsage" OutputProperty="*" Verb="Send" Noun="MeteringDataBatch" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MeterUsage" OutputProperty="MeteringRecordId" Verb="Send" Noun="MeteringData" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MeterUsage" OutputProperty="MeteringRecordId" Verb="Send" Noun="MeteringData" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterUsage" OutputProperty="*" Verb="Register" Noun="Usage" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterUsage" OutputProperty="*" Verb="Register" Noun="Usage" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResolveCustomer" OutputProperty="*" Verb="Get" Noun="CustomerMetadata" PipelineParameter="RegistrationToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResolveCustomer" OutputProperty="*" Verb="Get" Noun="CustomerMetadata" PipelineParameter="RegistrationToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

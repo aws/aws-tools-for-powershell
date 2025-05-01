@@ -19,218 +19,218 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddBridgeOutputs" OutputProperty="*" Verb="Add" Noun="BridgeOutput" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddBridgeOutputs" OutputProperty="*" Verb="Add" Noun="BridgeOutput" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddBridgeSources" OutputProperty="*" Verb="Add" Noun="BridgeSource" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddBridgeSources" OutputProperty="*" Verb="Add" Noun="BridgeSource" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddFlowMediaStreams" OutputProperty="*" Verb="Add" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddFlowMediaStreams" OutputProperty="*" Verb="Add" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddFlowOutputs" OutputProperty="Outputs" Verb="Add" Noun="FlowOutput" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddFlowOutputs" OutputProperty="Outputs" Verb="Add" Noun="FlowOutput" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddFlowSources" OutputProperty="*" Verb="Add" Noun="FlowSource" ShouldProcessTarget="Sources" PipelineParameter="Sources" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddFlowSources" OutputProperty="*" Verb="Add" Noun="FlowSource" ShouldProcessTarget="Sources" PipelineParameter="Sources" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Sources" NewName="Source" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddFlowVpcInterfaces" OutputProperty="*" Verb="Add" Noun="FlowVpcInterface" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddFlowVpcInterfaces" OutputProperty="*" Verb="Add" Noun="FlowVpcInterface" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBridge" OutputProperty="Bridge" Verb="New" Noun="Bridge" ShouldProcessTarget="Name" PipelineParameter="PlacementArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBridge" OutputProperty="Bridge" Verb="New" Noun="Bridge" ShouldProcessTarget="Name" PipelineParameter="PlacementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlow" OutputProperty="Flow" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFlow" OutputProperty="Flow" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Source" Exclude="true" />
                 <Param Name="Sources" NewName="Source" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGateway" OutputProperty="Gateway" Verb="New" Noun="Gateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGateway" OutputProperty="Gateway" Verb="New" Noun="Gateway" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBridge" OutputProperty="BridgeArn" Verb="Remove" Noun="Bridge" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBridge" OutputProperty="BridgeArn" Verb="Remove" Noun="Bridge" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlow" OutputProperty="*" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFlow" OutputProperty="*" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGateway" OutputProperty="GatewayArn" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGateway" OutputProperty="GatewayArn" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterGatewayInstance" OutputProperty="*" Verb="Remove" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterGatewayInstance" OutputProperty="*" Verb="Remove" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="ForceRemove" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBridge" OutputProperty="Bridge" Verb="Get" Noun="Bridge" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBridge" OutputProperty="Bridge" Verb="Get" Noun="Bridge" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlowSourceMetadata" OutputProperty="*" Verb="Get" Noun="FlowSourceMetadata" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFlowSourceMetadata" OutputProperty="*" Verb="Get" Noun="FlowSourceMetadata" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlowSourceThumbnail" OutputProperty="ThumbnailDetails" Verb="Get" Noun="FlowSourceThumbnail" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFlowSourceThumbnail" OutputProperty="ThumbnailDetails" Verb="Get" Noun="FlowSourceThumbnail" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGatewayInstance" OutputProperty="GatewayInstance" Verb="Get" Noun="GatewayInstance" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGatewayInstance" OutputProperty="GatewayInstance" Verb="Get" Noun="GatewayInstance" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOffering" OutputProperty="Offering" Verb="Get" Noun="Offering" PipelineParameter="OfferingArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOffering" OutputProperty="Offering" Verb="Get" Noun="Offering" PipelineParameter="OfferingArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservation" OutputProperty="Reservation" Verb="Get" Noun="Reservation" PipelineParameter="ReservationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReservation" OutputProperty="Reservation" Verb="Get" Noun="Reservation" PipelineParameter="ReservationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GrantFlowEntitlements" OutputProperty="Entitlements" Verb="Grant" Noun="FlowEntitlement" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GrantFlowEntitlements" OutputProperty="Entitlements" Verb="Grant" Noun="FlowEntitlement" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBridges" OutputProperty="Bridges" Verb="Get" Noun="BridgeList" PipelineParameter="FilterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBridges" OutputProperty="Bridges" Verb="Get" Noun="BridgeList" PipelineParameter="FilterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGatewayInstances" OutputProperty="Instances" Verb="Get" Noun="GatewayInstanceList" PipelineParameter="FilterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGatewayInstances" OutputProperty="Instances" Verb="Get" Noun="GatewayInstanceList" PipelineParameter="FilterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="Offering" ShouldProcessTarget="OfferingArn" PipelineParameter="OfferingArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="Offering" ShouldProcessTarget="OfferingArn" PipelineParameter="OfferingArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveBridgeOutput" OutputProperty="*" Verb="Remove" Noun="BridgeOutput" ShouldProcessTarget="OutputName" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveBridgeOutput" OutputProperty="*" Verb="Remove" Noun="BridgeOutput" ShouldProcessTarget="OutputName" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveBridgeSource" OutputProperty="*" Verb="Remove" Noun="BridgeSource" ShouldProcessTarget="SourceName" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveBridgeSource" OutputProperty="*" Verb="Remove" Noun="BridgeSource" ShouldProcessTarget="SourceName" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFlowMediaStream" OutputProperty="*" Verb="Remove" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveFlowMediaStream" OutputProperty="*" Verb="Remove" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFlowOutput" OutputProperty="*" Verb="Remove" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveFlowOutput" OutputProperty="*" Verb="Remove" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFlowSource" OutputProperty="*" Verb="Remove" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveFlowSource" OutputProperty="*" Verb="Remove" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFlowVpcInterface" OutputProperty="*" Verb="Remove" Noun="FlowVpcInterface" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveFlowVpcInterface" OutputProperty="*" Verb="Remove" Noun="FlowVpcInterface" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeFlowEntitlement" OutputProperty="*" Verb="Revoke" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RevokeFlowEntitlement" OutputProperty="*" Verb="Revoke" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFlow" OutputProperty="*" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartFlow" OutputProperty="*" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFlow" OutputProperty="*" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopFlow" OutputProperty="*" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBridge" OutputProperty="Bridge" Verb="Update" Noun="Bridge" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBridge" OutputProperty="Bridge" Verb="Update" Noun="Bridge" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBridgeOutput" OutputProperty="*" Verb="Update" Noun="BridgeOutput" ShouldProcessTarget="OutputName" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBridgeOutput" OutputProperty="*" Verb="Update" Noun="BridgeOutput" ShouldProcessTarget="OutputName" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBridgeSource" OutputProperty="*" Verb="Update" Noun="BridgeSource" ShouldProcessTarget="SourceName" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBridgeSource" OutputProperty="*" Verb="Update" Noun="BridgeSource" ShouldProcessTarget="SourceName" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBridgeState" OutputProperty="*" Verb="Update" Noun="BridgeState" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBridgeState" OutputProperty="*" Verb="Update" Noun="BridgeState" ShouldProcessTarget="BridgeArn" PipelineParameter="BridgeArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlow" OutputProperty="Flow" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlow" OutputProperty="Flow" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlowEntitlement" OutputProperty="Entitlement" Verb="Update" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowMediaStream" OutputProperty="*" Verb="Update" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlowMediaStream" OutputProperty="*" Verb="Update" Noun="FlowMediaStream" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowOutput" OutputProperty="Output" Verb="Update" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlowOutput" OutputProperty="Output" Verb="Update" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowSource" OutputProperty="Source" Verb="Update" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlowSource" OutputProperty="Source" Verb="Update" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGatewayInstance" OutputProperty="*" Verb="Update" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGatewayInstance" OutputProperty="*" Verb="Update" Noun="GatewayInstance" ShouldProcessTarget="GatewayInstanceArn" PipelineParameter="GatewayInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

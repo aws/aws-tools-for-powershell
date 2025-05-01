@@ -19,27 +19,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateEntitiesToExperience" OutputProperty="FailedEntityList" Verb="Add" Noun="EntitiesToExperience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateEntitiesToExperience" OutputProperty="FailedEntityList" Verb="Add" Noun="EntitiesToExperience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePersonasToEntities" OutputProperty="FailedEntityList" Verb="Add" Noun="PersonasToEntity" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociatePersonasToEntities" OutputProperty="FailedEntityList" Verb="Add" Noun="PersonasToEntity" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteDocument" OutputProperty="FailedDocuments" Verb="Remove" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteDocument" OutputProperty="FailedDocuments" Verb="Remove" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteFeaturedResultsSet" OutputProperty="Errors" Verb="Remove" Noun="FeaturedResultsSetBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteFeaturedResultsSet" OutputProperty="Errors" Verb="Remove" Noun="FeaturedResultsSetBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetDocumentStatus" OutputProperty="*" Verb="Get" Noun="GetDocumentStatus" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetDocumentStatus" OutputProperty="*" Verb="Get" Noun="GetDocumentStatus" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutDocument" OutputProperty="FailedDocuments" Verb="Write" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutDocument" OutputProperty="FailedDocuments" Verb="Write" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
@@ -56,15 +56,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ClearQuerySuggestions" Verb="Clear" Noun="QuerySuggestion" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ClearQuerySuggestions" Verb="Clear" Noun="QuerySuggestion" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccessControlConfiguration" OutputProperty="Id" Verb="New" Noun="AccessControlConfiguration" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccessControlConfiguration" OutputProperty="Id" Verb="New" Noun="AccessControlConfiguration" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSource" OutputProperty="Id" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="Id" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
@@ -81,207 +81,207 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExperience" OutputProperty="Id" Verb="New" Noun="Experience" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateExperience" OutputProperty="Id" Verb="New" Noun="Experience" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFaq" OutputProperty="Id" Verb="New" Noun="Faq" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFaq" OutputProperty="Id" Verb="New" Noun="Faq" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="New" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetName" PipelineParameter="FeaturedResultsSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="New" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetName" PipelineParameter="FeaturedResultsSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIndex" OutputProperty="Id" Verb="New" Noun="Index" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="Id" Verb="New" Noun="Index" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQuerySuggestionsBlockList" OutputProperty="Id" Verb="New" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Name" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQuerySuggestionsBlockList" OutputProperty="Id" Verb="New" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Name" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThesaurus" OutputProperty="Id" Verb="New" Noun="Thesaurus" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThesaurus" OutputProperty="Id" Verb="New" Noun="Thesaurus" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessControlConfiguration" Verb="Remove" Noun="AccessControlConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccessControlConfiguration" Verb="Remove" Noun="AccessControlConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExperience" Verb="Remove" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteExperience" Verb="Remove" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFaq" Verb="Remove" Noun="Faq" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFaq" Verb="Remove" Noun="Faq" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIndex" Verb="Remove" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIndex" Verb="Remove" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePrincipalMapping" Verb="Remove" Noun="PrincipalMapping" ShouldProcessTarget="IndexId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePrincipalMapping" Verb="Remove" Noun="PrincipalMapping" ShouldProcessTarget="IndexId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQuerySuggestionsBlockList" Verb="Remove" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQuerySuggestionsBlockList" Verb="Remove" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThesaurus" Verb="Remove" Noun="Thesaurus" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThesaurus" Verb="Remove" Noun="Thesaurus" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccessControlConfiguration" OutputProperty="*" Verb="Get" Noun="AccessControlConfiguration" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccessControlConfiguration" OutputProperty="*" Verb="Get" Noun="AccessControlConfiguration" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExperience" OutputProperty="*" Verb="Get" Noun="Experience" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeExperience" OutputProperty="*" Verb="Get" Noun="Experience" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFaq" OutputProperty="*" Verb="Get" Noun="Faq" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFaq" OutputProperty="*" Verb="Get" Noun="Faq" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFeaturedResultsSet" OutputProperty="*" Verb="Get" Noun="FeaturedResultsSet" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFeaturedResultsSet" OutputProperty="*" Verb="Get" Noun="FeaturedResultsSet" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePrincipalMapping" OutputProperty="*" Verb="Get" Noun="PrincipalMapping" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePrincipalMapping" OutputProperty="*" Verb="Get" Noun="PrincipalMapping" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQuerySuggestionsBlockList" OutputProperty="*" Verb="Get" Noun="QuerySuggestionsBlockList" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQuerySuggestionsBlockList" OutputProperty="*" Verb="Get" Noun="QuerySuggestionsBlockList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQuerySuggestionsConfig" OutputProperty="*" Verb="Get" Noun="QuerySuggestionsConfig" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQuerySuggestionsConfig" OutputProperty="*" Verb="Get" Noun="QuerySuggestionsConfig" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThesaurus" OutputProperty="*" Verb="Get" Noun="Thesaurus" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThesaurus" OutputProperty="*" Verb="Get" Noun="Thesaurus" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateEntitiesFromExperience" OutputProperty="FailedEntityList" Verb="Remove" Noun="EntitiesFromExperience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateEntitiesFromExperience" OutputProperty="FailedEntityList" Verb="Remove" Noun="EntitiesFromExperience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociatePersonasFromEntities" OutputProperty="FailedEntityList" Verb="Remove" Noun="PersonasFromEntity" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociatePersonasFromEntities" OutputProperty="FailedEntityList" Verb="Remove" Noun="PersonasFromEntity" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQuerySuggestions" OutputProperty="*" Verb="Get" Noun="QuerySuggestion" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQuerySuggestions" OutputProperty="*" Verb="Get" Noun="QuerySuggestion" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnapshots" OutputProperty="*" Verb="Get" Noun="Snapshot" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSnapshots" OutputProperty="*" Verb="Get" Noun="Snapshot" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessControlConfigurations" OutputProperty="AccessControlConfigurations" Verb="Get" Noun="AccessControlConfigurationList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccessControlConfigurations" OutputProperty="AccessControlConfigurations" Verb="Get" Noun="AccessControlConfigurationList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="SummaryItems" Verb="Get" Noun="DataSourceList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="SummaryItems" Verb="Get" Noun="DataSourceList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSourceSyncJobs" OutputProperty="History" Verb="Get" Noun="DataSourceSyncJobList" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataSourceSyncJobs" OutputProperty="History" Verb="Get" Noun="DataSourceSyncJobList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntityPersonas" OutputProperty="SummaryItems" Verb="Get" Noun="EntityPersonaList" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntityPersonas" OutputProperty="SummaryItems" Verb="Get" Noun="EntityPersonaList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperienceEntities" OutputProperty="SummaryItems" Verb="Get" Noun="ExperienceEntityList" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExperienceEntities" OutputProperty="SummaryItems" Verb="Get" Noun="ExperienceEntityList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperiences" OutputProperty="SummaryItems" Verb="Get" Noun="ExperienceList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExperiences" OutputProperty="SummaryItems" Verb="Get" Noun="ExperienceList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFaqs" OutputProperty="FaqSummaryItems" Verb="Get" Noun="FaqList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFaqs" OutputProperty="FaqSummaryItems" Verb="Get" Noun="FaqList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFeaturedResultsSets" OutputProperty="FeaturedResultsSetSummaryItems" Verb="Get" Noun="FeaturedResultsSetList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFeaturedResultsSets" OutputProperty="FeaturedResultsSetSummaryItems" Verb="Get" Noun="FeaturedResultsSetList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupsOlderThanOrderingId" OutputProperty="GroupsSummaries" Verb="Get" Noun="GroupsOlderThanOrderingIdList" PipelineParameter="OrderingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroupsOlderThanOrderingId" OutputProperty="GroupsSummaries" Verb="Get" Noun="GroupsOlderThanOrderingIdList" PipelineParameter="OrderingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexConfigurationSummaryItems" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexConfigurationSummaryItems" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQuerySuggestionsBlockLists" OutputProperty="BlockListSummaryItems" Verb="Get" Noun="QuerySuggestionsBlockListList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQuerySuggestionsBlockLists" OutputProperty="BlockListSummaryItems" Verb="Get" Noun="QuerySuggestionsBlockListList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThesauri" OutputProperty="ThesaurusSummaryItems" Verb="Get" Noun="ThesauriList" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThesauri" OutputProperty="ThesaurusSummaryItems" Verb="Get" Noun="ThesauriList" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPrincipalMapping" Verb="Write" Noun="PrincipalMapping" ShouldProcessTarget="IndexId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutPrincipalMapping" Verb="Write" Noun="PrincipalMapping" ShouldProcessTarget="IndexId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Query" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Query" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Retrieve" OutputProperty="*" Verb="Invoke" Noun="Retrieve" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDataSourceSyncJob" OutputProperty="ExecutionId" Verb="Start" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDataSourceSyncJob" OutputProperty="ExecutionId" Verb="Start" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDataSourceSyncJob" Verb="Stop" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopDataSourceSyncJob" Verb="Stop" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubmitFeedback" Verb="Send" Noun="Feedback" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SubmitFeedback" Verb="Send" Noun="Feedback" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccessControlConfiguration" Verb="Update" Noun="AccessControlConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccessControlConfiguration" Verb="Update" Noun="AccessControlConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PostExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
                 <Param Name="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" NewName="CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" Alias="PreExtractionHookConfiguration_InvocationCondition_ConditionDocumentAttributeKey" />
@@ -298,27 +298,27 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateExperience" Verb="Update" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateExperience" Verb="Update" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="Update" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetId" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="Update" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetId" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIndex" Verb="Update" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIndex" Verb="Update" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQuerySuggestionsBlockList" Verb="Update" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQuerySuggestionsBlockList" Verb="Update" Noun="QuerySuggestionsBlockList" ShouldProcessTarget="Id" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQuerySuggestionsConfig" Verb="Update" Noun="QuerySuggestionsConfig" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQuerySuggestionsConfig" Verb="Update" Noun="QuerySuggestionsConfig" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThesaurus" Verb="Update" Noun="Thesaurus" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThesaurus" Verb="Update" Noun="Thesaurus" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

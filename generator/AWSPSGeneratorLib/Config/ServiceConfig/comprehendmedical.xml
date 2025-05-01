@@ -18,107 +18,107 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeEntitiesDetectionV2Job" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="EntitiesDetectionV2Job" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEntitiesDetectionV2Job" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="EntitiesDetectionV2Job" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeICD10CMInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="ICD10CMInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeICD10CMInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="ICD10CMInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePHIDetectionJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="PersonalHealthInformationDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePHIDetectionJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="PersonalHealthInformationDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRxNormInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="RxNormInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRxNormInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="RxNormInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSNOMEDCTInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="SNOMEDCTInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSNOMEDCTInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="SNOMEDCTInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectEntities" OutputProperty="*" Verb="Find" Noun="MedicalEntity" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectEntities" OutputProperty="*" Verb="Find" Noun="MedicalEntity" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectEntitiesV2" OutputProperty="Entities" Verb="Find" Noun="MedicalEntityV2" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectEntitiesV2" OutputProperty="Entities" Verb="Find" Noun="MedicalEntityV2" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectPHI" OutputProperty="Entities" Verb="Find" Noun="PersonalHealthInformation" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectPHI" OutputProperty="Entities" Verb="Find" Noun="PersonalHealthInformation" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InferICD10CM" OutputProperty="Entities" Verb="Find" Noun="ICD10CM" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InferICD10CM" OutputProperty="Entities" Verb="Find" Noun="ICD10CM" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InferRxNorm" OutputProperty="Entities" Verb="Find" Noun="RxNorm" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InferRxNorm" OutputProperty="Entities" Verb="Find" Noun="RxNorm" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InferSNOMEDCT" OutputProperty="*" Verb="Find" Noun="SNOMEDCT" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InferSNOMEDCT" OutputProperty="*" Verb="Find" Noun="SNOMEDCT" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitiesDetectionV2Jobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="EntitiesDetectionV2JobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntitiesDetectionV2Jobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="EntitiesDetectionV2JobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListICD10CMInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="ICD10CMInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListICD10CMInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="ICD10CMInferenceJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPHIDetectionJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="PersonalHealthInformationDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPHIDetectionJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="PersonalHealthInformationDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRxNormInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="RxNormInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRxNormInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="RxNormInferenceJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSNOMEDCTInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="SNOMEDCTInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSNOMEDCTInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="SNOMEDCTInferenceJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Start" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Start" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartICD10CMInferenceJob" OutputProperty="JobId" Verb="Start" Noun="ICD10CMInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartICD10CMInferenceJob" OutputProperty="JobId" Verb="Start" Noun="ICD10CMInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPHIDetectionJob" OutputProperty="JobId" Verb="Start" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartPHIDetectionJob" OutputProperty="JobId" Verb="Start" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRxNormInferenceJob" OutputProperty="JobId" Verb="Start" Noun="RxNormInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartRxNormInferenceJob" OutputProperty="JobId" Verb="Start" Noun="RxNormInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSNOMEDCTInferenceJob" OutputProperty="JobId" Verb="Start" Noun="SNOMEDCTInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartSNOMEDCTInferenceJob" OutputProperty="JobId" Verb="Start" Noun="SNOMEDCTInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Stop" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Stop" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopICD10CMInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="ICD10CMInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopICD10CMInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="ICD10CMInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopPHIDetectionJob" OutputProperty="JobId" Verb="Stop" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopPHIDetectionJob" OutputProperty="JobId" Verb="Stop" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopRxNormInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="RxNormInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopRxNormInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="RxNormInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSNOMEDCTInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="SNOMEDCTInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopSNOMEDCTInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="SNOMEDCTInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,59 +19,59 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterScalableTarget" Verb="Remove" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterScalableTarget" Verb="Remove" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPredictiveScalingForecast" OutputProperty="*" Verb="Get" Noun="PredictiveScalingForecast" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPredictiveScalingForecast" OutputProperty="*" Verb="Get" Noun="PredictiveScalingForecast" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Set" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyAlias="Write-AASScalingPolicy">
+        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Set" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyAlias="Write-AASScalingPolicy" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScheduledAction" Verb="Set" Noun="ScheduledAction" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutScheduledAction" Verb="Set" Noun="ScheduledAction" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterScalableTarget" OutputProperty="ScalableTargetARN" Verb="Add" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterScalableTarget" OutputProperty="ScalableTargetARN" Verb="Add" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -21,379 +21,379 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelLegalHold" Verb="Stop" Noun="LegalHold" ShouldProcessTarget="LegalHoldId" PipelineParameter="LegalHoldId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelLegalHold" Verb="Stop" Noun="LegalHold" ShouldProcessTarget="LegalHoldId" PipelineParameter="LegalHoldId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackupPlan" OutputProperty="*" Verb="New" Noun="BackupPlan" AnonymousShouldProcessTarget="true" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBackupPlan" OutputProperty="*" Verb="New" Noun="BackupPlan" AnonymousShouldProcessTarget="true" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackupSelection" OutputProperty="*" Verb="New" Noun="BackupSelection" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBackupSelection" OutputProperty="*" Verb="New" Noun="BackupSelection" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackupVault" OutputProperty="*" Verb="New" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBackupVault" OutputProperty="*" Verb="New" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFramework" OutputProperty="*" Verb="New" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFramework" OutputProperty="*" Verb="New" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLegalHold" OutputProperty="*" Verb="New" Noun="LegalHold" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLegalHold" OutputProperty="*" Verb="New" Noun="LegalHold" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogicallyAirGappedBackupVault" OutputProperty="*" Verb="New" Noun="LogicallyAirGappedBackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLogicallyAirGappedBackupVault" OutputProperty="*" Verb="New" Noun="LogicallyAirGappedBackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReportPlan" OutputProperty="*" Verb="New" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReportPlan" OutputProperty="*" Verb="New" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRestoreTestingPlan" OutputProperty="*" Verb="New" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlan_RestoreTestingPlanName" PipelineParameter="RestoreTestingPlan_RestoreTestingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRestoreTestingPlan" OutputProperty="*" Verb="New" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlan_RestoreTestingPlanName" PipelineParameter="RestoreTestingPlan_RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRestoreTestingSelection" OutputProperty="*" Verb="New" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRestoreTestingSelection" OutputProperty="*" Verb="New" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupSelection" Verb="Remove" Noun="BackupSelection" ShouldProcessTarget="SelectionId" PipelineParameter="SelectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackupSelection" Verb="Remove" Noun="BackupSelection" ShouldProcessTarget="SelectionId" PipelineParameter="SelectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupVault" Verb="Remove" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackupVault" Verb="Remove" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupVaultAccessPolicy" Verb="Remove" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackupVaultAccessPolicy" Verb="Remove" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupVaultLockConfiguration" Verb="Remove" Noun="BackupVaultLockConfiguration" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackupVaultLockConfiguration" Verb="Remove" Noun="BackupVaultLockConfiguration" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupVaultNotifications" Verb="Remove" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackupVaultNotifications" Verb="Remove" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFramework" Verb="Remove" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFramework" Verb="Remove" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRecoveryPoint" Verb="Remove" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRecoveryPoint" Verb="Remove" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReportPlan" Verb="Remove" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReportPlan" Verb="Remove" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRestoreTestingPlan" Verb="Remove" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRestoreTestingPlan" Verb="Remove" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRestoreTestingSelection" Verb="Remove" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRestoreTestingSelection" Verb="Remove" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackupJob" OutputProperty="*" Verb="Get" Noun="BackupJob" PipelineParameter="BackupJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBackupJob" OutputProperty="*" Verb="Get" Noun="BackupJob" PipelineParameter="BackupJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackupVault" OutputProperty="*" Verb="Get" Noun="BackupVault" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBackupVault" OutputProperty="*" Verb="Get" Noun="BackupVault" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCopyJob" OutputProperty="CopyJob" Verb="Get" Noun="CopyJob" PipelineParameter="CopyJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCopyJob" OutputProperty="CopyJob" Verb="Get" Noun="CopyJob" PipelineParameter="CopyJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFramework" OutputProperty="*" Verb="Get" Noun="Framework" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFramework" OutputProperty="*" Verb="Get" Noun="Framework" PipelineParameter="FrameworkName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGlobalSettings" OutputProperty="*" Verb="Get" Noun="GlobalSetting" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGlobalSettings" OutputProperty="*" Verb="Get" Noun="GlobalSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProtectedResource" OutputProperty="*" Verb="Get" Noun="ProtectedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProtectedResource" OutputProperty="*" Verb="Get" Noun="ProtectedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecoveryPoint" OutputProperty="*" Verb="Get" Noun="RecoveryPoint" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRecoveryPoint" OutputProperty="*" Verb="Get" Noun="RecoveryPoint" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRegionSettings" OutputProperty="ResourceTypeOptInPreference" Verb="Get" Noun="RegionSetting" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRegionSettings" OutputProperty="ResourceTypeOptInPreference" Verb="Get" Noun="RegionSetting" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReportJob" OutputProperty="ReportJob" Verb="Get" Noun="ReportJob" PipelineParameter="ReportJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReportJob" OutputProperty="ReportJob" Verb="Get" Noun="ReportJob" PipelineParameter="ReportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReportPlan" OutputProperty="ReportPlan" Verb="Get" Noun="ReportPlan" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReportPlan" OutputProperty="ReportPlan" Verb="Get" Noun="ReportPlan" PipelineParameter="ReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRestoreJob" OutputProperty="*" Verb="Get" Noun="RestoreJob" PipelineParameter="RestoreJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRestoreJob" OutputProperty="*" Verb="Get" Noun="RestoreJob" PipelineParameter="RestoreJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateRecoveryPoint" Verb="Unlock" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateRecoveryPoint" Verb="Unlock" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateRecoveryPointFromParent" Verb="Move" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateRecoveryPointFromParent" Verb="Move" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportBackupPlanTemplate" OutputProperty="BackupPlanTemplateJson" Verb="Export" Noun="BackupPlanTemplate" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExportBackupPlanTemplate" OutputProperty="BackupPlanTemplateJson" Verb="Export" Noun="BackupPlanTemplate" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackupPlan" OutputProperty="*" Verb="Get" Noun="BackupPlan" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBackupPlan" OutputProperty="*" Verb="Get" Noun="BackupPlan" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackupPlanFromJSON" OutputProperty="BackupPlan" Verb="Get" Noun="BackupPlanFromJSON" PipelineParameter="BackupPlanTemplateJson" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBackupPlanFromJSON" OutputProperty="BackupPlan" Verb="Get" Noun="BackupPlanFromJSON" PipelineParameter="BackupPlanTemplateJson" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackupPlanFromTemplate" OutputProperty="BackupPlanDocument" Verb="Get" Noun="BackupPlanFromTemplate" PipelineParameter="BackupPlanTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBackupPlanFromTemplate" OutputProperty="BackupPlanDocument" Verb="Get" Noun="BackupPlanFromTemplate" PipelineParameter="BackupPlanTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackupSelection" OutputProperty="*" Verb="Get" Noun="BackupSelection" PipelineParameter="SelectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBackupSelection" OutputProperty="*" Verb="Get" Noun="BackupSelection" PipelineParameter="SelectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackupVaultAccessPolicy" OutputProperty="*" Verb="Get" Noun="BackupVaultAccessPolicy" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBackupVaultAccessPolicy" OutputProperty="*" Verb="Get" Noun="BackupVaultAccessPolicy" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBackupVaultNotifications" OutputProperty="*" Verb="Get" Noun="BackupVaultNotification" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBackupVaultNotifications" OutputProperty="*" Verb="Get" Noun="BackupVaultNotification" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLegalHold" OutputProperty="*" Verb="Get" Noun="LegalHold" PipelineParameter="LegalHoldId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLegalHold" OutputProperty="*" Verb="Get" Noun="LegalHold" PipelineParameter="LegalHoldId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecoveryPointIndexDetails" OutputProperty="*" Verb="Get" Noun="RecoveryPointIndexDetail" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecoveryPointIndexDetails" OutputProperty="*" Verb="Get" Noun="RecoveryPointIndexDetail" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecoveryPointRestoreMetadata" OutputProperty="*" Verb="Get" Noun="RecoveryPointRestoreMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecoveryPointRestoreMetadata" OutputProperty="*" Verb="Get" Noun="RecoveryPointRestoreMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestoreJobMetadata" OutputProperty="*" Verb="Get" Noun="RestoreJobMetadata" PipelineParameter="RestoreJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRestoreJobMetadata" OutputProperty="*" Verb="Get" Noun="RestoreJobMetadata" PipelineParameter="RestoreJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestoreTestingInferredMetadata" OutputProperty="InferredMetadata" Verb="Get" Noun="RestoreTestingInferredMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRestoreTestingInferredMetadata" OutputProperty="InferredMetadata" Verb="Get" Noun="RestoreTestingInferredMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestoreTestingPlan" OutputProperty="RestoreTestingPlan" Verb="Get" Noun="RestoreTestingPlan" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRestoreTestingPlan" OutputProperty="RestoreTestingPlan" Verb="Get" Noun="RestoreTestingPlan" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestoreTestingSelection" OutputProperty="RestoreTestingSelection" Verb="Get" Noun="RestoreTestingSelection" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRestoreTestingSelection" OutputProperty="RestoreTestingSelection" Verb="Get" Noun="RestoreTestingSelection" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceType" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceType" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupJobSummaries" OutputProperty="*" Verb="Get" Noun="BackupJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBackupJobSummaries" OutputProperty="*" Verb="Get" Noun="BackupJobSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCopyJobs" OutputProperty="CopyJobs" Verb="Get" Noun="CopyJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCopyJobs" OutputProperty="CopyJobs" Verb="Get" Noun="CopyJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCopyJobSummaries" OutputProperty="*" Verb="Get" Noun="CopyJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCopyJobSummaries" OutputProperty="*" Verb="Get" Noun="CopyJobSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFrameworks" OutputProperty="Frameworks" Verb="Get" Noun="FrameworkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFrameworks" OutputProperty="Frameworks" Verb="Get" Noun="FrameworkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndexedRecoveryPoints" OutputProperty="IndexedRecoveryPoints" Verb="Get" Noun="IndexedRecoveryPointList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListIndexedRecoveryPoints" OutputProperty="IndexedRecoveryPoints" Verb="Get" Noun="IndexedRecoveryPointList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLegalHolds" OutputProperty="LegalHolds" Verb="Get" Noun="LegalHoldList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLegalHolds" OutputProperty="LegalHolds" Verb="Get" Noun="LegalHoldList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectedResourcesByBackupVault" OutputProperty="Results" Verb="Get" Noun="ProtectedResourcesByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProtectedResourcesByBackupVault" OutputProperty="Results" Verb="Get" Noun="ProtectedResourcesByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByLegalHold" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByLegalHoldList" PipelineParameter="LegalHoldId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecoveryPointsByLegalHold" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByLegalHoldList" PipelineParameter="LegalHoldId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReportJobs" OutputProperty="ReportJobs" Verb="Get" Noun="ReportJobList" PipelineParameter="ByReportPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReportJobs" OutputProperty="ReportJobs" Verb="Get" Noun="ReportJobList" PipelineParameter="ByReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReportPlans" OutputProperty="ReportPlans" Verb="Get" Noun="ReportPlanList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReportPlans" OutputProperty="ReportPlans" Verb="Get" Noun="ReportPlanList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreJobsByProtectedResource" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobsByProtectedResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRestoreJobsByProtectedResource" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobsByProtectedResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreJobSummaries" OutputProperty="*" Verb="Get" Noun="RestoreJobSummaryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRestoreJobSummaries" OutputProperty="*" Verb="Get" Noun="RestoreJobSummaryList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreTestingPlans" OutputProperty="RestoreTestingPlans" Verb="Get" Noun="RestoreTestingPlanList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRestoreTestingPlans" OutputProperty="RestoreTestingPlans" Verb="Get" Noun="RestoreTestingPlanList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreTestingSelections" OutputProperty="RestoreTestingSelections" Verb="Get" Noun="RestoreTestingSelectionList" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRestoreTestingSelections" OutputProperty="RestoreTestingSelections" Verb="Get" Noun="RestoreTestingSelectionList" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBackupVaultAccessPolicy" Verb="Write" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutBackupVaultAccessPolicy" Verb="Write" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBackupVaultLockConfiguration" Verb="Write" Noun="BackupVaultLockConfiguration" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutBackupVaultLockConfiguration" Verb="Write" Noun="BackupVaultLockConfiguration" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBackupVaultNotifications" Verb="Write" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutBackupVaultNotifications" Verb="Write" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRestoreValidationResult" Verb="Write" Noun="RestoreValidationResult" ShouldProcessTarget="RestoreJobId" PipelineParameter="RestoreJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRestoreValidationResult" Verb="Write" Noun="RestoreValidationResult" ShouldProcessTarget="RestoreJobId" PipelineParameter="RestoreJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBackupJob" OutputProperty="*" Verb="Start" Noun="BackupJob" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartBackupJob" OutputProperty="*" Verb="Start" Noun="BackupJob" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCopyJob" OutputProperty="*" Verb="Start" Noun="CopyJob" ShouldProcessTarget="SourceBackupVaultName" PipelineParameter="SourceBackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCopyJob" OutputProperty="*" Verb="Start" Noun="CopyJob" ShouldProcessTarget="SourceBackupVaultName" PipelineParameter="SourceBackupVaultName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartReportJob" OutputProperty="ReportJobId" Verb="Start" Noun="ReportJob" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartReportJob" OutputProperty="ReportJobId" Verb="Start" Noun="ReportJob" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRestoreJob" OutputProperty="RestoreJobId" Verb="Start" Noun="RestoreJob" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartRestoreJob" OutputProperty="RestoreJobId" Verb="Start" Noun="RestoreJob" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopBackupJob" Verb="Stop" Noun="BackupJob" ShouldProcessTarget="BackupJobId" PipelineParameter="BackupJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopBackupJob" Verb="Stop" Noun="BackupJob" ShouldProcessTarget="BackupJobId" PipelineParameter="BackupJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBackupPlan" OutputProperty="*" Verb="Update" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBackupPlan" OutputProperty="*" Verb="Update" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFramework" OutputProperty="*" Verb="Update" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFramework" OutputProperty="*" Verb="Update" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="GlobalSettings" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="GlobalSettings" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecoveryPointIndexSettings" OutputProperty="*" Verb="Update" Noun="RecoveryPointIndexSetting" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRecoveryPointIndexSettings" OutputProperty="*" Verb="Update" Noun="RecoveryPointIndexSetting" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecoveryPointLifecycle" OutputProperty="*" Verb="Update" Noun="RecoveryPointLifecycle" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRecoveryPointLifecycle" OutputProperty="*" Verb="Update" Noun="RecoveryPointLifecycle" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRegionSettings" Verb="Update" Noun="RegionSetting" ShouldProcessTarget="ResourceTypeOptInPreference" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRegionSettings" Verb="Update" Noun="RegionSetting" ShouldProcessTarget="ResourceTypeOptInPreference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReportPlan" OutputProperty="*" Verb="Update" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReportPlan" OutputProperty="*" Verb="Update" Noun="ReportPlan" ShouldProcessTarget="ReportPlanName" PipelineParameter="ReportPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRestoreTestingPlan" OutputProperty="*" Verb="Update" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRestoreTestingPlan" OutputProperty="*" Verb="Update" Noun="RestoreTestingPlan" ShouldProcessTarget="RestoreTestingPlanName" PipelineParameter="RestoreTestingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRestoreTestingSelection" OutputProperty="*" Verb="Update" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRestoreTestingSelection" OutputProperty="*" Verb="Update" Noun="RestoreTestingSelection" ShouldProcessTarget="RestoreTestingSelectionName" PipelineParameter="RestoreTestingSelectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

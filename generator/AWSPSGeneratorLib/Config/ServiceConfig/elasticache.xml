@@ -37,37 +37,37 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="TagList" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="TagList" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" OutputProperty="CacheSecurityGroup" Verb="Approve" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" OutputProperty="CacheSecurityGroup" Verb="Approve" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchApplyUpdateAction" OutputProperty="*" Verb="Start" Noun="UpdateActionBatch" ShouldProcessTarget="ServiceUpdateName" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchApplyUpdateAction" OutputProperty="*" Verb="Start" Noun="UpdateActionBatch" ShouldProcessTarget="ServiceUpdateName" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchStopUpdateAction" OutputProperty="*" Verb="Stop" Noun="UpdateActionBatch" ShouldProcessTarget="ServiceUpdateName" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchStopUpdateAction" OutputProperty="*" Verb="Stop" Noun="UpdateActionBatch" ShouldProcessTarget="ServiceUpdateName" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteMigration" OutputProperty="ReplicationGroup" Verb="Complete" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CompleteMigration" OutputProperty="ReplicationGroup" Verb="Complete" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Copy" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="SourceServerlessCacheSnapshotName" PipelineParameter="SourceServerlessCacheSnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Copy" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="SourceServerlessCacheSnapshotName" PipelineParameter="SourceServerlessCacheSnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopySnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PositionalParameters="TargetSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopySnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PositionalParameters="TargetSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheCluster" OutputProperty="CacheCluster" Verb="New" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCacheCluster" OutputProperty="CacheCluster" Verb="New" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="PreferredAvailabilityZones" NewName="PreferredAvailabilityZoneSet" />
                 <Param Name="Groups" Alias="GroupId" />
@@ -75,127 +75,127 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheParameterGroup" OutputProperty="CacheParameterGroup" Verb="New" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="CacheParameterGroupFamily;Description" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCacheParameterGroup" OutputProperty="CacheParameterGroup" Verb="New" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="CacheParameterGroupFamily;Description" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheSecurityGroup" OutputProperty="CacheSecurityGroup" Verb="New" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="Description" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCacheSecurityGroup" OutputProperty="CacheSecurityGroup" Verb="New" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="Description" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheSubnetGroup" OutputProperty="CacheSubnetGroup" Verb="New" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCacheSubnetGroup" OutputProperty="CacheSubnetGroup" Verb="New" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="New" Noun="GlobalReplicationGroup" ShouldProcessTarget="PrimaryReplicationGroupId" PipelineParameter="PrimaryReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="New" Noun="GlobalReplicationGroup" ShouldProcessTarget="PrimaryReplicationGroupId" PipelineParameter="PrimaryReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicationGroup" OutputProperty="ReplicationGroup" Verb="New" Noun="ReplicationGroup" ShouldProcessTarget="PrimaryClusterId" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReplicationGroup" OutputProperty="ReplicationGroup" Verb="New" Noun="ReplicationGroup" ShouldProcessTarget="PrimaryClusterId" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServerlessCache" OutputProperty="ServerlessCache" Verb="New" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateServerlessCache" OutputProperty="ServerlessCache" Verb="New" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="New" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="New" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="CacheClusterId" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="CacheClusterId" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUserGroup" OutputProperty="*" Verb="New" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUserGroup" OutputProperty="*" Verb="New" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecreaseNodeGroupsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="NodeGroupDecreaseInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DecreaseNodeGroupsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="NodeGroupDecreaseInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecreaseReplicaCount" OutputProperty="ReplicationGroup" Verb="Request" Noun="ReplicaCountDecrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DecreaseReplicaCount" OutputProperty="ReplicationGroup" Verb="Request" Noun="ReplicaCountDecrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheCluster" OutputProperty="CacheCluster" Verb="Remove" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCacheCluster" OutputProperty="CacheCluster" Verb="Remove" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheParameterGroup" Verb="Remove" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCacheParameterGroup" Verb="Remove" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheSecurityGroup" Verb="Remove" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCacheSecurityGroup" Verb="Remove" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheSubnetGroup" Verb="Remove" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCacheSubnetGroup" Verb="Remove" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="GlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="GlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReplicationGroup" OutputProperty="ReplicationGroup" Verb="Remove" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReplicationGroup" OutputProperty="ReplicationGroup" Verb="Remove" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServerlessCache" OutputProperty="ServerlessCache" Verb="Remove" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteServerlessCache" OutputProperty="ServerlessCache" Verb="Remove" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Remove" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheSnapshotName" PipelineParameter="ServerlessCacheSnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Remove" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheSnapshotName" PipelineParameter="ServerlessCacheSnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserGroup" OutputProperty="*" Verb="Remove" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserGroup" OutputProperty="*" Verb="Remove" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheClusters" OutputProperty="CacheClusters" Verb="Get" Noun="CacheCluster" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeCacheClusters" OutputProperty="CacheClusters" Verb="Get" Noun="CacheCluster" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheEngineVersions" OutputProperty="CacheEngineVersions" Verb="Get" Noun="CacheEngineVersion" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECCacheEngineVersions">
+        <ServiceOperation MethodName="DescribeCacheEngineVersions" OutputProperty="CacheEngineVersions" Verb="Get" Noun="CacheEngineVersion" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECCacheEngineVersions" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheParameterGroups" OutputProperty="CacheParameterGroups" Verb="Get" Noun="CacheParameterGroup" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeCacheParameterGroups" OutputProperty="CacheParameterGroups" Verb="Get" Noun="CacheParameterGroup" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheParameters" OutputProperty="*" Verb="Get" Noun="CacheParameter" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="DescribeCacheParameters" OutputProperty="*" Verb="Get" Noun="CacheParameter" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheSecurityGroups" OutputProperty="CacheSecurityGroups" Verb="Get" Noun="CacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeCacheSecurityGroups" OutputProperty="CacheSecurityGroups" Verb="Get" Noun="CacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheSubnetGroups" OutputProperty="CacheSubnetGroups" Verb="Get" Noun="CacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECCacheSubnetGroups">
+        <ServiceOperation MethodName="DescribeCacheSubnetGroups" OutputProperty="CacheSubnetGroups" Verb="Get" Noun="CacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECCacheSubnetGroups" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngineDefaultParameters" OutputProperty="EngineDefaults" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="CacheParameterGroupFamily" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEngineDefaultParameters" OutputProperty="EngineDefaults" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="CacheParameterGroupFamily" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -204,147 +204,147 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGlobalReplicationGroups" OutputProperty="GlobalReplicationGroups" Verb="Get" Noun="GlobalReplicationGroup" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGlobalReplicationGroups" OutputProperty="GlobalReplicationGroups" Verb="Get" Noun="GlobalReplicationGroup" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationGroups" OutputProperty="ReplicationGroups" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECReplicationGroups">
+        <ServiceOperation MethodName="DescribeReplicationGroups" OutputProperty="ReplicationGroups" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECReplicationGroups" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedCacheNodes" OutputProperty="ReservedCacheNodes" Verb="Get" Noun="ReservedCacheNode" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeReservedCacheNodes" OutputProperty="ReservedCacheNodes" Verb="Get" Noun="ReservedCacheNode" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" OutputProperty="ReservedCacheNodesOfferings" Verb="Get" Noun="ReservedCacheNodesOffering" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" OutputProperty="ReservedCacheNodesOfferings" Verb="Get" Noun="ReservedCacheNodesOffering" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServerlessCaches" OutputProperty="ServerlessCaches" Verb="Get" Noun="ServerlessCache" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeServerlessCaches" OutputProperty="ServerlessCaches" Verb="Get" Noun="ServerlessCache" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServerlessCacheSnapshots" OutputProperty="ServerlessCacheSnapshots" Verb="Get" Noun="ServerlessCacheSnapshot" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeServerlessCacheSnapshots" OutputProperty="ServerlessCacheSnapshots" Verb="Get" Noun="ServerlessCacheSnapshot" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSnapshots">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSnapshots" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUpdateActions" OutputProperty="UpdateActions" Verb="Get" Noun="UpdateAction" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeUpdateActions" OutputProperty="UpdateActions" Verb="Get" Noun="UpdateAction" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUserGroups" OutputProperty="UserGroups" Verb="Get" Noun="UserGroup" PipelineParameter="UserGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUserGroups" OutputProperty="UserGroups" Verb="Get" Noun="UserGroup" PipelineParameter="UserGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUsers" OutputProperty="Users" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="ReplicationGroupFromGlobalReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="ReplicationGroupFromGlobalReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Export" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheSnapshotName" PipelineParameter="ServerlessCacheSnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExportServerlessCacheSnapshot" OutputProperty="ServerlessCacheSnapshot" Verb="Export" Noun="ServerlessCacheSnapshot" ShouldProcessTarget="ServerlessCacheSnapshotName" PipelineParameter="ServerlessCacheSnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FailoverGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="GlobalReplicationGroupFailover" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="FailoverGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="GlobalReplicationGroupFailover" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IncreaseNodeGroupsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="NodeGroupIncreaseInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="IncreaseNodeGroupsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="NodeGroupIncreaseInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IncreaseReplicaCount" OutputProperty="ReplicationGroup" Verb="Request" Noun="ReplicaCountIncrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="IncreaseReplicaCount" OutputProperty="ReplicationGroup" Verb="Request" Noun="ReplicaCountIncrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAllowedNodeTypeModifications" OutputProperty="ScaleUpModifications" Verb="Get" Noun="AllowedNodeTypeModification" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAllowedNodeTypeModifications" OutputProperty="ScaleUpModifications" Verb="Get" Noun="AllowedNodeTypeModification" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCacheCluster" OutputProperty="CacheCluster" Verb="Edit" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="NumCacheNodes" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCacheCluster" OutputProperty="CacheCluster" Verb="Edit" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="NumCacheNodes" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCacheParameterGroup" OutputProperty="CacheParameterGroupName" Verb="Edit" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="ParameterNameValues" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCacheParameterGroup" OutputProperty="CacheParameterGroupName" Verb="Edit" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="ParameterNameValues" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCacheSubnetGroup" OutputProperty="CacheSubnetGroup" Verb="Edit" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCacheSubnetGroup" OutputProperty="CacheSubnetGroup" Verb="Edit" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Edit" Noun="GlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Edit" Noun="GlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyReplicationGroup" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyReplicationGroup" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroupShardConfiguration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroupShardConfiguration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyServerlessCache" OutputProperty="ServerlessCache" Verb="Edit" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyServerlessCache" OutputProperty="ServerlessCache" Verb="Edit" Noun="ServerlessCache" ShouldProcessTarget="ServerlessCacheName" PipelineParameter="ServerlessCacheName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyUser" OutputProperty="*" Verb="Edit" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyUser" OutputProperty="*" Verb="Edit" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyUserGroup" OutputProperty="*" Verb="Edit" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyUserGroup" OutputProperty="*" Verb="Edit" Noun="UserGroup" ShouldProcessTarget="UserGroupId" PipelineParameter="UserGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" OutputProperty="ReservedCacheNode" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" OutputProperty="ReservedCacheNode" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebalanceSlotsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="SlotRebalanceInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebalanceSlotsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="SlotRebalanceInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootCacheCluster" OutputProperty="CacheCluster" Verb="Restart" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="CacheNodeIdsToReboot" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebootCacheCluster" OutputProperty="CacheCluster" Verb="Restart" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="CacheNodeIdsToReboot" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="TagList" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="TagList" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetCacheParameterGroup" OutputProperty="CacheParameterGroupName" Verb="Reset" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetCacheParameterGroup" OutputProperty="CacheParameterGroupName" Verb="Reset" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" OutputProperty="CacheSecurityGroup" Verb="Revoke" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" OutputProperty="CacheSecurityGroup" Verb="Revoke" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMigration" OutputProperty="ReplicationGroup" Verb="Start" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMigration" OutputProperty="ReplicationGroup" Verb="Start" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestFailover" OutputProperty="ReplicationGroup" Verb="Test" Noun="Failover" PipelineParameter="NodeGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestFailover" OutputProperty="ReplicationGroup" Verb="Test" Noun="Failover" PipelineParameter="NodeGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestMigration" OutputProperty="ReplicationGroup" Verb="Test" Noun="Migration" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestMigration" OutputProperty="ReplicationGroup" Verb="Test" Noun="Migration" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

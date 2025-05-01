@@ -19,79 +19,79 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateParallelData" OutputProperty="*" Verb="New" Noun="ParallelData" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateParallelData" OutputProperty="*" Verb="New" Noun="ParallelData" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteParallelData" OutputProperty="*" Verb="Remove" Noun="ParallelData" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteParallelData" OutputProperty="*" Verb="Remove" Noun="ParallelData" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTerminology" Verb="Remove" Noun="Terminology" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTerminology" Verb="Remove" Noun="Terminology" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTextTranslationJob" OutputProperty="TextTranslationJobProperties" Verb="Get" Noun="TextTranslationJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTextTranslationJob" OutputProperty="TextTranslationJobProperties" Verb="Get" Noun="TextTranslationJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetParallelData" OutputProperty="*" Verb="Get" Noun="ParallelData" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetParallelData" OutputProperty="*" Verb="Get" Noun="ParallelData" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTerminology" OutputProperty="*" Verb="Get" Noun="Terminology" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTerminology" OutputProperty="*" Verb="Get" Noun="Terminology" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportTerminology" OutputProperty="TerminologyProperties" Verb="Import" Noun="Terminology" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportTerminology" OutputProperty="TerminologyProperties" Verb="Import" Noun="Terminology" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLanguages" OutputProperty="*" Verb="Get" Noun="LanguageList" PipelineParameter="DisplayLanguageCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLanguages" OutputProperty="*" Verb="Get" Noun="LanguageList" PipelineParameter="DisplayLanguageCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParallelData" OutputProperty="ParallelDataPropertiesList" Verb="Get" Noun="ParallelDataList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListParallelData" OutputProperty="ParallelDataPropertiesList" Verb="Get" Noun="ParallelDataList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTerminologies" OutputProperty="TerminologyPropertiesList" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTerminologies" OutputProperty="TerminologyPropertiesList" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTextTranslationJobs" OutputProperty="TextTranslationJobPropertiesList" Verb="Get" Noun="TextTranslationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTextTranslationJobs" OutputProperty="TextTranslationJobPropertiesList" Verb="Get" Noun="TextTranslationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTextTranslationJob" OutputProperty="*" Verb="Start" Noun="TextTranslationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartTextTranslationJob" OutputProperty="*" Verb="Start" Noun="TextTranslationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTextTranslationJob" OutputProperty="*" Verb="Stop" Noun="TextTranslationJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopTextTranslationJob" OutputProperty="*" Verb="Stop" Noun="TextTranslationJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TranslateDocument" OutputProperty="*" Verb="ConvertTo" Noun="Document" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TranslateDocument" OutputProperty="*" Verb="ConvertTo" Noun="Document" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TranslateText" OutputProperty="*" Verb="ConvertTo" Noun="TargetLanguage" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TranslateText" OutputProperty="*" Verb="ConvertTo" Noun="TargetLanguage" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateParallelData" OutputProperty="*" Verb="Update" Noun="ParallelData" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateParallelData" OutputProperty="*" Verb="Update" Noun="ParallelData" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

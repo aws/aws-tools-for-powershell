@@ -19,15 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetServiceLevelObjectiveBudgetReport" OutputProperty="*" Verb="Get" Noun="BatchServiceLevelObjectiveBudgetReport" PipelineParameter="Timestamp" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetServiceLevelObjectiveBudgetReport" OutputProperty="*" Verb="Get" Noun="BatchServiceLevelObjectiveBudgetReport" PipelineParameter="Timestamp" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateExclusionWindows" OutputProperty="*" Verb="Update" Noun="UpdateExclusionWindow" ShouldProcessTarget="SloIds" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateExclusionWindows" OutputProperty="*" Verb="Update" Noun="UpdateExclusionWindow" ShouldProcessTarget="SloIds" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceLevelObjective" OutputProperty="Slo" Verb="New" Noun="ServiceLevelObjective" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateServiceLevelObjective" OutputProperty="Slo" Verb="New" Noun="ServiceLevelObjective" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
                 <Param Name="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
@@ -36,59 +36,59 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceLevelObjective" Verb="Remove" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteServiceLevelObjective" Verb="Remove" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="StartTime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceLevelObjective" OutputProperty="Slo" Verb="Get" Noun="ServiceLevelObjective" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetServiceLevelObjective" OutputProperty="Slo" Verb="Get" Noun="ServiceLevelObjective" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceDependencies" OutputProperty="*" Verb="Get" Noun="ServiceDependencyList" PipelineParameter="StartTime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceDependencies" OutputProperty="*" Verb="Get" Noun="ServiceDependencyList" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceDependents" OutputProperty="*" Verb="Get" Noun="ServiceDependentList" PipelineParameter="StartTime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceDependents" OutputProperty="*" Verb="Get" Noun="ServiceDependentList" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceLevelObjectiveExclusionWindows" OutputProperty="ExclusionWindows" Verb="Get" Noun="ServiceLevelObjectiveExclusionWindowList" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceLevelObjectiveExclusionWindows" OutputProperty="ExclusionWindows" Verb="Get" Noun="ServiceLevelObjectiveExclusionWindowList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceLevelObjectives" OutputProperty="SloSummaries" Verb="Get" Noun="ServiceLevelObjectiveList" PipelineParameter="OperationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceLevelObjectives" OutputProperty="SloSummaries" Verb="Get" Noun="ServiceLevelObjectiveList" PipelineParameter="OperationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceOperations" OutputProperty="*" Verb="Get" Noun="ServiceOperationList" PipelineParameter="StartTime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceOperations" OutputProperty="*" Verb="Get" Noun="ServiceOperationList" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="*" Verb="Get" Noun="ServiceList" PipelineParameter="StartTime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServices" OutputProperty="*" Verb="Get" Noun="ServiceList" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDiscovery" Verb="Start" Noun="Discovery" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDiscovery" Verb="Start" Noun="Discovery" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceLevelObjective" OutputProperty="Slo" Verb="Update" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateServiceLevelObjective" OutputProperty="Slo" Verb="Update" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="RequestBasedSliConfig_RequestBasedSliMetricConfig_DependencyConfig_DependencyKeyAttributes" />
                 <Param Name="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" NewName="SliConfig_SliMetricConfig_DependencyConfig_DependencyKeyAttributes" />

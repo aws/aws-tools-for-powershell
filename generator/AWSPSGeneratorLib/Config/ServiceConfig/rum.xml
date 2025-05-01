@@ -18,83 +18,83 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchCreateRumMetricDefinitions" OutputProperty="*" Verb="Add" Noun="CreateRumMetricDefinition" ShouldProcessTarget="AppMonitorName" PipelineParameter="Destination" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCreateRumMetricDefinitions" OutputProperty="*" Verb="Add" Noun="CreateRumMetricDefinition" ShouldProcessTarget="AppMonitorName" PipelineParameter="Destination" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteRumMetricDefinitions" OutputProperty="*" Verb="Remove" Noun="DeleteRumMetricDefinition" ShouldProcessTarget="AppMonitorName" PipelineParameter="Destination" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteRumMetricDefinitions" OutputProperty="*" Verb="Remove" Noun="DeleteRumMetricDefinition" ShouldProcessTarget="AppMonitorName" PipelineParameter="Destination" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetRumMetricDefinitions" OutputProperty="MetricDefinitions" Verb="Get" Noun="GetRumMetricDefinition" PipelineParameter="Destination" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetRumMetricDefinitions" OutputProperty="MetricDefinitions" Verb="Get" Noun="GetRumMetricDefinition" PipelineParameter="Destination" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppMonitor" OutputProperty="Id" Verb="New" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAppMonitor" OutputProperty="Id" Verb="New" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppMonitor" Verb="Remove" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAppMonitor" Verb="Remove" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="PolicyRevisionId" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="PolicyRevisionId" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRumMetricsDestination" Verb="Remove" Noun="RumMetricsDestination" ShouldProcessTarget="AppMonitorName" PipelineParameter="AppMonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRumMetricsDestination" Verb="Remove" Noun="RumMetricsDestination" ShouldProcessTarget="AppMonitorName" PipelineParameter="AppMonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppMonitor" OutputProperty="AppMonitor" Verb="Get" Noun="AppMonitor" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAppMonitor" OutputProperty="AppMonitor" Verb="Get" Noun="AppMonitor" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppMonitorData" OutputProperty="Events" Verb="Get" Noun="AppMonitorData" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAppMonitorData" OutputProperty="Events" Verb="Get" Noun="AppMonitorData" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppMonitors" OutputProperty="AppMonitorSummaries" Verb="Get" Noun="AppMonitorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAppMonitors" OutputProperty="AppMonitorSummaries" Verb="Get" Noun="AppMonitorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRumMetricsDestinations" OutputProperty="Destinations" Verb="Get" Noun="RumMetricsDestinationList" PipelineParameter="AppMonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRumMetricsDestinations" OutputProperty="Destinations" Verb="Get" Noun="RumMetricsDestinationList" PipelineParameter="AppMonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRumEvents" Verb="Write" Noun="RumEvent" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRumEvents" Verb="Write" Noun="RumEvent" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRumMetricsDestination" Verb="Write" Noun="RumMetricsDestination" ShouldProcessTarget="AppMonitorName" PipelineParameter="AppMonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRumMetricsDestination" Verb="Write" Noun="RumMetricsDestination" ShouldProcessTarget="AppMonitorName" PipelineParameter="AppMonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAppMonitor" Verb="Update" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAppMonitor" Verb="Update" Noun="AppMonitor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRumMetricDefinition" Verb="Update" Noun="RumMetricDefinition" ShouldProcessTarget="MetricDefinitionId" PipelineParameter="MetricDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRumMetricDefinition" Verb="Update" Noun="RumMetricDefinition" ShouldProcessTarget="MetricDefinitionId" PipelineParameter="MetricDefinitionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,27 +19,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CompleteSnapshot" OutputProperty="Status" Verb="Complete" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CompleteSnapshot" OutputProperty="Status" Verb="Complete" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnapshotBlock" OutputProperty="*" Verb="Get" Noun="SnapshotBlock" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSnapshotBlock" OutputProperty="*" Verb="Get" Noun="SnapshotBlock" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChangedBlocks" OutputProperty="ChangedBlocks" Verb="Get" Noun="ChangedBlockList" PipelineParameter="SecondSnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChangedBlocks" OutputProperty="ChangedBlocks" Verb="Get" Noun="ChangedBlockList" PipelineParameter="SecondSnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSnapshotBlocks" OutputProperty="Blocks" Verb="Get" Noun="SnapshotBlockList" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSnapshotBlocks" OutputProperty="Blocks" Verb="Get" Noun="SnapshotBlockList" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutSnapshotBlock" OutputProperty="*" Verb="Write" Noun="SnapshotBlock" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutSnapshotBlock" OutputProperty="*" Verb="Write" Noun="SnapshotBlock" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSnapshot" OutputProperty="*" Verb="Start" Noun="Snapshot" ShouldProcessTarget="" PipelineParameter="VolumeSize" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSnapshot" OutputProperty="*" Verb="Start" Noun="Snapshot" ShouldProcessTarget="" PipelineParameter="VolumeSize" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

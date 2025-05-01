@@ -19,371 +19,371 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateDelegateToResource" Verb="Add" Noun="DelegateToResource" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateDelegateToResource" Verb="Add" Noun="DelegateToResource" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateMemberToGroup" Verb="Add" Noun="MemberToGroup" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateMemberToGroup" Verb="Add" Noun="MemberToGroup" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssumeImpersonationRole" OutputProperty="*" Verb="Invoke" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssumeImpersonationRole" OutputProperty="*" Verb="Invoke" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMailboxExportJob" Verb="Stop" Noun="MailboxExportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelMailboxExportJob" Verb="Stop" Noun="MailboxExportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlias" Verb="New" Noun="Alias" ShouldProcessTarget="EntityId" PipelineParameter="Alias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAlias" Verb="New" Noun="Alias" ShouldProcessTarget="EntityId" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAvailabilityConfiguration" Verb="New" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAvailabilityConfiguration" Verb="New" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroup" OutputProperty="GroupId" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="GroupId" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdentityCenterApplication" OutputProperty="ApplicationArn" Verb="New" Noun="IdentityCenterApplication" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIdentityCenterApplication" OutputProperty="ApplicationArn" Verb="New" Noun="IdentityCenterApplication" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImpersonationRole" OutputProperty="ImpersonationRoleId" Verb="New" Noun="ImpersonationRole" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateImpersonationRole" OutputProperty="ImpersonationRoleId" Verb="New" Noun="ImpersonationRole" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMobileDeviceAccessRule" OutputProperty="MobileDeviceAccessRuleId" Verb="New" Noun="MobileDeviceAccessRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMobileDeviceAccessRule" OutputProperty="MobileDeviceAccessRuleId" Verb="New" Noun="MobileDeviceAccessRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOrganization" OutputProperty="OrganizationId" Verb="New" Noun="Organization" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOrganization" OutputProperty="OrganizationId" Verb="New" Noun="Organization" ShouldProcessTarget="" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResource" OutputProperty="ResourceId" Verb="New" Noun="Resource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResource" OutputProperty="ResourceId" Verb="New" Noun="Resource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" OutputProperty="UserId" Verb="New" Noun="User" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUser" OutputProperty="UserId" Verb="New" Noun="User" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessControlRule" Verb="Remove" Noun="AccessControlRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccessControlRule" Verb="Remove" Noun="AccessControlRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="Alias" PipelineParameter="Alias" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAvailabilityConfiguration" Verb="Remove" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAvailabilityConfiguration" Verb="Remove" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEmailMonitoringConfiguration" Verb="Remove" Noun="EmailMonitoringConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEmailMonitoringConfiguration" Verb="Remove" Noun="EmailMonitoringConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityCenterApplication" Verb="Remove" Noun="IdentityCenterApplication" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentityCenterApplication" Verb="Remove" Noun="IdentityCenterApplication" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityProviderConfiguration" Verb="Remove" Noun="IdentityProviderConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentityProviderConfiguration" Verb="Remove" Noun="IdentityProviderConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImpersonationRole" Verb="Remove" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteImpersonationRole" Verb="Remove" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMailboxPermissions" Verb="Remove" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMailboxPermissions" Verb="Remove" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMobileDeviceAccessOverride" Verb="Remove" Noun="MobileDeviceAccessOverride" ShouldProcessTarget="DeviceId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMobileDeviceAccessOverride" Verb="Remove" Noun="MobileDeviceAccessOverride" ShouldProcessTarget="DeviceId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMobileDeviceAccessRule" Verb="Remove" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMobileDeviceAccessRule" Verb="Remove" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOrganization" OutputProperty="*" Verb="Remove" Noun="Organization" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOrganization" OutputProperty="*" Verb="Remove" Noun="Organization" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePersonalAccessToken" Verb="Remove" Noun="PersonalAccessToken" ShouldProcessTarget="PersonalAccessTokenId" PipelineParameter="PersonalAccessTokenId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePersonalAccessToken" Verb="Remove" Noun="PersonalAccessToken" ShouldProcessTarget="PersonalAccessTokenId" PipelineParameter="PersonalAccessTokenId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResource" Verb="Remove" Noun="Resource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResource" Verb="Remove" Noun="Resource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRetentionPolicy" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRetentionPolicy" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterFromWorkMail" Verb="Remove" Noun="FromWorkMail" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterFromWorkMail" Verb="Remove" Noun="FromWorkMail" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterMailDomain" Verb="Remove" Noun="MailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterMailDomain" Verb="Remove" Noun="MailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEmailMonitoringConfiguration" OutputProperty="*" Verb="Get" Noun="EmailMonitoringConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEmailMonitoringConfiguration" OutputProperty="*" Verb="Get" Noun="EmailMonitoringConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="Email" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="Email" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentityProviderConfiguration" OutputProperty="*" Verb="Get" Noun="IdentityProviderConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIdentityProviderConfiguration" OutputProperty="*" Verb="Get" Noun="IdentityProviderConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInboundDmarcSettings" OutputProperty="Enforced" Verb="Get" Noun="InboundDmarcSetting" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInboundDmarcSettings" OutputProperty="Enforced" Verb="Get" Noun="InboundDmarcSetting" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMailboxExportJob" OutputProperty="*" Verb="Get" Noun="MailboxExportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMailboxExportJob" OutputProperty="*" Verb="Get" Noun="MailboxExportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganization" OutputProperty="*" Verb="Get" Noun="Organization" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganization" OutputProperty="*" Verb="Get" Noun="Organization" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResource" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeResource" OutputProperty="*" Verb="Get" Noun="Resource" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDelegateFromResource" Verb="Remove" Noun="DelegateFromResource" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateDelegateFromResource" Verb="Remove" Noun="DelegateFromResource" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMemberFromGroup" Verb="Remove" Noun="MemberFromGroup" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateMemberFromGroup" Verb="Remove" Noun="MemberFromGroup" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessControlEffect" OutputProperty="*" Verb="Get" Noun="AccessControlEffect" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccessControlEffect" OutputProperty="*" Verb="Get" Noun="AccessControlEffect" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDefaultRetentionPolicy" OutputProperty="*" Verb="Get" Noun="DefaultRetentionPolicy" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDefaultRetentionPolicy" OutputProperty="*" Verb="Get" Noun="DefaultRetentionPolicy" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImpersonationRole" OutputProperty="*" Verb="Get" Noun="ImpersonationRole" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImpersonationRole" OutputProperty="*" Verb="Get" Noun="ImpersonationRole" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImpersonationRoleEffect" OutputProperty="*" Verb="Get" Noun="ImpersonationRoleEffect" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImpersonationRoleEffect" OutputProperty="*" Verb="Get" Noun="ImpersonationRoleEffect" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMailboxDetails" OutputProperty="*" Verb="Get" Noun="MailboxDetail" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMailboxDetails" OutputProperty="*" Verb="Get" Noun="MailboxDetail" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMailDomain" OutputProperty="*" Verb="Get" Noun="MailDomain" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMailDomain" OutputProperty="*" Verb="Get" Noun="MailDomain" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMobileDeviceAccessEffect" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessEffect" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMobileDeviceAccessEffect" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessEffect" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMobileDeviceAccessOverride" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessOverride" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMobileDeviceAccessOverride" OutputProperty="*" Verb="Get" Noun="MobileDeviceAccessOverride" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPersonalAccessTokenMetadata" OutputProperty="*" Verb="Get" Noun="PersonalAccessTokenMetadata" PipelineParameter="PersonalAccessTokenId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPersonalAccessTokenMetadata" OutputProperty="*" Verb="Get" Noun="PersonalAccessTokenMetadata" PipelineParameter="PersonalAccessTokenId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessControlRules" OutputProperty="Rules" Verb="Get" Noun="AccessControlRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccessControlRules" OutputProperty="Rules" Verb="Get" Noun="AccessControlRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailabilityConfigurations" OutputProperty="AvailabilityConfigurations" Verb="Get" Noun="AvailabilityConfigurationList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAvailabilityConfigurations" OutputProperty="AvailabilityConfigurations" Verb="Get" Noun="AvailabilityConfigurationList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGroupMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupsForEntity" OutputProperty="Groups" Verb="Get" Noun="GroupsForEntityList" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroupsForEntity" OutputProperty="Groups" Verb="Get" Noun="GroupsForEntityList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImpersonationRoles" OutputProperty="Roles" Verb="Get" Noun="ImpersonationRoleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImpersonationRoles" OutputProperty="Roles" Verb="Get" Noun="ImpersonationRoleList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMailboxExportJobs" OutputProperty="Jobs" Verb="Get" Noun="MailboxExportJobList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMailboxExportJobs" OutputProperty="Jobs" Verb="Get" Noun="MailboxExportJobList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMailDomains" OutputProperty="MailDomains" Verb="Get" Noun="MailDomainList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMailDomains" OutputProperty="MailDomains" Verb="Get" Noun="MailDomainList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMobileDeviceAccessOverrides" OutputProperty="Overrides" Verb="Get" Noun="MobileDeviceAccessOverrideList" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMobileDeviceAccessOverrides" OutputProperty="Overrides" Verb="Get" Noun="MobileDeviceAccessOverrideList" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMobileDeviceAccessRules" OutputProperty="Rules" Verb="Get" Noun="MobileDeviceAccessRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMobileDeviceAccessRules" OutputProperty="Rules" Verb="Get" Noun="MobileDeviceAccessRuleList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizations" OutputProperty="OrganizationSummaries" Verb="Get" Noun="OrganizationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListOrganizations" OutputProperty="OrganizationSummaries" Verb="Get" Noun="OrganizationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPersonalAccessTokens" OutputProperty="PersonalAccessTokenSummaries" Verb="Get" Noun="PersonalAccessTokenList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPersonalAccessTokens" OutputProperty="PersonalAccessTokenSummaries" Verb="Get" Noun="PersonalAccessTokenList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceDelegates" OutputProperty="Delegates" Verb="Get" Noun="DelegateList" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResourceDelegates" OutputProperty="Delegates" Verb="Get" Noun="DelegateList" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccessControlRule" Verb="Write" Noun="AccessControlRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAccessControlRule" Verb="Write" Noun="AccessControlRule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEmailMonitoringConfiguration" Verb="Write" Noun="EmailMonitoringConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEmailMonitoringConfiguration" Verb="Write" Noun="EmailMonitoringConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutIdentityProviderConfiguration" Verb="Write" Noun="IdentityProviderConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutIdentityProviderConfiguration" Verb="Write" Noun="IdentityProviderConfiguration" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutInboundDmarcSettings" Verb="Write" Noun="InboundDmarcSetting" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutInboundDmarcSettings" Verb="Write" Noun="InboundDmarcSetting" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMailboxPermissions" Verb="Write" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutMailboxPermissions" Verb="Write" Noun="MailboxPermission" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMobileDeviceAccessOverride" Verb="Write" Noun="MobileDeviceAccessOverride" ShouldProcessTarget="DeviceId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutMobileDeviceAccessOverride" Verb="Write" Noun="MobileDeviceAccessOverride" ShouldProcessTarget="DeviceId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRetentionPolicy" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="Name" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRetentionPolicy" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="Name" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterMailDomain" Verb="Add" Noun="MailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterMailDomain" Verb="Add" Noun="MailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterToWorkMail" Verb="Register" Noun="ToWorkMail" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterToWorkMail" Verb="Register" Noun="ToWorkMail" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetPassword" Verb="Reset" Noun="Password" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetPassword" Verb="Reset" Noun="Password" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMailboxExportJob" OutputProperty="JobId" Verb="Start" Noun="MailboxExportJob" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMailboxExportJob" OutputProperty="JobId" Verb="Start" Noun="MailboxExportJob" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestAvailabilityConfiguration" OutputProperty="*" Verb="Test" Noun="AvailabilityConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestAvailabilityConfiguration" OutputProperty="*" Verb="Test" Noun="AvailabilityConfiguration" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAvailabilityConfiguration" Verb="Update" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAvailabilityConfiguration" Verb="Update" Noun="AvailabilityConfiguration" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDefaultMailDomain" Verb="Update" Noun="DefaultMailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDefaultMailDomain" Verb="Update" Noun="DefaultMailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateImpersonationRole" Verb="Update" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateImpersonationRole" Verb="Update" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMailboxQuota" Verb="Update" Noun="MailboxQuota" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMailboxQuota" Verb="Update" Noun="MailboxQuota" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMobileDeviceAccessRule" Verb="Update" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMobileDeviceAccessRule" Verb="Update" Noun="MobileDeviceAccessRule" ShouldProcessTarget="MobileDeviceAccessRuleId" PipelineParameter="MobileDeviceAccessRuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePrimaryEmailAddress" Verb="Update" Noun="PrimaryEmailAddress" ShouldProcessTarget="EntityId" PipelineParameter="Email" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePrimaryEmailAddress" Verb="Update" Noun="PrimaryEmailAddress" ShouldProcessTarget="EntityId" PipelineParameter="Email" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

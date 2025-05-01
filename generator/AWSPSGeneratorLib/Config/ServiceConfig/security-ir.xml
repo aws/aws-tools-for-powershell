@@ -18,91 +18,91 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetMemberAccountDetails" OutputProperty="*" Verb="Get" Noun="GetMemberAccountDetail" PipelineParameter="MembershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetMemberAccountDetails" OutputProperty="*" Verb="Get" Noun="GetMemberAccountDetail" PipelineParameter="MembershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMembership" OutputProperty="MembershipId" Verb="Stop" Noun="Membership" ShouldProcessTarget="MembershipId" PipelineParameter="MembershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelMembership" OutputProperty="MembershipId" Verb="Stop" Noun="Membership" ShouldProcessTarget="MembershipId" PipelineParameter="MembershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CloseCase" OutputProperty="*" Verb="Close" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CloseCase" OutputProperty="*" Verb="Close" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCase" OutputProperty="CaseId" Verb="New" Noun="Case" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCase" OutputProperty="CaseId" Verb="New" Noun="Case" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCaseComment" OutputProperty="CommentId" Verb="New" Noun="CaseComment" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCaseComment" OutputProperty="CommentId" Verb="New" Noun="CaseComment" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMembership" OutputProperty="MembershipId" Verb="New" Noun="Membership" ShouldProcessTarget="MembershipName" PipelineParameter="MembershipName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMembership" OutputProperty="MembershipId" Verb="New" Noun="Membership" ShouldProcessTarget="MembershipName" PipelineParameter="MembershipName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCase" OutputProperty="*" Verb="Get" Noun="Case" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCase" OutputProperty="*" Verb="Get" Noun="Case" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCaseAttachmentDownloadUrl" OutputProperty="AttachmentPresignedUrl" Verb="Get" Noun="CaseAttachmentDownloadUrl" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCaseAttachmentDownloadUrl" OutputProperty="AttachmentPresignedUrl" Verb="Get" Noun="CaseAttachmentDownloadUrl" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCaseAttachmentUploadUrl" OutputProperty="AttachmentPresignedUrl" Verb="Get" Noun="CaseAttachmentUploadUrl" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCaseAttachmentUploadUrl" OutputProperty="AttachmentPresignedUrl" Verb="Get" Noun="CaseAttachmentUploadUrl" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMembership" OutputProperty="*" Verb="Get" Noun="Membership" PipelineParameter="MembershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMembership" OutputProperty="*" Verb="Get" Noun="Membership" PipelineParameter="MembershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCaseEdits" OutputProperty="*" Verb="Get" Noun="CaseEditList" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCaseEdits" OutputProperty="*" Verb="Get" Noun="CaseEditList" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCases" OutputProperty="*" Verb="Get" Noun="CaseList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCases" OutputProperty="*" Verb="Get" Noun="CaseList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComments" OutputProperty="*" Verb="Get" Noun="CommentList" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComments" OutputProperty="*" Verb="Get" Noun="CommentList" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMemberships" OutputProperty="Items" Verb="Get" Noun="MembershipList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMemberships" OutputProperty="Items" Verb="Get" Noun="MembershipList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCase" Verb="Update" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCase" Verb="Update" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCaseComment" OutputProperty="*" Verb="Update" Noun="CaseComment" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCaseComment" OutputProperty="*" Verb="Update" Noun="CaseComment" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCaseStatus" OutputProperty="CaseStatus" Verb="Update" Noun="CaseStatus" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCaseStatus" OutputProperty="CaseStatus" Verb="Update" Noun="CaseStatus" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMembership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipId" PipelineParameter="MembershipId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMembership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipId" PipelineParameter="MembershipId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverType" OutputProperty="*" Verb="Update" Noun="ResolverType" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResolverType" OutputProperty="*" Verb="Update" Noun="ResolverType" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

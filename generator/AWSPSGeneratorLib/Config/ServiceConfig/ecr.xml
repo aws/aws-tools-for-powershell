@@ -19,207 +19,207 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchCheckLayerAvailability" OutputProperty="*" Verb="Get" Noun="LayerAvailabilityBatch" PipelineParameter="LayerDigests" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCheckLayerAvailability" OutputProperty="*" Verb="Get" Noun="LayerAvailabilityBatch" PipelineParameter="LayerDigests" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteImage" OutputProperty="*" Verb="Remove" Noun="ImageBatch" ShouldProcessTarget="ImageIds" PipelineParameter="ImageIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteImage" OutputProperty="*" Verb="Remove" Noun="ImageBatch" ShouldProcessTarget="ImageIds" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetImage" OutputProperty="*" Verb="Get" Noun="ImageBatch" PipelineParameter="ImageIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetImage" OutputProperty="*" Verb="Get" Noun="ImageBatch" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetRepositoryScanningConfiguration" OutputProperty="*" Verb="Get" Noun="RepositoryScanningConfigurationBatch" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetRepositoryScanningConfiguration" OutputProperty="*" Verb="Get" Noun="RepositoryScanningConfigurationBatch" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteLayerUpload" OutputProperty="*" Verb="Complete" Noun="LayerUpload" ShouldProcessTarget="UploadId" PipelineParameter="LayerDigests" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CompleteLayerUpload" OutputProperty="*" Verb="Complete" Noun="LayerUpload" ShouldProcessTarget="UploadId" PipelineParameter="LayerDigests" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePullThroughCacheRule" OutputProperty="*" Verb="New" Noun="PullThroughCacheRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePullThroughCacheRule" OutputProperty="*" Verb="New" Noun="PullThroughCacheRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRepository" OutputProperty="Repository" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRepository" OutputProperty="Repository" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRepositoryCreationTemplate" OutputProperty="*" Verb="New" Noun="RepositoryCreationTemplate" ShouldProcessTarget="CustomRoleArn" PipelineParameter="Prefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRepositoryCreationTemplate" OutputProperty="*" Verb="New" Noun="RepositoryCreationTemplate" ShouldProcessTarget="CustomRoleArn" PipelineParameter="Prefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="*" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="*" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePullThroughCacheRule" OutputProperty="*" Verb="Remove" Noun="PullThroughCacheRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeletePullThroughCacheRule" OutputProperty="*" Verb="Remove" Noun="PullThroughCacheRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRegistryPolicy" OutputProperty="*" Verb="Remove" Noun="RegistryPolicy" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRegistryPolicy" OutputProperty="*" Verb="Remove" Noun="RegistryPolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRepository" OutputProperty="Repository" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRepository" OutputProperty="Repository" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="IgnoreExistingImages" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRepositoryCreationTemplate" OutputProperty="*" Verb="Remove" Noun="RepositoryCreationTemplate" ShouldProcessTarget="Prefix" PipelineParameter="Prefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRepositoryCreationTemplate" OutputProperty="*" Verb="Remove" Noun="RepositoryCreationTemplate" ShouldProcessTarget="Prefix" PipelineParameter="Prefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRepositoryPolicy" OutputProperty="*" Verb="Remove" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRepositoryPolicy" OutputProperty="*" Verb="Remove" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageReplicationStatus" OutputProperty="*" Verb="Get" Noun="ImageReplicationStatus" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImageReplicationStatus" OutputProperty="*" Verb="Get" Noun="ImageReplicationStatus" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePullThroughCacheRules" OutputProperty="PullThroughCacheRules" Verb="Get" Noun="PullThroughCacheRule" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribePullThroughCacheRules" OutputProperty="PullThroughCacheRules" Verb="Get" Noun="PullThroughCacheRule" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRegistry" OutputProperty="*" Verb="Get" Noun="Registry" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MaxResults" NewName="MaxResult" Alias="MaxItems" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRepositoryCreationTemplates" OutputProperty="*" Verb="Get" Noun="RepositoryCreationTemplate" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRepositoryCreationTemplates" OutputProperty="*" Verb="Get" Noun="RepositoryCreationTemplate" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSetting" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountSetting" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizationToken" OutputProperty="AuthorizationData" Verb="Get" Noun="AuthorizationToken" PipelineParameter="RegistryIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAuthorizationToken" OutputProperty="AuthorizationData" Verb="Get" Noun="AuthorizationToken" PipelineParameter="RegistryIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDownloadUrlForLayer" OutputProperty="*" Verb="Get" Noun="DownloadUrlForLayer" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDownloadUrlForLayer" OutputProperty="*" Verb="Get" Noun="DownloadUrlForLayer" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="*" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="*" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRegistryPolicy" OutputProperty="*" Verb="Get" Noun="RegistryPolicy" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRegistryPolicy" OutputProperty="*" Verb="Get" Noun="RegistryPolicy" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRegistryScanningConfiguration" OutputProperty="*" Verb="Get" Noun="RegistryScanningConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRegistryScanningConfiguration" OutputProperty="*" Verb="Get" Noun="RegistryScanningConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepositoryPolicy" OutputProperty="*" Verb="Get" Noun="RepositoryPolicy" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRepositoryPolicy" OutputProperty="*" Verb="Get" Noun="RepositoryPolicy" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateLayerUpload" OutputProperty="*" Verb="Start" Noun="LayerUpload" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InitiateLayerUpload" OutputProperty="*" Verb="Start" Noun="LayerUpload" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountSetting" OutputProperty="*" Verb="Write" Noun="AccountSetting" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAccountSetting" OutputProperty="*" Verb="Write" Noun="AccountSetting" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutImage" OutputProperty="Image" Verb="Write" Noun="Image" ShouldProcessTarget="RepositoryName" PipelineParameter="ImageManifest" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutImage" OutputProperty="Image" Verb="Write" Noun="Image" ShouldProcessTarget="RepositoryName" PipelineParameter="ImageManifest" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutImageScanningConfiguration" OutputProperty="*" Verb="Write" Noun="ImageScanningConfiguration" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutImageScanningConfiguration" OutputProperty="*" Verb="Write" Noun="ImageScanningConfiguration" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutImageTagMutability" OutputProperty="*" Verb="Write" Noun="ImageTagMutability" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutImageTagMutability" OutputProperty="*" Verb="Write" Noun="ImageTagMutability" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecyclePolicy" OutputProperty="*" Verb="Write" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="LifecyclePolicyText" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutLifecyclePolicy" OutputProperty="*" Verb="Write" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="LifecyclePolicyText" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRegistryPolicy" OutputProperty="*" Verb="Write" Noun="RegistryPolicy" ShouldProcessTarget="PolicyText" PipelineParameter="PolicyText" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRegistryPolicy" OutputProperty="*" Verb="Write" Noun="RegistryPolicy" ShouldProcessTarget="PolicyText" PipelineParameter="PolicyText" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRegistryScanningConfiguration" OutputProperty="RegistryScanningConfiguration" Verb="Write" Noun="RegistryScanningConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutRegistryScanningConfiguration" OutputProperty="RegistryScanningConfiguration" Verb="Write" Noun="RegistryScanningConfiguration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutReplicationConfiguration" OutputProperty="ReplicationConfiguration" Verb="Write" Noun="ReplicationConfiguration" ShouldProcessTarget="ReplicationConfiguration_Rules" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutReplicationConfiguration" OutputProperty="ReplicationConfiguration" Verb="Write" Noun="ReplicationConfiguration" ShouldProcessTarget="ReplicationConfiguration_Rules" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetRepositoryPolicy" OutputProperty="*" Verb="Set" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="PolicyText" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetRepositoryPolicy" OutputProperty="*" Verb="Set" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="PolicyText" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="OverridePolicy" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImageScan" OutputProperty="*" Verb="Start" Noun="ImageScan" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartImageScan" OutputProperty="*" Verb="Start" Noun="ImageScan" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLifecyclePolicyPreview" OutputProperty="*" Verb="Start" Noun="LifecyclePolicyPreview" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartLifecyclePolicyPreview" OutputProperty="*" Verb="Start" Noun="LifecyclePolicyPreview" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullThroughCacheRule" OutputProperty="*" Verb="Update" Noun="PullThroughCacheRule" ShouldProcessTarget="CredentialArn" PipelineParameter="CredentialArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePullThroughCacheRule" OutputProperty="*" Verb="Update" Noun="PullThroughCacheRule" ShouldProcessTarget="CredentialArn" PipelineParameter="CredentialArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryCreationTemplate" OutputProperty="*" Verb="Update" Noun="RepositoryCreationTemplate" ShouldProcessTarget="CustomRoleArn" PipelineParameter="Prefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRepositoryCreationTemplate" OutputProperty="*" Verb="Update" Noun="RepositoryCreationTemplate" ShouldProcessTarget="CustomRoleArn" PipelineParameter="Prefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadLayerPart" OutputProperty="*" Verb="Send" Noun="LayerPart" ShouldProcessTarget="RepositoryName" PipelineParameter="LayerPartBlob" NoPipelineParameter="false" DefaultParameterSet="FromBytes">
+        <ServiceOperation MethodName="UploadLayerPart" OutputProperty="*" Verb="Send" Noun="LayerPart" ShouldProcessTarget="RepositoryName" PipelineParameter="LayerPartBlob" NoPipelineParameter="false" DefaultParameterSet="FromBytes" LegacyV4Pagination="true">
             <Params>
                 <Param Name="LayerPartBlob" Alias="LayerPartBytes" AutoConvert="ToBase64" ParameterSetName="FromBytes" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidatePullThroughCacheRule" OutputProperty="*" Verb="Test" Noun="PullThroughCacheRule" PipelineParameter="EcrRepositoryPrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ValidatePullThroughCacheRule" OutputProperty="*" Verb="Test" Noun="PullThroughCacheRule" PipelineParameter="EcrRepositoryPrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

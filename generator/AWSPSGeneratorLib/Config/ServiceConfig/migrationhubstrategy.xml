@@ -18,91 +18,91 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetApplicationComponentDetails" OutputProperty="*" Verb="Get" Noun="ApplicationComponentDetail" PipelineParameter="ApplicationComponentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationComponentDetails" OutputProperty="*" Verb="Get" Noun="ApplicationComponentDetail" PipelineParameter="ApplicationComponentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationComponentStrategies" OutputProperty="ApplicationComponentStrategies" Verb="Get" Noun="ApplicationComponentStrategy" PipelineParameter="ApplicationComponentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationComponentStrategies" OutputProperty="ApplicationComponentStrategies" Verb="Get" Noun="ApplicationComponentStrategy" PipelineParameter="ApplicationComponentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssessment" OutputProperty="*" Verb="Get" Noun="Assessment" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAssessment" OutputProperty="*" Verb="Get" Noun="Assessment" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetImportFileTask" OutputProperty="*" Verb="Get" Noun="ImportFileTask" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetImportFileTask" OutputProperty="*" Verb="Get" Noun="ImportFileTask" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLatestAssessmentId" OutputProperty="Id" Verb="Get" Noun="LatestAssessmentId" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLatestAssessmentId" OutputProperty="Id" Verb="Get" Noun="LatestAssessmentId" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPortfolioPreferences" OutputProperty="*" Verb="Get" Noun="PortfolioPreference" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPortfolioPreferences" OutputProperty="*" Verb="Get" Noun="PortfolioPreference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPortfolioSummary" OutputProperty="AssessmentSummary" Verb="Get" Noun="PortfolioSummary" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPortfolioSummary" OutputProperty="AssessmentSummary" Verb="Get" Noun="PortfolioSummary" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecommendationReportDetails" OutputProperty="*" Verb="Get" Noun="RecommendationReportDetail" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecommendationReportDetails" OutputProperty="*" Verb="Get" Noun="RecommendationReportDetail" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServerDetails" OutputProperty="*" Verb="Get" Noun="ServerDetail" PipelineParameter="ServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetServerDetails" OutputProperty="*" Verb="Get" Noun="ServerDetail" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServerStrategies" OutputProperty="ServerStrategies" Verb="Get" Noun="ServerStrategy" PipelineParameter="ServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetServerStrategies" OutputProperty="ServerStrategies" Verb="Get" Noun="ServerStrategy" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalyzableServers" OutputProperty="AnalyzableServers" Verb="Get" Noun="AnalyzableServerList" PipelineParameter="Sort" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnalyzableServers" OutputProperty="AnalyzableServers" Verb="Get" Noun="AnalyzableServerList" PipelineParameter="Sort" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationComponents" OutputProperty="ApplicationComponentInfos" Verb="Get" Noun="ApplicationComponentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListApplicationComponents" OutputProperty="ApplicationComponentInfos" Verb="Get" Noun="ApplicationComponentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollectors" OutputProperty="Collectors" Verb="Get" Noun="CollectorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCollectors" OutputProperty="Collectors" Verb="Get" Noun="CollectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImportFileTask" OutputProperty="TaskInfos" Verb="Get" Noun="ImportFileTaskList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImportFileTask" OutputProperty="TaskInfos" Verb="Get" Noun="ImportFileTaskList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServers" OutputProperty="ServerInfos" Verb="Get" Noun="ServerList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListServers" OutputProperty="ServerInfos" Verb="Get" Noun="ServerList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPortfolioPreferences" Verb="Write" Noun="PortfolioPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutPortfolioPreferences" Verb="Write" Noun="PortfolioPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAssessment" OutputProperty="AssessmentId" Verb="Start" Noun="Assessment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartAssessment" OutputProperty="AssessmentId" Verb="Start" Noun="Assessment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImportFileTask" OutputProperty="Id" Verb="Start" Noun="ImportFileTask" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartImportFileTask" OutputProperty="Id" Verb="Start" Noun="ImportFileTask" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRecommendationReportGeneration" OutputProperty="Id" Verb="Start" Noun="RecommendationReportGeneration" ShouldProcessTarget="OutputFormat" PipelineParameter="OutputFormat" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartRecommendationReportGeneration" OutputProperty="Id" Verb="Start" Noun="RecommendationReportGeneration" ShouldProcessTarget="OutputFormat" PipelineParameter="OutputFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopAssessment" Verb="Stop" Noun="Assessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopAssessment" Verb="Stop" Noun="Assessment" ShouldProcessTarget="AssessmentId" PipelineParameter="AssessmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplicationComponentConfig" Verb="Update" Noun="ApplicationComponentConfig" ShouldProcessTarget="ApplicationComponentId" PipelineParameter="ApplicationComponentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplicationComponentConfig" Verb="Update" Noun="ApplicationComponentConfig" ShouldProcessTarget="ApplicationComponentId" PipelineParameter="ApplicationComponentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServerConfig" Verb="Update" Noun="ServerConfig" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateServerConfig" Verb="Update" Noun="ServerConfig" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

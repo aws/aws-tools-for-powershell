@@ -44,19 +44,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddRoleToDBCluster" Verb="Add" Noun="RoleToDBCluster" ShouldProcessTarget="DBClusterIdentifier" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddRoleToDBCluster" Verb="Add" Noun="RoleToDBCluster" ShouldProcessTarget="DBClusterIdentifier" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddRoleToDBInstance" Verb="Add" Noun="RoleToDBInstance" ShouldProcessTarget="RoleArn" PositionalParameters="DBInstanceIdentifier" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddRoleToDBInstance" Verb="Add" Noun="RoleToDBInstance" ShouldProcessTarget="RoleArn" PositionalParameters="DBInstanceIdentifier" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddSourceIdentifierToSubscription" OutputProperty="EventSubscription" Verb="Add" Noun="SourceIdentifierToSubscription" ShouldProcessTarget="SubscriptionName" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddSourceIdentifierToSubscription" OutputProperty="EventSubscription" Verb="Add" Noun="SourceIdentifierToSubscription" ShouldProcessTarget="SubscriptionName" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="TagsToResource" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="TagsToResource" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <PassThru>
                 <Expression>context.Tag</Expression>
@@ -64,15 +64,15 @@
             </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceActions" Verb="Submit" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceActions" Verb="Submit" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" OutputProperty="DBSecurityGroup" Verb="Enable" Noun="DBSecurityGroupIngress" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" OutputProperty="DBSecurityGroup" Verb="Enable" Noun="DBSecurityGroupIngress" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BacktrackDBCluster" OutputProperty="*" Verb="Reset" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BacktrackDBCluster" OutputProperty="*" Verb="Reset" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="EnforceReset" AutoApplyAlias="false" />
                 <Param Name="BacktrackToUtc" NewName="UtcBacktrackTo" AutoApplyAlias="false" />
@@ -80,325 +80,325 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBClusterParameterGroup" OutputProperty="DBClusterParameterGroup" Verb="Copy" Noun="DBClusterParameterGroup" ShouldProcessTarget="SourceDBClusterParameterGroupIdentifier" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyDBClusterParameterGroup" OutputProperty="DBClusterParameterGroup" Verb="Copy" Noun="DBClusterParameterGroup" ShouldProcessTarget="SourceDBClusterParameterGroupIdentifier" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBClusterSnapshot" OutputProperty="DBClusterSnapshot" Verb="Copy" Noun="DBClusterSnapshot" ShouldProcessTarget="SourceDBClusterSnapshotIdentifier" PositionalParameters="TargetDBClusterSnapshotIdentifier" PipelineParameter="SourceDBClusterSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyDBClusterSnapshot" OutputProperty="DBClusterSnapshot" Verb="Copy" Noun="DBClusterSnapshot" ShouldProcessTarget="SourceDBClusterSnapshotIdentifier" PositionalParameters="TargetDBClusterSnapshotIdentifier" PipelineParameter="SourceDBClusterSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBParameterGroup" OutputProperty="DBParameterGroup" Verb="Copy" Noun="DBParameterGroup" ShouldProcessTarget="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription" PipelineParameter="SourceDBParameterGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyDBParameterGroup" OutputProperty="DBParameterGroup" Verb="Copy" Noun="DBParameterGroup" ShouldProcessTarget="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription" PipelineParameter="SourceDBParameterGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBSnapshot" OutputProperty="DBSnapshot" Verb="Copy" Noun="DBSnapshot" ShouldProcessTarget="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier" PipelineParameter="SourceDBSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyDBSnapshot" OutputProperty="DBSnapshot" Verb="Copy" Noun="DBSnapshot" ShouldProcessTarget="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier" PipelineParameter="SourceDBSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyOptionGroup" OutputProperty="OptionGroup" Verb="Copy" Noun="OptionGroup" ShouldProcessTarget="SourceOptionGroupIdentifier" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription" PipelineParameter="SourceOptionGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyOptionGroup" OutputProperty="OptionGroup" Verb="Copy" Noun="OptionGroup" ShouldProcessTarget="SourceOptionGroupIdentifier" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription" PipelineParameter="SourceOptionGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="New" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="New" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomDBEngineVersion" OutputProperty="*" Verb="New" Noun="CustomDBEngineVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCustomDBEngineVersion" OutputProperty="*" Verb="New" Noun="CustomDBEngineVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBCluster" OutputProperty="DBCluster" Verb="New" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBCluster" OutputProperty="DBCluster" Verb="New" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBClusterEndpoint" OutputProperty="*" Verb="New" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBClusterEndpoint" OutputProperty="*" Verb="New" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBClusterParameterGroup" OutputProperty="DBClusterParameterGroup" Verb="New" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBClusterParameterGroup" OutputProperty="DBClusterParameterGroup" Verb="New" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBClusterSnapshot" OutputProperty="DBClusterSnapshot" Verb="New" Noun="DBClusterSnapshot" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBClusterSnapshot" OutputProperty="DBClusterSnapshot" Verb="New" Noun="DBClusterSnapshot" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBInstance" OutputProperty="DBInstance" Verb="New" Noun="DBInstance" ShouldProcessTarget="DBName" PositionalParameters="DBInstanceIdentifier" PipelineParameter="DBName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBInstance" OutputProperty="DBInstance" Verb="New" Noun="DBInstance" ShouldProcessTarget="DBName" PositionalParameters="DBInstanceIdentifier" PipelineParameter="DBName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBInstanceReadReplica" OutputProperty="DBInstance" Verb="New" Noun="DBInstanceReadReplica" ShouldProcessTarget="DBInstanceIdentifier" PositionalParameters="SourceDBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBInstanceReadReplica" OutputProperty="DBInstance" Verb="New" Noun="DBInstanceReadReplica" ShouldProcessTarget="DBInstanceIdentifier" PositionalParameters="SourceDBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBParameterGroup" OutputProperty="DBParameterGroup" Verb="New" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PositionalParameters="Description" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBParameterGroup" OutputProperty="DBParameterGroup" Verb="New" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PositionalParameters="Description" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBProxy" OutputProperty="DBProxy" Verb="New" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBProxy" OutputProperty="DBProxy" Verb="New" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="New" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="New" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBSecurityGroup" OutputProperty="DBSecurityGroup" Verb="New" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="DBSecurityGroupDescription" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBSecurityGroup" OutputProperty="DBSecurityGroup" Verb="New" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="DBSecurityGroupDescription" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBShardGroup" OutputProperty="*" Verb="New" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBShardGroup" OutputProperty="*" Verb="New" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBSnapshot" OutputProperty="DBSnapshot" Verb="New" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PositionalParameters="DBInstanceIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBSnapshot" OutputProperty="DBSnapshot" Verb="New" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PositionalParameters="DBInstanceIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBSubnetGroup" OutputProperty="DBSubnetGroup" Verb="New" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDBSubnetGroup" OutputProperty="DBSubnetGroup" Verb="New" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventSubscription" OutputProperty="EventSubscription" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PositionalParameters="SnsTopicArn;SourceType" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEventSubscription" OutputProperty="EventSubscription" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PositionalParameters="SnsTopicArn;SourceType" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGlobalCluster" OutputProperty="GlobalCluster" Verb="New" Noun="GlobalCluster" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGlobalCluster" OutputProperty="GlobalCluster" Verb="New" Noun="GlobalCluster" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIntegration" OutputProperty="*" Verb="New" Noun="Integration" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOptionGroup" OutputProperty="OptionGroup" Verb="New" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="EngineName;MajorEngineVersion;OptionGroupDescription" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOptionGroup" OutputProperty="OptionGroup" Verb="New" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="EngineName;MajorEngineVersion;OptionGroupDescription" PipelineParameter="OptionGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTenantDatabase" OutputProperty="TenantDatabase" Verb="New" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTenantDatabase" OutputProperty="TenantDatabase" Verb="New" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Remove" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Remove" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomDBEngineVersion" OutputProperty="*" Verb="Remove" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteCustomDBEngineVersion" OutputProperty="*" Verb="Remove" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBCluster" OutputProperty="DBCluster" Verb="Remove" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBCluster" OutputProperty="DBCluster" Verb="Remove" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBClusterAutomatedBackup" OutputProperty="DBClusterAutomatedBackup" Verb="Remove" Noun="DBClusterAutomatedBackup" ShouldProcessTarget="DbClusterResourceId" PipelineParameter="DbClusterResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBClusterAutomatedBackup" OutputProperty="DBClusterAutomatedBackup" Verb="Remove" Noun="DBClusterAutomatedBackup" ShouldProcessTarget="DbClusterResourceId" PipelineParameter="DbClusterResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBClusterEndpoint" OutputProperty="*" Verb="Remove" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBClusterEndpoint" OutputProperty="*" Verb="Remove" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Verb="Remove" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Verb="Remove" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBClusterSnapshot" OutputProperty="DBClusterSnapshot" Verb="Remove" Noun="DBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBClusterSnapshot" OutputProperty="DBClusterSnapshot" Verb="Remove" Noun="DBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBInstance" OutputProperty="DBInstance" Verb="Remove" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBInstance" OutputProperty="DBInstance" Verb="Remove" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBInstanceAutomatedBackup" OutputProperty="DBInstanceAutomatedBackup" Verb="Remove" Noun="DBInstanceAutomatedBackup" ShouldProcessTarget="DbiResourceId" PipelineParameter="DbiResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBInstanceAutomatedBackup" OutputProperty="DBInstanceAutomatedBackup" Verb="Remove" Noun="DBInstanceAutomatedBackup" ShouldProcessTarget="DbiResourceId" PipelineParameter="DbiResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBParameterGroup" Verb="Remove" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBParameterGroup" Verb="Remove" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBProxy" OutputProperty="DBProxy" Verb="Remove" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBProxy" OutputProperty="DBProxy" Verb="Remove" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="Remove" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="Remove" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBSecurityGroup" Verb="Remove" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBSecurityGroup" Verb="Remove" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBShardGroup" OutputProperty="*" Verb="Remove" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBShardGroup" OutputProperty="*" Verb="Remove" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBSnapshot" OutputProperty="DBSnapshot" Verb="Remove" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBSnapshot" OutputProperty="DBSnapshot" Verb="Remove" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBSubnetGroup" Verb="Remove" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDBSubnetGroup" Verb="Remove" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEventSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGlobalCluster" OutputProperty="GlobalCluster" Verb="Remove" Noun="GlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGlobalCluster" OutputProperty="GlobalCluster" Verb="Remove" Noun="GlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegration" OutputProperty="*" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIntegration" OutputProperty="*" Verb="Remove" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOptionGroup" Verb="Remove" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOptionGroup" Verb="Remove" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PipelineParameter="OptionGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTenantDatabase" OutputProperty="TenantDatabase" Verb="Remove" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTenantDatabase" OutputProperty="TenantDatabase" Verb="Remove" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterDBProxyTargets" Verb="Unregister" Noun="DBProxyTarget" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterDBProxyTargets" Verb="Unregister" Noun="DBProxyTarget" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountQuotas" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-RDSAccountAttributes">
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountQuotas" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-RDSAccountAttributes" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBlueGreenDeployments" OutputProperty="BlueGreenDeployments" Verb="Get" Noun="BlueGreenDeployment" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBlueGreenDeployments" OutputProperty="BlueGreenDeployments" Verb="Get" Noun="BlueGreenDeployment" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSCertificates">
+        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSCertificates" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterAutomatedBackups" OutputProperty="DBClusterAutomatedBackups" Verb="Get" Noun="DBClusterAutomatedBackup" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeDBClusterAutomatedBackups" OutputProperty="DBClusterAutomatedBackups" Verb="Get" Noun="DBClusterAutomatedBackup" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterBacktracks" OutputProperty="DBClusterBacktracks" Verb="Get" Noun="DBClusterBacktrackList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBClusterBacktracks" OutputProperty="DBClusterBacktracks" Verb="Get" Noun="DBClusterBacktrackList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterEndpoints" OutputProperty="DBClusterEndpoints" Verb="Get" Noun="DBClusterEndpoint" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBClusterEndpoints" OutputProperty="DBClusterEndpoints" Verb="Get" Noun="DBClusterEndpoint" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterParameterGroups" OutputProperty="DBClusterParameterGroups" Verb="Get" Noun="DBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBClusterParameterGroups" OutputProperty="DBClusterParameterGroups" Verb="Get" Noun="DBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterParameters" OutputProperty="Parameters" Verb="Get" Noun="DBClusterParameter" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBClusterParameters" OutputProperty="Parameters" Verb="Get" Noun="DBClusterParameter" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusters" OutputProperty="DBClusters" Verb="Get" Noun="DBCluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBClusters" OutputProperty="DBClusters" Verb="Get" Noun="DBCluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" OutputProperty="DBClusterSnapshotAttributesResult" Verb="Get" Noun="DBClusterSnapshotAttribute" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" OutputProperty="DBClusterSnapshotAttributesResult" Verb="Get" Noun="DBClusterSnapshotAttribute" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterSnapshots" OutputProperty="DBClusterSnapshots" Verb="Get" Noun="DBClusterSnapshot" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBClusterSnapshots" OutputProperty="DBClusterSnapshots" Verb="Get" Noun="DBClusterSnapshot" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBEngineVersions" OutputProperty="DBEngineVersions" Verb="Get" Noun="DBEngineVersion" PositionalParameters="EngineVersion;DBParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBEngineVersions" OutputProperty="DBEngineVersions" Verb="Get" Noun="DBEngineVersion" PositionalParameters="EngineVersion;DBParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBInstanceAutomatedBackups" OutputProperty="DBInstanceAutomatedBackups" Verb="Get" Noun="DBInstanceAutomatedBackup" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBInstanceAutomatedBackups" OutputProperty="DBInstanceAutomatedBackups" Verb="Get" Noun="DBInstanceAutomatedBackup" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBInstances" OutputProperty="DBInstances" Verb="Get" Noun="DBInstance" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBInstances" OutputProperty="DBInstances" Verb="Get" Noun="DBInstance" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBLogFiles" OutputProperty="DescribeDBLogFiles" Verb="Get" Noun="DBLogFile" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSDBLogFiles">
+        <ServiceOperation MethodName="DescribeDBLogFiles" OutputProperty="DescribeDBLogFiles" Verb="Get" Noun="DBLogFile" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSDBLogFiles" LegacyV4Pagination="true">
             <Params>
                 <Param Name="FilenameContains" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBParameterGroups" OutputProperty="DBParameterGroups" Verb="Get" Noun="DBParameterGroup" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBParameterGroups" OutputProperty="DBParameterGroups" Verb="Get" Noun="DBParameterGroup" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBParameters" OutputProperty="Parameters" Verb="Get" Noun="DBParameter" PositionalParameters="Source" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBParameters" OutputProperty="Parameters" Verb="Get" Noun="DBParameter" PositionalParameters="Source" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBProxies" OutputProperty="DBProxies" Verb="Get" Noun="DBProxy" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBProxies" OutputProperty="DBProxies" Verb="Get" Noun="DBProxy" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBProxyEndpoints" OutputProperty="DBProxyEndpoints" Verb="Get" Noun="DBProxyEndpoint" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDBProxyEndpoints" OutputProperty="DBProxyEndpoints" Verb="Get" Noun="DBProxyEndpoint" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBProxyTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="DBProxyTargetGroup" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBProxyTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="DBProxyTargetGroup" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBProxyTargets" OutputProperty="Targets" Verb="Get" Noun="DBProxyTarget" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBProxyTargets" OutputProperty="Targets" Verb="Get" Noun="DBProxyTarget" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBRecommendations" OutputProperty="DBRecommendations" Verb="Get" Noun="DBRecommendation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeDBRecommendations" OutputProperty="DBRecommendations" Verb="Get" Noun="DBRecommendation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBSecurityGroups" OutputProperty="DBSecurityGroups" Verb="Get" Noun="DBSecurityGroup" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBSecurityGroups" OutputProperty="DBSecurityGroups" Verb="Get" Noun="DBSecurityGroup" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBShardGroups" OutputProperty="DBShardGroups" Verb="Get" Noun="DBShardGroup" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDBShardGroups" OutputProperty="DBShardGroups" Verb="Get" Noun="DBShardGroup" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBSnapshotAttributes" OutputProperty="DBSnapshotAttributesResult" Verb="Get" Noun="DBSnapshotAttribute" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RDSDBSnapshotAttributes">
+        <ServiceOperation MethodName="DescribeDBSnapshotAttributes" OutputProperty="DBSnapshotAttributesResult" Verb="Get" Noun="DBSnapshotAttribute" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RDSDBSnapshotAttributes" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBSnapshots" OutputProperty="DBSnapshots" Verb="Get" Noun="DBSnapshot" PositionalParameters="DBSnapshotIdentifier;SnapshotType" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBSnapshots" OutputProperty="DBSnapshots" Verb="Get" Noun="DBSnapshot" PositionalParameters="DBSnapshotIdentifier;SnapshotType" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBSnapshotTenantDatabases" OutputProperty="DBSnapshotTenantDatabases" Verb="Get" Noun="DBSnapshotTenantDatabasis" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDBSnapshotTenantDatabases" OutputProperty="DBSnapshotTenantDatabases" Verb="Get" Noun="DBSnapshotTenantDatabasis" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBSubnetGroups" OutputProperty="DBSubnetGroups" Verb="Get" Noun="DBSubnetGroup" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDBSubnetGroups" OutputProperty="DBSubnetGroups" Verb="Get" Noun="DBSubnetGroup" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" OutputProperty="EngineDefaults" Verb="Get" Noun="EngineDefaultClusterParameter" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" OutputProperty="EngineDefaults" Verb="Get" Noun="EngineDefaultClusterParameter" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngineDefaultParameters" OutputProperty="EngineDefaults.Parameters" OutputWrapper="EngineDefaults" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeEngineDefaultParameters" OutputProperty="EngineDefaults.Parameters" OutputWrapper="EngineDefaults" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventCategories" OutputProperty="EventCategoriesMapList" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyAlias="Get-RDSEventCategories">
+        <ServiceOperation MethodName="DescribeEventCategories" OutputProperty="EventCategoriesMapList" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyAlias="Get-RDSEventCategories" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -407,221 +407,221 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSEventSubscriptions">
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSEventSubscriptions" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGlobalClusters" OutputProperty="GlobalClusters" Verb="Get" Noun="GlobalCluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeGlobalClusters" OutputProperty="GlobalClusters" Verb="Get" Noun="GlobalCluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIntegrations" OutputProperty="Integrations" Verb="Get" Noun="Integration" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIntegrations" OutputProperty="Integrations" Verb="Get" Noun="Integration" PipelineParameter="IntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOptionGroupOptions" OutputProperty="OptionGroupOptions" Verb="Get" Noun="OptionGroupOption" PositionalParameters="MajorEngineVersion" PipelineParameter="EngineName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeOptionGroupOptions" OutputProperty="OptionGroupOptions" Verb="Get" Noun="OptionGroupOption" PositionalParameters="MajorEngineVersion" PipelineParameter="EngineName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOptionGroups" OutputProperty="OptionGroupsList" Verb="Get" Noun="OptionGroup" PipelineParameter="OptionGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeOptionGroups" OutputProperty="OptionGroupsList" Verb="Get" Noun="OptionGroup" PipelineParameter="OptionGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" OutputProperty="OrderableDBInstanceOptions" Verb="Get" Noun="OrderableDBInstanceOption" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" OutputProperty="OrderableDBInstanceOptions" Verb="Get" Noun="OrderableDBInstanceOption" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSPendingMaintenanceActions">
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSPendingMaintenanceActions" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedDBInstances" OutputProperty="ReservedDBInstances" Verb="Get" Noun="ReservedDBInstance" PipelineParameter="ReservedDBInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeReservedDBInstances" OutputProperty="ReservedDBInstances" Verb="Get" Noun="ReservedDBInstance" PipelineParameter="ReservedDBInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" OutputProperty="ReservedDBInstancesOfferings" Verb="Get" Noun="ReservedDBInstancesOfferingList" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSReservedDBInstancesOfferings">
+        <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" OutputProperty="ReservedDBInstancesOfferings" Verb="Get" Noun="ReservedDBInstancesOfferingList" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RDSReservedDBInstancesOfferings" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSourceRegions" OutputProperty="SourceRegions" Verb="Get" Noun="SourceRegion" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeSourceRegions" OutputProperty="SourceRegions" Verb="Get" Noun="SourceRegion" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTenantDatabases" OutputProperty="TenantDatabases" Verb="Get" Noun="TenantDatabasis" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTenantDatabases" OutputProperty="TenantDatabases" Verb="Get" Noun="TenantDatabasis" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" OutputProperty="ValidDBInstanceModificationsMessage" Verb="Get" Noun="ValidDBInstanceModification" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" OutputProperty="ValidDBInstanceModificationsMessage" Verb="Get" Noun="ValidDBInstanceModification" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableHttpEndpoint" OutputProperty="*" Verb="Disable" Noun="HttpEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableHttpEndpoint" OutputProperty="*" Verb="Disable" Noun="HttpEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DownloadDBLogFilePortion" OutputProperty="*" Verb="Get" Noun="DBLogFilePortion" PositionalParameters="LogFileName" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="DownloadDBLogFilePortion" OutputProperty="*" Verb="Get" Noun="DBLogFilePortion" PositionalParameters="LogFileName" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params>
                 <Param Name="NumberOfLines" AutoRename="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableHttpEndpoint" OutputProperty="*" Verb="Enable" Noun="HttpEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableHttpEndpoint" OutputProperty="*" Verb="Enable" Noun="HttpEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FailoverDBCluster" OutputProperty="DBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="FailoverDBCluster" OutputProperty="DBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FailoverGlobalCluster" OutputProperty="GlobalCluster" Verb="Start" Noun="FailoverGlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="FailoverGlobalCluster" OutputProperty="GlobalCluster" Verb="Start" Noun="FailoverGlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="TagForResource" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="TagForResource" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyActivityStream" OutputProperty="*" Verb="Edit" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyActivityStream" OutputProperty="*" Verb="Edit" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCertificates" OutputProperty="Certificate" Verb="Edit" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="CertificateIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCertificates" OutputProperty="Certificate" Verb="Edit" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="CertificateIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCurrentDBClusterCapacity" OutputProperty="*" Verb="Edit" Noun="CurrentDBClusterCapacity" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyCurrentDBClusterCapacity" OutputProperty="*" Verb="Edit" Noun="CurrentDBClusterCapacity" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCustomDBEngineVersion" OutputProperty="*" Verb="Edit" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ModifyCustomDBEngineVersion" OutputProperty="*" Verb="Edit" Noun="CustomDBEngineVersion" ShouldProcessTarget="EngineVersion" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBCluster" OutputProperty="DBCluster" Verb="Edit" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBCluster" OutputProperty="DBCluster" Verb="Edit" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBClusterEndpoint" OutputProperty="*" Verb="Edit" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBClusterEndpoint" OutputProperty="*" Verb="Edit" Noun="DBClusterEndpoint" ShouldProcessTarget="DBClusterEndpointIdentifier" PipelineParameter="DBClusterEndpointIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBClusterParameterGroup" OutputProperty="DBClusterParameterGroupName" Verb="Edit" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBClusterParameterGroup" OutputProperty="DBClusterParameterGroupName" Verb="Edit" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" OutputProperty="DBClusterSnapshotAttributesResult" Verb="Edit" Noun="DBClusterSnapshotAttribute" ShouldProcessTarget="AttributeName" PipelineParameter="AttributeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" OutputProperty="DBClusterSnapshotAttributesResult" Verb="Edit" Noun="DBClusterSnapshotAttribute" ShouldProcessTarget="AttributeName" PipelineParameter="AttributeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBInstance" OutputProperty="DBInstance" Verb="Edit" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBInstance" OutputProperty="DBInstance" Verb="Edit" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBParameterGroup" OutputProperty="DBParameterGroupName" Verb="Edit" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBParameterGroup" OutputProperty="DBParameterGroupName" Verb="Edit" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBProxy" OutputProperty="DBProxy" Verb="Edit" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBProxy" OutputProperty="DBProxy" Verb="Edit" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="Edit" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBProxyEndpoint" OutputProperty="DBProxyEndpoint" Verb="Edit" Noun="DBProxyEndpoint" ShouldProcessTarget="DBProxyEndpointName" PipelineParameter="DBProxyEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBProxyTargetGroup" OutputProperty="DBProxyTargetGroup" Verb="Edit" Noun="DBProxyTargetGroup" ShouldProcessTarget="TargetGroupName" PipelineParameter="TargetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBProxyTargetGroup" OutputProperty="DBProxyTargetGroup" Verb="Edit" Noun="DBProxyTargetGroup" ShouldProcessTarget="TargetGroupName" PipelineParameter="TargetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBRecommendation" OutputProperty="DBRecommendation" Verb="Edit" Noun="DBRecommendation" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBRecommendation" OutputProperty="DBRecommendation" Verb="Edit" Noun="DBRecommendation" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBShardGroup" OutputProperty="*" Verb="Edit" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBShardGroup" OutputProperty="*" Verb="Edit" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBSnapshot" OutputProperty="DBSnapshot" Verb="Edit" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBSnapshot" OutputProperty="DBSnapshot" Verb="Edit" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBSnapshotAttribute" OutputProperty="DBSnapshotAttributesResult" Verb="Edit" Noun="DBSnapshotAttribute" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBSnapshotAttribute" OutputProperty="DBSnapshotAttributesResult" Verb="Edit" Noun="DBSnapshotAttribute" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBSubnetGroup" OutputProperty="DBSubnetGroup" Verb="Edit" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyDBSubnetGroup" OutputProperty="DBSubnetGroup" Verb="Edit" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PositionalParameters="SnsTopicArn" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PositionalParameters="SnsTopicArn" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyGlobalCluster" OutputProperty="GlobalCluster" Verb="Edit" Noun="GlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyGlobalCluster" OutputProperty="GlobalCluster" Verb="Edit" Noun="GlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyIntegration" OutputProperty="*" Verb="Edit" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ModifyIntegration" OutputProperty="*" Verb="Edit" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyOptionGroup" OutputProperty="OptionGroup" Verb="Edit" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="ApplyImmediately" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyOptionGroup" OutputProperty="OptionGroup" Verb="Edit" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="ApplyImmediately" PipelineParameter="OptionGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyTenantDatabase" OutputProperty="TenantDatabase" Verb="Edit" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyTenantDatabase" OutputProperty="TenantDatabase" Verb="Edit" Noun="TenantDatabase" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PromoteReadReplica" OutputProperty="DBInstance" Verb="Convert" Noun="ReadReplicaToStandalone" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PromoteReadReplica" OutputProperty="DBInstance" Verb="Convert" Noun="ReadReplicaToStandalone" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PromoteReadReplicaDBCluster" OutputProperty="DBCluster" Verb="Convert" Noun="ReadReplicaDBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PromoteReadReplicaDBCluster" OutputProperty="DBCluster" Verb="Convert" Noun="ReadReplicaDBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseReservedDBInstancesOffering" OutputProperty="ReservedDBInstance" Verb="New" Noun="ReservedDBInstancesOfferingPurchase" ShouldProcessTarget="ReservedDBInstancesOfferingId" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" LegacyAlias="Get-RDSReservedDBInstancesOffering">
+        <ServiceOperation MethodName="PurchaseReservedDBInstancesOffering" OutputProperty="ReservedDBInstance" Verb="New" Noun="ReservedDBInstancesOfferingPurchase" ShouldProcessTarget="ReservedDBInstancesOfferingId" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" LegacyAlias="Get-RDSReservedDBInstancesOffering" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootDBCluster" OutputProperty="DBCluster" Verb="Restart" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebootDBCluster" OutputProperty="DBCluster" Verb="Restart" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootDBInstance" OutputProperty="DBInstance" Verb="Restart" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebootDBInstance" OutputProperty="DBInstance" Verb="Restart" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootDBShardGroup" OutputProperty="*" Verb="Restart" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebootDBShardGroup" OutputProperty="*" Verb="Restart" Noun="DBShardGroup" ShouldProcessTarget="DBShardGroupIdentifier" PipelineParameter="DBShardGroupIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDBProxyTargets" OutputProperty="DBProxyTargets" Verb="Register" Noun="DBProxyTarget" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterDBProxyTargets" OutputProperty="DBProxyTargets" Verb="Register" Noun="DBProxyTarget" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFromGlobalCluster" OutputProperty="GlobalCluster" Verb="Remove" Noun="FromGlobalCluster" ShouldProcessTarget="DbClusterIdentifier" PipelineParameter="DbClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveFromGlobalCluster" OutputProperty="GlobalCluster" Verb="Remove" Noun="FromGlobalCluster" ShouldProcessTarget="DbClusterIdentifier" PipelineParameter="DbClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveRoleFromDBCluster" Verb="Remove" Noun="RoleFromDBCluster" ShouldProcessTarget="DBClusterIdentifier" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveRoleFromDBCluster" Verb="Remove" Noun="RoleFromDBCluster" ShouldProcessTarget="DBClusterIdentifier" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveRoleFromDBInstance" Verb="Remove" Noun="RoleFromDBInstance" ShouldProcessTarget="RoleArn" PositionalParameters="DBInstanceIdentifier" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveRoleFromDBInstance" Verb="Remove" Noun="RoleFromDBInstance" ShouldProcessTarget="RoleArn" PositionalParameters="DBInstanceIdentifier" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="SourceIdentifierFromSubscription" ShouldProcessTarget="SourceIdentifier" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="SourceIdentifierFromSubscription" ShouldProcessTarget="SourceIdentifier" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="TagFromResource" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="TagFromResource" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <PassThru>
                 <Expression>context.TagKey</Expression>
@@ -629,93 +629,93 @@
             </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetDBClusterParameterGroup" OutputProperty="DBClusterParameterGroupName" Verb="Reset" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetDBClusterParameterGroup" OutputProperty="DBClusterParameterGroupName" Verb="Reset" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetDBParameterGroup" OutputProperty="DBParameterGroupName" Verb="Reset" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetDBParameterGroup" OutputProperty="DBParameterGroupName" Verb="Reset" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBClusterFromS3" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterFromS3" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreDBClusterFromS3" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterFromS3" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterFromSnapshot" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterFromSnapshot" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBClusterToPointInTime" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterToPointInTime" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreDBClusterToPointInTime" OutputProperty="DBCluster" Verb="Restore" Noun="DBClusterToPointInTime" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RestoreToTimeUtc" NewName="UtcRestoreToTime" AutoApplyAlias="false" />
                 <Param Name="RestoreToTime" ExclusiveParameters="UtcRestoreToTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcRestoreToTime instead." />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceFromDBSnapshot" ShouldProcessTarget="DBInstanceIdentifier" PositionalParameters="DBSnapshotIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceFromDBSnapshot" ShouldProcessTarget="DBInstanceIdentifier" PositionalParameters="DBSnapshotIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBInstanceFromS3" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceFromS3" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreDBInstanceFromS3" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceFromS3" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceToPointInTime" ShouldProcessTarget="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" PipelineParameter="SourceDBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" OutputProperty="DBInstance" Verb="Restore" Noun="DBInstanceToPointInTime" ShouldProcessTarget="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" PipelineParameter="SourceDBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="RestoreTimeUtc" NewName="UtcRestoreTime" AutoApplyAlias="false" />
                 <Param Name="RestoreTime" ExclusiveParameters="UtcRestoreTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcRestoreTime instead." />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" OutputProperty="DBSecurityGroup" Verb="Revoke" Noun="DBSecurityGroupIngress" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" OutputProperty="DBSecurityGroup" Verb="Revoke" Noun="DBSecurityGroupIngress" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartActivityStream" OutputProperty="*" Verb="Start" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartActivityStream" OutputProperty="*" Verb="Start" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDBCluster" OutputProperty="DBCluster" Verb="Start" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDBCluster" OutputProperty="DBCluster" Verb="Start" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDBInstance" OutputProperty="DBInstance" Verb="Start" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDBInstance" OutputProperty="DBInstance" Verb="Start" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Start" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Start" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopActivityStream" OutputProperty="*" Verb="Stop" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopActivityStream" OutputProperty="*" Verb="Stop" Noun="ActivityStream" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDBCluster" OutputProperty="DBCluster" Verb="Stop" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopDBCluster" OutputProperty="DBCluster" Verb="Stop" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDBInstance" OutputProperty="DBInstance" Verb="Stop" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopDBInstance" OutputProperty="DBInstance" Verb="Stop" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Stop" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Stop" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SwitchoverBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Switch" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SwitchoverBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Switch" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SwitchoverGlobalCluster" OutputProperty="GlobalCluster" Verb="Request" Noun="SwitchoverGlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SwitchoverGlobalCluster" OutputProperty="GlobalCluster" Verb="Request" Noun="SwitchoverGlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SwitchoverReadReplica" OutputProperty="DBInstance" Verb="Convert" Noun="ReadReplicaToNewPrimary" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SwitchoverReadReplica" OutputProperty="DBInstance" Verb="Convert" Noun="ReadReplicaToNewPrimary" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

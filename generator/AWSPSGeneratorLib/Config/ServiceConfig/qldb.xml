@@ -19,83 +19,83 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJournalKinesisStream" OutputProperty="StreamId" Verb="Stop" Noun="JournalKinesisStream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelJournalKinesisStream" OutputProperty="StreamId" Verb="Stop" Noun="JournalKinesisStream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLedger" OutputProperty="*" Verb="New" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLedger" OutputProperty="*" Verb="New" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLedger" Verb="Remove" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLedger" Verb="Remove" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJournalKinesisStream" OutputProperty="Stream" Verb="Get" Noun="JournalKinesisStream" PipelineParameter="StreamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJournalKinesisStream" OutputProperty="Stream" Verb="Get" Noun="JournalKinesisStream" PipelineParameter="StreamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJournalS3Export" OutputProperty="ExportDescription" Verb="Get" Noun="JournalS3Export" PipelineParameter="ExportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJournalS3Export" OutputProperty="ExportDescription" Verb="Get" Noun="JournalS3Export" PipelineParameter="ExportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLedger" OutputProperty="*" Verb="Get" Noun="Ledger" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLedger" OutputProperty="*" Verb="Get" Noun="Ledger" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportJournalToS3" OutputProperty="ExportId" Verb="Export" Noun="JournalToS3" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExportJournalToS3" OutputProperty="ExportId" Verb="Export" Noun="JournalToS3" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlock" OutputProperty="*" Verb="Get" Noun="Block" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBlock" OutputProperty="*" Verb="Get" Noun="Block" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDigest" OutputProperty="*" Verb="Get" Noun="Digest" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDigest" OutputProperty="*" Verb="Get" Noun="Digest" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRevision" OutputProperty="*" Verb="Get" Noun="Revision" PipelineParameter="DocumentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRevision" OutputProperty="*" Verb="Get" Noun="Revision" PipelineParameter="DocumentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJournalKinesisStreamsForLedger" OutputProperty="Streams" Verb="Get" Noun="JournalKinesisStreamsForLedgerList" PipelineParameter="LedgerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJournalKinesisStreamsForLedger" OutputProperty="Streams" Verb="Get" Noun="JournalKinesisStreamsForLedgerList" PipelineParameter="LedgerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJournalS3Exports" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListJournalS3Exports" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJournalS3ExportsForLedger" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportsForLedgerList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListJournalS3ExportsForLedger" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportsForLedgerList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLedgers" OutputProperty="Ledgers" Verb="Get" Noun="LedgerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListLedgers" OutputProperty="Ledgers" Verb="Get" Noun="LedgerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StreamJournalToKinesis" OutputProperty="StreamId" Verb="Start" Noun="StreamJournalToKinesi" ShouldProcessTarget="LedgerName" PipelineParameter="LedgerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StreamJournalToKinesis" OutputProperty="StreamId" Verb="Start" Noun="StreamJournalToKinesi" ShouldProcessTarget="LedgerName" PipelineParameter="LedgerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLedger" OutputProperty="*" Verb="Update" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLedger" OutputProperty="*" Verb="Update" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLedgerPermissionsMode" OutputProperty="*" Verb="Update" Noun="LedgerPermissionsMode" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLedgerPermissionsMode" OutputProperty="*" Verb="Update" Noun="LedgerPermissionsMode" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

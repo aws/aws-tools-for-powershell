@@ -18,27 +18,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteReportDefinition" OutputProperty="ReportId" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReportDefinition" OutputProperty="ReportId" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReportDefinition" OutputProperty="*" Verb="Get" Noun="ReportDefinition" PipelineParameter="ReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReportDefinition" OutputProperty="*" Verb="Get" Noun="ReportDefinition" PipelineParameter="ReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportApplicationUsage" OutputProperty="ImportId" Verb="Import" Noun="ApplicationUsage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ImportApplicationUsage" OutputProperty="ImportId" Verb="Import" Noun="ApplicationUsage" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutReportDefinition" OutputProperty="ReportId" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutReportDefinition" OutputProperty="ReportId" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReportDefinition" OutputProperty="ReportId" Verb="Update" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReportDefinition" OutputProperty="ReportId" Verb="Update" Noun="ReportDefinition" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

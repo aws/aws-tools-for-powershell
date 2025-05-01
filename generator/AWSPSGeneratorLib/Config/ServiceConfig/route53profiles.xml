@@ -18,67 +18,67 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateProfile" OutputProperty="ProfileAssociation" Verb="New" Noun="ProfileAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateProfile" OutputProperty="ProfileAssociation" Verb="New" Noun="ProfileAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResourceToProfile" OutputProperty="ProfileResourceAssociation" Verb="New" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateResourceToProfile" OutputProperty="ProfileResourceAssociation" Verb="New" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProfile" OutputProperty="Profile" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="Profile" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProfile" OutputProperty="Profile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProfile" OutputProperty="Profile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateProfile" OutputProperty="ProfileAssociation" Verb="Remove" Noun="ProfileAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateProfile" OutputProperty="ProfileAssociation" Verb="Remove" Noun="ProfileAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResourceFromProfile" OutputProperty="ProfileResourceAssociation" Verb="Remove" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateResourceFromProfile" OutputProperty="ProfileResourceAssociation" Verb="Remove" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfileAssociation" OutputProperty="ProfileAssociation" Verb="Get" Noun="ProfileAssociation" PipelineParameter="ProfileAssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfileAssociation" OutputProperty="ProfileAssociation" Verb="Get" Noun="ProfileAssociation" PipelineParameter="ProfileAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Get" Noun="ProfileResourceAssociation" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Get" Noun="ProfileResourceAssociation" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfileAssociations" OutputProperty="ProfileAssociations" Verb="Get" Noun="ProfileAssociationList" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProfileAssociations" OutputProperty="ProfileAssociations" Verb="Get" Noun="ProfileAssociationList" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfileResourceAssociations" OutputProperty="ProfileResourceAssociations" Verb="Get" Noun="ProfileResourceAssociationList" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProfileResourceAssociations" OutputProperty="ProfileResourceAssociations" Verb="Get" Noun="ProfileResourceAssociationList" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Update" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileResourceAssociationId" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Update" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileResourceAssociationId" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

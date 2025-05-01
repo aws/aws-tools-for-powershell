@@ -25,34 +25,34 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchCreateTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchCreateTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchCreateTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchCreateTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchDeleteTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchDeleteTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelIngestion" OutputProperty="*" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelIngestion" OutputProperty="*" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccountCustomization" OutputProperty="*" Verb="New" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccountCustomization" OutputProperty="*" Verb="New" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccountSubscription" OutputProperty="*" Verb="New" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccountSubscription" OutputProperty="*" Verb="New" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnalysis" OutputProperty="*" Verb="New" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAnalysis" OutputProperty="*" Verb="New" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBrand" OutputProperty="*" Verb="New" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBrand" OutputProperty="*" Verb="New" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_PublicUrl" NewName="Favicon_PublicUrl" />
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_S3Uri" NewName="Favicon_S3Uri" />
@@ -61,22 +61,22 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomPermissions" OutputProperty="Arn" Verb="New" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCustomPermissions" OutputProperty="Arn" Verb="New" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSet" OutputProperty="*" Verb="New" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataSet" OutputProperty="*" Verb="New" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" />
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" />
@@ -89,406 +89,406 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFolder" OutputProperty="*" Verb="New" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFolder" OutputProperty="*" Verb="New" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFolderMembership" OutputProperty="FolderMember" Verb="New" Noun="FolderMembership" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFolderMembership" OutputProperty="FolderMember" Verb="New" Noun="FolderMembership" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroupMembership" OutputProperty="GroupMember" Verb="New" Noun="GroupMembership" ShouldProcessTarget="MemberName" PipelineParameter="MemberName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGroupMembership" OutputProperty="GroupMember" Verb="New" Noun="GroupMembership" ShouldProcessTarget="MemberName" PipelineParameter="MemberName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIAMPolicyAssignment" OutputProperty="*" Verb="New" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIAMPolicyAssignment" OutputProperty="*" Verb="New" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIngestion" OutputProperty="*" Verb="New" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIngestion" OutputProperty="*" Verb="New" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNamespace" OutputProperty="*" Verb="New" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNamespace" OutputProperty="*" Verb="New" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRefreshSchedule" OutputProperty="*" Verb="New" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRefreshSchedule" OutputProperty="*" Verb="New" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoleMembership" OutputProperty="*" Verb="New" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateRoleMembership" OutputProperty="*" Verb="New" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplateAlias" OutputProperty="TemplateAlias" Verb="New" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTemplateAlias" OutputProperty="TemplateAlias" Verb="New" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTheme" OutputProperty="*" Verb="New" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTheme" OutputProperty="*" Verb="New" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThemeAlias" OutputProperty="ThemeAlias" Verb="New" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateThemeAlias" OutputProperty="ThemeAlias" Verb="New" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTopic" OutputProperty="*" Verb="New" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTopic" OutputProperty="*" Verb="New" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTopicRefreshSchedule" OutputProperty="*" Verb="New" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTopicRefreshSchedule" OutputProperty="*" Verb="New" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVPCConnection" OutputProperty="*" Verb="New" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVPCConnection" OutputProperty="*" Verb="New" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountCustomization" OutputProperty="*" Verb="Remove" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccountCustomization" OutputProperty="*" Verb="Remove" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountSubscription" OutputProperty="*" Verb="Remove" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccountSubscription" OutputProperty="*" Verb="Remove" Noun="AccountSubscription" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnalysis" OutputProperty="*" Verb="Remove" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnalysis" OutputProperty="*" Verb="Remove" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBrand" OutputProperty="*" Verb="Remove" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBrand" OutputProperty="*" Verb="Remove" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBrandAssignment" OutputProperty="*" Verb="Remove" Noun="BrandAssignment" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBrandAssignment" OutputProperty="*" Verb="Remove" Noun="BrandAssignment" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomPermissions" OutputProperty="Arn" Verb="Remove" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCustomPermissions" OutputProperty="Arn" Verb="Remove" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDashboard" OutputProperty="*" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDashboard" OutputProperty="*" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSet" OutputProperty="*" Verb="Remove" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSet" OutputProperty="*" Verb="Remove" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSetRefreshProperties" OutputProperty="*" Verb="Remove" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSetRefreshProperties" OutputProperty="*" Verb="Remove" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDefaultQBusinessApplication" OutputProperty="*" Verb="Remove" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDefaultQBusinessApplication" OutputProperty="*" Verb="Remove" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFolder" OutputProperty="*" Verb="Remove" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFolder" OutputProperty="*" Verb="Remove" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFolderMembership" OutputProperty="*" Verb="Remove" Noun="FolderMembership" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFolderMembership" OutputProperty="*" Verb="Remove" Noun="FolderMembership" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" OutputProperty="*" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGroup" OutputProperty="*" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroupMembership" OutputProperty="*" Verb="Remove" Noun="GroupMembership" ShouldProcessTarget="MemberName" PipelineParameter="MemberName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGroupMembership" OutputProperty="*" Verb="Remove" Noun="GroupMembership" ShouldProcessTarget="MemberName" PipelineParameter="MemberName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIAMPolicyAssignment" OutputProperty="AssignmentName" Verb="Remove" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIAMPolicyAssignment" OutputProperty="AssignmentName" Verb="Remove" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityPropagationConfig" OutputProperty="*" Verb="Remove" Noun="IdentityPropagationConfig" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentityPropagationConfig" OutputProperty="*" Verb="Remove" Noun="IdentityPropagationConfig" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="RefreshSchedule" ShouldProcessTarget="ScheduleId" PipelineParameter="ScheduleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="RefreshSchedule" ShouldProcessTarget="ScheduleId" PipelineParameter="ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoleCustomPermission" OutputProperty="*" Verb="Remove" Noun="RoleCustomPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteRoleCustomPermission" OutputProperty="*" Verb="Remove" Noun="RoleCustomPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoleMembership" OutputProperty="*" Verb="Remove" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteRoleMembership" OutputProperty="*" Verb="Remove" Noun="RoleMembership" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplate" OutputProperty="*" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTemplate" OutputProperty="*" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplateAlias" OutputProperty="*" Verb="Remove" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTemplateAlias" OutputProperty="*" Verb="Remove" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTheme" OutputProperty="*" Verb="Remove" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTheme" OutputProperty="*" Verb="Remove" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThemeAlias" OutputProperty="*" Verb="Remove" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteThemeAlias" OutputProperty="*" Verb="Remove" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTopic" OutputProperty="*" Verb="Remove" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTopic" OutputProperty="*" Verb="Remove" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTopicRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTopicRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserByPrincipalId" OutputProperty="*" Verb="Remove" Noun="UserByPrincipalId" ShouldProcessTarget="PrincipalId" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserByPrincipalId" OutputProperty="*" Verb="Remove" Noun="UserByPrincipalId" ShouldProcessTarget="PrincipalId" PipelineParameter="PrincipalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserCustomPermission" OutputProperty="*" Verb="Remove" Noun="UserCustomPermission" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserCustomPermission" OutputProperty="*" Verb="Remove" Noun="UserCustomPermission" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVPCConnection" OutputProperty="*" Verb="Remove" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVPCConnection" OutputProperty="*" Verb="Remove" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountCustomization" OutputProperty="*" Verb="Get" Noun="AccountCustomization" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountCustomization" OutputProperty="*" Verb="Get" Noun="AccountCustomization" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountSubscription" OutputProperty="AccountInfo" Verb="Get" Noun="AccountSubscription" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountSubscription" OutputProperty="AccountInfo" Verb="Get" Noun="AccountSubscription" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnalysis" OutputProperty="Analysis" Verb="Get" Noun="Analysis" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAnalysis" OutputProperty="Analysis" Verb="Get" Noun="Analysis" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnalysisDefinition" OutputProperty="*" Verb="Get" Noun="AnalysisDefinition" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAnalysisDefinition" OutputProperty="*" Verb="Get" Noun="AnalysisDefinition" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnalysisPermissions" OutputProperty="*" Verb="Get" Noun="AnalysisPermission" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAnalysisPermissions" OutputProperty="*" Verb="Get" Noun="AnalysisPermission" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssetBundleExportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleExportJob" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAssetBundleExportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleExportJob" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAssetBundleImportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleImportJob" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAssetBundleImportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleImportJob" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrand" OutputProperty="*" Verb="Get" Noun="Brand" PipelineParameter="BrandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBrand" OutputProperty="*" Verb="Get" Noun="Brand" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrandAssignment" OutputProperty="BrandArn" Verb="Get" Noun="BrandAssignment" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBrandAssignment" OutputProperty="BrandArn" Verb="Get" Noun="BrandAssignment" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrandPublishedVersion" OutputProperty="*" Verb="Get" Noun="BrandPublishedVersion" PipelineParameter="BrandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBrandPublishedVersion" OutputProperty="*" Verb="Get" Noun="BrandPublishedVersion" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomPermissions" OutputProperty="CustomPermissions" Verb="Get" Noun="CustomPermission" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCustomPermissions" OutputProperty="CustomPermissions" Verb="Get" Noun="CustomPermission" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboard" OutputProperty="Dashboard" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboard" OutputProperty="Dashboard" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboardDefinition" OutputProperty="*" Verb="Get" Noun="DashboardDefinition" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboardDefinition" OutputProperty="*" Verb="Get" Noun="DashboardDefinition" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboardPermissions" OutputProperty="*" Verb="Get" Noun="DashboardPermission" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboardPermissions" OutputProperty="*" Verb="Get" Noun="DashboardPermission" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboardSnapshotJob" OutputProperty="*" Verb="Get" Noun="DashboardSnapshotJob" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboardSnapshotJob" OutputProperty="*" Verb="Get" Noun="DashboardSnapshotJob" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboardSnapshotJobResult" OutputProperty="*" Verb="Get" Noun="DashboardSnapshotJobResult" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboardSnapshotJobResult" OutputProperty="*" Verb="Get" Noun="DashboardSnapshotJobResult" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Get" Noun="DashboardsQAConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Get" Noun="DashboardsQAConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSet" OutputProperty="DataSet" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataSet" OutputProperty="DataSet" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSetPermissions" OutputProperty="*" Verb="Get" Noun="DataSetPermission" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataSetPermissions" OutputProperty="*" Verb="Get" Noun="DataSetPermission" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSetRefreshProperties" OutputProperty="DataSetRefreshProperties" Verb="Get" Noun="DataSetRefreshProperty" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataSetRefreshProperties" OutputProperty="DataSetRefreshProperties" Verb="Get" Noun="DataSetRefreshProperty" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSourcePermissions" OutputProperty="*" Verb="Get" Noun="DataSourcePermission" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDataSourcePermissions" OutputProperty="*" Verb="Get" Noun="DataSourcePermission" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultQBusinessApplication" OutputProperty="ApplicationId" Verb="Get" Noun="DefaultQBusinessApplication" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDefaultQBusinessApplication" OutputProperty="ApplicationId" Verb="Get" Noun="DefaultQBusinessApplication" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFolder" OutputProperty="Folder" Verb="Get" Noun="Folder" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFolder" OutputProperty="Folder" Verb="Get" Noun="Folder" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFolderPermissions" OutputProperty="*" Verb="Get" Noun="FolderPermission" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFolderPermissions" OutputProperty="*" Verb="Get" Noun="FolderPermission" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFolderResolvedPermissions" OutputProperty="*" Verb="Get" Noun="FolderResolvedPermission" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFolderResolvedPermissions" OutputProperty="*" Verb="Get" Noun="FolderResolvedPermission" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGroupMembership" OutputProperty="GroupMember" Verb="Get" Noun="GroupMembership" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGroupMembership" OutputProperty="GroupMember" Verb="Get" Noun="GroupMembership" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIAMPolicyAssignment" OutputProperty="IAMPolicyAssignment" Verb="Get" Noun="IAMPolicyAssignment" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIAMPolicyAssignment" OutputProperty="IAMPolicyAssignment" Verb="Get" Noun="IAMPolicyAssignment" PipelineParameter="AssignmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIngestion" OutputProperty="Ingestion" Verb="Get" Noun="Ingestion" PipelineParameter="IngestionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIngestion" OutputProperty="Ingestion" Verb="Get" Noun="Ingestion" PipelineParameter="IngestionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpRestriction" OutputProperty="*" Verb="Get" Noun="IpRestriction" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpRestriction" OutputProperty="*" Verb="Get" Noun="IpRestriction" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKeyRegistration" OutputProperty="*" Verb="Get" Noun="KeyRegistration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeKeyRegistration" OutputProperty="*" Verb="Get" Noun="KeyRegistration" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="Namespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Get" Noun="QPersonalizationConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Get" Noun="QPersonalizationConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQuickSightQSearchConfiguration" OutputProperty="QSearchStatus" Verb="Get" Noun="QuickSightQSearchConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQuickSightQSearchConfiguration" OutputProperty="QSearchStatus" Verb="Get" Noun="QuickSightQSearchConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRefreshSchedule" OutputProperty="*" Verb="Get" Noun="RefreshSchedule" PipelineParameter="ScheduleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRefreshSchedule" OutputProperty="*" Verb="Get" Noun="RefreshSchedule" PipelineParameter="ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRoleCustomPermission" OutputProperty="CustomPermissionsName" Verb="Get" Noun="RoleCustomPermission" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeRoleCustomPermission" OutputProperty="CustomPermissionsName" Verb="Get" Noun="RoleCustomPermission" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTemplateAlias" OutputProperty="TemplateAlias" Verb="Get" Noun="TemplateAlias" PipelineParameter="AliasName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTemplateAlias" OutputProperty="TemplateAlias" Verb="Get" Noun="TemplateAlias" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTemplateDefinition" OutputProperty="*" Verb="Get" Noun="TemplateDefinition" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTemplateDefinition" OutputProperty="*" Verb="Get" Noun="TemplateDefinition" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTemplatePermissions" OutputProperty="*" Verb="Get" Noun="TemplatePermission" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTemplatePermissions" OutputProperty="*" Verb="Get" Noun="TemplatePermission" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTheme" OutputProperty="Theme" Verb="Get" Noun="Theme" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTheme" OutputProperty="Theme" Verb="Get" Noun="Theme" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThemeAlias" OutputProperty="ThemeAlias" Verb="Get" Noun="ThemeAlias" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThemeAlias" OutputProperty="ThemeAlias" Verb="Get" Noun="ThemeAlias" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeThemePermissions" OutputProperty="*" Verb="Get" Noun="ThemePermission" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeThemePermissions" OutputProperty="*" Verb="Get" Noun="ThemePermission" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTopic" OutputProperty="*" Verb="Get" Noun="Topic" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTopic" OutputProperty="*" Verb="Get" Noun="Topic" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTopicPermissions" OutputProperty="*" Verb="Get" Noun="TopicPermission" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTopicPermissions" OutputProperty="*" Verb="Get" Noun="TopicPermission" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTopicRefresh" OutputProperty="RefreshDetails" Verb="Get" Noun="TopicRefresh" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTopicRefresh" OutputProperty="RefreshDetails" Verb="Get" Noun="TopicRefresh" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTopicRefreshSchedule" OutputProperty="*" Verb="Get" Noun="TopicRefreshSchedule" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTopicRefreshSchedule" OutputProperty="*" Verb="Get" Noun="TopicRefreshSchedule" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" OutputProperty="User" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="User" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVPCConnection" OutputProperty="VPCConnection" Verb="Get" Noun="VPCConnection" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVPCConnection" OutputProperty="VPCConnection" Verb="Get" Noun="VPCConnection" PipelineParameter="VPCConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateEmbedUrlForAnonymousUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForAnonymousUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GenerateEmbedUrlForAnonymousUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForAnonymousUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForRegisteredUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForRegisteredUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" />
@@ -507,7 +507,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUserWithIdentity" OutputProperty="EmbedUrl" Verb="Initialize" Noun="EmbedUrlForRegisteredUserWithIdentity" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUserWithIdentity" OutputProperty="EmbedUrl" Verb="Initialize" Noun="EmbedUrlForRegisteredUserWithIdentity" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled_SharedView_Enabled" />
@@ -524,242 +524,242 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDashboardEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="DashboardEmbedUrl" PipelineParameter="DashboardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDashboardEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="DashboardEmbedUrl" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSessionEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="SessionEmbedUrl" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSessionEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="SessionEmbedUrl" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalyses" OutputProperty="AnalysisSummaryList" Verb="Get" Noun="AnalysisList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnalyses" OutputProperty="AnalysisSummaryList" Verb="Get" Noun="AnalysisList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetBundleExportJobs" OutputProperty="AssetBundleExportJobSummaryList" Verb="Get" Noun="AssetBundleExportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetBundleExportJobs" OutputProperty="AssetBundleExportJobSummaryList" Verb="Get" Noun="AssetBundleExportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetBundleImportJobs" OutputProperty="AssetBundleImportJobSummaryList" Verb="Get" Noun="AssetBundleImportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetBundleImportJobs" OutputProperty="AssetBundleImportJobSummaryList" Verb="Get" Noun="AssetBundleImportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrands" OutputProperty="Brands" Verb="Get" Noun="BrandList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBrands" OutputProperty="Brands" Verb="Get" Noun="BrandList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomPermissions" OutputProperty="CustomPermissionsList" Verb="Get" Noun="CustomPermissionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCustomPermissions" OutputProperty="CustomPermissionsList" Verb="Get" Noun="CustomPermissionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboardVersions" OutputProperty="DashboardVersionSummaryList" Verb="Get" Noun="DashboardVersionList" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDashboardVersions" OutputProperty="DashboardVersionSummaryList" Verb="Get" Noun="DashboardVersionList" PipelineParameter="DashboardId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSetSummaries" Verb="Get" Noun="DataSetList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSetSummaries" Verb="Get" Noun="DataSetList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFolderMembers" OutputProperty="FolderMemberList" Verb="Get" Noun="FolderMemberList" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFolderMembers" OutputProperty="FolderMemberList" Verb="Get" Noun="FolderMemberList" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFolders" OutputProperty="FolderSummaryList" Verb="Get" Noun="FolderList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFolders" OutputProperty="FolderSummaryList" Verb="Get" Noun="FolderList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFoldersForResource" OutputProperty="Folders" Verb="Get" Noun="FoldersForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFoldersForResource" OutputProperty="Folders" Verb="Get" Noun="FoldersForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberList" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberList" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupList" Verb="Get" Noun="GroupList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupList" Verb="Get" Noun="GroupList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIAMPolicyAssignments" OutputProperty="IAMPolicyAssignments" Verb="Get" Noun="IAMPolicyAssignmentList" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListIAMPolicyAssignments" OutputProperty="IAMPolicyAssignments" Verb="Get" Noun="IAMPolicyAssignmentList" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIAMPolicyAssignmentsForUser" OutputProperty="ActiveAssignments" Verb="Get" Noun="IAMPolicyAssignmentsForUserList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListIAMPolicyAssignmentsForUser" OutputProperty="ActiveAssignments" Verb="Get" Noun="IAMPolicyAssignmentsForUserList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPropagationConfigs" OutputProperty="Services" Verb="Get" Noun="IdentityPropagationConfigList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentityPropagationConfigs" OutputProperty="Services" Verb="Get" Noun="IdentityPropagationConfigList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRefreshSchedules" OutputProperty="RefreshSchedules" Verb="Get" Noun="RefreshScheduleList" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRefreshSchedules" OutputProperty="RefreshSchedules" Verb="Get" Noun="RefreshScheduleList" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoleMemberships" OutputProperty="MembersList" Verb="Get" Noun="RoleMembershipList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRoleMemberships" OutputProperty="MembersList" Verb="Get" Noun="RoleMembershipList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateAliases" OutputProperty="TemplateAliasList" Verb="Get" Noun="TemplateAliasList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTemplateAliases" OutputProperty="TemplateAliasList" Verb="Get" Noun="TemplateAliasList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplateSummaryList" Verb="Get" Noun="TemplateList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplateSummaryList" Verb="Get" Noun="TemplateList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionSummaryList" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionSummaryList" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThemeAliases" OutputProperty="ThemeAliasList" Verb="Get" Noun="ThemeAliasList" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThemeAliases" OutputProperty="ThemeAliasList" Verb="Get" Noun="ThemeAliasList" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThemes" OutputProperty="ThemeSummaryList" Verb="Get" Noun="ThemeList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThemes" OutputProperty="ThemeSummaryList" Verb="Get" Noun="ThemeList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThemeVersions" OutputProperty="ThemeVersionSummaryList" Verb="Get" Noun="ThemeVersionList" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThemeVersions" OutputProperty="ThemeVersionSummaryList" Verb="Get" Noun="ThemeVersionList" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicRefreshSchedules" OutputProperty="*" Verb="Get" Noun="TopicRefreshScheduleList" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTopicRefreshSchedules" OutputProperty="*" Verb="Get" Noun="TopicRefreshScheduleList" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicReviewedAnswers" OutputProperty="*" Verb="Get" Noun="TopicReviewedAnswerList" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTopicReviewedAnswers" OutputProperty="*" Verb="Get" Noun="TopicReviewedAnswerList" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopics" OutputProperty="TopicsSummaries" Verb="Get" Noun="TopicList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTopics" OutputProperty="TopicsSummaries" Verb="Get" Noun="TopicList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserGroups" OutputProperty="GroupList" Verb="Get" Noun="UserGroupList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListUserGroups" OutputProperty="GroupList" Verb="Get" Noun="UserGroupList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="UserList" Verb="Get" Noun="UserList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="UserList" Verb="Get" Noun="UserList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVPCConnections" OutputProperty="VPCConnectionSummaries" Verb="Get" Noun="VPCConnectionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVPCConnections" OutputProperty="VPCConnectionSummaries" Verb="Get" Noun="VPCConnectionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PredictQAResults" OutputProperty="*" Verb="Search" Noun="QAResult" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PredictQAResults" OutputProperty="*" Verb="Search" Noun="QAResult" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDataSetRefreshProperties" OutputProperty="*" Verb="Write" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDataSetRefreshProperties" OutputProperty="*" Verb="Write" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterUser" OutputProperty="*" Verb="Register" Noun="User" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterUser" OutputProperty="*" Verb="Register" Noun="User" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreAnalysis" OutputProperty="*" Verb="Restore" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreAnalysis" OutputProperty="*" Verb="Restore" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchAnalyses" OutputProperty="AnalysisSummaryList" Verb="Search" Noun="Analysis" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchAnalyses" OutputProperty="AnalysisSummaryList" Verb="Search" Noun="Analysis" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchDashboards" OutputProperty="DashboardSummaryList" Verb="Search" Noun="Dashboard" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchDashboards" OutputProperty="DashboardSummaryList" Verb="Search" Noun="Dashboard" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchDataSets" OutputProperty="DataSetSummaries" Verb="Search" Noun="DataSet" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchDataSets" OutputProperty="DataSetSummaries" Verb="Search" Noun="DataSet" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchDataSources" OutputProperty="DataSourceSummaries" Verb="Search" Noun="DataSource" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchDataSources" OutputProperty="DataSourceSummaries" Verb="Search" Noun="DataSource" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFolders" OutputProperty="FolderSummaryList" Verb="Search" Noun="Folder" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchFolders" OutputProperty="FolderSummaryList" Verb="Search" Noun="Folder" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchGroups" OutputProperty="GroupList" Verb="Find" Noun="Group" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchGroups" OutputProperty="GroupList" Verb="Find" Noun="Group" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchTopics" OutputProperty="TopicSummaryList" Verb="Search" Noun="Topic" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchTopics" OutputProperty="TopicSummaryList" Verb="Search" Noun="Topic" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAssetBundleExportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAssetBundleExportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAssetBundleImportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAssetBundleImportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDashboardSnapshotJob" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJob" AnonymousShouldProcessTarget="true" PipelineParameter="SnapshotJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDashboardSnapshotJob" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJob" AnonymousShouldProcessTarget="true" PipelineParameter="SnapshotJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDashboardSnapshotJobSchedule" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJobSchedule" AnonymousShouldProcessTarget="true" PipelineParameter="ScheduleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDashboardSnapshotJobSchedule" OutputProperty="*" Verb="Start" Noun="DashboardSnapshotJobSchedule" AnonymousShouldProcessTarget="true" PipelineParameter="ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountCustomization" OutputProperty="*" Verb="Update" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccountCustomization" OutputProperty="*" Verb="Update" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="*" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="*" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnalysis" OutputProperty="*" Verb="Update" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnalysis" OutputProperty="*" Verb="Update" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnalysisPermissions" OutputProperty="*" Verb="Update" Noun="AnalysisPermission" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnalysisPermissions" OutputProperty="*" Verb="Update" Noun="AnalysisPermission" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplicationWithTokenExchangeGrant" OutputProperty="*" Verb="Update" Noun="ApplicationWithTokenExchangeGrant" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplicationWithTokenExchangeGrant" OutputProperty="*" Verb="Update" Noun="ApplicationWithTokenExchangeGrant" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrand" OutputProperty="*" Verb="Update" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBrand" OutputProperty="*" Verb="Update" Noun="Brand" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_PublicUrl" NewName="Favicon_PublicUrl" />
                 <Param Name="BrandDefinition_LogoConfiguration_LogoSet_Favicon_Original_Source_S3Uri" NewName="Favicon_S3Uri" />
@@ -768,50 +768,50 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrandAssignment" OutputProperty="BrandArn" Verb="Update" Noun="BrandAssignment" ShouldProcessTarget="BrandArn" PipelineParameter="BrandArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBrandAssignment" OutputProperty="BrandArn" Verb="Update" Noun="BrandAssignment" ShouldProcessTarget="BrandArn" PipelineParameter="BrandArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrandPublishedVersion" OutputProperty="VersionId" Verb="Update" Noun="BrandPublishedVersion" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBrandPublishedVersion" OutputProperty="VersionId" Verb="Update" Noun="BrandPublishedVersion" ShouldProcessTarget="BrandId" PipelineParameter="BrandId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomPermissions" OutputProperty="Arn" Verb="Update" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCustomPermissions" OutputProperty="Arn" Verb="Update" Noun="CustomPermission" ShouldProcessTarget="CustomPermissionsName" PipelineParameter="CustomPermissionsName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboardLinks" OutputProperty="*" Verb="Update" Noun="DashboardLink" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDashboardLinks" OutputProperty="*" Verb="Update" Noun="DashboardLink" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboardPermissions" OutputProperty="*" Verb="Update" Noun="DashboardPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDashboardPermissions" OutputProperty="*" Verb="Update" Noun="DashboardPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboardPublishedVersion" OutputProperty="*" Verb="Update" Noun="DashboardPublishedVersion" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDashboardPublishedVersion" OutputProperty="*" Verb="Update" Noun="DashboardPublishedVersion" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Update" Noun="DashboardsQAConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDashboardsQAConfiguration" OutputProperty="DashboardsQAStatus" Verb="Update" Noun="DashboardsQAConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSetPermissions" OutputProperty="*" Verb="Update" Noun="DataSetPermission" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSetPermissions" OutputProperty="*" Verb="Update" Noun="DataSetPermission" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_SnowflakeParameters_OAuthParameters_IdentityProviderResourceUri" />
                 <Param Name="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" NewName="DataSourceParameters_StarburstParameters_OAuthParameters_IdentityProviderResourceUri" />
@@ -824,117 +824,117 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDefaultQBusinessApplication" OutputProperty="*" Verb="Update" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDefaultQBusinessApplication" OutputProperty="*" Verb="Update" Noun="DefaultQBusinessApplication" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFolder" OutputProperty="*" Verb="Update" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFolder" OutputProperty="*" Verb="Update" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFolderPermissions" OutputProperty="*" Verb="Update" Noun="FolderPermission" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFolderPermissions" OutputProperty="*" Verb="Update" Noun="FolderPermission" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIAMPolicyAssignment" OutputProperty="*" Verb="Update" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIAMPolicyAssignment" OutputProperty="*" Verb="Update" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdentityPropagationConfig" OutputProperty="*" Verb="Update" Noun="IdentityPropagationConfig" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIdentityPropagationConfig" OutputProperty="*" Verb="Update" Noun="IdentityPropagationConfig" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIpRestriction" OutputProperty="AwsAccountId" Verb="Update" Noun="IpRestriction" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIpRestriction" OutputProperty="AwsAccountId" Verb="Update" Noun="IpRestriction" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKeyRegistration" OutputProperty="*" Verb="Update" Noun="KeyRegistration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKeyRegistration" OutputProperty="*" Verb="Update" Noun="KeyRegistration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePublicSharingSettings" OutputProperty="*" Verb="Update" Noun="PublicSharingSetting" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePublicSharingSettings" OutputProperty="*" Verb="Update" Noun="PublicSharingSetting" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten>
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest</Type>
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Update" Noun="QPersonalizationConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Update" Noun="QPersonalizationConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQuickSightQSearchConfiguration" OutputProperty="QSearchStatus" Verb="Update" Noun="QuickSightQSearchConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQuickSightQSearchConfiguration" OutputProperty="QSearchStatus" Verb="Update" Noun="QuickSightQSearchConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoleCustomPermission" OutputProperty="*" Verb="Update" Noun="RoleCustomPermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateRoleCustomPermission" OutputProperty="*" Verb="Update" Noun="RoleCustomPermission" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSPICECapacityConfiguration" OutputProperty="*" Verb="Update" Noun="SPICECapacityConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSPICECapacityConfiguration" OutputProperty="*" Verb="Update" Noun="SPICECapacityConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplateAlias" OutputProperty="TemplateAlias" Verb="Update" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTemplateAlias" OutputProperty="TemplateAlias" Verb="Update" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplatePermissions" OutputProperty="*" Verb="Update" Noun="TemplatePermission" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTemplatePermissions" OutputProperty="*" Verb="Update" Noun="TemplatePermission" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTheme" OutputProperty="*" Verb="Update" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTheme" OutputProperty="*" Verb="Update" Noun="Theme" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThemeAlias" OutputProperty="ThemeAlias" Verb="Update" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThemeAlias" OutputProperty="ThemeAlias" Verb="Update" Noun="ThemeAlias" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThemePermissions" OutputProperty="*" Verb="Update" Noun="ThemePermission" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateThemePermissions" OutputProperty="*" Verb="Update" Noun="ThemePermission" ShouldProcessTarget="ThemeId" PipelineParameter="ThemeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTopic" OutputProperty="*" Verb="Update" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTopic" OutputProperty="*" Verb="Update" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTopicPermissions" OutputProperty="*" Verb="Update" Noun="TopicPermission" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTopicPermissions" OutputProperty="*" Verb="Update" Noun="TopicPermission" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTopicRefreshSchedule" OutputProperty="*" Verb="Update" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTopicRefreshSchedule" OutputProperty="*" Verb="Update" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" OutputProperty="User" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUser" OutputProperty="User" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserCustomPermission" OutputProperty="*" Verb="Update" Noun="UserCustomPermission" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserCustomPermission" OutputProperty="*" Verb="Update" Noun="UserCustomPermission" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVPCConnection" OutputProperty="*" Verb="Update" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateVPCConnection" OutputProperty="*" Verb="Update" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

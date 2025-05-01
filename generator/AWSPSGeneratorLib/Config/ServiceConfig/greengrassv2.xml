@@ -19,119 +19,119 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateServiceRoleToAccount" OutputProperty="AssociatedAt" Verb="Add" Noun="ServiceRoleToAccount" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateServiceRoleToAccount" OutputProperty="AssociatedAt" Verb="Add" Noun="ServiceRoleToAccount" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateClientDeviceWithCoreDevice" OutputProperty="ErrorEntries" Verb="Add" Noun="BatchClientDeviceWithCoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchAssociateClientDeviceWithCoreDevice" OutputProperty="ErrorEntries" Verb="Add" Noun="BatchClientDeviceWithCoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateClientDeviceFromCoreDevice" OutputProperty="ErrorEntries" Verb="Remove" Noun="BatchClientDeviceFromCoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDisassociateClientDeviceFromCoreDevice" OutputProperty="ErrorEntries" Verb="Remove" Noun="BatchClientDeviceFromCoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelDeployment" OutputProperty="Message" Verb="Stop" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelDeployment" OutputProperty="Message" Verb="Stop" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComponentVersion" OutputProperty="*" Verb="New" Noun="ComponentVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateComponentVersion" OutputProperty="*" Verb="New" Noun="ComponentVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="*" Verb="New" Noun="Deployment" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteComponent" Verb="Remove" Noun="Component" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteComponent" Verb="Remove" Noun="Component" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCoreDevice" Verb="Remove" Noun="CoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCoreDevice" Verb="Remove" Noun="CoreDevice" ShouldProcessTarget="CoreDeviceThingName" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeployment" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDeployment" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComponent" OutputProperty="*" Verb="Get" Noun="ComponentMetadata" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeComponent" OutputProperty="*" Verb="Get" Noun="ComponentMetadata" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateServiceRoleFromAccount" OutputProperty="DisassociatedAt" Verb="Remove" Noun="ServiceRoleFromAccount" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateServiceRoleFromAccount" OutputProperty="DisassociatedAt" Verb="Remove" Noun="ServiceRoleFromAccount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComponent" OutputProperty="*" Verb="Get" Noun="Component" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetComponent" OutputProperty="*" Verb="Get" Noun="Component" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComponentVersionArtifact" OutputProperty="PreSignedUrl" Verb="Get" Noun="ComponentVersionArtifact" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetComponentVersionArtifact" OutputProperty="PreSignedUrl" Verb="Get" Noun="ComponentVersionArtifact" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectivityInfo" OutputProperty="*" Verb="Get" Noun="ConnectivityInfo" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConnectivityInfo" OutputProperty="*" Verb="Get" Noun="ConnectivityInfo" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCoreDevice" OutputProperty="*" Verb="Get" Noun="CoreDevice" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCoreDevice" OutputProperty="*" Verb="Get" Noun="CoreDevice" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceRoleForAccount" OutputProperty="*" Verb="Get" Noun="ServiceRoleForAccount" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetServiceRoleForAccount" OutputProperty="*" Verb="Get" Noun="ServiceRoleForAccount" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClientDevicesAssociatedWithCoreDevice" OutputProperty="AssociatedClientDevices" Verb="Get" Noun="ClientDevicesAssociatedWithCoreDeviceList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClientDevicesAssociatedWithCoreDevice" OutputProperty="AssociatedClientDevices" Verb="Get" Noun="ClientDevicesAssociatedWithCoreDeviceList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponents" OutputProperty="Components" Verb="Get" Noun="ComponentList" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComponents" OutputProperty="Components" Verb="Get" Noun="ComponentList" PipelineParameter="Scope" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponentVersions" OutputProperty="ComponentVersions" Verb="Get" Noun="ComponentVersionList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComponentVersions" OutputProperty="ComponentVersions" Verb="Get" Noun="ComponentVersionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCoreDevices" OutputProperty="CoreDevices" Verb="Get" Noun="CoreDeviceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCoreDevices" OutputProperty="CoreDevices" Verb="Get" Noun="CoreDeviceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEffectiveDeployments" OutputProperty="EffectiveDeployments" Verb="Get" Noun="EffectiveDeploymentList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEffectiveDeployments" OutputProperty="EffectiveDeployments" Verb="Get" Noun="EffectiveDeploymentList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstalledComponents" OutputProperty="InstalledComponents" Verb="Get" Noun="InstalledComponentList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstalledComponents" OutputProperty="InstalledComponents" Verb="Get" Noun="InstalledComponentList" PipelineParameter="CoreDeviceThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResolveComponentCandidates" OutputProperty="ResolvedComponentVersions" Verb="Resolve" Noun="ComponentCandidate" ShouldProcessTarget="Platform_Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ResolveComponentCandidates" OutputProperty="ResolvedComponentVersions" Verb="Resolve" Noun="ComponentCandidate" ShouldProcessTarget="Platform_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectivityInfo" OutputProperty="*" Verb="Update" Noun="ConnectivityInfo" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConnectivityInfo" OutputProperty="*" Verb="Update" Noun="ConnectivityInfo" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

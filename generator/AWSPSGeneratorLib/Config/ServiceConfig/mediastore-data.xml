@@ -19,23 +19,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteObject" Verb="Remove" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteObject" Verb="Remove" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeObject" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PipelineParameter="Path" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeObject" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PipelineParameter="Path" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObject" OutputProperty="*" Verb="Get" Noun="Object" PipelineParameter="Path" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetObject" OutputProperty="*" Verb="Get" Noun="Object" PipelineParameter="Path" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListItems" OutputProperty="Items" Verb="Get" Noun="ItemList" PipelineParameter="Path" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListItems" OutputProperty="Items" Verb="Get" Noun="ItemList" PipelineParameter="Path" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObject" OutputProperty="*" Verb="Write" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutObject" OutputProperty="*" Verb="Write" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

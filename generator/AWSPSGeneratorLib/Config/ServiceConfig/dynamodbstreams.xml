@@ -18,19 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamDescription" Verb="Get" Noun="Stream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamDescription" Verb="Get" Noun="Stream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecords" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecords" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetShardIterator" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetShardIterator" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

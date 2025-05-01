@@ -19,135 +19,135 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelCapacityTask" Verb="Stop" Noun="CapacityTask" ShouldProcessTarget="CapacityTaskId" PipelineParameter="CapacityTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelCapacityTask" Verb="Stop" Noun="CapacityTask" ShouldProcessTarget="CapacityTaskId" PipelineParameter="CapacityTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelOrder" Verb="Stop" Noun="Order" ShouldProcessTarget="OrderId" PipelineParameter="OrderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelOrder" Verb="Stop" Noun="Order" ShouldProcessTarget="OrderId" PipelineParameter="OrderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOrder" OutputProperty="Order" Verb="New" Noun="Order" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOrder" OutputProperty="Order" Verb="New" Noun="Order" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOutpost" OutputProperty="Outpost" Verb="New" Noun="Outpost" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOutpost" OutputProperty="Outpost" Verb="New" Noun="Outpost" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSite" OutputProperty="Site" Verb="New" Noun="Site" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSite" OutputProperty="Site" Verb="New" Noun="Site" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOutpost" Verb="Remove" Noun="Outpost" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOutpost" Verb="Remove" Noun="Outpost" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSite" Verb="Remove" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSite" Verb="Remove" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCapacityTask" OutputProperty="*" Verb="Get" Noun="CapacityTask" PipelineParameter="CapacityTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCapacityTask" OutputProperty="*" Verb="Get" Noun="CapacityTask" PipelineParameter="CapacityTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCatalogItem" OutputProperty="CatalogItem" Verb="Get" Noun="CatalogItem" PipelineParameter="CatalogItemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCatalogItem" OutputProperty="CatalogItem" Verb="Get" Noun="CatalogItem" PipelineParameter="CatalogItemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOrder" OutputProperty="Order" Verb="Get" Noun="Order" PipelineParameter="OrderId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOrder" OutputProperty="Order" Verb="Get" Noun="Order" PipelineParameter="OrderId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOutpost" OutputProperty="Outpost" Verb="Get" Noun="Outpost" PipelineParameter="OutpostId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOutpost" OutputProperty="Outpost" Verb="Get" Noun="Outpost" PipelineParameter="OutpostId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOutpostInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostInstanceType" PipelineParameter="OutpostId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOutpostInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostInstanceType" PipelineParameter="OutpostId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOutpostSupportedInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostSupportedInstanceType" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOutpostSupportedInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostSupportedInstanceType" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSite" OutputProperty="Site" Verb="Get" Noun="Site" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSite" OutputProperty="Site" Verb="Get" Noun="Site" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSiteAddress" OutputProperty="*" Verb="Get" Noun="SiteAddress" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSiteAddress" OutputProperty="*" Verb="Get" Noun="SiteAddress" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssetInstances" OutputProperty="AssetInstances" Verb="Get" Noun="AssetInstanceList" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssetInstances" OutputProperty="AssetInstances" Verb="Get" Noun="AssetInstanceList" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBlockingInstancesForCapacityTask" OutputProperty="BlockingInstances" Verb="Get" Noun="BlockingInstancesForCapacityTaskList" PipelineParameter="CapacityTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBlockingInstancesForCapacityTask" OutputProperty="BlockingInstances" Verb="Get" Noun="BlockingInstancesForCapacityTaskList" PipelineParameter="CapacityTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCapacityTasks" OutputProperty="CapacityTasks" Verb="Get" Noun="CapacityTaskList" PipelineParameter="OutpostIdentifierFilter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCapacityTasks" OutputProperty="CapacityTasks" Verb="Get" Noun="CapacityTaskList" PipelineParameter="OutpostIdentifierFilter" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCatalogItems" OutputProperty="CatalogItems" Verb="Get" Noun="CatalogItemList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCatalogItems" OutputProperty="CatalogItems" Verb="Get" Noun="CatalogItemList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrders" OutputProperty="Orders" Verb="Get" Noun="OrderList" PipelineParameter="OutpostIdentifierFilter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOrders" OutputProperty="Orders" Verb="Get" Noun="OrderList" PipelineParameter="OutpostIdentifierFilter" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOutposts" OutputProperty="Outposts" Verb="Get" Noun="OutpostList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOutposts" OutputProperty="Outposts" Verb="Get" Noun="OutpostList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSites" OutputProperty="Sites" Verb="Get" Noun="SiteList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSites" OutputProperty="Sites" Verb="Get" Noun="SiteList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCapacityTask" OutputProperty="*" Verb="Start" Noun="CapacityTask" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCapacityTask" OutputProperty="*" Verb="Start" Noun="CapacityTask" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartConnection" OutputProperty="*" Verb="Start" Noun="Connection" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartConnection" OutputProperty="*" Verb="Start" Noun="Connection" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOutpost" OutputProperty="Outpost" Verb="Update" Noun="Outpost" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateOutpost" OutputProperty="Outpost" Verb="Update" Noun="Outpost" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSite" OutputProperty="Site" Verb="Update" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSite" OutputProperty="Site" Verb="Update" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSiteAddress" OutputProperty="*" Verb="Update" Noun="SiteAddress" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSiteAddress" OutputProperty="*" Verb="Update" Noun="SiteAddress" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSiteRackPhysicalProperties" OutputProperty="Site" Verb="Update" Noun="SiteRackPhysicalProperty" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSiteRackPhysicalProperties" OutputProperty="Site" Verb="Update" Noun="SiteRackPhysicalProperty" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

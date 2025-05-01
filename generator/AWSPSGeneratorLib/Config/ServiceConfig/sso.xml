@@ -19,19 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetRoleCredentials" OutputProperty="RoleCredentials" Verb="Get" Noun="RoleCredential" PipelineParameter="RoleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRoleCredentials" OutputProperty="RoleCredentials" Verb="Get" Noun="RoleCredential" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountRoles" OutputProperty="RoleList" Verb="Get" Noun="AccountRoleList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountRoles" OutputProperty="RoleList" Verb="Get" Noun="AccountRoleList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccounts" OutputProperty="AccountList" Verb="Get" Noun="AccountList" PipelineParameter="AccessToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccounts" OutputProperty="AccountList" Verb="Get" Noun="AccountList" PipelineParameter="AccessToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Logout" Verb="Close" Noun="Session" ShouldProcessTarget="AccessToken" PipelineParameter="AccessToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Logout" Verb="Close" Noun="Session" ShouldProcessTarget="AccessToken" PipelineParameter="AccessToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

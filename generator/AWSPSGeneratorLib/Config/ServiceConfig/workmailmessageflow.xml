@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetRawMessageContent" OutputProperty="MessageContent" Verb="Get" Noun="RawMessageContent" PipelineParameter="MessageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRawMessageContent" OutputProperty="MessageContent" Verb="Get" Noun="RawMessageContent" PipelineParameter="MessageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRawMessageContent" Verb="Write" Noun="RawMessageContent" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRawMessageContent" Verb="Write" Noun="RawMessageContent" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

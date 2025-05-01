@@ -19,171 +19,171 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateConfigurationSet" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfigurationSet" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDedicatedIpPool" Verb="New" Noun="DedicatedIpPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDedicatedIpPool" Verb="New" Noun="DedicatedIpPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeliverabilityTestReport" OutputProperty="*" Verb="New" Noun="DeliverabilityTestReport" ShouldProcessTarget="FromEmailAddress" PipelineParameter="FromEmailAddress" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDeliverabilityTestReport" OutputProperty="*" Verb="New" Noun="DeliverabilityTestReport" ShouldProcessTarget="FromEmailAddress" PipelineParameter="FromEmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEmailIdentity" OutputProperty="*" Verb="New" Noun="EmailIdentity" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEmailIdentity" OutputProperty="*" Verb="New" Noun="EmailIdentity" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationSet" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfigurationSet" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Verb="Remove" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Verb="Remove" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDedicatedIpPool" Verb="Remove" Noun="DedicatedIpPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDedicatedIpPool" Verb="Remove" Noun="DedicatedIpPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEmailIdentity" Verb="Remove" Noun="EmailIdentity" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEmailIdentity" Verb="Remove" Noun="EmailIdentity" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccount" OutputProperty="*" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccount" OutputProperty="*" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlacklistReports" OutputProperty="BlacklistReport" Verb="Get" Noun="BlacklistReport" PipelineParameter="BlacklistItemNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBlacklistReports" OutputProperty="BlacklistReport" Verb="Get" Noun="BlacklistReport" PipelineParameter="BlacklistItemNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfigurationSet" OutputProperty="*" Verb="Get" Noun="ConfigurationSet" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfigurationSet" OutputProperty="*" Verb="Get" Noun="ConfigurationSet" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfigurationSetEventDestinations" OutputProperty="EventDestinations" Verb="Get" Noun="ConfigurationSetEventDestination" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfigurationSetEventDestinations" OutputProperty="EventDestinations" Verb="Get" Noun="ConfigurationSetEventDestination" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDedicatedIp" OutputProperty="DedicatedIp" Verb="Get" Noun="DedicatedIp" PipelineParameter="Ip" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDedicatedIp" OutputProperty="DedicatedIp" Verb="Get" Noun="DedicatedIp" PipelineParameter="Ip" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeliverabilityDashboardOptions" OutputProperty="*" Verb="Get" Noun="DeliverabilityDashboardOption" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeliverabilityDashboardOptions" OutputProperty="*" Verb="Get" Noun="DeliverabilityDashboardOption" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeliverabilityTestReport" OutputProperty="*" Verb="Get" Noun="DeliverabilityTestReport" PipelineParameter="ReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeliverabilityTestReport" OutputProperty="*" Verb="Get" Noun="DeliverabilityTestReport" PipelineParameter="ReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainDeliverabilityCampaign" OutputProperty="DomainDeliverabilityCampaign" Verb="Get" Noun="DomainDeliverabilityCampaign" PipelineParameter="CampaignId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDomainDeliverabilityCampaign" OutputProperty="DomainDeliverabilityCampaign" Verb="Get" Noun="DomainDeliverabilityCampaign" PipelineParameter="CampaignId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainStatisticsReport" OutputProperty="*" Verb="Get" Noun="DomainStatisticsReport" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDomainStatisticsReport" OutputProperty="*" Verb="Get" Noun="DomainStatisticsReport" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEmailIdentity" OutputProperty="*" Verb="Get" Noun="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEmailIdentity" OutputProperty="*" Verb="Get" Noun="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDedicatedIpPools" OutputProperty="DedicatedIpPools" Verb="Get" Noun="DedicatedIpPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDedicatedIpPools" OutputProperty="DedicatedIpPools" Verb="Get" Noun="DedicatedIpPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeliverabilityTestReports" OutputProperty="DeliverabilityTestReports" Verb="Get" Noun="DeliverabilityTestReportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDeliverabilityTestReports" OutputProperty="DeliverabilityTestReports" Verb="Get" Noun="DeliverabilityTestReportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainDeliverabilityCampaigns" OutputProperty="DomainDeliverabilityCampaigns" Verb="Get" Noun="DomainDeliverabilityCampaignList" PipelineParameter="SubscribedDomain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDomainDeliverabilityCampaigns" OutputProperty="DomainDeliverabilityCampaigns" Verb="Get" Noun="DomainDeliverabilityCampaignList" PipelineParameter="SubscribedDomain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountDedicatedIpWarmupAttributes" Verb="Write" Noun="AccountDedicatedIpWarmupAttribute" ShouldProcessTarget="AutoWarmupEnabled" PipelineParameter="AutoWarmupEnabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAccountDedicatedIpWarmupAttributes" Verb="Write" Noun="AccountDedicatedIpWarmupAttribute" ShouldProcessTarget="AutoWarmupEnabled" PipelineParameter="AutoWarmupEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountSendingAttributes" Verb="Write" Noun="AccountSendingAttribute" ShouldProcessTarget="SendingEnabled" PipelineParameter="SendingEnabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAccountSendingAttributes" Verb="Write" Noun="AccountSendingAttribute" ShouldProcessTarget="SendingEnabled" PipelineParameter="SendingEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationSetDeliveryOptions" Verb="Write" Noun="ConfigurationSetDeliveryOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutConfigurationSetDeliveryOptions" Verb="Write" Noun="ConfigurationSetDeliveryOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationSetReputationOptions" Verb="Write" Noun="ConfigurationSetReputationOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutConfigurationSetReputationOptions" Verb="Write" Noun="ConfigurationSetReputationOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationSetSendingOptions" Verb="Write" Noun="ConfigurationSetSendingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutConfigurationSetSendingOptions" Verb="Write" Noun="ConfigurationSetSendingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationSetTrackingOptions" Verb="Write" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutConfigurationSetTrackingOptions" Verb="Write" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDedicatedIpInPool" Verb="Write" Noun="DedicatedIpInPool" ShouldProcessTarget="Ip" PipelineParameter="Ip" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDedicatedIpInPool" Verb="Write" Noun="DedicatedIpInPool" ShouldProcessTarget="Ip" PipelineParameter="Ip" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDedicatedIpWarmupAttributes" Verb="Write" Noun="DedicatedIpWarmupAttribute" ShouldProcessTarget="Ip" PipelineParameter="Ip" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDedicatedIpWarmupAttributes" Verb="Write" Noun="DedicatedIpWarmupAttribute" ShouldProcessTarget="Ip" PipelineParameter="Ip" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDeliverabilityDashboardOption" Verb="Write" Noun="DeliverabilityDashboardOption" ShouldProcessTarget="DashboardEnabled" PipelineParameter="DashboardEnabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDeliverabilityDashboardOption" Verb="Write" Noun="DeliverabilityDashboardOption" ShouldProcessTarget="DashboardEnabled" PipelineParameter="DashboardEnabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEmailIdentityDkimAttributes" Verb="Write" Noun="EmailIdentityDkimAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEmailIdentityDkimAttributes" Verb="Write" Noun="EmailIdentityDkimAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEmailIdentityFeedbackAttributes" Verb="Write" Noun="EmailIdentityFeedbackAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEmailIdentityFeedbackAttributes" Verb="Write" Noun="EmailIdentityFeedbackAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEmailIdentityMailFromAttributes" Verb="Write" Noun="EmailIdentityMailFromAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutEmailIdentityMailFromAttributes" Verb="Write" Noun="EmailIdentityMailFromAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

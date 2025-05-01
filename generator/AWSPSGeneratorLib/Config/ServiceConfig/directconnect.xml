@@ -24,255 +24,255 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptDirectConnectGatewayAssociationProposal" OutputProperty="DirectConnectGatewayAssociation" Verb="Confirm" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptDirectConnectGatewayAssociationProposal" OutputProperty="DirectConnectGatewayAssociation" Verb="Confirm" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocateConnectionOnInterconnect" OutputProperty="*" Verb="Enable" Noun="ConnectionOnInterconnect" ShouldProcessTarget="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan" PipelineParameter="InterconnectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AllocateConnectionOnInterconnect" OutputProperty="*" Verb="Enable" Noun="ConnectionOnInterconnect" ShouldProcessTarget="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan" PipelineParameter="InterconnectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocateHostedConnection" OutputProperty="*" Verb="New" Noun="HostedConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AllocateHostedConnection" OutputProperty="*" Verb="New" Noun="HostedConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocatePrivateVirtualInterface" OutputProperty="*" Verb="Enable" Noun="PrivateVirtualInterface" ShouldProcessTarget="ConnectionId" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AllocatePrivateVirtualInterface" OutputProperty="*" Verb="Enable" Noun="PrivateVirtualInterface" ShouldProcessTarget="ConnectionId" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocatePublicVirtualInterface" OutputProperty="*" Verb="Enable" Noun="PublicVirtualInterface" ShouldProcessTarget="ConnectionId" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AllocatePublicVirtualInterface" OutputProperty="*" Verb="Enable" Noun="PublicVirtualInterface" ShouldProcessTarget="ConnectionId" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocateTransitVirtualInterface" OutputProperty="VirtualInterface" Verb="Enable" Noun="TransitVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AllocateTransitVirtualInterface" OutputProperty="VirtualInterface" Verb="Enable" Noun="TransitVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateConnectionWithLag" OutputProperty="*" Verb="Register" Noun="ConnectionWithLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateConnectionWithLag" OutputProperty="*" Verb="Register" Noun="ConnectionWithLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateHostedConnection" OutputProperty="*" Verb="Register" Noun="HostedConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateHostedConnection" OutputProperty="*" Verb="Register" Noun="HostedConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateMacSecKey" OutputProperty="*" Verb="Add" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateMacSecKey" OutputProperty="*" Verb="Add" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateVirtualInterface" OutputProperty="*" Verb="Register" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateVirtualInterface" OutputProperty="*" Verb="Register" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmConnection" OutputProperty="ConnectionState" Verb="Confirm" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmConnection" OutputProperty="ConnectionState" Verb="Confirm" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmCustomerAgreement" OutputProperty="Status" Verb="Confirm" Noun="CustomerAgreement" ShouldProcessTarget="AgreementName" PipelineParameter="AgreementName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmCustomerAgreement" OutputProperty="Status" Verb="Confirm" Noun="CustomerAgreement" ShouldProcessTarget="AgreementName" PipelineParameter="AgreementName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="PrivateVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PositionalParameters="VirtualGatewayId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="PrivateVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PositionalParameters="VirtualGatewayId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmPublicVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="PublicVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmPublicVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="PublicVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmTransitVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="TransitVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConfirmTransitVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Confirm" Noun="TransitVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBGPPeer" OutputProperty="VirtualInterface" Verb="New" Noun="BGPPeer" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBGPPeer" OutputProperty="VirtualInterface" Verb="New" Noun="BGPPeer" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PositionalParameters="Bandwidth;Location" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PositionalParameters="Bandwidth;Location" PipelineParameter="ConnectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="New" Noun="Gateway" ShouldProcessTarget="DirectConnectGatewayName" PipelineParameter="DirectConnectGatewayName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="New" Noun="Gateway" ShouldProcessTarget="DirectConnectGatewayName" PipelineParameter="DirectConnectGatewayName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociation" OutputProperty="DirectConnectGatewayAssociation" Verb="New" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociation" OutputProperty="DirectConnectGatewayAssociation" Verb="New" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociationProposal" OutputProperty="DirectConnectGatewayAssociationProposal" Verb="New" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociationProposal" OutputProperty="DirectConnectGatewayAssociationProposal" Verb="New" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInterconnect" OutputProperty="*" Verb="New" Noun="Interconnect" ShouldProcessTarget="InterconnectName" PositionalParameters="Bandwidth;Location" PipelineParameter="InterconnectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInterconnect" OutputProperty="*" Verb="New" Noun="Interconnect" ShouldProcessTarget="InterconnectName" PositionalParameters="Bandwidth;Location" PipelineParameter="InterconnectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLag" OutputProperty="*" Verb="New" Noun="Lag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLag" OutputProperty="*" Verb="New" Noun="Lag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePrivateVirtualInterface" OutputProperty="*" Verb="New" Noun="PrivateVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePrivateVirtualInterface" OutputProperty="*" Verb="New" Noun="PrivateVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePublicVirtualInterface" OutputProperty="*" Verb="New" Noun="PublicVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePublicVirtualInterface" OutputProperty="*" Verb="New" Noun="PublicVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTransitVirtualInterface" OutputProperty="VirtualInterface" Verb="New" Noun="TransitVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTransitVirtualInterface" OutputProperty="VirtualInterface" Verb="New" Noun="TransitVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBGPPeer" OutputProperty="VirtualInterface" Verb="Remove" Noun="BGPPeer" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBGPPeer" OutputProperty="VirtualInterface" Verb="Remove" Noun="BGPPeer" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnection" OutputProperty="*" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConnection" OutputProperty="*" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="Remove" Noun="Gateway" ShouldProcessTarget="DirectConnectGatewayId" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="Remove" Noun="Gateway" ShouldProcessTarget="DirectConnectGatewayId" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociation" OutputProperty="DirectConnectGatewayAssociation" Verb="Remove" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociation" OutputProperty="DirectConnectGatewayAssociation" Verb="Remove" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociationProposal" OutputProperty="DirectConnectGatewayAssociationProposal" Verb="Remove" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociationProposal" OutputProperty="DirectConnectGatewayAssociationProposal" Verb="Remove" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInterconnect" OutputProperty="InterconnectState" Verb="Remove" Noun="Interconnect" ShouldProcessTarget="InterconnectId" PipelineParameter="InterconnectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInterconnect" OutputProperty="InterconnectState" Verb="Remove" Noun="Interconnect" ShouldProcessTarget="InterconnectId" PipelineParameter="InterconnectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLag" OutputProperty="*" Verb="Remove" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLag" OutputProperty="*" Verb="Remove" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Remove" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVirtualInterface" OutputProperty="VirtualInterfaceState" Verb="Remove" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectionLoa" OutputProperty="Loa" Verb="Get" Noun="ConnectionLoa" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnectionLoa" OutputProperty="Loa" Verb="Get" Noun="ConnectionLoa" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" OutputProperty="Connections" Verb="Get" Noun="ConnectionsOnInterconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" OutputProperty="Connections" Verb="Get" Noun="ConnectionsOnInterconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCustomerMetadata" OutputProperty="*" Verb="Get" Noun="CustomerMetadata" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCustomerMetadata" OutputProperty="*" Verb="Get" Noun="CustomerMetadata" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" OutputProperty="DirectConnectGatewayAssociations" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" OutputProperty="DirectConnectGatewayAssociations" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" OutputProperty="DirectConnectGatewayAttachments" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" OutputProperty="DirectConnectGatewayAttachments" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGateways" OutputProperty="DirectConnectGateways" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDirectConnectGateways" OutputProperty="DirectConnectGateways" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHostedConnections" OutputProperty="Connections" Verb="Get" Noun="HostedConnection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeHostedConnections" OutputProperty="Connections" Verb="Get" Noun="HostedConnection" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInterconnectLoa" OutputProperty="Loa" Verb="Get" Noun="InterconnectLoa" PipelineParameter="InterconnectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInterconnectLoa" OutputProperty="Loa" Verb="Get" Noun="InterconnectLoa" PipelineParameter="InterconnectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInterconnects" OutputProperty="Interconnects" Verb="Get" Noun="Interconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInterconnects" OutputProperty="Interconnects" Verb="Get" Noun="Interconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLags" OutputProperty="Lags" Verb="Get" Noun="Lag" PipelineParameter="LagId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLags" OutputProperty="Lags" Verb="Get" Noun="Lag" PipelineParameter="LagId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoa" OutputProperty="*" Verb="Get" Noun="Loa" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoa" OutputProperty="*" Verb="Get" Noun="Loa" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocations" OutputProperty="Locations" Verb="Get" Noun="Location" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DCLocations">
+        <ServiceOperation MethodName="DescribeLocations" OutputProperty="Locations" Verb="Get" Noun="Location" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DCLocations" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouterConfiguration" OutputProperty="*" Verb="Get" Noun="RouterConfiguration" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRouterConfiguration" OutputProperty="*" Verb="Get" Noun="RouterConfiguration" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArns" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArns" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVirtualGateways" OutputProperty="VirtualGateways" Verb="Get" Noun="VirtualGateway" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVirtualGateways" OutputProperty="VirtualGateways" Verb="Get" Noun="VirtualGateway" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVirtualInterfaces" OutputProperty="VirtualInterfaces" Verb="Get" Noun="VirtualInterface" PositionalParameters="VirtualInterfaceId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVirtualInterfaces" OutputProperty="VirtualInterfaces" Verb="Get" Noun="VirtualInterface" PositionalParameters="VirtualInterfaceId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateConnectionFromLag" OutputProperty="*" Verb="Unregister" Noun="ConnectionFromLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateConnectionFromLag" OutputProperty="*" Verb="Unregister" Noun="ConnectionFromLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMacSecKey" OutputProperty="*" Verb="Remove" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateMacSecKey" OutputProperty="*" Verb="Remove" Noun="MacSecKey" ShouldProcessTarget="ConnectionId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualInterfaceTestHistory" OutputProperty="VirtualInterfaceTestHistory" Verb="Get" Noun="VirtualInterfaceTestHistoryList" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVirtualInterfaceTestHistory" OutputProperty="VirtualInterfaceTestHistory" Verb="Get" Noun="VirtualInterfaceTestHistoryList" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBgpFailoverTest" OutputProperty="VirtualInterfaceTest" Verb="Start" Noun="BgpFailoverTest" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartBgpFailoverTest" OutputProperty="VirtualInterfaceTest" Verb="Start" Noun="BgpFailoverTest" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopBgpFailoverTest" OutputProperty="VirtualInterfaceTest" Verb="Stop" Noun="BgpFailoverTest" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopBgpFailoverTest" OutputProperty="VirtualInterfaceTest" Verb="Stop" Noun="BgpFailoverTest" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConnection" OutputProperty="*" Verb="Update" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="Update" Noun="DirectConnectGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateDirectConnectGateway" OutputProperty="DirectConnectGateway" Verb="Update" Noun="DirectConnectGateway" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDirectConnectGatewayAssociation" OutputProperty="DirectConnectGatewayAssociation" Verb="Update" Noun="DirectConnectGatewayAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDirectConnectGatewayAssociation" OutputProperty="DirectConnectGatewayAssociation" Verb="Update" Noun="DirectConnectGatewayAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLag" OutputProperty="*" Verb="Update" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateLag" OutputProperty="*" Verb="Update" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVirtualInterfaceAttributes" OutputProperty="*" Verb="Update" Noun="VirtualInterfaceAttribute" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateVirtualInterfaceAttributes" OutputProperty="*" Verb="Update" Noun="VirtualInterfaceAttribute" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

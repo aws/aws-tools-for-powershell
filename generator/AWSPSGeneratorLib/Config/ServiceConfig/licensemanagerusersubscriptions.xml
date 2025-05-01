@@ -19,71 +19,71 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateUser" OutputProperty="InstanceUserSummary" Verb="Add" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateUser" OutputProperty="InstanceUserSummary" Verb="Add" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLicenseServerEndpoint" OutputProperty="*" Verb="New" Noun="LicenseServerEndpoint" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLicenseServerEndpoint" OutputProperty="*" Verb="New" Noun="LicenseServerEndpoint" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLicenseServerEndpoint" OutputProperty="LicenseServerEndpoint" Verb="Remove" Noun="LicenseServerEndpoint" ShouldProcessTarget="LicenseServerEndpointArn" PipelineParameter="LicenseServerEndpointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLicenseServerEndpoint" OutputProperty="LicenseServerEndpoint" Verb="Remove" Noun="LicenseServerEndpoint" ShouldProcessTarget="LicenseServerEndpointArn" PipelineParameter="LicenseServerEndpointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Unregister" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Unregister" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateUser" OutputProperty="InstanceUserSummary" Verb="Remove" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateUser" OutputProperty="InstanceUserSummary" Verb="Remove" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviderSummaries" Verb="Get" Noun="IdentityProviderList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviderSummaries" Verb="Get" Noun="IdentityProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="InstanceSummaries" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="InstanceSummaries" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLicenseServerEndpoints" OutputProperty="LicenseServerEndpoints" Verb="Get" Noun="LicenseServerEndpointList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLicenseServerEndpoints" OutputProperty="LicenseServerEndpoints" Verb="Get" Noun="LicenseServerEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProductSubscriptions" OutputProperty="ProductUserSummaries" Verb="Get" Noun="ProductSubscriptionList" PipelineParameter="Product" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProductSubscriptions" OutputProperty="ProductUserSummaries" Verb="Get" Noun="ProductSubscriptionList" PipelineParameter="Product" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserAssociations" OutputProperty="InstanceUserSummaries" Verb="Get" Noun="UserAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserAssociations" OutputProperty="InstanceUserSummaries" Verb="Get" Noun="UserAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Register" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterIdentityProvider" OutputProperty="IdentityProviderSummary" Verb="Register" Noun="IdentityProvider" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Product" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartProductSubscription" OutputProperty="ProductUserSummary" Verb="Start" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartProductSubscription" OutputProperty="ProductUserSummary" Verb="Start" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopProductSubscription" OutputProperty="ProductUserSummary" Verb="Stop" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopProductSubscription" OutputProperty="ProductUserSummary" Verb="Stop" Noun="ProductSubscription" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdentityProviderSettings" OutputProperty="*" Verb="Update" Noun="IdentityProviderSetting" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateIdentityProviderSettings" OutputProperty="*" Verb="Update" Noun="IdentityProviderSetting" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

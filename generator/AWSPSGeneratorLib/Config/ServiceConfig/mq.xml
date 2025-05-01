@@ -19,101 +19,101 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBroker" OutputProperty="*" Verb="New" Noun="Broker" ShouldProcessTarget="BrokerName" PipelineParameter="BrokerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBroker" OutputProperty="*" Verb="New" Noun="Broker" ShouldProcessTarget="BrokerName" PipelineParameter="BrokerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguration" OutputProperty="*" Verb="New" Noun="Configuration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfiguration" OutputProperty="*" Verb="New" Noun="Configuration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUser" Verb="New" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBroker" OutputProperty="BrokerId" Verb="Remove" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBroker" OutputProperty="BrokerId" Verb="Remove" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfiguration" OutputProperty="ConfigurationId" Verb="Remove" Noun="Configuration" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfiguration" OutputProperty="ConfigurationId" Verb="Remove" Noun="Configuration" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArn" ShouldProcessMsgNoun="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArn" ShouldProcessMsgNoun="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBroker" OutputProperty="*" Verb="Get" Noun="Broker" PipelineParameter="BrokerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBroker" OutputProperty="*" Verb="Get" Noun="Broker" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrokerEngineTypes" OutputProperty="BrokerEngineTypes" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeBrokerEngineTypes" OutputProperty="BrokerEngineTypes" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" OutputProperty="BrokerInstanceOptions" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" OutputProperty="BrokerInstanceOptions" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfiguration" OutputProperty="*" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConfiguration" OutputProperty="*" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationRevision" OutputProperty="*" Verb="Get" Noun="ConfigurationRevision" PipelineParameter="ConfigurationRevision" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConfigurationRevision" OutputProperty="*" Verb="Get" Noun="ConfigurationRevision" PipelineParameter="ConfigurationRevision" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrokers" OutputProperty="BrokerSummaries" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBrokers" OutputProperty="BrokerSummaries" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="TagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="TagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Promote" OutputProperty="BrokerId" Verb="Invoke" Noun="Promote" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Promote" OutputProperty="BrokerId" Verb="Invoke" Noun="Promote" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootBroker" Verb="Restart" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RebootBroker" Verb="Restart" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBroker" OutputProperty="*" Verb="Update" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBroker" OutputProperty="*" Verb="Update" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguration" OutputProperty="*" Verb="Update" Noun="Configuration" ShouldProcessTarget="ConfigurationId" PipelineParameter="Data" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfiguration" OutputProperty="*" Verb="Update" Noun="Configuration" ShouldProcessTarget="ConfigurationId" PipelineParameter="Data" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Data" AutoConvert="ToBase64" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

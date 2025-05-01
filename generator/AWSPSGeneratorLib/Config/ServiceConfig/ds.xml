@@ -19,283 +19,283 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptSharedDirectory" OutputProperty="SharedDirectory" Verb="Confirm" Noun="SharedDirectory" ShouldProcessTarget="SharedDirectoryId" PipelineParameter="SharedDirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptSharedDirectory" OutputProperty="SharedDirectory" Verb="Confirm" Noun="SharedDirectory" ShouldProcessTarget="SharedDirectoryId" PipelineParameter="SharedDirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddIpRoutes" Verb="Add" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Add-DSIpRoutes">
+        <ServiceOperation MethodName="AddIpRoutes" Verb="Add" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Add-DSIpRoutes" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddRegion" Verb="Add" Noun="Region" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddRegion" Verb="Add" Noun="Region" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelSchemaExtension" Verb="Stop" Noun="SchemaExtension" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelSchemaExtension" Verb="Stop" Noun="SchemaExtension" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConnectDirectory" OutputProperty="DirectoryId" Verb="Connect" Noun="Directory" ShouldProcessTarget="Name" PositionalParameters="Password" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConnectDirectory" OutputProperty="DirectoryId" Verb="Connect" Noun="Directory" ShouldProcessTarget="Name" PositionalParameters="Password" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlias" OutputProperty="*" Verb="New" Noun="Alias" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAlias" OutputProperty="*" Verb="New" Noun="Alias" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComputer" OutputProperty="Computer" Verb="New" Noun="Computer" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateComputer" OutputProperty="Computer" Verb="New" Noun="Computer" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConditionalForwarder" Verb="New" Noun="ConditionalForwarder" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConditionalForwarder" Verb="New" Noun="ConditionalForwarder" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectory" OutputProperty="DirectoryId" Verb="New" Noun="Directory" ShouldProcessTarget="Name" PositionalParameters="Password" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDirectory" OutputProperty="DirectoryId" Verb="New" Noun="Directory" ShouldProcessTarget="Name" PositionalParameters="Password" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogSubscription" Verb="New" Noun="LogSubscription" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLogSubscription" Verb="New" Noun="LogSubscription" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMicrosoftAD" OutputProperty="DirectoryId" Verb="New" Noun="MicrosoftAD" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMicrosoftAD" OutputProperty="DirectoryId" Verb="New" Noun="MicrosoftAD" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="SnapshotId" Verb="New" Noun="Snapshot" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="SnapshotId" Verb="New" Noun="Snapshot" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrust" OutputProperty="TrustId" Verb="New" Noun="Trust" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrust" OutputProperty="TrustId" Verb="New" Noun="Trust" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConditionalForwarder" Verb="Remove" Noun="ConditionalForwarder" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConditionalForwarder" Verb="Remove" Noun="ConditionalForwarder" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectory" OutputProperty="DirectoryId" Verb="Remove" Noun="Directory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDirectory" OutputProperty="DirectoryId" Verb="Remove" Noun="Directory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLogSubscription" Verb="Remove" Noun="LogSubscription" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLogSubscription" Verb="Remove" Noun="LogSubscription" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="SnapshotId" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="SnapshotId" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrust" OutputProperty="TrustId" Verb="Remove" Noun="Trust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrust" OutputProperty="TrustId" Verb="Remove" Noun="Trust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterCertificate" Verb="Unregister" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterCertificate" Verb="Unregister" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterEventTopic" Verb="Unregister" Noun="EventTopic" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterEventTopic" Verb="Unregister" Noun="EventTopic" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="Certificate" PipelineParameter="CertificateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientAuthenticationSettings" OutputProperty="ClientAuthenticationSettingsInfo" Verb="Get" Noun="ClientAuthenticationSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeClientAuthenticationSettings" OutputProperty="ClientAuthenticationSettingsInfo" Verb="Get" Noun="ClientAuthenticationSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConditionalForwarders" OutputProperty="ConditionalForwarders" Verb="Get" Noun="ConditionalForwarder" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConditionalForwarders" OutputProperty="ConditionalForwarders" Verb="Get" Noun="ConditionalForwarder" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectories" OutputProperty="DirectoryDescriptions" Verb="Get" Noun="Directory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDirectories" OutputProperty="DirectoryDescriptions" Verb="Get" Noun="Directory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectoryDataAccess" OutputProperty="DataAccessStatus" Verb="Get" Noun="DirectoryDataAccess" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectoryDataAccess" OutputProperty="DataAccessStatus" Verb="Get" Noun="DirectoryDataAccess" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainControllers" OutputProperty="DomainControllers" Verb="Get" Noun="DomainControllerList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeDomainControllers" OutputProperty="DomainControllers" Verb="Get" Noun="DomainControllerList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventTopics" OutputProperty="EventTopics" Verb="Get" Noun="EventTopic" PipelineParameter="TopicNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEventTopics" OutputProperty="EventTopics" Verb="Get" Noun="EventTopic" PipelineParameter="TopicNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLDAPSSettings" OutputProperty="LDAPSSettingsInfo" Verb="Get" Noun="LDAPSSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeLDAPSSettings" OutputProperty="LDAPSSettingsInfo" Verb="Get" Noun="LDAPSSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRegions" OutputProperty="RegionsDescription" Verb="Get" Noun="Region" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRegions" OutputProperty="RegionsDescription" Verb="Get" Noun="Region" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSettings" OutputProperty="*" Verb="Get" Noun="Setting" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSettings" OutputProperty="*" Verb="Get" Noun="Setting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrusts" OutputProperty="Trusts" Verb="Get" Noun="Trust" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTrusts" OutputProperty="Trusts" Verb="Get" Noun="Trust" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUpdateDirectory" OutputProperty="UpdateActivities" Verb="Get" Noun="UpdateDirectory" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUpdateDirectory" OutputProperty="UpdateActivities" Verb="Get" Noun="UpdateDirectory" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableClientAuthentication" Verb="Disable" Noun="ClientAuthentication" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableClientAuthentication" Verb="Disable" Noun="ClientAuthentication" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableDirectoryDataAccess" Verb="Disable" Noun="DirectoryDataAccess" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableDirectoryDataAccess" Verb="Disable" Noun="DirectoryDataAccess" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableLDAPS" Verb="Disable" Noun="LDAPS" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableLDAPS" Verb="Disable" Noun="LDAPS" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableRadius" Verb="Disable" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableRadius" Verb="Disable" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSso" Verb="Disable" Noun="Sso" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableSso" Verb="Disable" Noun="Sso" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableClientAuthentication" Verb="Enable" Noun="ClientAuthentication" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableClientAuthentication" Verb="Enable" Noun="ClientAuthentication" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableDirectoryDataAccess" Verb="Enable" Noun="DirectoryDataAccess" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableDirectoryDataAccess" Verb="Enable" Noun="DirectoryDataAccess" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableLDAPS" Verb="Enable" Noun="LDAPS" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableLDAPS" Verb="Enable" Noun="LDAPS" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableRadius" Verb="Enable" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableRadius" Verb="Enable" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableSso" Verb="Enable" Noun="Sso" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableSso" Verb="Enable" Noun="Sso" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDirectoryLimits" OutputProperty="DirectoryLimits" Verb="Get" Noun="DirectoryLimit" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDirectoryLimits" OutputProperty="DirectoryLimits" Verb="Get" Noun="DirectoryLimit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnapshotLimits" OutputProperty="SnapshotLimits" Verb="Get" Noun="SnapshotLimit" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSnapshotLimits" OutputProperty="SnapshotLimits" Verb="Get" Noun="SnapshotLimit" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificatesInfo" Verb="Get" Noun="CertificateList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificatesInfo" Verb="Get" Noun="CertificateList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIpRoutes" OutputProperty="IpRoutesInfo" Verb="Get" Noun="IpRouteList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DSIpRoutes">
+        <ServiceOperation MethodName="ListIpRoutes" OutputProperty="IpRoutesInfo" Verb="Get" Noun="IpRouteList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DSIpRoutes" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogSubscriptions" OutputProperty="LogSubscriptions" Verb="Get" Noun="LogSubscriptionList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListLogSubscriptions" OutputProperty="LogSubscriptions" Verb="Get" Noun="LogSubscriptionList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemaExtensions" OutputProperty="SchemaExtensionsInfo" Verb="Get" Noun="SchemaExtension" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListSchemaExtensions" OutputProperty="SchemaExtensionsInfo" Verb="Get" Noun="SchemaExtension" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterCertificate" OutputProperty="CertificateId" Verb="Register" Noun="Certificate" ShouldProcessTarget="DirectoryId" PipelineParameter="CertificateData" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterCertificate" OutputProperty="CertificateId" Verb="Register" Noun="Certificate" ShouldProcessTarget="DirectoryId" PipelineParameter="CertificateData" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterEventTopic" Verb="Register" Noun="EventTopic" ShouldProcessTarget="TopicName" PipelineParameter="TopicName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterEventTopic" Verb="Register" Noun="EventTopic" ShouldProcessTarget="TopicName" PipelineParameter="TopicName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectSharedDirectory" OutputProperty="SharedDirectoryId" Verb="Deny" Noun="SharedDirectory" ShouldProcessTarget="SharedDirectoryId" PipelineParameter="SharedDirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectSharedDirectory" OutputProperty="SharedDirectoryId" Verb="Deny" Noun="SharedDirectory" ShouldProcessTarget="SharedDirectoryId" PipelineParameter="SharedDirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveIpRoutes" Verb="Remove" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Remove-DSIpRoutes">
+        <ServiceOperation MethodName="RemoveIpRoutes" Verb="Remove" Noun="IpRoute" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Remove-DSIpRoutes" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveRegion" Verb="Remove" Noun="Region" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveRegion" Verb="Remove" Noun="Region" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetUserPassword" Verb="Reset" Noun="UserPassword" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetUserPassword" Verb="Reset" Noun="UserPassword" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreFromSnapshot" Verb="Restore" Noun="FromSnapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreFromSnapshot" Verb="Restore" Noun="FromSnapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ShareDirectory" OutputProperty="SharedDirectoryId" Verb="Enable" Noun="DirectoryShare" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ShareDirectory" OutputProperty="SharedDirectoryId" Verb="Enable" Noun="DirectoryShare" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSchemaExtension" OutputProperty="SchemaExtensionId" Verb="Start" Noun="SchemaExtension" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSchemaExtension" OutputProperty="SchemaExtensionId" Verb="Start" Noun="SchemaExtension" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnshareDirectory" OutputProperty="SharedDirectoryId" Verb="Disable" Noun="DirectoryShare" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UnshareDirectory" OutputProperty="SharedDirectoryId" Verb="Disable" Noun="DirectoryShare" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConditionalForwarder" Verb="Update" Noun="ConditionalForwarder" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConditionalForwarder" Verb="Update" Noun="ConditionalForwarder" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDirectorySetup" Verb="Update" Noun="DirectorySetup" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDirectorySetup" Verb="Update" Noun="DirectorySetup" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNumberOfDomainControllers" Verb="Set" Noun="DomainControllerCount" ShouldProcessTarget="DirectoryId" PipelineParameter="DesiredNumber" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNumberOfDomainControllers" Verb="Set" Noun="DomainControllerCount" ShouldProcessTarget="DirectoryId" PipelineParameter="DesiredNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRadius" Verb="Update" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRadius" Verb="Update" Noun="Radius" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSettings" OutputProperty="DirectoryId" Verb="Update" Noun="Setting" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSettings" OutputProperty="DirectoryId" Verb="Update" Noun="Setting" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrust" OutputProperty="*" Verb="Update" Noun="Trust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrust" OutputProperty="*" Verb="Update" Noun="Trust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyTrust" OutputProperty="TrustId" Verb="Approve" Noun="Trust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyTrust" OutputProperty="TrustId" Verb="Approve" Noun="Trust" ShouldProcessTarget="TrustId" PipelineParameter="TrustId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

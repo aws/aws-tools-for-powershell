@@ -19,19 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateControlPanel" OutputProperty="ControlPanel" Verb="New" Noun="ControlPanel" ShouldProcessTarget="ControlPanelName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateControlPanel" OutputProperty="ControlPanel" Verb="New" Noun="ControlPanel" ShouldProcessTarget="ControlPanelName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoutingControl" OutputProperty="RoutingControl" Verb="New" Noun="RoutingControl" ShouldProcessTarget="RoutingControlName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateRoutingControl" OutputProperty="RoutingControl" Verb="New" Noun="RoutingControl" ShouldProcessTarget="RoutingControlName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSafetyRule" OutputProperty="*" Verb="New" Noun="SafetyRule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSafetyRule" OutputProperty="*" Verb="New" Noun="SafetyRule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AssertionRule_RuleConfig_Inverted" NewName="AssertionRule_RuleConfig_Inverted" />
                 <Param Name="GatingRule_RuleConfig_Inverted" NewName="GatingRule_RuleConfig_Inverted" />
@@ -42,87 +42,87 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteControlPanel" Verb="Remove" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteControlPanel" Verb="Remove" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoutingControl" Verb="Remove" Noun="RoutingControl" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRoutingControl" Verb="Remove" Noun="RoutingControl" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSafetyRule" Verb="Remove" Noun="SafetyRule" ShouldProcessTarget="SafetyRuleArn" PipelineParameter="SafetyRuleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSafetyRule" Verb="Remove" Noun="SafetyRule" ShouldProcessTarget="SafetyRuleArn" PipelineParameter="SafetyRuleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeControlPanel" OutputProperty="ControlPanel" Verb="Get" Noun="ControlPanel" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeControlPanel" OutputProperty="ControlPanel" Verb="Get" Noun="ControlPanel" PipelineParameter="ControlPanelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRoutingControl" OutputProperty="RoutingControl" Verb="Get" Noun="RoutingControl" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRoutingControl" OutputProperty="RoutingControl" Verb="Get" Noun="RoutingControl" PipelineParameter="RoutingControlArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSafetyRule" OutputProperty="*" Verb="Get" Noun="SafetyRule" PipelineParameter="SafetyRuleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSafetyRule" OutputProperty="*" Verb="Get" Noun="SafetyRule" PipelineParameter="SafetyRuleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedRoute53HealthChecks" OutputProperty="HealthCheckIds" Verb="Get" Noun="AssociatedRoute53HealthCheckList" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedRoute53HealthChecks" OutputProperty="HealthCheckIds" Verb="Get" Noun="AssociatedRoute53HealthCheckList" PipelineParameter="RoutingControlArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListControlPanels" OutputProperty="ControlPanels" Verb="Get" Noun="ControlPanelList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListControlPanels" OutputProperty="ControlPanels" Verb="Get" Noun="ControlPanelList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutingControls" OutputProperty="RoutingControls" Verb="Get" Noun="RoutingControlList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoutingControls" OutputProperty="RoutingControls" Verb="Get" Noun="RoutingControlList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSafetyRules" OutputProperty="SafetyRules" Verb="Get" Noun="SafetyRuleList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSafetyRules" OutputProperty="SafetyRules" Verb="Get" Noun="SafetyRuleList" PipelineParameter="ControlPanelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateControlPanel" OutputProperty="ControlPanel" Verb="Update" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateControlPanel" OutputProperty="ControlPanel" Verb="Update" Noun="ControlPanel" ShouldProcessTarget="ControlPanelArn" PipelineParameter="ControlPanelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingControl" OutputProperty="RoutingControl" Verb="Update" Noun="RoutingControl" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingControl" OutputProperty="RoutingControl" Verb="Update" Noun="RoutingControl" ShouldProcessTarget="RoutingControlArn" PipelineParameter="RoutingControlArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSafetyRule" OutputProperty="*" Verb="Update" Noun="SafetyRule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateSafetyRule" OutputProperty="*" Verb="Update" Noun="SafetyRule" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

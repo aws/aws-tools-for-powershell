@@ -19,79 +19,79 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateServiceQuotaTemplate" Verb="Register" Noun="ServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateServiceQuotaTemplate" Verb="Register" Noun="ServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceQuotaIncreaseRequestFromTemplate" Verb="Remove" Noun="ServiceQuotaIncreaseRequestFromTemplate" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteServiceQuotaIncreaseRequestFromTemplate" Verb="Remove" Noun="ServiceQuotaIncreaseRequestFromTemplate" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateServiceQuotaTemplate" Verb="Unregister" Noun="ServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateServiceQuotaTemplate" Verb="Unregister" Noun="ServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssociationForServiceQuotaTemplate" OutputProperty="ServiceQuotaTemplateAssociationStatus" Verb="Get" Noun="AssociationForServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAssociationForServiceQuotaTemplate" OutputProperty="ServiceQuotaTemplateAssociationStatus" Verb="Get" Noun="AssociationForServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAWSDefaultServiceQuota" OutputProperty="Quota" Verb="Get" Noun="AWSDefaultServiceQuota" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAWSDefaultServiceQuota" OutputProperty="Quota" Verb="Get" Noun="AWSDefaultServiceQuota" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRequestedServiceQuotaChange" OutputProperty="RequestedQuota" Verb="Get" Noun="RequestedServiceQuotaChange" PipelineParameter="RequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRequestedServiceQuotaChange" OutputProperty="RequestedQuota" Verb="Get" Noun="RequestedServiceQuotaChange" PipelineParameter="RequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceQuota" OutputProperty="Quota" Verb="Get" Noun="ServiceQuota" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetServiceQuota" OutputProperty="Quota" Verb="Get" Noun="ServiceQuota" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceQuotaIncreaseRequestFromTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplate" Verb="Get" Noun="ServiceQuotaIncreaseRequestFromTemplate" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetServiceQuotaIncreaseRequestFromTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplate" Verb="Get" Noun="ServiceQuotaIncreaseRequestFromTemplate" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAWSDefaultServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="AWSDefaultServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListAWSDefaultServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="AWSDefaultServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistory" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistory" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistoryByQuota" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryByQuotaList" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistoryByQuota" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryByQuotaList" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceQuotaIncreaseRequestsInTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplateList" Verb="Get" Noun="ServiceQuotaIncreaseRequestsInTemplateList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListServiceQuotaIncreaseRequestsInTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplateList" Verb="Get" Noun="ServiceQuotaIncreaseRequestsInTemplateList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="ServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="ServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutServiceQuotaIncreaseRequestIntoTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplate" Verb="Write" Noun="ServiceQuotaIncreaseRequestIntoTemplate" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutServiceQuotaIncreaseRequestIntoTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplate" Verb="Write" Noun="ServiceQuotaIncreaseRequestIntoTemplate" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RequestServiceQuotaIncrease" OutputProperty="RequestedQuota" Verb="Request" Noun="ServiceQuotaIncrease" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RequestServiceQuotaIncrease" OutputProperty="RequestedQuota" Verb="Request" Noun="ServiceQuotaIncrease" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

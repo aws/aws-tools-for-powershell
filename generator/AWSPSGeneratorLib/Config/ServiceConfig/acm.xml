@@ -19,63 +19,63 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTagsToCertificate" Verb="Add" Noun="CertificateTag" ShouldProcessTarget="CertificateArn" PositionalParameters="Tags" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTagsToCertificate" Verb="Add" Noun="CertificateTag" ShouldProcessTarget="CertificateArn" PositionalParameters="Tags" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCertificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="CertificateDetail" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificate" OutputProperty="Certificate" Verb="Get" Noun="CertificateDetail" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportCertificate" OutputProperty="*" Verb="Export" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExportCertificate" OutputProperty="*" Verb="Export" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountConfiguration" OutputProperty="ExpiryEvents" Verb="Get" Noun="AccountConfiguration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountConfiguration" OutputProperty="ExpiryEvents" Verb="Get" Noun="AccountConfiguration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificate" OutputProperty="*" Verb="Get" Noun="Certificate" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCertificate" OutputProperty="*" Verb="Get" Noun="Certificate" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportCertificate" OutputProperty="CertificateArn" Verb="Import" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportCertificate" OutputProperty="CertificateArn" Verb="Import" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForCertificate" OutputProperty="Tags" Verb="Get" Noun="CertificateTagList" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForCertificate" OutputProperty="Tags" Verb="Get" Noun="CertificateTagList" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountConfiguration" Verb="Write" Noun="AccountConfiguration" ShouldProcessTarget="IdempotencyToken" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAccountConfiguration" Verb="Write" Noun="AccountConfiguration" ShouldProcessTarget="IdempotencyToken" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromCertificate" Verb="Remove" Noun="CertificateTag" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTagsFromCertificate" Verb="Remove" Noun="CertificateTag" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenewCertificate" Verb="Invoke" Noun="CertificateRenewal" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RenewCertificate" Verb="Invoke" Noun="CertificateRenewal" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RequestCertificate" OutputProperty="CertificateArn" Verb="New" Noun="Certificate" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RequestCertificate" OutputProperty="CertificateArn" Verb="New" Noun="Certificate" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Noun="ValidationEmail" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Noun="ValidationEmail" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCertificateOptions" Verb="Update" Noun="CertificateOption" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCertificateOptions" Verb="Update" Noun="CertificateOption" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,15 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteConnectionRecordingPreferences" OutputProperty="*" Verb="Remove" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ClientToken" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConnectionRecordingPreferences" OutputProperty="*" Verb="Remove" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ClientToken" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Get" Noun="ConnectionRecordingPreference" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Get" Noun="ConnectionRecordingPreference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Update" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ConnectionRecordingPreferences_KMSKeyArn" PipelineParameter="ConnectionRecordingPreferences_KMSKeyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConnectionRecordingPreferences" OutputProperty="ConnectionRecordingPreferences" Verb="Update" Noun="ConnectionRecordingPreference" ShouldProcessTarget="ConnectionRecordingPreferences_KMSKeyArn" PipelineParameter="ConnectionRecordingPreferences_KMSKeyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

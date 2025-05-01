@@ -18,15 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetDeployments" OutputProperty="Deployments" Verb="Get" Noun="Deployment" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetDeployments" OutputProperty="Deployments" Verb="Get" Noun="Deployment" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeviceRegistration" OutputProperty="*" Verb="Get" Noun="DeviceRegistration" PipelineParameter="DeviceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeviceRegistration" OutputProperty="*" Verb="Get" Noun="DeviceRegistration" PipelineParameter="DeviceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendHeartbeat" Verb="Send" Noun="Heartbeat" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DeviceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendHeartbeat" Verb="Send" Noun="Heartbeat" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DeviceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
