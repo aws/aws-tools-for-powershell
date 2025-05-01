@@ -6,7 +6,7 @@ ssm_DeregisterManagedInstance:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Unregister-SSMManagedInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deregisters a managed instance. There is no output if the command succeeds.</emphasis>'

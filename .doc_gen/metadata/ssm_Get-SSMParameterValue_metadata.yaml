@@ -6,7 +6,7 @@ ssm_GetParameters:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMParameterValue
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists the values for a parameter.</emphasis>'

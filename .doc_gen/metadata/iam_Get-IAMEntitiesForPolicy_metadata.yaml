@@ -6,7 +6,7 @@ iam_ListEntitiesForPolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMEntitiesForPolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns a list of IAM groups, roles, and users who have the policy <code>arn:aws:iam::123456789012:policy/TestPolicy</code> attached.</emphasis>'

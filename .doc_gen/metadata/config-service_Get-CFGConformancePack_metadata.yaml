@@ -6,7 +6,7 @@ config-service_DescribeConformancePacks:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGConformancePack
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample lists all conformance packs.</emphasis>'

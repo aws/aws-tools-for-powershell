@@ -6,7 +6,7 @@ codedeploy_DeleteApplication:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-CDApplication
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the application with the specified name. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the application without a prompt.</emphasis>'

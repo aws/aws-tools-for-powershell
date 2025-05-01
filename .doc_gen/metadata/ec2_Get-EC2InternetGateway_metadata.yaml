@@ -6,7 +6,7 @@ ec2_DescribeInternetGateways:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2InternetGateway
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified Internet gateway.</emphasis>'

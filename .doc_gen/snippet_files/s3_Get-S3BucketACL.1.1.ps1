@@ -1,0 +1,1 @@
+(Get-S3BucketACL -BucketName 'amzn-s3-demo-bucket' -Select *).Owner

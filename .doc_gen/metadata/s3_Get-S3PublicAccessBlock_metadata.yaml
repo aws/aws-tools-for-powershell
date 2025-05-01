@@ -6,7 +6,7 @@ s3_GetPublicAccessBlock:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-S3PublicAccessBlock
         excerpts:
         - description: '<emphasis role="bold">Example 1: The command returns the public access block configuration of the given S3 bucket.</emphasis>'

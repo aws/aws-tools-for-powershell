@@ -6,7 +6,7 @@ efs_CreateTags:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EFSTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: Applies the collection of tags to the specified file system. If a tag with key specified already exists on the file system the value of the tag is updated.</emphasis>'

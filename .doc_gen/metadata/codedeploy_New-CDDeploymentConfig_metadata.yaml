@@ -6,7 +6,7 @@ codedeploy_CreateDeploymentConfig:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-CDDeploymentConfig
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new deployment configuration with the specified name and behavior.</emphasis>'

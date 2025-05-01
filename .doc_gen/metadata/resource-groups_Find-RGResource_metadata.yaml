@@ -6,7 +6,7 @@ resource-groups_SearchResources:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Find-RGResource
         excerpts:
         - snippet_files: []

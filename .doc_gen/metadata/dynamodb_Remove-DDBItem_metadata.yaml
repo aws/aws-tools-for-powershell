@@ -6,7 +6,7 @@ dynamodb_DeleteItem:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-DDBItem
         excerpts:
         - description: '<emphasis role="bold">Example 1: Removes the DynamoDB item that matches the provided key.</emphasis>'

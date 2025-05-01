@@ -6,7 +6,7 @@ route-53_ChangeResourceRecordSets:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Edit-R53ResourceRecordSet
         excerpts:
         - snippet_files: []

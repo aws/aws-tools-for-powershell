@@ -6,7 +6,7 @@ ssm_PutParameter:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-SSMParameter
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a parameter. There is no output if the command succeeds.</emphasis>'

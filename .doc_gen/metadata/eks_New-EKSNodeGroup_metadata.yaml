@@ -6,7 +6,7 @@ eks_CreateNodegroup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EKSNodeGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet creates a managed worker node group for an Amazon EKS cluster. You can only create a node group for your cluster that is equal to the current Kubernetes version for the cluster. All node groups are created with the latest AMI release version for the respective minor Kubernetes version of the cluster. </emphasis>'

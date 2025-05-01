@@ -6,7 +6,7 @@ efs_CreateFileSystem:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EFSFileSystem
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a new, empty file system. The token used to ensure idempotent creation will be generated automatically and can be accessed from the <code>CreationToken</code> member of the returned object.</emphasis>'

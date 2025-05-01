@@ -6,7 +6,7 @@ glacier_DescribeJob:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-GLCJob
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns details of the specified job. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the job (an archive or inventory list) to the local file system.</emphasis>'

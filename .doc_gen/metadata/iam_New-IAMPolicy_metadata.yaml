@@ -6,7 +6,7 @@ iam_CreatePolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-IAMPolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new IAM policy in the current &AWS; account named <code>MySamplePolicy</code> The file <code>MySamplePolicy.json</code> provides the policy content. Note that you must use the <code>-Raw</code> switch parameter to successfully process the JSON policy file.</emphasis>'

@@ -6,7 +6,7 @@ Common_Get-AWSRegion:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns the list of regions known at the time the the module was built and released. Regions launched after the build and release are not shown but can still be used with other cmdlets in the module by specifying the 'system name' to the cmdlet's -Region parameter on invocation.</emphasis>"
           snippet_files: []

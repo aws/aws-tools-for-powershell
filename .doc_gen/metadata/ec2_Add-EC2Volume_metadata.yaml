@@ -6,7 +6,7 @@ ec2_AttachVolume:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-EC2Volume
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example attaches the specified volume to the specified instance and exposes it with the specified device name.</emphasis>'

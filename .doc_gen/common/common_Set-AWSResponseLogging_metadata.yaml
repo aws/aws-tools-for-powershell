@@ -6,7 +6,7 @@ Common_Set-AWSResponseLogging:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Enables logging of all service responses configured in the attached listeners. Other values for the -Level parameter are 'Never', which turns off logging and 'OnError' which logs only error responses.</emphasis>"
           snippet_files: []

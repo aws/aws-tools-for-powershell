@@ -6,7 +6,7 @@ ssm_ListDocuments:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMDocumentList
         excerpts:
         - description: '<emphasis role="bold">Example 1: Lists all the configuration documents in your account.</emphasis>'

@@ -6,7 +6,7 @@ directory-service_EnableRadius:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Enable-DSRadius
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example enables multi-factor authentication (MFA) with the provided RADIUS server configuration for an AD Connector or Microsoft AD directory.</emphasis>'

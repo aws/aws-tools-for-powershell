@@ -6,7 +6,7 @@ workspaces_ModifyWorkspaceState:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Edit-WKSWorkspaceState
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample changes the state of the specified Workspace to Available</emphasis>'

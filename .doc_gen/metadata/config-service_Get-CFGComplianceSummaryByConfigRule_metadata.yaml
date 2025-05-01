@@ -6,7 +6,7 @@ config-service_GetComplianceSummaryByConfigRule:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGComplianceSummaryByConfigRule
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample returns the number of Config rules that are non-compliant.</emphasis>'

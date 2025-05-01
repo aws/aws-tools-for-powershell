@@ -6,7 +6,7 @@ ssm_UpdatePatchBaseline:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-SSMPatchBaseline
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds two patches as rejected and one patch as approved to an existing patch baseline.</emphasis>'

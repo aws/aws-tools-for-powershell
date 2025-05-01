@@ -6,7 +6,7 @@ machine-learning_CreateMLModel:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-MLModel
         excerpts:
         - snippet_files: []

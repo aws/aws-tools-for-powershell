@@ -6,7 +6,7 @@ translate_TranslateText:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: ConvertTo-TRNTargetLanguage
         excerpts:
         - description: '<emphasis role="bold">Example 1: Converts the specified English text to French. The text to convert can also be passed as the -Text parameter.</emphasis>'

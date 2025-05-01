@@ -6,7 +6,7 @@ ssm_CreatePatchBaseline:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-SSMPatchBaseline
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a patch baseline that approves patches, seven days after they are released by Microsoft, for managed instances running Windows Server 2019 in a production environment.</emphasis>'

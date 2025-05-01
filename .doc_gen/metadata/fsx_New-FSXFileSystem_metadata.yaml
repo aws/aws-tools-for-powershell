@@ -6,7 +6,7 @@ fsx_CreateFileSystem:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-FSXFileSystem
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new 300GB Windows file system, permitting access from the specified subnet, that supports throughput up to 8 megabytes per second. The new file system is automatically joined to the specified Microsoft Active Directory.</emphasis>'

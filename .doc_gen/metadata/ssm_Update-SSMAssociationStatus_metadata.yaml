@@ -6,7 +6,7 @@ ssm_UpdateAssociationStatus:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-SSMAssociationStatus
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example updates the association status of the association between an instance and a configuration document.</emphasis>'

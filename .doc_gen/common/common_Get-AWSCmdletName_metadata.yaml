@@ -6,7 +6,7 @@ Common_Get-AWSCmdletName:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns the names of the all cmdlets that invoke an API matching the term 'describeinstances' across all services. In this example, 'Get-EC2Instance' from Amazon EC2 and Get-OPSInstances from Amazon OpsWorks are output.</emphasis>"
           snippet_files: []

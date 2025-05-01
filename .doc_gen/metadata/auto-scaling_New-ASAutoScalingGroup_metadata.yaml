@@ -6,7 +6,7 @@ auto-scaling_CreateAutoScalingGroup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-ASAutoScalingGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates an Auto Scaling group with the specified name and attributes. The default desired capacity is the minimum size. Therefore, this Auto Scaling group launches two instances, one in each of the specified two Availability Zones.</emphasis>'

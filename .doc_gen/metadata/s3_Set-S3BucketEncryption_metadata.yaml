@@ -6,7 +6,7 @@ s3_PutBucketEncryption:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Set-S3BucketEncryption
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command enables default AES256 server side encryption with Amazon S3 Managed Keys(SSE-S3) on the given bucket. </emphasis>'

@@ -6,7 +6,7 @@ cloudwatch_ListDashboards:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CWDashboardList
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the collection of dashboards for your account.</emphasis>'

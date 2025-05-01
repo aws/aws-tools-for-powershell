@@ -6,7 +6,7 @@ eks_CreateFargateProfile:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EKSFargateProfile
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet creates an &AWS; Fargate profile for your Amazon EKS cluster. You must have at least one Fargate profile in a cluster to be able to schedule pods on Fargate infrastructure. </emphasis>'

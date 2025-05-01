@@ -6,7 +6,7 @@ ec2_GetHostReservationPurchasePreview:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2HostReservationPurchasePreview
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example previews a reservation purchase with configurations that match those of your Dedicated Host h-01e23f4cd567890f1</emphasis>'

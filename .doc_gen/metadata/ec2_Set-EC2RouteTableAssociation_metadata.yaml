@@ -6,7 +6,7 @@ ec2_ReplaceRouteTableAssociation:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Set-EC2RouteTableAssociation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example associates the specified route table with the subnet for the specified route table association.</emphasis>'

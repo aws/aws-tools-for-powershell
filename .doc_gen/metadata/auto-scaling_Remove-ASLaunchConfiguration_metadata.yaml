@@ -6,7 +6,7 @@ auto-scaling_DeleteLaunchConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-ASLaunchConfiguration
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the specified launch configuration if it is not attached to an Auto Scaling group. You are prompted for confirmation before the operation proceeds.</emphasis>'

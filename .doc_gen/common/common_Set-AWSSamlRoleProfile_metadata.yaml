@@ -6,7 +6,7 @@ Common_Set-AWSSamlRoleProfile:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: |-
             <emphasis role="bold">Example 1: Authenticates the currently logged in user account against the specified endpoint (configured previusly using Set-AWSSamlEndpoint). Following successful authentication, if the user is authorized to assume only a single role the role details are stored in a profile named 'Role1'. If the user is authorized for more than one role a menu is presented for the desired  role to be associated with the profile to be selected.

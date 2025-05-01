@@ -6,7 +6,7 @@ auto-scaling_DeleteAutoScalingGroup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-ASAutoScalingGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the specified Auto Scaling group if it has no running instances. You are prompted for confirmation before the operation proceeds.</emphasis>'

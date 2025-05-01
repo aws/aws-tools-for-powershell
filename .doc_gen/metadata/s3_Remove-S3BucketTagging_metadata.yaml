@@ -6,7 +6,7 @@ s3_DeleteBucketTagging:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-S3BucketTagging
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command removes all the tags associated with the given S3 bucket.</emphasis>'

@@ -6,7 +6,7 @@ cloudfront_GetDistribution:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFDistribution
         excerpts:
         - description: '<emphasis role="bold">Example 1: Retrieves the information for a specific distribution.</emphasis>'

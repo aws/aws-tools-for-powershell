@@ -6,7 +6,7 @@ support_ResolveCase:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Resolve-ASACase
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the initial state of the specified case and the current state after the call to resolve it is completed.</emphasis>'

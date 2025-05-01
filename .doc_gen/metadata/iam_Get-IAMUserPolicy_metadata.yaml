@@ -6,7 +6,7 @@ iam_GetUserPolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMUserPolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves the details of the inline policy named <code>Davids_IAM_Admin_Policy</code> that is embedded in the IAM user named <code>David</code>. The policy document is URL encoded.</emphasis>'

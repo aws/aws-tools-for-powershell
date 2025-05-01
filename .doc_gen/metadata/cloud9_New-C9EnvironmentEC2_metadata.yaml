@@ -6,7 +6,7 @@ cloud9_CreateEnvironmentEC2:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-C9EnvironmentEC2
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates an &AWS; Cloud9 development environment with the specified settings, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</emphasis>'

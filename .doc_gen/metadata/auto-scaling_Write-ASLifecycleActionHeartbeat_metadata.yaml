@@ -6,7 +6,7 @@ auto-scaling_RecordLifecycleActionHeartbeat:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-ASLifecycleActionHeartbeat
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example records a heartbeat for the specified lifecycle action. This keeps the instance in a pending state until you complete the custom action.</emphasis>'

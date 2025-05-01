@@ -6,7 +6,7 @@ cloudformation_EstimateTemplateCost:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Measure-CFNTemplateCost
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns an &AWS; Simple Monthly Calculator URL with a query string that describes the resources required to run the template. The template is obtained from the specified Amazon S3 URL and the single customization parameter applied. The parameter can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.</emphasis>"

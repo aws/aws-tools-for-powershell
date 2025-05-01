@@ -6,7 +6,7 @@ ssm_DescribeEffectiveInstanceAssociations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMEffectiveInstanceAssociationList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the effective associations for an instance.</emphasis>'

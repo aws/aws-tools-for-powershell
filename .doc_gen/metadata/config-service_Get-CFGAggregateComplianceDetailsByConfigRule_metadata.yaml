@@ -6,7 +6,7 @@ config-service_GetAggregateComplianceDetailsByConfigRule:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGAggregateComplianceDetailsByConfigRule
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example returns the evaluation results selecting the output with resource-id and resource-type for the &AWS; Config rule 'desired-instance-type' which are in 'COMPLIANT' state for the given account, aggregator, region and config rule</emphasis>"

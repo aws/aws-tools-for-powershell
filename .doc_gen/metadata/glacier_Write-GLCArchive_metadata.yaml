@@ -6,7 +6,7 @@ glacier_UploadArchive:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-GLCArchive
         excerpts:
         - description: '<emphasis role="bold">Example 1: Uploads a single file to the specified vault, returning the archive ID and computed checksum.</emphasis>'

@@ -6,7 +6,7 @@ ec2_DescribeHosts:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2Host
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the EC2 host details</emphasis>'

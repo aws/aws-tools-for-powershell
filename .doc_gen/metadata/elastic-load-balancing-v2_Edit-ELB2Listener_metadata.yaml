@@ -6,7 +6,7 @@ elastic-load-balancing-v2_ModifyListener:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Edit-ELB2Listener
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example modifes the specified listeners default action to fixed-response.</emphasis>'

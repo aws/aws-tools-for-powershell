@@ -6,7 +6,7 @@ ec2_CopySnapshot:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Copy-EC2Snapshot
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example copies the specified snapshot from the EU (Ireland) region to the US West (Oregon) region.</emphasis>'

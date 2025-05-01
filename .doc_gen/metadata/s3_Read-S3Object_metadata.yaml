@@ -6,7 +6,7 @@ s3_GetObject:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Read-S3Object
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command retrieves item "sample.txt" from bucket "test-files" and saves it to a file named "local-sample.txt" in the current location. The file "local-sample.txt" does not have to exist before this command is called.</emphasis>'

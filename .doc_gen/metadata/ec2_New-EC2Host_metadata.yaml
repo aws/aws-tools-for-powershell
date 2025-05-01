@@ -6,7 +6,7 @@ ec2_AllocateHosts:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2Host
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example allocates a Dedicated Host to your account for the given instance type and availability zone</emphasis>'

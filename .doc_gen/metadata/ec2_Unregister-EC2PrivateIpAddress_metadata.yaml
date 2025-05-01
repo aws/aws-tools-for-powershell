@@ -6,7 +6,7 @@ ec2_UnassignPrivateIpAddresses:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Unregister-EC2PrivateIpAddress
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example unassigns the specified private IP address from the specified network interface.</emphasis>'

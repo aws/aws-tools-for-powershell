@@ -6,7 +6,7 @@ cloudfront_GetCloudFrontOriginAccessIdentity:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFCloudFrontOriginAccessIdentity
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns a specific Amazon CloudFront origin access identity, specified by the -Id parameter. Although the -Id parameter is not required, if you do not specify it, no results are returned.</emphasis>'

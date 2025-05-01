@@ -6,7 +6,7 @@ workspaces_DescribeWorkspaceImages:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-WKSWorkspaceImage
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample fetches all the details of all images in the region</emphasis>'

@@ -6,7 +6,7 @@ ec2_DescribeVpcEndpoints:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2VpcEndpoint
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes one or more of your VPC endpoints for the region eu-west-1. It then pipes the output to the next command, which select the VpcEndpointId property and returns array VPC ID as string array</emphasis>'

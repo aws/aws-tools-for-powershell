@@ -6,7 +6,7 @@ codecommit_GetBranch:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CCBranch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets information about the specified branch for the specified repository.</emphasis>'

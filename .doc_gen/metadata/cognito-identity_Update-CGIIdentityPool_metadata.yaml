@@ -6,7 +6,7 @@ cognito-identity_UpdateIdentityPool:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-CGIIdentityPool
         excerpts:
         - description: '<emphasis role="bold">Example 1: Updates some of the Identity Pool properties, in this case the name of the Identity Pool.</emphasis>'

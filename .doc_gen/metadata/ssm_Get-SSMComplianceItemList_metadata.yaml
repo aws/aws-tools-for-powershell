@@ -6,7 +6,7 @@ ssm_ListComplianceItems:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMComplianceItemList
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example lists compliance items list for the given resource id and type, filtering compliance-type being 'Association'</emphasis>"

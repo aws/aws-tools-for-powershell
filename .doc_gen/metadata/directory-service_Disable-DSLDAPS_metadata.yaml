@@ -6,7 +6,7 @@ directory-service_DisableLDAPS:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Disable-DSLDAPS
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deactivates LDAP secure calls for the specified directory.</emphasis>'

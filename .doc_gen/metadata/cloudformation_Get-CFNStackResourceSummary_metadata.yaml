@@ -6,7 +6,7 @@ cloudformation_ListStackResources:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFNStackResourceSummary
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns descriptions of all the resources associated with the specified stack.</emphasis>'

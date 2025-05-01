@@ -6,7 +6,7 @@ ssm_GetParameterHistory:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMParameterHistory
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists the value history for a parameter.</emphasis>'

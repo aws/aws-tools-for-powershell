@@ -20,7 +20,7 @@ s3_ListObjects:
           snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3Object.3.1.ps1
         sdk_action: Get-S3Object
-        sdk_version: 4
+        sdk_version: 5
   services:
     s3:
       ListObjects:

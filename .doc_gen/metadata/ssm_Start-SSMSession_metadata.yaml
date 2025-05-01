@@ -6,7 +6,7 @@ ssm_StartSession:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Start-SSMSession
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example initiates a connection to a target for a Session Manager session, enabling port forwarding. Note: You need to add Region parameter if not already set using AWSCredentials.</emphasis>'

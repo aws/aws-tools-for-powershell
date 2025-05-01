@@ -6,7 +6,7 @@ auto-scaling_SetInstanceHealth:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Set-ASInstanceHealth
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example sets the status of the specified instance to 'Unhealthy', taking it out of service. Auto Scaling terminates and replaces the instance.</emphasis>"

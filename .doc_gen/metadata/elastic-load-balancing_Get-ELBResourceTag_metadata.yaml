@@ -6,7 +6,7 @@ elastic-load-balancing_DescribeTags:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-ELBResourceTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists the tags for the specified load balancers.</emphasis>'

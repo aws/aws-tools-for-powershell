@@ -6,7 +6,7 @@ s3_DeleteBucketEncryption:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-S3BucketEncryption
         excerpts:
         - description: '<emphasis role="bold">Example 1: This disables the encryption enabled for the S3 bucket provided.</emphasis>'

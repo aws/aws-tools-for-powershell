@@ -6,7 +6,7 @@ workspaces_DeleteIpGroup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-WKSIpGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample deletes the specified IP Group</emphasis>'

@@ -6,7 +6,7 @@ elastic-load-balancing-v2_DeregisterTargets:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Unregister-ELB2Target
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example deregisters instance 'i-0672a4c4cdeae3111' from the specified Target group.</emphasis>"

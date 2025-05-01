@@ -6,7 +6,7 @@ auto-scaling_TerminateInstanceInAutoScalingGroup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Stop-ASInstanceInAutoScalingGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example terminates the specified instance and decreases the desired capacity of its Auto Scaling group so that Auto Scaling does not launch a replacement instance.</emphasis>'

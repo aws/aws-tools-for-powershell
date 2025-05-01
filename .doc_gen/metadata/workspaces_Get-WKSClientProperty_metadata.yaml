@@ -6,7 +6,7 @@ workspaces_DescribeClientProperties:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-WKSClientProperty
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample gets the Client Properties of the Workspace Client for the specified Directory</emphasis>'

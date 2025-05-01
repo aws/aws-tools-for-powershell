@@ -6,7 +6,7 @@ ssm_AddTagsToResource:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-SSMResourceTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example updates a maintenance window with new tags. There is no output if the command succeeds. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'

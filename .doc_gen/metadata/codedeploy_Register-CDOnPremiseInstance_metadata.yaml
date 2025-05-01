@@ -6,7 +6,7 @@ codedeploy_RegisterOnPremisesInstance:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Register-CDOnPremiseInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example registers an on-premises instance with the specified name and IAM user.</emphasis>'

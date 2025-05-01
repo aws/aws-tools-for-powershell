@@ -6,7 +6,7 @@ ec2_DescribeAccountAttributes:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2AccountAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.</emphasis>'

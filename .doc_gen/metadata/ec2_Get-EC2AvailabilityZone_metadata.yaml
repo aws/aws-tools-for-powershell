@@ -6,7 +6,7 @@ ec2_DescribeAvailabilityZones:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2AvailabilityZone
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the Availability Zones for the current region that are available to you.</emphasis>'

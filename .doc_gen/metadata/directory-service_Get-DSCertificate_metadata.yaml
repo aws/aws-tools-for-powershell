@@ -6,7 +6,7 @@ directory-service_DescribeCertificate:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-DSCertificate
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays information about the certificate registered for a secured LDAP connection.</emphasis>'

@@ -6,7 +6,7 @@ iam_ListGroupPolicies:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMGroupPolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns a list of the inline policies that are embedded in the group <code>Testers</code>. To get the managed policies that are attached to the group, use the command <code>Get-IAMAttachedGroupPolicyList</code>.</emphasis>'

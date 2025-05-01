@@ -6,7 +6,7 @@ Common_Set-DefaultAWSRegion:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Sets the default region for all cmdlets in the current shell to 'us-west-2' (the parameter name can be omitted for brevity). Once a shell default has been set you can override the default by using the -Region parameter with the specific cmdlet(s) as required.</emphasis>"
           snippet_files: []

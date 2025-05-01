@@ -6,7 +6,7 @@ auto-scaling_CreateOrUpdateTags:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Set-ASTag
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example adds a single tag to the specified Auto Scaling group. The tag key is 'myTag' and the tag value is 'myTagValue'. Auto Scaling propagates this tag to the subsequent EC2 instances launched by the Auto Scaling group. The syntax used by this example requires PowerShell version 3 or later.</emphasis>"

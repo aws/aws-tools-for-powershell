@@ -6,7 +6,7 @@ ec2_ModifySnapshotAttribute:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Edit-EC2SnapshotAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example makes the specified snapshot public by setting its CreateVolumePermission attribute.</emphasis>'

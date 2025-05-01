@@ -6,7 +6,7 @@ ec2_DescribeCapacityReservations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2CapacityReservation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes one or more of your Capacity Reservations for the region</emphasis>'

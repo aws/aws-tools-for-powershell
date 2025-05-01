@@ -6,7 +6,7 @@ s3_DeleteBucketMetricsConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-S3BucketMetricsConfiguration
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: The command removes the metrics filter with name 'testmetrics' in the given S3 bucket.</emphasis>"

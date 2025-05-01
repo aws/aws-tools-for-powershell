@@ -6,7 +6,7 @@ ssm_Get-SSMInventoryEntryList:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMInventoryEntryList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves <code>AWS:Network</code> type inventory entries for the instance.</emphasis>'

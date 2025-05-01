@@ -6,7 +6,7 @@ directory-service_DisableRadius:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Disable-DSRadius
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example disables RADIUS server configured for an AD Connector or Microsoft AD directory.</emphasis>'

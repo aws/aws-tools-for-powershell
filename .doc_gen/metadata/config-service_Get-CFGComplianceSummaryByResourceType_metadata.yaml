@@ -6,7 +6,7 @@ config-service_GetComplianceSummaryByResourceType:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGComplianceSummaryByResourceType
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample returns the number of resources that are compliant or noncompliant and converts the output to json.</emphasis>'

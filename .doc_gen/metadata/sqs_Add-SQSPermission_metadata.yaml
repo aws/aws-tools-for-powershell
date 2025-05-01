@@ -6,7 +6,7 @@ sqs_AddPermission:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-SQSPermission
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example allows the specified &AWS-account; to send messages from the specified queue.</emphasis>'

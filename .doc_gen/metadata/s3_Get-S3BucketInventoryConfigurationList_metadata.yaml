@@ -6,7 +6,7 @@ s3_ListBucketInventoryConfigurations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-S3BucketInventoryConfigurationList
         excerpts:
         - snippet_files: []

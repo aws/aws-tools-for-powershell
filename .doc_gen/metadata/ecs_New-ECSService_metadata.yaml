@@ -6,7 +6,7 @@ ecs_CreateService:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-ECSService
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example command creates a service in your default cluster called `ecs-simple-service`. The service uses the `ecs-demo` task definition and it maintains 10 instantiations of that task.</emphasis>'

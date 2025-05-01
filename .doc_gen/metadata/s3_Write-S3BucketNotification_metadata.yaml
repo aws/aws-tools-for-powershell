@@ -6,7 +6,7 @@ s3_PutBucketNotification:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-S3BucketNotification
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket</emphasis>'

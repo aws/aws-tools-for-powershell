@@ -6,7 +6,7 @@ Common_Initialize-AWSDefaultConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: |-
             <emphasis role="bold">Example 1: Tests to see if a profile named 'default' exists. If it does the credential and region data in the profile are loaded and set as active in the current shell.

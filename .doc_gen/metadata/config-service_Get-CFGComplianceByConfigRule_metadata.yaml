@@ -6,7 +6,7 @@ config-service_DescribeComplianceByConfigRule:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGComplianceByConfigRule
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT_DATA</emphasis>'

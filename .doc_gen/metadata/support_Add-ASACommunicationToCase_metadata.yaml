@@ -6,7 +6,7 @@ support_AddCommunicationToCase:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-ASACommunicationToCase
         excerpts:
         - description: '<emphasis role="bold">Example 1: Adds the body of an email communication to the specified case.</emphasis>'

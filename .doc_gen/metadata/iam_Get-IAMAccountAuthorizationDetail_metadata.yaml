@@ -6,7 +6,7 @@ iam_GetAccountAuthorizationDetails:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMAccountAuthorizationDetail
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets authorization details about the identities in the &AWS; account, and displays the element list of the returned object, including users, groups, and roles. For example, the <code>UserDetailList</code> property displays details about the users. Similar information is available in the <code>RoleDetailList</code> and <code>GroupDetailList</code> properties.</emphasis>'

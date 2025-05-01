@@ -6,7 +6,7 @@ cloudfront_GetDistributionConfig:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFDistributionConfig
         excerpts:
         - description: '<emphasis role="bold">Example 1: Retrieves the configuration for a specific distribution.</emphasis>'

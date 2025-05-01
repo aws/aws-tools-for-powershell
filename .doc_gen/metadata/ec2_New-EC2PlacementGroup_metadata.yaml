@@ -6,7 +6,7 @@ ec2_CreatePlacementGroup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2PlacementGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a placement group with the specified name.</emphasis>'

@@ -6,7 +6,7 @@ auto-scaling_DescribeTags:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-ASTag
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example describes the tags with a key value of either 'myTag' or 'myTag2'. The possible values for the filter name are 'auto-scaling-group', 'key', 'value', and 'propagate-at-launch'. The syntax used by this example requires PowerShell version 3 or later.</emphasis>"

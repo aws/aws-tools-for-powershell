@@ -6,7 +6,7 @@ config-service_GetComplianceDetailsByConfigRule:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGComplianceDetailsByConfigRule
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type</emphasis>'

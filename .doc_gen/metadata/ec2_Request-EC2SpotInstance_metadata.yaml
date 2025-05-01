@@ -6,7 +6,7 @@ ec2_RequestSpotInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Request-EC2SpotInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example requests a one-time Spot instance in the specified subnet. Note that the security group must be created for the VPC that contains the specified subnet, and it must be specified by ID using the network interface. When you specify a network interface, you must include the subnet ID using the network interface.</emphasis>'

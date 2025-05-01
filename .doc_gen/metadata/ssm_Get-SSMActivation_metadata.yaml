@@ -6,7 +6,7 @@ ssm_DescribeActivations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMActivation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example provides details about the activations on your account.</emphasis>'

@@ -6,7 +6,7 @@ workspaces_ModifyClientProperties:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Edit-WKSClientProperty
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample enables Reconnection for the Workspaces Client</emphasis>'

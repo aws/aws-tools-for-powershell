@@ -6,7 +6,7 @@ s3_PutLifecycleConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-S3LifecycleConfiguration
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example writes / replaces the configuration provided in the $NewRule. This configuration is making sure to limit the scope objects with given prefix and tag values.</emphasis>'

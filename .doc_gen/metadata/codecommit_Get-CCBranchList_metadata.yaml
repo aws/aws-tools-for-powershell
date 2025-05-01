@@ -6,7 +6,7 @@ codecommit_ListBranches:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CCBranchList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets a list of branch names for the specified repository.</emphasis>'

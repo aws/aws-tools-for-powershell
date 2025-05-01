@@ -6,7 +6,7 @@ s3_Test-S3Bucket:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Test-S3Bucket
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command returns True if the bucket exists, False otherwise. The command returns True even if the bucket does not belong to the user.</emphasis>'

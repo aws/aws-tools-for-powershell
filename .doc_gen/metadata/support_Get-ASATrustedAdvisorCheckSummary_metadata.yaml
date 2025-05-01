@@ -6,7 +6,7 @@ support_DescribeTrustedAdvisorCheckSummaries:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-ASATrustedAdvisorCheckSummary
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the latest summary for the specified Trusted Advisor check.</emphasis>'

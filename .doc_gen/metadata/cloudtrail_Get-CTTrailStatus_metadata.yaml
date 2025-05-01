@@ -6,7 +6,7 @@ cloudtrail_GetTrailStatus:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CTTrailStatus
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns status information for the trail with name 'myExampleTrail'. Returned data includes information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for the trail. This example assumes the trail was created in the same region as the current shell default.</emphasis>"

@@ -6,7 +6,7 @@ glacier_CreateVault:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-GLCVault
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Creates a new vault for the user's account. As no value was supplied to the -AccountId parameter the cmdlets uses a default of \"-\" indicating the current account.</emphasis>"

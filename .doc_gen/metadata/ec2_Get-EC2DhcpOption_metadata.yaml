@@ -6,7 +6,7 @@ ec2_DescribeDhcpOptions:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2DhcpOption
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists your DHCP options sets.</emphasis>'

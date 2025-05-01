@@ -6,7 +6,7 @@ iam_CreateOpenIDConnectProvider:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-IAMOpenIDConnectProvider
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates an IAM OIDC provider associated with the OIDC compatible provider service found at the URL <code>https://example.oidcprovider.com</code> and the client ID <code>my-testapp-1</code>. The OIDC provider supplies the thumbprint. To authenticate the thumbprint, follow the steps at http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html.</emphasis>'

@@ -6,7 +6,7 @@ s3_DeleteBucket:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-S3Bucket
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This command removes all objects and object versions from the bucket 'test-files' and then deletes the bucket. The command will prompt for confirmation before proceeding. Add the -Force switch to suppress confirmation. Note that buckets that are not empty cannot be deleted.</emphasis>"

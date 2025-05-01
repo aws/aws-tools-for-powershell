@@ -6,7 +6,7 @@ codedeploy_RegisterApplicationRevision:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Register-CDApplicationRevision
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example registers an application revision with the specified Amazon S3 location, for the specified application.</emphasis>'

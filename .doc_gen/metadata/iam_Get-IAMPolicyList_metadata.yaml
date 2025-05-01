@@ -6,7 +6,7 @@ iam_ListPolicies:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMPolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns a collection of the first three managed policies available in the current &AWS; account. Because <code>-scope</code> is not specified, it defaults to <code>all</code> and includes both &AWS; managed and customer managed policies.</emphasis>'

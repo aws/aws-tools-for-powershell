@@ -6,7 +6,7 @@ iam_DeleteLoginProfile:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-IAMLoginProfile
         excerpts:
         - snippet_files: []

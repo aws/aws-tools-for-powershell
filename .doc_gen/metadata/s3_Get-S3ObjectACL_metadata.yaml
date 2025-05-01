@@ -1,18 +1,18 @@
 ---
-s3_GetACL:
-  title: Use Get-S3ACL
-  title_abbrev: Get-S3ACL
-  synopsis: use Get-S3ACL
+s3_GetObjectAcl:
+  title: Use Get-S3ObjectACL
+  title_abbrev: Get-S3ObjectACL
+  synopsis: use Get-S3ObjectACL
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
-        sdk_action: Get-S3ACL
+      - sdk_version: 5
+        sdk_action: Get-S3ObjectACL
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: The command gets the details of the object owner of the S3 object.</emphasis>'
         - snippet_files:
-          - .doc_gen/snippet_files/s3_Get-S3ACL.1.1.ps1
+          - .doc_gen/snippet_files/s3_Get-S3ObjectACL.1.1.ps1
           description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
@@ -23,5 +23,5 @@ s3_GetACL:
             testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f544</programlisting>
   services:
     s3:
-      GetACL:
+      GetObjectAcl:
 

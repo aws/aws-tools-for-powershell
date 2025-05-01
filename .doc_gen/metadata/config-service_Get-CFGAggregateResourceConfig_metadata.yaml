@@ -6,7 +6,7 @@ config-service_GetAggregateResourceconfig-service:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGAggregateResourceConfig
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the Configuration Item for the given resource aggregated and expands Configuration.</emphasis>'

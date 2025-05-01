@@ -6,7 +6,7 @@ dynamodb_CreateTable:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-DDBTable
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example creates a table named Thread that has a primary key consisting of 'ForumName' (key type hash) and 'Subject' (key type range). The schema used to construct the table can be piped into each cmdlet as shown or specified using the -Schema parameter.</emphasis>"

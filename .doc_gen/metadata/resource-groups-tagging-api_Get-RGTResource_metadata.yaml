@@ -6,7 +6,7 @@ resource-groups-tagging-api_GetResources:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-RGTResource
         excerpts:
         - snippet_files: []

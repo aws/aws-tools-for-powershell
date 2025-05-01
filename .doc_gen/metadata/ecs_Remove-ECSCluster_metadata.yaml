@@ -6,7 +6,7 @@ ecs_DeleteCluster:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-ECSCluster
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet deletes the specified ECS cluster. You must deregister all container instances from this cluster before you may delete it. </emphasis>'

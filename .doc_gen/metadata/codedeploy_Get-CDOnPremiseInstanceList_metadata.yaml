@@ -6,7 +6,7 @@ codedeploy_ListOnPremisesInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CDOnPremiseInstanceList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets a list of available on-premises instance names.</emphasis>'

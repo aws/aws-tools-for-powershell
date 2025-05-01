@@ -6,7 +6,7 @@ directory-service_DisableSso:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Disable-DSSso
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example disables single sign-on for a directory.</emphasis>'

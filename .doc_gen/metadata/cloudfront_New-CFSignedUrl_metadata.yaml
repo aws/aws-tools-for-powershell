@@ -6,7 +6,7 @@ cloudfront_New-CFSignedUrl:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-CFSignedUrl
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a signed url to the specified resource using a canned policy. The url will be valid for one hour. A System.Uri object containing the signed url is emitted to the pipeline.</emphasis>'

@@ -6,7 +6,7 @@ cloudwatch_PutDashboard:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-CWDashboard
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.</emphasis>"

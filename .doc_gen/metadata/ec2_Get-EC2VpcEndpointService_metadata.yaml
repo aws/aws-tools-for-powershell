@@ -6,7 +6,7 @@ ec2_DescribeVpcEndpointServices:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2VpcEndpointService
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes EC2 VPC endpoint service with the given filter, in this case com.amazonaws.eu-west-1.ecs. Further, it also expands the ServiceDetails property and displays the details</emphasis>'

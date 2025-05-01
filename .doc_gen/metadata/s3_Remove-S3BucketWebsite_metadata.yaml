@@ -6,7 +6,7 @@ s3_DeleteBucketWebsite:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-S3BucketWebsite
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command disables the static website hosting property of the given S3 bucket.</emphasis>'

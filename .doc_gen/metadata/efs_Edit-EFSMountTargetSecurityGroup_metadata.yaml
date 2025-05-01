@@ -6,7 +6,7 @@ efs_ModifyMountTargetSecurityGroups:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Edit-EFSMountTargetSecurityGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: Updates the security groups in effect for the specified mount target. Up to 5 may be specified, in the format "sg-xxxxxxxx".</emphasis>'

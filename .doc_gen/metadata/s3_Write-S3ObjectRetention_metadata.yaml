@@ -6,7 +6,7 @@ s3_PutObjectRetention:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-S3ObjectRetention
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: The command enables governance retention mode untill the date '31st Dec 2019 00:00:00' for 'testfile.txt' object in the given S3 bucket.</emphasis>"

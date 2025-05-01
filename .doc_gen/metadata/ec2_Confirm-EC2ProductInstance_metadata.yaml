@@ -6,7 +6,7 @@ ec2_ConfirmProductInstance:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Confirm-EC2ProductInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example determines whether the specified product code is associated with the specified instance.</emphasis>'

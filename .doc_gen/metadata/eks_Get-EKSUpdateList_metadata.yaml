@@ -6,7 +6,7 @@ eks_ListUpdates:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EKSUpdateList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet lists the updates associated with an Amazon EKS cluster or managed node group in your &AWS-account;, in the specified Region.</emphasis>'

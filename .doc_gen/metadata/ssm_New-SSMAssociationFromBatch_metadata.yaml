@@ -6,7 +6,7 @@ ssm_CreateAssociationBatch:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-SSMAssociationFromBatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example associates a configuration document with multiple instances. The output returns a list of successful and failed operations, if applicable.</emphasis>'

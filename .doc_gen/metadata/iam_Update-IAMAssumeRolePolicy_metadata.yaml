@@ -6,7 +6,7 @@ iam_UpdateAssumeRolePolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-IAMAssumeRolePolicy
         excerpts:
         - snippet_files: []

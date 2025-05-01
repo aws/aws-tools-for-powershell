@@ -6,7 +6,7 @@ route-53_CreateHostedZone:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-R53HostedZone
         excerpts:
         - snippet_files: []

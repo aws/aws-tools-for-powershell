@@ -1,0 +1,1 @@
+(Get-S3ObjectACL -BucketName 'amzn-s3-demo-bucket' -key 'initialize.ps1' -Select *).Owner

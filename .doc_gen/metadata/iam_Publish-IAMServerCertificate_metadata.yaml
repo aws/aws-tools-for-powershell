@@ -6,7 +6,7 @@ iam_UploadServerCertificate:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Publish-IAMServerCertificate
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example uploads a new server certificate to the IAM account. The files containing the certificate body, the private key, and (optionally) the certificate chain must all be PEM encoded. Note that the parameters require the actual content of the files rather than the file names. You must use the <code>-Raw</code> switch parameter to successfully process the file contents. </emphasis>'

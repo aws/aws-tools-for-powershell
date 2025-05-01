@@ -6,7 +6,7 @@ efs_DescribeMountTargetSecurityGroups:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EFSMountTargetSecurityGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the ids of the security groups currently assigned to the network interface associated with the mount target.</emphasis>'

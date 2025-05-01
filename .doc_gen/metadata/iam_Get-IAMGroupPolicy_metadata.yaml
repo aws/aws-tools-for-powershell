@@ -6,7 +6,7 @@ iam_GetGroupPolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMGroupPolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns details about the embedded inline policy named <code>PowerUserAccess-Testers</code> for the group <code>Testers</code>. The <code>PolicyDocument</code> property is URL encoded. It is decoded in this example with the <code>UrlDecode</code> .NET method.</emphasis>'

@@ -6,7 +6,7 @@ s3_ListBucketAnalyticsConfigurations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-S3BucketAnalyticsConfigurationList
         excerpts:
         - snippet_files: []

@@ -6,7 +6,7 @@ workspaces_CreateTags:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-WKSTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds a new tag to a workspace named <code>ws-wsname</code>. The tag has a key of "Name", and a key value of <code>AWS_Workspace</code>.</emphasis>'

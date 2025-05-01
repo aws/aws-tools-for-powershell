@@ -6,7 +6,7 @@ codedeploy_BatchGetOnPremisesInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CDOnPremiseInstanceBatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets information about the specified on-premises instances.</emphasis>'

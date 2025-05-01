@@ -6,7 +6,7 @@ resource-groups_GetGroupQuery:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-RGGroupQuery
         excerpts:
         - snippet_files: []

@@ -6,7 +6,7 @@ eks_ListNodegroups:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EKSNodegroupList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet lists the Amazon EKS node groups associated with the specified cluster in your &AWS-account; in the specified Region. </emphasis>'

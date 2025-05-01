@@ -6,7 +6,7 @@ cloud9_UpdateEnvironmentMembership:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-C9EnvironmentMembership
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example changes the settings of the specified existing environment member for the specified &AWS; Cloud9 development environment.</emphasis>'

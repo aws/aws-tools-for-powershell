@@ -5,7 +5,7 @@ aurora_DescribeOrderableDBInstanceOptions:
   languages:
     PowerShell:
       versions:
-        - sdk_version: 4
+        - sdk_version: 5
           sdk_action: Get-RDSOrderableDBInstanceOption
           excerpts:
             - description: '<emphasis role="bold">Example 1: This example lists the DB engine versions that support a specific DB instance class in an &AWS-Region;.</emphasis>'

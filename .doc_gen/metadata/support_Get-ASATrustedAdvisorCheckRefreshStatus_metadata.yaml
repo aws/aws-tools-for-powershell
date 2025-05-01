@@ -6,7 +6,7 @@ support_DescribeTrustedAdvisorCheckRefreshStatuses:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-ASATrustedAdvisorCheckRefreshStatus
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the current status of refresh requests for the specified checks. Request-ASATrustedAdvisorCheckRefresh can be used to request that the status information of the checks be refreshed.</emphasis>'

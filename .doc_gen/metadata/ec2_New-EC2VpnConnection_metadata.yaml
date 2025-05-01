@@ -6,7 +6,7 @@ ec2_CreateVpnConnection:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2VpnConnection
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a VPN connection between the specified virtual private gateway and the specified customer gateway. The output includes the configuration information that your network administrator needs, in XML format.</emphasis>'

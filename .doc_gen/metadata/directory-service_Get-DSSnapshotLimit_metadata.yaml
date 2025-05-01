@@ -6,7 +6,7 @@ directory-service_GetSnapshotLimits:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-DSSnapshotLimit
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command gets the manual snapshot limits for a specified directory.</emphasis>'

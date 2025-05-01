@@ -6,7 +6,7 @@ workspaces_TerminateWorkspaces:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-WKSWorkspace
         excerpts:
         - description: '<emphasis role="bold">Example 1: Terminates multiple WorkSpaces. use of the -Force switch stops the cmdlet from prompting for confirmation.</emphasis>'

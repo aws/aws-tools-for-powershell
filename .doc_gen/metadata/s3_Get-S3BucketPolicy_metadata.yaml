@@ -6,7 +6,7 @@ s3_GetBucketPolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-S3BucketPolicy
         excerpts:
         - snippet_files: []

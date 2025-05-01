@@ -6,7 +6,7 @@ ec2_UpdateSecurityGroupRuleDescriptionsIngress:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-EC2SecurityGroupRuleIngressDescription
         excerpts:
         - snippet_files: []

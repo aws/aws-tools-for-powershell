@@ -6,7 +6,7 @@ ec2_CreateVpnConnectionRoute:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2VpnConnectionRoute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates the specified static route for the specified VPN connection.</emphasis>'

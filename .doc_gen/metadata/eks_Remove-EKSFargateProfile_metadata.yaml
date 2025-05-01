@@ -6,7 +6,7 @@ eks_DeleteFargateProfile:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-EKSFargateProfile
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet deletes an &AWS; Fargate profile. When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. </emphasis>'

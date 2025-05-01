@@ -6,7 +6,7 @@ workspaces_DescribeWorkspaceSnapshots:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-WKSWorkspaceSnapshot
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample shows the timestamp of the most recent snapshot created for the specified Workspace</emphasis>'

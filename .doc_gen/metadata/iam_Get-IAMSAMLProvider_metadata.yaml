@@ -6,7 +6,7 @@ iam_GetSAMLProvider:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMSAMLProvider
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves the details about the SAML 2.0 provider whose ARM is arn:aws:iam::123456789012:saml-provider/SAMLADFS. The response includes the metadata document that you got from the identity provider to create the &AWS; SAML provider entity as well as the creation and expiration dates.</emphasis>'

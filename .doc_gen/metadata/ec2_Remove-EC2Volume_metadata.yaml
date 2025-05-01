@@ -6,7 +6,7 @@ ec2_DeleteVolume:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-EC2Volume
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example detaches the specified volume. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.</emphasis>'

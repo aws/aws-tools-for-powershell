@@ -6,7 +6,7 @@ efs_DeleteTags:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-EFSTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: Deletes the collection of one or more tags from a file system. You are prompted for confirmation before the cmdlet proceeds - to suppress confirmation, use the <code>-Force</code> switch.</emphasis>'

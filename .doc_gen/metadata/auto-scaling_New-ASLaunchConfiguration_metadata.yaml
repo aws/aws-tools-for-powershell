@@ -6,7 +6,7 @@ auto-scaling_CreateLaunchConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-ASLaunchConfiguration
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example creates a launch configuration named 'my-lc'. The EC2 instances launched by Auto Scaling groups that use this launch configuration use specified instance type, AMI, security group, and IAM role.</emphasis>"

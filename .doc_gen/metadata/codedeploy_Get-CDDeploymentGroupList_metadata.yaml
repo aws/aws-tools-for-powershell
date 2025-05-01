@@ -6,7 +6,7 @@ codedeploy_ListDeploymentGroups:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CDDeploymentGroupList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets a list of deployment groups for the specified application.</emphasis>'

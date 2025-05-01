@@ -6,7 +6,7 @@ auto-scaling_AttachInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Mount-ASInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example attaches the specified instance to the specified Auto Scaling group. Auto Scaling automatically increases the desired capacity of the Auto Scaling group.</emphasis>'

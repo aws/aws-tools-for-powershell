@@ -6,7 +6,7 @@ fsx_DeleteBackup:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-FSXBackup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example removes the given backup-id.</emphasis>'

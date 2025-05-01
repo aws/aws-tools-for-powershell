@@ -6,7 +6,7 @@ codedeploy_AddTagsToOnPremisesInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-CDOnPremiseInstanceTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds an on-premises instance tag with the specified key and value for the specified on-premises instance.</emphasis>'

@@ -6,7 +6,7 @@ s3_PutBucketAccelerateConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-S3BucketAccelerateConfiguration
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command enables the transfer acceleration for the given S3 bucket.</emphasis>'

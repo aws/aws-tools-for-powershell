@@ -6,7 +6,7 @@ directory-service_DescribeDomainControllers:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-DSDomainControllerList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command gets the detailed list of Domain Controllers launched for mentioned directory-id</emphasis>'

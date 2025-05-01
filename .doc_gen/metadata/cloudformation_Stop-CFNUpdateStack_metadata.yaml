@@ -6,7 +6,7 @@ cloudformation_CancelUpdateStack:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Stop-CFNUpdateStack
         excerpts:
         - description: '<emphasis role="bold">Example 1: Cancels an update on the specified stack.</emphasis>'

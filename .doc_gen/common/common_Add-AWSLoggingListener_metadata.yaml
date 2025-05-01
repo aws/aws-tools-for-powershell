@@ -6,7 +6,7 @@ Common_Add-AWSLoggingListener:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Attaches a listener for the source 'Amazon', matching responses from all services for the current script or shell. Log output will be written to the specified file (the folder path must exist). Multiple listeners for different namespaces can be active at a time. By default only error responses are logged.</emphasis>"
           snippet_files: []

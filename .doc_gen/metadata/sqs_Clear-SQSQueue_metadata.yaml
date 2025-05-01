@@ -6,7 +6,7 @@ sqs_PurgeQueue:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Clear-SQSQueue
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes all messages from the specified queue.</emphasis>'

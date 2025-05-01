@@ -6,7 +6,7 @@ iam_GetRolePolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMRolePolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the permissions policy document for the policy named <code>oneClick_lambda_exec_role_policy</code> that is embedded in the IAM role <code>lamda_exec_role</code>. The resulting policy document is URL encoded. It is decoded in this example with the <code>UrlDecode</code> .NET method.</emphasis>'

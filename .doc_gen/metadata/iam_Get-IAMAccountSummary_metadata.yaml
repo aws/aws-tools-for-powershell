@@ -6,7 +6,7 @@ iam_GetAccountSummary:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMAccountSummary
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns information about the current IAM entity usage and current IAM entity quotas in the &AWS-account;.</emphasis>'

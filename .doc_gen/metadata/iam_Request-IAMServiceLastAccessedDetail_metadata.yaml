@@ -6,7 +6,7 @@ iam_GenerateServiceLastAccessedDetails:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Request-IAMServiceLastAccessedDetail
         excerpts:
         - snippet_files: []

@@ -6,7 +6,7 @@ sts_AssumeRole:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Use-STSRole
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns a set of temporary credentials (access key, secret key and session token) that can be used for one hour to access &AWS; resources that the requesting user might not normally have access to. The returned credentials have the permissions that are allowed by the access policy of the role being assumed and the policy that was supplied (you cannot use the supplied policy to grant permissions in excess of those defined by the access policy of the role being assumed).</emphasis>'

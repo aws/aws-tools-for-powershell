@@ -6,7 +6,7 @@ ec2_ImportImage:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Import-EC2Image
         excerpts:
         - description: |-

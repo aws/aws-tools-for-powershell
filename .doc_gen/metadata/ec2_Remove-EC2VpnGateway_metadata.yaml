@@ -6,7 +6,7 @@ ec2_DeleteVpnGateway:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-EC2VpnGateway
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the specified virtual private gateway. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.</emphasis>'

@@ -6,7 +6,7 @@ cloud9_DescribeEnvironmentStatus:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-C9EnvironmentStatus
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets status information for the specified &AWS; Cloud9 development environment.</emphasis>'

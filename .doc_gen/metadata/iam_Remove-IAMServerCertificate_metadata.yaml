@@ -6,7 +6,7 @@ iam_DeleteServerCertificate:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-IAMServerCertificate
         excerpts:
         - snippet_files: []

@@ -6,7 +6,7 @@ ec2_CreateInstanceExportTask:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2InstanceExportTask
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example exports a stopped instance, <code>i-0800b00a00EXAMPLE</code>, as a virtual hard disk (VHD) to the S3 bucket <code>testbucket-export-instances-2019</code>. The target environment is <code>Microsoft</code>, and the region parameter is added because the instance is in the <code>us-east-1</code> region, while the user's default &AWS; Region is not us-east-1. To get the status of the export task, copy the <code>ExportTaskId</code> value from the results of this command, then run <code>Get-EC2ExportTask -ExportTaskId export_task_ID_from_results.</code></emphasis>"

@@ -6,7 +6,7 @@ Common_Remove-AWSLoggingListener:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         excerpts:
         - description: '<emphasis role="bold">Example 1: Removes the specified logger from the trace source.</emphasis>'
           snippet_files: []

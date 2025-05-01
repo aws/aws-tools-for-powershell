@@ -6,7 +6,7 @@ ssm_ListResourceComplianceSummaries:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMResourceComplianceSummaryList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.</emphasis>'

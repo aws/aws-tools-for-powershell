@@ -6,7 +6,7 @@ cloudformation_ListStacks:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFNStackSummary
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns summary information for all stacks.</emphasis>'

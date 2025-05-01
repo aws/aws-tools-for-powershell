@@ -6,7 +6,7 @@ ec2_UnmonitorInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Stop-EC2InstanceMonitoring
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example disables detailed monitoring for the specified instance.</emphasis>'

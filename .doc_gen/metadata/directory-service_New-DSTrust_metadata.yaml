@@ -6,7 +6,7 @@ directory-service_CreateTrust:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-DSTrust
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates Two-Way Forestwide trust between your &AWS; Managed Microsoft AD directory, and existing on-premises Microsoft Active Directory.</emphasis>'

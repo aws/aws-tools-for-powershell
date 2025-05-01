@@ -6,7 +6,7 @@ fsx_TagResource:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-FSXResourceTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds tags to the given resource.</emphasis>'

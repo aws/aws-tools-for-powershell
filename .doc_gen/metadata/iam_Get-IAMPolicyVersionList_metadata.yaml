@@ -6,7 +6,7 @@ iam_ListPolicyVersions:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMPolicyVersionList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the list of available versions of the policy whose ARN is <code>arn:aws:iam::123456789012:policy/MyManagedPolicy</code>. To get the policy document for a specific version, use the <code>Get-IAMPolicyVersion</code> command and specify the <code>VersionId</code> of the one you want.</emphasis>'

@@ -6,7 +6,7 @@ cloud9_UpdateEnvironment:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-C9Environment
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example changes the specified settings of the specified existing &AWS; Cloud9 development environment.</emphasis>'

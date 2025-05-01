@@ -6,7 +6,7 @@ auto-scaling_ResumeProcesses:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Resume-ASProcess
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example resumes the specified Auto Scaling process for the specified Auto Scaling group.</emphasis>'

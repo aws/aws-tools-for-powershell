@@ -6,7 +6,7 @@ directory-service_DeregisterEventTopic:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Unregister-DSEventTopic
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example removes the specefied directory as a publisher to the specified SNS topic. </emphasis>'

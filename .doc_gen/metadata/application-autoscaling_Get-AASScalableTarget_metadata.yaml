@@ -6,7 +6,7 @@ application-auto-scaling_DescribeScalableTargets:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-AASScalableTarget
         excerpts:
         - snippet_files: []

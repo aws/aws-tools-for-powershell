@@ -6,7 +6,7 @@ iam_CreateAccessKey:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-IAMAccessKey
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new access key and secret access key pair and assigns it to the user <code>David</code>. Ensure that you save the <code>AccessKeyId</code> and <code>SecretAccessKey</code> values to a file because this is the only time you can obtain the <code>SecretAccessKey</code>. You cannot retrieve it later. If you lose the secret key, you must create a new access key pair.</emphasis>'

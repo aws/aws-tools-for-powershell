@@ -6,7 +6,7 @@ iam_DeleteServiceLinkedRole:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-IAMServiceLinkedRole
         excerpts:
         - snippet_files: []

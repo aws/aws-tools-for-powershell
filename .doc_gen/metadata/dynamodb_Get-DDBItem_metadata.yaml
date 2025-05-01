@@ -6,7 +6,7 @@ dynamodb_GetItem:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-DDBItem
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the DynamoDB item with the partition key SongTitle and the sort key Artist.</emphasis>'

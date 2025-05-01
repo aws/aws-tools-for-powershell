@@ -6,7 +6,7 @@ ssm_GetDeployablePatchSnapshotForInstance:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMDeployablePatchSnapshotForInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays the current snapshot for the patch baseline used by an Instance. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example passes an <code>Amazon.Runtime.InstanceProfileAWSCredentials</code> object to the Credentials parameter.</emphasis>'

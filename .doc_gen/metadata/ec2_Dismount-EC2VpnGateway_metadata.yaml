@@ -6,7 +6,7 @@ ec2_DetachVpnGateway:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Dismount-EC2VpnGateway
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example detaches the specified virtual private gateway from the specified VPC.</emphasis>'

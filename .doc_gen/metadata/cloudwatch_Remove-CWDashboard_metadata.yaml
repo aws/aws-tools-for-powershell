@@ -6,7 +6,7 @@ cloudwatch_DeleteDashboards:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-CWDashboard
         excerpts:
         - description: '<emphasis role="bold">Example 1: Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.</emphasis>'

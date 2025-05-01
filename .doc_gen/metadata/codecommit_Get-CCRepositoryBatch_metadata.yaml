@@ -6,7 +6,7 @@ codecommit_BatchGetRepositories:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CCRepositoryBatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example confirms which of the specified repositories are found and not found.</emphasis>'

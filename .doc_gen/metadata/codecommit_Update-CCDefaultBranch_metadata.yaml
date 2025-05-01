@@ -6,7 +6,7 @@ codecommit_UpdateDefaultBranch:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-CCDefaultBranch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example changes the default branch for the specified repository to the specified branch.</emphasis>'

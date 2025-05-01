@@ -6,7 +6,7 @@ s3_PutObject:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-S3Object
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files".</emphasis>'

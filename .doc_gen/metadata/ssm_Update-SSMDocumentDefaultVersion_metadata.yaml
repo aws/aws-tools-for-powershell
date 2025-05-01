@@ -6,7 +6,7 @@ ssm_UpdateDocumentDefaultVersion:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-SSMDocumentDefaultVersion
         excerpts:
         - description: '<emphasis role="bold">Example 1: This updates the default version of a document. You can obtain the available document versions with the "Get-SSMDocumentVersionList" cmdlet.</emphasis>'

@@ -6,7 +6,7 @@ ec2_CreateSpotDatafeedSubscription:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2SpotDatafeedSubscription
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a Spot instance data feed.</emphasis>'

@@ -6,7 +6,7 @@ route-53_AssociateVPCWithHostedZone:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Register-R53VPCWithHostedZone
         excerpts:
         - snippet_files: []

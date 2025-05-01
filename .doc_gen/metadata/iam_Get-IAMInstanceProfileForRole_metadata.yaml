@@ -6,7 +6,7 @@ iam_ListInstanceProfilesForRole:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMInstanceProfileForRole
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns details of the instance profile associated with the role <code>ec2instancerole</code>.</emphasis>'

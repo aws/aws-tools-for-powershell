@@ -6,7 +6,7 @@ ssm_DescribeAutomationExecutions:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMAutomationExecutionList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes all active and terminated Automation Executions associated with your account.</emphasis>'

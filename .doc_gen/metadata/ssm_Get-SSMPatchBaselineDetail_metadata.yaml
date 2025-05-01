@@ -6,7 +6,7 @@ ssm_GetPatchBaseline:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMPatchBaselineDetail
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays the details for a patch baseline.</emphasis>'

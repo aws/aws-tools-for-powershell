@@ -6,7 +6,7 @@ ec2_RunInstances:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-EC2Instance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example launches a single instance of the specified AMI in EC2-Classic or a default VPC.</emphasis>'
@@ -24,7 +24,7 @@ ec2_RunInstances:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Instance.3.1.ps1
-        - description: '<emphasis role="bold">Example 4: To specify one of the current Windows AMIs, get its AMI ID using Get-EC2ImageByName. This example launches an instance from the current base AMI for Windows Server 2016.</emphasis>'
+        - description: '<emphasis role="bold">Example 4: To specify one of the current Windows AMIs, get its AMI ID using Get-SSMLatestEC2Image. This example launches an instance from the current base AMI for Windows Server 2016.</emphasis>'
           snippet_files: []
         - description:
           snippet_files:

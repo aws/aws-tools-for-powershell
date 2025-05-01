@@ -6,7 +6,7 @@ ssm_GetConnectionStatus:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMConnectionStatus
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to receive Session Manager connections. </emphasis>'

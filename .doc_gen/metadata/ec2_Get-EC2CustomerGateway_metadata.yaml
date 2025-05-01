@@ -6,7 +6,7 @@ ec2_DescribeCustomerGateways:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2CustomerGateway
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified customer gateway.</emphasis>'

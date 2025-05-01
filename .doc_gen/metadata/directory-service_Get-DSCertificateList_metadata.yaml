@@ -6,7 +6,7 @@ directory-service_ListCertificates:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-DSCertificateList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all the certificates registered for a secured LDAP connection for specified directory.</emphasis>'

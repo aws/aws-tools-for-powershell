@@ -6,7 +6,7 @@ cloudfront_ListCloudFrontOriginAccessIdentities:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFCloudFrontOriginAccessIdentityList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.</emphasis>'

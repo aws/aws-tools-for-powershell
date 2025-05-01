@@ -6,7 +6,7 @@ codedeploy_StopDeployment:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Stop-CDDeployment
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example attempts to stop the deployment with the specified deployment ID.</emphasis>'

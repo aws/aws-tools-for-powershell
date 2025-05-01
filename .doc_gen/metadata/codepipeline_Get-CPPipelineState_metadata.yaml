@@ -6,7 +6,7 @@ codepipeline_GetPipelineState:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CPPipelineState
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets general information about the stages for the specified pipeline.</emphasis>'

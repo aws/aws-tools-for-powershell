@@ -6,7 +6,7 @@ iam_GetServiceLastAccessedDetails:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMServiceLastAccessedDetail
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example provides details of the service last accessed by the IAM entity(user, group, role or policy) associated in Request call. </emphasis>'

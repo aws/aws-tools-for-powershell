@@ -6,7 +6,7 @@ ec2_MoveAddressToVpc:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Move-EC2AddressToVpc
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example moves an EC2 instance with a public IP address of 12.345.67.89 to the EC2-VPC platform in the US East (Northern Virginia) region.</emphasis>'

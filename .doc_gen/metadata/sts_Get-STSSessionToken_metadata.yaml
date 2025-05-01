@@ -6,7 +6,7 @@ sts_GetSessionToken:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-STSSessionToken
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns an <code>Amazon.RuntimeAWSCredentials</code> instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.</emphasis>'

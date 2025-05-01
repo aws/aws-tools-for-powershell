@@ -6,7 +6,7 @@ ec2_EnableVpcClassicLinkDnsSupport:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Enable-EC2VpcClassicLinkDnsSupport
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example enables vpc-0b12d3456a7e8910d to support DNS hostname resolution for ClassicLink</emphasis>'

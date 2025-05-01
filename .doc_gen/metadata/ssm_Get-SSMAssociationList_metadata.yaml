@@ -6,7 +6,7 @@ ssm_ListAssociations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMAssociationList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'

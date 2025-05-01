@@ -6,7 +6,7 @@ workspaces_CopyWorkspaceImage:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Copy-WKSWorkspaceImage
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample copies workspace Image with specified ID from us-west-2 to the current region with the name "CopiedImageTest"</emphasis>'

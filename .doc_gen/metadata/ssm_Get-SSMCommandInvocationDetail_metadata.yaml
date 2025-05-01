@@ -6,7 +6,7 @@ ssm_GetCommandInvocation:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMCommandInvocationDetail
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays the details of a command executed on an instance.</emphasis>'

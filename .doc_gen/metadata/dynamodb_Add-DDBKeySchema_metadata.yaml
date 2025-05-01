@@ -6,7 +6,7 @@ dynamodb_Add-DDBKeySchema:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Add-DDBKeySchema
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Creates an empty TableSchema object and adds key and attribute definition entries to it using the specified key data before writing the TableSchema object to the pipeline. The key type is declared to be 'HASH' by default; use the -KeyType paameter with a value of 'RANGE' to declare a range key.</emphasis>"

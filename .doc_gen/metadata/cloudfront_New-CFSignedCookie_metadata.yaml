@@ -6,7 +6,7 @@ cloudfront_New-CFSignedCookie:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: New-CFSignedCookie
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a signed cookie to the specified resource using a canned policy. The cookie will be valid for one year.</emphasis>'

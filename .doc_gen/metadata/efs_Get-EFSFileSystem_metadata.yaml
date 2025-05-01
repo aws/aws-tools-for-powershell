@@ -6,7 +6,7 @@ efs_DescribeFileSystems:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EFSFileSystem
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns the collection of all file systems owned by the caller's account in the region.</emphasis>"

@@ -6,7 +6,7 @@ directory-service_UpdateConditionalForwarder:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Update-DSConditionalForwarder
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example updates a conditional forwarder that has been set up for your &AWS; directory.</emphasis>'

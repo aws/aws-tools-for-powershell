@@ -1,0 +1,27 @@
+---
+s3_GetBucketAcl:
+  title: Use Get-S3BucketACL
+  title_abbrev: Get-S3BucketACL
+  synopsis: use Get-S3BucketACL
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 5
+        sdk_action: Get-S3BucketACL
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: The command gets the details of the object owner of the S3 object.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketACL.1.1.ps1
+          description:
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">DisplayName Id
+            ----------- --
+            testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f544</programlisting>
+  services:
+    s3:
+      GetBucketAcl:
+

@@ -6,7 +6,7 @@ config-service_GetAggregateDiscoveredResourceCounts:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CFGAggregateDiscoveredResourceCount
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the resource count for the given aggregator filtered for region us-east-1.</emphasis>'

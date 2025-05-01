@@ -6,7 +6,7 @@ cognito-identity_GetIdentityPoolRoles:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CGIIdentityPoolRole
         excerpts:
         - description: '<emphasis role="bold">Example 1: Gets the information about roles for a specific Identity Pool.</emphasis>'

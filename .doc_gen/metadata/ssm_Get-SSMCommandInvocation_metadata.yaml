@@ -6,7 +6,7 @@ ssm_ListCommandInvocations:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-SSMCommandInvocation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all the invocations of a command.</emphasis>'

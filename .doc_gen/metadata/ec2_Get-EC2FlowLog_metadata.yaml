@@ -6,7 +6,7 @@ ec2_DescribeFlowLogs:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2FlowLog
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example describes one or more flow logs with log destination type 's3'</emphasis>"

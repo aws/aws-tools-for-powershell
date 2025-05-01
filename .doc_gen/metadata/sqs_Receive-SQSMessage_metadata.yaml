@@ -6,7 +6,7 @@ sqs_ReceiveMessage:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Receive-SQSMessage
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.</emphasis>'

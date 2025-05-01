@@ -6,7 +6,7 @@ ec2_DescribeVpcClassicLink:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2VpcClassicLink
         excerpts:
         - description: '<emphasis role="bold">Example 1: Above example returns all the VPCs with their ClassicLinkEnabled state for the region</emphasis>'

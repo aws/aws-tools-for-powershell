@@ -6,7 +6,7 @@ iam_DeactivateMFADevice:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Disable-IAMMFADevice
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command disables the hardware MFA device associated with the user <code>Bob</code> that has the serial number <code>123456789012</code>.</emphasis>'

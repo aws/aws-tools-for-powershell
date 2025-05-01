@@ -6,7 +6,7 @@ codedeploy_BatchGetApplications:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-CDApplicationBatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets information about the specified applications.</emphasis>'

@@ -6,7 +6,7 @@ eks_ListClusters:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EKSClusterList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet lists the Amazon EKS clusters in your &AWS-account; in the specified Region.</emphasis>'

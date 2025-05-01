@@ -6,7 +6,7 @@ auto-scaling_PutScalingPolicy:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-ASScalingPolicy
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example adds the specified policy to the specified Auto Scaling group. The specified adjustment type determines how to interpret the ScalingAdjustment parameter. With 'ChangeInCapacity', a positive value increases the capacity by the specified number of instances and a negative value decreases the capacity by the specified number of instances.</emphasis>"

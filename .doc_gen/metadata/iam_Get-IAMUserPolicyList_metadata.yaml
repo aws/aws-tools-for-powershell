@@ -6,7 +6,7 @@ iam_ListUserPolicies:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-IAMUserPolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named <code>David</code>.</emphasis>'

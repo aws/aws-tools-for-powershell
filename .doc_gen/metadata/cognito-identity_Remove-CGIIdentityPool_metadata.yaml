@@ -6,7 +6,7 @@ cognito-identity_DeleteIdentityPool:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Remove-CGIIdentityPool
         excerpts:
         - description: '<emphasis role="bold">Example 1: Deletes a specific Identity Pool.</emphasis>'

@@ -6,7 +6,7 @@ ec2_DescribeSecurityGroups:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Get-EC2SecurityGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.</emphasis>'

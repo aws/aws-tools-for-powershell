@@ -6,7 +6,7 @@ auto-scaling_PutNotificationConfiguration:
   languages:
     PowerShell:
       versions:
-      - sdk_version: 4
+      - sdk_version: 5
         sdk_action: Write-ASNotificationConfiguration
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example configures the specified Auto Scaling group to send a notification to the specified SNS topic when it launches EC2 instances.</emphasis>'
