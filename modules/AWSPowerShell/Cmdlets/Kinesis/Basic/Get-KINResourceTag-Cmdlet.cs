@@ -56,7 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>The Amazon Resource Name (ARN) of the Kinesis resource for which to list tags.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceARN { get; set; }
         #endregion
         
@@ -107,6 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ResourceARN = this.ResourceARN;
+            #if MODULAR
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

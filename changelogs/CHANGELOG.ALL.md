@@ -1,4 +1,7 @@
-﻿### 4.1.811 (2025-05-01 20:13Z)
+﻿### 4.1.812 (2025-05-02 20:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1036.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.811 (2025-05-01 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1035.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet Update-SMClusterSoftware: added parameters DeploymentConfig_AutoRollbackConfiguration, DeploymentConfig_WaitIntervalInSecond, InstanceGroup, MaximumBatchSize_Type, MaximumBatchSize_Value, RollbackMaximumBatchSize_Type and RollbackMaximumBatchSize_Value.
