@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Indicates whether the client VPN session is disconnected after the maximum timeout
         /// specified in <c>SessionTimeoutHours</c> is reached. If <c>true</c>, users are prompted
         /// to reconnect client VPN. If <c>false</c>, client VPN attempts to reconnect automatically.
-        /// The default value is <c>true</c>.</para>
+        /// The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

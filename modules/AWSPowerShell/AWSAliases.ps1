@@ -9706,6 +9706,10 @@ Set-Alias -Name Create-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 Set-Alias -Name EC2-CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation -Value New-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 Set-Alias -Name Create-EC2LocalGatewayRouteTableVpcAssociation -Value New-EC2LocalGatewayRouteTableVpcAssociation
 Set-Alias -Name EC2-CreateLocalGatewayRouteTableVpcAssociation -Value New-EC2LocalGatewayRouteTableVpcAssociation
+Set-Alias -Name Create-EC2LocalGatewayVirtualInterface -Value New-EC2LocalGatewayVirtualInterface
+Set-Alias -Name EC2-CreateLocalGatewayVirtualInterface -Value New-EC2LocalGatewayVirtualInterface
+Set-Alias -Name Create-EC2LocalGatewayVirtualInterfaceGroup -Value New-EC2LocalGatewayVirtualInterfaceGroup
+Set-Alias -Name EC2-CreateLocalGatewayVirtualInterfaceGroup -Value New-EC2LocalGatewayVirtualInterfaceGroup
 Set-Alias -Name Create-EC2ManagedPrefixList -Value New-EC2ManagedPrefixList
 Set-Alias -Name EC2-CreateManagedPrefixList -Value New-EC2ManagedPrefixList
 Set-Alias -Name Create-EC2NatGateway -Value New-EC2NatGateway
@@ -9874,6 +9878,10 @@ Set-Alias -Name Delete-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 Set-Alias -Name EC2-DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation -Value Remove-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 Set-Alias -Name Delete-EC2LocalGatewayRouteTableVpcAssociation -Value Remove-EC2LocalGatewayRouteTableVpcAssociation
 Set-Alias -Name EC2-DeleteLocalGatewayRouteTableVpcAssociation -Value Remove-EC2LocalGatewayRouteTableVpcAssociation
+Set-Alias -Name Delete-EC2LocalGatewayVirtualInterface -Value Remove-EC2LocalGatewayVirtualInterface
+Set-Alias -Name EC2-DeleteLocalGatewayVirtualInterface -Value Remove-EC2LocalGatewayVirtualInterface
+Set-Alias -Name Delete-EC2LocalGatewayVirtualInterfaceGroup -Value Remove-EC2LocalGatewayVirtualInterfaceGroup
+Set-Alias -Name EC2-DeleteLocalGatewayVirtualInterfaceGroup -Value Remove-EC2LocalGatewayVirtualInterfaceGroup
 Set-Alias -Name Delete-EC2ManagedPrefixList -Value Remove-EC2ManagedPrefixList
 Set-Alias -Name EC2-DeleteManagedPrefixList -Value Remove-EC2ManagedPrefixList
 Set-Alias -Name Delete-EC2NatGateway -Value Remove-EC2NatGateway
@@ -10260,6 +10268,9 @@ Set-Alias -Name EC2-DescribeNetworkInterfacePermissions -Value Get-EC2NetworkInt
 Set-Alias -Name Describe-EC2NetworkInterfaces -Value Get-EC2NetworkInterface
 Set-Alias -Name Describe-EC2NetworkInterface -Value Get-EC2NetworkInterface
 Set-Alias -Name EC2-DescribeNetworkInterfaces -Value Get-EC2NetworkInterface
+Set-Alias -Name Describe-EC2OutpostLags -Value Get-EC2OutpostLag
+Set-Alias -Name Describe-EC2OutpostLag -Value Get-EC2OutpostLag
+Set-Alias -Name EC2-DescribeOutpostLags -Value Get-EC2OutpostLag
 Set-Alias -Name Describe-EC2PlacementGroups -Value Get-EC2PlacementGroup
 Set-Alias -Name Describe-EC2PlacementGroup -Value Get-EC2PlacementGroup
 Set-Alias -Name EC2-DescribePlacementGroups -Value Get-EC2PlacementGroup
@@ -10318,6 +10329,9 @@ Set-Alias -Name EC2-DescribeSecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name Describe-EC2SecurityGroupVpcAssociations -Value Get-EC2SecurityGroupVpcAssociation
 Set-Alias -Name Describe-EC2SecurityGroupVpcAssociation -Value Get-EC2SecurityGroupVpcAssociation
 Set-Alias -Name EC2-DescribeSecurityGroupVpcAssociations -Value Get-EC2SecurityGroupVpcAssociation
+Set-Alias -Name Describe-EC2ServiceLinkVirtualInterfaces -Value Get-EC2ServiceLinkVirtualInterface
+Set-Alias -Name Describe-EC2ServiceLinkVirtualInterface -Value Get-EC2ServiceLinkVirtualInterface
+Set-Alias -Name EC2-DescribeServiceLinkVirtualInterfaces -Value Get-EC2ServiceLinkVirtualInterface
 Set-Alias -Name Describe-EC2SnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name EC2-DescribeSnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name Describe-EC2Snapshots -Value Get-EC2Snapshot

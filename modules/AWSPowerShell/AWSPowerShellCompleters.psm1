@@ -20856,7 +20856,7 @@ $DZ_Completers = {
             ($_ -eq "Remove-DZPolicyGrant/PolicyType")
         }
         {
-            $v = "ADD_TO_PROJECT_MEMBER_POOL","CREATE_ASSET_TYPE","CREATE_DOMAIN_UNIT","CREATE_ENVIRONMENT","CREATE_ENVIRONMENT_FROM_BLUEPRINT","CREATE_ENVIRONMENT_PROFILE","CREATE_FORM_TYPE","CREATE_GLOSSARY","CREATE_PROJECT","CREATE_PROJECT_FROM_PROJECT_PROFILE","DELEGATE_CREATE_ENVIRONMENT_PROFILE","OVERRIDE_DOMAIN_UNIT_OWNERS","OVERRIDE_PROJECT_OWNERS"
+            $v = "ADD_TO_PROJECT_MEMBER_POOL","CREATE_ASSET_TYPE","CREATE_DOMAIN_UNIT","CREATE_ENVIRONMENT","CREATE_ENVIRONMENT_FROM_BLUEPRINT","CREATE_ENVIRONMENT_PROFILE","CREATE_FORM_TYPE","CREATE_GLOSSARY","CREATE_PROJECT","CREATE_PROJECT_FROM_PROJECT_PROFILE","DELEGATE_CREATE_ENVIRONMENT_PROFILE","OVERRIDE_DOMAIN_UNIT_OWNERS","OVERRIDE_PROJECT_OWNERS","USE_ASSET_TYPE"
             break
         }
 
@@ -21034,7 +21034,7 @@ $DZ_Completers = {
             ($_ -eq "Remove-DZPolicyGrant/EntityType")
         }
         {
-            $v = "DOMAIN_UNIT","ENVIRONMENT_BLUEPRINT_CONFIGURATION","ENVIRONMENT_PROFILE"
+            $v = "ASSET_TYPE","DOMAIN_UNIT","ENVIRONMENT_BLUEPRINT_CONFIGURATION","ENVIRONMENT_PROFILE"
             break
         }
 
@@ -26602,6 +26602,8 @@ $EC2_SelectMap = @{
                "New-EC2LocalGatewayRouteTable",
                "New-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
                "New-EC2LocalGatewayRouteTableVpcAssociation",
+               "New-EC2LocalGatewayVirtualInterface",
+               "New-EC2LocalGatewayVirtualInterfaceGroup",
                "New-EC2ManagedPrefixList",
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
@@ -26683,6 +26685,8 @@ $EC2_SelectMap = @{
                "Remove-EC2LocalGatewayRouteTable",
                "Remove-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
                "Remove-EC2LocalGatewayRouteTableVpcAssociation",
+               "Remove-EC2LocalGatewayVirtualInterface",
+               "Remove-EC2LocalGatewayVirtualInterfaceGroup",
                "Remove-EC2ManagedPrefixList",
                "Remove-EC2NatGateway",
                "Remove-EC2NetworkAcl",
@@ -26834,6 +26838,7 @@ $EC2_SelectMap = @{
                "Get-EC2NetworkInterfaceAttribute",
                "Get-EC2NetworkInterfacePermission",
                "Get-EC2NetworkInterface",
+               "Get-EC2OutpostLag",
                "Get-EC2PlacementGroup",
                "Get-EC2PrefixList",
                "Get-EC2PrincipalIdFormat",
@@ -26854,6 +26859,7 @@ $EC2_SelectMap = @{
                "Get-EC2SecurityGroupRule",
                "Get-EC2SecurityGroup",
                "Get-EC2SecurityGroupVpcAssociation",
+               "Get-EC2ServiceLinkVirtualInterface",
                "Get-EC2SnapshotAttribute",
                "Get-EC2Snapshot",
                "Get-EC2SnapshotTierStatus",

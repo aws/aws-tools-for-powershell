@@ -22,79 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECS;
-using Amazon.ECS.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Disables an account setting for a specified user, role, or the root user for an account.
+    /// Deletes the specified local gateway virtual interface.
     /// </summary>
-    [Cmdlet("Remove", "ECSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.ECS.Model.Setting")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Service DeleteAccountSetting API operation.", Operation = new[] {"DeleteAccountSetting"}, SelectReturnType = typeof(Amazon.ECS.Model.DeleteAccountSettingResponse))]
-    [AWSCmdletOutput("Amazon.ECS.Model.Setting or Amazon.ECS.Model.DeleteAccountSettingResponse",
-        "This cmdlet returns an Amazon.ECS.Model.Setting object.",
-        "The service call response (type Amazon.ECS.Model.DeleteAccountSettingResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Remove", "EC2LocalGatewayVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.LocalGatewayVirtualInterface")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteLocalGatewayVirtualInterface API operation.", Operation = new[] {"DeleteLocalGatewayVirtualInterface"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayVirtualInterface or Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse",
+        "This cmdlet returns an Amazon.EC2.Model.LocalGatewayVirtualInterface object.",
+        "The service call response (type Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemoveECSAccountSettingCmdlet : AmazonECSClientCmdlet, IExecutor
+    public partial class RemoveEC2LocalGatewayVirtualInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter LocalGatewayVirtualInterfaceId
         /// <summary>
         /// <para>
-        /// <para>The resource name to disable the account setting for. If <c>serviceLongArnFormat</c>
-        /// is specified, the ARN for your Amazon ECS services is affected. If <c>taskLongArnFormat</c>
-        /// is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If <c>containerInstanceLongArnFormat</c>
-        /// is specified, the ARN and resource ID for your Amazon ECS container instances is affected.
-        /// If <c>awsvpcTrunking</c> is specified, the ENI limit for your Amazon ECS container
-        /// instances is affected.</para>
+        /// <para>The ID of the local virtual interface to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.ECS.SettingName")]
-        public Amazon.ECS.SettingName Name { get; set; }
-        #endregion
-        
-        #region Parameter PrincipalArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the principal. It can be a user, role, or the root
-        /// user. If you specify the root user, it disables the account setting for all users,
-        /// roles, and the root user of the account unless a user or role explicitly overrides
-        /// these settings. If this field is omitted, the setting is changed only for the authenticated
-        /// user.</para><para>In order to use this parameter, you must be the root user, or the principal.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PrincipalArn { get; set; }
+        public System.String LocalGatewayVirtualInterfaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Setting'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECS.Model.DeleteAccountSettingResponse).
-        /// Specifying the name of a property of type Amazon.ECS.Model.DeleteAccountSettingResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'LocalGatewayVirtualInterface'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Setting";
+        public string Select { get; set; } = "LocalGatewayVirtualInterface";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LocalGatewayVirtualInterfaceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LocalGatewayVirtualInterfaceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocalGatewayVirtualInterfaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ECSAccountSetting (DeleteAccountSetting)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocalGatewayVirtualInterfaceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2LocalGatewayVirtualInterface (DeleteLocalGatewayVirtualInterface)"))
             {
                 return;
             }
@@ -128,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ECS.Model.DeleteAccountSettingResponse, RemoveECSAccountSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse, RemoveEC2LocalGatewayVirtualInterfaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,17 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.LocalGatewayVirtualInterfaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.LocalGatewayVirtualInterfaceId = this.LocalGatewayVirtualInterfaceId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.LocalGatewayVirtualInterfaceId == null && ParameterWasBound(nameof(this.LocalGatewayVirtualInterfaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LocalGatewayVirtualInterfaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PrincipalArn = this.PrincipalArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,15 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECS.Model.DeleteAccountSettingRequest();
+            var request = new Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.LocalGatewayVirtualInterfaceId != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.PrincipalArn != null)
-            {
-                request.PrincipalArn = cmdletContext.PrincipalArn;
+                request.LocalGatewayVirtualInterfaceId = cmdletContext.LocalGatewayVirtualInterfaceId;
             }
             
             CmdletOutput output;
@@ -205,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #region AWS Service Operation Call
         
-        private Amazon.ECS.Model.DeleteAccountSettingResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteAccountSettingRequest request)
+        private Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "DeleteAccountSetting");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteLocalGatewayVirtualInterface");
             try
             {
                 #if DESKTOP
-                return client.DeleteAccountSetting(request);
+                return client.DeleteLocalGatewayVirtualInterface(request);
                 #elif CORECLR
-                return client.DeleteAccountSettingAsync(request).GetAwaiter().GetResult();
+                return client.DeleteLocalGatewayVirtualInterfaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,10 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.ECS.SettingName Name { get; set; }
-            public System.String PrincipalArn { get; set; }
-            public System.Func<Amazon.ECS.Model.DeleteAccountSettingResponse, RemoveECSAccountSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Setting;
+            public System.String LocalGatewayVirtualInterfaceId { get; set; }
+            public System.Func<Amazon.EC2.Model.DeleteLocalGatewayVirtualInterfaceResponse, RemoveEC2LocalGatewayVirtualInterfaceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.LocalGatewayVirtualInterface;
         }
         
     }

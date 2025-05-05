@@ -265,6 +265,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Int32? DeviceProxy_Port { get; set; }
         #endregion
         
+        #region Parameter ProjectArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the project for which you want to check device pool compatibility.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProjectArn { get; set; }
+        #endregion
+        
         #region Parameter Test_TestPackageArn
         /// <summary>
         /// <para>
@@ -395,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 WriteWarning("You are passing $null as a value for parameter DevicePoolArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProjectArn = this.ProjectArn;
             context.Test_Filter = this.Test_Filter;
             if (this.Test_Parameter != null)
             {
@@ -671,6 +682,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.DevicePoolArn = cmdletContext.DevicePoolArn;
             }
+            if (cmdletContext.ProjectArn != null)
+            {
+                request.ProjectArn = cmdletContext.ProjectArn;
+            }
             
              // populate Test
             var requestTestIsNull = true;
@@ -814,6 +829,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? Radios_Wifi { get; set; }
             public List<System.String> Configuration_VpceConfigurationArn { get; set; }
             public System.String DevicePoolArn { get; set; }
+            public System.String ProjectArn { get; set; }
             public System.String Test_Filter { get; set; }
             public Dictionary<System.String, System.String> Test_Parameter { get; set; }
             public System.String Test_TestPackageArn { get; set; }

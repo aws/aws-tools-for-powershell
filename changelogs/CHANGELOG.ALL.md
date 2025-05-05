@@ -1,4 +1,18 @@
-﻿### 4.1.812 (2025-05-02 20:17Z)
+﻿### 4.1.813 (2025-05-05 20:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1037.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet Add-DZPolicyGrant: added parameter UseAssetType_DomainUnitId.
+  * Amazon Device Farm
+    * Modified cmdlet Get-DFDevicePoolCompatibility: added parameter ProjectArn.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2OutpostLag leveraging the DescribeOutpostLags service API.
+    * Added cmdlet Get-EC2ServiceLinkVirtualInterface leveraging the DescribeServiceLinkVirtualInterfaces service API.
+    * Added cmdlet New-EC2LocalGatewayVirtualInterface leveraging the CreateLocalGatewayVirtualInterface service API.
+    * Added cmdlet New-EC2LocalGatewayVirtualInterfaceGroup leveraging the CreateLocalGatewayVirtualInterfaceGroup service API.
+    * Added cmdlet Remove-EC2LocalGatewayVirtualInterface leveraging the DeleteLocalGatewayVirtualInterface service API.
+    * Added cmdlet Remove-EC2LocalGatewayVirtualInterfaceGroup leveraging the DeleteLocalGatewayVirtualInterfaceGroup service API.
+
+### 4.1.812 (2025-05-02 20:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1036.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.811 (2025-05-01 20:13Z)
