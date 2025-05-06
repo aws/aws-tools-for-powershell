@@ -1,4 +1,10 @@
-﻿### 4.1.813 (2025-05-05 20:22Z)
+﻿### 4.1.814 (2025-05-06 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1038.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2ReplaceRootVolumeTask: added parameter VolumeInitializationRate.
+    * Modified cmdlet New-EC2Volume: added parameter VolumeInitializationRate.
+
+### 4.1.813 (2025-05-05 20:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1037.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet Add-DZPolicyGrant: added parameter UseAssetType_DomainUnitId.
