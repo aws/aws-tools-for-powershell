@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWSYNResource', 
         'Remove-CWSYNResourceTag', 
         'Start-CWSYNCanary', 
+        'Start-CWSYNCanaryDryRun', 
         'Stop-CWSYNCanary', 
         'Update-CWSYNCanary')
 

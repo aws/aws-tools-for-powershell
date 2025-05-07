@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DryRunId
+        /// <summary>
+        /// <para>
+        /// <para>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId
+        /// to retrieve information about the dry run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DryRunId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -106,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DryRunId = this.DryRunId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -129,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             // create request
             var request = new Amazon.Synthetics.Model.GetCanaryRequest();
             
+            if (cmdletContext.DryRunId != null)
+            {
+                request.DryRunId = cmdletContext.DryRunId;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -194,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DryRunId { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.Synthetics.Model.GetCanaryResponse, GetCWSYNCanaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Canary;

@@ -131,8 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// environment variables cannot exceed 4 KB. You can't specify any Lambda reserved environment
         /// variables as the keys for your environment variables. For more information about reserved
         /// keys, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime">
-        /// Runtime environment variables</a>.</para><important><para>The environment variables keys and values are not encrypted. Do not store sensitive
-        /// information in this field.</para></important>
+        /// Runtime environment variables</a>.</para><important><para>Environment variable keys and values are encrypted at rest using Amazon Web Services
+        /// owned KMS keys. However, the environment variables are not encrypted on the client
+        /// side. Do not store sensitive information in them.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>The number of days to retain data about failed runs of this canary. If you omit this
-        /// field, the default of 31 days is used. The valid range is 1 to 455 days.</para>
+        /// field, the default of 31 days is used. The valid range is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,7 +379,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>The number of days to retain data about successful runs of this canary. If you omit
-        /// this field, the default of 31 days is used. The valid range is 1 to 455 days.</para>
+        /// this field, the default of 31 days is used. The valid range is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

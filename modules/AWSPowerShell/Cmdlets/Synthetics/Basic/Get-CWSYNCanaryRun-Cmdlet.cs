@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter DryRunId
+        /// <summary>
+        /// <para>
+        /// <para>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId
+        /// to retrieve information about the dry run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DryRunId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -57,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RunType
+        /// <summary>
+        /// <para>
+        /// <ul><li><para>When you provide <c>RunType=CANARY_RUN</c> and <c>dryRunId</c>, you will get an exception
+        /// </para></li><li><para>When a value is not provided for <c>RunType</c>, the default value is <c>CANARY_RUN</c></para></li><li><para>When <c>CANARY_RUN</c> is provided, all canary runs excluding dry runs are returned</para></li><li><para>When <c>DRY_RUN</c> is provided, all dry runs excluding canary runs are returned</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Synthetics.RunType")]
+        public Amazon.Synthetics.RunType RunType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -142,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DryRunId = this.DryRunId;
             context.MaxResult = this.MaxResult;
             context.Name = this.Name;
             #if MODULAR
@@ -151,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             }
             #endif
             context.NextToken = this.NextToken;
+            context.RunType = this.RunType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             // create request and set iteration invariants
             var request = new Amazon.Synthetics.Model.GetCanaryRunsRequest();
             
+            if (cmdletContext.DryRunId != null)
+            {
+                request.DryRunId = cmdletContext.DryRunId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -178,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RunType != null)
+            {
+                request.RunType = cmdletContext.RunType;
             }
             
             // Initialize loop variant and commence piping
@@ -264,9 +297,11 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DryRunId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Synthetics.RunType RunType { get; set; }
             public System.Func<Amazon.Synthetics.Model.GetCanaryRunsResponse, GetCWSYNCanaryRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CanaryRuns;
         }

@@ -183,6 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
         #endregion
         
+        #region Parameter UnifiedStudioSettings_DomainAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that has the Amazon SageMaker Unified Studio
+        /// domain. The default value, if you don't specify an ID, is the ID of the account that
+        /// has the Amazon SageMaker AI domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_DomainAccountId")]
+        public System.String UnifiedStudioSettings_DomainAccountId { get; set; }
+        #endregion
+        
         #region Parameter RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn
         /// <summary>
         /// <para>
@@ -211,6 +224,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter UnifiedStudioSettings_DomainId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon SageMaker Unified Studio domain associated with this domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_DomainId")]
+        public System.String UnifiedStudioSettings_DomainId { get; set; }
+        #endregion
+        
+        #region Parameter UnifiedStudioSettings_DomainRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Region where the domain is located in Amazon SageMaker Unified
+        /// Studio. The default value, if you don't specify a Region, is the Region where the
+        /// Amazon SageMaker AI domain is located.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_DomainRegion")]
+        public System.String UnifiedStudioSettings_DomainRegion { get; set; }
+        #endregion
+        
         #region Parameter DockerSettings_EnableDockerAccess
         /// <summary>
         /// <para>
@@ -221,6 +258,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Alias("DomainSettingsForUpdate_DockerSettings_EnableDockerAccess")]
         [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
         public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
+        #endregion
+        
+        #region Parameter UnifiedStudioSettings_EnvironmentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the environment that Amazon SageMaker Unified Studio associates with the
+        /// domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_EnvironmentId")]
+        public System.String UnifiedStudioSettings_EnvironmentId { get; set; }
         #endregion
         
         #region Parameter DefaultSpaceSettings_ExecutionRole
@@ -459,6 +508,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? IdleSettings_MinIdleTimeoutInMinute { get; set; }
         #endregion
         
+        #region Parameter UnifiedStudioSettings_ProjectId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_ProjectId")]
+        public System.String UnifiedStudioSettings_ProjectId { get; set; }
+        #endregion
+        
+        #region Parameter UnifiedStudioSettings_ProjectS3Path
+        /// <summary>
+        /// <para>
+        /// <para>The location where Amazon S3 stores temporary execution data and other artifacts for
+        /// the project that corresponds to the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_ProjectS3Path")]
+        public System.String UnifiedStudioSettings_ProjectS3Path { get; set; }
+        #endregion
+        
         #region Parameter AmazonQSettings_QProfileArn
         /// <summary>
         /// <para>
@@ -656,6 +728,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Alias("DomainSettingsForUpdate_AmazonQSettings_Status")]
         [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
         public Amazon.SageMaker.FeatureStatus AmazonQSettings_Status { get; set; }
+        #endregion
+        
+        #region Parameter UnifiedStudioSettings_StudioWebPortalAccess
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether you can access the domain in Amazon SageMaker Studio:</para><dl><dt>ENABLED</dt><dd><para>You can access the domain in Amazon SageMaker Studio. If you migrate the domain to
+        /// Amazon SageMaker Unified Studio, you can access it in both studio interfaces.</para></dd><dt>DISABLED</dt><dd><para>You can't access the domain in Amazon SageMaker Studio. If you migrate the domain
+        /// to Amazon SageMaker Unified Studio, you can access it only in that studio interface.</para></dd></dl><para>To migrate a domain to Amazon SageMaker Unified Studio, you specify the UnifiedStudioSettings
+        /// data type when you use the UpdateDomain action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_UnifiedStudioSettings_StudioWebPortalAccess")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -866,6 +953,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.DomainSettingsForUpdate_SecurityGroupId = new List<System.String>(this.DomainSettingsForUpdate_SecurityGroupId);
             }
+            context.UnifiedStudioSettings_DomainAccountId = this.UnifiedStudioSettings_DomainAccountId;
+            context.UnifiedStudioSettings_DomainId = this.UnifiedStudioSettings_DomainId;
+            context.UnifiedStudioSettings_DomainRegion = this.UnifiedStudioSettings_DomainRegion;
+            context.UnifiedStudioSettings_EnvironmentId = this.UnifiedStudioSettings_EnvironmentId;
+            context.UnifiedStudioSettings_ProjectId = this.UnifiedStudioSettings_ProjectId;
+            context.UnifiedStudioSettings_ProjectS3Path = this.UnifiedStudioSettings_ProjectS3Path;
+            context.UnifiedStudioSettings_StudioWebPortalAccess = this.UnifiedStudioSettings_StudioWebPortalAccess;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -1656,6 +1750,91 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettingsForUpdate.RStudioServerProDomainSettingsForUpdate = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate;
                 requestDomainSettingsForUpdateIsNull = false;
             }
+            Amazon.SageMaker.Model.UnifiedStudioSettings requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings = null;
+            
+             // populate UnifiedStudioSettings
+            var requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = true;
+            requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings = new Amazon.SageMaker.Model.UnifiedStudioSettings();
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainAccountId = null;
+            if (cmdletContext.UnifiedStudioSettings_DomainAccountId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainAccountId = cmdletContext.UnifiedStudioSettings_DomainAccountId;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainAccountId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.DomainAccountId = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainAccountId;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainId = null;
+            if (cmdletContext.UnifiedStudioSettings_DomainId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainId = cmdletContext.UnifiedStudioSettings_DomainId;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.DomainId = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainId;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainRegion = null;
+            if (cmdletContext.UnifiedStudioSettings_DomainRegion != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainRegion = cmdletContext.UnifiedStudioSettings_DomainRegion;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainRegion != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.DomainRegion = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_DomainRegion;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_EnvironmentId = null;
+            if (cmdletContext.UnifiedStudioSettings_EnvironmentId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_EnvironmentId = cmdletContext.UnifiedStudioSettings_EnvironmentId;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_EnvironmentId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.EnvironmentId = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_EnvironmentId;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectId = null;
+            if (cmdletContext.UnifiedStudioSettings_ProjectId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectId = cmdletContext.UnifiedStudioSettings_ProjectId;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.ProjectId = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectId;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectS3Path = null;
+            if (cmdletContext.UnifiedStudioSettings_ProjectS3Path != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectS3Path = cmdletContext.UnifiedStudioSettings_ProjectS3Path;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectS3Path != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.ProjectS3Path = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_ProjectS3Path;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+            Amazon.SageMaker.FeatureStatus requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_StudioWebPortalAccess = null;
+            if (cmdletContext.UnifiedStudioSettings_StudioWebPortalAccess != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_StudioWebPortalAccess = cmdletContext.UnifiedStudioSettings_StudioWebPortalAccess;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_StudioWebPortalAccess != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings.StudioWebPortalAccess = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings_unifiedStudioSettings_StudioWebPortalAccess;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull = false;
+            }
+             // determine if requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings should be set to null
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettingsIsNull)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings = null;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings != null)
+            {
+                request.DomainSettingsForUpdate.UnifiedStudioSettings = requestDomainSettingsForUpdate_domainSettingsForUpdate_UnifiedStudioSettings;
+                requestDomainSettingsForUpdateIsNull = false;
+            }
              // determine if request.DomainSettingsForUpdate should be set to null
             if (requestDomainSettingsForUpdateIsNull)
             {
@@ -1784,6 +1963,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl { get; set; }
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl { get; set; }
             public List<System.String> DomainSettingsForUpdate_SecurityGroupId { get; set; }
+            public System.String UnifiedStudioSettings_DomainAccountId { get; set; }
+            public System.String UnifiedStudioSettings_DomainId { get; set; }
+            public System.String UnifiedStudioSettings_DomainRegion { get; set; }
+            public System.String UnifiedStudioSettings_EnvironmentId { get; set; }
+            public System.String UnifiedStudioSettings_ProjectId { get; set; }
+            public System.String UnifiedStudioSettings_ProjectS3Path { get; set; }
+            public Amazon.SageMaker.FeatureStatus UnifiedStudioSettings_StudioWebPortalAccess { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateDomainResponse, UpdateSMDomainCmdlet, object> Select { get; set; } =

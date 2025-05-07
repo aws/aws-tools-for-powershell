@@ -28,25 +28,16 @@ using Amazon.Synthetics.Model;
 namespace Amazon.PowerShell.Cmdlets.CWSYN
 {
     /// <summary>
-    /// Updates the configuration of a canary that has already been created.
-    /// 
-    ///  
-    /// <para>
-    /// You can't use this operation to update the tags of an existing canary. To change the
-    /// tags of an existing canary, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.
-    /// </para><note><para>
-    /// When you use the <c>dryRunId</c> field when updating a canary, the only other field
-    /// you can provide is the <c>Schedule</c>. Adding any other field will thrown an exception.
-    /// </para></note>
+    /// Use this operation to start a dry run for a canary that has already been created
     /// </summary>
-    [Cmdlet("Update", "CWSYNCanary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Synthetics UpdateCanary API operation.", Operation = new[] {"UpdateCanary"}, SelectReturnType = typeof(Amazon.Synthetics.Model.UpdateCanaryResponse))]
-    [AWSCmdletOutput("None or Amazon.Synthetics.Model.UpdateCanaryResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Synthetics.Model.UpdateCanaryResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Start", "CWSYNCanaryDryRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Synthetics.Model.DryRunConfigOutput")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Synthetics StartCanaryDryRun API operation.", Operation = new[] {"StartCanaryDryRun"}, SelectReturnType = typeof(Amazon.Synthetics.Model.StartCanaryDryRunResponse))]
+    [AWSCmdletOutput("Amazon.Synthetics.Model.DryRunConfigOutput or Amazon.Synthetics.Model.StartCanaryDryRunResponse",
+        "This cmdlet returns an Amazon.Synthetics.Model.DryRunConfigOutput object.",
+        "The service call response (type Amazon.Synthetics.Model.StartCanaryDryRunResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class UpdateCWSYNCanaryCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
+    public partial class StartCWSYNCanaryDryRunCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -71,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>
         /// <para>The location in Amazon S3 where Synthetics stores artifacts from the test runs of
         /// this canary. Artifacts include the log file, screenshots, and HAR files. The name
-        /// of the S3 bucket can't include a period (.).</para>
+        /// of the Amazon S3 bucket can't include a period (.).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,31 +97,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VisualReference_BaseScreenshots")]
         public Amazon.Synthetics.Model.BaseScreenshot[] VisualReference_BaseScreenshot { get; set; }
-        #endregion
-        
-        #region Parameter DryRunId
-        /// <summary>
-        /// <para>
-        /// <para>Update the existing canary using the updated configurations from the DryRun associated
-        /// with the DryRunId.</para><note><para>When you use the <c>dryRunId</c> field when updating a canary, the only other field
-        /// you can provide is the <c>Schedule</c>. Adding any other field will thrown an exception.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DryRunId { get; set; }
-        #endregion
-        
-        #region Parameter Schedule_DurationInSecond
-        /// <summary>
-        /// <para>
-        /// <para>How long, in seconds, for the canary to continue making regular runs according to
-        /// the schedule in the <c>Expression</c> value. If you specify 0, the canary continues
-        /// making runs until you stop it. If you omit this field, the default of 0 is used.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Schedule_DurationInSeconds")]
-        public System.Int64? Schedule_DurationInSecond { get; set; }
         #endregion
         
         #region Parameter S3Encryption_EncryptionMode
@@ -170,35 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>
         /// <para>The ARN of the IAM role to be used to run the canary. This role must already exist,
         /// and must include <c>lambda.amazonaws.com</c> as a principal in the trust policy. The
-        /// role must also have the following permissions:</para><ul><li><para><c>s3:PutObject</c></para></li><li><para><c>s3:GetBucketLocation</c></para></li><li><para><c>s3:ListAllMyBuckets</c></para></li><li><para><c>cloudwatch:PutMetricData</c></para></li><li><para><c>logs:CreateLogGroup</c></para></li><li><para><c>logs:CreateLogStream</c></para></li><li><para><c>logs:CreateLogStream</c></para></li></ul>
+        /// role must also have the following permissions:</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
-        #region Parameter Schedule_Expression
-        /// <summary>
-        /// <para>
-        /// <para>A <c>rate</c> expression or a <c>cron</c> expression that defines how often the canary
-        /// is to run.</para><para>For a rate expression, The syntax is <c>rate(<i>number unit</i>)</c>. <i>unit</i>
-        /// can be <c>minute</c>, <c>minutes</c>, or <c>hour</c>. </para><para>For example, <c>rate(1 minute)</c> runs the canary once a minute, <c>rate(10 minutes)</c>
-        /// runs it once every 10 minutes, and <c>rate(1 hour)</c> runs it once every hour. You
-        /// can specify a frequency between <c>rate(1 minute)</c> and <c>rate(1 hour)</c>.</para><para>Specifying <c>rate(0 minute)</c> or <c>rate(0 hour)</c> is a special value that causes
-        /// the canary to run only once when it is started.</para><para>Use <c>cron(<i>expression</i>)</c> to specify a cron expression. You can't schedule
-        /// a canary to wait for more than a year before running. For information about the syntax
-        /// for cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html">
-        /// Scheduling canary runs using cron</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Schedule_Expression { get; set; }
-        #endregion
-        
         #region Parameter FailureRetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain data about failed runs of this canary.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// <para>The number of days to retain data on the failed runs for this canary. The valid range
+        /// is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
         /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
@@ -257,8 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the canary that you want to update. To find the names of your canaries,
-        /// use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</para><para>You cannot change the name of a canary that has already been created.</para>
+        /// <para>The name of the canary that you want to dry run. To find canary names, use <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html">DescribeCanaries</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -276,7 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specifies whether to also delete the Lambda functions and layers used by this canary
-        /// when the canary is deleted.</para><para>If the value of this parameter is <c>OFF</c>, then the value of the <c>DeleteLambda</c>
+        /// when the canary is deleted. If the value of this parameter is <c>AUTOMATIC</c>, it
+        /// means that the Lambda functions and layers will be deleted when the canary is deleted.</para><para>If the value of this parameter is <c>OFF</c>, then the value of the <c>DeleteLambda</c>
         /// parameter of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a>
         /// operation determines whether the Lambda functions and layers will be deleted.</para>
         /// </para>
@@ -355,7 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter SuccessRetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain data about successful runs of this canary.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// <para>The number of days to retain data on the failed runs for this canary. The valid range
+        /// is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
         /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
@@ -394,12 +344,13 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Synthetics.Model.UpdateCanaryResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DryRunConfig'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Synthetics.Model.StartCanaryDryRunResponse).
+        /// Specifying the name of a property of type Amazon.Synthetics.Model.StartCanaryDryRunResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DryRunConfig";
         #endregion
         
         #region Parameter PassThru
@@ -428,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CWSYNCanary (UpdateCanary)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CWSYNCanaryDryRun (StartCanaryDryRun)"))
             {
                 return;
             }
@@ -441,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.UpdateCanaryResponse, UpdateCWSYNCanaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Synthetics.Model.StartCanaryDryRunResponse, StartCWSYNCanaryDryRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -461,7 +412,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.Code_S3Key = this.Code_S3Key;
             context.Code_S3Version = this.Code_S3Version;
             context.Code_ZipFile = this.Code_ZipFile;
-            context.DryRunId = this.DryRunId;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.FailureRetentionPeriodInDay = this.FailureRetentionPeriodInDay;
             context.Name = this.Name;
@@ -484,8 +434,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;
             context.RunConfig_TimeoutInSecond = this.RunConfig_TimeoutInSecond;
             context.RuntimeVersion = this.RuntimeVersion;
-            context.Schedule_DurationInSecond = this.Schedule_DurationInSecond;
-            context.Schedule_Expression = this.Schedule_Expression;
             context.SuccessRetentionPeriodInDay = this.SuccessRetentionPeriodInDay;
             context.VisualReference_BaseCanaryRunId = this.VisualReference_BaseCanaryRunId;
             if (this.VisualReference_BaseScreenshot != null)
@@ -519,7 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             {
                 var cmdletContext = context as CmdletContext;
                 // create request
-                var request = new Amazon.Synthetics.Model.UpdateCanaryRequest();
+                var request = new Amazon.Synthetics.Model.StartCanaryDryRunRequest();
                 
                 
                  // populate ArtifactConfig
@@ -629,10 +577,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 {
                     request.Code = null;
                 }
-                if (cmdletContext.DryRunId != null)
-                {
-                    request.DryRunId = cmdletContext.DryRunId;
-                }
                 if (cmdletContext.ExecutionRoleArn != null)
                 {
                     request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
@@ -701,35 +645,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (cmdletContext.RuntimeVersion != null)
                 {
                     request.RuntimeVersion = cmdletContext.RuntimeVersion;
-                }
-                
-                 // populate Schedule
-                var requestScheduleIsNull = true;
-                request.Schedule = new Amazon.Synthetics.Model.CanaryScheduleInput();
-                System.Int64? requestSchedule_schedule_DurationInSecond = null;
-                if (cmdletContext.Schedule_DurationInSecond != null)
-                {
-                    requestSchedule_schedule_DurationInSecond = cmdletContext.Schedule_DurationInSecond.Value;
-                }
-                if (requestSchedule_schedule_DurationInSecond != null)
-                {
-                    request.Schedule.DurationInSeconds = requestSchedule_schedule_DurationInSecond.Value;
-                    requestScheduleIsNull = false;
-                }
-                System.String requestSchedule_schedule_Expression = null;
-                if (cmdletContext.Schedule_Expression != null)
-                {
-                    requestSchedule_schedule_Expression = cmdletContext.Schedule_Expression;
-                }
-                if (requestSchedule_schedule_Expression != null)
-                {
-                    request.Schedule.Expression = requestSchedule_schedule_Expression;
-                    requestScheduleIsNull = false;
-                }
-                 // determine if request.Schedule should be set to null
-                if (requestScheduleIsNull)
-                {
-                    request.Schedule = null;
                 }
                 if (cmdletContext.SuccessRetentionPeriodInDay != null)
                 {
@@ -844,15 +759,15 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.Synthetics.Model.UpdateCanaryResponse CallAWSServiceOperation(IAmazonSynthetics client, Amazon.Synthetics.Model.UpdateCanaryRequest request)
+        private Amazon.Synthetics.Model.StartCanaryDryRunResponse CallAWSServiceOperation(IAmazonSynthetics client, Amazon.Synthetics.Model.StartCanaryDryRunRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Synthetics", "UpdateCanary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Synthetics", "StartCanaryDryRun");
             try
             {
                 #if DESKTOP
-                return client.UpdateCanary(request);
+                return client.StartCanaryDryRun(request);
                 #elif CORECLR
-                return client.UpdateCanaryAsync(request).GetAwaiter().GetResult();
+                return client.StartCanaryDryRunAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -880,7 +795,6 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String Code_S3Key { get; set; }
             public System.String Code_S3Version { get; set; }
             public byte[] Code_ZipFile { get; set; }
-            public System.String DryRunId { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
             public System.String Name { get; set; }
@@ -890,16 +804,14 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.Int32? RunConfig_MemoryInMB { get; set; }
             public System.Int32? RunConfig_TimeoutInSecond { get; set; }
             public System.String RuntimeVersion { get; set; }
-            public System.Int64? Schedule_DurationInSecond { get; set; }
-            public System.String Schedule_Expression { get; set; }
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
             public System.String VisualReference_BaseCanaryRunId { get; set; }
             public List<Amazon.Synthetics.Model.BaseScreenshot> VisualReference_BaseScreenshot { get; set; }
             public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
-            public System.Func<Amazon.Synthetics.Model.UpdateCanaryResponse, UpdateCWSYNCanaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.Synthetics.Model.StartCanaryDryRunResponse, StartCWSYNCanaryDryRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DryRunConfig;
         }
         
     }

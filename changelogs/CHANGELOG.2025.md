@@ -1,4 +1,21 @@
-﻿### 4.1.814 (2025-05-06 20:31Z)
+﻿### 4.1.815 (2025-05-07 20:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1039.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Added cmdlet Start-CWSYNCanaryDryRun leveraging the StartCanaryDryRun service API.
+    * Modified cmdlet Get-CWSYNCanary: added parameter DryRunId.
+    * Modified cmdlet Get-CWSYNCanaryRun: added parameters DryRunId and RunType.
+    * Modified cmdlet Update-CWSYNCanary: added parameter DryRunId.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Start-EC2NetworkInsightsAnalysis: added parameter FilterOutArn.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet Update-EMLChannel: added parameters AnywhereSettings_ChannelPlacementGroupId and AnywhereSettings_ClusterId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameters UnifiedStudioSettings_DomainAccountId, UnifiedStudioSettings_DomainId, UnifiedStudioSettings_DomainRegion, UnifiedStudioSettings_EnvironmentId, UnifiedStudioSettings_ProjectId, UnifiedStudioSettings_ProjectS3Path and UnifiedStudioSettings_StudioWebPortalAccess.
+    * Modified cmdlet New-SMSpace: added parameter SpaceSettings_SpaceManagedResource.
+    * Modified cmdlet Update-SMDomain: added parameters UnifiedStudioSettings_DomainAccountId, UnifiedStudioSettings_DomainId, UnifiedStudioSettings_DomainRegion, UnifiedStudioSettings_EnvironmentId, UnifiedStudioSettings_ProjectId, UnifiedStudioSettings_ProjectS3Path and UnifiedStudioSettings_StudioWebPortalAccess.
+    * Modified cmdlet Update-SMSpace: added parameter SpaceSettings_SpaceManagedResource.
+
+### 4.1.814 (2025-05-06 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1038.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2ReplaceRootVolumeTask: added parameter VolumeInitializationRate.

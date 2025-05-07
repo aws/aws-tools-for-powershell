@@ -30132,6 +30132,7 @@ Set-Alias -Name List-CWSYNGroupList -Value Get-CWSYNGroupList
 Set-Alias -Name CWSYN-ListGroups -Value Get-CWSYNGroupList
 Set-Alias -Name CWSYN-ListTagsForResource -Value Get-CWSYNResourceTag
 Set-Alias -Name CWSYN-StartCanary -Value Start-CWSYNCanary
+Set-Alias -Name CWSYN-StartCanaryDryRun -Value Start-CWSYNCanaryDryRun
 Set-Alias -Name CWSYN-StopCanary -Value Stop-CWSYNCanary
 Set-Alias -Name CWSYN-TagResource -Value Add-CWSYNResourceTag
 Set-Alias -Name CWSYN-UntagResource -Value Remove-CWSYNResourceTag

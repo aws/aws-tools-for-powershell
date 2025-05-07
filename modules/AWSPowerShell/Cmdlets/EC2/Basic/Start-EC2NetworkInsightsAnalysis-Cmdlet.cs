@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] FilterInArn { get; set; }
         #endregion
         
+        #region Parameter FilterOutArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARN) of the resources that the path will ignore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterOutArns")]
+        public System.String[] FilterOutArn { get; set; }
+        #endregion
+        
         #region Parameter NetworkInsightsPathId
         /// <summary>
         /// <para>
@@ -176,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.FilterInArn = new List<System.String>(this.FilterInArn);
             }
+            if (this.FilterOutArn != null)
+            {
+                context.FilterOutArn = new List<System.String>(this.FilterOutArn);
+            }
             context.NetworkInsightsPathId = this.NetworkInsightsPathId;
             #if MODULAR
             if (this.NetworkInsightsPathId == null && ParameterWasBound(nameof(this.NetworkInsightsPathId)))
@@ -214,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.FilterInArn != null)
             {
                 request.FilterInArns = cmdletContext.FilterInArn;
+            }
+            if (cmdletContext.FilterOutArn != null)
+            {
+                request.FilterOutArns = cmdletContext.FilterOutArn;
             }
             if (cmdletContext.NetworkInsightsPathId != null)
             {
@@ -287,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> AdditionalAccount { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> FilterInArn { get; set; }
+            public List<System.String> FilterOutArn { get; set; }
             public System.String NetworkInsightsPathId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.StartNetworkInsightsAnalysisResponse, StartEC2NetworkInsightsAnalysisCmdlet, object> Select { get; set; } =
