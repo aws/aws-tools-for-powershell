@@ -1,4 +1,12 @@
-﻿### 4.1.815 (2025-05-07 20:49Z)
+﻿### 4.1.816 (2025-05-08 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1040.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Add-EC2NetworkInterface: added parameter EnaQueueCount.
+    * Modified cmdlet Edit-EC2NetworkInterfaceAttribute: added parameters Attachment_DefaultEnaQueueCount and Attachment_EnaQueueCount.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEIntegration: added parameter IntegrationConfig_RefreshInterval.
+
+### 4.1.815 (2025-05-07 20:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1039.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Synthetics
     * Added cmdlet Start-CWSYNCanaryDryRun leveraging the StartCanaryDryRun service API.

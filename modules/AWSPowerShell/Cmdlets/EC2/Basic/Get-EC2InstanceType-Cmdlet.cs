@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to boost performance (<c>default</c>, <c>vpc-1</c>, <c>ebs-1</c>).</para></li><li><para><c>network-info.efa-info.maximum-efa-interfaces</c> - The maximum number of Elastic
         /// Fabric Adapters (EFAs) per instance.</para></li><li><para><c>network-info.efa-supported</c> - Indicates whether the instance type supports
         /// Elastic Fabric Adapter (EFA) (<c>true</c> | <c>false</c>).</para></li><li><para><c>network-info.ena-support</c> - Indicates whether Elastic Network Adapter (ENA)
-        /// is supported or required (<c>required</c> | <c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>network-info.encryption-in-transit-supported</c> - Indicates whether the instance
+        /// is supported or required (<c>required</c> | <c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>network-info.flexible-ena-queues-support</c> - Indicates whether an instance supports
+        /// flexible ENA queues (<c>supported</c> | <c>unsupported</c>).</para></li><li><para><c>network-info.encryption-in-transit-supported</c> - Indicates whether the instance
         /// type automatically encrypts in-transit traffic between instances (<c>true</c> | <c>false</c>).</para></li><li><para><c>network-info.ipv4-addresses-per-interface</c> - The maximum number of private
         /// IPv4 addresses per network interface.</para></li><li><para><c>network-info.ipv6-addresses-per-interface</c> - The maximum number of private
         /// IPv6 addresses per network interface.</para></li><li><para><c>network-info.ipv6-supported</c> - Indicates whether the instance type supports

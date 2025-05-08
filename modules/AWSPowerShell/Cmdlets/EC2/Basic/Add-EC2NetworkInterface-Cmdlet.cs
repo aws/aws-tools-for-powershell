@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? DeviceIndex { get; set; }
         #endregion
         
+        #region Parameter EnaQueueCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of ENA queues to be created with the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? EnaQueueCount { get; set; }
+        #endregion
+        
         #region Parameter EnaSrdSpecification_EnaSrdEnabled
         /// <summary>
         /// <para>
@@ -195,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter DeviceIndex which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnaQueueCount = this.EnaQueueCount;
             context.EnaSrdSpecification_EnaSrdEnabled = this.EnaSrdSpecification_EnaSrdEnabled;
             context.EnaSrdUdpSpecification_EnaSrdUdpEnabled = this.EnaSrdUdpSpecification_EnaSrdUdpEnabled;
             context.InstanceId = this.InstanceId;
@@ -231,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeviceIndex != null)
             {
                 request.DeviceIndex = cmdletContext.DeviceIndex.Value;
+            }
+            if (cmdletContext.EnaQueueCount != null)
+            {
+                request.EnaQueueCount = cmdletContext.EnaQueueCount.Value;
             }
             
              // populate EnaSrdSpecification
@@ -350,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DeviceIndex { get; set; }
+            public System.Int32? EnaQueueCount { get; set; }
             public System.Boolean? EnaSrdSpecification_EnaSrdEnabled { get; set; }
             public System.Boolean? EnaSrdUdpSpecification_EnaSrdUdpEnabled { get; set; }
             public System.String InstanceId { get; set; }

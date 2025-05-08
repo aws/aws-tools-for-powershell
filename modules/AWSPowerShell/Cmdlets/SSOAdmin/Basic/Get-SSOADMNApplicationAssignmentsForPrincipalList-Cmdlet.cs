@@ -28,7 +28,11 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Lists the applications to which a specified principal is assigned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the applications to which a specified principal is assigned. You must provide
+    /// a filter when calling this action from a member account against your organization
+    /// instance of IAM Identity Center. A filter is not required when called from the management
+    /// account against an organization instance of IAM Identity Center, or from a member
+    /// account against an account instance of IAM Identity Center in the same account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNApplicationAssignmentsForPrincipalList")]
     [OutputType("Amazon.SSOAdmin.Model.ApplicationAssignmentForPrincipal")]

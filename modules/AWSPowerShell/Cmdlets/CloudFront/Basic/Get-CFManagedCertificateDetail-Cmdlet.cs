@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the multi-tenant distribution.</para>
+        /// <para>The identifier of the distribution tenant. You can specify the ARN, ID, or name of
+        /// the distribution tenant.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

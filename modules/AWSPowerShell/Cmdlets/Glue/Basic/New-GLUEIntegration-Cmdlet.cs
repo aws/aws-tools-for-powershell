@@ -100,6 +100,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter IntegrationConfig_RefreshInterval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads
+        /// should occur. This parameter provides flexibility to align the refresh rate with your
+        /// specific data update patterns, system load considerations, and performance optimization
+        /// goals. Time increment can be set from 15 minutes to 8640 minutes (six days). Currently
+        /// supports creation of <c>RefreshInterval</c> only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationConfig_RefreshInterval { get; set; }
+        #endregion
+        
         #region Parameter SourceArn
         /// <summary>
         /// <para>
@@ -217,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.DataFilter = this.DataFilter;
             context.Description = this.Description;
+            context.IntegrationConfig_RefreshInterval = this.IntegrationConfig_RefreshInterval;
             context.IntegrationName = this.IntegrationName;
             #if MODULAR
             if (this.IntegrationName == null && ParameterWasBound(nameof(this.IntegrationName)))
@@ -270,6 +285,25 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate IntegrationConfig
+            var requestIntegrationConfigIsNull = true;
+            request.IntegrationConfig = new Amazon.Glue.Model.IntegrationConfig();
+            System.String requestIntegrationConfig_integrationConfig_RefreshInterval = null;
+            if (cmdletContext.IntegrationConfig_RefreshInterval != null)
+            {
+                requestIntegrationConfig_integrationConfig_RefreshInterval = cmdletContext.IntegrationConfig_RefreshInterval;
+            }
+            if (requestIntegrationConfig_integrationConfig_RefreshInterval != null)
+            {
+                request.IntegrationConfig.RefreshInterval = requestIntegrationConfig_integrationConfig_RefreshInterval;
+                requestIntegrationConfigIsNull = false;
+            }
+             // determine if request.IntegrationConfig should be set to null
+            if (requestIntegrationConfigIsNull)
+            {
+                request.IntegrationConfig = null;
             }
             if (cmdletContext.IntegrationName != null)
             {
@@ -355,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Dictionary<System.String, System.String> AdditionalEncryptionContext { get; set; }
             public System.String DataFilter { get; set; }
             public System.String Description { get; set; }
+            public System.String IntegrationConfig_RefreshInterval { get; set; }
             public System.String IntegrationName { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String SourceArn { get; set; }

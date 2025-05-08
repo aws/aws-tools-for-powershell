@@ -28,7 +28,18 @@ using Amazon.SSOAdmin.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
-    /// Creates an application in IAM Identity Center for the given application provider.
+    /// Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given
+    /// application provider.
+    /// 
+    ///  <note><para>
+    /// This API does not support creating SAML 2.0 customer managed applications or Amazon
+    /// Web Services managed applications. To learn how to create an Amazon Web Services managed
+    /// application, see the application user guide. You can create a SAML 2.0 customer managed
+    /// application in the Amazon Web Services Management Console only. See <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html">Setting
+    /// up customer managed SAML 2.0 applications</a>. For more information on these application
+    /// types, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html">Amazon
+    /// Web Services managed applications</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SSOADMNApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

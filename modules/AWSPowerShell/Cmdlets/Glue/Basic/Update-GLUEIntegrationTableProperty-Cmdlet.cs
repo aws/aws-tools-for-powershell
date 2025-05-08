@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_Field
         /// <summary>
         /// <para>
-        /// <para>A list of fields used for column-level filtering.</para>
+        /// <para>A list of fields used for column-level filtering. Currently unsupported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_FilterPredicate
         /// <summary>
         /// <para>
-        /// <para>A condition clause used for row-level filtering.</para>
+        /// <para>A condition clause used for row-level filtering. Currently unsupported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_PrimaryKey
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of a record.</para>
+        /// <para>Provide the primary key set for this table. Currently supported specifically for SAP
+        /// <c>EntityOf</c> entities upon request. Contact Amazon Web Services Support to make
+        /// this feature available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SourceTableConfig_RecordUpdateField
         /// <summary>
         /// <para>
-        /// <para>Incremental pull timestamp-based field.</para>
+        /// <para>Incremental pull timestamp-based field. Currently unsupported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

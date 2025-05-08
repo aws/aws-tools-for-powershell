@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOADMN
 {
     /// <summary>
     /// Retrieves a list of the IAM Identity Center associated Amazon Web Services accounts
-    /// that the principal has access to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that the principal has access to. This action must be called from the management account
+    /// containing your organization instance of IAM Identity Center. This action is not valid
+    /// for account instances of IAM Identity Center.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSOADMNAccountAssignmentsForPrincipalList")]
     [OutputType("Amazon.SSOAdmin.Model.AccountAssignmentForPrincipal")]
