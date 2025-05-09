@@ -241,6 +241,17 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String S3Encryption_KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter RetryConfig_MaxRetry
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of retries. The value must be less than or equal to 2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Schedule_RetryConfig_MaxRetries")]
+        public System.Int32? RetryConfig_MaxRetry { get; set; }
+        #endregion
+        
         #region Parameter RunConfig_MemoryInMB
         /// <summary>
         /// <para>
@@ -559,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 WriteWarning("You are passing $null as a value for parameter Schedule_Expression which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RetryConfig_MaxRetry = this.RetryConfig_MaxRetry;
             context.SuccessRetentionPeriodInDay = this.SuccessRetentionPeriodInDay;
             if (this.Tag != null)
             {
@@ -802,6 +814,31 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     request.Schedule.Expression = requestSchedule_schedule_Expression;
                     requestScheduleIsNull = false;
                 }
+                Amazon.Synthetics.Model.RetryConfigInput requestSchedule_schedule_RetryConfig = null;
+                
+                 // populate RetryConfig
+                var requestSchedule_schedule_RetryConfigIsNull = true;
+                requestSchedule_schedule_RetryConfig = new Amazon.Synthetics.Model.RetryConfigInput();
+                System.Int32? requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry = null;
+                if (cmdletContext.RetryConfig_MaxRetry != null)
+                {
+                    requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry = cmdletContext.RetryConfig_MaxRetry.Value;
+                }
+                if (requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry != null)
+                {
+                    requestSchedule_schedule_RetryConfig.MaxRetries = requestSchedule_schedule_RetryConfig_retryConfig_MaxRetry.Value;
+                    requestSchedule_schedule_RetryConfigIsNull = false;
+                }
+                 // determine if requestSchedule_schedule_RetryConfig should be set to null
+                if (requestSchedule_schedule_RetryConfigIsNull)
+                {
+                    requestSchedule_schedule_RetryConfig = null;
+                }
+                if (requestSchedule_schedule_RetryConfig != null)
+                {
+                    request.Schedule.RetryConfig = requestSchedule_schedule_RetryConfig;
+                    requestScheduleIsNull = false;
+                }
                  // determine if request.Schedule should be set to null
                 if (requestScheduleIsNull)
                 {
@@ -943,6 +980,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String RuntimeVersion { get; set; }
             public System.Int64? Schedule_DurationInSecond { get; set; }
             public System.String Schedule_Expression { get; set; }
+            public System.Int32? RetryConfig_MaxRetry { get; set; }
             public System.Int32? SuccessRetentionPeriodInDay { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Boolean? VpcConfig_Ipv6AllowedForDualStack { get; set; }

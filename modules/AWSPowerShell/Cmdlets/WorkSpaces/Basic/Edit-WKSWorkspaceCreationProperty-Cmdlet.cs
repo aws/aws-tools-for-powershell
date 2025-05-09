@@ -91,26 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.Boolean? WorkspaceCreationProperties_EnableMaintenanceMode { get; set; }
         #endregion
         
-        #region Parameter WorkspaceCreationProperties_EnableWorkDoc
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</para><note><para>If WorkDocs is already enabled for a WorkSpaces directory and you disable it, new
-        /// WorkSpaces launched in the directory will not have WorkDocs enabled. However, WorkDocs
-        /// remains enabled for any existing WorkSpaces, unless you either disable users' access
-        /// to WorkDocs or you delete the WorkDocs site. To disable users' access to WorkDocs,
-        /// see <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html">Disabling
-        /// Users</a> in the <i>Amazon WorkDocs Administration Guide</i>. To delete a WorkDocs
-        /// site, see <a href="https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html">Deleting
-        /// a Site</a> in the <i>Amazon WorkDocs Administration Guide</i>.</para><para>If you enable WorkDocs on a directory that already has existing WorkSpaces, the existing
-        /// WorkSpaces and any new WorkSpaces that are launched in the directory will have WorkDocs
-        /// enabled.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("WorkspaceCreationProperties_EnableWorkDocs")]
-        public System.Boolean? WorkspaceCreationProperties_EnableWorkDoc { get; set; }
-        #endregion
-        
         #region Parameter WorkspaceCreationProperties_InstanceIamRoleArn
         /// <summary>
         /// <para>
@@ -220,7 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.WorkspaceCreationProperties_DefaultOu = this.WorkspaceCreationProperties_DefaultOu;
             context.WorkspaceCreationProperties_EnableInternetAccess = this.WorkspaceCreationProperties_EnableInternetAccess;
             context.WorkspaceCreationProperties_EnableMaintenanceMode = this.WorkspaceCreationProperties_EnableMaintenanceMode;
-            context.WorkspaceCreationProperties_EnableWorkDoc = this.WorkspaceCreationProperties_EnableWorkDoc;
             context.WorkspaceCreationProperties_InstanceIamRoleArn = this.WorkspaceCreationProperties_InstanceIamRoleArn;
             context.WorkspaceCreationProperties_UserEnabledAsLocalAdministrator = this.WorkspaceCreationProperties_UserEnabledAsLocalAdministrator;
             
@@ -285,16 +264,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_EnableMaintenanceMode != null)
             {
                 request.WorkspaceCreationProperties.EnableMaintenanceMode = requestWorkspaceCreationProperties_workspaceCreationProperties_EnableMaintenanceMode.Value;
-                requestWorkspaceCreationPropertiesIsNull = false;
-            }
-            System.Boolean? requestWorkspaceCreationProperties_workspaceCreationProperties_EnableWorkDoc = null;
-            if (cmdletContext.WorkspaceCreationProperties_EnableWorkDoc != null)
-            {
-                requestWorkspaceCreationProperties_workspaceCreationProperties_EnableWorkDoc = cmdletContext.WorkspaceCreationProperties_EnableWorkDoc.Value;
-            }
-            if (requestWorkspaceCreationProperties_workspaceCreationProperties_EnableWorkDoc != null)
-            {
-                request.WorkspaceCreationProperties.EnableWorkDocs = requestWorkspaceCreationProperties_workspaceCreationProperties_EnableWorkDoc.Value;
                 requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.String requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn = null;
@@ -388,7 +357,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String WorkspaceCreationProperties_DefaultOu { get; set; }
             public System.Boolean? WorkspaceCreationProperties_EnableInternetAccess { get; set; }
             public System.Boolean? WorkspaceCreationProperties_EnableMaintenanceMode { get; set; }
-            public System.Boolean? WorkspaceCreationProperties_EnableWorkDoc { get; set; }
             public System.String WorkspaceCreationProperties_InstanceIamRoleArn { get; set; }
             public System.Boolean? WorkspaceCreationProperties_UserEnabledAsLocalAdministrator { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.ModifyWorkspaceCreationPropertiesResponse, EditWKSWorkspaceCreationPropertyCmdlet, object> Select { get; set; } =

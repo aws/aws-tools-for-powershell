@@ -54,14 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// You can return these additional log events by providing the nextToken in a subsequent
     /// <c>FilterLogEvents</c> operation. If the results don't include a <c>nextToken</c>,
     /// then pagination is finished. 
-    /// </para><note><para>
-    /// If you set <c>startFromHead</c> to <c>true</c> and you don’t include <c>endTime</c>
-    /// in your request, you can end up in a situation where the pagination doesn't terminate.
-    /// This can happen when the new log events are being added to the target log streams
-    /// faster than they are being read. This situation is a good use case for the CloudWatch
-    /// Logs <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html">Live
-    /// Tail</a> feature.
-    /// </para></note><para>
+    /// </para><para>
+    /// Specifying the <c>limit</c> parameter only guarantees that a single page doesn't return
+    /// more log events than the specified limit, but it might return fewer events than the
+    /// limit. This is the expected API behavior.
+    /// </para><para>
     /// The returned log events are sorted by event timestamp, the timestamp when the event
     /// was ingested by CloudWatch Logs, and the ID of the <c>PutLogEvents</c> request.
     /// </para><para>

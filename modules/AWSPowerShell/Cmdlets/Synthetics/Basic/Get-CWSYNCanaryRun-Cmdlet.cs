@@ -98,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>A token that indicates that there is more data available. You can use this token in
-        /// a subsequent <c>GetCanaryRuns</c> operation to retrieve the next set of results.</para>
+        /// a subsequent <c>GetCanaryRuns</c> operation to retrieve the next set of results.</para><note><para>When auto retry is enabled for the canary, the first subsequent retry is suffixed
+        /// with *1 indicating its the first retry and the next subsequent try is suffixed with
+        /// *2.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

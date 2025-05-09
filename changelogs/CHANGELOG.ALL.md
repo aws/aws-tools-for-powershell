@@ -1,4 +1,13 @@
-﻿### 4.1.816 (2025-05-08 20:53Z)
+﻿### 4.1.817 (2025-05-09 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1041.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter RetryConfig_MaxRetry.
+    * Modified cmdlet Update-CWSYNCanary: added parameter RetryConfig_MaxRetry.
+  * Amazon WorkSpaces
+    * [Breaking Change] Modified cmdlet Edit-WKSWorkspaceCreationProperty: removed parameter WorkspaceCreationProperties_EnableWorkDoc.
+    * [Breaking Change] Modified cmdlet Register-WKSWorkspaceDirectory: removed parameter EnableWorkDoc.
+
+### 4.1.816 (2025-05-08 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1040.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Add-EC2NetworkInterface: added parameter EnaQueueCount.
