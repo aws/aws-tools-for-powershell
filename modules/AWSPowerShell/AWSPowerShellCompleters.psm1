@@ -73697,10 +73697,30 @@ $SUPCH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.SupplyChain.DataIntegrationEventType
-        "Send-SUPCHDataIntegrationEvent/EventType"
+        # Amazon.SupplyChain.DataIntegrationEventDatasetOperationType
+        "Send-SUPCHDataIntegrationEvent/DatasetTarget_OperationType"
         {
-            $v = "scn.data.forecast","scn.data.inboundorder","scn.data.inboundorderline","scn.data.inboundorderlineschedule","scn.data.inventorylevel","scn.data.outboundorderline","scn.data.outboundshipment","scn.data.processheader","scn.data.processoperation","scn.data.processproduct","scn.data.reservation","scn.data.shipment","scn.data.shipmentstop","scn.data.shipmentstoporder","scn.data.supplyplan"
+            $v = "APPEND","DELETE","UPSERT"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationEventType
+        {
+            ($_ -eq "Get-SUPCHDataIntegrationEventList/EventType") -Or
+            ($_ -eq "Send-SUPCHDataIntegrationEvent/EventType")
+        }
+        {
+            $v = "scn.data.dataset","scn.data.forecast","scn.data.inboundorder","scn.data.inboundorderline","scn.data.inboundorderlineschedule","scn.data.inventorylevel","scn.data.outboundorderline","scn.data.outboundshipment","scn.data.processheader","scn.data.processoperation","scn.data.processproduct","scn.data.reservation","scn.data.shipment","scn.data.shipmentstop","scn.data.shipmentstoporder","scn.data.supplyplan"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowDedupeStrategyType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/DedupeStrategy_Type") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/DedupeStrategy_Type")
+        }
+        {
+            $v = "FIELD_PRIORITY"
             break
         }
 
@@ -73753,7 +73773,9 @@ $SUPCH_Completers = {
 }
 
 $SUPCH_map = @{
-    "EventType"=@("Send-SUPCHDataIntegrationEvent")
+    "DatasetTarget_OperationType"=@("Send-SUPCHDataIntegrationEvent")
+    "DedupeStrategy_Type"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "EventType"=@("Get-SUPCHDataIntegrationEventList","Send-SUPCHDataIntegrationEvent")
     "Options_FileType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
     "Options_LoadType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
     "Target_TargetType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
@@ -73813,16 +73835,24 @@ $SUPCH_SelectMap = @{
     "Select"=@("New-SUPCHBillOfMaterialsImportJob",
                "New-SUPCHDataIntegrationFlow",
                "New-SUPCHDataLakeDataset",
+               "New-SUPCHDataLakeNamespace",
                "New-SUPCHInstance",
                "Remove-SUPCHDataIntegrationFlow",
                "Remove-SUPCHDataLakeDataset",
+               "Remove-SUPCHDataLakeNamespace",
                "Remove-SUPCHInstance",
                "Get-SUPCHBillOfMaterialsImportJob",
+               "Get-SUPCHDataIntegrationEvent",
                "Get-SUPCHDataIntegrationFlow",
+               "Get-SUPCHDataIntegrationFlowExecution",
                "Get-SUPCHDataLakeDataset",
+               "Get-SUPCHDataLakeNamespace",
                "Get-SUPCHInstance",
+               "Get-SUPCHDataIntegrationEventList",
+               "Get-SUPCHDataIntegrationFlowExecutionList",
                "Get-SUPCHDataIntegrationFlowList",
                "Get-SUPCHDataLakeDatasetList",
+               "Get-SUPCHDataLakeNamespaceList",
                "Get-SUPCHInstanceList",
                "Get-SUPCHResourceTag",
                "Send-SUPCHDataIntegrationEvent",
@@ -73830,6 +73860,7 @@ $SUPCH_SelectMap = @{
                "Remove-SUPCHResourceTag",
                "Update-SUPCHDataIntegrationFlow",
                "Update-SUPCHDataLakeDataset",
+               "Update-SUPCHDataLakeNamespace",
                "Update-SUPCHInstance")
 }
 

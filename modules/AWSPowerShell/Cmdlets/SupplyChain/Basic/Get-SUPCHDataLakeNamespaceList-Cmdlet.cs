@@ -28,20 +28,20 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Enables you to programmatically view a specific data pipeline for the provided Amazon
-    /// Web Services Supply Chain instance and DataIntegrationFlow name.
+    /// Enables you to programmatically view the list of Amazon Web Services Supply Chain
+    /// data lake namespaces. Developers can view the namespaces and the corresponding information
+    /// such as description for a given instance ID. Note that this API only return custom
+    /// namespaces, instance pre-defined namespaces are not included.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SUPCHDataIntegrationFlow")]
-    [OutputType("Amazon.SupplyChain.Model.DataIntegrationFlow")]
-    [AWSCmdlet("Calls the AWS Supply Chain GetDataIntegrationFlow API operation.", Operation = new[] {"GetDataIntegrationFlow"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse))]
-    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataIntegrationFlow or Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse",
-        "This cmdlet returns an Amazon.SupplyChain.Model.DataIntegrationFlow object.",
-        "The service call response (type Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SUPCHDataLakeNamespaceList")]
+    [OutputType("Amazon.SupplyChain.Model.DataLakeNamespace")]
+    [AWSCmdlet("Calls the AWS Supply Chain ListDataLakeNamespaces API operation.", Operation = new[] {"ListDataLakeNamespaces"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse))]
+    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataLakeNamespace or Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse",
+        "This cmdlet returns a collection of Amazon.SupplyChain.Model.DataLakeNamespace objects.",
+        "The service call response (type Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
+    public partial class GetSUPCHDataLakeNamespaceListCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -62,32 +62,40 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The name of the DataIntegrationFlow created.</para>
+        /// <para>The max number of namespaces to fetch in this paginated request.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The pagination token to fetch next page of namespaces.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>'NextToken' is only returned by the cmdlet when '-Select *' is specified. In order to manually control output pagination, set '-NextToken' to null for the first call then set the 'NextToken' using the same property output from the previous call for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Flow'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse).
-        /// Specifying the name of a property of type Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Namespaces'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse).
+        /// Specifying the name of a property of type Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Flow";
+        public string Select { get; set; } = "Namespaces";
         #endregion
         
         #region Parameter PassThru
@@ -98,6 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -113,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse, GetSUPCHDataIntegrationFlowCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse, GetSUPCHDataLakeNamespaceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,13 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,39 +165,67 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.SupplyChain.Model.GetDataIntegrationFlowRequest();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
+            var request = new Amazon.SupplyChain.Model.ListDataLakeNamespacesRequest();
             
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Name = cmdletContext.Name;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -196,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         
         #region AWS Service Operation Call
         
-        private Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.GetDataIntegrationFlowRequest request)
+        private Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.ListDataLakeNamespacesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "GetDataIntegrationFlow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "ListDataLakeNamespaces");
             try
             {
                 #if DESKTOP
-                return client.GetDataIntegrationFlow(request);
+                return client.ListDataLakeNamespaces(request);
                 #elif CORECLR
-                return client.GetDataIntegrationFlowAsync(request).GetAwaiter().GetResult();
+                return client.ListDataLakeNamespacesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse, GetSUPCHDataIntegrationFlowCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Flow;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.SupplyChain.Model.ListDataLakeNamespacesResponse, GetSUPCHDataLakeNamespaceListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Namespaces;
         }
         
     }

@@ -80,15 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Availability Zone in which to allocate the Dedicated Host.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Availability Zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneId { get; set; }
         #endregion
         
         #region Parameter HostMaintenance
@@ -262,12 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.AutoPlacement = this.AutoPlacement;
             context.AvailabilityZone = this.AvailabilityZone;
-            #if MODULAR
-            if (this.AvailabilityZone == null && ParameterWasBound(nameof(this.AvailabilityZone)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AvailabilityZone which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.ClientToken = this.ClientToken;
             context.HostMaintenance = this.HostMaintenance;
             context.HostRecovery = this.HostRecovery;
@@ -306,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -403,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> AssetId { get; set; }
             public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.EC2.HostMaintenance HostMaintenance { get; set; }
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }

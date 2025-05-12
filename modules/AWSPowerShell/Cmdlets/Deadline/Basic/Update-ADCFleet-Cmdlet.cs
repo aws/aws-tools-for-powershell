@@ -292,7 +292,12 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxWorkerCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of workers in the fleet.</para>
+        /// <para>The maximum number of workers in the fleet.</para><para>Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum
+        /// worker count. The service maintains eventual consistency for the worker count. If
+        /// you make multiple rapid calls to <c>CreateWorker</c> before the field updates, you
+        /// might exceed your fleet's maximum worker count. For example, if your <c>maxWorkerCount</c>
+        /// is 10 and you currently have 9 workers, making two quick <c>CreateWorker</c> calls
+        /// might successfully create 2 workers instead of 1, resulting in 11 total workers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,6 +435,35 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter HostConfiguration_ScriptBody
+        /// <summary>
+        /// <para>
+        /// <para>The text of the script that runs as a worker is starting up that you can use to provide
+        /// additional configuration for workers in your fleet. The script runs after a worker
+        /// enters the <c>STARTING</c> state and before the worker processes tasks.</para><para>For more information about using the script, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html">Run
+        /// scripts as an administrator to configure workers</a> in the <i>Deadline Cloud Developer
+        /// Guide</i>. </para><important><para>The script runs as an administrative user (<c>sudo root</c> on Linux, as an Administrator
+        /// on Windows). </para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HostConfiguration_ScriptBody { get; set; }
+        #endregion
+        
+        #region Parameter HostConfiguration_ScriptTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time that the host configuration can run. If the timeout expires, the
+        /// worker enters the <c>NOT RESPONDING</c> state and shuts down. You are charged for
+        /// the time that the worker is running the host configuration script.</para><note><para>You should configure your fleet for a maximum of one worker while testing your host
+        /// configuration script to avoid starting additional workers.</para></note><para>The default is 300 seconds (5 minutes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HostConfiguration_ScriptTimeoutSeconds")]
+        public System.Int32? HostConfiguration_ScriptTimeoutSecond { get; set; }
         #endregion
         
         #region Parameter AcceleratorCapabilities_Selection
@@ -631,6 +665,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
                 WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HostConfiguration_ScriptBody = this.HostConfiguration_ScriptBody;
+            context.HostConfiguration_ScriptTimeoutSecond = this.HostConfiguration_ScriptTimeoutSecond;
             context.MaxWorkerCount = this.MaxWorkerCount;
             context.MinWorkerCount = this.MinWorkerCount;
             context.RoleArn = this.RoleArn;
@@ -1219,6 +1255,35 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             {
                 request.FleetId = cmdletContext.FleetId;
             }
+            
+             // populate HostConfiguration
+            var requestHostConfigurationIsNull = true;
+            request.HostConfiguration = new Amazon.Deadline.Model.HostConfiguration();
+            System.String requestHostConfiguration_hostConfiguration_ScriptBody = null;
+            if (cmdletContext.HostConfiguration_ScriptBody != null)
+            {
+                requestHostConfiguration_hostConfiguration_ScriptBody = cmdletContext.HostConfiguration_ScriptBody;
+            }
+            if (requestHostConfiguration_hostConfiguration_ScriptBody != null)
+            {
+                request.HostConfiguration.ScriptBody = requestHostConfiguration_hostConfiguration_ScriptBody;
+                requestHostConfigurationIsNull = false;
+            }
+            System.Int32? requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond = null;
+            if (cmdletContext.HostConfiguration_ScriptTimeoutSecond != null)
+            {
+                requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond = cmdletContext.HostConfiguration_ScriptTimeoutSecond.Value;
+            }
+            if (requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond != null)
+            {
+                request.HostConfiguration.ScriptTimeoutSeconds = requestHostConfiguration_hostConfiguration_ScriptTimeoutSecond.Value;
+                requestHostConfigurationIsNull = false;
+            }
+             // determine if request.HostConfiguration should be set to null
+            if (requestHostConfigurationIsNull)
+            {
+                request.HostConfiguration = null;
+            }
             if (cmdletContext.MaxWorkerCount != null)
             {
                 request.MaxWorkerCount = cmdletContext.MaxWorkerCount.Value;
@@ -1330,6 +1395,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.String DisplayName { get; set; }
             public System.String FarmId { get; set; }
             public System.String FleetId { get; set; }
+            public System.String HostConfiguration_ScriptBody { get; set; }
+            public System.Int32? HostConfiguration_ScriptTimeoutSecond { get; set; }
             public System.Int32? MaxWorkerCount { get; set; }
             public System.Int32? MinWorkerCount { get; set; }
             public System.String RoleArn { get; set; }

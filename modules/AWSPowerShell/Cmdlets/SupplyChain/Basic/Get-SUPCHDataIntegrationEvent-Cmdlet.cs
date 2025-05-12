@@ -28,22 +28,38 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Enables you to programmatically view a specific data pipeline for the provided Amazon
-    /// Web Services Supply Chain instance and DataIntegrationFlow name.
+    /// Enables you to programmatically view an Amazon Web Services Supply Chain Data Integration
+    /// Event. Developers can view the eventType, eventGroupId, eventTimestamp, datasetTarget,
+    /// datasetLoadExecution.
     /// </summary>
-    [Cmdlet("Get", "SUPCHDataIntegrationFlow")]
-    [OutputType("Amazon.SupplyChain.Model.DataIntegrationFlow")]
-    [AWSCmdlet("Calls the AWS Supply Chain GetDataIntegrationFlow API operation.", Operation = new[] {"GetDataIntegrationFlow"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse))]
-    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataIntegrationFlow or Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse",
-        "This cmdlet returns an Amazon.SupplyChain.Model.DataIntegrationFlow object.",
-        "The service call response (type Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SUPCHDataIntegrationEvent")]
+    [OutputType("Amazon.SupplyChain.Model.DataIntegrationEvent")]
+    [AWSCmdlet("Calls the AWS Supply Chain GetDataIntegrationEvent API operation.", Operation = new[] {"GetDataIntegrationEvent"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.GetDataIntegrationEventResponse))]
+    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataIntegrationEvent or Amazon.SupplyChain.Model.GetDataIntegrationEventResponse",
+        "This cmdlet returns an Amazon.SupplyChain.Model.DataIntegrationEvent object.",
+        "The service call response (type Amazon.SupplyChain.Model.GetDataIntegrationEventResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
+    public partial class GetSUPCHDataIntegrationEventCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter EventId
+        /// <summary>
+        /// <para>
+        /// <para>The unique event identifier.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EventId { get; set; }
+        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -62,32 +78,15 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the DataIntegrationFlow created.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Flow'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse).
-        /// Specifying the name of a property of type Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Event'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.GetDataIntegrationEventResponse).
+        /// Specifying the name of a property of type Amazon.SupplyChain.Model.GetDataIntegrationEventResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Flow";
+        public string Select { get; set; } = "Event";
         #endregion
         
         #region Parameter PassThru
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse, GetSUPCHDataIntegrationFlowCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.GetDataIntegrationEventResponse, GetSUPCHDataIntegrationEventCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,18 +124,18 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EventId = this.EventId;
+            #if MODULAR
+            if (this.EventId == null && ParameterWasBound(nameof(this.EventId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,15 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SupplyChain.Model.GetDataIntegrationFlowRequest();
+            var request = new Amazon.SupplyChain.Model.GetDataIntegrationEventRequest();
             
+            if (cmdletContext.EventId != null)
+            {
+                request.EventId = cmdletContext.EventId;
+            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -196,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         
         #region AWS Service Operation Call
         
-        private Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.GetDataIntegrationFlowRequest request)
+        private Amazon.SupplyChain.Model.GetDataIntegrationEventResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.GetDataIntegrationEventRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "GetDataIntegrationFlow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "GetDataIntegrationEvent");
             try
             {
                 #if DESKTOP
-                return client.GetDataIntegrationFlow(request);
+                return client.GetDataIntegrationEvent(request);
                 #elif CORECLR
-                return client.GetDataIntegrationFlowAsync(request).GetAwaiter().GetResult();
+                return client.GetDataIntegrationEventAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,10 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EventId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse, GetSUPCHDataIntegrationFlowCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Flow;
+            public System.Func<Amazon.SupplyChain.Model.GetDataIntegrationEventResponse, GetSUPCHDataIntegrationEventCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Event;
         }
         
     }

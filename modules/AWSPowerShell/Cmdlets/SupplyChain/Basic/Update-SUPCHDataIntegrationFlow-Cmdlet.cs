@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
     public partial class UpdateSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter S3Target_BucketName
@@ -70,12 +74,31 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Options_DedupeRecord
         /// <summary>
         /// <para>
-        /// <para>The dataset load option to remove duplicates.</para>
+        /// <para>The option to perform deduplication on data records sharing same primary key values.
+        /// If disabled, transformed data with duplicate primary key values will ingest into dataset,
+        /// for datasets within <b>asc</b> namespace, such duplicates will cause ingestion fail.
+        /// If enabled without dedupeStrategy, deduplication is done by retaining a random data
+        /// record among those sharing the same primary key values. If enabled with dedupeStragtegy,
+        /// the deduplication is done following the strategy.</para><para>Note that target dataset may have partition configured, when dedupe is enabled, it
+        /// only dedupe against primary keys and retain only one record out of those duplicates
+        /// regardless of its partition status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Target_DatasetTarget_Options_DedupeRecords")]
         public System.Boolean? Options_DedupeRecord { get; set; }
+        #endregion
+        
+        #region Parameter FieldPriority_Field
+        /// <summary>
+        /// <para>
+        /// <para>The list of field names and their sort order for deduplication, arranged in descending
+        /// priority from highest to lowest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Target_DatasetTarget_Options_DedupeStrategy_FieldPriority_Fields")]
+        public Amazon.SupplyChain.Model.DataIntegrationFlowFieldPriorityDedupeField[] FieldPriority_Field { get; set; }
         #endregion
         
         #region Parameter Options_FileType
@@ -110,7 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Options_LoadType
         /// <summary>
         /// <para>
-        /// <para>The dataset data load type in dataset options.</para>
+        /// <para>The target dataset's data load type. This only affects how source S3 files are selected
+        /// in the S3-to-dataset flow.</para><ul><li><para><b>REPLACE</b> - Target dataset will get replaced with the new file added under the
+        /// source s3 prefix.</para></li><li><para><b>INCREMENTAL</b> - Target dataset will get updated with the up-to-date content
+        /// under S3 prefix incorporating any file additions or removals there.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,6 +215,22 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SupplyChain.DataIntegrationFlowTransformationType")]
         public Amazon.SupplyChain.DataIntegrationFlowTransformationType Transformation_TransformationType { get; set; }
+        #endregion
+        
+        #region Parameter DedupeStrategy_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the deduplication strategy.</para><ul><li><para><b>FIELD_PRIORITY</b> - Field priority configuration for the deduplication strategy
+        /// specifies an ordered list of fields used to tie-break the data records sharing the
+        /// same primary key values. Fields earlier in the list have higher priority for evaluation.
+        /// For each field, the sort order determines whether to retain data record with larger
+        /// or smaller field value.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Target_DatasetTarget_Options_DedupeStrategy_Type")]
+        [AWSConstantClassSource("Amazon.SupplyChain.DataIntegrationFlowDedupeStrategyType")]
+        public Amazon.SupplyChain.DataIntegrationFlowDedupeStrategyType DedupeStrategy_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -273,6 +315,11 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             }
             context.DatasetTarget_DatasetIdentifier = this.DatasetTarget_DatasetIdentifier;
             context.Options_DedupeRecord = this.Options_DedupeRecord;
+            if (this.FieldPriority_Field != null)
+            {
+                context.FieldPriority_Field = new List<Amazon.SupplyChain.Model.DataIntegrationFlowFieldPriorityDedupeField>(this.FieldPriority_Field);
+            }
+            context.DedupeStrategy_Type = this.DedupeStrategy_Type;
             context.Options_LoadType = this.Options_LoadType;
             context.S3Target_BucketName = this.S3Target_BucketName;
             context.Options_FileType = this.Options_FileType;
@@ -360,6 +407,56 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_options_LoadType != null)
             {
                 requestTarget_target_DatasetTarget_target_DatasetTarget_Options.LoadType = requestTarget_target_DatasetTarget_target_DatasetTarget_Options_options_LoadType;
+                requestTarget_target_DatasetTarget_target_DatasetTarget_OptionsIsNull = false;
+            }
+            Amazon.SupplyChain.Model.DataIntegrationFlowDedupeStrategy requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy = null;
+            
+             // populate DedupeStrategy
+            var requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategyIsNull = true;
+            requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy = new Amazon.SupplyChain.Model.DataIntegrationFlowDedupeStrategy();
+            Amazon.SupplyChain.DataIntegrationFlowDedupeStrategyType requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_dedupeStrategy_Type = null;
+            if (cmdletContext.DedupeStrategy_Type != null)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_dedupeStrategy_Type = cmdletContext.DedupeStrategy_Type;
+            }
+            if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_dedupeStrategy_Type != null)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy.Type = requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_dedupeStrategy_Type;
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategyIsNull = false;
+            }
+            Amazon.SupplyChain.Model.DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority = null;
+            
+             // populate FieldPriority
+            var requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriorityIsNull = true;
+            requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority = new Amazon.SupplyChain.Model.DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration();
+            List<Amazon.SupplyChain.Model.DataIntegrationFlowFieldPriorityDedupeField> requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority_fieldPriority_Field = null;
+            if (cmdletContext.FieldPriority_Field != null)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority_fieldPriority_Field = cmdletContext.FieldPriority_Field;
+            }
+            if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority_fieldPriority_Field != null)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority.Fields = requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority_fieldPriority_Field;
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriorityIsNull = false;
+            }
+             // determine if requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority should be set to null
+            if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriorityIsNull)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority = null;
+            }
+            if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority != null)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy.FieldPriority = requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy_target_DatasetTarget_Options_DedupeStrategy_FieldPriority;
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategyIsNull = false;
+            }
+             // determine if requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy should be set to null
+            if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategyIsNull)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy = null;
+            }
+            if (requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy != null)
+            {
+                requestTarget_target_DatasetTarget_target_DatasetTarget_Options.DedupeStrategy = requestTarget_target_DatasetTarget_target_DatasetTarget_Options_target_DatasetTarget_Options_DedupeStrategy;
                 requestTarget_target_DatasetTarget_target_DatasetTarget_OptionsIsNull = false;
             }
              // determine if requestTarget_target_DatasetTarget_target_DatasetTarget_Options should be set to null
@@ -557,6 +654,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             public List<Amazon.SupplyChain.Model.DataIntegrationFlowSource> Source { get; set; }
             public System.String DatasetTarget_DatasetIdentifier { get; set; }
             public System.Boolean? Options_DedupeRecord { get; set; }
+            public List<Amazon.SupplyChain.Model.DataIntegrationFlowFieldPriorityDedupeField> FieldPriority_Field { get; set; }
+            public Amazon.SupplyChain.DataIntegrationFlowDedupeStrategyType DedupeStrategy_Type { get; set; }
             public Amazon.SupplyChain.DataIntegrationFlowLoadType Options_LoadType { get; set; }
             public System.String S3Target_BucketName { get; set; }
             public Amazon.SupplyChain.DataIntegrationFlowFileType Options_FileType { get; set; }

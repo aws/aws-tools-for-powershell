@@ -28,20 +28,19 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Enables you to programmatically view a specific data pipeline for the provided Amazon
-    /// Web Services Supply Chain instance and DataIntegrationFlow name.
+    /// Enables you to programmatically view an Amazon Web Services Supply Chain data lake
+    /// namespace. Developers can view the data lake namespace information such as description
+    /// for a given instance ID and namespace name.
     /// </summary>
-    [Cmdlet("Get", "SUPCHDataIntegrationFlow")]
-    [OutputType("Amazon.SupplyChain.Model.DataIntegrationFlow")]
-    [AWSCmdlet("Calls the AWS Supply Chain GetDataIntegrationFlow API operation.", Operation = new[] {"GetDataIntegrationFlow"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse))]
-    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataIntegrationFlow or Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse",
-        "This cmdlet returns an Amazon.SupplyChain.Model.DataIntegrationFlow object.",
-        "The service call response (type Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "SUPCHDataLakeNamespace")]
+    [OutputType("Amazon.SupplyChain.Model.DataLakeNamespace")]
+    [AWSCmdlet("Calls the AWS Supply Chain GetDataLakeNamespace API operation.", Operation = new[] {"GetDataLakeNamespace"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse))]
+    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataLakeNamespace or Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse",
+        "This cmdlet returns an Amazon.SupplyChain.Model.DataLakeNamespace object.",
+        "The service call response (type Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
+    public partial class GetSUPCHDataLakeNamespaceCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -65,7 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the DataIntegrationFlow created.</para>
+        /// <para>The name of the namespace. Besides the namespaces user created, you can also specify
+        /// the pre-defined namespaces:</para><ul><li><para><b>asc</b> - Pre-defined namespace containing Amazon Web Services Supply Chain supported
+        /// datasets, see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para></li><li><para><b>default</b> - Pre-defined namespace containing datasets with custom user-defined
+        /// schemas.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,13 +83,13 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Flow'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse).
-        /// Specifying the name of a property of type Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Namespace'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse).
+        /// Specifying the name of a property of type Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Flow";
+        public string Select { get; set; } = "Namespace";
         #endregion
         
         #region Parameter PassThru
@@ -113,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse, GetSUPCHDataIntegrationFlowCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse, GetSUPCHDataLakeNamespaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SupplyChain.Model.GetDataIntegrationFlowRequest();
+            var request = new Amazon.SupplyChain.Model.GetDataLakeNamespaceRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -196,15 +198,15 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         
         #region AWS Service Operation Call
         
-        private Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.GetDataIntegrationFlowRequest request)
+        private Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.GetDataLakeNamespaceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "GetDataIntegrationFlow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "GetDataLakeNamespace");
             try
             {
                 #if DESKTOP
-                return client.GetDataIntegrationFlow(request);
+                return client.GetDataLakeNamespace(request);
                 #elif CORECLR
-                return client.GetDataIntegrationFlowAsync(request).GetAwaiter().GetResult();
+                return client.GetDataLakeNamespaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -226,8 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         {
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
-            public System.Func<Amazon.SupplyChain.Model.GetDataIntegrationFlowResponse, GetSUPCHDataIntegrationFlowCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Flow;
+            public System.Func<Amazon.SupplyChain.Model.GetDataLakeNamespaceResponse, GetSUPCHDataLakeNamespaceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Namespace;
         }
         
     }

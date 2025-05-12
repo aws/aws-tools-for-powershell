@@ -28,11 +28,9 @@ using Amazon.SupplyChain.Model;
 namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Send the transactional data payload for the event with real-time data for analysis
-    /// or monitoring. The real-time data events are stored in an Amazon Web Services service
-    /// before being processed and stored in data lake. New data events are synced with data
-    /// lake at 5 PM GMT everyday. The updated transactional data is available in data lake
-    /// after ingestion.
+    /// Send the data payload for the event with real-time data for analysis or monitoring.
+    /// The real-time data events are stored in an Amazon Web Services service before being
+    /// processed and stored in data lake.
     /// </summary>
     [Cmdlet("Send", "SUPCHDataIntegrationEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -51,9 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>The data payload of the event. For more information on the data schema to use, see
-        /// <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data
-        /// entities supported in AWS Supply Chain</a>.</para>
+        /// <para>The data payload of the event, should follow the data schema of the target dataset,
+        /// or see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">Data
+        /// entities supported in AWS Supply Chain</a>. To send single data record, use JsonObject
+        /// format; to send multiple data records, use JsonArray format.</para><para>Note that for AWS Supply Chain dataset under <b>asc</b> namespace, it has a connection_id
+        /// internal field that is not allowed to be provided by client directly, they will be
+        /// auto populated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,11 +68,22 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public System.String Data { get; set; }
         #endregion
         
+        #region Parameter DatasetTarget_DatasetIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The datalake dataset ARN identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DatasetTarget_DatasetIdentifier { get; set; }
+        #endregion
+        
         #region Parameter EventGroupId
         /// <summary>
         /// <para>
-        /// <para>Event identifier (for example, orderId for InboundOrder) used for data sharing or
-        /// partitioning.</para>
+        /// <para>Event identifier (for example, orderId for InboundOrder) used for data sharding or
+        /// partitioning. Noted under one eventGroupId of same eventType and instanceId, events
+        /// are processed sequentially in the order they are received by the server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter EventTimestamp
         /// <summary>
         /// <para>
-        /// <para>The event timestamp (in epoch seconds).</para>
+        /// <para>The timestamp (in epoch seconds) associated with the event. If not provided, it will
+        /// be assigned with current timestamp.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +111,22 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter EventType
         /// <summary>
         /// <para>
-        /// <para>The data event type.</para>
+        /// <para>The data event type.</para><ul><li><para><b>scn.data.dataset</b> - Send data directly to any specified dataset.</para></li><li><para><b>scn.data.supplyplan</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/supply-plan-entity.html">supply_plan</a>
+        /// dataset.</para></li><li><para><b>scn.data.shipmentstoporder</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-shipment-stop-order-entity.html">shipment_stop_order</a>
+        /// dataset.</para></li><li><para><b>scn.data.shipmentstop</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-shipment-stop-entity.html">shipment_stop</a>
+        /// dataset.</para></li><li><para><b>scn.data.shipment</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-shipment-entity.html">shipment</a>
+        /// dataset.</para></li><li><para><b>scn.data.reservation</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/planning-reservation-entity.html">reservation</a>
+        /// dataset.</para></li><li><para><b>scn.data.processproduct</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/operation-process-product-entity.html">process_product</a>
+        /// dataset.</para></li><li><para><b>scn.data.processoperation</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/operation-process-operation-entity.html">process_operation</a>
+        /// dataset.</para></li><li><para><b>scn.data.processheader</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/operation-process-header-entity.html">process_header</a>
+        /// dataset.</para></li><li><para><b>scn.data.forecast</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/forecast-forecast-entity.html">forecast</a>
+        /// dataset.</para></li><li><para><b>scn.data.inventorylevel</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/inventory_mgmnt-inv-level-entity.html">inv_level</a>
+        /// dataset.</para></li><li><para><b>scn.data.inboundorder</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-inbound-order-entity.html">inbound_order</a>
+        /// dataset.</para></li><li><para><b>scn.data.inboundorderline</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-inbound-order-line-entity.html">inbound_order_line</a>
+        /// dataset.</para></li><li><para><b>scn.data.inboundorderlineschedule</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/replenishment-inbound-order-line-schedule-entity.html">inbound_order_line_schedule</a>
+        /// dataset.</para></li><li><para><b>scn.data.outboundorderline</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/outbound-fulfillment-order-line-entity.html">outbound_order_line</a>
+        /// dataset.</para></li><li><para><b>scn.data.outboundshipment</b> - Send data to <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/outbound-fulfillment-shipment-entity.html">outbound_shipment</a>
+        /// dataset.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,10 +157,24 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter DatasetTarget_OperationType
+        /// <summary>
+        /// <para>
+        /// <para>The target dataset load operation type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SupplyChain.DataIntegrationEventDatasetOperationType")]
+        public Amazon.SupplyChain.DataIntegrationEventDatasetOperationType DatasetTarget_OperationType { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotent client token.</para>
+        /// <para>The idempotent client token. The token is active for 8 hours, and within its lifetime,
+        /// it ensures the request completes only once upon retry with same client token. If omitted,
+        /// the AWS SDK generates a unique value so that AWS SDK can safely retry the request
+        /// upon network errors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,6 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
                 WriteWarning("You are passing $null as a value for parameter Data which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DatasetTarget_DatasetIdentifier = this.DatasetTarget_DatasetIdentifier;
+            context.DatasetTarget_OperationType = this.DatasetTarget_OperationType;
             context.EventGroupId = this.EventGroupId;
             #if MODULAR
             if (this.EventGroupId == null && ParameterWasBound(nameof(this.EventGroupId)))
@@ -254,6 +298,35 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
             if (cmdletContext.Data != null)
             {
                 request.Data = cmdletContext.Data;
+            }
+            
+             // populate DatasetTarget
+            var requestDatasetTargetIsNull = true;
+            request.DatasetTarget = new Amazon.SupplyChain.Model.DataIntegrationEventDatasetTargetConfiguration();
+            System.String requestDatasetTarget_datasetTarget_DatasetIdentifier = null;
+            if (cmdletContext.DatasetTarget_DatasetIdentifier != null)
+            {
+                requestDatasetTarget_datasetTarget_DatasetIdentifier = cmdletContext.DatasetTarget_DatasetIdentifier;
+            }
+            if (requestDatasetTarget_datasetTarget_DatasetIdentifier != null)
+            {
+                request.DatasetTarget.DatasetIdentifier = requestDatasetTarget_datasetTarget_DatasetIdentifier;
+                requestDatasetTargetIsNull = false;
+            }
+            Amazon.SupplyChain.DataIntegrationEventDatasetOperationType requestDatasetTarget_datasetTarget_OperationType = null;
+            if (cmdletContext.DatasetTarget_OperationType != null)
+            {
+                requestDatasetTarget_datasetTarget_OperationType = cmdletContext.DatasetTarget_OperationType;
+            }
+            if (requestDatasetTarget_datasetTarget_OperationType != null)
+            {
+                request.DatasetTarget.OperationType = requestDatasetTarget_datasetTarget_OperationType;
+                requestDatasetTargetIsNull = false;
+            }
+             // determine if request.DatasetTarget should be set to null
+            if (requestDatasetTargetIsNull)
+            {
+                request.DatasetTarget = null;
             }
             if (cmdletContext.EventGroupId != null)
             {
@@ -334,6 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         {
             public System.String ClientToken { get; set; }
             public System.String Data { get; set; }
+            public System.String DatasetTarget_DatasetIdentifier { get; set; }
+            public Amazon.SupplyChain.DataIntegrationEventDatasetOperationType DatasetTarget_OperationType { get; set; }
             public System.String EventGroupId { get; set; }
             public System.DateTime? EventTimestamp { get; set; }
             public Amazon.SupplyChain.DataIntegrationEventType EventType { get; set; }

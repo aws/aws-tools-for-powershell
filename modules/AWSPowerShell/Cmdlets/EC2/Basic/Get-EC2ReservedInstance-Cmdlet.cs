@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone where the Reserved Instance can
-        /// be used.</para></li><li><para><c>duration</c> - The duration of the Reserved Instance (one year or three years),
+        /// be used.</para></li><li><para><c>availability-zone-id</c> - The ID of the Availability Zone where the Reserved
+        /// Instance can be used.</para></li><li><para><c>duration</c> - The duration of the Reserved Instance (one year or three years),
         /// in seconds (<c>31536000</c> | <c>94608000</c>).</para></li><li><para><c>end</c> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><c>fixed-price</c> - The purchase price of the Reserved Instance (for example, 9800.0).</para></li><li><para><c>instance-type</c> - The instance type that is covered by the reservation.</para></li><li><para><c>scope</c> - The scope of the Reserved Instance (<c>Region</c> or <c>Availability
         /// Zone</c>).</para></li><li><para><c>product-description</c> - The Reserved Instance product platform description (<c>Linux/UNIX</c>
         /// | <c>Linux with SQL Server Standard</c> | <c>Linux with SQL Server Web</c> | <c>Linux
