@@ -25,156 +25,156 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteAlarms" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAlarms" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnomalyDetector" Verb="Remove" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnomalyDetector" Verb="Remove" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDashboards" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardNames" PipelineParameter="DashboardNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDashboards" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardNames" PipelineParameter="DashboardNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInsightRules" OutputProperty="Failures" Verb="Remove" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInsightRules" OutputProperty="Failures" Verb="Remove" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMetricStream" Verb="Remove" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMetricStream" Verb="Remove" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="*" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="*" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmsForMetric" OutputProperty="MetricAlarms" Verb="Get" Noun="AlarmForMetric" PositionalParameters="Namespace;Statistic" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlarmsForMetric" OutputProperty="MetricAlarms" Verb="Get" Noun="AlarmForMetric" PositionalParameters="Namespace;Statistic" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="AnomalyDetector" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="AnomalyDetector" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInsightRules" OutputProperty="InsightRules" Verb="Get" Noun="InsightRule" PipelineParameter="MaxResults" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInsightRules" OutputProperty="InsightRules" Verb="Get" Noun="InsightRule" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAlarmActions" Verb="Disable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableAlarmActions" Verb="Disable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableInsightRules" OutputProperty="Failures" Verb="Disable" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableInsightRules" OutputProperty="Failures" Verb="Disable" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAlarmActions" Verb="Enable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableAlarmActions" Verb="Enable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableInsightRules" OutputProperty="Failures" Verb="Enable" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableInsightRules" OutputProperty="Failures" Verb="Enable" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsightRuleReport" OutputProperty="*" Verb="Get" Noun="InsightRuleReport" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInsightRuleReport" OutputProperty="*" Verb="Get" Noun="InsightRuleReport" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricStatistics" OutputProperty="*" Verb="Get" Noun="MetricStatistic" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetricStatistics">
+        <ServiceOperation MethodName="GetMetricStatistics" OutputProperty="*" Verb="Get" Noun="MetricStatistic" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetricStatistics" LegacyV4Pagination="true">
 			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricStream" OutputProperty="*" Verb="Get" Noun="MetricStream" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMetricStream" OutputProperty="*" Verb="Get" Noun="MetricStream" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricWidgetImage" OutputProperty="MetricWidgetImage" Verb="Get" Noun="MetricWidgetImage" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetMetricWidgetImage" OutputProperty="MetricWidgetImage" Verb="Get" Noun="MetricWidgetImage" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardEntries" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardEntries" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedInsightRules" OutputProperty="ManagedRules" Verb="Get" Noun="ManagedInsightRule" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListManagedInsightRules" OutputProperty="ManagedRules" Verb="Get" Noun="ManagedInsightRule" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetrics">
+        <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetrics" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetricStreams" OutputProperty="Entries" Verb="Get" Noun="MetricStreamList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMetricStreams" OutputProperty="Entries" Verb="Get" Noun="MetricStreamList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAnomalyDetector" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAnomalyDetector" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutCompositeAlarm" Verb="Write" Noun="CompositeAlarm" ShouldProcessTarget="AlarmName" PipelineParameter="AlarmName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutCompositeAlarm" Verb="Write" Noun="CompositeAlarm" ShouldProcessTarget="AlarmName" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDashboard" OutputProperty="DashboardValidationMessages" Verb="Write" Noun="Dashboard" ShouldProcessTarget="DashboardName" PipelineParameter="DashboardBody" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutDashboard" OutputProperty="DashboardValidationMessages" Verb="Write" Noun="Dashboard" ShouldProcessTarget="DashboardName" PipelineParameter="DashboardBody" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutInsightRule" Verb="Write" Noun="InsightRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutInsightRule" Verb="Write" Noun="InsightRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutManagedInsightRules" OutputProperty="Failures" Verb="Write" Noun="ManagedInsightRule" ShouldProcessTarget="ManagedRules" PipelineParameter="ManagedRules" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutManagedInsightRules" OutputProperty="Failures" Verb="Write" Noun="ManagedInsightRule" ShouldProcessTarget="ManagedRules" PipelineParameter="ManagedRules" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricAlarm" Verb="Write" Noun="MetricAlarm" ShouldProcessTarget="AlarmName" PositionalParameters="AlarmDescription" PipelineParameter="AlarmName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutMetricAlarm" Verb="Write" Noun="MetricAlarm" ShouldProcessTarget="AlarmName" PositionalParameters="AlarmDescription" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricData" Verb="Write" Noun="MetricData" ShouldProcessTarget="Namespace" PositionalParameters="MetricData" PipelineParameter="Namespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutMetricData" Verb="Write" Noun="MetricData" ShouldProcessTarget="Namespace" PositionalParameters="MetricData" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricStream" OutputProperty="Arn" Verb="Write" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutMetricStream" OutputProperty="Arn" Verb="Write" Noun="MetricStream" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetAlarmState" Verb="Set" Noun="AlarmState" ShouldProcessTarget="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetAlarmState" Verb="Set" Noun="AlarmState" ShouldProcessTarget="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMetricStreams" Verb="Start" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMetricStreams" Verb="Start" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopMetricStreams" Verb="Stop" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopMetricStreams" Verb="Stop" Noun="MetricStream" ShouldProcessTarget="Names" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

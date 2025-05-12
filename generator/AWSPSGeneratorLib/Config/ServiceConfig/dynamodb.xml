@@ -25,244 +25,244 @@
         <Property>LastEvaluatedTableName</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="Responses" Verb="Invoke" Noun="DDBBatchExecuteStatement" ShouldProcessTarget="Statements" PipelineParameter="ReturnConsumedCapacity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="Responses" Verb="Invoke" Noun="DDBBatchExecuteStatement" ShouldProcessTarget="Statements" PipelineParameter="ReturnConsumedCapacity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetItem" OutputProperty="Responses" Verb="Get" Noun="BatchItem" PipelineParameter="RequestItems" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetItem" OutputProperty="Responses" Verb="Get" Noun="BatchItem" PipelineParameter="ReturnConsumedCapacity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchWriteItem" OutputProperty="UnprocessedItems" Verb="Set" Noun="BatchItem" ShouldProcessTarget="RequestItems" PipelineParameter="RequestItems" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchWriteItem" OutputProperty="UnprocessedItems" Verb="Set" Noun="BatchItem" ShouldProcessTarget="RequestItems" PipelineParameter="RequestItems" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackup" OutputProperty="BackupDetails" Verb="New" Noun="Backup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBackup" OutputProperty="BackupDetails" Verb="New" Noun="Backup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGlobalTable" OutputProperty="GlobalTableDescription" Verb="New" Noun="GlobalTable" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGlobalTable" OutputProperty="GlobalTableDescription" Verb="New" Noun="GlobalTable" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTable" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTable" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackup" OutputProperty="BackupDescription" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupArn" PipelineParameter="BackupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackup" OutputProperty="BackupDescription" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupArn" PipelineParameter="BackupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteItem" OutputProperty="Attributes" Verb="Remove" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Key" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteItem" OutputProperty="Attributes" Verb="Remove" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Key" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="RevisionId" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" OutputProperty="RevisionId" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTable" OutputProperty="TableDescription" Verb="Remove" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTable" OutputProperty="TableDescription" Verb="Remove" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackup" OutputProperty="BackupDescription" Verb="Get" Noun="Backup" PipelineParameter="BackupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBackup" OutputProperty="BackupDescription" Verb="Get" Noun="Backup" PipelineParameter="BackupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Get" Noun="ContinuousBackup" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Get" Noun="ContinuousBackup" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContributorInsights" OutputProperty="*" Verb="Get" Noun="ContributorInsight" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContributorInsights" OutputProperty="*" Verb="Get" Noun="ContributorInsight" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExport" OutputProperty="ExportDescription" Verb="Get" Noun="Export" PipelineParameter="ExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeExport" OutputProperty="ExportDescription" Verb="Get" Noun="Export" PipelineParameter="ExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGlobalTable" OutputProperty="GlobalTableDescription" Verb="Get" Noun="GlobalTable" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGlobalTable" OutputProperty="GlobalTableDescription" Verb="Get" Noun="GlobalTable" PipelineParameter="GlobalTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGlobalTableSettings" OutputProperty="*" Verb="Get" Noun="GlobalTableSetting" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGlobalTableSettings" OutputProperty="*" Verb="Get" Noun="GlobalTableSetting" PipelineParameter="GlobalTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImport" OutputProperty="ImportTableDescription" Verb="Get" Noun="Import" PipelineParameter="ImportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImport" OutputProperty="ImportTableDescription" Verb="Get" Noun="Import" PipelineParameter="ImportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKinesisStreamingDestination" OutputProperty="*" Verb="Get" Noun="KinesisStreamingDestination" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeKinesisStreamingDestination" OutputProperty="*" Verb="Get" Noun="KinesisStreamingDestination" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="ProvisionLimit" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="ProvisionLimit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTableReplicaAutoScaling" OutputProperty="TableAutoScalingDescription" Verb="Get" Noun="TableReplicaAutoScaling" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTableReplicaAutoScaling" OutputProperty="TableAutoScalingDescription" Verb="Get" Noun="TableReplicaAutoScaling" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTimeToLive" OutputProperty="TimeToLiveDescription" Verb="Get" Noun="TimeToLive" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTimeToLive" OutputProperty="TimeToLiveDescription" Verb="Get" Noun="TimeToLive" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableKinesisStreamingDestination" OutputProperty="*" Verb="Disable" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableKinesisStreamingDestination" OutputProperty="*" Verb="Disable" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableKinesisStreamingDestination" OutputProperty="*" Verb="Enable" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableKinesisStreamingDestination" OutputProperty="*" Verb="Enable" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="Items" Verb="Invoke" Noun="DDBExecuteStatement" ShouldProcessTarget="Statement" PipelineParameter="Statement" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="Items" Verb="Invoke" Noun="DDBExecuteStatement" ShouldProcessTarget="Statement" PipelineParameter="Statement" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteTransaction" OutputProperty="Responses" Verb="Invoke" Noun="DDBExecuteTransaction" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteTransaction" OutputProperty="Responses" Verb="Invoke" Noun="DDBExecuteTransaction" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportTableToPointInTime" OutputProperty="ExportDescription" Verb="Export" Noun="TableToPointInTime" ShouldProcessTarget="TableArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ExportTableToPointInTime" OutputProperty="ExportDescription" Verb="Export" Noun="TableToPointInTime" ShouldProcessTarget="TableArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetItem" OutputProperty="Item" Verb="Get" Noun="Item" PipelineParameter="Key" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetItem" OutputProperty="Item" Verb="Get" Noun="Item" PipelineParameter="Key" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportTable" OutputProperty="ImportTableDescription" Verb="Import" Noun="Table" ShouldProcessTarget="TableCreationParameters_TableName" PipelineParameter="InputFormat" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportTable" OutputProperty="ImportTableDescription" Verb="Import" Noun="Table" ShouldProcessTarget="TableCreationParameters_TableName" PipelineParameter="InputFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContributorInsights" OutputProperty="ContributorInsightsSummaries" Verb="Get" Noun="ContributorInsightList" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContributorInsights" OutputProperty="ContributorInsightsSummaries" Verb="Get" Noun="ContributorInsightList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExports" OutputProperty="ExportSummaries" Verb="Get" Noun="ExportList" PipelineParameter="TableArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExports" OutputProperty="ExportSummaries" Verb="Get" Noun="ExportList" PipelineParameter="TableArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="ExclusiveStartGlobalTableName" Next="LastEvaluatedGlobalTableName" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImports" OutputProperty="ImportSummaryList" Verb="Get" Noun="ImportList" PipelineParameter="TableArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImports" OutputProperty="ImportSummaryList" Verb="Get" Noun="ImportList" PipelineParameter="TableArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="TableNames" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DDBTables">
+        <ServiceOperation MethodName="ListTables" OutputProperty="TableNames" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DDBTables" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsOfResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTagsOfResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutItem" OutputProperty="Attributes" Verb="Set" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Item" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutItem" OutputProperty="Attributes" Verb="Set" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Item" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="RevisionId" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="RevisionId" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Query" OutputProperty="Items" Verb="Invoke" Noun="Query" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Query" OutputProperty="Items" Verb="Invoke" Noun="Query" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Select" NewName="SelectItem" AutoApplyAlias="false" />
             </Params>
             <AutoIterate Start="ExclusiveStartKey" Next="LastEvaluatedKey" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreTableFromBackup" OutputProperty="TableDescription" Verb="Restore" Noun="TableFromBackup" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreTableFromBackup" OutputProperty="TableDescription" Verb="Restore" Noun="TableFromBackup" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreTableToPointInTime" OutputProperty="TableDescription" Verb="Restore" Noun="TableToPointInTime" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreTableToPointInTime" OutputProperty="TableDescription" Verb="Restore" Noun="TableToPointInTime" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Scan" OutputProperty="Items" Verb="Invoke" Noun="Scan" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Scan" OutputProperty="Items" Verb="Invoke" Noun="Scan" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Select" NewName="SelectItem" AutoApplyAlias="false" />
             </Params>
             <AutoIterate Start="ExclusiveStartKey" Next="LastEvaluatedKey" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransactGetItems" OutputProperty="*" Verb="Get" Noun="ItemTransactionally" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TransactGetItems" OutputProperty="*" Verb="Get" Noun="ItemTransactionally" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransactWriteItems" OutputProperty="*" Verb="Write" Noun="ItemTransactionally" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="TransactWriteItems" OutputProperty="*" Verb="Write" Noun="ItemTransactionally" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Update" Noun="ContinuousBackup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Update" Noun="ContinuousBackup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContributorInsights" OutputProperty="*" Verb="Update" Noun="ContributorInsight" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContributorInsights" OutputProperty="*" Verb="Update" Noun="ContributorInsight" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGlobalTable" OutputProperty="GlobalTableDescription" Verb="Update" Noun="GlobalTable" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGlobalTable" OutputProperty="GlobalTableDescription" Verb="Update" Noun="GlobalTable" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGlobalTableSettings" OutputProperty="*" Verb="Update" Noun="GlobalTableSetting" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGlobalTableSettings" OutputProperty="*" Verb="Update" Noun="GlobalTableSetting" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateItem" OutputProperty="Attributes" Verb="Update" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Key" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateItem" OutputProperty="Attributes" Verb="Update" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Key" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKinesisStreamingDestination" OutputProperty="*" Verb="Update" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKinesisStreamingDestination" OutputProperty="*" Verb="Update" Noun="KinesisStreamingDestination" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTable" OutputProperty="TableDescription" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTable" OutputProperty="TableDescription" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="ProvisionedThroughput_ReadCapacityUnits" NewName="ReadCapacity" />
                 <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTableReplicaAutoScaling" OutputProperty="TableAutoScalingDescription" Verb="Update" Noun="TableReplicaAutoScaling" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTableReplicaAutoScaling" OutputProperty="TableAutoScalingDescription" Verb="Update" Noun="TableReplicaAutoScaling" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTimeToLive" OutputProperty="TimeToLiveSpecification" Verb="Update" Noun="TimeToLive" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTimeToLive" OutputProperty="TimeToLiveSpecification" Verb="Update" Noun="TimeToLive" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

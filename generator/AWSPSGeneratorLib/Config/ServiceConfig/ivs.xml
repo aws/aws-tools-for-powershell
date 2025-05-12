@@ -18,143 +18,143 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetChannel" OutputProperty="*" Verb="Get" Noun="ChannelBatch" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetChannel" OutputProperty="*" Verb="Get" Noun="ChannelBatch" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetStreamKey" OutputProperty="*" Verb="Get" Noun="StreamKeyBatch" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetStreamKey" OutputProperty="*" Verb="Get" Noun="StreamKeyBatch" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchStartViewerSessionRevocation" OutputProperty="Errors" Verb="Start" Noun="StartViewerSessionRevocation" ShouldProcessTarget="ViewerSessions" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchStartViewerSessionRevocation" OutputProperty="Errors" Verb="Start" Noun="StartViewerSessionRevocation" ShouldProcessTarget="ViewerSessions" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="New" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="New" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="New" Noun="RecordingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="New" Noun="RecordingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamKey" OutputProperty="StreamKey" Verb="New" Noun="StreamKey" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStreamKey" OutputProperty="StreamKey" Verb="New" Noun="StreamKey" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePlaybackKeyPair" Verb="Remove" Noun="PlaybackKeyPair" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePlaybackKeyPair" Verb="Remove" Noun="PlaybackKeyPair" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePlaybackRestrictionPolicy" Verb="Remove" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePlaybackRestrictionPolicy" Verb="Remove" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRecordingConfiguration" Verb="Remove" Noun="RecordingConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRecordingConfiguration" Verb="Remove" Noun="RecordingConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStreamKey" Verb="Remove" Noun="StreamKey" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStreamKey" Verb="Remove" Noun="StreamKey" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannel" OutputProperty="Channel" Verb="Get" Noun="Channel" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChannel" OutputProperty="Channel" Verb="Get" Noun="Channel" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPlaybackKeyPair" OutputProperty="KeyPair" Verb="Get" Noun="PlaybackKeyPair" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPlaybackKeyPair" OutputProperty="KeyPair" Verb="Get" Noun="PlaybackKeyPair" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="Get" Noun="PlaybackRestrictionPolicy" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="Get" Noun="PlaybackRestrictionPolicy" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="Get" Noun="RecordingConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecordingConfiguration" OutputProperty="RecordingConfiguration" Verb="Get" Noun="RecordingConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStream" OutputProperty="Stream" Verb="Get" Noun="Stream" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetStream" OutputProperty="Stream" Verb="Get" Noun="Stream" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStreamKey" OutputProperty="StreamKey" Verb="Get" Noun="StreamKey" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetStreamKey" OutputProperty="StreamKey" Verb="Get" Noun="StreamKey" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStreamSession" OutputProperty="StreamSession" Verb="Get" Noun="StreamSession" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetStreamSession" OutputProperty="StreamSession" Verb="Get" Noun="StreamSession" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportPlaybackKeyPair" OutputProperty="KeyPair" Verb="Import" Noun="PlaybackKeyPair" ShouldProcessTarget="Name" PipelineParameter="PublicKeyMaterial" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportPlaybackKeyPair" OutputProperty="KeyPair" Verb="Import" Noun="PlaybackKeyPair" ShouldProcessTarget="Name" PipelineParameter="PublicKeyMaterial" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="FilterByName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="FilterByName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlaybackKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="PlaybackKeyPairList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPlaybackKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="PlaybackKeyPairList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlaybackRestrictionPolicies" OutputProperty="PlaybackRestrictionPolicies" Verb="Get" Noun="PlaybackRestrictionPolicyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPlaybackRestrictionPolicies" OutputProperty="PlaybackRestrictionPolicies" Verb="Get" Noun="PlaybackRestrictionPolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecordingConfigurations" OutputProperty="RecordingConfigurations" Verb="Get" Noun="RecordingConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecordingConfigurations" OutputProperty="RecordingConfigurations" Verb="Get" Noun="RecordingConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamKeys" OutputProperty="StreamKeys" Verb="Get" Noun="StreamKeyList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreamKeys" OutputProperty="StreamKeys" Verb="Get" Noun="StreamKeyList" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="FilterBy_Health" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="Streams" Verb="Get" Noun="StreamList" PipelineParameter="FilterBy_Health" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamSessions" OutputProperty="StreamSessions" Verb="Get" Noun="StreamSessionList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreamSessions" OutputProperty="StreamSessions" Verb="Get" Noun="StreamSessionList" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetadata" Verb="Write" Noun="Metadata" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutMetadata" Verb="Write" Noun="Metadata" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartViewerSessionRevocation" Verb="Start" Noun="ViewerSessionRevocation" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartViewerSessionRevocation" Verb="Start" Noun="ViewerSessionRevocation" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStream" Verb="Stop" Noun="Stream" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopStream" Verb="Stop" Noun="Stream" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannel" OutputProperty="Channel" Verb="Update" Noun="Channel" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="Channel" Verb="Update" Noun="Channel" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="Update" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePlaybackRestrictionPolicy" OutputProperty="PlaybackRestrictionPolicy" Verb="Update" Noun="PlaybackRestrictionPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

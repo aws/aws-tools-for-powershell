@@ -1362,6 +1362,13 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine("// Initialize loop variant and commence piping");
                 writer.WriteLine($"var _nextToken = cmdletContext.{starPaginationProperty.CmdletParameterName};");
                 writer.WriteLine($"var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.{starPaginationProperty.CmdletParameterName}));");
+                
+                // disable auto-iteration for cmdlets that didn't have auto-iteration in v4 in legacy mode.
+                if (autoIteration.SupportLegacyAutoIterationMode)
+                {
+                    writer.WriteLine(@$"var _shouldAutoIterate = !(SessionState.PSVariable.GetValue(""AWS_POWERSHELL_AUTOITERATION_MODE"")?.ToString() == ""legacy"");");
+                }
+
                 writer.WriteLine();
 
                 if (Operation.RequiresAnonymousAuthentication)
@@ -1408,7 +1415,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("ProcessOutput(output);");
                     writer.WriteLine();
                 }
-                writer.CloseRegion("} while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));");
+                if (autoIteration.SupportLegacyAutoIterationMode)
+                {
+                    writer.CloseRegion("} while (!_userControllingPaging && _shouldAutoIterate && AutoIterationHelpers.HasValue(_nextToken));");
+                }
+                else
+                {
+                    writer.CloseRegion("} while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));");
+
+                }
 
                 WritePipeParamToOutput(writer);
 

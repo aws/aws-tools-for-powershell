@@ -18,39 +18,39 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateRescoreExecutionPlan" OutputProperty="*" Verb="New" Noun="RescoreExecutionPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRescoreExecutionPlan" OutputProperty="*" Verb="New" Noun="RescoreExecutionPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRescoreExecutionPlan" Verb="Remove" Noun="RescoreExecutionPlan" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRescoreExecutionPlan" Verb="Remove" Noun="RescoreExecutionPlan" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRescoreExecutionPlan" OutputProperty="*" Verb="Get" Noun="RescoreExecutionPlan" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRescoreExecutionPlan" OutputProperty="*" Verb="Get" Noun="RescoreExecutionPlan" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRescoreExecutionPlans" OutputProperty="SummaryItems" Verb="Get" Noun="RescoreExecutionPlanList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRescoreExecutionPlans" OutputProperty="SummaryItems" Verb="Get" Noun="RescoreExecutionPlanList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Rescore" OutputProperty="*" Verb="Invoke" Noun="Rescore" ShouldProcessTarget="RescoreExecutionPlanId" PipelineParameter="RescoreExecutionPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Rescore" OutputProperty="*" Verb="Invoke" Noun="Rescore" ShouldProcessTarget="RescoreExecutionPlanId" PipelineParameter="RescoreExecutionPlanId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRescoreExecutionPlan" Verb="Update" Noun="RescoreExecutionPlan" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRescoreExecutionPlan" Verb="Update" Noun="RescoreExecutionPlan" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

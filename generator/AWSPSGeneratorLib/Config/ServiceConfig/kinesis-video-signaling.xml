@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetIceServerConfig" OutputProperty="IceServerList" Verb="Get" Noun="IceServerConfig" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIceServerConfig" OutputProperty="IceServerList" Verb="Get" Noun="IceServerConfig" PipelineParameter="ChannelARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendAlexaOfferToMaster" OutputProperty="Answer" Verb="Send" Noun="AlexaOfferToMaster" ShouldProcessTarget="SenderClientId" PipelineParameter="MessagePayload" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendAlexaOfferToMaster" OutputProperty="Answer" Verb="Send" Noun="AlexaOfferToMaster" ShouldProcessTarget="SenderClientId" PipelineParameter="MessagePayload" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

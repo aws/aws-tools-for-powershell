@@ -21,311 +21,311 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDevicePool" OutputProperty="DevicePool" Verb="New" Noun="DevicePool" ShouldProcessTarget="Name" PipelineParameter="Rules" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDevicePool" OutputProperty="DevicePool" Verb="New" Noun="DevicePool" ShouldProcessTarget="Name" PipelineParameter="Rules" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstanceProfile" OutputProperty="InstanceProfile" Verb="New" Noun="InstanceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInstanceProfile" OutputProperty="InstanceProfile" Verb="New" Noun="InstanceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetworkProfile" OutputProperty="NetworkProfile" Verb="New" Noun="NetworkProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNetworkProfile" OutputProperty="NetworkProfile" Verb="New" Noun="NetworkProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="New" Noun="RemoteAccessSession" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="New" Noun="RemoteAccessSession" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTestGridProject" OutputProperty="TestGridProject" Verb="New" Noun="TestGridProject" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTestGridProject" OutputProperty="TestGridProject" Verb="New" Noun="TestGridProject" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTestGridUrl" OutputProperty="Url" Verb="New" Noun="TestGridUrl" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTestGridUrl" OutputProperty="Url" Verb="New" Noun="TestGridUrl" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUpload" OutputProperty="Upload" Verb="New" Noun="Upload" ShouldProcessTarget="Name" PositionalParameters="ProjectArn;Type;ContentType" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUpload" OutputProperty="Upload" Verb="New" Noun="Upload" ShouldProcessTarget="Name" PositionalParameters="ProjectArn;Type;ContentType" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVPCEConfiguration" OutputProperty="VpceConfiguration" Verb="New" Noun="VPCEConfiguration" ShouldProcessTarget="VpceConfigurationName" PipelineParameter="VpceConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVPCEConfiguration" OutputProperty="VpceConfiguration" Verb="New" Noun="VPCEConfiguration" ShouldProcessTarget="VpceConfigurationName" PipelineParameter="VpceConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDevicePool" Verb="Remove" Noun="DevicePool" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDevicePool" Verb="Remove" Noun="DevicePool" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstanceProfile" Verb="Remove" Noun="InstanceProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInstanceProfile" Verb="Remove" Noun="InstanceProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNetworkProfile" Verb="Remove" Noun="NetworkProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNetworkProfile" Verb="Remove" Noun="NetworkProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRemoteAccessSession" Verb="Remove" Noun="RemoteAccessSession" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRemoteAccessSession" Verb="Remove" Noun="RemoteAccessSession" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRun" Verb="Remove" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRun" Verb="Remove" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTestGridProject" Verb="Remove" Noun="TestGridProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTestGridProject" Verb="Remove" Noun="TestGridProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUpload" Verb="Remove" Noun="Upload" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUpload" Verb="Remove" Noun="Upload" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVPCEConfiguration" Verb="Remove" Noun="VPCEConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVPCEConfiguration" Verb="Remove" Noun="VPCEConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevice" OutputProperty="Device" Verb="Get" Noun="Device" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDevice" OutputProperty="Device" Verb="Get" Noun="Device" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeviceInstance" OutputProperty="DeviceInstance" Verb="Get" Noun="DeviceInstance" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeviceInstance" OutputProperty="DeviceInstance" Verb="Get" Noun="DeviceInstance" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevicePool" OutputProperty="DevicePool" Verb="Get" Noun="DevicePool" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDevicePool" OutputProperty="DevicePool" Verb="Get" Noun="DevicePool" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevicePoolCompatibility" OutputProperty="*" Verb="Get" Noun="DevicePoolCompatibility" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetDevicePoolCompatibility" OutputProperty="*" Verb="Get" Noun="DevicePoolCompatibility" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceProfile" OutputProperty="InstanceProfile" Verb="Get" Noun="InstanceProfile" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInstanceProfile" OutputProperty="InstanceProfile" Verb="Get" Noun="InstanceProfile" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNetworkProfile" OutputProperty="NetworkProfile" Verb="Get" Noun="NetworkProfile" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetNetworkProfile" OutputProperty="NetworkProfile" Verb="Get" Noun="NetworkProfile" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOfferingStatus" OutputProperty="*" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetOfferingStatus" OutputProperty="*" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProject" OutputProperty="Project" Verb="Get" Noun="Project" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProject" OutputProperty="Project" Verb="Get" Noun="Project" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="Get" Noun="RemoteAccessSession" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="Get" Noun="RemoteAccessSession" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRun" OutputProperty="Run" Verb="Get" Noun="Run" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRun" OutputProperty="Run" Verb="Get" Noun="Run" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSuite" OutputProperty="Suite" Verb="Get" Noun="Suite" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSuite" OutputProperty="Suite" Verb="Get" Noun="Suite" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTest" OutputProperty="Test" Verb="Get" Noun="Test" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTest" OutputProperty="Test" Verb="Get" Noun="Test" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestGridProject" OutputProperty="TestGridProject" Verb="Get" Noun="TestGridProject" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTestGridProject" OutputProperty="TestGridProject" Verb="Get" Noun="TestGridProject" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTestGridSession" OutputProperty="TestGridSession" Verb="Get" Noun="TestGridSession" PipelineParameter="SessionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTestGridSession" OutputProperty="TestGridSession" Verb="Get" Noun="TestGridSession" PipelineParameter="SessionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpload" OutputProperty="Upload" Verb="Get" Noun="Upload" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUpload" OutputProperty="Upload" Verb="Get" Noun="Upload" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVPCEConfiguration" OutputProperty="VpceConfiguration" Verb="Get" Noun="VPCEConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVPCEConfiguration" OutputProperty="VpceConfiguration" Verb="Get" Noun="VPCEConfiguration" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InstallToRemoteAccessSession" OutputProperty="AppUpload" Verb="Install" Noun="ToRemoteAccessSession" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InstallToRemoteAccessSession" OutputProperty="AppUpload" Verb="Install" Noun="ToRemoteAccessSession" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceInstances" OutputProperty="DeviceInstances" Verb="Get" Noun="DeviceInstanceList" PipelineParameter="MaxResults" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeviceInstances" OutputProperty="DeviceInstances" Verb="Get" Noun="DeviceInstanceList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevicePools" OutputProperty="DevicePools" Verb="Get" Noun="DevicePoolList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevicePools" OutputProperty="DevicePools" Verb="Get" Noun="DevicePoolList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceProfiles" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileList" PipelineParameter="MaxResults" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstanceProfiles" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworkProfiles" OutputProperty="NetworkProfiles" Verb="Get" Noun="NetworkProfileList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNetworkProfiles" OutputProperty="NetworkProfiles" Verb="Get" Noun="NetworkProfileList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferingPromotions" OutputProperty="OfferingPromotions" Verb="Get" Noun="OfferingPromotion" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOfferingPromotions" OutputProperty="OfferingPromotions" Verb="Get" Noun="OfferingPromotion" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="Offering" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="Offering" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferingTransactions" OutputProperty="OfferingTransactions" Verb="Get" Noun="OfferingTransaction" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOfferingTransactions" OutputProperty="OfferingTransactions" Verb="Get" Noun="OfferingTransaction" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRemoteAccessSessions" OutputProperty="RemoteAccessSessions" Verb="Get" Noun="RemoteAccessSessionList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRemoteAccessSessions" OutputProperty="RemoteAccessSessions" Verb="Get" Noun="RemoteAccessSessionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuns" OutputProperty="Runs" Verb="Get" Noun="RunList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRuns" OutputProperty="Runs" Verb="Get" Noun="RunList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSamples" OutputProperty="Samples" Verb="Get" Noun="SampleList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSamples" OutputProperty="Samples" Verb="Get" Noun="SampleList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSuites" OutputProperty="Suites" Verb="Get" Noun="SuiteList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSuites" OutputProperty="Suites" Verb="Get" Noun="SuiteList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestGridProjects" OutputProperty="TestGridProjects" Verb="Get" Noun="TestGridProjectList" PipelineParameter="MaxResult" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTestGridProjects" OutputProperty="TestGridProjects" Verb="Get" Noun="TestGridProjectList" PipelineParameter="MaxResult" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestGridSessionActions" OutputProperty="Actions" Verb="Get" Noun="TestGridSessionActionList" PipelineParameter="SessionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTestGridSessionActions" OutputProperty="Actions" Verb="Get" Noun="TestGridSessionActionList" PipelineParameter="SessionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestGridSessionArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="TestGridSessionArtifactList" PipelineParameter="SessionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTestGridSessionArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="TestGridSessionArtifactList" PipelineParameter="SessionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTestGridSessions" OutputProperty="TestGridSessions" Verb="Get" Noun="TestGridSessionList" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTestGridSessions" OutputProperty="TestGridSessions" Verb="Get" Noun="TestGridSessionList" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTests" OutputProperty="Tests" Verb="Get" Noun="TestList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTests" OutputProperty="Tests" Verb="Get" Noun="TestList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUniqueProblems" OutputProperty="UniqueProblems" Verb="Get" Noun="UniqueProblemList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUniqueProblems" OutputProperty="UniqueProblems" Verb="Get" Noun="UniqueProblemList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUploads" OutputProperty="Uploads" Verb="Get" Noun="UploadList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUploads" OutputProperty="Uploads" Verb="Get" Noun="UploadList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVPCEConfigurations" OutputProperty="VpceConfigurations" Verb="Get" Noun="VPCEConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListVPCEConfigurations" OutputProperty="VpceConfigurations" Verb="Get" Noun="VPCEConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="OfferingTransaction" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="OfferingTransaction" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenewOffering" OutputProperty="OfferingTransaction" Verb="New" Noun="OfferingRenewal" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RenewOffering" OutputProperty="OfferingTransaction" Verb="New" Noun="OfferingRenewal" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ScheduleRun" OutputProperty="Run" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ScheduleRun" OutputProperty="Run" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopJob" OutputProperty="Job" Verb="Stop" Noun="Job" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopJob" OutputProperty="Job" Verb="Stop" Noun="Job" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="Stop" Noun="RemoteAccessSession" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="Stop" Noun="RemoteAccessSession" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopRun" OutputProperty="Run" Verb="Stop" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopRun" OutputProperty="Run" Verb="Stop" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDeviceInstance" OutputProperty="DeviceInstance" Verb="Update" Noun="DeviceInstance" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDeviceInstance" OutputProperty="DeviceInstance" Verb="Update" Noun="DeviceInstance" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDevicePool" OutputProperty="DevicePool" Verb="Update" Noun="DevicePool" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDevicePool" OutputProperty="DevicePool" Verb="Update" Noun="DevicePool" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstanceProfile" OutputProperty="InstanceProfile" Verb="Update" Noun="InstanceProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInstanceProfile" OutputProperty="InstanceProfile" Verb="Update" Noun="InstanceProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNetworkProfile" OutputProperty="NetworkProfile" Verb="Update" Noun="NetworkProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNetworkProfile" OutputProperty="NetworkProfile" Verb="Update" Noun="NetworkProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTestGridProject" OutputProperty="TestGridProject" Verb="Update" Noun="TestGridProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTestGridProject" OutputProperty="TestGridProject" Verb="Update" Noun="TestGridProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUpload" OutputProperty="Upload" Verb="Update" Noun="Upload" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUpload" OutputProperty="Upload" Verb="Update" Noun="Upload" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVPCEConfiguration" OutputProperty="VpceConfiguration" Verb="Update" Noun="VPCEConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateVPCEConfiguration" OutputProperty="VpceConfiguration" Verb="Update" Noun="VPCEConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

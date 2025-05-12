@@ -19,95 +19,95 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCertificateAuthority" OutputProperty="CertificateAuthorityArn" Verb="New" Noun="CertificateAuthority" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCertificateAuthority" OutputProperty="CertificateAuthorityArn" Verb="New" Noun="CertificateAuthority" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCertificateAuthorityAuditReport" OutputProperty="*" Verb="New" Noun="CertificateAuthorityAuditReport" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCertificateAuthorityAuditReport" OutputProperty="*" Verb="New" Noun="CertificateAuthorityAuditReport" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePermission" Verb="New" Noun="Permission" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePermission" Verb="New" Noun="Permission" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCertificateAuthority" Verb="Remove" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCertificateAuthority" Verb="Remove" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificateAuthority" OutputProperty="CertificateAuthority" Verb="Get" Noun="CertificateAuthority" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificateAuthority" OutputProperty="CertificateAuthority" Verb="Get" Noun="CertificateAuthority" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificateAuthorityAuditReport" OutputProperty="*" Verb="Get" Noun="CertificateAuthorityAuditReport" PipelineParameter="AuditReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificateAuthorityAuditReport" OutputProperty="*" Verb="Get" Noun="CertificateAuthorityAuditReport" PipelineParameter="AuditReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificate" OutputProperty="*" Verb="Get" Noun="Certificate" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCertificate" OutputProperty="*" Verb="Get" Noun="Certificate" PipelineParameter="CertificateArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificateAuthorityCertificate" OutputProperty="*" Verb="Get" Noun="CertificateAuthorityCertificate" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCertificateAuthorityCertificate" OutputProperty="*" Verb="Get" Noun="CertificateAuthorityCertificate" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificateAuthorityCsr" OutputProperty="Csr" Verb="Get" Noun="CertificateAuthorityCsr" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCertificateAuthorityCsr" OutputProperty="Csr" Verb="Get" Noun="CertificateAuthorityCsr" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportCertificateAuthorityCertificate" Verb="Import" Noun="CertificateAuthorityCertificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportCertificateAuthorityCertificate" Verb="Import" Noun="CertificateAuthorityCertificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IssueCertificate" OutputProperty="CertificateArn" Verb="New" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="IssueCertificate" OutputProperty="CertificateArn" Verb="New" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPolicy" Verb="Set" Noun="Policy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutPolicy" Verb="Set" Noun="Policy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreCertificateAuthority" Verb="Restore" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreCertificateAuthority" Verb="Restore" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeCertificate" Verb="Revoke" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RevokeCertificate" Verb="Revoke" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagCertificateAuthority" Verb="Add" Noun="CertificateAuthorityTag" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagCertificateAuthority" Verb="Add" Noun="CertificateAuthorityTag" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagCertificateAuthority" Verb="Remove" Noun="CertificateAuthorityTag" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagCertificateAuthority" Verb="Remove" Noun="CertificateAuthorityTag" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCertificateAuthority" Verb="Update" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCertificateAuthority" Verb="Update" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

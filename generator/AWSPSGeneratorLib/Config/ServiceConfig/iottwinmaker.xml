@@ -21,163 +21,163 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchPutPropertyValues" OutputProperty="ErrorEntries" Verb="Import" Noun="PutPropertyValue" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutPropertyValues" OutputProperty="ErrorEntries" Verb="Import" Noun="PutPropertyValue" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMetadataTransferJob" OutputProperty="*" Verb="Stop" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="MetadataTransferJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelMetadataTransferJob" OutputProperty="*" Verb="Stop" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="MetadataTransferJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComponentType" OutputProperty="*" Verb="New" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateComponentType" OutputProperty="*" Verb="New" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEntity" OutputProperty="*" Verb="New" Noun="Entity" ShouldProcessTarget="EntityName" PipelineParameter="EntityName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEntity" OutputProperty="*" Verb="New" Noun="Entity" ShouldProcessTarget="EntityName" PipelineParameter="EntityName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMetadataTransferJob" OutputProperty="*" Verb="New" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="Destination_Type" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMetadataTransferJob" OutputProperty="*" Verb="New" Noun="MetadataTransferJob" ShouldProcessTarget="MetadataTransferJobId" PipelineParameter="Destination_Type" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScene" OutputProperty="*" Verb="New" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateScene" OutputProperty="*" Verb="New" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSyncJob" OutputProperty="*" Verb="New" Noun="SyncJob" ShouldProcessTarget="WorkspaceId" PipelineParameter="SyncSource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSyncJob" OutputProperty="*" Verb="New" Noun="SyncJob" ShouldProcessTarget="WorkspaceId" PipelineParameter="SyncSource" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteComponentType" OutputProperty="State" Verb="Remove" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteComponentType" OutputProperty="State" Verb="Remove" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEntity" OutputProperty="State" Verb="Remove" Noun="Entity" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEntity" OutputProperty="State" Verb="Remove" Noun="Entity" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScene" Verb="Remove" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScene" Verb="Remove" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSyncJob" OutputProperty="State" Verb="Remove" Noun="SyncJob" ShouldProcessTarget="WorkspaceId" PipelineParameter="SyncSource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSyncJob" OutputProperty="State" Verb="Remove" Noun="SyncJob" ShouldProcessTarget="WorkspaceId" PipelineParameter="SyncSource" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkspace" OutputProperty="*" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkspace" OutputProperty="*" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComponentType" OutputProperty="*" Verb="Get" Noun="ComponentType" PipelineParameter="ComponentTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetComponentType" OutputProperty="*" Verb="Get" Noun="ComponentType" PipelineParameter="ComponentTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetadataTransferJob" OutputProperty="*" Verb="Get" Noun="MetadataTransferJob" PipelineParameter="MetadataTransferJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMetadataTransferJob" OutputProperty="*" Verb="Get" Noun="MetadataTransferJob" PipelineParameter="MetadataTransferJobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPricingPlan" OutputProperty="*" Verb="Get" Noun="PricingPlan" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPricingPlan" OutputProperty="*" Verb="Get" Noun="PricingPlan" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPropertyValue" OutputProperty="PropertyValues" Verb="Get" Noun="PropertyValue" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPropertyValue" OutputProperty="PropertyValues" Verb="Get" Noun="PropertyValue" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPropertyValueHistory" OutputProperty="PropertyValues" Verb="Get" Noun="PropertyValueHistory" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPropertyValueHistory" OutputProperty="PropertyValues" Verb="Get" Noun="PropertyValueHistory" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetScene" OutputProperty="*" Verb="Get" Noun="Scene" PipelineParameter="SceneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetScene" OutputProperty="*" Verb="Get" Noun="Scene" PipelineParameter="SceneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSyncJob" OutputProperty="*" Verb="Get" Noun="SyncJob" PipelineParameter="SyncSource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSyncJob" OutputProperty="*" Verb="Get" Noun="SyncJob" PipelineParameter="SyncSource" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkspace" OutputProperty="*" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkspace" OutputProperty="*" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentSummaries" Verb="Get" Noun="ComponentList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentSummaries" Verb="Get" Noun="ComponentList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponentTypes" OutputProperty="*" Verb="Get" Noun="ComponentTypeList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComponentTypes" OutputProperty="*" Verb="Get" Noun="ComponentTypeList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaries" Verb="Get" Noun="EntityList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaries" Verb="Get" Noun="EntityList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetadataTransferJobs" OutputProperty="MetadataTransferJobSummaries" Verb="Get" Noun="MetadataTransferJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListMetadataTransferJobs" OutputProperty="MetadataTransferJobSummaries" Verb="Get" Noun="MetadataTransferJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProperties" OutputProperty="PropertySummaries" Verb="Get" Noun="PropertyList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProperties" OutputProperty="PropertySummaries" Verb="Get" Noun="PropertyList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScenes" OutputProperty="SceneSummaries" Verb="Get" Noun="SceneList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListScenes" OutputProperty="SceneSummaries" Verb="Get" Noun="SceneList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSyncJobs" OutputProperty="SyncJobSummaries" Verb="Get" Noun="SyncJobList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSyncJobs" OutputProperty="SyncJobSummaries" Verb="Get" Noun="SyncJobList" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSyncResources" OutputProperty="SyncResources" Verb="Get" Noun="SyncResourceList" PipelineParameter="SyncSource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSyncResources" OutputProperty="SyncResources" Verb="Get" Noun="SyncResourceList" PipelineParameter="SyncSource" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkspaces" OutputProperty="WorkspaceSummaries" Verb="Get" Noun="WorkspaceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkspaces" OutputProperty="WorkspaceSummaries" Verb="Get" Noun="WorkspaceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateComponentType" OutputProperty="*" Verb="Update" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateComponentType" OutputProperty="*" Verb="Update" Noun="ComponentType" ShouldProcessTarget="ComponentTypeId" PipelineParameter="ComponentTypeId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEntity" OutputProperty="*" Verb="Update" Noun="Entity" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEntity" OutputProperty="*" Verb="Update" Noun="Entity" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePricingPlan" OutputProperty="*" Verb="Update" Noun="PricingPlan" ShouldProcessTarget="PricingMode" PipelineParameter="PricingMode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePricingPlan" OutputProperty="*" Verb="Update" Noun="PricingPlan" ShouldProcessTarget="PricingMode" PipelineParameter="PricingMode" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScene" OutputProperty="UpdateDateTime" Verb="Update" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScene" OutputProperty="UpdateDateTime" Verb="Update" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkspace" OutputProperty="UpdateDateTime" Verb="Update" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkspace" OutputProperty="UpdateDateTime" Verb="Update" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

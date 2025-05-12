@@ -19,111 +19,111 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateConnection" OutputProperty="ConnectionArn" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="ConnectionArn" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHost" OutputProperty="HostArn" Verb="New" Noun="Host" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHost" OutputProperty="HostArn" Verb="New" Noun="Host" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRepositoryLink" OutputProperty="RepositoryLinkInfo" Verb="New" Noun="RepositoryLink" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateRepositoryLink" OutputProperty="RepositoryLinkInfo" Verb="New" Noun="RepositoryLink" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSyncConfiguration" OutputProperty="SyncConfiguration" Verb="New" Noun="SyncConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSyncConfiguration" OutputProperty="SyncConfiguration" Verb="New" Noun="SyncConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionArn" PipelineParameter="ConnectionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionArn" PipelineParameter="ConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHost" Verb="Remove" Noun="Host" ShouldProcessTarget="HostArn" PipelineParameter="HostArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHost" Verb="Remove" Noun="Host" ShouldProcessTarget="HostArn" PipelineParameter="HostArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRepositoryLink" Verb="Remove" Noun="RepositoryLink" ShouldProcessTarget="RepositoryLinkId" PipelineParameter="RepositoryLinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRepositoryLink" Verb="Remove" Noun="RepositoryLink" ShouldProcessTarget="RepositoryLinkId" PipelineParameter="RepositoryLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSyncConfiguration" Verb="Remove" Noun="SyncConfiguration" ShouldProcessTarget="ResourceName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteSyncConfiguration" Verb="Remove" Noun="SyncConfiguration" ShouldProcessTarget="ResourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnection" OutputProperty="Connection" Verb="Get" Noun="Connection" PipelineParameter="ConnectionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConnection" OutputProperty="Connection" Verb="Get" Noun="Connection" PipelineParameter="ConnectionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHost" OutputProperty="*" Verb="Get" Noun="Host" PipelineParameter="HostArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHost" OutputProperty="*" Verb="Get" Noun="Host" PipelineParameter="HostArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepositoryLink" OutputProperty="RepositoryLinkInfo" Verb="Get" Noun="RepositoryLink" PipelineParameter="RepositoryLinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRepositoryLink" OutputProperty="RepositoryLinkInfo" Verb="Get" Noun="RepositoryLink" PipelineParameter="RepositoryLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepositorySyncStatus" OutputProperty="LatestSync" Verb="Get" Noun="RepositorySyncStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetRepositorySyncStatus" OutputProperty="LatestSync" Verb="Get" Noun="RepositorySyncStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceSyncStatus" OutputProperty="*" Verb="Get" Noun="ResourceSyncStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetResourceSyncStatus" OutputProperty="*" Verb="Get" Noun="ResourceSyncStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSyncBlockerSummary" OutputProperty="SyncBlockerSummary" Verb="Get" Noun="SyncBlockerSummary" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetSyncBlockerSummary" OutputProperty="SyncBlockerSummary" Verb="Get" Noun="SyncBlockerSummary" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSyncConfiguration" OutputProperty="SyncConfiguration" Verb="Get" Noun="SyncConfiguration" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetSyncConfiguration" OutputProperty="SyncConfiguration" Verb="Get" Noun="SyncConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnections" OutputProperty="Connections" Verb="Get" Noun="ConnectionList" PipelineParameter="ProviderTypeFilter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConnections" OutputProperty="Connections" Verb="Get" Noun="ConnectionList" PipelineParameter="ProviderTypeFilter" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHosts" OutputProperty="Hosts" Verb="Get" Noun="HostList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHosts" OutputProperty="Hosts" Verb="Get" Noun="HostList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRepositoryLinks" OutputProperty="RepositoryLinks" Verb="Get" Noun="RepositoryLinkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRepositoryLinks" OutputProperty="RepositoryLinks" Verb="Get" Noun="RepositoryLinkList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRepositorySyncDefinitions" OutputProperty="RepositorySyncDefinitions" Verb="Get" Noun="RepositorySyncDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRepositorySyncDefinitions" OutputProperty="RepositorySyncDefinitions" Verb="Get" Noun="RepositorySyncDefinitionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSyncConfigurations" OutputProperty="SyncConfigurations" Verb="Get" Noun="SyncConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSyncConfigurations" OutputProperty="SyncConfigurations" Verb="Get" Noun="SyncConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHost" Verb="Update" Noun="Host" ShouldProcessTarget="HostArn" PipelineParameter="HostArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateHost" Verb="Update" Noun="Host" ShouldProcessTarget="HostArn" PipelineParameter="HostArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryLink" OutputProperty="RepositoryLinkInfo" Verb="Update" Noun="RepositoryLink" ShouldProcessTarget="RepositoryLinkId" PipelineParameter="RepositoryLinkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRepositoryLink" OutputProperty="RepositoryLinkInfo" Verb="Update" Noun="RepositoryLink" ShouldProcessTarget="RepositoryLinkId" PipelineParameter="RepositoryLinkId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSyncBlocker" OutputProperty="*" Verb="Update" Noun="SyncBlocker" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateSyncBlocker" OutputProperty="*" Verb="Update" Noun="SyncBlocker" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSyncConfiguration" OutputProperty="SyncConfiguration" Verb="Update" Noun="SyncConfiguration" ShouldProcessTarget="ResourceName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateSyncConfiguration" OutputProperty="SyncConfiguration" Verb="Update" Noun="SyncConfiguration" ShouldProcessTarget="ResourceName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

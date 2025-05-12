@@ -18,27 +18,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="UpdateResults" Verb="Invoke" Noun="StatementBatch" ShouldProcessTarget="ResourceArn" PipelineParameter="Sql" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="UpdateResults" Verb="Invoke" Noun="StatementBatch" ShouldProcessTarget="ResourceArn" PipelineParameter="Sql" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BeginTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyAlias="Begin-RDSDTransaction">
+        <ServiceOperation MethodName="BeginTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyAlias="Begin-RDSDTransaction" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CommitTransaction" OutputProperty="TransactionStatus" Verb="Confirm" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyAlias="Commit-RDSDTransaction">
+        <ServiceOperation MethodName="CommitTransaction" OutputProperty="TransactionStatus" Verb="Confirm" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyAlias="Commit-RDSDTransaction" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteSql" OutputProperty="SqlStatementResults" Verb="Invoke" Noun="SqlStatement" AnonymousShouldProcessTarget="true" PipelineParameter="SqlStatements" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteSql" OutputProperty="SqlStatementResults" Verb="Invoke" Noun="SqlStatement" AnonymousShouldProcessTarget="true" PipelineParameter="SqlStatements" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="*" Verb="Invoke" Noun="Statement" ShouldProcessTarget="ResourceArn" PipelineParameter="Sql" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="*" Verb="Invoke" Noun="Statement" ShouldProcessTarget="ResourceArn" PipelineParameter="Sql" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RollbackTransaction" OutputProperty="TransactionStatus" Verb="Reset" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyAlias="Rollback-RDSDTransaction">
+        <ServiceOperation MethodName="RollbackTransaction" OutputProperty="TransactionStatus" Verb="Reset" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyAlias="Rollback-RDSDTransaction" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

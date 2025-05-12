@@ -19,19 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateHomeRegionControl" OutputProperty="HomeRegionControl" Verb="New" Noun="HomeRegionControl" ShouldProcessTarget="Target_Id" PipelineParameter="HomeRegion" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHomeRegionControl" OutputProperty="HomeRegionControl" Verb="New" Noun="HomeRegionControl" ShouldProcessTarget="Target_Id" PipelineParameter="HomeRegion" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHomeRegionControl" Verb="Remove" Noun="HomeRegionControl" ShouldProcessTarget="ControlId" PipelineParameter="ControlId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHomeRegionControl" Verb="Remove" Noun="HomeRegionControl" ShouldProcessTarget="ControlId" PipelineParameter="ControlId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHomeRegionControls" OutputProperty="HomeRegionControls" Verb="Get" Noun="HomeRegionControl" PipelineParameter="HomeRegion" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeHomeRegionControls" OutputProperty="HomeRegionControls" Verb="Get" Noun="HomeRegionControl" PipelineParameter="HomeRegion" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHomeRegion" OutputProperty="HomeRegion" Verb="Get" Noun="HomeRegion" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHomeRegion" OutputProperty="HomeRegion" Verb="Get" Noun="HomeRegion" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

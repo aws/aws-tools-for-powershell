@@ -18,51 +18,51 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateExport" OutputProperty="ExportArn" Verb="New" Noun="Export" ShouldProcessTarget="Export_Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateExport" OutputProperty="ExportArn" Verb="New" Noun="Export" ShouldProcessTarget="Export_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExport" OutputProperty="ExportArn" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportArn" PipelineParameter="ExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteExport" OutputProperty="ExportArn" Verb="Remove" Noun="Export" ShouldProcessTarget="ExportArn" PipelineParameter="ExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="ExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="ExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="ExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExports" OutputProperty="Exports" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExports" OutputProperty="Exports" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateExport" OutputProperty="ExportArn" Verb="Update" Noun="Export" ShouldProcessTarget="ExportArn" PipelineParameter="ExportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateExport" OutputProperty="ExportArn" Verb="Update" Noun="Export" ShouldProcessTarget="ExportArn" PipelineParameter="ExportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

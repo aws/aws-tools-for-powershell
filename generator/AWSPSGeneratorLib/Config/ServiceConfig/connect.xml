@@ -19,31 +19,31 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivateEvaluationForm" OutputProperty="*" Verb="Enable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ActivateEvaluationForm" OutputProperty="*" Verb="Enable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateApprovedOrigin" Verb="Add" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateApprovedOrigin" Verb="Add" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateBot" Verb="Add" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateBot" Verb="Add" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateDefaultVocabulary" Verb="Add" Noun="DefaultVocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateDefaultVocabulary" Verb="Add" Noun="DefaultVocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateFlow" Verb="Add" Noun="Flow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateFlow" Verb="Add" Noun="Flow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateInstanceStorageConfig" OutputProperty="AssociationId" Verb="Add" Noun="InstanceStorageConfig" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateInstanceStorageConfig" OutputProperty="AssociationId" Verb="Add" Noun="InstanceStorageConfig" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_KeyId" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId" />
@@ -52,735 +52,735 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateLambdaFunction" Verb="Add" Noun="LambdaFunction" ShouldProcessTarget="FunctionArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateLambdaFunction" Verb="Add" Noun="LambdaFunction" ShouldProcessTarget="FunctionArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateLexBot" Verb="Add" Noun="LexBot" ShouldProcessTarget="LexBot_Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateLexBot" Verb="Add" Noun="LexBot" ShouldProcessTarget="LexBot_Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePhoneNumberContactFlow" Verb="Add" Noun="PhoneNumberContactFlow" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociatePhoneNumberContactFlow" Verb="Add" Noun="PhoneNumberContactFlow" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateQueueQuickConnects" Verb="Add" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateQueueQuickConnects" Verb="Add" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateRoutingProfileQueues" Verb="Join" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateRoutingProfileQueues" Verb="Join" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateSecurityKey" OutputProperty="AssociationId" Verb="Add" Noun="SecurityKey" ShouldProcessTarget="Key" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateSecurityKey" OutputProperty="AssociationId" Verb="Add" Noun="SecurityKey" ShouldProcessTarget="Key" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTrafficDistributionGroupUser" Verb="Add" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateTrafficDistributionGroupUser" Verb="Add" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateUserProficiencies" Verb="Add" Noun="UserProficiency" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateUserProficiencies" Verb="Add" Noun="UserProficiency" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchAssociateAnalyticsDataSet" OutputProperty="*" Verb="Register" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateAnalyticsDataSet" OutputProperty="*" Verb="Unregister" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDisassociateAnalyticsDataSet" OutputProperty="*" Verb="Unregister" Noun="BatchAnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetAttachedFileMetadata" OutputProperty="*" Verb="Get" Noun="BatchAttachedFileMetadata" AnonymousShouldProcessTarget="true" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetAttachedFileMetadata" OutputProperty="*" Verb="Get" Noun="BatchAttachedFileMetadata" AnonymousShouldProcessTarget="true" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetFlowAssociation" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationBatch" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetFlowAssociation" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationBatch" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutContact" OutputProperty="*" Verb="Set" Noun="BatchPutContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutContact" OutputProperty="*" Verb="Set" Noun="BatchPutContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ClaimPhoneNumber" OutputProperty="*" Verb="Request" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ClaimPhoneNumber" OutputProperty="*" Verb="Request" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteAttachedFileUpload" Verb="Complete" Noun="AttachedFileUpload" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CompleteAttachedFileUpload" Verb="Complete" Noun="AttachedFileUpload" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAgentStatus" OutputProperty="*" Verb="New" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAgentStatus" OutputProperty="*" Verb="New" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContact" OutputProperty="*" Verb="New" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateContact" OutputProperty="*" Verb="New" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContactFlow" OutputProperty="*" Verb="New" Noun="ContactFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateContactFlow" OutputProperty="*" Verb="New" Noun="ContactFlow" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContactFlowModule" OutputProperty="*" Verb="New" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateContactFlowModule" OutputProperty="*" Verb="New" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateContactFlowVersion" OutputProperty="*" Verb="New" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateContactFlowVersion" OutputProperty="*" Verb="New" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEmailAddress" OutputProperty="*" Verb="New" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEmailAddress" OutputProperty="*" Verb="New" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEvaluationForm" OutputProperty="*" Verb="New" Noun="EvaluationForm" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEvaluationForm" OutputProperty="*" Verb="New" Noun="EvaluationForm" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHoursOfOperation" OutputProperty="*" Verb="New" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHoursOfOperation" OutputProperty="*" Verb="New" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHoursOfOperationOverride" OutputProperty="HoursOfOperationOverrideId" Verb="New" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateHoursOfOperationOverride" OutputProperty="HoursOfOperationOverrideId" Verb="New" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstance" OutputProperty="*" Verb="New" Noun="Instance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateInstance" OutputProperty="*" Verb="New" Noun="Instance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIntegrationAssociation" OutputProperty="*" Verb="New" Noun="IntegrationAssociation" ShouldProcessTarget="SourceApplicationName" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIntegrationAssociation" OutputProperty="*" Verb="New" Noun="IntegrationAssociation" ShouldProcessTarget="SourceApplicationName" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateParticipant" OutputProperty="*" Verb="New" Noun="Participant" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateParticipant" OutputProperty="*" Verb="New" Noun="Participant" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePersistentContactAssociation" OutputProperty="ContinuedFromContactId" Verb="New" Noun="PersistentContactAssociation" ShouldProcessTarget="InitialContactId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePersistentContactAssociation" OutputProperty="ContinuedFromContactId" Verb="New" Noun="PersistentContactAssociation" ShouldProcessTarget="InitialContactId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePredefinedAttribute" Verb="New" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePredefinedAttribute" Verb="New" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePrompt" OutputProperty="*" Verb="New" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePrompt" OutputProperty="*" Verb="New" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePushNotificationRegistration" OutputProperty="RegistrationId" Verb="New" Noun="PushNotificationRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePushNotificationRegistration" OutputProperty="RegistrationId" Verb="New" Noun="PushNotificationRegistration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQueue" OutputProperty="*" Verb="New" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQueue" OutputProperty="*" Verb="New" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQuickConnect" OutputProperty="*" Verb="New" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQuickConnect" OutputProperty="*" Verb="New" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoutingProfile" OutputProperty="*" Verb="New" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRoutingProfile" OutputProperty="*" Verb="New" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTaskTemplate" OutputProperty="*" Verb="New" Noun="TaskTemplate" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTaskTemplate" OutputProperty="*" Verb="New" Noun="TaskTemplate" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficDistributionGroup" OutputProperty="*" Verb="New" Noun="TrafficDistributionGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrafficDistributionGroup" OutputProperty="*" Verb="New" Noun="TrafficDistributionGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUseCase" OutputProperty="*" Verb="New" Noun="UseCase" ShouldProcessTarget="UseCaseType" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUseCase" OutputProperty="*" Verb="New" Noun="UseCase" ShouldProcessTarget="UseCaseType" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUserHierarchyGroup" OutputProperty="*" Verb="New" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUserHierarchyGroup" OutputProperty="*" Verb="New" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateView" OutputProperty="View" Verb="New" Noun="View" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateView" OutputProperty="View" Verb="New" Noun="View" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateViewVersion" OutputProperty="View" Verb="New" Noun="ViewVersion" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateViewVersion" OutputProperty="View" Verb="New" Noun="ViewVersion" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Content" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Content" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateEvaluationForm" OutputProperty="*" Verb="Disable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeactivateEvaluationForm" OutputProperty="*" Verb="Disable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAttachedFile" Verb="Remove" Noun="AttachedFile" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAttachedFile" Verb="Remove" Noun="AttachedFile" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContactEvaluation" Verb="Remove" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteContactEvaluation" Verb="Remove" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContactFlow" Verb="Remove" Noun="ContactFlow" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteContactFlow" Verb="Remove" Noun="ContactFlow" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContactFlowModule" Verb="Remove" Noun="ContactFlowModule" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteContactFlowModule" Verb="Remove" Noun="ContactFlowModule" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContactFlowVersion" Verb="Remove" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteContactFlowVersion" Verb="Remove" Noun="ContactFlowVersion" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEmailAddress" Verb="Remove" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEmailAddress" Verb="Remove" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEvaluationForm" Verb="Remove" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEvaluationForm" Verb="Remove" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHoursOfOperation" Verb="Remove" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHoursOfOperation" Verb="Remove" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHoursOfOperationOverride" Verb="Remove" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteHoursOfOperationOverride" Verb="Remove" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInstance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegrationAssociation" Verb="Remove" Noun="IntegrationAssociation" ShouldProcessTarget="IntegrationAssociationId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIntegrationAssociation" Verb="Remove" Noun="IntegrationAssociation" ShouldProcessTarget="IntegrationAssociationId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePredefinedAttribute" Verb="Remove" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePredefinedAttribute" Verb="Remove" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePrompt" Verb="Remove" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePrompt" Verb="Remove" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePushNotificationRegistration" Verb="Remove" Noun="PushNotificationRegistration" ShouldProcessTarget="RegistrationId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeletePushNotificationRegistration" Verb="Remove" Noun="PushNotificationRegistration" ShouldProcessTarget="RegistrationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQueue" Verb="Remove" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQueue" Verb="Remove" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQuickConnect" Verb="Remove" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQuickConnect" Verb="Remove" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoutingProfile" Verb="Remove" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRoutingProfile" Verb="Remove" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSecurityProfile" Verb="Remove" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSecurityProfile" Verb="Remove" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTaskTemplate" Verb="Remove" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTaskTemplate" Verb="Remove" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrafficDistributionGroup" Verb="Remove" Noun="TrafficDistributionGroup" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrafficDistributionGroup" Verb="Remove" Noun="TrafficDistributionGroup" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUseCase" Verb="Remove" Noun="UseCase" ShouldProcessTarget="UseCaseId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUseCase" Verb="Remove" Noun="UseCase" ShouldProcessTarget="UseCaseId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserHierarchyGroup" Verb="Remove" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserHierarchyGroup" Verb="Remove" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteView" Verb="Remove" Noun="View" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteView" Verb="Remove" Noun="View" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteViewVersion" Verb="Remove" Noun="ViewVersion" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteViewVersion" Verb="Remove" Noun="ViewVersion" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVocabulary" OutputProperty="*" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVocabulary" OutputProperty="*" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgentStatus" OutputProperty="AgentStatus" Verb="Get" Noun="AgentStatus" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAgentStatus" OutputProperty="AgentStatus" Verb="Get" Noun="AgentStatus" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuthenticationProfile" OutputProperty="AuthenticationProfile" Verb="Get" Noun="AuthenticationProfile" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAuthenticationProfile" OutputProperty="AuthenticationProfile" Verb="Get" Noun="AuthenticationProfile" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContact" OutputProperty="Contact" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContact" OutputProperty="Contact" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContactEvaluation" OutputProperty="*" Verb="Get" Noun="ContactEvaluation" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContactEvaluation" OutputProperty="*" Verb="Get" Noun="ContactEvaluation" PipelineParameter="EvaluationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContactFlow" OutputProperty="ContactFlow" Verb="Get" Noun="ContactFlow" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContactFlow" OutputProperty="ContactFlow" Verb="Get" Noun="ContactFlow" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContactFlowModule" OutputProperty="ContactFlowModule" Verb="Get" Noun="ContactFlowModule" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContactFlowModule" OutputProperty="ContactFlowModule" Verb="Get" Noun="ContactFlowModule" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEmailAddress" OutputProperty="*" Verb="Get" Noun="EmailAddress" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEmailAddress" OutputProperty="*" Verb="Get" Noun="EmailAddress" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvaluationForm" OutputProperty="EvaluationForm" Verb="Get" Noun="EvaluationForm" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEvaluationForm" OutputProperty="EvaluationForm" Verb="Get" Noun="EvaluationForm" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHoursOfOperation" OutputProperty="HoursOfOperation" Verb="Get" Noun="HoursOfOperation" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeHoursOfOperation" OutputProperty="HoursOfOperation" Verb="Get" Noun="HoursOfOperation" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHoursOfOperationOverride" OutputProperty="HoursOfOperationOverride" Verb="Get" Noun="HoursOfOperationOverride" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeHoursOfOperationOverride" OutputProperty="HoursOfOperationOverride" Verb="Get" Noun="HoursOfOperationOverride" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceAttribute" OutputProperty="Attribute" Verb="Get" Noun="InstanceAttribute" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeInstanceAttribute" OutputProperty="Attribute" Verb="Get" Noun="InstanceAttribute" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceStorageConfig" OutputProperty="StorageConfig" Verb="Get" Noun="InstanceStorageConfig" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeInstanceStorageConfig" OutputProperty="StorageConfig" Verb="Get" Noun="InstanceStorageConfig" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePhoneNumber" OutputProperty="ClaimedPhoneNumberSummary" Verb="Get" Noun="PhoneNumber" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePhoneNumber" OutputProperty="ClaimedPhoneNumberSummary" Verb="Get" Noun="PhoneNumber" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePredefinedAttribute" OutputProperty="PredefinedAttribute" Verb="Get" Noun="PredefinedAttribute" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePredefinedAttribute" OutputProperty="PredefinedAttribute" Verb="Get" Noun="PredefinedAttribute" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePrompt" OutputProperty="Prompt" Verb="Get" Noun="Prompt" PipelineParameter="PromptId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePrompt" OutputProperty="Prompt" Verb="Get" Noun="Prompt" PipelineParameter="PromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQueue" OutputProperty="Queue" Verb="Get" Noun="Queue" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQueue" OutputProperty="Queue" Verb="Get" Noun="Queue" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQuickConnect" OutputProperty="QuickConnect" Verb="Get" Noun="QuickConnect" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeQuickConnect" OutputProperty="QuickConnect" Verb="Get" Noun="QuickConnect" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRoutingProfile" OutputProperty="RoutingProfile" Verb="Get" Noun="RoutingProfile" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRoutingProfile" OutputProperty="RoutingProfile" Verb="Get" Noun="RoutingProfile" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRule" OutputProperty="Rule" Verb="Get" Noun="Rule" PipelineParameter="RuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRule" OutputProperty="Rule" Verb="Get" Noun="Rule" PipelineParameter="RuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="SecurityProfile" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="SecurityProfile" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrafficDistributionGroup" OutputProperty="TrafficDistributionGroup" Verb="Get" Noun="TrafficDistributionGroup" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrafficDistributionGroup" OutputProperty="TrafficDistributionGroup" Verb="Get" Noun="TrafficDistributionGroup" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" OutputProperty="User" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="User" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUserHierarchyGroup" OutputProperty="HierarchyGroup" Verb="Get" Noun="UserHierarchyGroup" PipelineParameter="HierarchyGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUserHierarchyGroup" OutputProperty="HierarchyGroup" Verb="Get" Noun="UserHierarchyGroup" PipelineParameter="HierarchyGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUserHierarchyStructure" OutputProperty="HierarchyStructure" Verb="Get" Noun="UserHierarchyStructure" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUserHierarchyStructure" OutputProperty="HierarchyStructure" Verb="Get" Noun="UserHierarchyStructure" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeView" OutputProperty="View" Verb="Get" Noun="View" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeView" OutputProperty="View" Verb="Get" Noun="View" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVocabulary" OutputProperty="Vocabulary" Verb="Get" Noun="Vocabulary" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeVocabulary" OutputProperty="Vocabulary" Verb="Get" Noun="Vocabulary" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAnalyticsDataSet" Verb="Unregister" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateAnalyticsDataSet" Verb="Unregister" Noun="AnalyticsDataSet" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateApprovedOrigin" Verb="Remove" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateApprovedOrigin" Verb="Remove" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateBot" Verb="Remove" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateBot" Verb="Remove" Noun="Bot" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFlow" Verb="Remove" Noun="Flow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateFlow" Verb="Remove" Noun="Flow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateInstanceStorageConfig" Verb="Remove" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateInstanceStorageConfig" Verb="Remove" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateLambdaFunction" Verb="Remove" Noun="LambdaFunction" ShouldProcessTarget="FunctionArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateLambdaFunction" Verb="Remove" Noun="LambdaFunction" ShouldProcessTarget="FunctionArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateLexBot" Verb="Remove" Noun="LexBot" ShouldProcessTarget="BotName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateLexBot" Verb="Remove" Noun="LexBot" ShouldProcessTarget="BotName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociatePhoneNumberContactFlow" Verb="Remove" Noun="PhoneNumberContactFlow" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociatePhoneNumberContactFlow" Verb="Remove" Noun="PhoneNumberContactFlow" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateQueueQuickConnects" Verb="Remove" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateQueueQuickConnects" Verb="Remove" Noun="QueueQuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateRoutingProfileQueues" Verb="Disconnect" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateRoutingProfileQueues" Verb="Disconnect" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateSecurityKey" Verb="Remove" Noun="SecurityKey" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateSecurityKey" Verb="Remove" Noun="SecurityKey" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTrafficDistributionGroupUser" Verb="Remove" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateTrafficDistributionGroupUser" Verb="Remove" Noun="TrafficDistributionGroupUser" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateUserProficiencies" Verb="Remove" Noun="UserProficiency" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateUserProficiencies" Verb="Remove" Noun="UserProficiency" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DismissUserContact" Verb="Write" Noun="UserContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DismissUserContact" Verb="Write" Noun="UserContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttachedFile" OutputProperty="*" Verb="Get" Noun="AttachedFile" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAttachedFile" OutputProperty="*" Verb="Get" Noun="AttachedFile" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContactAttributes" OutputProperty="Attributes" Verb="Get" Noun="ContactAttribute" PipelineParameter="InitialContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetContactAttributes" OutputProperty="Attributes" Verb="Get" Noun="ContactAttribute" PipelineParameter="InitialContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCurrentMetricData" OutputProperty="*" Verb="Get" Noun="CurrentMetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetCurrentMetricData" OutputProperty="*" Verb="Get" Noun="CurrentMetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCurrentUserData" OutputProperty="UserDataList" Verb="Get" Noun="CurrentUserData" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCurrentUserData" OutputProperty="UserDataList" Verb="Get" Noun="CurrentUserData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEffectiveHoursOfOperations" OutputProperty="*" Verb="Get" Noun="EffectiveHoursOfOperation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetEffectiveHoursOfOperations" OutputProperty="*" Verb="Get" Noun="EffectiveHoursOfOperation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFederationToken" OutputProperty="Credentials" Verb="Get" Noun="FederationToken" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFederationToken" OutputProperty="Credentials" Verb="Get" Noun="FederationToken" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFlowAssociation" OutputProperty="*" Verb="Get" Noun="FlowAssociation" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlowAssociation" OutputProperty="*" Verb="Get" Noun="FlowAssociation" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" OutputProperty="MetricResults" Verb="Get" Noun="MetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetMetricData" OutputProperty="MetricResults" Verb="Get" Noun="MetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricDataV2" OutputProperty="MetricResults" Verb="Get" Noun="MetricDataV2" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetMetricDataV2" OutputProperty="MetricResults" Verb="Get" Noun="MetricDataV2" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPromptFile" OutputProperty="PromptPresignedUrl" Verb="Get" Noun="PromptFile" PipelineParameter="PromptId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPromptFile" OutputProperty="PromptPresignedUrl" Verb="Get" Noun="PromptFile" PipelineParameter="PromptId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTaskTemplate" OutputProperty="*" Verb="Get" Noun="TaskTemplate" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTaskTemplate" OutputProperty="*" Verb="Get" Noun="TaskTemplate" PipelineParameter="TaskTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficDistribution" OutputProperty="*" Verb="Get" Noun="TrafficDistribution" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrafficDistribution" OutputProperty="*" Verb="Get" Noun="TrafficDistribution" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportPhoneNumber" OutputProperty="*" Verb="Import" Noun="PhoneNumber" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportPhoneNumber" OutputProperty="*" Verb="Import" Noun="PhoneNumber" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgentStatuses" OutputProperty="AgentStatusSummaryList" Verb="Get" Noun="AgentStatusList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgentStatuses" OutputProperty="AgentStatusSummaryList" Verb="Get" Noun="AgentStatusList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalyticsDataAssociations" OutputProperty="Results" Verb="Get" Noun="AnalyticsDataAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnalyticsDataAssociations" OutputProperty="Results" Verb="Get" Noun="AnalyticsDataAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnalyticsDataLakeDataSets" OutputProperty="Results" Verb="Get" Noun="AnalyticsDataLakeDataSetList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnalyticsDataLakeDataSets" OutputProperty="Results" Verb="Get" Noun="AnalyticsDataLakeDataSetList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApprovedOrigins" OutputProperty="Origins" Verb="Get" Noun="ApprovedOriginList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApprovedOrigins" OutputProperty="Origins" Verb="Get" Noun="ApprovedOriginList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedContacts" OutputProperty="ContactSummaryList" Verb="Get" Noun="AssociatedContactList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedContacts" OutputProperty="ContactSummaryList" Verb="Get" Noun="AssociatedContactList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuthenticationProfiles" OutputProperty="AuthenticationProfileSummaryList" Verb="Get" Noun="AuthenticationProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAuthenticationProfiles" OutputProperty="AuthenticationProfileSummaryList" Verb="Get" Noun="AuthenticationProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBots" OutputProperty="LexBots" Verb="Get" Noun="BotList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBots" OutputProperty="LexBots" Verb="Get" Noun="BotList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactEvaluations" OutputProperty="EvaluationSummaryList" Verb="Get" Noun="ContactEvaluationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContactEvaluations" OutputProperty="EvaluationSummaryList" Verb="Get" Noun="ContactEvaluationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactFlowModules" OutputProperty="ContactFlowModulesSummaryList" Verb="Get" Noun="ContactFlowModuleList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContactFlowModules" OutputProperty="ContactFlowModulesSummaryList" Verb="Get" Noun="ContactFlowModuleList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactFlows" OutputProperty="ContactFlowSummaryList" Verb="Get" Noun="ContactFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListContactFlows" OutputProperty="ContactFlowSummaryList" Verb="Get" Noun="ContactFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactFlowVersions" OutputProperty="ContactFlowVersionSummaryList" Verb="Get" Noun="ContactFlowVersionList" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContactFlowVersions" OutputProperty="ContactFlowVersionSummaryList" Verb="Get" Noun="ContactFlowVersionList" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactReferences" OutputProperty="ReferenceSummaryList" Verb="Get" Noun="ContactReferenceList" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContactReferences" OutputProperty="ReferenceSummaryList" Verb="Get" Noun="ContactReferenceList" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDefaultVocabularies" OutputProperty="DefaultVocabularyList" Verb="Get" Noun="DefaultVocabularyList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDefaultVocabularies" OutputProperty="DefaultVocabularyList" Verb="Get" Noun="DefaultVocabularyList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEvaluationForms" OutputProperty="EvaluationFormSummaryList" Verb="Get" Noun="EvaluationFormList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEvaluationForms" OutputProperty="EvaluationFormSummaryList" Verb="Get" Noun="EvaluationFormList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEvaluationFormVersions" OutputProperty="EvaluationFormVersionSummaryList" Verb="Get" Noun="EvaluationFormVersionList" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEvaluationFormVersions" OutputProperty="EvaluationFormVersionSummaryList" Verb="Get" Noun="EvaluationFormVersionList" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowAssociations" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlowAssociations" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHoursOfOperationOverrides" OutputProperty="*" Verb="Get" Noun="HoursOfOperationOverrideList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHoursOfOperationOverrides" OutputProperty="*" Verb="Get" Noun="HoursOfOperationOverrideList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHoursOfOperations" OutputProperty="HoursOfOperationSummaryList" Verb="Get" Noun="HoursOfOperationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListHoursOfOperations" OutputProperty="HoursOfOperationSummaryList" Verb="Get" Noun="HoursOfOperationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceAttributes" OutputProperty="Attributes" Verb="Get" Noun="InstanceAttributeList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstanceAttributes" OutputProperty="Attributes" Verb="Get" Noun="InstanceAttributeList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="InstanceSummaryList" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="InstanceSummaryList" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceStorageConfigs" OutputProperty="StorageConfigs" Verb="Get" Noun="InstanceStorageConfigList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListInstanceStorageConfigs" OutputProperty="StorageConfigs" Verb="Get" Noun="InstanceStorageConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIntegrationAssociations" OutputProperty="IntegrationAssociationSummaryList" Verb="Get" Noun="IntegrationAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIntegrationAssociations" OutputProperty="IntegrationAssociationSummaryList" Verb="Get" Noun="IntegrationAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLambdaFunctions" OutputProperty="LambdaFunctions" Verb="Get" Noun="LambdaFunctionList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLambdaFunctions" OutputProperty="LambdaFunctions" Verb="Get" Noun="LambdaFunctionList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLexBots" OutputProperty="LexBots" Verb="Get" Noun="LexBotList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLexBots" OutputProperty="LexBots" Verb="Get" Noun="LexBotList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumberSummaryList" Verb="Get" Noun="PhoneNumberList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumberSummaryList" Verb="Get" Noun="PhoneNumberList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPhoneNumbersV2" OutputProperty="ListPhoneNumbersSummaryList" Verb="Get" Noun="PhoneNumbersV2List" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPhoneNumbersV2" OutputProperty="ListPhoneNumbersSummaryList" Verb="Get" Noun="PhoneNumbersV2List" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPredefinedAttributes" OutputProperty="PredefinedAttributeSummaryList" Verb="Get" Noun="PredefinedAttributeList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPredefinedAttributes" OutputProperty="PredefinedAttributeSummaryList" Verb="Get" Noun="PredefinedAttributeList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaryList" Verb="Get" Noun="PromptList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaryList" Verb="Get" Noun="PromptList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueueQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QueueQuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueueQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QueueQuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueSummaryList" Verb="Get" Noun="QueueList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueSummaryList" Verb="Get" Noun="QueueList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQuickConnects" OutputProperty="QuickConnectSummaryList" Verb="Get" Noun="QuickConnectList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRealtimeContactAnalysisSegmentsV2" OutputProperty="*" Verb="Get" Noun="RealtimeContactAnalysisSegmentsV2List" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRealtimeContactAnalysisSegmentsV2" OutputProperty="*" Verb="Get" Noun="RealtimeContactAnalysisSegmentsV2List" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutingProfileQueues" OutputProperty="RoutingProfileQueueConfigSummaryList" Verb="Get" Noun="RoutingProfileQueueList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoutingProfileQueues" OutputProperty="RoutingProfileQueueConfigSummaryList" Verb="Get" Noun="RoutingProfileQueueList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutingProfiles" OutputProperty="RoutingProfileSummaryList" Verb="Get" Noun="RoutingProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListRoutingProfiles" OutputProperty="RoutingProfileSummaryList" Verb="Get" Noun="RoutingProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRules" OutputProperty="RuleSummaryList" Verb="Get" Noun="RuleList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRules" OutputProperty="RuleSummaryList" Verb="Get" Noun="RuleList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityKeys" OutputProperty="SecurityKeys" Verb="Get" Noun="SecurityKeyList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSecurityKeys" OutputProperty="SecurityKeys" Verb="Get" Noun="SecurityKeyList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfileApplications" OutputProperty="Applications" Verb="Get" Noun="SecurityProfileApplicationList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSecurityProfileApplications" OutputProperty="Applications" Verb="Get" Noun="SecurityProfileApplicationList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfilePermissions" OutputProperty="Permissions" Verb="Get" Noun="SecurityProfilePermissionList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSecurityProfilePermissions" OutputProperty="Permissions" Verb="Get" Noun="SecurityProfilePermissionList" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileSummaryList" Verb="Get" Noun="SecurityProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileSummaryList" Verb="Get" Noun="SecurityProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTaskTemplates" OutputProperty="TaskTemplates" Verb="Get" Noun="TaskTemplateList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTaskTemplates" OutputProperty="TaskTemplates" Verb="Get" Noun="TaskTemplateList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficDistributionGroups" OutputProperty="TrafficDistributionGroupSummaryList" Verb="Get" Noun="TrafficDistributionGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrafficDistributionGroups" OutputProperty="TrafficDistributionGroupSummaryList" Verb="Get" Noun="TrafficDistributionGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficDistributionGroupUsers" OutputProperty="TrafficDistributionGroupUserSummaryList" Verb="Get" Noun="TrafficDistributionGroupUserList" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrafficDistributionGroupUsers" OutputProperty="TrafficDistributionGroupUserSummaryList" Verb="Get" Noun="TrafficDistributionGroupUserList" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUseCases" OutputProperty="UseCaseSummaryList" Verb="Get" Noun="UseCaseList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUseCases" OutputProperty="UseCaseSummaryList" Verb="Get" Noun="UseCaseList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserHierarchyGroups" OutputProperty="UserHierarchyGroupSummaryList" Verb="Get" Noun="UserHierarchyGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListUserHierarchyGroups" OutputProperty="UserHierarchyGroupSummaryList" Verb="Get" Noun="UserHierarchyGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserProficiencies" OutputProperty="*" Verb="Get" Noun="UserProficiencyList" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserProficiencies" OutputProperty="*" Verb="Get" Noun="UserProficiencyList" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="UserSummaryList" Verb="Get" Noun="UserList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="UserSummaryList" Verb="Get" Noun="UserList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListViews" OutputProperty="ViewsSummaryList" Verb="Get" Noun="ViewList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListViews" OutputProperty="ViewsSummaryList" Verb="Get" Noun="ViewList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListViewVersions" OutputProperty="ViewVersionSummaryList" Verb="Get" Noun="ViewVersionList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListViewVersions" OutputProperty="ViewVersionSummaryList" Verb="Get" Noun="ViewVersionList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MonitorContact" OutputProperty="*" Verb="Start" Noun="ContactMonitoring" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MonitorContact" OutputProperty="*" Verb="Start" Noun="ContactMonitoring" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PauseContact" Verb="Invoke" Noun="PauseContact" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PauseContact" Verb="Invoke" Noun="PauseContact" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutUserStatus" Verb="Write" Noun="UserStatus" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutUserStatus" Verb="Write" Noun="UserStatus" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReleasePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReleasePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReplicateInstance" OutputProperty="*" Verb="Copy" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReplicateInstance" OutputProperty="*" Verb="Copy" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeContact" Verb="Invoke" Noun="ResumeContact" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResumeContact" Verb="Invoke" Noun="ResumeContact" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResumeContactRecording" Verb="Resume" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResumeContactRecording" Verb="Resume" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchAgentStatuses" OutputProperty="*" Verb="Search" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchAgentStatuses" OutputProperty="*" Verb="Search" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -791,31 +791,31 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchAvailablePhoneNumbers" OutputProperty="AvailableNumbersList" Verb="Search" Noun="AvailablePhoneNumber" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchAvailablePhoneNumbers" OutputProperty="AvailableNumbersList" Verb="Search" Noun="AvailablePhoneNumber" ShouldProcessTarget="TargetArn" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchContactFlowModules" OutputProperty="*" Verb="Search" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchContactFlowModules" OutputProperty="*" Verb="Search" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchContactFlows" OutputProperty="*" Verb="Search" Noun="ContactFlow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchContactFlows" OutputProperty="*" Verb="Search" Noun="ContactFlow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchContacts" OutputProperty="*" Verb="Search" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchContacts" OutputProperty="*" Verb="Search" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchEmailAddresses" OutputProperty="*" Verb="Search" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchEmailAddresses" OutputProperty="*" Verb="Search" Noun="EmailAddress" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchHoursOfOperationOverrides" OutputProperty="*" Verb="Search" Noun="HoursOfOperationOverride" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchHoursOfOperationOverrides" OutputProperty="*" Verb="Search" Noun="HoursOfOperationOverride" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchHoursOfOperations" OutputProperty="*" Verb="Search" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchHoursOfOperations" OutputProperty="*" Verb="Search" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -826,11 +826,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchPredefinedAttributes" OutputProperty="*" Verb="Search" Noun="PredefinedAttribute" IgnoreSupportsShouldProcess="true" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchPredefinedAttributes" OutputProperty="*" Verb="Search" Noun="PredefinedAttribute" IgnoreSupportsShouldProcess="true" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchPrompts" OutputProperty="*" Verb="Search" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchPrompts" OutputProperty="*" Verb="Search" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -841,7 +841,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchQueues" OutputProperty="*" Verb="Search" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchQueues" OutputProperty="*" Verb="Search" Noun="Queue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -852,7 +852,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchQuickConnects" OutputProperty="*" Verb="Search" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchQuickConnects" OutputProperty="*" Verb="Search" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -863,11 +863,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchResourceTags" OutputProperty="Tags" Verb="Search" Noun="ResourceTag" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchResourceTags" OutputProperty="Tags" Verb="Search" Noun="ResourceTag" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchRoutingProfiles" OutputProperty="*" Verb="Search" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchRoutingProfiles" OutputProperty="*" Verb="Search" Noun="RoutingProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -878,7 +878,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchSecurityProfiles" OutputProperty="*" Verb="Search" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchSecurityProfiles" OutputProperty="*" Verb="Search" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -889,7 +889,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchUserHierarchyGroups" OutputProperty="*" Verb="Search" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchUserHierarchyGroups" OutputProperty="*" Verb="Search" Noun="UserHierarchyGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchCriteria_TagCondition_TagKey" NewName="SearchCriteria_TagCondition_TagKey" Alias="SC_TagCondition_TagKey" />
@@ -900,7 +900,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="SearchCriteria_TagCondition_TagConditionOperator" NewName="SearchCriteria_TagCondition_TagConditionOperator" Alias="SC_TagCondition_TagConditionOperator" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagConditionOperator" NewName="SearchFilter_TagFilter_TagCondition_TagConditionOperator" Alias="SF_TagFilter_TagCondition_TagConditionOperator" />
@@ -917,175 +917,175 @@
                 <Type>Amazon.Connect.Model.SearchUsersRequest</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchVocabularies" OutputProperty="VocabularySummaryList" Verb="Search" Noun="Vocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchVocabularies" OutputProperty="VocabularySummaryList" Verb="Search" Noun="Vocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendChatIntegrationEvent" OutputProperty="*" Verb="Send" Noun="ChatIntegrationEvent" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DestinationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendChatIntegrationEvent" OutputProperty="*" Verb="Send" Noun="ChatIntegrationEvent" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DestinationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendOutboundEmail" Verb="Send" Noun="OutboundEmail" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendOutboundEmail" Verb="Send" Noun="OutboundEmail" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAttachedFileUpload" OutputProperty="*" Verb="Start" Noun="AttachedFileUpload" ShouldProcessTarget="AssociatedResourceArn" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAttachedFileUpload" OutputProperty="*" Verb="Start" Noun="AttachedFileUpload" ShouldProcessTarget="AssociatedResourceArn" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartChatContact" OutputProperty="*" Verb="Start" Noun="ChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartChatContact" OutputProperty="*" Verb="Start" Noun="ChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContactEvaluation" OutputProperty="*" Verb="Start" Noun="ContactEvaluation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartContactEvaluation" OutputProperty="*" Verb="Start" Noun="ContactEvaluation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContactRecording" Verb="Start" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartContactRecording" Verb="Start" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContactStreaming" OutputProperty="StreamingId" Verb="Start" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartContactStreaming" OutputProperty="StreamingId" Verb="Start" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEmailContact" OutputProperty="ContactId" Verb="Start" Noun="EmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartEmailContact" OutputProperty="ContactId" Verb="Start" Noun="EmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOutboundChatContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartOutboundChatContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundChatContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOutboundEmailContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundEmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartOutboundEmailContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundEmailContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOutboundVoiceContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundVoiceContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartOutboundVoiceContact" OutputProperty="ContactId" Verb="Start" Noun="OutboundVoiceContact" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartScreenSharing" Verb="Start" Noun="ScreenSharing" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartScreenSharing" Verb="Start" Noun="ScreenSharing" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTaskContact" OutputProperty="ContactId" Verb="Start" Noun="TaskContact" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartTaskContact" OutputProperty="ContactId" Verb="Start" Noun="TaskContact" ShouldProcessTarget="Name" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWebRTCContact" OutputProperty="*" Verb="Start" Noun="WebRTCContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartWebRTCContact" OutputProperty="*" Verb="Start" Noun="WebRTCContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopContact" Verb="Stop" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopContact" Verb="Stop" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopContactRecording" Verb="Stop" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopContactRecording" Verb="Stop" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopContactStreaming" Verb="Stop" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopContactStreaming" Verb="Stop" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubmitContactEvaluation" OutputProperty="*" Verb="Submit" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SubmitContactEvaluation" OutputProperty="*" Verb="Submit" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SuspendContactRecording" Verb="Suspend" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SuspendContactRecording" Verb="Suspend" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagContact" Verb="Add" Noun="ContactTag" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagContact" Verb="Add" Noun="ContactTag" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TransferContact" OutputProperty="*" Verb="Move" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TransferContact" OutputProperty="*" Verb="Move" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagContact" Verb="Remove" Noun="ContactTag" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagContact" Verb="Remove" Noun="ContactTag" AnonymousShouldProcessTarget="true" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgentStatus" Verb="Update" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgentStatus" Verb="Update" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAuthenticationProfile" Verb="Update" Noun="AuthenticationProfile" ShouldProcessTarget="AuthenticationProfileId" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAuthenticationProfile" Verb="Update" Noun="AuthenticationProfile" ShouldProcessTarget="AuthenticationProfileId" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactAttributes" Verb="Update" Noun="ContactAttribute" ShouldProcessTarget="InitialContactId" PipelineParameter="InitialContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactAttributes" Verb="Update" Noun="ContactAttribute" ShouldProcessTarget="InitialContactId" PipelineParameter="InitialContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactEvaluation" OutputProperty="*" Verb="Update" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactEvaluation" OutputProperty="*" Verb="Update" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactFlowContent" Verb="Update" Noun="ContactFlowContent" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactFlowContent" Verb="Update" Noun="ContactFlowContent" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactFlowMetadata" Verb="Update" Noun="ContactFlowMetadata" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactFlowMetadata" Verb="Update" Noun="ContactFlowMetadata" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactFlowModuleContent" Verb="Update" Noun="ContactFlowModuleContent" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactFlowModuleContent" Verb="Update" Noun="ContactFlowModuleContent" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactFlowModuleMetadata" Verb="Update" Noun="ContactFlowModuleMetadata" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactFlowModuleMetadata" Verb="Update" Noun="ContactFlowModuleMetadata" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactFlowName" Verb="Update" Noun="ContactFlowName" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactFlowName" Verb="Update" Noun="ContactFlowName" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactRoutingData" Verb="Update" Noun="ContactRoutingData" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactRoutingData" Verb="Update" Noun="ContactRoutingData" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateContactSchedule" Verb="Update" Noun="ContactSchedule" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateContactSchedule" Verb="Update" Noun="ContactSchedule" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEmailAddressMetadata" OutputProperty="*" Verb="Update" Noun="EmailAddressMetadata" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEmailAddressMetadata" OutputProperty="*" Verb="Update" Noun="EmailAddressMetadata" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEvaluationForm" OutputProperty="*" Verb="Update" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEvaluationForm" OutputProperty="*" Verb="Update" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHoursOfOperation" Verb="Update" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateHoursOfOperation" Verb="Update" Noun="HoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHoursOfOperationOverride" Verb="Update" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateHoursOfOperationOverride" Verb="Update" Noun="HoursOfOperationOverride" ShouldProcessTarget="HoursOfOperationOverrideId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstanceAttribute" Verb="Update" Noun="InstanceAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateInstanceAttribute" Verb="Update" Noun="InstanceAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstanceStorageConfig" Verb="Update" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateInstanceStorageConfig" Verb="Update" Noun="InstanceStorageConfig" ShouldProcessTarget="AssociationId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType" />
                 <Param Name="StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_KeyId" NewName="StorageConfigKinesisVideoStreamConfigEncryptionConfigKeyId" />
@@ -1094,135 +1094,135 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateParticipantAuthentication" Verb="Update" Noun="ParticipantAuthentication" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateParticipantAuthentication" Verb="Update" Noun="ParticipantAuthentication" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" ShouldProcessTarget="ContactId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" ShouldProcessTarget="ContactId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="*" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="*" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePhoneNumberMetadata" Verb="Update" Noun="PhoneNumberMetadata" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePhoneNumberMetadata" Verb="Update" Noun="PhoneNumberMetadata" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePredefinedAttribute" Verb="Update" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePredefinedAttribute" Verb="Update" Noun="PredefinedAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePrompt" OutputProperty="*" Verb="Update" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePrompt" OutputProperty="*" Verb="Update" Noun="Prompt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQueueHoursOfOperation" Verb="Update" Noun="QueueHoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQueueHoursOfOperation" Verb="Update" Noun="QueueHoursOfOperation" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQueueMaxContacts" Verb="Update" Noun="QueueMaxContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQueueMaxContacts" Verb="Update" Noun="QueueMaxContact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQueueName" Verb="Update" Noun="QueueName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQueueName" Verb="Update" Noun="QueueName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQueueOutboundCallerConfig" Verb="Update" Noun="QueueOutboundCallerConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQueueOutboundCallerConfig" Verb="Update" Noun="QueueOutboundCallerConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQueueOutboundEmailConfig" Verb="Update" Noun="QueueOutboundEmailConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQueueOutboundEmailConfig" Verb="Update" Noun="QueueOutboundEmailConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQueueStatus" Verb="Update" Noun="QueueStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQueueStatus" Verb="Update" Noun="QueueStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQuickConnectConfig" Verb="Update" Noun="QuickConnectConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQuickConnectConfig" Verb="Update" Noun="QuickConnectConfig" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQuickConnectName" Verb="Update" Noun="QuickConnectName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateQuickConnectName" Verb="Update" Noun="QuickConnectName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingProfileAgentAvailabilityTimer" Verb="Update" Noun="RoutingProfileAgentAvailabilityTimer" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateRoutingProfileAgentAvailabilityTimer" Verb="Update" Noun="RoutingProfileAgentAvailabilityTimer" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingProfileConcurrency" Verb="Update" Noun="RoutingProfileConcurrency" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingProfileConcurrency" Verb="Update" Noun="RoutingProfileConcurrency" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingProfileDefaultOutboundQueue" Verb="Update" Noun="RoutingProfileDefaultOutboundQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingProfileDefaultOutboundQueue" Verb="Update" Noun="RoutingProfileDefaultOutboundQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingProfileName" Verb="Update" Noun="RoutingProfileName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingProfileName" Verb="Update" Noun="RoutingProfileName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoutingProfileQueues" Verb="Update" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoutingProfileQueues" Verb="Update" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRule" Verb="Update" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRule" Verb="Update" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSecurityProfile" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSecurityProfile" Verb="Update" Noun="SecurityProfile" ShouldProcessTarget="SecurityProfileId" PipelineParameter="SecurityProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTaskTemplate" OutputProperty="*" Verb="Update" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTaskTemplate" OutputProperty="*" Verb="Update" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrafficDistribution" Verb="Update" Noun="TrafficDistribution" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrafficDistribution" Verb="Update" Noun="TrafficDistribution" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserHierarchy" Verb="Update" Noun="UserHierarchy" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserHierarchy" Verb="Update" Noun="UserHierarchy" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserHierarchyGroupName" Verb="Update" Noun="UserHierarchyGroupName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserHierarchyGroupName" Verb="Update" Noun="UserHierarchyGroupName" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserHierarchyStructure" Verb="Update" Noun="UserHierarchyStructure" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserHierarchyStructure" Verb="Update" Noun="UserHierarchyStructure" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserIdentityInfo" Verb="Update" Noun="UserIdentityInfo" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserIdentityInfo" Verb="Update" Noun="UserIdentityInfo" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserPhoneConfig" Verb="Update" Noun="UserPhoneConfig" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserPhoneConfig" Verb="Update" Noun="UserPhoneConfig" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserProficiencies" Verb="Update" Noun="UserProficiency" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserProficiencies" Verb="Update" Noun="UserProficiency" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserRoutingProfile" Verb="Update" Noun="UserRoutingProfile" ShouldProcessTarget="RoutingProfileId" PipelineParameter="RoutingProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserRoutingProfile" Verb="Update" Noun="UserRoutingProfile" ShouldProcessTarget="RoutingProfileId" PipelineParameter="RoutingProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserSecurityProfiles" Verb="Update" Noun="UserSecurityProfile" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserSecurityProfiles" Verb="Update" Noun="UserSecurityProfile" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateViewContent" OutputProperty="View" Verb="Update" Noun="ViewContent" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateViewContent" OutputProperty="View" Verb="Update" Noun="ViewContent" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateViewMetadata" Verb="Update" Noun="ViewMetadata" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateViewMetadata" Verb="Update" Noun="ViewMetadata" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

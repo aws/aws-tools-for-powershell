@@ -27,83 +27,83 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="Status" Verb="Set" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="Status" Verb="Set" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHapg" OutputProperty="HapgArn" Verb="New" Noun="PartitionGroup" ShouldProcessTarget="Label" PipelineParameter="Label" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHapg" OutputProperty="HapgArn" Verb="New" Noun="PartitionGroup" ShouldProcessTarget="Label" PipelineParameter="Label" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHsm" OutputProperty="HsmArn" Verb="New" Noun="Item" AnonymousShouldProcessTarget="true" PipelineParameter="IamRoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHsm" OutputProperty="HsmArn" Verb="New" Noun="Item" AnonymousShouldProcessTarget="true" PipelineParameter="IamRoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLunaClient" OutputProperty="ClientArn" Verb="New" Noun="LunaClient" ShouldProcessTarget="Certificate" PipelineParameter="Certificate" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLunaClient" OutputProperty="ClientArn" Verb="New" Noun="LunaClient" ShouldProcessTarget="Certificate" PipelineParameter="Certificate" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHapg" OutputProperty="Status" Verb="Remove" Noun="PartitionGroup" ShouldProcessTarget="HapgArn" PipelineParameter="HapgArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHapg" OutputProperty="Status" Verb="Remove" Noun="PartitionGroup" ShouldProcessTarget="HapgArn" PipelineParameter="HapgArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHsm" OutputProperty="Status" Verb="Remove" Noun="Item" ShouldProcessTarget="HsmArn" PipelineParameter="HsmArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteHsm" OutputProperty="Status" Verb="Remove" Noun="Item" ShouldProcessTarget="HsmArn" PipelineParameter="HsmArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLunaClient" OutputProperty="Status" Verb="Remove" Noun="LunaClient" ShouldProcessTarget="ClientArn" PipelineParameter="ClientArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteLunaClient" OutputProperty="Status" Verb="Remove" Noun="LunaClient" ShouldProcessTarget="ClientArn" PipelineParameter="ClientArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHapg" OutputProperty="*" Verb="Get" Noun="PartitionGroup" PipelineParameter="HapgArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeHapg" OutputProperty="*" Verb="Get" Noun="PartitionGroup" PipelineParameter="HapgArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHsm" OutputProperty="*" Verb="Get" Noun="Item" PipelineParameter="HsmArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeHsm" OutputProperty="*" Verb="Get" Noun="Item" PipelineParameter="HsmArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLunaClient" OutputProperty="*" Verb="Get" Noun="LunaClient" PipelineParameter="ClientArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLunaClient" OutputProperty="*" Verb="Get" Noun="LunaClient" PipelineParameter="ClientArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfig" OutputProperty="*" Verb="Get" Noun="Config" PipelineParameter="ClientArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfig" OutputProperty="*" Verb="Get" Noun="Config" PipelineParameter="ClientArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableZones" OutputProperty="AZList" Verb="Get" Noun="AvailableZone" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-HSMAvailableZones">
+        <ServiceOperation MethodName="ListAvailableZones" OutputProperty="AZList" Verb="Get" Noun="AvailableZone" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-HSMAvailableZones" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHapgs" OutputProperty="HapgList" Verb="Get" Noun="PartitionGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHapgs" OutputProperty="HapgList" Verb="Get" Noun="PartitionGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHsms" OutputProperty="HsmList" Verb="Get" Noun="ItemList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHsms" OutputProperty="HsmList" Verb="Get" Noun="ItemList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLunaClients" OutputProperty="ClientList" Verb="Get" Noun="LunaClientList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLunaClients" OutputProperty="ClientList" Verb="Get" Noun="LunaClientList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyHapg" OutputProperty="HapgArn" Verb="Edit" Noun="PartitionGroup" ShouldProcessTarget="HapgArn" PipelineParameter="HapgArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyHapg" OutputProperty="HapgArn" Verb="Edit" Noun="PartitionGroup" ShouldProcessTarget="HapgArn" PipelineParameter="HapgArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyHsm" OutputProperty="HsmArn" Verb="Edit" Noun="Item" ShouldProcessTarget="HsmArn" PipelineParameter="HsmArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyHsm" OutputProperty="HsmArn" Verb="Edit" Noun="Item" ShouldProcessTarget="HsmArn" PipelineParameter="HsmArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyLunaClient" OutputProperty="ClientArn" Verb="Edit" Noun="LunaClient" ShouldProcessTarget="ClientArn" PipelineParameter="ClientArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyLunaClient" OutputProperty="ClientArn" Verb="Edit" Noun="LunaClient" ShouldProcessTarget="ClientArn" PipelineParameter="ClientArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="Status" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="Status" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

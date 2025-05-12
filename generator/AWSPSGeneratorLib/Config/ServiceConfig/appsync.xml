@@ -22,31 +22,31 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateApi" OutputProperty="ApiAssociation" Verb="Start" Noun="ApiAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateApi" OutputProperty="ApiAssociation" Verb="Start" Noun="ApiAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateMergedGraphqlApi" OutputProperty="SourceApiAssociation" Verb="Start" Noun="MergedGraphqlApi" ShouldProcessTarget="SourceApiIdentifier" PipelineParameter="SourceApiIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateMergedGraphqlApi" OutputProperty="SourceApiAssociation" Verb="Start" Noun="MergedGraphqlApi" ShouldProcessTarget="SourceApiIdentifier" PipelineParameter="SourceApiIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateSourceGraphqlApi" OutputProperty="SourceApiAssociation" Verb="Start" Noun="SourceGraphqlApi" ShouldProcessTarget="MergedApiIdentifier" PipelineParameter="MergedApiIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateSourceGraphqlApi" OutputProperty="SourceApiAssociation" Verb="Start" Noun="SourceGraphqlApi" ShouldProcessTarget="MergedApiIdentifier" PipelineParameter="MergedApiIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApi" OutputProperty="Api" Verb="New" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApi" OutputProperty="Api" Verb="New" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApiCache" OutputProperty="ApiCache" Verb="New" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApiCache" OutputProperty="ApiCache" Verb="New" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApiKey" OutputProperty="ApiKey" Verb="New" Noun="ApiKey" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApiKey" OutputProperty="ApiKey" Verb="New" Noun="ApiKey" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannelNamespace" OutputProperty="ChannelNamespace" Verb="New" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChannelNamespace" OutputProperty="ChannelNamespace" Verb="New" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HandlerConfigs_OnPublish_Integration_DataSourceName" NewName="OnPublish_Integration_DataSourceName" />
                 <Param Name="HandlerConfigs_OnSubscribe_Integration_DataSourceName" NewName="OnSubscribe_Integration_DataSourceName" />
@@ -55,243 +55,243 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSource" OutputProperty="DataSource" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="DataSource" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainName" OutputProperty="DomainNameConfig" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDomainName" OutputProperty="DomainNameConfig" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFunction" OutputProperty="FunctionConfiguration" Verb="New" Noun="Function" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFunction" OutputProperty="FunctionConfiguration" Verb="New" Noun="Function" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGraphqlApi" OutputProperty="GraphqlApi" Verb="New" Noun="GraphqlApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGraphqlApi" OutputProperty="GraphqlApi" Verb="New" Noun="GraphqlApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResolver" OutputProperty="Resolver" Verb="New" Noun="Resolver" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResolver" OutputProperty="Resolver" Verb="New" Noun="Resolver" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateType" OutputProperty="Type" Verb="New" Noun="Type" ShouldProcessTarget="ApiId" PipelineParameter="Definition" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateType" OutputProperty="Type" Verb="New" Noun="Type" ShouldProcessTarget="ApiId" PipelineParameter="Definition" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApi" Verb="Remove" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApi" Verb="Remove" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApiCache" Verb="Remove" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApiCache" Verb="Remove" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApiKey" Verb="Remove" Noun="ApiKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApiKey" Verb="Remove" Noun="ApiKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannelNamespace" Verb="Remove" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannelNamespace" Verb="Remove" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSource" Verb="Remove" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomainName" Verb="Remove" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDomainName" Verb="Remove" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionId" PipelineParameter="FunctionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionId" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGraphqlApi" Verb="Remove" Noun="GraphqlApi" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGraphqlApi" Verb="Remove" Noun="GraphqlApi" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResolver" Verb="Remove" Noun="Resolver" ShouldProcessTarget="TypeName" PipelineParameter="FieldName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResolver" Verb="Remove" Noun="Resolver" ShouldProcessTarget="TypeName" PipelineParameter="FieldName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteType" Verb="Remove" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteType" Verb="Remove" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateApi" Verb="Stop" Noun="ApiAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateApi" Verb="Stop" Noun="ApiAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMergedGraphqlApi" OutputProperty="SourceApiAssociationStatus" Verb="Stop" Noun="MergedGraphqlApi" ShouldProcessTarget="SourceApiIdentifier" PipelineParameter="SourceApiIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateMergedGraphqlApi" OutputProperty="SourceApiAssociationStatus" Verb="Stop" Noun="MergedGraphqlApi" ShouldProcessTarget="SourceApiIdentifier" PipelineParameter="SourceApiIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateSourceGraphqlApi" OutputProperty="SourceApiAssociationStatus" Verb="Stop" Noun="SourceGraphqlApi" ShouldProcessTarget="MergedApiIdentifier" PipelineParameter="MergedApiIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateSourceGraphqlApi" OutputProperty="SourceApiAssociationStatus" Verb="Stop" Noun="SourceGraphqlApi" ShouldProcessTarget="MergedApiIdentifier" PipelineParameter="MergedApiIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EvaluateCode" OutputProperty="*" Verb="Test" Noun="Code" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="EvaluateCode" OutputProperty="*" Verb="Test" Noun="Code" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EvaluateMappingTemplate" OutputProperty="*" Verb="Test" Noun="MappingTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="EvaluateMappingTemplate" OutputProperty="*" Verb="Test" Noun="MappingTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="FlushApiCache" Verb="Clear" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="FlushApiCache" Verb="Clear" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApi" OutputProperty="Api" Verb="Get" Noun="Api" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApi" OutputProperty="Api" Verb="Get" Noun="Api" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiAssociation" OutputProperty="ApiAssociation" Verb="Get" Noun="ApiAssociation" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApiAssociation" OutputProperty="ApiAssociation" Verb="Get" Noun="ApiAssociation" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiCache" OutputProperty="ApiCache" Verb="Get" Noun="ApiCache" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApiCache" OutputProperty="ApiCache" Verb="Get" Noun="ApiCache" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannelNamespace" OutputProperty="ChannelNamespace" Verb="Get" Noun="ChannelNamespace" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChannelNamespace" OutputProperty="ChannelNamespace" Verb="Get" Noun="ChannelNamespace" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSourceIntrospection" OutputProperty="*" Verb="Get" Noun="DataSourceIntrospection" PipelineParameter="IntrospectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataSourceIntrospection" OutputProperty="*" Verb="Get" Noun="DataSourceIntrospection" PipelineParameter="IntrospectionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainName" OutputProperty="DomainNameConfig" Verb="Get" Noun="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDomainName" OutputProperty="DomainNameConfig" Verb="Get" Noun="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunction" OutputProperty="FunctionConfiguration" Verb="Get" Noun="Function" PipelineParameter="FunctionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFunction" OutputProperty="FunctionConfiguration" Verb="Get" Noun="Function" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGraphqlApi" OutputProperty="GraphqlApi" Verb="Get" Noun="GraphqlApi" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGraphqlApi" OutputProperty="GraphqlApi" Verb="Get" Noun="GraphqlApi" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGraphqlApiEnvironmentVariables" OutputProperty="EnvironmentVariables" Verb="Get" Noun="GraphqlApiEnvironmentVariable" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGraphqlApiEnvironmentVariables" OutputProperty="EnvironmentVariables" Verb="Get" Noun="GraphqlApiEnvironmentVariable" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntrospectionSchema" OutputProperty="Schema" Verb="Get" Noun="IntrospectionSchema" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIntrospectionSchema" OutputProperty="Schema" Verb="Get" Noun="IntrospectionSchema" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolver" OutputProperty="Resolver" Verb="Get" Noun="Resolver" PipelineParameter="FieldName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResolver" OutputProperty="Resolver" Verb="Get" Noun="Resolver" PipelineParameter="FieldName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSchemaCreationStatus" OutputProperty="*" Verb="Get" Noun="SchemaCreationStatus" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSchemaCreationStatus" OutputProperty="*" Verb="Get" Noun="SchemaCreationStatus" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Get" Noun="SourceApiAssociation" PipelineParameter="AssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Get" Noun="SourceApiAssociation" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetType" OutputProperty="Type" Verb="Get" Noun="Type" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetType" OutputProperty="Type" Verb="Get" Noun="Type" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApiKeys" OutputProperty="ApiKeys" Verb="Get" Noun="ApiKeyList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListApiKeys" OutputProperty="ApiKeys" Verb="Get" Noun="ApiKeyList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApis" OutputProperty="Apis" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApis" OutputProperty="Apis" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannelNamespaces" OutputProperty="ChannelNamespaces" Verb="Get" Noun="ChannelNamespaceList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannelNamespaces" OutputProperty="ChannelNamespaces" Verb="Get" Noun="ChannelNamespaceList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNameConfigs" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNameConfigs" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="ApiType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="ApiType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolvers" OutputProperty="Resolvers" Verb="Get" Noun="ResolverList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResolvers" OutputProperty="Resolvers" Verb="Get" Noun="ResolverList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolversByFunction" OutputProperty="Resolvers" Verb="Get" Noun="ResolverListByFunction" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResolversByFunction" OutputProperty="Resolvers" Verb="Get" Noun="ResolverListByFunction" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSourceApiAssociations" OutputProperty="SourceApiAssociationSummaries" Verb="Get" Noun="SourceApiAssociationList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSourceApiAssociations" OutputProperty="SourceApiAssociationSummaries" Verb="Get" Noun="SourceApiAssociationList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypesByAssociation" OutputProperty="Types" Verb="Get" Noun="TypesByAssociationList" PipelineParameter="AssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTypesByAssociation" OutputProperty="Types" Verb="Get" Noun="TypesByAssociationList" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutGraphqlApiEnvironmentVariables" OutputProperty="EnvironmentVariables" Verb="Write" Noun="GraphqlApiEnvironmentVariable" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutGraphqlApiEnvironmentVariables" OutputProperty="EnvironmentVariables" Verb="Write" Noun="GraphqlApiEnvironmentVariable" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDataSourceIntrospection" OutputProperty="*" Verb="Start" Noun="DataSourceIntrospection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartDataSourceIntrospection" OutputProperty="*" Verb="Start" Noun="DataSourceIntrospection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSchemaCreation" OutputProperty="Status" Verb="Start" Noun="SchemaCreation" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSchemaCreation" OutputProperty="Status" Verb="Start" Noun="SchemaCreation" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSchemaMerge" OutputProperty="SourceApiAssociationStatus" Verb="Start" Noun="SchemaMerge" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSchemaMerge" OutputProperty="SourceApiAssociationStatus" Verb="Start" Noun="SchemaMerge" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApi" OutputProperty="Api" Verb="Update" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApi" OutputProperty="Api" Verb="Update" Noun="Api" ShouldProcessTarget="Name" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApiCache" OutputProperty="ApiCache" Verb="Update" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApiCache" OutputProperty="ApiCache" Verb="Update" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApiKey" OutputProperty="ApiKey" Verb="Update" Noun="ApiKey" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApiKey" OutputProperty="ApiKey" Verb="Update" Noun="ApiKey" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannelNamespace" OutputProperty="ChannelNamespace" Verb="Update" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannelNamespace" OutputProperty="ChannelNamespace" Verb="Update" Noun="ChannelNamespace" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="HandlerConfigs_OnPublish_Integration_DataSourceName" NewName="OnPublish_Integration_DataSourceName" />
                 <Param Name="HandlerConfigs_OnSubscribe_Integration_DataSourceName" NewName="OnSubscribe_Integration_DataSourceName" />
@@ -300,31 +300,31 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainName" OutputProperty="DomainNameConfig" Verb="Update" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDomainName" OutputProperty="DomainNameConfig" Verb="Update" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunction" OutputProperty="FunctionConfiguration" Verb="Update" Noun="Function" ShouldProcessTarget="FunctionId" PipelineParameter="FunctionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFunction" OutputProperty="FunctionConfiguration" Verb="Update" Noun="Function" ShouldProcessTarget="FunctionId" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGraphqlApi" OutputProperty="GraphqlApi" Verb="Update" Noun="GraphqlApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGraphqlApi" OutputProperty="GraphqlApi" Verb="Update" Noun="GraphqlApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolver" OutputProperty="Resolver" Verb="Update" Noun="Resolver" ShouldProcessTarget="FieldName" PipelineParameter="FieldName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResolver" OutputProperty="Resolver" Verb="Update" Noun="Resolver" ShouldProcessTarget="FieldName" PipelineParameter="FieldName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Update" Noun="SourceApiAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Update" Noun="SourceApiAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateType" OutputProperty="Type" Verb="Update" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateType" OutputProperty="Type" Verb="Update" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

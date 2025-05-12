@@ -18,139 +18,139 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateToConfiguration" Verb="Register" Noun="Association" ShouldProcessTarget="ChatConfiguration" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateToConfiguration" Verb="Register" Noun="Association" ShouldProcessTarget="ChatConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="New" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="New" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomAction" OutputProperty="CustomActionArn" Verb="New" Noun="CustomAction" ShouldProcessTarget="ActionName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCustomAction" OutputProperty="CustomActionArn" Verb="New" Noun="CustomAction" ShouldProcessTarget="ActionName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="New" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="New" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSlackChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="New" Noun="SlackChannelConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateSlackChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="New" Noun="SlackChannelConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChimeWebhookConfiguration" Verb="Remove" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChimeWebhookConfiguration" Verb="Remove" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomAction" Verb="Remove" Noun="CustomAction" ShouldProcessTarget="CustomActionArn" PipelineParameter="CustomActionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCustomAction" Verb="Remove" Noun="CustomAction" ShouldProcessTarget="CustomActionArn" PipelineParameter="CustomActionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMicrosoftTeamsChannelConfiguration" Verb="Remove" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMicrosoftTeamsChannelConfiguration" Verb="Remove" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMicrosoftTeamsConfiguredTeam" Verb="Remove" Noun="MicrosoftTeamsConfiguredTeam" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMicrosoftTeamsConfiguredTeam" Verb="Remove" Noun="MicrosoftTeamsConfiguredTeam" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMicrosoftTeamsUserIdentity" Verb="Remove" Noun="MicrosoftTeamsUserIdentity" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMicrosoftTeamsUserIdentity" Verb="Remove" Noun="MicrosoftTeamsUserIdentity" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlackChannelConfiguration" Verb="Remove" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSlackChannelConfiguration" Verb="Remove" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlackUserIdentity" Verb="Remove" Noun="SlackUserIdentity" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSlackUserIdentity" Verb="Remove" Noun="SlackUserIdentity" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSlackWorkspaceAuthorization" Verb="Remove" Noun="SlackWorkspaceAuthorization" ShouldProcessTarget="SlackTeamId" PipelineParameter="SlackTeamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSlackWorkspaceAuthorization" Verb="Remove" Noun="SlackWorkspaceAuthorization" ShouldProcessTarget="SlackTeamId" PipelineParameter="SlackTeamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChimeWebhookConfigurations" OutputProperty="WebhookConfigurations" Verb="Get" Noun="ChimeWebhookConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeChimeWebhookConfigurations" OutputProperty="WebhookConfigurations" Verb="Get" Noun="ChimeWebhookConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSlackChannelConfigurations" OutputProperty="SlackChannelConfigurations" Verb="Get" Noun="SlackChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSlackChannelConfigurations" OutputProperty="SlackChannelConfigurations" Verb="Get" Noun="SlackChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSlackUserIdentities" OutputProperty="SlackUserIdentities" Verb="Get" Noun="SlackUserIdentity" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSlackUserIdentities" OutputProperty="SlackUserIdentities" Verb="Get" Noun="SlackUserIdentity" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSlackWorkspaces" OutputProperty="SlackWorkspaces" Verb="Get" Noun="SlackWorkspace" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSlackWorkspaces" OutputProperty="SlackWorkspaces" Verb="Get" Noun="SlackWorkspace" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFromConfiguration" Verb="Unregister" Noun="Association" ShouldProcessTarget="ChatConfiguration" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateFromConfiguration" Verb="Unregister" Noun="Association" ShouldProcessTarget="ChatConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountPreferences" OutputProperty="AccountPreferences" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountPreferences" OutputProperty="AccountPreferences" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCustomAction" OutputProperty="CustomAction" Verb="Get" Noun="CustomAction" PipelineParameter="CustomActionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCustomAction" OutputProperty="CustomAction" Verb="Get" Noun="CustomAction" PipelineParameter="CustomActionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Get" Noun="MicrosoftTeamsChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Get" Noun="MicrosoftTeamsChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociations" OutputProperty="Associations" Verb="Get" Noun="AssociationList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAssociations" OutputProperty="Associations" Verb="Get" Noun="AssociationList" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomActions" OutputProperty="CustomActions" Verb="Get" Noun="CustomActionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCustomActions" OutputProperty="CustomActions" Verb="Get" Noun="CustomActionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMicrosoftTeamsChannelConfigurations" OutputProperty="TeamChannelConfigurations" Verb="Get" Noun="MicrosoftTeamsChannelConfigurationList" PipelineParameter="TeamId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMicrosoftTeamsChannelConfigurations" OutputProperty="TeamChannelConfigurations" Verb="Get" Noun="MicrosoftTeamsChannelConfigurationList" PipelineParameter="TeamId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMicrosoftTeamsConfiguredTeams" OutputProperty="ConfiguredTeams" Verb="Get" Noun="MicrosoftTeamsConfiguredTeamList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMicrosoftTeamsConfiguredTeams" OutputProperty="ConfiguredTeams" Verb="Get" Noun="MicrosoftTeamsConfiguredTeamList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMicrosoftTeamsUserIdentities" OutputProperty="TeamsUserIdentities" Verb="Get" Noun="MicrosoftTeamsUserIdentityList" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMicrosoftTeamsUserIdentities" OutputProperty="TeamsUserIdentities" Verb="Get" Noun="MicrosoftTeamsUserIdentityList" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountPreferences" OutputProperty="AccountPreferences" Verb="Update" Noun="AccountPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateAccountPreferences" OutputProperty="AccountPreferences" Verb="Update" Noun="AccountPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="Update" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="Update" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomAction" OutputProperty="CustomActionArn" Verb="Update" Noun="CustomAction" ShouldProcessTarget="CustomActionArn" PipelineParameter="CustomActionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCustomAction" OutputProperty="CustomActionArn" Verb="Update" Noun="CustomAction" ShouldProcessTarget="CustomActionArn" PipelineParameter="CustomActionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Update" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Update" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSlackChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Update" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSlackChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Update" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,275 +19,275 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetNamedQuery" OutputProperty="*" Verb="Get" Noun="NamedQueryBatch" PipelineParameter="NamedQueryIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetNamedQuery" OutputProperty="*" Verb="Get" Noun="NamedQueryBatch" PipelineParameter="NamedQueryIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetPreparedStatement" OutputProperty="*" Verb="Get" Noun="BatchPreparedStatement" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetPreparedStatement" OutputProperty="*" Verb="Get" Noun="BatchPreparedStatement" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetQueryExecution" OutputProperty="*" Verb="Get" Noun="QueryExecutionBatch" PipelineParameter="QueryExecutionIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetQueryExecution" OutputProperty="*" Verb="Get" Noun="QueryExecutionBatch" PipelineParameter="QueryExecutionIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelCapacityReservation" Verb="Stop" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelCapacityReservation" Verb="Stop" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCapacityReservation" Verb="New" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCapacityReservation" Verb="New" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataCatalog" OutputProperty="*" Verb="New" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataCatalog" OutputProperty="*" Verb="New" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNamedQuery" OutputProperty="NamedQueryId" Verb="New" Noun="NamedQuery" ShouldProcessTarget="Name" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNamedQuery" OutputProperty="NamedQueryId" Verb="New" Noun="NamedQuery" ShouldProcessTarget="Name" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotebook" OutputProperty="NotebookId" Verb="New" Noun="Notebook" ShouldProcessTarget="Name" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNotebook" OutputProperty="NotebookId" Verb="New" Noun="Notebook" ShouldProcessTarget="Name" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePreparedStatement" Verb="New" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="QueryStatement" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePreparedStatement" Verb="New" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="QueryStatement" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePresignedNotebookUrl" OutputProperty="*" Verb="New" Noun="PresignedNotebookUrl" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePresignedNotebookUrl" OutputProperty="*" Verb="New" Noun="PresignedNotebookUrl" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkGroup" Verb="New" Noun="WorkGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkGroup" Verb="New" Noun="WorkGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCapacityReservation" Verb="Remove" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCapacityReservation" Verb="Remove" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataCatalog" OutputProperty="*" Verb="Remove" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataCatalog" OutputProperty="*" Verb="Remove" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNamedQuery" Verb="Remove" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNamedQuery" Verb="Remove" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotebook" Verb="Remove" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNotebook" Verb="Remove" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePreparedStatement" Verb="Remove" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePreparedStatement" Verb="Remove" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkGroup" Verb="Remove" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkGroup" Verb="Remove" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportNotebook" OutputProperty="*" Verb="Export" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExportNotebook" OutputProperty="*" Verb="Export" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCalculationExecution" OutputProperty="*" Verb="Get" Noun="CalculationExecution" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCalculationExecution" OutputProperty="*" Verb="Get" Noun="CalculationExecution" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCalculationExecutionCode" OutputProperty="CodeBlock" Verb="Get" Noun="CalculationExecutionCode" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCalculationExecutionCode" OutputProperty="CodeBlock" Verb="Get" Noun="CalculationExecutionCode" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCalculationExecutionStatus" OutputProperty="*" Verb="Get" Noun="CalculationExecutionStatus" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCalculationExecutionStatus" OutputProperty="*" Verb="Get" Noun="CalculationExecutionStatus" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCapacityAssignmentConfiguration" OutputProperty="CapacityAssignmentConfiguration" Verb="Get" Noun="CapacityAssignmentConfiguration" PipelineParameter="CapacityReservationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCapacityAssignmentConfiguration" OutputProperty="CapacityAssignmentConfiguration" Verb="Get" Noun="CapacityAssignmentConfiguration" PipelineParameter="CapacityReservationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCapacityReservation" OutputProperty="CapacityReservation" Verb="Get" Noun="CapacityReservation" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCapacityReservation" OutputProperty="CapacityReservation" Verb="Get" Noun="CapacityReservation" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataCatalog" OutputProperty="DataCatalog" Verb="Get" Noun="DataCatalog" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataCatalog" OutputProperty="DataCatalog" Verb="Get" Noun="DataCatalog" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNamedQuery" OutputProperty="NamedQuery" Verb="Get" Noun="NamedQuery" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetNamedQuery" OutputProperty="NamedQuery" Verb="Get" Noun="NamedQuery" PipelineParameter="NamedQueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNotebookMetadata" OutputProperty="NotebookMetadata" Verb="Get" Noun="NotebookMetadata" PipelineParameter="NotebookId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetNotebookMetadata" OutputProperty="NotebookMetadata" Verb="Get" Noun="NotebookMetadata" PipelineParameter="NotebookId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPreparedStatement" OutputProperty="PreparedStatement" Verb="Get" Noun="PreparedStatement" PipelineParameter="StatementName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPreparedStatement" OutputProperty="PreparedStatement" Verb="Get" Noun="PreparedStatement" PipelineParameter="StatementName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryExecution" OutputProperty="QueryExecution" Verb="Get" Noun="QueryExecution" PipelineParameter="QueryExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryExecution" OutputProperty="QueryExecution" Verb="Get" Noun="QueryExecution" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet?.Rows?.Count">
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet?.Rows?.Count" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryRuntimeStatistics" OutputProperty="*" Verb="Get" Noun="QueryRuntimeStatistic" PipelineParameter="QueryExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueryRuntimeStatistics" OutputProperty="*" Verb="Get" Noun="QueryRuntimeStatistic" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSessionStatus" OutputProperty="*" Verb="Get" Noun="SessionStatus" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSessionStatus" OutputProperty="*" Verb="Get" Noun="SessionStatus" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableMetadata" OutputProperty="TableMetadata" Verb="Get" Noun="TableMetadata" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableMetadata" OutputProperty="TableMetadata" Verb="Get" Noun="TableMetadata" PipelineParameter="TableName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkGroup" OutputProperty="WorkGroup" Verb="Get" Noun="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkGroup" OutputProperty="WorkGroup" Verb="Get" Noun="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportNotebook" OutputProperty="NotebookId" Verb="Import" Noun="Notebook" ShouldProcessTarget="Name" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportNotebook" OutputProperty="NotebookId" Verb="Import" Noun="Notebook" ShouldProcessTarget="Name" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationDPUSizes" OutputProperty="ApplicationDPUSizes" Verb="Get" Noun="ApplicationDPUSizeList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationDPUSizes" OutputProperty="ApplicationDPUSizes" Verb="Get" Noun="ApplicationDPUSizeList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCalculationExecutions" OutputProperty="Calculations" Verb="Get" Noun="CalculationExecutionList" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCalculationExecutions" OutputProperty="Calculations" Verb="Get" Noun="CalculationExecutionList" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabasisList" PipelineParameter="CatalogName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabasisList" PipelineParameter="CatalogName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataCatalogs" OutputProperty="DataCatalogsSummary" Verb="Get" Noun="DataCatalogList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDataCatalogs" OutputProperty="DataCatalogsSummary" Verb="Get" Noun="DataCatalogList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEngineVersions" OutputProperty="EngineVersions" Verb="Get" Noun="EngineVersionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEngineVersions" OutputProperty="EngineVersions" Verb="Get" Noun="EngineVersionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutors" OutputProperty="*" Verb="Get" Noun="ExecutorList" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExecutors" OutputProperty="*" Verb="Get" Noun="ExecutorList" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookMetadata" OutputProperty="NotebookMetadataList" Verb="Get" Noun="NotebookMetadataList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNotebookMetadata" OutputProperty="NotebookMetadataList" Verb="Get" Noun="NotebookMetadataList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookSessions" OutputProperty="NotebookSessionsList" Verb="Get" Noun="NotebookSessionList" PipelineParameter="NotebookId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNotebookSessions" OutputProperty="NotebookSessionsList" Verb="Get" Noun="NotebookSessionList" PipelineParameter="NotebookId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPreparedStatements" OutputProperty="PreparedStatements" Verb="Get" Noun="PreparedStatementList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPreparedStatements" OutputProperty="PreparedStatements" Verb="Get" Noun="PreparedStatementList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTableMetadata" OutputProperty="TableMetadataList" Verb="Get" Noun="TableMetadataList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTableMetadata" OutputProperty="TableMetadataList" Verb="Get" Noun="TableMetadataList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkGroups" OutputProperty="WorkGroups" Verb="Get" Noun="WorkGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListWorkGroups" OutputProperty="WorkGroups" Verb="Get" Noun="WorkGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutCapacityAssignmentConfiguration" Verb="Write" Noun="CapacityAssignmentConfiguration" ShouldProcessTarget="CapacityReservationName" PipelineParameter="CapacityReservationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutCapacityAssignmentConfiguration" Verb="Write" Noun="CapacityAssignmentConfiguration" ShouldProcessTarget="CapacityReservationName" PipelineParameter="CapacityReservationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCalculationExecution" OutputProperty="*" Verb="Start" Noun="CalculationExecution" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCalculationExecution" OutputProperty="*" Verb="Start" Noun="CalculationExecution" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQueryExecution" OutputProperty="QueryExecutionId" Verb="Start" Noun="QueryExecution" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartQueryExecution" OutputProperty="QueryExecutionId" Verb="Start" Noun="QueryExecution" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopCalculationExecution" OutputProperty="State" Verb="Stop" Noun="CalculationExecution" ShouldProcessTarget="CalculationExecutionId" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopCalculationExecution" OutputProperty="State" Verb="Stop" Noun="CalculationExecution" ShouldProcessTarget="CalculationExecutionId" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQueryExecution" Verb="Stop" Noun="QueryExecution" ShouldProcessTarget="QueryExecutionId" PipelineParameter="QueryExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopQueryExecution" Verb="Stop" Noun="QueryExecution" ShouldProcessTarget="QueryExecutionId" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateSession" OutputProperty="State" Verb="Remove" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateSession" OutputProperty="State" Verb="Remove" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCapacityReservation" Verb="Update" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCapacityReservation" Verb="Update" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataCatalog" Verb="Update" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataCatalog" Verb="Update" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNamedQuery" Verb="Update" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNamedQuery" Verb="Update" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotebook" Verb="Update" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNotebook" Verb="Update" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotebookMetadata" Verb="Update" Noun="NotebookMetadata" ShouldProcessTarget="Name" PipelineParameter="NotebookId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNotebookMetadata" Verb="Update" Noun="NotebookMetadata" ShouldProcessTarget="Name" PipelineParameter="NotebookId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePreparedStatement" Verb="Update" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePreparedStatement" Verb="Update" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkGroup" Verb="Update" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkGroup" Verb="Update" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

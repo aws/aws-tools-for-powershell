@@ -18,123 +18,123 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateProfile" OutputProperty="Profile" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="Profile" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrustAnchor" OutputProperty="TrustAnchor" Verb="New" Noun="TrustAnchor" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTrustAnchor" OutputProperty="TrustAnchor" Verb="New" Noun="TrustAnchor" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAttributeMapping" OutputProperty="Profile" Verb="Remove" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAttributeMapping" OutputProperty="Profile" Verb="Remove" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCrl" OutputProperty="Crl" Verb="Remove" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCrl" OutputProperty="Crl" Verb="Remove" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProfile" OutputProperty="Profile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProfile" OutputProperty="Profile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrustAnchor" OutputProperty="TrustAnchor" Verb="Remove" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrustAnchor" OutputProperty="TrustAnchor" Verb="Remove" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableCrl" OutputProperty="Crl" Verb="Disable" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableCrl" OutputProperty="Crl" Verb="Disable" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableProfile" OutputProperty="Profile" Verb="Disable" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableProfile" OutputProperty="Profile" Verb="Disable" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableTrustAnchor" OutputProperty="TrustAnchor" Verb="Disable" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableTrustAnchor" OutputProperty="TrustAnchor" Verb="Disable" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableCrl" OutputProperty="Crl" Verb="Enable" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableCrl" OutputProperty="Crl" Verb="Enable" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableProfile" OutputProperty="Profile" Verb="Enable" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableProfile" OutputProperty="Profile" Verb="Enable" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableTrustAnchor" OutputProperty="TrustAnchor" Verb="Enable" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableTrustAnchor" OutputProperty="TrustAnchor" Verb="Enable" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCrl" OutputProperty="Crl" Verb="Get" Noun="Crl" PipelineParameter="CrlId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCrl" OutputProperty="Crl" Verb="Get" Noun="Crl" PipelineParameter="CrlId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSubject" OutputProperty="Subject" Verb="Get" Noun="Subject" PipelineParameter="SubjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSubject" OutputProperty="Subject" Verb="Get" Noun="Subject" PipelineParameter="SubjectId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrustAnchor" OutputProperty="TrustAnchor" Verb="Get" Noun="TrustAnchor" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrustAnchor" OutputProperty="TrustAnchor" Verb="Get" Noun="TrustAnchor" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportCrl" OutputProperty="Crl" Verb="Import" Noun="Crl" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ImportCrl" OutputProperty="Crl" Verb="Import" Noun="Crl" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCrls" OutputProperty="Crls" Verb="Get" Noun="CrlList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCrls" OutputProperty="Crls" Verb="Get" Noun="CrlList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="Profiles" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubjects" OutputProperty="Subjects" Verb="Get" Noun="SubjectList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSubjects" OutputProperty="Subjects" Verb="Get" Noun="SubjectList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrustAnchors" OutputProperty="TrustAnchors" Verb="Get" Noun="TrustAnchorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrustAnchors" OutputProperty="TrustAnchors" Verb="Get" Noun="TrustAnchorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAttributeMapping" OutputProperty="Profile" Verb="Write" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAttributeMapping" OutputProperty="Profile" Verb="Write" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutNotificationSettings" OutputProperty="TrustAnchor" Verb="Write" Noun="NotificationSetting" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutNotificationSettings" OutputProperty="TrustAnchor" Verb="Write" Noun="NotificationSetting" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetNotificationSettings" OutputProperty="TrustAnchor" Verb="Reset" Noun="NotificationSetting" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetNotificationSettings" OutputProperty="TrustAnchor" Verb="Reset" Noun="NotificationSetting" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCrl" OutputProperty="Crl" Verb="Update" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCrl" OutputProperty="Crl" Verb="Update" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProfile" OutputProperty="Profile" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProfile" OutputProperty="Profile" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrustAnchor" OutputProperty="TrustAnchor" Verb="Update" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrustAnchor" OutputProperty="TrustAnchor" Verb="Update" Noun="TrustAnchor" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

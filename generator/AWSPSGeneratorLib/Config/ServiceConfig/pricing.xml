@@ -21,23 +21,23 @@
         <Property>FormatVersion</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttributeValues" OutputProperty="AttributeValues" Verb="Get" Noun="AttributeValue" PipelineParameter="AttributeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetAttributeValues" OutputProperty="AttributeValues" Verb="Get" Noun="AttributeValue" PipelineParameter="AttributeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPriceListFileUrl" OutputProperty="Url" Verb="Get" Noun="PriceListFileUrl" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetPriceListFileUrl" OutputProperty="Url" Verb="Get" Noun="PriceListFileUrl" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProducts" OutputProperty="PriceList" Verb="Get" Noun="Product" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetProducts" OutputProperty="PriceList" Verb="Get" Noun="Product" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPriceLists" OutputProperty="PriceLists" Verb="Get" Noun="PriceListList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPriceLists" OutputProperty="PriceLists" Verb="Get" Noun="PriceListList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

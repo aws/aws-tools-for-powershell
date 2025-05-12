@@ -18,84 +18,84 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" Verb="Add" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" Verb="Add" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationInput" Verb="Add" Noun="ApplicationInput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddApplicationInput" Verb="Add" Noun="ApplicationInput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" Verb="Add" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" Verb="Add" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationOutput" Verb="Add" Noun="ApplicationOutput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddApplicationOutput" Verb="Add" Noun="ApplicationOutput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationReferenceDataSource" Verb="Add" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddApplicationReferenceDataSource" Verb="Add" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationSummary" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationSummary" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" Verb="Remove" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="CloudWatchLoggingOptionId" PipelineParameter="CloudWatchLoggingOptionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" Verb="Remove" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="CloudWatchLoggingOptionId" PipelineParameter="CloudWatchLoggingOptionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" Verb="Remove" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" Verb="Remove" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationOutput" Verb="Remove" Noun="ApplicationOutput" ShouldProcessTarget="OutputId" PipelineParameter="OutputId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationOutput" Verb="Remove" Noun="ApplicationOutput" ShouldProcessTarget="OutputId" PipelineParameter="OutputId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationReferenceDataSource" Verb="Remove" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ReferenceId" PipelineParameter="ReferenceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationReferenceDataSource" Verb="Remove" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ReferenceId" PipelineParameter="ReferenceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplication" OutputProperty="ApplicationDetail" Verb="Get" Noun="Application" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplication" OutputProperty="ApplicationDetail" Verb="Get" Noun="Application" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" Exclude="true" ShouldProcessTarget="" PipelineParameter="ExclusiveStartApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" Exclude="true" ShouldProcessTarget="" PipelineParameter="ExclusiveStartApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="ExclusiveStartApplicationName" Next="ApplicationSummaries" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartApplication" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartApplication" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -24,127 +24,127 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="*" Verb="New" Noun="AccessPoint" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAccessPoint" OutputProperty="*" Verb="New" Noun="AccessPoint" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFileSystem" OutputProperty="*" Verb="New" Noun="FileSystem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateFileSystem" OutputProperty="*" Verb="New" Noun="FileSystem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMountTarget" OutputProperty="*" Verb="New" Noun="MountTarget" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMountTarget" OutputProperty="*" Verb="New" Noun="MountTarget" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicationConfiguration" OutputProperty="*" Verb="New" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceFileSystemId" PipelineParameter="SourceFileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReplicationConfiguration" OutputProperty="*" Verb="New" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceFileSystemId" PipelineParameter="SourceFileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="Tags" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="Tags" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="AccessPointId" PipelineParameter="AccessPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccessPoint" Verb="Remove" Noun="AccessPoint" ShouldProcessTarget="AccessPointId" PipelineParameter="AccessPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFileSystem" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFileSystem" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFileSystemPolicy" Verb="Remove" Noun="FileSystemPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFileSystemPolicy" Verb="Remove" Noun="FileSystemPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMountTarget" Verb="Remove" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMountTarget" Verb="Remove" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReplicationConfiguration" Verb="Remove" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceFileSystemId" PipelineParameter="SourceFileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReplicationConfiguration" Verb="Remove" Noun="ReplicationConfiguration" ShouldProcessTarget="SourceFileSystemId" PipelineParameter="SourceFileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccessPoints" OutputProperty="AccessPoints" Verb="Get" Noun="AccessPoint" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccessPoints" OutputProperty="AccessPoints" Verb="Get" Noun="AccessPoint" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountPreferences" OutputProperty="ResourceIdPreference" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountPreferences" OutputProperty="ResourceIdPreference" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackupPolicy" OutputProperty="BackupPolicy" Verb="Get" Noun="BackupPolicy" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBackupPolicy" OutputProperty="BackupPolicy" Verb="Get" Noun="BackupPolicy" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileSystemPolicy" OutputProperty="*" Verb="Get" Noun="FileSystemPolicy" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFileSystemPolicy" OutputProperty="*" Verb="Get" Noun="FileSystemPolicy" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLifecycleConfiguration" OutputProperty="LifecyclePolicies" Verb="Get" Noun="LifecycleConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLifecycleConfiguration" OutputProperty="LifecyclePolicies" Verb="Get" Noun="LifecycleConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMountTargets" OutputProperty="MountTargets" Verb="Get" Noun="MountTarget" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeMountTargets" OutputProperty="MountTargets" Verb="Get" Noun="MountTarget" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="MountTargetSecurityGroup" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="MountTargetSecurityGroup" PipelineParameter="MountTargetId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationConfigurations" OutputProperty="Replications" Verb="Get" Noun="ReplicationConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReplicationConfigurations" OutputProperty="Replications" Verb="Get" Noun="ReplicationConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" Verb="Edit" Noun="MountTargetSecurityGroup" ShouldProcessTarget="MountTargetId" PipelineParameter="SecurityGroups" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" Verb="Edit" Noun="MountTargetSecurityGroup" ShouldProcessTarget="MountTargetId" PipelineParameter="SecurityGroups" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAccountPreferences" OutputProperty="ResourceIdPreference" Verb="Write" Noun="AccountPreference" ShouldProcessTarget="ResourceIdType" PipelineParameter="ResourceIdType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutAccountPreferences" OutputProperty="ResourceIdPreference" Verb="Write" Noun="AccountPreference" ShouldProcessTarget="ResourceIdType" PipelineParameter="ResourceIdType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutBackupPolicy" OutputProperty="BackupPolicy" Verb="Write" Noun="BackupPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutBackupPolicy" OutputProperty="BackupPolicy" Verb="Write" Noun="BackupPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFileSystemPolicy" OutputProperty="*" Verb="Write" Noun="FileSystemPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutFileSystemPolicy" OutputProperty="*" Verb="Write" Noun="FileSystemPolicy" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecycleConfiguration" OutputProperty="LifecyclePolicies" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutLifecycleConfiguration" OutputProperty="LifecyclePolicies" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFileSystem" OutputProperty="*" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFileSystem" OutputProperty="*" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFileSystemProtection" OutputProperty="ReplicationOverwriteProtection" Verb="Update" Noun="FileSystemProtection" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFileSystemProtection" OutputProperty="ReplicationOverwriteProtection" Verb="Update" Noun="FileSystemProtection" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

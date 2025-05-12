@@ -18,123 +18,123 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateNamespace" OutputProperty="*" Verb="New" Noun="Namespace" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNamespace" OutputProperty="*" Verb="New" Noun="Namespace" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTable" OutputProperty="*" Verb="New" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTable" OutputProperty="*" Verb="New" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTableBucket" OutputProperty="Arn" Verb="New" Noun="TableBucket" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTableBucket" OutputProperty="Arn" Verb="New" Noun="TableBucket" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNamespace" Verb="Remove" Noun="Namespace" ShouldProcessTarget="Namespace" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteNamespace" Verb="Remove" Noun="Namespace" ShouldProcessTarget="Namespace" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTableBucket" Verb="Remove" Noun="TableBucket" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTableBucket" Verb="Remove" Noun="TableBucket" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTableBucketEncryption" Verb="Remove" Noun="TableBucketEncryption" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTableBucketEncryption" Verb="Remove" Noun="TableBucketEncryption" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTableBucketPolicy" Verb="Remove" Noun="TableBucketPolicy" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTableBucketPolicy" Verb="Remove" Noun="TableBucketPolicy" ShouldProcessTarget="TableBucketARN" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTablePolicy" Verb="Remove" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteTablePolicy" Verb="Remove" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNamespace" OutputProperty="*" Verb="Get" Noun="Namespace" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetNamespace" OutputProperty="*" Verb="Get" Noun="Namespace" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableBucket" OutputProperty="*" Verb="Get" Noun="TableBucket" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableBucket" OutputProperty="*" Verb="Get" Noun="TableBucket" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableBucketEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableBucketEncryption" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableBucketEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableBucketEncryption" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableBucketMaintenanceConfiguration" OutputProperty="*" Verb="Get" Noun="TableBucketMaintenanceConfiguration" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableBucketMaintenanceConfiguration" OutputProperty="*" Verb="Get" Noun="TableBucketMaintenanceConfiguration" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableBucketPolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="TableBucketPolicy" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableBucketPolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="TableBucketPolicy" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableEncryption" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTableEncryption" OutputProperty="EncryptionConfiguration" Verb="Get" Noun="TableEncryption" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableMaintenanceConfiguration" OutputProperty="*" Verb="Get" Noun="TableMaintenanceConfiguration" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTableMaintenanceConfiguration" OutputProperty="*" Verb="Get" Noun="TableMaintenanceConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableMaintenanceJobStatus" OutputProperty="*" Verb="Get" Noun="TableMaintenanceJobStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTableMaintenanceJobStatus" OutputProperty="*" Verb="Get" Noun="TableMaintenanceJobStatus" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableMetadataLocation" OutputProperty="*" Verb="Get" Noun="TableMetadataLocation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTableMetadataLocation" OutputProperty="*" Verb="Get" Noun="TableMetadataLocation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTablePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="TablePolicy" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTablePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="TablePolicy" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamespaces" OutputProperty="*" Verb="Get" Noun="NamespaceList" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNamespaces" OutputProperty="*" Verb="Get" Noun="NamespaceList" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTableBuckets" OutputProperty="*" Verb="Get" Noun="TableBucketList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTableBuckets" OutputProperty="*" Verb="Get" Noun="TableBucketList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="*" Verb="Get" Noun="TableList" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTables" OutputProperty="*" Verb="Get" Noun="TableList" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTableBucketEncryption" Verb="Write" Noun="TableBucketEncryption" ShouldProcessTarget="EncryptionConfiguration_KmsKeyArn" PipelineParameter="TableBucketARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutTableBucketEncryption" Verb="Write" Noun="TableBucketEncryption" ShouldProcessTarget="EncryptionConfiguration_KmsKeyArn" PipelineParameter="TableBucketARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTableBucketMaintenanceConfiguration" Verb="Write" Noun="TableBucketMaintenanceConfiguration" ShouldProcessTarget="TableBucketARN" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutTableBucketMaintenanceConfiguration" Verb="Write" Noun="TableBucketMaintenanceConfiguration" ShouldProcessTarget="TableBucketARN" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTableBucketPolicy" Verb="Write" Noun="TableBucketPolicy" ShouldProcessTarget="TableBucketARN" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutTableBucketPolicy" Verb="Write" Noun="TableBucketPolicy" ShouldProcessTarget="TableBucketARN" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTableMaintenanceConfiguration" Verb="Write" Noun="TableMaintenanceConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutTableMaintenanceConfiguration" Verb="Write" Noun="TableMaintenanceConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutTablePolicy" Verb="Write" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutTablePolicy" Verb="Write" Noun="TablePolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenameTable" Verb="Rename" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RenameTable" Verb="Rename" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTableMetadataLocation" OutputProperty="*" Verb="Update" Noun="TableMetadataLocation" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateTableMetadataLocation" OutputProperty="*" Verb="Update" Noun="TableMetadataLocation" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

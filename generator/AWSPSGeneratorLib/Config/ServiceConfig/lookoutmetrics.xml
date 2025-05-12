@@ -18,23 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivateAnomalyDetector" Verb="Enable" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ActivateAnomalyDetector" Verb="Enable" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BackTestAnomalyDetector" Verb="Enable" Noun="BackTestAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BackTestAnomalyDetector" Verb="Enable" Noun="BackTestAnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlert" OutputProperty="AlertArn" Verb="New" Noun="Alert" ShouldProcessTarget="AlertName" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAlert" OutputProperty="AlertArn" Verb="New" Noun="Alert" ShouldProcessTarget="AlertName" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="New" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorName" PipelineParameter="AnomalyDetectorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="New" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorName" PipelineParameter="AnomalyDetectorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMetricSet" OutputProperty="MetricSetArn" Verb="New" Noun="MetricSet" ShouldProcessTarget="MetricSetName" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMetricSet" OutputProperty="MetricSetArn" Verb="New" Noun="MetricSet" ShouldProcessTarget="MetricSetName" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" NewName="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" Alias="CloudWatch_BackTestConfiguration_RunBackTestMode" />
                 <Param Name="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" NewName="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" Alias="RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" />
@@ -44,103 +44,103 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateAnomalyDetector" Verb="Disable" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeactivateAnomalyDetector" Verb="Disable" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlert" Verb="Remove" Noun="Alert" ShouldProcessTarget="AlertArn" PipelineParameter="AlertArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAlert" Verb="Remove" Noun="Alert" ShouldProcessTarget="AlertArn" PipelineParameter="AlertArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnomalyDetector" Verb="Remove" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnomalyDetector" Verb="Remove" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlert" OutputProperty="Alert" Verb="Get" Noun="Alert" PipelineParameter="AlertArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlert" OutputProperty="Alert" Verb="Get" Noun="Alert" PipelineParameter="AlertArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnomalyDetectionExecutions" OutputProperty="ExecutionList" Verb="Get" Noun="AnomalyDetectionExecution" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAnomalyDetectionExecutions" OutputProperty="ExecutionList" Verb="Get" Noun="AnomalyDetectionExecution" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnomalyDetector" OutputProperty="*" Verb="Get" Noun="AnomalyDetector" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAnomalyDetector" OutputProperty="*" Verb="Get" Noun="AnomalyDetector" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMetricSet" OutputProperty="*" Verb="Get" Noun="MetricSet" PipelineParameter="MetricSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMetricSet" OutputProperty="*" Verb="Get" Noun="MetricSet" PipelineParameter="MetricSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectMetricSetConfig" OutputProperty="DetectedMetricSetConfig" Verb="Get" Noun="MetricSetConfig" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetectMetricSetConfig" OutputProperty="DetectedMetricSetConfig" Verb="Get" Noun="MetricSetConfig" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnomalyGroup" OutputProperty="AnomalyGroup" Verb="Get" Noun="AnomalyGroup" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnomalyGroup" OutputProperty="AnomalyGroup" Verb="Get" Noun="AnomalyGroup" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataQualityMetrics" OutputProperty="AnomalyDetectorDataQualityMetricList" Verb="Get" Noun="DataQualityMetricList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataQualityMetrics" OutputProperty="AnomalyDetectorDataQualityMetricList" Verb="Get" Noun="DataQualityMetricList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFeedback" OutputProperty="AnomalyGroupTimeSeriesFeedback" Verb="Get" Noun="Feedback" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFeedback" OutputProperty="AnomalyGroupTimeSeriesFeedback" Verb="Get" Noun="Feedback" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSampleData" OutputProperty="*" Verb="Get" Noun="SampleData" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetSampleData" OutputProperty="*" Verb="Get" Noun="SampleData" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAlerts" OutputProperty="AlertSummaryList" Verb="Get" Noun="AlertList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAlerts" OutputProperty="AlertSummaryList" Verb="Get" Noun="AlertList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnomalyDetectors" OutputProperty="AnomalyDetectorSummaryList" Verb="Get" Noun="AnomalyDetectorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnomalyDetectors" OutputProperty="AnomalyDetectorSummaryList" Verb="Get" Noun="AnomalyDetectorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnomalyGroupRelatedMetrics" OutputProperty="InterMetricImpactList" Verb="Get" Noun="AnomalyGroupRelatedMetricList" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnomalyGroupRelatedMetrics" OutputProperty="InterMetricImpactList" Verb="Get" Noun="AnomalyGroupRelatedMetricList" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnomalyGroupSummaries" OutputProperty="*" Verb="Get" Noun="AnomalyGroupSummaryList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnomalyGroupSummaries" OutputProperty="*" Verb="Get" Noun="AnomalyGroupSummaryList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnomalyGroupTimeSeries" OutputProperty="*" Verb="Get" Noun="AnomalyGroupTimeSeriesList" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnomalyGroupTimeSeries" OutputProperty="*" Verb="Get" Noun="AnomalyGroupTimeSeriesList" PipelineParameter="AnomalyGroupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetricSets" OutputProperty="MetricSetSummaryList" Verb="Get" Noun="MetricSetList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMetricSets" OutputProperty="MetricSetSummaryList" Verb="Get" Noun="MetricSetList" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFeedback" Verb="Write" Noun="Feedback" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutFeedback" Verb="Write" Noun="Feedback" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAlert" OutputProperty="AlertArn" Verb="Update" Noun="Alert" ShouldProcessTarget="AlertArn" PipelineParameter="AlertArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAlert" OutputProperty="AlertArn" Verb="Update" Noun="Alert" ShouldProcessTarget="AlertArn" PipelineParameter="AlertArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="Update" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnomalyDetector" OutputProperty="AnomalyDetectorArn" Verb="Update" Noun="AnomalyDetector" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMetricSet" OutputProperty="MetricSetArn" Verb="Update" Noun="MetricSet" ShouldProcessTarget="MetricSetArn" PipelineParameter="MetricSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMetricSet" OutputProperty="MetricSetArn" Verb="Update" Noun="MetricSet" ShouldProcessTarget="MetricSetArn" PipelineParameter="MetricSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" NewName="MetricSource_CloudWatchConfig_BackTestConfiguration_RunBackTestMode" Alias="CloudWatch_BackTestConfiguration_RunBackTestMode" />
                 <Param Name="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" NewName="MetricSource_RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" Alias="RDSSourceConfig_VpcConfiguration_SecurityGroupIdList" />

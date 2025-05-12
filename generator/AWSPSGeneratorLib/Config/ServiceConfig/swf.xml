@@ -19,159 +19,159 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CountClosedWorkflowExecutions" OutputProperty="WorkflowExecutionCount" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="ClosedWorkflowExecutionCount" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CountClosedWorkflowExecutions" OutputProperty="WorkflowExecutionCount" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="ClosedWorkflowExecutionCount" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CountOpenWorkflowExecutions" OutputProperty="WorkflowExecutionCount" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="OpenWorkflowExecutionCount" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CountOpenWorkflowExecutions" OutputProperty="WorkflowExecutionCount" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="OpenWorkflowExecutionCount" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CountPendingActivityTasks" OutputProperty="PendingTaskCount" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingActivityTaskCount" PipelineParameter="TaskList_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CountPendingActivityTasks" OutputProperty="PendingTaskCount" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingActivityTaskCount" PipelineParameter="TaskList_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CountPendingDecisionTasks" OutputProperty="PendingTaskCount" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingDecisionTaskCount" PipelineParameter="TaskList_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CountPendingDecisionTasks" OutputProperty="PendingTaskCount" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingDecisionTaskCount" PipelineParameter="TaskList_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteActivityType" Verb="Uninstall" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteActivityType" Verb="Uninstall" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkflowType" Verb="Uninstall" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkflowType" Verb="Uninstall" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateActivityType" Verb="Remove" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="ActivityType_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeprecateActivityType" Verb="Remove" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="ActivityType_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeprecateDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateWorkflowType" Verb="Remove" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeprecateWorkflowType" Verb="Remove" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActivityType" OutputProperty="ActivityTypeDetail" OutputWrapper="ActivityTypeDetail" Verb="Get" Noun="ActivityType" PipelineParameter="ActivityType_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeActivityType" OutputProperty="ActivityTypeDetail" OutputWrapper="ActivityTypeDetail" Verb="Get" Noun="ActivityType" PipelineParameter="ActivityType_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomain" OutputProperty="DomainDetail" OutputWrapper="DomainDetail" Verb="Get" Noun="Domain" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="DomainDetail" OutputWrapper="DomainDetail" Verb="Get" Noun="Domain" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkflowExecution" OutputProperty="WorkflowExecutionDetail" OutputWrapper="WorkflowExecutionDetail" Verb="Get" Noun="WorkflowExecution" PipelineParameter="Execution_RunId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkflowExecution" OutputProperty="WorkflowExecutionDetail" OutputWrapper="WorkflowExecutionDetail" Verb="Get" Noun="WorkflowExecution" PipelineParameter="Execution_RunId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkflowType" OutputProperty="WorkflowTypeDetail" OutputWrapper="WorkflowTypeDetail" Verb="Get" Noun="WorkflowType" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkflowType" OutputProperty="WorkflowTypeDetail" OutputWrapper="WorkflowTypeDetail" Verb="Get" Noun="WorkflowType" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowExecutionHistory" OutputProperty="History.Events" OutputWrapper="History" Verb="Get" Noun="WorkflowExecutionHistory" PipelineParameter="Execution_RunId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetWorkflowExecutionHistory" OutputProperty="History.Events" OutputWrapper="History" Verb="Get" Noun="WorkflowExecutionHistory" PipelineParameter="Execution_RunId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivityTypes" OutputProperty="ActivityTypeInfos.TypeInfos" OutputWrapper="ActivityTypeInfos" Verb="Get" Noun="ActivityTypeList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListActivityTypes" OutputProperty="ActivityTypeInfos.TypeInfos" OutputWrapper="ActivityTypeInfos" Verb="Get" Noun="ActivityTypeList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClosedWorkflowExecutions" OutputProperty="WorkflowExecutionInfos.ExecutionInfos" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="ClosedWorkflowExecutionList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListClosedWorkflowExecutions" OutputProperty="WorkflowExecutionInfos.ExecutionInfos" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="ClosedWorkflowExecutionList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="DomainInfos.Infos" OutputWrapper="DomainInfos" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="DomainInfos.Infos" OutputWrapper="DomainInfos" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOpenWorkflowExecutions" OutputProperty="WorkflowExecutionInfos.ExecutionInfos" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="OpenWorkflowExecutionList" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListOpenWorkflowExecutions" OutputProperty="WorkflowExecutionInfos.ExecutionInfos" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="OpenWorkflowExecutionList" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowTypes" OutputProperty="WorkflowTypeInfos.TypeInfos" OutputWrapper="WorkflowTypeInfos" Verb="Get" Noun="WorkflowTypeList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListWorkflowTypes" OutputProperty="WorkflowTypeInfos.TypeInfos" OutputWrapper="WorkflowTypeInfos" Verb="Get" Noun="WorkflowTypeList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForActivityTask" OutputProperty="ActivityTask" OutputWrapper="ActivityTask" Verb="Get" Noun="ActivityTask" Exclude="true" ShouldProcessTarget="TaskList_Name" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PollForActivityTask" OutputProperty="ActivityTask" OutputWrapper="ActivityTask" Verb="Get" Noun="ActivityTask" Exclude="true" ShouldProcessTarget="TaskList_Name" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForDecisionTask" OutputProperty="DecisionTask" OutputWrapper="DecisionTask" Verb="Get" Noun="DecisionTask" Exclude="true" ShouldProcessTarget="TaskList_Name" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PollForDecisionTask" OutputProperty="DecisionTask" OutputWrapper="DecisionTask" Verb="Get" Noun="DecisionTask" Exclude="true" ShouldProcessTarget="TaskList_Name" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RecordActivityTaskHeartbeat" OutputProperty="ActivityTaskStatus" OutputWrapper="ActivityTaskStatus" Verb="Record" Noun="ActivityTaskHeartbeat" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RecordActivityTaskHeartbeat" OutputProperty="ActivityTaskStatus" OutputWrapper="ActivityTaskStatus" Verb="Record" Noun="ActivityTaskHeartbeat" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterActivityType" Verb="New" Noun="ActivityType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterActivityType" Verb="New" Noun="ActivityType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDomain" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterDomain" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterWorkflowType" Verb="New" Noun="WorkflowType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterWorkflowType" Verb="New" Noun="WorkflowType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RequestCancelWorkflowExecution" Verb="Request" Noun="CancelWorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RequestCancelWorkflowExecution" Verb="Request" Noun="CancelWorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondActivityTaskCanceled" Verb="Respond" Noun="ActivityTaskCanceled" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RespondActivityTaskCanceled" Verb="Respond" Noun="ActivityTaskCanceled" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondActivityTaskCompleted" Verb="Respond" Noun="ActivityTaskCompleted" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RespondActivityTaskCompleted" Verb="Respond" Noun="ActivityTaskCompleted" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondActivityTaskFailed" Verb="Respond" Noun="ActivityTaskFailed" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RespondActivityTaskFailed" Verb="Respond" Noun="ActivityTaskFailed" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondDecisionTaskCompleted" Verb="Respond" Noun="DecisionTaskCompleted" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RespondDecisionTaskCompleted" Verb="Respond" Noun="DecisionTaskCompleted" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SignalWorkflowExecution" Verb="Send" Noun="SignalToWorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="SignalName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SignalWorkflowExecution" Verb="Send" Noun="SignalToWorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="SignalName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkflowExecution" OutputProperty="Run.RunId" OutputWrapper="Run" Verb="Start" Noun="WorkflowExecution" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartWorkflowExecution" OutputProperty="Run.RunId" OutputWrapper="Run" Verb="Start" Noun="WorkflowExecution" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkflowExecution" Verb="Stop" Noun="WorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TerminateWorkflowExecution" Verb="Stop" Noun="WorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UndeprecateActivityType" Verb="Restore" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UndeprecateActivityType" Verb="Restore" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UndeprecateDomain" Verb="Restore" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UndeprecateDomain" Verb="Restore" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UndeprecateWorkflowType" Verb="Restore" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UndeprecateWorkflowType" Verb="Restore" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

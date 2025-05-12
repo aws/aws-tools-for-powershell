@@ -21,139 +21,139 @@
         <Property>ClientToken</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Confirm" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Confirm" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResourceShare" OutputProperty="ResourceShareAssociations" Verb="Connect" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateResourceShare" OutputProperty="ResourceShareAssociations" Verb="Connect" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResourceSharePermission" OutputProperty="ReturnValue" Verb="Add" Noun="PermissionToResourceShare" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateResourceSharePermission" OutputProperty="ReturnValue" Verb="Add" Noun="PermissionToResourceShare" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePermission" OutputProperty="Permission" Verb="New" Noun="Permission" ShouldProcessTarget="Name" PipelineParameter="ResourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePermission" OutputProperty="Permission" Verb="New" Noun="Permission" ShouldProcessTarget="Name" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePermissionVersion" OutputProperty="Permission" Verb="New" Noun="PermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePermissionVersion" OutputProperty="Permission" Verb="New" Noun="PermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResourceShare" OutputProperty="ResourceShare" Verb="New" Noun="ResourceShare" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateResourceShare" OutputProperty="ResourceShare" Verb="New" Noun="ResourceShare" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermission" OutputProperty="*" Verb="Remove" Noun="Permission" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermission" OutputProperty="*" Verb="Remove" Noun="Permission" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermissionVersion" OutputProperty="*" Verb="Remove" Noun="PermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermissionVersion" OutputProperty="*" Verb="Remove" Noun="PermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourceShare" OutputProperty="ReturnValue" Verb="Remove" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourceShare" OutputProperty="ReturnValue" Verb="Remove" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResourceShare" OutputProperty="ResourceShareAssociations" Verb="Disconnect" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateResourceShare" OutputProperty="ResourceShareAssociations" Verb="Disconnect" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResourceSharePermission" OutputProperty="ReturnValue" Verb="Remove" Noun="PermissionFromResourceShare" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateResourceSharePermission" OutputProperty="ReturnValue" Verb="Remove" Noun="PermissionFromResourceShare" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableSharingWithAwsOrganization" OutputProperty="ReturnValue" Verb="Enable" Noun="SharingWithAwsOrganization" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableSharingWithAwsOrganization" OutputProperty="ReturnValue" Verb="Enable" Noun="SharingWithAwsOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPermission" OutputProperty="Permission" Verb="Get" Noun="Permission" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPermission" OutputProperty="Permission" Verb="Get" Noun="Permission" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="Policies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="Policies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceShareAssociations" OutputProperty="ResourceShareAssociations" Verb="Get" Noun="ResourceShareAssociation" PipelineParameter="AssociationType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetResourceShareAssociations" OutputProperty="ResourceShareAssociations" Verb="Get" Noun="ResourceShareAssociation" PipelineParameter="AssociationType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceShareInvitations" OutputProperty="ResourceShareInvitations" Verb="Get" Noun="ResourceShareInvitation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetResourceShareInvitations" OutputProperty="ResourceShareInvitations" Verb="Get" Noun="ResourceShareInvitation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceShares" OutputProperty="ResourceShares" Verb="Get" Noun="ResourceShare" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="GetResourceShares" OutputProperty="ResourceShares" Verb="Get" Noun="ResourceShare" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPendingInvitationResources" OutputProperty="Resources" Verb="Get" Noun="PendingInvitationResourceList" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPendingInvitationResources" OutputProperty="Resources" Verb="Get" Noun="PendingInvitationResourceList" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionAssociations" OutputProperty="Permissions" Verb="Get" Noun="PermissionAssociationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPermissionAssociations" OutputProperty="Permissions" Verb="Get" Noun="PermissionAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionVersions" OutputProperty="Permissions" Verb="Get" Noun="PermissionVersionList" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissionVersions" OutputProperty="Permissions" Verb="Get" Noun="PermissionVersionList" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReplacePermissionAssociationsWork" OutputProperty="ReplacePermissionAssociationsWorks" Verb="Get" Noun="ReplacePermissionAssociationsWorkList" PipelineParameter="Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReplacePermissionAssociationsWork" OutputProperty="ReplacePermissionAssociationsWorks" Verb="Get" Noun="ReplacePermissionAssociationsWorkList" PipelineParameter="Status" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceSharePermissions" OutputProperty="Permissions" Verb="Get" Noun="ResourceSharePermissionList" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListResourceSharePermissions" OutputProperty="Permissions" Verb="Get" Noun="ResourceSharePermissionList" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="ResourceTypeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="ResourceTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PromotePermissionCreatedFromPolicy" OutputProperty="Permission" Verb="Convert" Noun="PermissionCreatedFromPolicy" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PromotePermissionCreatedFromPolicy" OutputProperty="Permission" Verb="Convert" Noun="PermissionCreatedFromPolicy" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PromoteResourceShareCreatedFromPolicy" OutputProperty="ReturnValue" Verb="Convert" Noun="PolicyBasedResourceShareToPromoted" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PromoteResourceShareCreatedFromPolicy" OutputProperty="ReturnValue" Verb="Convert" Noun="PolicyBasedResourceShareToPromoted" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Deny" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RejectResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Deny" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReplacePermissionAssociations" OutputProperty="ReplacePermissionAssociationsWork" Verb="Edit" Noun="PermissionAssociation" ShouldProcessTarget="FromPermissionArn" PipelineParameter="FromPermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReplacePermissionAssociations" OutputProperty="ReplacePermissionAssociationsWork" Verb="Edit" Noun="PermissionAssociation" ShouldProcessTarget="FromPermissionArn" PipelineParameter="FromPermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetDefaultPermissionVersion" OutputProperty="ReturnValue" Verb="Set" Noun="DefaultPermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetDefaultPermissionVersion" OutputProperty="ReturnValue" Verb="Set" Noun="DefaultPermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResourceShare" OutputProperty="ResourceShare" Verb="Update" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateResourceShare" OutputProperty="ResourceShare" Verb="Update" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

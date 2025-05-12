@@ -18,51 +18,51 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateMonitor" OutputProperty="*" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMonitor" OutputProperty="*" Verb="New" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProbe" OutputProperty="*" Verb="New" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProbe" OutputProperty="*" Verb="New" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMonitor" Verb="Remove" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProbe" Verb="Remove" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProbe" Verb="Remove" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProbe" OutputProperty="*" Verb="Get" Noun="Probe" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProbe" OutputProperty="*" Verb="Get" Noun="Probe" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="State" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMonitors" OutputProperty="Monitors" Verb="Get" Noun="MonitorList" PipelineParameter="State" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMonitor" OutputProperty="*" Verb="Update" Noun="Monitor" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProbe" OutputProperty="*" Verb="Update" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProbe" OutputProperty="*" Verb="Update" Noun="Probe" ShouldProcessTarget="MonitorName" PipelineParameter="MonitorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

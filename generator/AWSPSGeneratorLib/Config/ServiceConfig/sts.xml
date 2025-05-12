@@ -23,49 +23,49 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssumeRole" OutputProperty="*" Verb="Use" Noun="Role" ShouldProcessTarget="RoleArn" PositionalParameters="RoleSessionName;Policy;DurationSeconds;ExternalId" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssumeRole" OutputProperty="*" Verb="Use" Noun="Role" ShouldProcessTarget="RoleArn" PositionalParameters="RoleSessionName;Policy;DurationSeconds;ExternalId" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssumeRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssumeRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssumeRoleWithWebIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssumeRoleWithWebIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssumeRoot" OutputProperty="*" Verb="Use" Noun="Root" ShouldProcessTarget="TaskPolicyArn_Arn" PipelineParameter="TargetPrincipal" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssumeRoot" OutputProperty="*" Verb="Use" Noun="Root" ShouldProcessTarget="TaskPolicyArn_Arn" PipelineParameter="TargetPrincipal" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecodeAuthorizationMessage" OutputProperty="DecodedMessage" Verb="Convert" Noun="AuthorizationMessage" ShouldProcessTarget="EncodedMessage" PipelineParameter="EncodedMessage" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DecodeAuthorizationMessage" OutputProperty="DecodedMessage" Verb="Convert" Noun="AuthorizationMessage" ShouldProcessTarget="EncodedMessage" PipelineParameter="EncodedMessage" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessKeyInfo" OutputProperty="Account" Verb="Get" Noun="AccessKeyInfo" PipelineParameter="AccessKeyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccessKeyInfo" OutputProperty="Account" Verb="Get" Noun="AccessKeyInfo" PipelineParameter="AccessKeyId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AccessKeyId" NewName="IdOfAccessKey" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCallerIdentity" OutputProperty="*" Verb="Get" Noun="CallerIdentity" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCallerIdentity" OutputProperty="*" Verb="Get" Noun="CallerIdentity" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFederationToken" OutputProperty="*" Verb="Get" Noun="FederationToken" PositionalParameters="Policy;DurationSeconds" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFederationToken" OutputProperty="*" Verb="Get" Noun="FederationToken" PositionalParameters="Policy;DurationSeconds" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSessionToken" OutputProperty="Credentials" Verb="Get" Noun="SessionToken" PositionalParameters="SerialNumber;TokenCode" PipelineParameter="DurationSeconds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSessionToken" OutputProperty="Credentials" Verb="Get" Noun="SessionToken" PositionalParameters="SerialNumber;TokenCode" PipelineParameter="DurationSeconds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DurationSeconds" NewName="DurationInSeconds" />
             </Params>

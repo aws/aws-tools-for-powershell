@@ -18,27 +18,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Register" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Register" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Register" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Register" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAgent" OutputProperty="Agent" Verb="New" Noun="Agent" ShouldProcessTarget="AgentName" PipelineParameter="AgentName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAgent" OutputProperty="Agent" Verb="New" Noun="Agent" ShouldProcessTarget="AgentName" PipelineParameter="AgentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="New" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="New" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAgentAlias" OutputProperty="AgentAlias" Verb="New" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAgentAlias" OutputProperty="AgentAlias" Verb="New" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSource" OutputProperty="DataSource" Verb="New" Noun="DataSource" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="DataSource" Verb="New" Noun="DataSource" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" NewName="DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" />
                 <Param Name="DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" NewName="DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" />
@@ -62,19 +62,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlow" OutputProperty="*" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFlow" OutputProperty="*" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlowAlias" OutputProperty="*" Verb="New" Noun="FlowAlias" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFlowAlias" OutputProperty="*" Verb="New" Noun="FlowAlias" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlowVersion" OutputProperty="*" Verb="New" Noun="FlowVersion" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFlowVersion" OutputProperty="*" Verb="New" Noun="FlowVersion" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" />
@@ -100,231 +100,231 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePrompt" OutputProperty="*" Verb="New" Noun="Prompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePrompt" OutputProperty="*" Verb="New" Noun="Prompt" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePromptVersion" OutputProperty="*" Verb="New" Noun="PromptVersion" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePromptVersion" OutputProperty="*" Verb="New" Noun="PromptVersion" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgent" OutputProperty="*" Verb="Remove" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAgent" OutputProperty="*" Verb="Remove" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgentActionGroup" Verb="Remove" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAgentActionGroup" Verb="Remove" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgentAlias" OutputProperty="*" Verb="Remove" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAgentAlias" OutputProperty="*" Verb="Remove" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAgentVersion" OutputProperty="*" Verb="Remove" Noun="AgentVersion" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAgentVersion" OutputProperty="*" Verb="Remove" Noun="AgentVersion" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlow" OutputProperty="Id" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFlow" OutputProperty="Id" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlowAlias" OutputProperty="*" Verb="Remove" Noun="FlowAlias" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFlowAlias" OutputProperty="*" Verb="Remove" Noun="FlowAlias" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlowVersion" OutputProperty="*" Verb="Remove" Noun="FlowVersion" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFlowVersion" OutputProperty="*" Verb="Remove" Noun="FlowVersion" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKnowledgeBase" OutputProperty="*" Verb="Remove" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Remove" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Remove" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePrompt" OutputProperty="*" Verb="Remove" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePrompt" OutputProperty="*" Verb="Remove" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAgentCollaborator" Verb="Unregister" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateAgentCollaborator" Verb="Unregister" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAgentKnowledgeBase" Verb="Unregister" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateAgentKnowledgeBase" Verb="Unregister" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgent" OutputProperty="Agent" Verb="Get" Noun="Agent" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgent" OutputProperty="Agent" Verb="Get" Noun="Agent" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Get" Noun="AgentActionGroup" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Get" Noun="AgentActionGroup" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgentAlias" OutputProperty="AgentAlias" Verb="Get" Noun="AgentAlias" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgentAlias" OutputProperty="AgentAlias" Verb="Get" Noun="AgentAlias" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Get" Noun="AgentCollaborator" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Get" Noun="AgentCollaborator" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Get" Noun="AgentKnowledgeBase" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Get" Noun="AgentKnowledgeBase" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAgentVersion" OutputProperty="AgentVersion" Verb="Get" Noun="AgentVersion" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAgentVersion" OutputProperty="AgentVersion" Verb="Get" Noun="AgentVersion" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFlowAlias" OutputProperty="*" Verb="Get" Noun="FlowAlias" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlowAlias" OutputProperty="*" Verb="Get" Noun="FlowAlias" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFlowVersion" OutputProperty="*" Verb="Get" Noun="FlowVersion" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlowVersion" OutputProperty="*" Verb="Get" Noun="FlowVersion" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIngestionJob" OutputProperty="IngestionJob" Verb="Get" Noun="IngestionJob" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIngestionJob" OutputProperty="IngestionJob" Verb="Get" Noun="IngestionJob" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Get" Noun="KnowledgeBase" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocument" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocument" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPrompt" OutputProperty="*" Verb="Get" Noun="Prompt" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPrompt" OutputProperty="*" Verb="Get" Noun="Prompt" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IngestKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Add" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="IngestKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Add" Noun="KnowledgeBaseDocument" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgentActionGroups" OutputProperty="ActionGroupSummaries" Verb="Get" Noun="AgentActionGroupList" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgentActionGroups" OutputProperty="ActionGroupSummaries" Verb="Get" Noun="AgentActionGroupList" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgentAliases" OutputProperty="AgentAliasSummaries" Verb="Get" Noun="AgentAliasList" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgentAliases" OutputProperty="AgentAliasSummaries" Verb="Get" Noun="AgentAliasList" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgentCollaborators" OutputProperty="AgentCollaboratorSummaries" Verb="Get" Noun="AgentCollaboratorList" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgentCollaborators" OutputProperty="AgentCollaboratorSummaries" Verb="Get" Noun="AgentCollaboratorList" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgentKnowledgeBases" OutputProperty="AgentKnowledgeBaseSummaries" Verb="Get" Noun="AgentKnowledgeBasisList" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgentKnowledgeBases" OutputProperty="AgentKnowledgeBaseSummaries" Verb="Get" Noun="AgentKnowledgeBasisList" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgents" OutputProperty="AgentSummaries" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgents" OutputProperty="AgentSummaries" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgentVersions" OutputProperty="AgentVersionSummaries" Verb="Get" Noun="AgentVersionList" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAgentVersions" OutputProperty="AgentVersionSummaries" Verb="Get" Noun="AgentVersionList" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSourceSummaries" Verb="Get" Noun="DataSourceList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSourceSummaries" Verb="Get" Noun="DataSourceList" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowAliases" OutputProperty="FlowAliasSummaries" Verb="Get" Noun="FlowAliasList" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlowAliases" OutputProperty="FlowAliasSummaries" Verb="Get" Noun="FlowAliasList" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlows" OutputProperty="FlowSummaries" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlows" OutputProperty="FlowSummaries" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowVersions" OutputProperty="FlowVersionSummaries" Verb="Get" Noun="FlowVersionList" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlowVersions" OutputProperty="FlowVersionSummaries" Verb="Get" Noun="FlowVersionList" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIngestionJobs" OutputProperty="IngestionJobSummaries" Verb="Get" Noun="IngestionJobList" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIngestionJobs" OutputProperty="IngestionJobSummaries" Verb="Get" Noun="IngestionJobList" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocumentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListKnowledgeBaseDocuments" OutputProperty="DocumentDetails" Verb="Get" Noun="KnowledgeBaseDocumentList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListKnowledgeBases" OutputProperty="KnowledgeBaseSummaries" Verb="Get" Noun="KnowledgeBasisList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaries" Verb="Get" Noun="PromptList" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrompts" OutputProperty="PromptSummaries" Verb="Get" Noun="PromptList" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PrepareAgent" OutputProperty="*" Verb="Initialize" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PrepareAgent" OutputProperty="*" Verb="Initialize" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PrepareFlow" OutputProperty="*" Verb="Initialize" Noun="Flow" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PrepareFlow" OutputProperty="*" Verb="Initialize" Noun="Flow" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartIngestionJob" OutputProperty="IngestionJob" Verb="Start" Noun="IngestionJob" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartIngestionJob" OutputProperty="IngestionJob" Verb="Start" Noun="IngestionJob" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopIngestionJob" OutputProperty="IngestionJob" Verb="Stop" Noun="IngestionJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StopIngestionJob" OutputProperty="IngestionJob" Verb="Stop" Noun="IngestionJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgent" OutputProperty="Agent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgent" OutputProperty="Agent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Update" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgentActionGroup" OutputProperty="AgentActionGroup" Verb="Update" Noun="AgentActionGroup" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgentAlias" OutputProperty="AgentAlias" Verb="Update" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgentAlias" OutputProperty="AgentAlias" Verb="Update" Noun="AgentAlias" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Update" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgentCollaborator" OutputProperty="AgentCollaborator" Verb="Update" Noun="AgentCollaborator" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Update" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAgentKnowledgeBase" OutputProperty="AgentKnowledgeBase" Verb="Update" Noun="AgentKnowledgeBase" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="DataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" NewName="DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" />
                 <Param Name="DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" NewName="DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters" />
@@ -348,15 +348,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlow" OutputProperty="*" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlow" OutputProperty="*" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowAlias" OutputProperty="*" Verb="Update" Noun="FlowAlias" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlowAlias" OutputProperty="*" Verb="Update" Noun="FlowAlias" ShouldProcessTarget="FlowIdentifier" PipelineParameter="FlowIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="Update" Noun="KnowledgeBase" ShouldProcessTarget="KnowledgeBaseId" PipelineParameter="KnowledgeBaseId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField" />
@@ -382,11 +382,11 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePrompt" OutputProperty="*" Verb="Update" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePrompt" OutputProperty="*" Verb="Update" Noun="Prompt" ShouldProcessTarget="PromptIdentifier" PipelineParameter="PromptIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidateFlowDefinition" OutputProperty="Validations" Verb="Confirm" Noun="FlowDefinition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ValidateFlowDefinition" OutputProperty="Validations" Verb="Confirm" Noun="FlowDefinition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

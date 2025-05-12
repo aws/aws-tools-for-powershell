@@ -19,79 +19,79 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceAction" Verb="Set" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceAction" Verb="Set" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyClusterSnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotArn" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CopyClusterSnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotArn" PipelineParameter="SnapshotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateClusterSnapshot" OutputProperty="Snapshot" Verb="New" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateClusterSnapshot" OutputProperty="Snapshot" Verb="New" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClusterSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotArn" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteClusterSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotArn" PipelineParameter="SnapshotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClusterSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="ClusterSnapshot" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetClusterSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="ClusterSnapshot" PipelineParameter="SnapshotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceAction" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceAction" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshotList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshotList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPendingMaintenanceActions" OutputProperty="ResourcePendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceActionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPendingMaintenanceActions" OutputProperty="ResourcePendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceActionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreClusterFromSnapshot" OutputProperty="Cluster" Verb="Restore" Noun="ClusterFromSnapshot" ShouldProcessTarget="ClusterName" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreClusterFromSnapshot" OutputProperty="Cluster" Verb="Restore" Noun="ClusterFromSnapshot" ShouldProcessTarget="ClusterName" PipelineParameter="SnapshotArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCluster" OutputProperty="Cluster" Verb="Start" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCluster" OutputProperty="Cluster" Verb="Start" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopCluster" OutputProperty="Cluster" Verb="Stop" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopCluster" OutputProperty="Cluster" Verb="Stop" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

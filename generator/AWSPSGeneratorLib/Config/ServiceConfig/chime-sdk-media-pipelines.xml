@@ -18,127 +18,127 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="New" Noun="MediaCapturePipeline" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="New" Noun="MediaCapturePipeline" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMediaConcatenationPipeline" OutputProperty="MediaConcatenationPipeline" Verb="New" Noun="MediaConcatenationPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMediaConcatenationPipeline" OutputProperty="MediaConcatenationPipeline" Verb="New" Noun="MediaConcatenationPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMediaInsightsPipeline" OutputProperty="MediaInsightsPipeline" Verb="New" Noun="MediaInsightsPipeline" ShouldProcessTarget="MediaInsightsPipelineConfigurationArn" PipelineParameter="MediaInsightsPipelineConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMediaInsightsPipeline" OutputProperty="MediaInsightsPipeline" Verb="New" Noun="MediaInsightsPipeline" ShouldProcessTarget="MediaInsightsPipelineConfigurationArn" PipelineParameter="MediaInsightsPipelineConfigurationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="New" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="MediaInsightsPipelineConfigurationName" PipelineParameter="MediaInsightsPipelineConfigurationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="New" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="MediaInsightsPipelineConfigurationName" PipelineParameter="MediaInsightsPipelineConfigurationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMediaLiveConnectorPipeline" OutputProperty="MediaLiveConnectorPipeline" Verb="New" Noun="MediaLiveConnectorPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMediaLiveConnectorPipeline" OutputProperty="MediaLiveConnectorPipeline" Verb="New" Noun="MediaLiveConnectorPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="New" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="New" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMediaStreamPipeline" OutputProperty="MediaStreamPipeline" Verb="New" Noun="MediaStreamPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMediaStreamPipeline" OutputProperty="MediaStreamPipeline" Verb="New" Noun="MediaStreamPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMediaCapturePipeline" Verb="Remove" Noun="MediaCapturePipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMediaCapturePipeline" Verb="Remove" Noun="MediaCapturePipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMediaInsightsPipelineConfiguration" Verb="Remove" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMediaInsightsPipelineConfiguration" Verb="Remove" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMediaPipeline" Verb="Remove" Noun="MediaPipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMediaPipeline" Verb="Remove" Noun="MediaPipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMediaPipelineKinesisVideoStreamPool" Verb="Remove" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMediaPipelineKinesisVideoStreamPool" Verb="Remove" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="Get" Noun="MediaCapturePipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMediaCapturePipeline" OutputProperty="MediaCapturePipeline" Verb="Get" Noun="MediaCapturePipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="Get" Noun="MediaInsightsPipelineConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="Get" Noun="MediaInsightsPipelineConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMediaPipeline" OutputProperty="MediaPipeline" Verb="Get" Noun="MediaPipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMediaPipeline" OutputProperty="MediaPipeline" Verb="Get" Noun="MediaPipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="Get" Noun="MediaPipelineKinesisVideoStreamPool" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="Get" Noun="MediaPipelineKinesisVideoStreamPool" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Get" Noun="SpeakerSearchTask" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Get" Noun="SpeakerSearchTask" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Get" Noun="VoiceToneAnalysisTask" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Get" Noun="VoiceToneAnalysisTask" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMediaCapturePipelines" OutputProperty="MediaCapturePipelines" Verb="Get" Noun="MediaCapturePipelineList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMediaCapturePipelines" OutputProperty="MediaCapturePipelines" Verb="Get" Noun="MediaCapturePipelineList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMediaInsightsPipelineConfigurations" OutputProperty="MediaInsightsPipelineConfigurations" Verb="Get" Noun="MediaInsightsPipelineConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMediaInsightsPipelineConfigurations" OutputProperty="MediaInsightsPipelineConfigurations" Verb="Get" Noun="MediaInsightsPipelineConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMediaPipelineKinesisVideoStreamPools" OutputProperty="KinesisVideoStreamPools" Verb="Get" Noun="MediaPipelineKinesisVideoStreamPoolList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMediaPipelineKinesisVideoStreamPools" OutputProperty="KinesisVideoStreamPools" Verb="Get" Noun="MediaPipelineKinesisVideoStreamPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMediaPipelines" OutputProperty="MediaPipelines" Verb="Get" Noun="MediaPipelineList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMediaPipelines" OutputProperty="MediaPipelines" Verb="Get" Noun="MediaPipelineList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Start" Noun="SpeakerSearchTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Start" Noun="SpeakerSearchTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Start" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Start" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSpeakerSearchTask" Verb="Stop" Noun="SpeakerSearchTask" ShouldProcessTarget="SpeakerSearchTaskId" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopSpeakerSearchTask" Verb="Stop" Noun="SpeakerSearchTask" ShouldProcessTarget="SpeakerSearchTaskId" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopVoiceToneAnalysisTask" Verb="Stop" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="VoiceToneAnalysisTaskId" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopVoiceToneAnalysisTask" Verb="Stop" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="VoiceToneAnalysisTaskId" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="Update" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="Update" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMediaInsightsPipelineStatus" Verb="Update" Noun="MediaInsightsPipelineStatus" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMediaInsightsPipelineStatus" Verb="Update" Noun="MediaInsightsPipelineStatus" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="Update" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMediaPipelineKinesisVideoStreamPool" OutputProperty="KinesisVideoStreamPoolConfiguration" Verb="Update" Noun="MediaPipelineKinesisVideoStreamPool" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

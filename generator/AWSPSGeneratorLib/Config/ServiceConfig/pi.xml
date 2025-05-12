@@ -18,55 +18,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreatePerformanceAnalysisReport" OutputProperty="AnalysisReportId" Verb="New" Noun="PerformanceAnalysisReport" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePerformanceAnalysisReport" OutputProperty="AnalysisReportId" Verb="New" Noun="PerformanceAnalysisReport" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePerformanceAnalysisReport" Verb="Remove" Noun="PerformanceAnalysisReport" ShouldProcessTarget="AnalysisReportId" PipelineParameter="AnalysisReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePerformanceAnalysisReport" Verb="Remove" Noun="PerformanceAnalysisReport" ShouldProcessTarget="AnalysisReportId" PipelineParameter="AnalysisReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDimensionKeys" OutputProperty="*" Verb="Get" Noun="DimensionKey" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeDimensionKeys" OutputProperty="*" Verb="Get" Noun="DimensionKey" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDimensionKeyDetails" OutputProperty="*" Verb="Get" Noun="DimensionKeyDetail" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetDimensionKeyDetails" OutputProperty="*" Verb="Get" Noun="DimensionKeyDetail" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPerformanceAnalysisReport" OutputProperty="AnalysisReport" Verb="Get" Noun="PerformanceAnalysisReport" PipelineParameter="AnalysisReportId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPerformanceAnalysisReport" OutputProperty="AnalysisReport" Verb="Get" Noun="PerformanceAnalysisReport" PipelineParameter="AnalysisReportId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceMetadata" OutputProperty="*" Verb="Get" Noun="ResourceMetadata" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetResourceMetadata" OutputProperty="*" Verb="Get" Noun="ResourceMetadata" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceMetrics" OutputProperty="*" Verb="Get" Noun="ResourceMetric" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetResourceMetrics" OutputProperty="*" Verb="Get" Noun="ResourceMetric" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableResourceDimensions" OutputProperty="MetricDimensions" Verb="Get" Noun="AvailableResourceDimensionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAvailableResourceDimensions" OutputProperty="MetricDimensions" Verb="Get" Noun="AvailableResourceDimensionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableResourceMetrics" OutputProperty="Metrics" Verb="Get" Noun="AvailableResourceMetricList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAvailableResourceMetrics" OutputProperty="Metrics" Verb="Get" Noun="AvailableResourceMetricList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPerformanceAnalysisReports" OutputProperty="AnalysisReports" Verb="Get" Noun="PerformanceAnalysisReportList" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPerformanceAnalysisReports" OutputProperty="AnalysisReports" Verb="Get" Noun="PerformanceAnalysisReportList" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

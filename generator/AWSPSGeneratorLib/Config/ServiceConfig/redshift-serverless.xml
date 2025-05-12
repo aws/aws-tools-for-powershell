@@ -18,255 +18,255 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ConvertRecoveryPointToSnapshot" OutputProperty="Snapshot" Verb="Convert" Noun="RecoveryPointToSnapshot" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ConvertRecoveryPointToSnapshot" OutputProperty="Snapshot" Verb="Convert" Noun="RecoveryPointToSnapshot" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomDomainAssociation" OutputProperty="*" Verb="New" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateCustomDomainAssociation" OutputProperty="*" Verb="New" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEndpointAccess" OutputProperty="Endpoint" Verb="New" Noun="EndpointAccess" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEndpointAccess" OutputProperty="Endpoint" Verb="New" Noun="EndpointAccess" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNamespace" OutputProperty="Namespace" Verb="New" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNamespace" OutputProperty="Namespace" Verb="New" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReservation" OutputProperty="Reservation" Verb="New" Noun="Reservation" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReservation" OutputProperty="Reservation" Verb="New" Noun="Reservation" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="ScheduledAction" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="ScheduledAction" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="New" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="New" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUsageLimit" OutputProperty="UsageLimit" Verb="New" Noun="UsageLimit" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUsageLimit" OutputProperty="UsageLimit" Verb="New" Noun="UsageLimit" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkgroup" OutputProperty="Workgroup" Verb="New" Noun="Workgroup" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkgroup" OutputProperty="Workgroup" Verb="New" Noun="Workgroup" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomDomainAssociation" Verb="Remove" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteCustomDomainAssociation" Verb="Remove" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpointAccess" OutputProperty="Endpoint" Verb="Remove" Noun="EndpointAccess" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEndpointAccess" OutputProperty="Endpoint" Verb="Remove" Noun="EndpointAccess" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNamespace" OutputProperty="Namespace" Verb="Remove" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNamespace" OutputProperty="Namespace" Verb="Remove" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScheduledAction" OutputProperty="ScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScheduledAction" OutputProperty="ScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="Remove" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="SnapshotCopyConfigurationId" PipelineParameter="SnapshotCopyConfigurationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="Remove" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="SnapshotCopyConfigurationId" PipelineParameter="SnapshotCopyConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUsageLimit" OutputProperty="UsageLimit" Verb="Remove" Noun="UsageLimit" ShouldProcessTarget="UsageLimitId" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUsageLimit" OutputProperty="UsageLimit" Verb="Remove" Noun="UsageLimit" ShouldProcessTarget="UsageLimitId" PipelineParameter="UsageLimitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkgroup" OutputProperty="Workgroup" Verb="Remove" Noun="Workgroup" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkgroup" OutputProperty="Workgroup" Verb="Remove" Noun="Workgroup" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCredentials" OutputProperty="*" Verb="Get" Noun="Credential" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCredentials" OutputProperty="*" Verb="Get" Noun="Credential" PipelineParameter="WorkgroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCustomDomainAssociation" OutputProperty="*" Verb="Get" Noun="CustomDomainAssociation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetCustomDomainAssociation" OutputProperty="*" Verb="Get" Noun="CustomDomainAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEndpointAccess" OutputProperty="Endpoint" Verb="Get" Noun="EndpointAccess" PipelineParameter="EndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEndpointAccess" OutputProperty="Endpoint" Verb="Get" Noun="EndpointAccess" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecoveryPoint" OutputProperty="RecoveryPoint" Verb="Get" Noun="RecoveryPoint" PipelineParameter="RecoveryPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecoveryPoint" OutputProperty="RecoveryPoint" Verb="Get" Noun="RecoveryPoint" PipelineParameter="RecoveryPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservation" OutputProperty="Reservation" Verb="Get" Noun="Reservation" PipelineParameter="ReservationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReservation" OutputProperty="Reservation" Verb="Get" Noun="Reservation" PipelineParameter="ReservationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationOffering" OutputProperty="ReservationOffering" Verb="Get" Noun="ReservationOffering" PipelineParameter="OfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReservationOffering" OutputProperty="ReservationOffering" Verb="Get" Noun="ReservationOffering" PipelineParameter="OfferingId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="ResourcePolicy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetScheduledAction" OutputProperty="ScheduledAction" Verb="Get" Noun="ScheduledAction" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetScheduledAction" OutputProperty="ScheduledAction" Verb="Get" Noun="ScheduledAction" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="Snapshot" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="Snapshot" PipelineParameter="SnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableRestoreStatus" OutputProperty="TableRestoreStatus" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="TableRestoreRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableRestoreStatus" OutputProperty="TableRestoreStatus" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="TableRestoreRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrack" OutputProperty="Track" Verb="Get" Noun="Track" PipelineParameter="TrackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrack" OutputProperty="Track" Verb="Get" Noun="Track" PipelineParameter="TrackName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsageLimit" OutputProperty="UsageLimit" Verb="Get" Noun="UsageLimit" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUsageLimit" OutputProperty="UsageLimit" Verb="Get" Noun="UsageLimit" PipelineParameter="UsageLimitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkgroup" OutputProperty="Workgroup" Verb="Get" Noun="Workgroup" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkgroup" OutputProperty="Workgroup" Verb="Get" Noun="Workgroup" PipelineParameter="WorkgroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomDomainAssociations" OutputProperty="Associations" Verb="Get" Noun="CustomDomainAssociationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCustomDomainAssociations" OutputProperty="Associations" Verb="Get" Noun="CustomDomainAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpointAccess" OutputProperty="Endpoints" Verb="Get" Noun="EndpointAccessList" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEndpointAccess" OutputProperty="Endpoints" Verb="Get" Noun="EndpointAccessList" PipelineParameter="WorkgroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedWorkgroups" OutputProperty="ManagedWorkgroups" Verb="Get" Noun="ManagedWorkgroupList" PipelineParameter="SourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListManagedWorkgroups" OutputProperty="ManagedWorkgroups" Verb="Get" Noun="ManagedWorkgroupList" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPoints" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecoveryPoints" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointList" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReservationOfferings" OutputProperty="ReservationOfferingsList" Verb="Get" Noun="ReservationOfferingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReservationOfferings" OutputProperty="ReservationOfferingsList" Verb="Get" Noun="ReservationOfferingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReservations" OutputProperty="ReservationsList" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReservations" OutputProperty="ReservationsList" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledActionList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledActionList" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSnapshotCopyConfigurations" OutputProperty="SnapshotCopyConfigurations" Verb="Get" Noun="SnapshotCopyConfigurationList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSnapshotCopyConfigurations" OutputProperty="SnapshotCopyConfigurations" Verb="Get" Noun="SnapshotCopyConfigurationList" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotList" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="SnapshotList" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTableRestoreStatus" OutputProperty="TableRestoreStatuses" Verb="Get" Noun="TableRestoreStatusList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTableRestoreStatus" OutputProperty="TableRestoreStatuses" Verb="Get" Noun="TableRestoreStatusList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTracks" OutputProperty="Tracks" Verb="Get" Noun="TrackList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTracks" OutputProperty="Tracks" Verb="Get" Noun="TrackList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsageLimits" OutputProperty="UsageLimits" Verb="Get" Noun="UsageLimitList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsageLimits" OutputProperty="UsageLimits" Verb="Get" Noun="UsageLimitList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkgroups" OutputProperty="Workgroups" Verb="Get" Noun="WorkgroupList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListWorkgroups" OutputProperty="Workgroups" Verb="Get" Noun="WorkgroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreFromRecoveryPoint" OutputProperty="*" Verb="Restore" Noun="FromRecoveryPoint" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreFromRecoveryPoint" OutputProperty="*" Verb="Restore" Noun="FromRecoveryPoint" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreFromSnapshot" OutputProperty="*" Verb="Restore" Noun="FromSnapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreFromSnapshot" OutputProperty="*" Verb="Restore" Noun="FromSnapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreTableFromRecoveryPoint" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromRecoveryPoint" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreTableFromRecoveryPoint" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromRecoveryPoint" ShouldProcessTarget="RecoveryPointId" PipelineParameter="RecoveryPointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreTableFromSnapshot" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreTableFromSnapshot" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomDomainAssociation" OutputProperty="*" Verb="Update" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateCustomDomainAssociation" OutputProperty="*" Verb="Update" Noun="CustomDomainAssociation" ShouldProcessTarget="WorkgroupName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpointAccess" OutputProperty="Endpoint" Verb="Update" Noun="EndpointAccess" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEndpointAccess" OutputProperty="Endpoint" Verb="Update" Noun="EndpointAccess" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNamespace" OutputProperty="Namespace" Verb="Update" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNamespace" OutputProperty="Namespace" Verb="Update" Noun="Namespace" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSnapshot" OutputProperty="Snapshot" Verb="Update" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="Update" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="SnapshotCopyConfigurationId" PipelineParameter="SnapshotCopyConfigurationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSnapshotCopyConfiguration" OutputProperty="SnapshotCopyConfiguration" Verb="Update" Noun="SnapshotCopyConfiguration" ShouldProcessTarget="SnapshotCopyConfigurationId" PipelineParameter="SnapshotCopyConfigurationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUsageLimit" OutputProperty="UsageLimit" Verb="Update" Noun="UsageLimit" ShouldProcessTarget="UsageLimitId" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUsageLimit" OutputProperty="UsageLimit" Verb="Update" Noun="UsageLimit" ShouldProcessTarget="UsageLimitId" PipelineParameter="UsageLimitId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkgroup" OutputProperty="Workgroup" Verb="Update" Noun="Workgroup" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkgroup" OutputProperty="Workgroup" Verb="Update" Noun="Workgroup" ShouldProcessTarget="WorkgroupName" PipelineParameter="WorkgroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

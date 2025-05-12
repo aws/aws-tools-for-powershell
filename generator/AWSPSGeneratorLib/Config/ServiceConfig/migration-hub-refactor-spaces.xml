@@ -18,99 +18,99 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoute" OutputProperty="*" Verb="New" Noun="Route" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateRoute" OutputProperty="*" Verb="New" Noun="Route" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateService" OutputProperty="*" Verb="New" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" OutputProperty="*" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationIdentifier" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplication" OutputProperty="*" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationIdentifier" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEnvironment" OutputProperty="*" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEnvironment" OutputProperty="*" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRoute" OutputProperty="*" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteIdentifier" PipelineParameter="RouteIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRoute" OutputProperty="*" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteIdentifier" PipelineParameter="RouteIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteService" OutputProperty="*" Verb="Remove" Noun="Service" ShouldProcessTarget="ServiceIdentifier" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="RouteIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="RouteIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="ServiceIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaryList" Verb="Get" Noun="ApplicationList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaryList" Verb="Get" Noun="ApplicationList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnvironments" OutputProperty="EnvironmentSummaryList" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="EnvironmentSummaryList" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnvironmentVpcs" OutputProperty="EnvironmentVpcList" Verb="Get" Noun="EnvironmentVpcList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEnvironmentVpcs" OutputProperty="EnvironmentVpcList" Verb="Get" Noun="EnvironmentVpcList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutes" OutputProperty="RouteSummaryList" Verb="Get" Noun="RouteList" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoutes" OutputProperty="RouteSummaryList" Verb="Get" Noun="RouteList" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceSummaryList" Verb="Get" Noun="ServiceList" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServices" OutputProperty="ServiceSummaryList" Verb="Get" Noun="ServiceList" PipelineParameter="ApplicationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoute" OutputProperty="*" Verb="Update" Noun="Route" ShouldProcessTarget="RouteIdentifier" PipelineParameter="RouteIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoute" OutputProperty="*" Verb="Update" Noun="Route" ShouldProcessTarget="RouteIdentifier" PipelineParameter="RouteIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

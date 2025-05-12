@@ -19,103 +19,103 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AnalyzeDocument" OutputProperty="Blocks" Verb="Invoke" Noun="DocumentAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AnalyzeDocument" OutputProperty="Blocks" Verb="Invoke" Noun="DocumentAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AnalyzeExpense" OutputProperty="ExpenseDocuments" Verb="Invoke" Noun="ExpenseAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AnalyzeExpense" OutputProperty="ExpenseDocuments" Verb="Invoke" Noun="ExpenseAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AnalyzeID" OutputProperty="*" Verb="Invoke" Noun="AnalyzeID" ShouldProcessTarget="DocumentPages" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AnalyzeID" OutputProperty="*" Verb="Invoke" Noun="AnalyzeID" ShouldProcessTarget="DocumentPages" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAdapter" OutputProperty="AdapterId" Verb="New" Noun="Adapter" ShouldProcessTarget="AdapterName" PipelineParameter="AdapterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAdapter" OutputProperty="AdapterId" Verb="New" Noun="Adapter" ShouldProcessTarget="AdapterName" PipelineParameter="AdapterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAdapterVersion" OutputProperty="*" Verb="New" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAdapterVersion" OutputProperty="*" Verb="New" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAdapter" Verb="Remove" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAdapter" Verb="Remove" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAdapterVersion" Verb="Remove" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAdapterVersion" Verb="Remove" Noun="AdapterVersion" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectDocumentText" OutputProperty="Blocks" Verb="Find" Noun="DocumentText" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DetectDocumentText" OutputProperty="Blocks" Verb="Find" Noun="DocumentText" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAdapter" OutputProperty="*" Verb="Get" Noun="Adapter" PipelineParameter="AdapterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAdapter" OutputProperty="*" Verb="Get" Noun="Adapter" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAdapterVersion" OutputProperty="*" Verb="Get" Noun="AdapterVersion" PipelineParameter="AdapterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAdapterVersion" OutputProperty="*" Verb="Get" Noun="AdapterVersion" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentTextDetection" OutputProperty="*" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+        <ServiceOperation MethodName="GetDocumentTextDetection" OutputProperty="*" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExpenseAnalysis" OutputProperty="*" Verb="Get" Noun="ExpenseAnalysis" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExpenseAnalysis" OutputProperty="*" Verb="Get" Noun="ExpenseAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLendingAnalysis" OutputProperty="*" Verb="Get" Noun="LendingAnalysis" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLendingAnalysis" OutputProperty="*" Verb="Get" Noun="LendingAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLendingAnalysisSummary" OutputProperty="*" Verb="Get" Noun="LendingAnalysisSummary" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetLendingAnalysisSummary" OutputProperty="*" Verb="Get" Noun="LendingAnalysisSummary" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAdapters" OutputProperty="Adapters" Verb="Get" Noun="AdapterList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAdapters" OutputProperty="Adapters" Verb="Get" Noun="AdapterList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAdapterVersions" OutputProperty="AdapterVersions" Verb="Get" Noun="AdapterVersionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAdapterVersions" OutputProperty="AdapterVersions" Verb="Get" Noun="AdapterVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="FeatureTypes" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartDocumentAnalysis" OutputProperty="JobId" Verb="Start" Noun="DocumentAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="FeatureTypes" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDocumentTextDetection" OutputProperty="JobId" Verb="Start" Noun="DocumentTextDetection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartDocumentTextDetection" OutputProperty="JobId" Verb="Start" Noun="DocumentTextDetection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartExpenseAnalysis" OutputProperty="JobId" Verb="Start" Noun="ExpenseAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartExpenseAnalysis" OutputProperty="JobId" Verb="Start" Noun="ExpenseAnalysis" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLendingAnalysis" OutputProperty="JobId" Verb="Start" Noun="LendingAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartLendingAnalysis" OutputProperty="JobId" Verb="Start" Noun="LendingAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAdapter" OutputProperty="*" Verb="Update" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAdapter" OutputProperty="*" Verb="Update" Noun="Adapter" ShouldProcessTarget="AdapterId" PipelineParameter="AdapterId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

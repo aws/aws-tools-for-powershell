@@ -19,55 +19,55 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateEnvironmentEC2" OutputProperty="EnvironmentId" Verb="New" Noun="EnvironmentEC2" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEnvironmentEC2" OutputProperty="EnvironmentId" Verb="New" Noun="EnvironmentEC2" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEnvironmentMembership" OutputProperty="Membership" Verb="New" Noun="EnvironmentMembership" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEnvironmentMembership" OutputProperty="Membership" Verb="New" Noun="EnvironmentMembership" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEnvironmentMembership" Verb="Remove" Noun="EnvironmentMembership" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEnvironmentMembership" Verb="Remove" Noun="EnvironmentMembership" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironmentMemberships" OutputProperty="Memberships" Verb="Get" Noun="EnvironmentMembershipList" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeEnvironmentMemberships" OutputProperty="Memberships" Verb="Get" Noun="EnvironmentMembershipList" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentData" PipelineParameter="EnvironmentIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="EnvironmentData" PipelineParameter="EnvironmentIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironmentStatus" OutputProperty="*" Verb="Get" Noun="EnvironmentStatus" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEnvironmentStatus" OutputProperty="*" Verb="Get" Noun="EnvironmentStatus" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnvironments" OutputProperty="EnvironmentIds" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="EnvironmentIds" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnvironment" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEnvironment" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEnvironmentMembership" OutputProperty="Membership" Verb="Update" Noun="EnvironmentMembership" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEnvironmentMembership" OutputProperty="Membership" Verb="Update" Noun="EnvironmentMembership" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,143 +19,143 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateEntityToThing" Verb="Add" Noun="EntityToThing" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateEntityToThing" Verb="Add" Noun="EntityToThing" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlowTemplate" OutputProperty="Summary" Verb="New" Noun="FlowTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Definition_Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateFlowTemplate" OutputProperty="Summary" Verb="New" Noun="FlowTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Definition_Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSystemInstance" OutputProperty="Summary" Verb="New" Noun="SystemInstance" ShouldProcessTarget="" PipelineParameter="Target" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSystemInstance" OutputProperty="Summary" Verb="New" Noun="SystemInstance" ShouldProcessTarget="" PipelineParameter="Target" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSystemTemplate" OutputProperty="Summary" Verb="New" Noun="SystemTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Definition_Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSystemTemplate" OutputProperty="Summary" Verb="New" Noun="SystemTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Definition_Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlowTemplate" Verb="Remove" Noun="FlowTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFlowTemplate" Verb="Remove" Noun="FlowTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSystemInstance" Verb="Remove" Noun="SystemInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSystemInstance" Verb="Remove" Noun="SystemInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSystemTemplate" Verb="Remove" Noun="SystemTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSystemTemplate" Verb="Remove" Noun="SystemTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeploySystemInstance" OutputProperty="*" Verb="Add" Noun="SystemInstanceDeployment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeploySystemInstance" OutputProperty="*" Verb="Add" Noun="SystemInstanceDeployment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateFlowTemplate" Verb="Set" Noun="FlowTemplateDeprecation" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeprecateFlowTemplate" Verb="Set" Noun="FlowTemplateDeprecation" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateSystemTemplate" Verb="Set" Noun="SystemTemplateDeprecation" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeprecateSystemTemplate" Verb="Set" Noun="SystemTemplateDeprecation" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNamespace" OutputProperty="*" Verb="Get" Noun="Namespace" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNamespace" OutputProperty="*" Verb="Get" Noun="Namespace" PipelineParameter="NamespaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DissociateEntityFromThing" Verb="Remove" Noun="EntityFromThing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DissociateEntityFromThing" Verb="Remove" Noun="EntityFromThing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEntities" OutputProperty="Descriptions" Verb="Get" Noun="Entity" PipelineParameter="Ids" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEntities" OutputProperty="Descriptions" Verb="Get" Noun="Entity" PipelineParameter="Ids" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFlowTemplate" OutputProperty="Description" Verb="Get" Noun="FlowTemplate" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlowTemplate" OutputProperty="Description" Verb="Get" Noun="FlowTemplate" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFlowTemplateRevisions" OutputProperty="Summaries" Verb="Get" Noun="FlowTemplateRevision" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetFlowTemplateRevisions" OutputProperty="Summaries" Verb="Get" Noun="FlowTemplateRevision" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNamespaceDeletionStatus" OutputProperty="*" Verb="Get" Noun="NamespaceDeletionStatus" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetNamespaceDeletionStatus" OutputProperty="*" Verb="Get" Noun="NamespaceDeletionStatus" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSystemInstance" OutputProperty="Description" Verb="Get" Noun="SystemInstance" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSystemInstance" OutputProperty="Description" Verb="Get" Noun="SystemInstance" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSystemTemplate" OutputProperty="Description" Verb="Get" Noun="SystemTemplate" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSystemTemplate" OutputProperty="Description" Verb="Get" Noun="SystemTemplate" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSystemTemplateRevisions" OutputProperty="Summaries" Verb="Get" Noun="SystemTemplateRevision" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSystemTemplateRevisions" OutputProperty="Summaries" Verb="Get" Noun="SystemTemplateRevision" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUploadStatus" OutputProperty="*" Verb="Get" Noun="UploadStatus" PipelineParameter="UploadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUploadStatus" OutputProperty="*" Verb="Get" Noun="UploadStatus" PipelineParameter="UploadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowExecutionMessages" OutputProperty="Messages" Verb="Get" Noun="FlowExecutionMessageList" PipelineParameter="FlowExecutionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFlowExecutionMessages" OutputProperty="Messages" Verb="Get" Noun="FlowExecutionMessageList" PipelineParameter="FlowExecutionId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchEntities" OutputProperty="Descriptions" Verb="Search" Noun="Entity" ShouldProcessTarget="EntityTypes" PipelineParameter="EntityTypes" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchEntities" OutputProperty="Descriptions" Verb="Search" Noun="Entity" ShouldProcessTarget="EntityTypes" PipelineParameter="EntityTypes" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFlowExecutions" OutputProperty="Summaries" Verb="Search" Noun="FlowExecution" ShouldProcessTarget="SystemInstanceId" PipelineParameter="SystemInstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchFlowExecutions" OutputProperty="Summaries" Verb="Search" Noun="FlowExecution" ShouldProcessTarget="SystemInstanceId" PipelineParameter="SystemInstanceId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFlowTemplates" OutputProperty="Summaries" Verb="Search" Noun="FlowTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchFlowTemplates" OutputProperty="Summaries" Verb="Search" Noun="FlowTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchSystemInstances" OutputProperty="Summaries" Verb="Search" Noun="SystemInstance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchSystemInstances" OutputProperty="Summaries" Verb="Search" Noun="SystemInstance" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchSystemTemplates" OutputProperty="Summaries" Verb="Search" Noun="SystemTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchSystemTemplates" OutputProperty="Summaries" Verb="Search" Noun="SystemTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchThings" OutputProperty="Things" Verb="Search" Noun="Thing" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchThings" OutputProperty="Things" Verb="Search" Noun="Thing" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UndeploySystemInstance" OutputProperty="Summary" Verb="Remove" Noun="SystemInstanceDeployment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UndeploySystemInstance" OutputProperty="Summary" Verb="Remove" Noun="SystemInstanceDeployment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowTemplate" OutputProperty="Summary" Verb="Update" Noun="FlowTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFlowTemplate" OutputProperty="Summary" Verb="Update" Noun="FlowTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSystemTemplate" OutputProperty="Summary" Verb="Update" Noun="SystemTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSystemTemplate" OutputProperty="Summary" Verb="Update" Noun="SystemTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadEntityDefinitions" OutputProperty="UploadId" Verb="Set" Noun="EntityDefinition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Document_Text" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UploadEntityDefinitions" OutputProperty="UploadId" Verb="Set" Noun="EntityDefinition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Document_Text" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

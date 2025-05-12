@@ -19,393 +19,393 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AbortMultipartReadSetUpload" Verb="Remove" Noun="MultipartReadSetUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AbortMultipartReadSetUpload" Verb="Remove" Noun="MultipartReadSetUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptShare" OutputProperty="Status" Verb="Receive" Noun="Share" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptShare" OutputProperty="Status" Verb="Receive" Noun="Share" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteReadSet" OutputProperty="Errors" Verb="Remove" Noun="ReadSet" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteReadSet" OutputProperty="Errors" Verb="Remove" Noun="ReadSet" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelAnnotationImportJob" Verb="Stop" Noun="AnnotationImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelAnnotationImportJob" Verb="Stop" Noun="AnnotationImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelRun" Verb="Stop" Noun="Run" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelRun" Verb="Stop" Noun="Run" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelVariantImportJob" Verb="Stop" Noun="VariantImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelVariantImportJob" Verb="Stop" Noun="VariantImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteMultipartReadSetUpload" OutputProperty="ReadSetId" Verb="Complete" Noun="MultipartReadSetUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CompleteMultipartReadSetUpload" OutputProperty="ReadSetId" Verb="Complete" Noun="MultipartReadSetUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnnotationStore" OutputProperty="*" Verb="New" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="StoreFormat" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAnnotationStore" OutputProperty="*" Verb="New" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="StoreFormat" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAnnotationStoreVersion" OutputProperty="*" Verb="New" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAnnotationStoreVersion" OutputProperty="*" Verb="New" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMultipartReadSetUpload" OutputProperty="*" Verb="New" Noun="MultipartReadSetUpload" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMultipartReadSetUpload" OutputProperty="*" Verb="New" Noun="MultipartReadSetUpload" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReferenceStore" OutputProperty="*" Verb="New" Noun="ReferenceStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReferenceStore" OutputProperty="*" Verb="New" Noun="ReferenceStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRunCache" OutputProperty="*" Verb="New" Noun="RunCache" ShouldProcessTarget="" PipelineParameter="CacheS3Location" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRunCache" OutputProperty="*" Verb="New" Noun="RunCache" ShouldProcessTarget="" PipelineParameter="CacheS3Location" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRunGroup" OutputProperty="*" Verb="New" Noun="RunGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateRunGroup" OutputProperty="*" Verb="New" Noun="RunGroup" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSequenceStore" OutputProperty="*" Verb="New" Noun="SequenceStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSequenceStore" OutputProperty="*" Verb="New" Noun="SequenceStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateShare" OutputProperty="*" Verb="New" Noun="Share" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateShare" OutputProperty="*" Verb="New" Noun="Share" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVariantStore" OutputProperty="*" Verb="New" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateVariantStore" OutputProperty="*" Verb="New" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="*" Verb="New" Noun="Workflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="*" Verb="New" Noun="Workflow" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkflowVersion" OutputProperty="*" Verb="New" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWorkflowVersion" OutputProperty="*" Verb="New" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnnotationStore" OutputProperty="Status" Verb="Remove" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnnotationStore" OutputProperty="Status" Verb="Remove" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Compel" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnnotationStoreVersions" OutputProperty="Errors" Verb="Remove" Noun="AnnotationStoreVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAnnotationStoreVersions" OutputProperty="Errors" Verb="Remove" Noun="AnnotationStoreVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReference" Verb="Remove" Noun="Reference" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReference" Verb="Remove" Noun="Reference" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReferenceStore" Verb="Remove" Noun="ReferenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReferenceStore" Verb="Remove" Noun="ReferenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRun" Verb="Remove" Noun="Run" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRun" Verb="Remove" Noun="Run" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRunCache" Verb="Remove" Noun="RunCache" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRunCache" Verb="Remove" Noun="RunCache" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRunGroup" Verb="Remove" Noun="RunGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRunGroup" Verb="Remove" Noun="RunGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteS3AccessPolicy" Verb="Remove" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteS3AccessPolicy" Verb="Remove" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSequenceStore" Verb="Remove" Noun="SequenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSequenceStore" Verb="Remove" Noun="SequenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteShare" OutputProperty="Status" Verb="Remove" Noun="Share" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteShare" OutputProperty="Status" Verb="Remove" Noun="Share" ShouldProcessTarget="ShareId" PipelineParameter="ShareId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVariantStore" OutputProperty="Status" Verb="Remove" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVariantStore" OutputProperty="Status" Verb="Remove" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Force" NewName="Compel" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkflow" Verb="Remove" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkflow" Verb="Remove" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkflowVersion" Verb="Remove" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWorkflowVersion" Verb="Remove" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnnotationImportJob" OutputProperty="*" Verb="Get" Noun="AnnotationImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnnotationImportJob" OutputProperty="*" Verb="Get" Noun="AnnotationImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnnotationStore" OutputProperty="*" Verb="Get" Noun="AnnotationStore" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnnotationStore" OutputProperty="*" Verb="Get" Noun="AnnotationStore" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAnnotationStoreVersion" OutputProperty="*" Verb="Get" Noun="AnnotationStoreVersion" PipelineParameter="VersionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAnnotationStoreVersion" OutputProperty="*" Verb="Get" Noun="AnnotationStoreVersion" PipelineParameter="VersionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReadSet" OutputProperty="Payload" Verb="Get" Noun="ReadSet" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReadSet" OutputProperty="Payload" Verb="Get" Noun="ReadSet" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReadSetActivationJob" OutputProperty="*" Verb="Get" Noun="ReadSetActivationJob" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReadSetActivationJob" OutputProperty="*" Verb="Get" Noun="ReadSetActivationJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReadSetExportJob" OutputProperty="*" Verb="Get" Noun="ReadSetExportJob" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReadSetExportJob" OutputProperty="*" Verb="Get" Noun="ReadSetExportJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReadSetImportJob" OutputProperty="*" Verb="Get" Noun="ReadSetImportJob" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReadSetImportJob" OutputProperty="*" Verb="Get" Noun="ReadSetImportJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReadSetMetadata" OutputProperty="*" Verb="Get" Noun="ReadSetMetadata" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReadSetMetadata" OutputProperty="*" Verb="Get" Noun="ReadSetMetadata" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReference" OutputProperty="Payload" Verb="Get" Noun="Reference" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReference" OutputProperty="Payload" Verb="Get" Noun="Reference" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReferenceImportJob" OutputProperty="*" Verb="Get" Noun="ReferenceImportJob" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReferenceImportJob" OutputProperty="*" Verb="Get" Noun="ReferenceImportJob" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReferenceMetadata" OutputProperty="*" Verb="Get" Noun="ReferenceMetadata" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReferenceMetadata" OutputProperty="*" Verb="Get" Noun="ReferenceMetadata" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReferenceStore" OutputProperty="*" Verb="Get" Noun="ReferenceStore" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReferenceStore" OutputProperty="*" Verb="Get" Noun="ReferenceStore" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRun" OutputProperty="*" Verb="Get" Noun="Run" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRun" OutputProperty="*" Verb="Get" Noun="Run" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRunCache" OutputProperty="*" Verb="Get" Noun="RunCache" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRunCache" OutputProperty="*" Verb="Get" Noun="RunCache" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRunGroup" OutputProperty="*" Verb="Get" Noun="RunGroup" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRunGroup" OutputProperty="*" Verb="Get" Noun="RunGroup" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRunTask" OutputProperty="*" Verb="Get" Noun="RunTask" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRunTask" OutputProperty="*" Verb="Get" Noun="RunTask" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetS3AccessPolicy" OutputProperty="*" Verb="Get" Noun="S3AccessPolicy" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetS3AccessPolicy" OutputProperty="*" Verb="Get" Noun="S3AccessPolicy" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSequenceStore" OutputProperty="*" Verb="Get" Noun="SequenceStore" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSequenceStore" OutputProperty="*" Verb="Get" Noun="SequenceStore" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetShare" OutputProperty="Share" Verb="Get" Noun="Share" PipelineParameter="ShareId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetShare" OutputProperty="Share" Verb="Get" Noun="Share" PipelineParameter="ShareId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVariantImportJob" OutputProperty="*" Verb="Get" Noun="VariantImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVariantImportJob" OutputProperty="*" Verb="Get" Noun="VariantImportJob" PipelineParameter="JobId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVariantStore" OutputProperty="*" Verb="Get" Noun="VariantStore" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVariantStore" OutputProperty="*" Verb="Get" Noun="VariantStore" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflow" OutputProperty="*" Verb="Get" Noun="Workflow" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkflow" OutputProperty="*" Verb="Get" Noun="Workflow" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowVersion" OutputProperty="*" Verb="Get" Noun="WorkflowVersion" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkflowVersion" OutputProperty="*" Verb="Get" Noun="WorkflowVersion" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnnotationImportJobs" OutputProperty="AnnotationImportJobs" Verb="Get" Noun="AnnotationImportJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAnnotationImportJobs" OutputProperty="AnnotationImportJobs" Verb="Get" Noun="AnnotationImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnnotationStores" OutputProperty="AnnotationStores" Verb="Get" Noun="AnnotationStoreList" PipelineParameter="Filter_Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnnotationStores" OutputProperty="AnnotationStores" Verb="Get" Noun="AnnotationStoreList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAnnotationStoreVersions" OutputProperty="AnnotationStoreVersions" Verb="Get" Noun="AnnotationStoreVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAnnotationStoreVersions" OutputProperty="AnnotationStoreVersions" Verb="Get" Noun="AnnotationStoreVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultipartReadSetUploads" OutputProperty="Uploads" Verb="Get" Noun="MultipartReadSetUploadList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMultipartReadSetUploads" OutputProperty="Uploads" Verb="Get" Noun="MultipartReadSetUploadList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReadSetActivationJobs" OutputProperty="ActivationJobs" Verb="Get" Noun="ReadSetActivationJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReadSetActivationJobs" OutputProperty="ActivationJobs" Verb="Get" Noun="ReadSetActivationJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReadSetExportJobs" OutputProperty="ExportJobs" Verb="Get" Noun="ReadSetExportJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReadSetExportJobs" OutputProperty="ExportJobs" Verb="Get" Noun="ReadSetExportJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReadSetImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="ReadSetImportJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReadSetImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="ReadSetImportJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReadSets" OutputProperty="ReadSets" Verb="Get" Noun="ReadSetList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReadSets" OutputProperty="ReadSets" Verb="Get" Noun="ReadSetList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReadSetUploadParts" OutputProperty="Parts" Verb="Get" Noun="ReadSetUploadPartList" PipelineParameter="UploadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReadSetUploadParts" OutputProperty="Parts" Verb="Get" Noun="ReadSetUploadPartList" PipelineParameter="UploadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReferenceImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="ReferenceImportJobList" PipelineParameter="ReferenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReferenceImportJobs" OutputProperty="ImportJobs" Verb="Get" Noun="ReferenceImportJobList" PipelineParameter="ReferenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReferences" OutputProperty="References" Verb="Get" Noun="ReferenceList" PipelineParameter="ReferenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReferences" OutputProperty="References" Verb="Get" Noun="ReferenceList" PipelineParameter="ReferenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReferenceStores" OutputProperty="ReferenceStores" Verb="Get" Noun="ReferenceStoreList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListReferenceStores" OutputProperty="ReferenceStores" Verb="Get" Noun="ReferenceStoreList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRunCaches" OutputProperty="Items" Verb="Get" Noun="RunCachList" PipelineParameter="StartingToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRunCaches" OutputProperty="Items" Verb="Get" Noun="RunCachList" PipelineParameter="StartingToken" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRunGroups" OutputProperty="Items" Verb="Get" Noun="RunGroupList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRunGroups" OutputProperty="Items" Verb="Get" Noun="RunGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuns" OutputProperty="Items" Verb="Get" Noun="RunList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRuns" OutputProperty="Items" Verb="Get" Noun="RunList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRunTasks" OutputProperty="Items" Verb="Get" Noun="RunTaskList" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRunTasks" OutputProperty="Items" Verb="Get" Noun="RunTaskList" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSequenceStores" OutputProperty="SequenceStores" Verb="Get" Noun="SequenceStoreList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSequenceStores" OutputProperty="SequenceStores" Verb="Get" Noun="SequenceStoreList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListShares" OutputProperty="Shares" Verb="Get" Noun="ShareList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListShares" OutputProperty="Shares" Verb="Get" Noun="ShareList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVariantImportJobs" OutputProperty="VariantImportJobs" Verb="Get" Noun="VariantImportJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListVariantImportJobs" OutputProperty="VariantImportJobs" Verb="Get" Noun="VariantImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVariantStores" OutputProperty="VariantStores" Verb="Get" Noun="VariantStoreList" PipelineParameter="Filter_Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVariantStores" OutputProperty="VariantStores" Verb="Get" Noun="VariantStoreList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Items" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Items" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowVersions" OutputProperty="Items" Verb="Get" Noun="WorkflowVersionList" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkflowVersions" OutputProperty="Items" Verb="Get" Noun="WorkflowVersionList" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutS3AccessPolicy" OutputProperty="*" Verb="Write" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutS3AccessPolicy" OutputProperty="*" Verb="Write" Noun="S3AccessPolicy" ShouldProcessTarget="S3AccessPointArn" PipelineParameter="S3AccessPointArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAnnotationImportJob" OutputProperty="JobId" Verb="Start" Noun="AnnotationImportJob" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartAnnotationImportJob" OutputProperty="JobId" Verb="Start" Noun="AnnotationImportJob" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartReadSetActivationJob" OutputProperty="*" Verb="Start" Noun="ReadSetActivationJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartReadSetActivationJob" OutputProperty="*" Verb="Start" Noun="ReadSetActivationJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartReadSetExportJob" OutputProperty="*" Verb="Start" Noun="ReadSetExportJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartReadSetExportJob" OutputProperty="*" Verb="Start" Noun="ReadSetExportJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartReadSetImportJob" OutputProperty="*" Verb="Start" Noun="ReadSetImportJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartReadSetImportJob" OutputProperty="*" Verb="Start" Noun="ReadSetImportJob" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartReferenceImportJob" OutputProperty="*" Verb="Start" Noun="ReferenceImportJob" ShouldProcessTarget="ReferenceStoreId" PipelineParameter="ReferenceStoreId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartReferenceImportJob" OutputProperty="*" Verb="Start" Noun="ReferenceImportJob" ShouldProcessTarget="ReferenceStoreId" PipelineParameter="ReferenceStoreId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartRun" OutputProperty="*" Verb="Start" Noun="Run" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartRun" OutputProperty="*" Verb="Start" Noun="Run" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartVariantImportJob" OutputProperty="JobId" Verb="Start" Noun="VariantImportJob" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartVariantImportJob" OutputProperty="JobId" Verb="Start" Noun="VariantImportJob" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnnotationStore" OutputProperty="*" Verb="Update" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAnnotationStore" OutputProperty="*" Verb="Update" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAnnotationStoreVersion" OutputProperty="*" Verb="Update" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateAnnotationStoreVersion" OutputProperty="*" Verb="Update" Noun="AnnotationStoreVersion" ShouldProcessTarget="VersionName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRunCache" Verb="Update" Noun="RunCache" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRunCache" Verb="Update" Noun="RunCache" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRunGroup" Verb="Update" Noun="RunGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRunGroup" Verb="Update" Noun="RunGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSequenceStore" OutputProperty="*" Verb="Update" Noun="SequenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateSequenceStore" OutputProperty="*" Verb="Update" Noun="SequenceStore" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVariantStore" OutputProperty="*" Verb="Update" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateVariantStore" OutputProperty="*" Verb="Update" Noun="VariantStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkflow" Verb="Update" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkflow" Verb="Update" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkflowVersion" Verb="Update" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWorkflowVersion" Verb="Update" Noun="WorkflowVersion" ShouldProcessTarget="VersionName" PipelineParameter="WorkflowId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadReadSetPart" OutputProperty="Checksum" Verb="Set" Noun="ReadSetPart" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UploadReadSetPart" OutputProperty="Checksum" Verb="Set" Noun="ReadSetPart" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

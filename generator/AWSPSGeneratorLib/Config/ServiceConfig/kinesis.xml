@@ -25,130 +25,130 @@
         <Property>HasMoreShards</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTagsToStream" Verb="Add" Noun="TagsToStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddTagsToStream" Verb="Add" Noun="TagsToStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStream" Verb="New" Noun="Stream" ShouldProcessTarget="StreamName" PositionalParameters="ShardCount" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateStream" Verb="New" Noun="Stream" ShouldProcessTarget="StreamName" PositionalParameters="ShardCount" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecreaseStreamRetentionPeriod" Verb="Request" Noun="StreamRetentionPeriodDecrease" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DecreaseStreamRetentionPeriod" Verb="Request" Noun="StreamRetentionPeriodDecrease" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterStreamConsumer" Verb="Unregister" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeregisterStreamConsumer" Verb="Unregister" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="Limit" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="Limit" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamDescription" Verb="Get" Noun="Stream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamDescription" Verb="Get" Noun="Stream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStreamConsumer" OutputProperty="ConsumerDescription" Verb="Get" Noun="StreamConsumer" PipelineParameter="ConsumerARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStreamConsumer" OutputProperty="ConsumerDescription" Verb="Get" Noun="StreamConsumer" PipelineParameter="ConsumerARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStreamSummary" OutputProperty="StreamDescriptionSummary" Verb="Get" Noun="StreamSummary" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeStreamSummary" OutputProperty="StreamDescriptionSummary" Verb="Get" Noun="StreamSummary" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableEnhancedMonitoring" OutputProperty="*" Verb="Disable" Noun="EnhancedMonitoring" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisableEnhancedMonitoring" OutputProperty="*" Verb="Disable" Noun="EnhancedMonitoring" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableEnhancedMonitoring" OutputProperty="*" Verb="Enable" Noun="EnhancedMonitoring" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="EnableEnhancedMonitoring" OutputProperty="*" Verb="Enable" Noun="EnhancedMonitoring" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecords" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="ShardIterator" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRecords" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="ShardIterator" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetShardIterator" OutputProperty="ShardIterator" Verb="Get" Noun="ShardIterator" PipelineParameter="ShardId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetShardIterator" OutputProperty="ShardIterator" Verb="Get" Noun="ShardIterator" PipelineParameter="ShardId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="IncreaseStreamRetentionPeriod" Verb="Request" Noun="StreamRetentionPeriodIncrease" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="IncreaseStreamRetentionPeriod" Verb="Request" Noun="StreamRetentionPeriodIncrease" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamConsumers" OutputProperty="Consumers" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListStreamConsumers" OutputProperty="Consumers" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="ExclusiveStartStreamName" NoPipelineParameter="false" LegacyAlias="Get-KINStreams">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="ExclusiveStartStreamName" NoPipelineParameter="false" LegacyAlias="Get-KINStreams" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForStream" OutputProperty="*" Verb="Get" Noun="TagsForStream" PositionalParameters="Limit" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForStream" OutputProperty="*" Verb="Get" Noun="TagsForStream" PositionalParameters="Limit" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeShards" Verb="Merge" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToMerge;AdjacentShardToMerge" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergeShards" Verb="Merge" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToMerge;AdjacentShardToMerge" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" DefaultParameterSet="FromBlob">
+        <ServiceOperation MethodName="PutRecord" OutputProperty="*" Verb="Write" Noun="Record" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" DefaultParameterSet="FromBlob" LegacyV4Pagination="true">
             <Params>
                 <Param Name="StreamName" Mandatory="true" />
                 <Param Name="Data" Alias="Blob;Record_Data" ParameterSetName="FromBlob" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecords" OutputProperty="*" Verb="Write" Noun="MultipleRecord" ShouldProcessTarget="StreamName" PipelineParameter="Records" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutRecords" OutputProperty="*" Verb="Write" Noun="MultipleRecord" ShouldProcessTarget="StreamName" PipelineParameter="Records" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterStreamConsumer" OutputProperty="Consumer" Verb="Register" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterStreamConsumer" OutputProperty="Consumer" Verb="Register" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromStream" Verb="Remove" Noun="TagsFromStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemoveTagsFromStream" Verb="Remove" Noun="TagsFromStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SplitShard" Verb="Split" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SplitShard" Verb="Split" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartStreamEncryption" Verb="Start" Noun="StreamEncryption" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartStreamEncryption" Verb="Start" Noun="StreamEncryption" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStreamEncryption" Verb="Stop" Noun="StreamEncryption" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopStreamEncryption" Verb="Stop" Noun="StreamEncryption" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateShardCount" OutputProperty="*" Verb="Update" Noun="ShardCount" ShouldProcessTarget="StreamName" PositionalParameters="ScalingType" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateShardCount" OutputProperty="*" Verb="Update" Noun="ShardCount" ShouldProcessTarget="StreamName" PositionalParameters="ScalingType" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStreamMode" Verb="Update" Noun="StreamMode" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateStreamMode" Verb="Update" Noun="StreamMode" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

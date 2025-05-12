@@ -20,79 +20,79 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateNode" OutputProperty="NodeAssociationStatusToken" Verb="Add" Noun="Node" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateNode" OutputProperty="NodeAssociationStatusToken" Verb="Add" Noun="Node" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackup" OutputProperty="Backup" Verb="New" Noun="Backup" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBackup" OutputProperty="Backup" Verb="New" Noun="Backup" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServer" OutputProperty="Server" Verb="New" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateServer" OutputProperty="Server" Verb="New" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackup" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBackup" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServer" Verb="Remove" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteServer" Verb="Remove" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="Attributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="Attributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="BackupList" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeBackups" OutputProperty="Backups" Verb="Get" Noun="BackupList" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="ServerEvents" Verb="Get" Noun="EventList" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="ServerEvents" Verb="Get" Noun="EventList" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNodeAssociationStatus" OutputProperty="*" Verb="Get" Noun="NodeAssociationStatus" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNodeAssociationStatus" OutputProperty="*" Verb="Get" Noun="NodeAssociationStatus" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServers" OutputProperty="Servers" Verb="Get" Noun="ServerList" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeServers" OutputProperty="Servers" Verb="Get" Noun="ServerList" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateNode" OutputProperty="NodeAssociationStatusToken" Verb="Remove" Noun="Node" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateNode" OutputProperty="NodeAssociationStatusToken" Verb="Remove" Noun="Node" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportServerEngineAttribute" OutputProperty="*" Verb="Export" Noun="ServerEngineAttribute" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExportServerEngineAttribute" OutputProperty="*" Verb="Export" Noun="ServerEngineAttribute" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreServer" OutputProperty="*" Verb="Restore" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RestoreServer" OutputProperty="*" Verb="Restore" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMaintenance" OutputProperty="Server" Verb="Start" Noun="Maintenance" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMaintenance" OutputProperty="Server" Verb="Start" Noun="Maintenance" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServer" OutputProperty="Server" Verb="Update" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateServer" OutputProperty="Server" Verb="Update" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServerEngineAttributes" OutputProperty="Server" Verb="Update" Noun="ServerEngineAttribute" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateServerEngineAttributes" OutputProperty="Server" Verb="Update" Noun="ServerEngineAttribute" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

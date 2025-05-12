@@ -19,295 +19,295 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AttachCustomerManagedPolicyReferenceToPermissionSet" Verb="Mount" Noun="CustomerManagedPolicyReferenceToPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AttachCustomerManagedPolicyReferenceToPermissionSet" Verb="Mount" Noun="CustomerManagedPolicyReferenceToPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachManagedPolicyToPermissionSet" Verb="Mount" Noun="ManagedPolicyToPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AttachManagedPolicyToPermissionSet" Verb="Mount" Noun="ManagedPolicyToPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccountAssignment" OutputProperty="AccountAssignmentCreationStatus" Verb="New" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateAccountAssignment" OutputProperty="AccountAssignmentCreationStatus" Verb="New" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationArn" Verb="New" Noun="Application" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationArn" Verb="New" Noun="Application" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplicationAssignment" Verb="New" Noun="ApplicationAssignment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateApplicationAssignment" Verb="New" Noun="ApplicationAssignment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstance" OutputProperty="InstanceArn" Verb="New" Noun="Instance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInstance" OutputProperty="InstanceArn" Verb="New" Noun="Instance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstanceAccessControlAttributeConfiguration" Verb="New" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInstanceAccessControlAttributeConfiguration" Verb="New" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePermissionSet" OutputProperty="PermissionSet" Verb="New" Noun="PermissionSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePermissionSet" OutputProperty="PermissionSet" Verb="New" Noun="PermissionSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrustedTokenIssuer" OutputProperty="*" Verb="New" Noun="TrustedTokenIssuer" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrustedTokenIssuer" OutputProperty="*" Verb="New" Noun="TrustedTokenIssuer" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccountAssignment" OutputProperty="AccountAssignmentDeletionStatus" Verb="Remove" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteAccountAssignment" OutputProperty="AccountAssignmentDeletionStatus" Verb="Remove" Noun="AccountAssignment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationAccessScope" Verb="Remove" Noun="ApplicationAccessScope" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationAccessScope" Verb="Remove" Noun="ApplicationAccessScope" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationAssignment" Verb="Remove" Noun="ApplicationAssignment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteApplicationAssignment" Verb="Remove" Noun="ApplicationAssignment" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationAuthenticationMethod" Verb="Remove" Noun="ApplicationAuthenticationMethod" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationAuthenticationMethod" Verb="Remove" Noun="ApplicationAuthenticationMethod" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationGrant" Verb="Remove" Noun="ApplicationGrant" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplicationGrant" Verb="Remove" Noun="ApplicationGrant" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInlinePolicyFromPermissionSet" Verb="Remove" Noun="InlinePolicyFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInlinePolicyFromPermissionSet" Verb="Remove" Noun="InlinePolicyFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInstance" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstanceAccessControlAttributeConfiguration" Verb="Remove" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteInstanceAccessControlAttributeConfiguration" Verb="Remove" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermissionsBoundaryFromPermissionSet" Verb="Remove" Noun="PermissionsBoundaryFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermissionsBoundaryFromPermissionSet" Verb="Remove" Noun="PermissionsBoundaryFromPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePermissionSet" Verb="Remove" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePermissionSet" Verb="Remove" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrustedTokenIssuer" Verb="Remove" Noun="TrustedTokenIssuer" ShouldProcessTarget="TrustedTokenIssuerArn" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrustedTokenIssuer" Verb="Remove" Noun="TrustedTokenIssuer" ShouldProcessTarget="TrustedTokenIssuerArn" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatus" PipelineParameter="AccountAssignmentCreationRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatus" PipelineParameter="AccountAssignmentCreationRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatus" PipelineParameter="AccountAssignmentDeletionRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatus" PipelineParameter="AccountAssignmentDeletionRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationAssignment" OutputProperty="*" Verb="Get" Noun="ApplicationAssignment" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplicationAssignment" OutputProperty="*" Verb="Get" Noun="ApplicationAssignment" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationProvider" OutputProperty="*" Verb="Get" Noun="ApplicationProvider" PipelineParameter="ApplicationProviderArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApplicationProvider" OutputProperty="*" Verb="Get" Noun="ApplicationProvider" PipelineParameter="ApplicationProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstance" OutputProperty="*" Verb="Get" Noun="Instance" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstance" OutputProperty="*" Verb="Get" Noun="Instance" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceAccessControlAttributeConfiguration" OutputProperty="*" Verb="Get" Noun="InstanceAccessControlAttributeConfiguration" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstanceAccessControlAttributeConfiguration" OutputProperty="*" Verb="Get" Noun="InstanceAccessControlAttributeConfiguration" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePermissionSet" OutputProperty="PermissionSet" Verb="Get" Noun="PermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePermissionSet" OutputProperty="PermissionSet" Verb="Get" Noun="PermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePermissionSetProvisioningStatus" OutputProperty="PermissionSetProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatus" PipelineParameter="ProvisionPermissionSetRequestId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePermissionSetProvisioningStatus" OutputProperty="PermissionSetProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatus" PipelineParameter="ProvisionPermissionSetRequestId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrustedTokenIssuer" OutputProperty="*" Verb="Get" Noun="TrustedTokenIssuer" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrustedTokenIssuer" OutputProperty="*" Verb="Get" Noun="TrustedTokenIssuer" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachCustomerManagedPolicyReferenceFromPermissionSet" Verb="Dismount" Noun="CustomerManagedPolicyReferenceFromPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DetachCustomerManagedPolicyReferenceFromPermissionSet" Verb="Dismount" Noun="CustomerManagedPolicyReferenceFromPermissionSet" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachManagedPolicyFromPermissionSet" Verb="Dismount" Noun="ManagedPolicyFromPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DetachManagedPolicyFromPermissionSet" Verb="Dismount" Noun="ManagedPolicyFromPermissionSet" ShouldProcessTarget="ManagedPolicyArn" PipelineParameter="ManagedPolicyArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationAccessScope" OutputProperty="*" Verb="Get" Noun="ApplicationAccessScope" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationAccessScope" OutputProperty="*" Verb="Get" Noun="ApplicationAccessScope" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationAssignmentConfiguration" OutputProperty="AssignmentRequired" Verb="Get" Noun="ApplicationAssignmentConfiguration" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationAssignmentConfiguration" OutputProperty="AssignmentRequired" Verb="Get" Noun="ApplicationAssignmentConfiguration" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationAuthenticationMethod" OutputProperty="AuthenticationMethod" Verb="Get" Noun="ApplicationAuthenticationMethod" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationAuthenticationMethod" OutputProperty="AuthenticationMethod" Verb="Get" Noun="ApplicationAuthenticationMethod" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplicationGrant" OutputProperty="Grant" Verb="Get" Noun="ApplicationGrant" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplicationGrant" OutputProperty="Grant" Verb="Get" Noun="ApplicationGrant" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInlinePolicyForPermissionSet" OutputProperty="InlinePolicy" Verb="Get" Noun="InlinePolicyForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInlinePolicyForPermissionSet" OutputProperty="InlinePolicy" Verb="Get" Noun="InlinePolicyForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPermissionsBoundaryForPermissionSet" OutputProperty="PermissionsBoundary" Verb="Get" Noun="PermissionsBoundaryForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPermissionsBoundaryForPermissionSet" OutputProperty="PermissionsBoundary" Verb="Get" Noun="PermissionsBoundaryForPermissionSet" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentsCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountAssignmentCreationStatus" OutputProperty="AccountAssignmentsCreationStatus" Verb="Get" Noun="AccountAssignmentCreationStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentsDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountAssignmentDeletionStatus" OutputProperty="AccountAssignmentsDeletionStatus" Verb="Get" Noun="AccountAssignmentDeletionStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountAssignments" OutputProperty="AccountAssignments" Verb="Get" Noun="AccountAssignmentList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountAssignments" OutputProperty="AccountAssignments" Verb="Get" Noun="AccountAssignmentList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountAssignmentsForPrincipal" OutputProperty="AccountAssignments" Verb="Get" Noun="AccountAssignmentsForPrincipalList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountAssignmentsForPrincipal" OutputProperty="AccountAssignments" Verb="Get" Noun="AccountAssignmentsForPrincipalList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountsForProvisionedPermissionSet" OutputProperty="AccountIds" Verb="Get" Noun="AccountsForProvisionedPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountsForProvisionedPermissionSet" OutputProperty="AccountIds" Verb="Get" Noun="AccountsForProvisionedPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationAccessScopes" OutputProperty="Scopes" Verb="Get" Noun="ApplicationAccessScopeList" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationAccessScopes" OutputProperty="Scopes" Verb="Get" Noun="ApplicationAccessScopeList" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationAssignments" OutputProperty="ApplicationAssignments" Verb="Get" Noun="ApplicationAssignmentList" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationAssignments" OutputProperty="ApplicationAssignments" Verb="Get" Noun="ApplicationAssignmentList" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationAssignmentsForPrincipal" OutputProperty="ApplicationAssignments" Verb="Get" Noun="ApplicationAssignmentsForPrincipalList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationAssignmentsForPrincipal" OutputProperty="ApplicationAssignments" Verb="Get" Noun="ApplicationAssignmentsForPrincipalList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationAuthenticationMethods" OutputProperty="AuthenticationMethods" Verb="Get" Noun="ApplicationAuthenticationMethodList" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationAuthenticationMethods" OutputProperty="AuthenticationMethods" Verb="Get" Noun="ApplicationAuthenticationMethodList" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationGrants" OutputProperty="Grants" Verb="Get" Noun="ApplicationGrantList" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationGrants" OutputProperty="Grants" Verb="Get" Noun="ApplicationGrantList" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationProviders" OutputProperty="ApplicationProviders" Verb="Get" Noun="ApplicationProviderList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationProviders" OutputProperty="ApplicationProviders" Verb="Get" Noun="ApplicationProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomerManagedPolicyReferencesInPermissionSet" OutputProperty="CustomerManagedPolicyReferences" Verb="Get" Noun="CustomerManagedPolicyReferencesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCustomerManagedPolicyReferencesInPermissionSet" OutputProperty="CustomerManagedPolicyReferences" Verb="Get" Noun="CustomerManagedPolicyReferencesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedPoliciesInPermissionSet" OutputProperty="AttachedManagedPolicies" Verb="Get" Noun="ManagedPoliciesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListManagedPoliciesInPermissionSet" OutputProperty="AttachedManagedPolicies" Verb="Get" Noun="ManagedPoliciesInPermissionSetList" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionSetProvisioningStatus" OutputProperty="PermissionSetsProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissionSetProvisioningStatus" OutputProperty="PermissionSetsProvisioningStatus" Verb="Get" Noun="PermissionSetProvisioningStatusList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionSets" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissionSets" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissionSetsProvisionedToAccount" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetsProvisionedToAccountList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissionSetsProvisionedToAccount" OutputProperty="PermissionSets" Verb="Get" Noun="PermissionSetsProvisionedToAccountList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrustedTokenIssuers" OutputProperty="TrustedTokenIssuers" Verb="Get" Noun="TrustedTokenIssuerList" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrustedTokenIssuers" OutputProperty="TrustedTokenIssuers" Verb="Get" Noun="TrustedTokenIssuerList" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ProvisionPermissionSet" OutputProperty="PermissionSetProvisioningStatus" Verb="Add" Noun="PermissionSetProvision" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ProvisionPermissionSet" OutputProperty="PermissionSetProvisioningStatus" Verb="Add" Noun="PermissionSetProvision" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutApplicationAccessScope" Verb="Write" Noun="ApplicationAccessScope" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutApplicationAccessScope" Verb="Write" Noun="ApplicationAccessScope" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutApplicationAssignmentConfiguration" Verb="Write" Noun="ApplicationAssignmentConfiguration" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutApplicationAssignmentConfiguration" Verb="Write" Noun="ApplicationAssignmentConfiguration" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutApplicationAuthenticationMethod" Verb="Write" Noun="ApplicationAuthenticationMethod" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutApplicationAuthenticationMethod" Verb="Write" Noun="ApplicationAuthenticationMethod" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutApplicationGrant" Verb="Write" Noun="ApplicationGrant" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutApplicationGrant" Verb="Write" Noun="ApplicationGrant" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutInlinePolicyToPermissionSet" Verb="Write" Noun="InlinePolicyToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutInlinePolicyToPermissionSet" Verb="Write" Noun="InlinePolicyToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPermissionsBoundaryToPermissionSet" Verb="Write" Noun="PermissionsBoundaryToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutPermissionsBoundaryToPermissionSet" Verb="Write" Noun="PermissionsBoundaryToPermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationArn" PipelineParameter="ApplicationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstance" Verb="Update" Noun="Instance" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInstance" Verb="Update" Noun="Instance" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstanceAccessControlAttributeConfiguration" Verb="Update" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateInstanceAccessControlAttributeConfiguration" Verb="Update" Noun="InstanceAccessControlAttributeConfiguration" ShouldProcessTarget="InstanceArn" PipelineParameter="InstanceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePermissionSet" Verb="Update" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePermissionSet" Verb="Update" Noun="PermissionSet" ShouldProcessTarget="PermissionSetArn" PipelineParameter="PermissionSetArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrustedTokenIssuer" Verb="Update" Noun="TrustedTokenIssuer" ShouldProcessTarget="TrustedTokenIssuerArn" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrustedTokenIssuer" Verb="Update" Noun="TrustedTokenIssuer" ShouldProcessTarget="TrustedTokenIssuerArn" PipelineParameter="TrustedTokenIssuerArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

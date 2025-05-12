@@ -18,275 +18,275 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateBrowserSettings" OutputProperty="*" Verb="Register" Noun="BrowserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateBrowserSettings" OutputProperty="*" Verb="Register" Noun="BrowserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateDataProtectionSettings" OutputProperty="*" Verb="Register" Noun="DataProtectionSetting" AnonymousShouldProcessTarget="true" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateDataProtectionSettings" OutputProperty="*" Verb="Register" Noun="DataProtectionSetting" AnonymousShouldProcessTarget="true" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateIpAccessSettings" OutputProperty="*" Verb="Register" Noun="IpAccessSetting" AnonymousShouldProcessTarget="true" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateIpAccessSettings" OutputProperty="*" Verb="Register" Noun="IpAccessSetting" AnonymousShouldProcessTarget="true" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateNetworkSettings" OutputProperty="*" Verb="Register" Noun="NetworkSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateNetworkSettings" OutputProperty="*" Verb="Register" Noun="NetworkSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTrustStore" OutputProperty="*" Verb="Register" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateTrustStore" OutputProperty="*" Verb="Register" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateUserAccessLoggingSettings" OutputProperty="*" Verb="Register" Noun="UserAccessLoggingSetting" AnonymousShouldProcessTarget="true" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateUserAccessLoggingSettings" OutputProperty="*" Verb="Register" Noun="UserAccessLoggingSetting" AnonymousShouldProcessTarget="true" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateUserSettings" OutputProperty="*" Verb="Register" Noun="UserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateUserSettings" OutputProperty="*" Verb="Register" Noun="UserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBrowserSettings" OutputProperty="BrowserSettingsArn" Verb="New" Noun="BrowserSetting" ShouldProcessTarget="BrowserPolicy" PipelineParameter="BrowserPolicy" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateBrowserSettings" OutputProperty="BrowserSettingsArn" Verb="New" Noun="BrowserSetting" ShouldProcessTarget="BrowserPolicy" PipelineParameter="BrowserPolicy" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataProtectionSettings" OutputProperty="DataProtectionSettingsArn" Verb="New" Noun="DataProtectionSetting" ShouldProcessTarget="DisplayName" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataProtectionSettings" OutputProperty="DataProtectionSettingsArn" Verb="New" Noun="DataProtectionSetting" ShouldProcessTarget="DisplayName" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdentityProvider" OutputProperty="IdentityProviderArn" Verb="New" Noun="IdentityProvider" ShouldProcessTarget="PortalArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateIdentityProvider" OutputProperty="IdentityProviderArn" Verb="New" Noun="IdentityProvider" ShouldProcessTarget="PortalArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIpAccessSettings" OutputProperty="IpAccessSettingsArn" Verb="New" Noun="IpAccessSetting" ShouldProcessTarget="CustomerManagedKey" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIpAccessSettings" OutputProperty="IpAccessSettingsArn" Verb="New" Noun="IpAccessSetting" ShouldProcessTarget="CustomerManagedKey" PipelineParameter="CustomerManagedKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetworkSettings" OutputProperty="NetworkSettingsArn" Verb="New" Noun="NetworkSetting" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateNetworkSettings" OutputProperty="NetworkSettingsArn" Verb="New" Noun="NetworkSetting" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStoreArn" Verb="New" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStoreArn" Verb="New" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettingsArn" Verb="New" Noun="UserAccessLoggingSetting" ShouldProcessTarget="KinesisStreamArn" PipelineParameter="KinesisStreamArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettingsArn" Verb="New" Noun="UserAccessLoggingSetting" ShouldProcessTarget="KinesisStreamArn" PipelineParameter="KinesisStreamArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUserSettings" OutputProperty="UserSettingsArn" Verb="New" Noun="UserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateUserSettings" OutputProperty="UserSettingsArn" Verb="New" Noun="UserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBrowserSettings" Verb="Remove" Noun="BrowserSetting" ShouldProcessTarget="BrowserSettingsArn" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBrowserSettings" Verb="Remove" Noun="BrowserSetting" ShouldProcessTarget="BrowserSettingsArn" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataProtectionSettings" Verb="Remove" Noun="DataProtectionSetting" ShouldProcessTarget="DataProtectionSettingsArn" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataProtectionSettings" Verb="Remove" Noun="DataProtectionSetting" ShouldProcessTarget="DataProtectionSettingsArn" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityProvider" Verb="Remove" Noun="IdentityProvider" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentityProvider" Verb="Remove" Noun="IdentityProvider" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIpAccessSettings" Verb="Remove" Noun="IpAccessSetting" ShouldProcessTarget="IpAccessSettingsArn" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIpAccessSettings" Verb="Remove" Noun="IpAccessSetting" ShouldProcessTarget="IpAccessSettingsArn" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNetworkSettings" Verb="Remove" Noun="NetworkSetting" ShouldProcessTarget="NetworkSettingsArn" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteNetworkSettings" Verb="Remove" Noun="NetworkSetting" ShouldProcessTarget="NetworkSettingsArn" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePortal" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePortal" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTrustStore" Verb="Remove" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserAccessLoggingSettings" Verb="Remove" Noun="UserAccessLoggingSetting" ShouldProcessTarget="UserAccessLoggingSettingsArn" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserAccessLoggingSettings" Verb="Remove" Noun="UserAccessLoggingSetting" ShouldProcessTarget="UserAccessLoggingSettingsArn" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserSettings" Verb="Remove" Noun="UserSetting" ShouldProcessTarget="UserSettingsArn" PipelineParameter="UserSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteUserSettings" Verb="Remove" Noun="UserSetting" ShouldProcessTarget="UserSettingsArn" PipelineParameter="UserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateBrowserSettings" Verb="Unregister" Noun="BrowserSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateBrowserSettings" Verb="Unregister" Noun="BrowserSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateDataProtectionSettings" Verb="Unregister" Noun="DataProtectionSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateDataProtectionSettings" Verb="Unregister" Noun="DataProtectionSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateIpAccessSettings" Verb="Unregister" Noun="IpAccessSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateIpAccessSettings" Verb="Unregister" Noun="IpAccessSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateNetworkSettings" Verb="Unregister" Noun="NetworkSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateNetworkSettings" Verb="Unregister" Noun="NetworkSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTrustStore" Verb="Unregister" Noun="TrustStore" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateTrustStore" Verb="Unregister" Noun="TrustStore" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateUserAccessLoggingSettings" Verb="Unregister" Noun="UserAccessLoggingSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateUserAccessLoggingSettings" Verb="Unregister" Noun="UserAccessLoggingSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateUserSettings" Verb="Unregister" Noun="UserSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateUserSettings" Verb="Unregister" Noun="UserSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExpireSession" Verb="Revoke" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ExpireSession" Verb="Revoke" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSetting" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSetting" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Get" Noun="DataProtectionSetting" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Get" Noun="DataProtectionSetting" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityProvider" OutputProperty="IdentityProvider" Verb="Get" Noun="IdentityProvider" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdentityProvider" OutputProperty="IdentityProvider" Verb="Get" Noun="IdentityProvider" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Get" Noun="IpAccessSetting" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Get" Noun="IpAccessSetting" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNetworkSettings" OutputProperty="NetworkSettings" Verb="Get" Noun="NetworkSetting" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetNetworkSettings" OutputProperty="NetworkSettings" Verb="Get" Noun="NetworkSetting" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPortal" OutputProperty="Portal" Verb="Get" Noun="Portal" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPortal" OutputProperty="Portal" Verb="Get" Noun="Portal" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPortalServiceProviderMetadata" OutputProperty="*" Verb="Get" Noun="PortalServiceProviderMetadata" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPortalServiceProviderMetadata" OutputProperty="*" Verb="Get" Noun="PortalServiceProviderMetadata" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrustStore" OutputProperty="TrustStore" Verb="Get" Noun="TrustStore" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTrustStore" OutputProperty="TrustStore" Verb="Get" Noun="TrustStore" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrustStoreCertificate" OutputProperty="*" Verb="Get" Noun="TrustStoreCertificate" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTrustStoreCertificate" OutputProperty="*" Verb="Get" Noun="TrustStoreCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Get" Noun="UserAccessLoggingSetting" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Get" Noun="UserAccessLoggingSetting" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUserSettings" OutputProperty="UserSettings" Verb="Get" Noun="UserSetting" PipelineParameter="UserSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUserSettings" OutputProperty="UserSettings" Verb="Get" Noun="UserSetting" PipelineParameter="UserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Get" Noun="DataProtectionSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Get" Noun="DataProtectionSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviders" Verb="Get" Noun="IdentityProviderList" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="IdentityProviders" Verb="Get" Noun="IdentityProviderList" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Get" Noun="IpAccessSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Get" Noun="IpAccessSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworkSettings" OutputProperty="NetworkSettings" Verb="Get" Noun="NetworkSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNetworkSettings" OutputProperty="NetworkSettings" Verb="Get" Noun="NetworkSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortals" OutputProperty="Portals" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPortals" OutputProperty="Portals" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="PortalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="PortalId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrustStoreCertificates" OutputProperty="*" Verb="Get" Noun="TrustStoreCertificateList" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrustStoreCertificates" OutputProperty="*" Verb="Get" Noun="TrustStoreCertificateList" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrustStores" OutputProperty="TrustStores" Verb="Get" Noun="TrustStoreList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrustStores" OutputProperty="TrustStores" Verb="Get" Noun="TrustStoreList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Get" Noun="UserAccessLoggingSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Get" Noun="UserAccessLoggingSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserSettings" OutputProperty="UserSettings" Verb="Get" Noun="UserSettingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserSettings" OutputProperty="UserSettings" Verb="Get" Noun="UserSettingList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBrowserSettings" OutputProperty="BrowserSettings" Verb="Update" Noun="BrowserSetting" ShouldProcessTarget="BrowserSettingsArn" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateBrowserSettings" OutputProperty="BrowserSettings" Verb="Update" Noun="BrowserSetting" ShouldProcessTarget="BrowserSettingsArn" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Update" Noun="DataProtectionSetting" ShouldProcessTarget="DataProtectionSettingsArn" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataProtectionSettings" OutputProperty="DataProtectionSettings" Verb="Update" Noun="DataProtectionSetting" ShouldProcessTarget="DataProtectionSettingsArn" PipelineParameter="DataProtectionSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdentityProvider" OutputProperty="IdentityProvider" Verb="Update" Noun="IdentityProvider" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIdentityProvider" OutputProperty="IdentityProvider" Verb="Update" Noun="IdentityProvider" ShouldProcessTarget="IdentityProviderArn" PipelineParameter="IdentityProviderArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Update" Noun="IpAccessSetting" ShouldProcessTarget="IpAccessSettingsArn" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIpAccessSettings" OutputProperty="IpAccessSettings" Verb="Update" Noun="IpAccessSetting" ShouldProcessTarget="IpAccessSettingsArn" PipelineParameter="IpAccessSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNetworkSettings" OutputProperty="NetworkSettings" Verb="Update" Noun="NetworkSetting" ShouldProcessTarget="NetworkSettingsArn" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateNetworkSettings" OutputProperty="NetworkSettings" Verb="Update" Noun="NetworkSetting" ShouldProcessTarget="NetworkSettingsArn" PipelineParameter="NetworkSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePortal" OutputProperty="Portal" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePortal" OutputProperty="Portal" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrustStore" OutputProperty="TrustStoreArn" Verb="Update" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTrustStore" OutputProperty="TrustStoreArn" Verb="Update" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Update" Noun="UserAccessLoggingSetting" ShouldProcessTarget="UserAccessLoggingSettingsArn" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Update" Noun="UserAccessLoggingSetting" ShouldProcessTarget="UserAccessLoggingSettingsArn" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserSettings" OutputProperty="UserSettings" Verb="Update" Noun="UserSetting" ShouldProcessTarget="UserSettingsArn" PipelineParameter="UserSettingsArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateUserSettings" OutputProperty="UserSettings" Verb="Update" Noun="UserSetting" ShouldProcessTarget="UserSettingsArn" PipelineParameter="UserSettingsArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

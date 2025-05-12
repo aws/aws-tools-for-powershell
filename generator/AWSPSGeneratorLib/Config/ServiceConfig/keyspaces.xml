@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateKeyspace" OutputProperty="ResourceArn" Verb="New" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKeyspace" OutputProperty="ResourceArn" Verb="New" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTable" OutputProperty="ResourceArn" Verb="New" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateTable" OutputProperty="ResourceArn" Verb="New" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
@@ -35,55 +35,55 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateType" OutputProperty="*" Verb="New" Noun="Type" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateType" OutputProperty="*" Verb="New" Noun="Type" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKeyspace" Verb="Remove" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKeyspace" Verb="Remove" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteType" OutputProperty="*" Verb="Remove" Noun="Type" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteType" OutputProperty="*" Verb="Remove" Noun="Type" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKeyspace" OutputProperty="*" Verb="Get" Noun="Keyspace" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetKeyspace" OutputProperty="*" Verb="Get" Noun="Keyspace" PipelineParameter="KeyspaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTable" OutputProperty="*" Verb="Get" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableAutoScalingSettings" OutputProperty="*" Verb="Get" Noun="TableAutoScalingSetting" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTableAutoScalingSettings" OutputProperty="*" Verb="Get" Noun="TableAutoScalingSetting" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetType" OutputProperty="*" Verb="Get" Noun="Type" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetType" OutputProperty="*" Verb="Get" Noun="Type" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyspaces" OutputProperty="Keyspaces" Verb="Get" Noun="KeyspaceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListKeyspaces" OutputProperty="Keyspaces" Verb="Get" Noun="KeyspaceList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTables" OutputProperty="Tables" Verb="Get" Noun="TableList" PipelineParameter="KeyspaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="KeyspaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreTable" OutputProperty="RestoredTableARN" Verb="Restore" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RestoreTable" OutputProperty="RestoredTableARN" Verb="Restore" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />
@@ -96,19 +96,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKeyspace" OutputProperty="ResourceArn" Verb="Update" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKeyspace" OutputProperty="ResourceArn" Verb="Update" Noun="Keyspace" ShouldProcessTarget="KeyspaceName" PipelineParameter="KeyspaceName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTable" OutputProperty="ResourceArn" Verb="Update" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateTable" OutputProperty="ResourceArn" Verb="Update" Noun="Table" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params>
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_DisableScaleIn" />
                 <Param Name="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" NewName="ReadCapacity_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" Alias="AutoScalingSpecification_ReadCapacityAutoScaling_ScalingPolicy_TargetTrackingScalingPolicyConfiguration_ScaleInCooldown" />

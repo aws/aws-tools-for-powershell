@@ -29,288 +29,288 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CloneReceiptRuleSet" Verb="Copy" Noun="ReceiptRuleSet" ShouldProcessTarget="OriginalRuleSetName" PipelineParameter="OriginalRuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CloneReceiptRuleSet" Verb="Copy" Noun="ReceiptRuleSet" ShouldProcessTarget="OriginalRuleSetName" PipelineParameter="OriginalRuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfigurationSet" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSet_Name" PipelineParameter="ConfigurationSet_Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfigurationSet" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSet_Name" PipelineParameter="ConfigurationSet_Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Verb="New" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfigurationSetTrackingOptions" Verb="New" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="TrackingOptions" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConfigurationSetTrackingOptions" Verb="New" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="TrackingOptions" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomVerificationEmailTemplate" Verb="New" Noun="CustomVerificationEmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateContent" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateCustomVerificationEmailTemplate" Verb="New" Noun="CustomVerificationEmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateContent" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReceiptFilter" Verb="New" Noun="ReceiptFilter" ShouldProcessTarget="Filter_Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateReceiptFilter" Verb="New" Noun="ReceiptFilter" ShouldProcessTarget="Filter_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReceiptRule" Verb="New" Noun="ReceiptRule" ShouldProcessTarget="Rule_Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateReceiptRule" Verb="New" Noun="ReceiptRule" ShouldProcessTarget="Rule_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReceiptRuleSet" Verb="New" Noun="ReceiptRuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReceiptRuleSet" Verb="New" Noun="ReceiptRuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTemplate" Verb="New" Noun="Template" ShouldProcessTarget="Template" PipelineParameter="Template" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTemplate" Verb="New" Noun="Template" ShouldProcessTarget="Template" PipelineParameter="Template" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationSet" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfigurationSet" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Verb="Remove" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Verb="Remove" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="EventDestinationName" PipelineParameter="EventDestinationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationSetTrackingOptions" Verb="Remove" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteConfigurationSetTrackingOptions" Verb="Remove" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomVerificationEmailTemplate" Verb="Remove" Noun="CustomVerificationEmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteCustomVerificationEmailTemplate" Verb="Remove" Noun="CustomVerificationEmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentity" Verb="Remove" Noun="Identity" ShouldProcessTarget="Identity" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentity" Verb="Remove" Noun="Identity" ShouldProcessTarget="Identity" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityPolicy" Verb="Remove" Noun="IdentityPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentityPolicy" Verb="Remove" Noun="IdentityPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReceiptFilter" Verb="Remove" Noun="ReceiptFilter" ShouldProcessTarget="FilterName" PipelineParameter="FilterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReceiptFilter" Verb="Remove" Noun="ReceiptFilter" ShouldProcessTarget="FilterName" PipelineParameter="FilterName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReceiptRule" Verb="Remove" Noun="ReceiptRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteReceiptRule" Verb="Remove" Noun="ReceiptRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReceiptRuleSet" Verb="Remove" Noun="ReceiptRuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReceiptRuleSet" Verb="Remove" Noun="ReceiptRuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTemplate" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Verb="Remove" Noun="VerifiedEmailAddress" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Verb="Remove" Noun="VerifiedEmailAddress" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActiveReceiptRuleSet" OutputProperty="*" Verb="Get" Noun="ActiveReceiptRuleSet" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeActiveReceiptRuleSet" OutputProperty="*" Verb="Get" Noun="ActiveReceiptRuleSet" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationSet" OutputProperty="*" Verb="Get" Noun="ConfigurationSet" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConfigurationSet" OutputProperty="*" Verb="Get" Noun="ConfigurationSet" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReceiptRule" OutputProperty="Rule" Verb="Get" Noun="ReceiptRule" PipelineParameter="RuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReceiptRule" OutputProperty="Rule" Verb="Get" Noun="ReceiptRule" PipelineParameter="RuleName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReceiptRuleSet" OutputProperty="*" Verb="Get" Noun="ReceiptRuleSet" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReceiptRuleSet" OutputProperty="*" Verb="Get" Noun="ReceiptRuleSet" PipelineParameter="RuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSendingEnabled" OutputProperty="Enabled" Verb="Get" Noun="AccountSendingEnabled" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccountSendingEnabled" OutputProperty="Enabled" Verb="Get" Noun="AccountSendingEnabled" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCustomVerificationEmailTemplate" OutputProperty="*" Verb="Get" Noun="CustomVerificationEmailTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCustomVerificationEmailTemplate" OutputProperty="*" Verb="Get" Noun="CustomVerificationEmailTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityDkimAttributes" OutputProperty="DkimAttributes" Verb="Get" Noun="IdentityDkimAttribute" PipelineParameter="Identities" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdentityDkimAttributes" OutputProperty="DkimAttributes" Verb="Get" Noun="IdentityDkimAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" OutputProperty="MailFromDomainAttributes" Verb="Get" Noun="IdentityMailFromDomainAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyAlias="Get-SESIdentityMailFromDomainAttributes">
+        <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" OutputProperty="MailFromDomainAttributes" Verb="Get" Noun="IdentityMailFromDomainAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyAlias="Get-SESIdentityMailFromDomainAttributes" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityNotificationAttributes" OutputProperty="NotificationAttributes" Verb="Get" Noun="IdentityNotificationAttribute" PipelineParameter="Identities" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdentityNotificationAttributes" OutputProperty="NotificationAttributes" Verb="Get" Noun="IdentityNotificationAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityPolicies" OutputProperty="Policies" Verb="Get" Noun="IdentityPolicy" PipelineParameter="PolicyNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdentityPolicies" OutputProperty="Policies" Verb="Get" Noun="IdentityPolicy" PipelineParameter="PolicyNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityVerificationAttributes" OutputProperty="VerificationAttributes" Verb="Get" Noun="IdentityVerificationAttribute" PipelineParameter="Identities" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIdentityVerificationAttributes" OutputProperty="VerificationAttributes" Verb="Get" Noun="IdentityVerificationAttribute" PipelineParameter="Identities" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSendQuota" OutputProperty="*" Verb="Get" Noun="SendQuota" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSendQuota" OutputProperty="*" Verb="Get" Noun="SendQuota" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSendStatistics" OutputProperty="SendDataPoints" Verb="Get" Noun="SendStatistic" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESSendStatistics">
+        <ServiceOperation MethodName="GetSendStatistics" OutputProperty="SendDataPoints" Verb="Get" Noun="SendStatistic" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESSendStatistics" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentities" OutputProperty="Identities" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListIdentities" OutputProperty="Identities" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="IdentityPolicyList" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentityPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="IdentityPolicyList" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReceiptFilters" OutputProperty="Filters" Verb="Get" Noun="ReceiptFilterList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESReceiptFilters">
+        <ServiceOperation MethodName="ListReceiptFilters" OutputProperty="Filters" Verb="Get" Noun="ReceiptFilterList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESReceiptFilters" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReceiptRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="ReceiptRuleSetList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESReceiptRuleSets">
+        <ServiceOperation MethodName="ListReceiptRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="ReceiptRuleSetList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-SESReceiptRuleSets" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesMetadata" Verb="Get" Noun="TemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesMetadata" Verb="Get" Noun="TemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVerifiedEmailAddresses" OutputProperty="VerifiedEmailAddresses" Verb="Get" Noun="VerifiedEmailAddress" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVerifiedEmailAddresses" OutputProperty="VerifiedEmailAddresses" Verb="Get" Noun="VerifiedEmailAddress" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationSetDeliveryOptions" Verb="Write" Noun="ConfigurationSetDeliveryOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutConfigurationSetDeliveryOptions" Verb="Write" Noun="ConfigurationSetDeliveryOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutIdentityPolicy" Verb="Write" Noun="IdentityPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="Policy" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutIdentityPolicy" Verb="Write" Noun="IdentityPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="Policy" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReorderReceiptRuleSet" Verb="Set" Noun="ReceiptRuleSetOrder" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReorderReceiptRuleSet" Verb="Set" Noun="ReceiptRuleSetOrder" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendBounce" OutputProperty="MessageId" Verb="Send" Noun="Bounce" ShouldProcessTarget="BounceSender" PipelineParameter="BouncedRecipientInfoList" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendBounce" OutputProperty="MessageId" Verb="Send" Noun="Bounce" ShouldProcessTarget="BounceSender" PipelineParameter="BouncedRecipientInfoList" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendBulkTemplatedEmail" OutputProperty="Status" Verb="Send" Noun="BulkTemplatedEmail" ShouldProcessTarget="Source" PipelineParameter="Source" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendBulkTemplatedEmail" OutputProperty="Status" Verb="Send" Noun="BulkTemplatedEmail" ShouldProcessTarget="Source" PipelineParameter="Source" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendCustomVerificationEmail" OutputProperty="MessageId" Verb="Send" Noun="CustomVerificationEmail" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendCustomVerificationEmail" OutputProperty="MessageId" Verb="Send" Noun="CustomVerificationEmail" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="Source" PositionalParameters="Destination_ToAddresses" PipelineParameter="Source" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendEmail" OutputProperty="MessageId" Verb="Send" Noun="Email" ShouldProcessTarget="Source" PositionalParameters="Destination_ToAddresses" PipelineParameter="Source" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendRawEmail" OutputProperty="MessageId" Verb="Send" Noun="RawEmail" ShouldProcessTarget="Source" PositionalParameters="Destinations" PipelineParameter="Source" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendRawEmail" OutputProperty="MessageId" Verb="Send" Noun="RawEmail" ShouldProcessTarget="Source" PositionalParameters="Destinations" PipelineParameter="Source" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendTemplatedEmail" OutputProperty="MessageId" Verb="Send" Noun="TemplatedEmail" ShouldProcessTarget="Source" PipelineParameter="TemplateData" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendTemplatedEmail" OutputProperty="MessageId" Verb="Send" Noun="TemplatedEmail" ShouldProcessTarget="Source" PipelineParameter="TemplateData" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetActiveReceiptRuleSet" Verb="Set" Noun="ActiveReceiptRuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetActiveReceiptRuleSet" Verb="Set" Noun="ActiveReceiptRuleSet" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityDkimEnabled" Verb="Set" Noun="IdentityDkimEnabled" ShouldProcessTarget="Identity" PositionalParameters="DkimEnabled" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetIdentityDkimEnabled" Verb="Set" Noun="IdentityDkimEnabled" ShouldProcessTarget="Identity" PositionalParameters="DkimEnabled" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Verb="Set" Noun="IdentityFeedbackForwardingEnabled" ShouldProcessTarget="Identity" PositionalParameters="ForwardingEnabled" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Verb="Set" Noun="IdentityFeedbackForwardingEnabled" ShouldProcessTarget="Identity" PositionalParameters="ForwardingEnabled" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Verb="Set" Noun="IdentityHeadersInNotificationsEnabled" ShouldProcessTarget="Identity" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Verb="Set" Noun="IdentityHeadersInNotificationsEnabled" ShouldProcessTarget="Identity" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityMailFromDomain" Verb="Set" Noun="IdentityMailFromDomain" ShouldProcessTarget="Identity" PositionalParameters="MailFromDomain;BehaviorOnMXFailure" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetIdentityMailFromDomain" Verb="Set" Noun="IdentityMailFromDomain" ShouldProcessTarget="Identity" PositionalParameters="MailFromDomain;BehaviorOnMXFailure" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityNotificationTopic" Verb="Set" Noun="IdentityNotificationTopic" ShouldProcessTarget="Identity" PositionalParameters="NotificationType;SnsTopic" PipelineParameter="Identity" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetIdentityNotificationTopic" Verb="Set" Noun="IdentityNotificationTopic" ShouldProcessTarget="Identity" PositionalParameters="NotificationType;SnsTopic" PipelineParameter="Identity" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetReceiptRulePosition" Verb="Set" Noun="ReceiptRulePosition" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SetReceiptRulePosition" Verb="Set" Noun="ReceiptRulePosition" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestRenderTemplate" OutputProperty="RenderedTemplate" Verb="Test" Noun="RenderTemplate" PipelineParameter="TemplateData" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TestRenderTemplate" OutputProperty="RenderedTemplate" Verb="Test" Noun="RenderTemplate" PipelineParameter="TemplateData" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountSendingEnabled" Verb="Update" Noun="AccountSendingEnabled" ShouldProcessTarget="Enabled" PipelineParameter="Enabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccountSendingEnabled" Verb="Update" Noun="AccountSendingEnabled" ShouldProcessTarget="Enabled" PipelineParameter="Enabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Verb="Update" Noun="ConfigurationSetEventDestination" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfigurationSetReputationMetricsEnabled" Verb="Update" Noun="ConfigurationSetReputationMetricsEnabled" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="Enabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfigurationSetReputationMetricsEnabled" Verb="Update" Noun="ConfigurationSetReputationMetricsEnabled" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="Enabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfigurationSetSendingEnabled" Verb="Update" Noun="ConfigurationSetSendingEnabled" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="Enabled" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfigurationSetSendingEnabled" Verb="Update" Noun="ConfigurationSetSendingEnabled" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="Enabled" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfigurationSetTrackingOptions" Verb="Update" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="TrackingOptions" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateConfigurationSetTrackingOptions" Verb="Update" Noun="ConfigurationSetTrackingOption" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="TrackingOptions" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCustomVerificationEmailTemplate" Verb="Update" Noun="CustomVerificationEmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateContent" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateCustomVerificationEmailTemplate" Verb="Update" Noun="CustomVerificationEmailTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateContent" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReceiptRule" Verb="Update" Noun="ReceiptRule" ShouldProcessTarget="Rule_Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateReceiptRule" Verb="Update" Noun="ReceiptRule" ShouldProcessTarget="Rule_Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="Template" PipelineParameter="Template" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTemplate" Verb="Update" Noun="Template" ShouldProcessTarget="Template" PipelineParameter="Template" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyDomainDkim" OutputProperty="DkimTokens" Verb="Confirm" Noun="DomainDkim" ShouldProcessTarget="Domain" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyDomainDkim" OutputProperty="DkimTokens" Verb="Confirm" Noun="DomainDkim" ShouldProcessTarget="Domain" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyDomainIdentity" OutputProperty="VerificationToken" Verb="Confirm" Noun="DomainIdentity" ShouldProcessTarget="Domain" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyDomainIdentity" OutputProperty="VerificationToken" Verb="Confirm" Noun="DomainIdentity" ShouldProcessTarget="Domain" PipelineParameter="Domain" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyEmailAddress" Verb="Confirm" Noun="EmailAddress" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyEmailAddress" Verb="Confirm" Noun="EmailAddress" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyEmailIdentity" Verb="Confirm" Noun="EmailIdentity" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyEmailIdentity" Verb="Confirm" Noun="EmailIdentity" ShouldProcessTarget="EmailAddress" PipelineParameter="EmailAddress" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

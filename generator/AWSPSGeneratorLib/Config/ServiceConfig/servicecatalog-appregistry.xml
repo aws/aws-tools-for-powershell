@@ -19,99 +19,99 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAttributeGroup" OutputProperty="*" Verb="Register" Noun="AttributeGroup" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateAttributeGroup" OutputProperty="*" Verb="Register" Noun="AttributeGroup" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResource" OutputProperty="*" Verb="Register" Noun="Resource" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AssociateResource" OutputProperty="*" Verb="Register" Noun="Resource" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAttributeGroup" OutputProperty="AttributeGroup" Verb="New" Noun="AttributeGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateAttributeGroup" OutputProperty="AttributeGroup" Verb="New" Noun="AttributeGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" OutputProperty="Application" Verb="Remove" Noun="Application" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplication" OutputProperty="Application" Verb="Remove" Noun="Application" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAttributeGroup" OutputProperty="AttributeGroup" Verb="Remove" Noun="AttributeGroup" ShouldProcessTarget="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAttributeGroup" OutputProperty="AttributeGroup" Verb="Remove" Noun="AttributeGroup" ShouldProcessTarget="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAttributeGroup" OutputProperty="*" Verb="Unregister" Noun="AttributeGroup" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateAttributeGroup" OutputProperty="*" Verb="Unregister" Noun="AttributeGroup" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResource" OutputProperty="*" Verb="Unregister" Noun="Resource" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisassociateResource" OutputProperty="*" Verb="Unregister" Noun="Resource" ShouldProcessTarget="Application" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Application" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Application" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssociatedResource" OutputProperty="Resource" Verb="Get" Noun="AssociatedResource" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAssociatedResource" OutputProperty="Resource" Verb="Get" Noun="AssociatedResource" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttributeGroup" OutputProperty="*" Verb="Get" Noun="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAttributeGroup" OutputProperty="*" Verb="Get" Noun="AttributeGroup" PipelineParameter="AttributeGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConfiguration" OutputProperty="Configuration" Verb="Get" Noun="Configuration" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConfiguration" OutputProperty="Configuration" Verb="Get" Noun="Configuration" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedAttributeGroups" OutputProperty="AttributeGroups" Verb="Get" Noun="AssociatedAttributeGroupList" PipelineParameter="Application" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedAttributeGroups" OutputProperty="AttributeGroups" Verb="Get" Noun="AssociatedAttributeGroupList" PipelineParameter="Application" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedResources" OutputProperty="Resources" Verb="Get" Noun="AssociatedResourceList" PipelineParameter="Application" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociatedResources" OutputProperty="Resources" Verb="Get" Noun="AssociatedResourceList" PipelineParameter="Application" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttributeGroups" OutputProperty="AttributeGroups" Verb="Get" Noun="AttributeGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAttributeGroups" OutputProperty="AttributeGroups" Verb="Get" Noun="AttributeGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttributeGroupsForApplication" OutputProperty="AttributeGroupsDetails" Verb="Get" Noun="AttributeGroupsForApplicationList" PipelineParameter="Application" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAttributeGroupsForApplication" OutputProperty="AttributeGroupsDetails" Verb="Get" Noun="AttributeGroupsForApplicationList" PipelineParameter="Application" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfiguration" Verb="Write" Noun="Configuration" ShouldProcessTarget="Configuration_TagQueryConfiguration_TagKey" PipelineParameter="Configuration_TagQueryConfiguration_TagKey" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutConfiguration" Verb="Write" Noun="Configuration" ShouldProcessTarget="Configuration_TagQueryConfiguration_TagKey" PipelineParameter="Configuration_TagQueryConfiguration_TagKey" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SyncResource" OutputProperty="*" Verb="Sync" Noun="Resource" ShouldProcessTarget="ResourceType" PipelineParameter="ResourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SyncResource" OutputProperty="*" Verb="Sync" Noun="Resource" ShouldProcessTarget="ResourceType" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Application" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Application" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAttributeGroup" OutputProperty="AttributeGroup" Verb="Update" Noun="AttributeGroup" ShouldProcessTarget="Name" PipelineParameter="AttributeGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAttributeGroup" OutputProperty="AttributeGroup" Verb="Update" Noun="AttributeGroup" ShouldProcessTarget="Name" PipelineParameter="AttributeGroup" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

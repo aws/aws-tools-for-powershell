@@ -18,23 +18,23 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointId" PipelineParameter="EndpointId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOutpostsWithS3" OutputProperty="Outposts" Verb="Get" Noun="OutpostsWithS3List" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOutpostsWithS3" OutputProperty="Outposts" Verb="Get" Noun="OutpostsWithS3List" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSharedEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="SharedEndpointList" PipelineParameter="OutpostId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSharedEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="SharedEndpointList" PipelineParameter="OutpostId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,71 +19,71 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddGroupMember" Verb="Add" Noun="GroupMember" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AddGroupMember" Verb="Add" Noun="GroupMember" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGroup" OutputProperty="*" Verb="New" Noun="Group" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="*" Verb="New" Noun="Group" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateUser" OutputProperty="*" Verb="New" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeUser" OutputProperty="*" Verb="Get" Noun="User" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableUser" Verb="Disable" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DisableUser" Verb="Disable" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupMembers" OutputProperty="*" Verb="Get" Noun="GroupMemberList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListGroupMembers" OutputProperty="*" Verb="Get" Noun="GroupMemberList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="*" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="*" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupsForMember" OutputProperty="*" Verb="Get" Noun="GroupsForMemberList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListGroupsForMember" OutputProperty="*" Verb="Get" Noun="GroupsForMemberList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="*" Verb="Get" Noun="UserList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="*" Verb="Get" Noun="UserList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveGroupMember" Verb="Remove" Noun="GroupMember" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="RemoveGroupMember" Verb="Remove" Noun="GroupMember" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchGroups" OutputProperty="*" Verb="Search" Noun="Group" ShouldProcessTarget="DirectoryId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchGroups" OutputProperty="*" Verb="Search" Noun="Group" ShouldProcessTarget="DirectoryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="DirectoryId" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchUsers" OutputProperty="*" Verb="Search" Noun="User" ShouldProcessTarget="DirectoryId" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -19,27 +19,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateScalingPlan" OutputProperty="ScalingPlanVersion" Verb="New" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateScalingPlan" OutputProperty="ScalingPlanVersion" Verb="New" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScalingPlan" Verb="Remove" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteScalingPlan" Verb="Remove" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPlanResources" OutputProperty="ScalingPlanResources" Verb="Get" Noun="ScalingPlanResource" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScalingPlanResources" OutputProperty="ScalingPlanResources" Verb="Get" Noun="ScalingPlanResource" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPlans" OutputProperty="ScalingPlans" Verb="Get" Noun="ScalingPlan" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="DescribeScalingPlans" OutputProperty="ScalingPlans" Verb="Get" Noun="ScalingPlan" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetScalingPlanResourceForecastData" OutputProperty="Datapoints" Verb="Get" Noun="ScalingPlanResourceForecastData" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetScalingPlanResourceForecastData" OutputProperty="Datapoints" Verb="Get" Noun="ScalingPlanResourceForecastData" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScalingPlan" Verb="Update" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateScalingPlan" Verb="Update" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,123 +18,123 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelHarvestJob" Verb="Stop" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelHarvestJob" Verb="Stop" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannelGroup" OutputProperty="*" Verb="New" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateChannelGroup" OutputProperty="*" Verb="New" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHarvestJob" OutputProperty="*" Verb="New" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateHarvestJob" OutputProperty="*" Verb="New" Noun="HarvestJob" ShouldProcessTarget="HarvestJobName" PipelineParameter="HarvestJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOriginEndpoint" OutputProperty="*" Verb="New" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateOriginEndpoint" OutputProperty="*" Verb="New" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannelGroup" Verb="Remove" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannelGroup" Verb="Remove" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannelPolicy" Verb="Remove" Noun="ChannelPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteChannelPolicy" Verb="Remove" Noun="ChannelPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOriginEndpoint" Verb="Remove" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOriginEndpoint" Verb="Remove" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOriginEndpointPolicy" Verb="Remove" Noun="OriginEndpointPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteOriginEndpointPolicy" Verb="Remove" Noun="OriginEndpointPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannelGroup" OutputProperty="*" Verb="Get" Noun="ChannelGroup" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChannelGroup" OutputProperty="*" Verb="Get" Noun="ChannelGroup" PipelineParameter="ChannelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChannelPolicy" OutputProperty="*" Verb="Get" Noun="ChannelPolicy" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetChannelPolicy" OutputProperty="*" Verb="Get" Noun="ChannelPolicy" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHarvestJob" OutputProperty="*" Verb="Get" Noun="HarvestJob" PipelineParameter="HarvestJobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetHarvestJob" OutputProperty="*" Verb="Get" Noun="HarvestJob" PipelineParameter="HarvestJobName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOriginEndpoint" OutputProperty="*" Verb="Get" Noun="OriginEndpoint" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOriginEndpoint" OutputProperty="*" Verb="Get" Noun="OriginEndpoint" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOriginEndpointPolicy" OutputProperty="*" Verb="Get" Noun="OriginEndpointPolicy" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOriginEndpointPolicy" OutputProperty="*" Verb="Get" Noun="OriginEndpointPolicy" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannelGroups" OutputProperty="Items" Verb="Get" Noun="ChannelGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannelGroups" OutputProperty="Items" Verb="Get" Noun="ChannelGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Items" Verb="Get" Noun="ChannelList" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Items" Verb="Get" Noun="ChannelList" PipelineParameter="ChannelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="Items" Verb="Get" Noun="HarvestJobList" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="Items" Verb="Get" Noun="HarvestJobList" PipelineParameter="ChannelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOriginEndpoints" OutputProperty="Items" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOriginEndpoints" OutputProperty="Items" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutChannelPolicy" Verb="Write" Noun="ChannelPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutChannelPolicy" Verb="Write" Noun="ChannelPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutOriginEndpointPolicy" Verb="Write" Noun="OriginEndpointPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutOriginEndpointPolicy" Verb="Write" Noun="OriginEndpointPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetChannelState" OutputProperty="*" Verb="Reset" Noun="ChannelState" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetChannelState" OutputProperty="*" Verb="Reset" Noun="ChannelState" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetOriginEndpointState" OutputProperty="*" Verb="Reset" Noun="OriginEndpointState" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ResetOriginEndpointState" OutputProperty="*" Verb="Reset" Noun="OriginEndpointState" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" AnonymousShouldProcessTarget="true" PipelineParameter="ChannelName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannelGroup" OutputProperty="*" Verb="Update" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateChannelGroup" OutputProperty="*" Verb="Update" Noun="ChannelGroup" ShouldProcessTarget="ChannelGroupName" PipelineParameter="ChannelGroupName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOriginEndpoint" OutputProperty="*" Verb="Update" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateOriginEndpoint" OutputProperty="*" Verb="Update" Noun="OriginEndpoint" AnonymousShouldProcessTarget="true" PipelineParameter="OriginEndpointName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

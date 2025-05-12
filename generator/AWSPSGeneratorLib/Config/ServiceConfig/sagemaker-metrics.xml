@@ -18,11 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetMetrics" OutputProperty="MetricQueryResults" Verb="Get" Noun="Metric" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetMetrics" OutputProperty="MetricQueryResults" Verb="Get" Noun="Metric" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutMetrics" OutputProperty="Errors" Verb="Add" Noun="Metric" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutMetrics" OutputProperty="Errors" Verb="Add" Noun="Metric" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

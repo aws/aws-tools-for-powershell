@@ -19,239 +19,239 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDeleteBuilds" OutputProperty="*" Verb="Remove" Noun="BuildBatch" ShouldProcessTarget="Ids" PipelineParameter="Ids" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteBuilds" OutputProperty="*" Verb="Remove" Noun="BuildBatch" ShouldProcessTarget="Ids" PipelineParameter="Ids" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetBuildBatches" OutputProperty="*" Verb="Get" Noun="Batch" PipelineParameter="Ids" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetBuildBatches" OutputProperty="*" Verb="Get" Noun="Batch" PipelineParameter="Ids" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetBuilds" OutputProperty="*" Verb="Get" Noun="BuildBatch" PipelineParameter="Ids" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetBuilds" OutputProperty="*" Verb="Get" Noun="BuildBatch" PipelineParameter="Ids" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetCommandExecutions" OutputProperty="*" Verb="Get" Noun="CommandExecutionBatch" PipelineParameter="CommandExecutionIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetCommandExecutions" OutputProperty="*" Verb="Get" Noun="CommandExecutionBatch" PipelineParameter="CommandExecutionIds" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetFleets" OutputProperty="*" Verb="Get" Noun="CBFleetBatch" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchGetFleets" OutputProperty="*" Verb="Get" Noun="CBFleetBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetProjects" OutputProperty="*" Verb="Get" Noun="ProjectBatch" PipelineParameter="Names" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetProjects" OutputProperty="*" Verb="Get" Noun="ProjectBatch" PipelineParameter="Names" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="ReportGroupBatch" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchGetReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="ReportGroupBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetReports" OutputProperty="Reports" Verb="Get" Noun="ReportBatch" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="BatchGetReports" OutputProperty="Reports" Verb="Get" Noun="ReportBatch" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetSandboxes" OutputProperty="*" Verb="Get" Noun="SandboxBatch" PipelineParameter="Ids" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetSandboxes" OutputProperty="*" Verb="Get" Noun="SandboxBatch" PipelineParameter="Ids" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleet" OutputProperty="Fleet" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="Fleet" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReportGroup" OutputProperty="ReportGroup" Verb="New" Noun="ReportGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateReportGroup" OutputProperty="ReportGroup" Verb="New" Noun="ReportGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWebhook" OutputProperty="Webhook" Verb="New" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateWebhook" OutputProperty="Webhook" Verb="New" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBuildBatch" OutputProperty="*" Verb="Remove" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteBuildBatch" OutputProperty="*" Verb="Remove" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReport" Verb="Remove" Noun="Report" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReport" Verb="Remove" Noun="Report" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReportGroup" Verb="Remove" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteReportGroup" Verb="Remove" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSourceCredentials" OutputProperty="Arn" Verb="Remove" Noun="SourceCredential" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSourceCredentials" OutputProperty="Arn" Verb="Remove" Noun="SourceCredential" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebhook" Verb="Remove" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteWebhook" Verb="Remove" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCodeCoverages" OutputProperty="CodeCoverages" Verb="Get" Noun="CodeCoverage" PipelineParameter="ReportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCodeCoverages" OutputProperty="CodeCoverages" Verb="Get" Noun="CodeCoverage" PipelineParameter="ReportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTestCases" OutputProperty="TestCases" Verb="Get" Noun="TestCase" PipelineParameter="ReportArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTestCases" OutputProperty="TestCases" Verb="Get" Noun="TestCase" PipelineParameter="ReportArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReportGroupTrend" OutputProperty="*" Verb="Get" Noun="ReportGroupTrend" PipelineParameter="ReportGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReportGroupTrend" OutputProperty="*" Verb="Get" Noun="ReportGroupTrend" PipelineParameter="ReportGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportSourceCredentials" OutputProperty="Arn" Verb="Import" Noun="SourceCredential" AnonymousShouldProcessTarget="true" PipelineParameter="Token" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ImportSourceCredentials" OutputProperty="Arn" Verb="Import" Noun="SourceCredential" AnonymousShouldProcessTarget="true" PipelineParameter="Token" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvalidateProjectCache" Verb="Reset" Noun="ProjectCache" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="InvalidateProjectCache" Verb="Reset" Noun="ProjectCache" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuildBatches" OutputProperty="Ids" Verb="Get" Noun="BatchIdList" PipelineParameter="SortOrder" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBuildBatches" OutputProperty="Ids" Verb="Get" Noun="BatchIdList" PipelineParameter="SortOrder" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuildBatchesForProject" OutputProperty="Ids" Verb="Get" Noun="BatchIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBuildBatchesForProject" OutputProperty="Ids" Verb="Get" Noun="BatchIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuilds" OutputProperty="Ids" Verb="Get" Noun="BuildIdList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBuilds" OutputProperty="Ids" Verb="Get" Noun="BuildIdList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuildsForProject" OutputProperty="Ids" Verb="Get" Noun="BuildIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBuildsForProject" OutputProperty="Ids" Verb="Get" Noun="BuildIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCommandExecutionsForSandbox" OutputProperty="CommandExecutions" Verb="Get" Noun="CommandExecutionListForSandbox" PipelineParameter="SandboxId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCommandExecutionsForSandbox" OutputProperty="CommandExecutions" Verb="Get" Noun="CommandExecutionListForSandbox" PipelineParameter="SandboxId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCuratedEnvironmentImages" OutputProperty="Platforms" Verb="Get" Noun="CuratedEnvironmentImageList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCuratedEnvironmentImages" OutputProperty="Platforms" Verb="Get" Noun="CuratedEnvironmentImageList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="ReportGroupList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="ReportGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReports" OutputProperty="Reports" Verb="Get" Noun="ReportList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListReports" OutputProperty="Reports" Verb="Get" Noun="ReportList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReportsForReportGroup" OutputProperty="Reports" Verb="Get" Noun="ReportsForReportGroupList" PipelineParameter="ReportGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListReportsForReportGroup" OutputProperty="Reports" Verb="Get" Noun="ReportsForReportGroupList" PipelineParameter="ReportGroupArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSandboxes" OutputProperty="Ids" Verb="Get" Noun="SandboxIdList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSandboxes" OutputProperty="Ids" Verb="Get" Noun="SandboxIdList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSandboxesForProject" OutputProperty="Ids" Verb="Get" Noun="SandboxIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSandboxesForProject" OutputProperty="Ids" Verb="Get" Noun="SandboxIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSharedProjects" OutputProperty="Projects" Verb="Get" Noun="SharedProjectList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSharedProjects" OutputProperty="Projects" Verb="Get" Noun="SharedProjectList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSharedReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="SharedReportGroupList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSharedReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="SharedReportGroupList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSourceCredentials" OutputProperty="SourceCredentialsInfos" Verb="Get" Noun="SourceCredentialList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSourceCredentials" OutputProperty="SourceCredentialsInfos" Verb="Get" Noun="SourceCredentialList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourceArn" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourceArn" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetryBuild" OutputProperty="Build" Verb="Redo" Noun="Build" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RetryBuild" OutputProperty="Build" Verb="Redo" Noun="Build" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetryBuildBatch" OutputProperty="BuildBatch" Verb="Redo" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RetryBuildBatch" OutputProperty="BuildBatch" Verb="Redo" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBuild" OutputProperty="Build" Verb="Start" Noun="Build" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartBuild" OutputProperty="Build" Verb="Start" Noun="Build" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBuildBatch" OutputProperty="BuildBatch" Verb="Start" Noun="Batch" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartBuildBatch" OutputProperty="BuildBatch" Verb="Start" Noun="Batch" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCommandExecution" OutputProperty="CommandExecution" Verb="Start" Noun="CommandExecution" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartCommandExecution" OutputProperty="CommandExecution" Verb="Start" Noun="CommandExecution" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSandbox" OutputProperty="Sandbox" Verb="Start" Noun="Sandbox" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="StartSandbox" OutputProperty="Sandbox" Verb="Start" Noun="Sandbox" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSandboxConnection" OutputProperty="*" Verb="Start" Noun="SandboxConnection" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSandboxConnection" OutputProperty="*" Verb="Start" Noun="SandboxConnection" ShouldProcessTarget="SandboxId" PipelineParameter="SandboxId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopBuild" OutputProperty="Build" Verb="Stop" Noun="Build" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopBuild" OutputProperty="Build" Verb="Stop" Noun="Build" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopBuildBatch" OutputProperty="BuildBatch" Verb="Stop" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopBuildBatch" OutputProperty="BuildBatch" Verb="Stop" Noun="Batch" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSandbox" OutputProperty="Sandbox" Verb="Stop" Noun="Sandbox" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopSandbox" OutputProperty="Sandbox" Verb="Stop" Noun="Sandbox" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleet" OutputProperty="Fleet" Verb="Update" Noun="Fleet" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateFleet" OutputProperty="Fleet" Verb="Update" Noun="Fleet" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProjectVisibility" OutputProperty="*" Verb="Update" Noun="ProjectVisibility" ShouldProcessTarget="ProjectArn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="UpdateProjectVisibility" OutputProperty="*" Verb="Update" Noun="ProjectVisibility" ShouldProcessTarget="ProjectArn" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReportGroup" OutputProperty="ReportGroup" Verb="Update" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateReportGroup" OutputProperty="ReportGroup" Verb="Update" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWebhook" OutputProperty="Webhook" Verb="Update" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateWebhook" OutputProperty="Webhook" Verb="Update" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

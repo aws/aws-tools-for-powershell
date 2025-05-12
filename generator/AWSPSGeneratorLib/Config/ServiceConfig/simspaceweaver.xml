@@ -18,67 +18,67 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateSnapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="Destination_BucketName" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateSnapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="Destination_BucketName" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" Verb="Remove" Noun="App" AnonymousShouldProcessTarget="true" PipelineParameter="App" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApp" Verb="Remove" Noun="App" AnonymousShouldProcessTarget="true" PipelineParameter="App" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSimulation" Verb="Remove" Noun="Simulation" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteSimulation" Verb="Remove" Noun="Simulation" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApp" OutputProperty="*" Verb="Get" Noun="App" PipelineParameter="App" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeApp" OutputProperty="*" Verb="Get" Noun="App" PipelineParameter="App" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSimulation" OutputProperty="*" Verb="Get" Noun="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSimulation" OutputProperty="*" Verb="Get" Noun="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSimulations" OutputProperty="Simulations" Verb="Get" Noun="SimulationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSimulations" OutputProperty="Simulations" Verb="Get" Noun="SimulationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartApp" OutputProperty="*" Verb="Start" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartApp" OutputProperty="*" Verb="Start" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartClock" Verb="Start" Noun="Clock" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartClock" Verb="Start" Noun="Clock" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSimulation" OutputProperty="*" Verb="Start" Noun="Simulation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartSimulation" OutputProperty="*" Verb="Start" Noun="Simulation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopApp" Verb="Stop" Noun="App" ShouldProcessTarget="App" PipelineParameter="App" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopApp" Verb="Stop" Noun="App" ShouldProcessTarget="App" PipelineParameter="App" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopClock" Verb="Stop" Noun="Clock" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopClock" Verb="Stop" Noun="Clock" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSimulation" Verb="Stop" Noun="Simulation" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopSimulation" Verb="Stop" Noun="Simulation" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -18,95 +18,95 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataIntegration" OutputProperty="Arn" Verb="New" Noun="DataIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataIntegration" OutputProperty="Arn" Verb="New" Noun="DataIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataIntegrationAssociation" OutputProperty="*" Verb="New" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDataIntegrationAssociation" OutputProperty="*" Verb="New" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventIntegration" OutputProperty="EventIntegrationArn" Verb="New" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateEventIntegration" OutputProperty="EventIntegrationArn" Verb="New" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataIntegration" Verb="Remove" Noun="DataIntegration" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteDataIntegration" Verb="Remove" Noun="DataIntegration" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventIntegration" Verb="Remove" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteEventIntegration" Verb="Remove" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataIntegration" OutputProperty="*" Verb="Get" Noun="DataIntegration" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDataIntegration" OutputProperty="*" Verb="Get" Noun="DataIntegration" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventIntegration" OutputProperty="*" Verb="Get" Noun="EventIntegration" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEventIntegration" OutputProperty="*" Verb="Get" Noun="EventIntegration" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationAssociations" OutputProperty="ApplicationAssociations" Verb="Get" Noun="ApplicationAssociationList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationAssociations" OutputProperty="ApplicationAssociations" Verb="Get" Noun="ApplicationAssociationList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataIntegrationAssociations" OutputProperty="DataIntegrationAssociations" Verb="Get" Noun="DataIntegrationAssociationList" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataIntegrationAssociations" OutputProperty="DataIntegrationAssociations" Verb="Get" Noun="DataIntegrationAssociationList" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataIntegrations" OutputProperty="DataIntegrations" Verb="Get" Noun="DataIntegrationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataIntegrations" OutputProperty="DataIntegrations" Verb="Get" Noun="DataIntegrationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventIntegrationAssociations" OutputProperty="EventIntegrationAssociations" Verb="Get" Noun="EventIntegrationAssociationList" PipelineParameter="EventIntegrationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEventIntegrationAssociations" OutputProperty="EventIntegrationAssociations" Verb="Get" Noun="EventIntegrationAssociationList" PipelineParameter="EventIntegrationName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventIntegrations" OutputProperty="EventIntegrations" Verb="Get" Noun="EventIntegrationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEventIntegrations" OutputProperty="EventIntegrations" Verb="Get" Noun="EventIntegrationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataIntegration" Verb="Update" Noun="DataIntegration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataIntegration" Verb="Update" Noun="DataIntegration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataIntegrationAssociation" Verb="Update" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataIntegrationAssociation" Verb="Update" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventIntegration" Verb="Update" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEventIntegration" Verb="Update" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

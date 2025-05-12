@@ -18,243 +18,243 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateTrackerConsumer" Verb="Register" Noun="TrackerConsumer" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AssociateTrackerConsumer" Verb="Register" Noun="TrackerConsumer" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteDevicePositionHistory" OutputProperty="*" Verb="Remove" Noun="DevicePositionHistoryBatch" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteDevicePositionHistory" OutputProperty="*" Verb="Remove" Noun="DevicePositionHistoryBatch" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteGeofence" OutputProperty="*" Verb="Remove" Noun="GeofenceBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchDeleteGeofence" OutputProperty="*" Verb="Remove" Noun="GeofenceBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchEvaluateGeofences" OutputProperty="*" Verb="Submit" Noun="GeofenceEvaluationBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchEvaluateGeofences" OutputProperty="*" Verb="Submit" Noun="GeofenceEvaluationBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetDevicePosition" OutputProperty="*" Verb="Get" Noun="DevicePositionBatch" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetDevicePosition" OutputProperty="*" Verb="Get" Noun="DevicePositionBatch" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchPutGeofence" OutputProperty="*" Verb="Set" Noun="GeofenceBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchPutGeofence" OutputProperty="*" Verb="Set" Noun="GeofenceBatch" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateDevicePosition" OutputProperty="*" Verb="Set" Noun="DevicePositionBatch" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchUpdateDevicePosition" OutputProperty="*" Verb="Set" Noun="DevicePositionBatch" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CalculateRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CalculateRoute" OutputProperty="*" Verb="Get" Noun="Route" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CalculateRouteMatrix" OutputProperty="*" Verb="Get" Noun="RouteMatrix" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateGeofenceCollection" OutputProperty="*" Verb="New" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateGeofenceCollection" OutputProperty="*" Verb="New" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKey" OutputProperty="*" Verb="New" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateKey" OutputProperty="*" Verb="New" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMap" OutputProperty="*" Verb="New" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateMap" OutputProperty="*" Verb="New" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlaceIndex" OutputProperty="*" Verb="New" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePlaceIndex" OutputProperty="*" Verb="New" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRouteCalculator" OutputProperty="*" Verb="New" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRouteCalculator" OutputProperty="*" Verb="New" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTracker" OutputProperty="*" Verb="New" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateTracker" OutputProperty="*" Verb="New" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGeofenceCollection" Verb="Remove" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteGeofenceCollection" Verb="Remove" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKey" Verb="Remove" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteKey" Verb="Remove" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMap" Verb="Remove" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMap" Verb="Remove" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePlaceIndex" Verb="Remove" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeletePlaceIndex" Verb="Remove" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRouteCalculator" Verb="Remove" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteRouteCalculator" Verb="Remove" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTracker" Verb="Remove" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteTracker" Verb="Remove" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGeofenceCollection" OutputProperty="*" Verb="Get" Noun="GeofenceCollection" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGeofenceCollection" OutputProperty="*" Verb="Get" Noun="GeofenceCollection" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKey" OutputProperty="*" Verb="Get" Noun="Key" PipelineParameter="KeyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeKey" OutputProperty="*" Verb="Get" Noun="Key" PipelineParameter="KeyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMap" OutputProperty="*" Verb="Get" Noun="Map" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeMap" OutputProperty="*" Verb="Get" Noun="Map" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePlaceIndex" OutputProperty="*" Verb="Get" Noun="PlaceIndex" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePlaceIndex" OutputProperty="*" Verb="Get" Noun="PlaceIndex" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRouteCalculator" OutputProperty="*" Verb="Get" Noun="RouteCalculator" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRouteCalculator" OutputProperty="*" Verb="Get" Noun="RouteCalculator" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTracker" OutputProperty="*" Verb="Get" Noun="Tracker" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTracker" OutputProperty="*" Verb="Get" Noun="Tracker" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTrackerConsumer" Verb="Unregister" Noun="TrackerConsumer" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DisassociateTrackerConsumer" Verb="Unregister" Noun="TrackerConsumer" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ForecastGeofenceEvents" OutputProperty="*" Verb="Invoke" Noun="ForecastGeofenceEventsOperation" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ForecastGeofenceEvents" OutputProperty="*" Verb="Invoke" Noun="ForecastGeofenceEventsOperation" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevicePosition" OutputProperty="*" Verb="Get" Noun="DevicePosition" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDevicePosition" OutputProperty="*" Verb="Get" Noun="DevicePosition" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevicePositionHistory" OutputProperty="*" Verb="Get" Noun="DevicePositionHistory" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDevicePositionHistory" OutputProperty="*" Verb="Get" Noun="DevicePositionHistory" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGeofence" OutputProperty="Geometry.Polygon" Verb="Get" Noun="Geofence" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGeofence" OutputProperty="Geometry.Polygon" Verb="Get" Noun="Geofence" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMapGlyphs" OutputProperty="*" Verb="Get" Noun="MapGlyph" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMapGlyphs" OutputProperty="*" Verb="Get" Noun="MapGlyph" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMapSprites" OutputProperty="*" Verb="Get" Noun="MapSprite" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMapSprites" OutputProperty="*" Verb="Get" Noun="MapSprite" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMapStyleDescriptor" OutputProperty="*" Verb="Get" Noun="MapStyleDescriptor" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMapStyleDescriptor" OutputProperty="*" Verb="Get" Noun="MapStyleDescriptor" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMapTile" OutputProperty="*" Verb="Get" Noun="MapTile" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMapTile" OutputProperty="*" Verb="Get" Noun="MapTile" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPlace" OutputProperty="Place" Verb="Get" Noun="Place" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPlace" OutputProperty="Place" Verb="Get" Noun="Place" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevicePositions" OutputProperty="Entries" Verb="Get" Noun="DevicePositionList" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevicePositions" OutputProperty="Entries" Verb="Get" Noun="DevicePositionList" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGeofenceCollections" OutputProperty="Entries" Verb="Get" Noun="GeofenceCollectionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGeofenceCollections" OutputProperty="Entries" Verb="Get" Noun="GeofenceCollectionList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGeofences" OutputProperty="Entries" Verb="Get" Noun="GeofenceList" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGeofences" OutputProperty="Entries" Verb="Get" Noun="GeofenceList" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeys" OutputProperty="Entries" Verb="Get" Noun="KeyList" PipelineParameter="Filter_KeyStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Entries" Verb="Get" Noun="KeyList" PipelineParameter="Filter_KeyStatus" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMaps" OutputProperty="Entries" Verb="Get" Noun="MapList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMaps" OutputProperty="Entries" Verb="Get" Noun="MapList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlaceIndexes" OutputProperty="Entries" Verb="Get" Noun="PlaceIndexList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPlaceIndexes" OutputProperty="Entries" Verb="Get" Noun="PlaceIndexList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRouteCalculators" OutputProperty="Entries" Verb="Get" Noun="RouteCalculatorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRouteCalculators" OutputProperty="Entries" Verb="Get" Noun="RouteCalculatorList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagSet" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagSet" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrackerConsumers" OutputProperty="ConsumerArns" Verb="Get" Noun="TrackerConsumerList" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrackerConsumers" OutputProperty="ConsumerArns" Verb="Get" Noun="TrackerConsumerList" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrackers" OutputProperty="Entries" Verb="Get" Noun="TrackerList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrackers" OutputProperty="Entries" Verb="Get" Noun="TrackerList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutGeofence" OutputProperty="*" Verb="Set" Noun="Geofence" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutGeofence" OutputProperty="*" Verb="Set" Noun="Geofence" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchPlaceIndexForPosition" OutputProperty="*" Verb="Search" Noun="PlaceIndexForPosition" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchPlaceIndexForPosition" OutputProperty="*" Verb="Search" Noun="PlaceIndexForPosition" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchPlaceIndexForSuggestions" OutputProperty="*" Verb="Search" Noun="PlaceIndexForSuggestion" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchPlaceIndexForSuggestions" OutputProperty="*" Verb="Search" Noun="PlaceIndexForSuggestion" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchPlaceIndexForText" OutputProperty="*" Verb="Search" Noun="PlaceIndexForText" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchPlaceIndexForText" OutputProperty="*" Verb="Search" Noun="PlaceIndexForText" IgnoreSupportsShouldProcess="true" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTagSet" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTagSet" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTagSet" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTagSet" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGeofenceCollection" OutputProperty="*" Verb="Edit" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateGeofenceCollection" OutputProperty="*" Verb="Edit" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateKey" OutputProperty="*" Verb="Update" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateKey" OutputProperty="*" Verb="Update" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMap" OutputProperty="*" Verb="Edit" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateMap" OutputProperty="*" Verb="Edit" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePlaceIndex" OutputProperty="*" Verb="Edit" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdatePlaceIndex" OutputProperty="*" Verb="Edit" Noun="PlaceIndex" ShouldProcessTarget="IndexName" PipelineParameter="IndexName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRouteCalculator" OutputProperty="*" Verb="Edit" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRouteCalculator" OutputProperty="*" Verb="Edit" Noun="RouteCalculator" ShouldProcessTarget="CalculatorName" PipelineParameter="CalculatorName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTracker" OutputProperty="*" Verb="Edit" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateTracker" OutputProperty="*" Verb="Edit" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="VerifyDevicePosition" OutputProperty="*" Verb="Invoke" Noun="VerifyDevicePositionOperation" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="VerifyDevicePosition" OutputProperty="*" Verb="Invoke" Noun="VerifyDevicePositionOperation" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

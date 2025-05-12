@@ -24,108 +24,108 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddPermission" Verb="Add" Noun="Permission" ShouldProcessTarget="AWSAccountIds" PositionalParameters="Label;AWSAccountIds;Actions" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddPermission" Verb="Add" Noun="Permission" ShouldProcessTarget="AWSAccountIds" PositionalParameters="Label;AWSAccountIds;Actions" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="Actions" NewName="Action" Alias="ActionNames" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeS3ToSendMessage" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AuthorizeS3ToSendMessage" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelMessageMoveTask" OutputProperty="ApproximateNumberOfMessagesMoved" Verb="Stop" Noun="MessageMoveTask" ShouldProcessTarget="TaskHandle" PipelineParameter="TaskHandle" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CancelMessageMoveTask" OutputProperty="ApproximateNumberOfMessagesMoved" Verb="Stop" Noun="MessageMoveTask" ShouldProcessTarget="TaskHandle" PipelineParameter="TaskHandle" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeMessageVisibility" Verb="Edit" Noun="MessageVisibility" ShouldProcessTarget="QueueUrl" PositionalParameters="ReceiptHandle;VisibilityTimeout" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ChangeMessageVisibility" Verb="Edit" Noun="MessageVisibility" ShouldProcessTarget="QueueUrl" PositionalParameters="ReceiptHandle;VisibilityTimeout" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeMessageVisibilityBatch" OutputProperty="*" Verb="Edit" Noun="MessageVisibilityBatch" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ChangeMessageVisibilityBatch" OutputProperty="*" Verb="Edit" Noun="MessageVisibilityBatch" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQueue" OutputProperty="QueueUrl" Verb="New" Noun="Queue" ShouldProcessTarget="QueueName" PositionalParameters="Attributes" PipelineParameter="QueueName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateQueue" OutputProperty="QueueUrl" Verb="New" Noun="Queue" ShouldProcessTarget="QueueName" PositionalParameters="Attributes" PipelineParameter="QueueName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DelaySeconds" NewName="DelayInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMessage" Verb="Remove" Noun="Message" ShouldProcessTarget="ReceiptHandle" PositionalParameters="ReceiptHandle" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMessage" Verb="Remove" Noun="Message" ShouldProcessTarget="ReceiptHandle" PositionalParameters="ReceiptHandle" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMessageBatch" OutputProperty="*" Verb="Remove" Noun="MessageBatch" ShouldProcessTarget="Entries" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteMessageBatch" OutputProperty="*" Verb="Remove" Noun="MessageBatch" ShouldProcessTarget="Entries" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQueue" Verb="Remove" Noun="Queue" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteQueue" Verb="Remove" Noun="Queue" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueueAttributes" OutputProperty="*" Verb="Get" Noun="QueueAttribute" PositionalParameters="AttributeNames" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueueAttributes" OutputProperty="*" Verb="Get" Noun="QueueAttribute" PositionalParameters="AttributeNames" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueueUrl" OutputProperty="QueueUrl" Verb="Get" Noun="QueueUrl" PositionalParameters="QueueOwnerAWSAccountId" PipelineParameter="QueueName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetQueueUrl" OutputProperty="QueueUrl" Verb="Get" Noun="QueueUrl" PositionalParameters="QueueOwnerAWSAccountId" PipelineParameter="QueueName" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeadLetterSourceQueues" OutputProperty="QueueUrls" Verb="Get" Noun="DeadLetterSourceQueue" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyAlias="Get-SQSDeadLetterSourceQueues">
+        <ServiceOperation MethodName="ListDeadLetterSourceQueues" OutputProperty="QueueUrls" Verb="Get" Noun="DeadLetterSourceQueue" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyAlias="Get-SQSDeadLetterSourceQueues" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMessageMoveTasks" OutputProperty="Results" Verb="Get" Noun="MessageMoveTask" PipelineParameter="SourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMessageMoveTasks" OutputProperty="Results" Verb="Get" Noun="MessageMoveTask" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueUrls" Verb="Get" Noun="Queue" PipelineParameter="QueueNamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueUrls" Verb="Get" Noun="Queue" PipelineParameter="QueueNamePrefix" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueueTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueueTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurgeQueue" Verb="Clear" Noun="Queue" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PurgeQueue" Verb="Clear" Noun="Queue" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReceiveMessage" OutputProperty="Messages" Verb="Receive" Noun="Message" ShouldProcessTarget="QueueUrl" PositionalParameters="MaxNumberOfMessages;VisibilityTimeout;AttributeNames;WaitTimeSeconds" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ReceiveMessage" OutputProperty="Messages" Verb="Receive" Noun="Message" ShouldProcessTarget="QueueUrl" PositionalParameters="MaxNumberOfMessages;VisibilityTimeout;AttributeNames;WaitTimeSeconds" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="WaitTimeSeconds" NewName="WaitTimeInSeconds" />
                 <Param Name="MaxNumberOfMessages" NewName="MessageCount" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="Label" PositionalParameters="Label" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="Label" PositionalParameters="Label" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="MessageDeduplicationId" PositionalParameters="MessageBody;DelaySeconds" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="MessageDeduplicationId" PositionalParameters="MessageBody;DelaySeconds" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params>
                 <Param Name="DelaySeconds" NewName="DelayInSeconds" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendMessageBatch" OutputProperty="*" Verb="Send" Noun="MessageBatch" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SendMessageBatch" OutputProperty="*" Verb="Send" Noun="MessageBatch" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetQueueAttributes" Verb="Set" Noun="QueueAttribute" ShouldProcessTarget="QueueUrl" PositionalParameters="Attributes" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SetQueueAttributes" Verb="Set" Noun="QueueAttribute" ShouldProcessTarget="QueueUrl" PositionalParameters="Attributes" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMessageMoveTask" OutputProperty="TaskHandle" Verb="Start" Noun="MessageMoveTask" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartMessageMoveTask" OutputProperty="TaskHandle" Verb="Start" Noun="MessageMoveTask" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagQueue" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="TagQueue" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagQueue" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UntagQueue" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="QueueUrl" PipelineParameter="QueueUrl" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
