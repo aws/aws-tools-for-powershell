@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
     /// Creates multi-Region clusters in Amazon Aurora DSQL. Multi-Region clusters require
     /// a linked Region list, which is an array of the Regions in which you want to create
     /// linked clusters. Multi-Region clusters require a witness Region, which participates
-    /// in quorum in failure scenarios.
+    /// in quorum in failure scenarios.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "DSQLMultiRegionCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.DSQL.Model.CreateMultiRegionClustersResponse) can be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("The CreateMultiRegionClusters API is deprecated. Use the CreateCluster API with multi-Region properties to create a multi-Region cluster.")]
     public partial class NewDSQLMultiRegionClusterCmdlet : AmazonDSQLClientCmdlet, IExecutor
     {
         

@@ -28,7 +28,7 @@ using Amazon.DSQL.Model;
 namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
-    /// Deletes a multi-Region cluster in Amazon Aurora DSQL.
+    /// Deletes a multi-Region cluster in Amazon Aurora DSQL.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "DSQLMultiRegionCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.DSQL.Model.DeleteMultiRegionClustersResponse) be returned by specifying '-Select *'."
     )]
+    [System.ObsoleteAttribute("The DeleteMultiRegionClusters API is deprecated. To delete a multi-Region cluster, use the DeleteCluster API instead.")]
     public partial class RemoveDSQLMultiRegionClusterCmdlet : AmazonDSQLClientCmdlet, IExecutor
     {
         

@@ -253,6 +253,19 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String Issuer_SignKey { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to add to the license. For more information about tagging support in License
+        /// Manager, see the <a href="https://docs.aws.amazon.com/license-manager/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.LicenseManager.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -401,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter ProductSKU which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.LicenseManager.Model.Tag>(this.Tag);
+            }
             context.Validity_Begin = this.Validity_Begin;
             #if MODULAR
             if (this.Validity_Begin == null && ParameterWasBound(nameof(this.Validity_Begin)))
@@ -565,6 +582,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             {
                 request.ProductSKU = cmdletContext.ProductSKU;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
              // populate Validity
             var requestValidityIsNull = true;
@@ -669,6 +690,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.String LicenseName { get; set; }
             public System.String ProductName { get; set; }
             public System.String ProductSKU { get; set; }
+            public List<Amazon.LicenseManager.Model.Tag> Tag { get; set; }
             public System.String Validity_Begin { get; set; }
             public System.String Validity_End { get; set; }
             public System.Func<Amazon.LicenseManager.Model.CreateLicenseResponse, NewLICMLicenseCmdlet, object> Select { get; set; } =

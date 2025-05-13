@@ -77,13 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Run <c>RunTask</c> with a unique <c>clientToken</c>.
     /// </para></li><li><para>
     /// Run <c>RunTask</c> with the <c>clientToken</c> and the original set of parameters
-    /// </para></li></ul><para>
-    /// If you get a <c>ClientException</c>error, the <c>RunTask</c> could not be processed
-    /// because you use managed scaling and there is a capacity error because the quota of
-    /// tasks in the <c>PROVISIONING</c> per cluster has been reached. For information about
-    /// the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon
-    /// ECS service quotas</a>.
-    /// </para>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.RunTaskResponse")]

@@ -29,6 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
     /// Updates a cluster.
+    /// 
+    ///  
+    /// <para><b>Example IAM Policy for Multi-Region Operations</b></para><para>
+    /// The following IAM policy grants permissions for multi-Region operations.
+    /// </para><para>
+    /// The <c>dsql:RemovePeerCluster</c> permission uses a wildcard ARN pattern to simplify
+    /// permission management during updates.
+    /// </para><important><para><b>Important Notes for Multi-Region Operations</b></para><ul><li><para>
+    /// The witness region specified in <c>multiRegionProperties.witnessRegion</c> cannot
+    /// be the same as the cluster's Region.
+    /// </para></li><li><para>
+    /// When updating clusters with peer relationships, permissions are checked for both adding
+    /// and removing peers.
+    /// </para></li><li><para>
+    /// The <c>dsql:RemovePeerCluster</c> permission uses a wildcard ARN pattern to simplify
+    /// permission management during updates.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Update", "DSQLCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DSQL.Model.UpdateClusterResponse")]
@@ -40,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter MultiRegionProperties_Cluster
+        /// <summary>
+        /// <para>
+        /// <para>The set of linked clusters that form the multi-Region cluster configuration. Each
+        /// linked cluster represents a database instance in a different Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MultiRegionProperties_Clusters")]
+        public System.String[] MultiRegionProperties_Cluster { get; set; }
+        #endregion
         
         #region Parameter DeletionProtectionEnabled
         /// <summary>
@@ -66,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Identifier { get; set; }
+        #endregion
+        
+        #region Parameter MultiRegionProperties_WitnessRegion
+        /// <summary>
+        /// <para>
+        /// <para>The that serves as the witness region for a multi-Region cluster. The witness region
+        /// helps maintain cluster consistency and quorum.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MultiRegionProperties_WitnessRegion { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -154,6 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MultiRegionProperties_Cluster != null)
+            {
+                context.MultiRegionProperties_Cluster = new List<System.String>(this.MultiRegionProperties_Cluster);
+            }
+            context.MultiRegionProperties_WitnessRegion = this.MultiRegionProperties_WitnessRegion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,6 +226,35 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            
+             // populate MultiRegionProperties
+            var requestMultiRegionPropertiesIsNull = true;
+            request.MultiRegionProperties = new Amazon.DSQL.Model.MultiRegionProperties();
+            List<System.String> requestMultiRegionProperties_multiRegionProperties_Cluster = null;
+            if (cmdletContext.MultiRegionProperties_Cluster != null)
+            {
+                requestMultiRegionProperties_multiRegionProperties_Cluster = cmdletContext.MultiRegionProperties_Cluster;
+            }
+            if (requestMultiRegionProperties_multiRegionProperties_Cluster != null)
+            {
+                request.MultiRegionProperties.Clusters = requestMultiRegionProperties_multiRegionProperties_Cluster;
+                requestMultiRegionPropertiesIsNull = false;
+            }
+            System.String requestMultiRegionProperties_multiRegionProperties_WitnessRegion = null;
+            if (cmdletContext.MultiRegionProperties_WitnessRegion != null)
+            {
+                requestMultiRegionProperties_multiRegionProperties_WitnessRegion = cmdletContext.MultiRegionProperties_WitnessRegion;
+            }
+            if (requestMultiRegionProperties_multiRegionProperties_WitnessRegion != null)
+            {
+                request.MultiRegionProperties.WitnessRegion = requestMultiRegionProperties_multiRegionProperties_WitnessRegion;
+                requestMultiRegionPropertiesIsNull = false;
+            }
+             // determine if request.MultiRegionProperties should be set to null
+            if (requestMultiRegionPropertiesIsNull)
+            {
+                request.MultiRegionProperties = null;
             }
             
             CmdletOutput output;
@@ -246,6 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             public System.String ClientToken { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public System.String Identifier { get; set; }
+            public List<System.String> MultiRegionProperties_Cluster { get; set; }
+            public System.String MultiRegionProperties_WitnessRegion { get; set; }
             public System.Func<Amazon.DSQL.Model.UpdateClusterResponse, UpdateDSQLClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

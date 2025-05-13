@@ -67,11 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the principal. It can be a user, role, or the root
+        /// <para>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or the root
         /// user. If you specify the root user, it disables the account setting for all users,
         /// roles, and the root user of the account unless a user or role explicitly overrides
         /// these settings. If this field is omitted, the setting is changed only for the authenticated
-        /// user.</para><para>In order to use this parameter, you must be the root user, or the principal.</para>
+        /// user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
