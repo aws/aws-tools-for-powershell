@@ -49,7 +49,7 @@
 
         <CreateSitemapTask
             SourceFolder="$(DocOutputRoot)"
-            BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/"
+            BaseUrl="http://docs.aws.amazon.com/powershell/v5/reference/"
             OutputFile="$(DocOutputRoot)\sitemap.xml"
             />
         
