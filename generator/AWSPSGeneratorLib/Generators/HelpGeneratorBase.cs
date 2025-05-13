@@ -30,7 +30,9 @@ namespace AWSPowerShellGenerator.Generators
 
         #endregion
 
-        public const string WebApiReferenceBaseUrl = "http://docs.aws.amazon.com/powershell/latest/reference";
+        public const string version = "v4";
+
+        public const string WebApiReferenceBaseUrl = $"http://docs.aws.amazon.com/powershell/{version}/reference";
 
         protected List<Type> CmdletTypes;
 
