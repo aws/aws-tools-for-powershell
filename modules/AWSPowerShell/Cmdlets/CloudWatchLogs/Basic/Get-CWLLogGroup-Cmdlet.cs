@@ -28,8 +28,8 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Lists the specified log groups. You can list all your log groups or filter the results
-    /// by prefix. The results are ASCII-sorted by log group name.
+    /// Returns information about log groups. You can return all your log groups or filter
+    /// the results by prefix. The results are ASCII-sorted by log group name.
     /// 
     ///  
     /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter AccountIdentifier
         /// <summary>
         /// <para>
-        /// <para>When <c>includeLinkedAccounts</c> is set to <c>True</c>, use this parameter to specify
+        /// <para>When <c>includeLinkedAccounts</c> is set to <c>true</c>, use this parameter to specify
         /// the list of accounts to search. You can specify as many as 20 account IDs in the array.
         /// </para>
         /// </para>
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter IncludeLinkedAccount
         /// <summary>
         /// <para>
-        /// <para>If you are using a monitoring account, set this to <c>True</c> to have the operation
+        /// <para>If you are using a monitoring account, set this to <c>true</c> to have the operation
         /// return log groups in the accounts listed in <c>accountIdentifiers</c>.</para><para>If this parameter is set to <c>true</c> and <c>accountIdentifiers</c> contains a null
         /// value, the operation returns all log groups in the monitoring account and all log
-        /// groups in all source accounts that are linked to the monitoring account. </para>
+        /// groups in all source accounts that are linked to the monitoring account. </para><para>The default for this parameter is <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupClass
         /// <summary>
         /// <para>
-        /// <para>Specifies the log group class for this log group. There are three classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
+        /// <para>Use this parameter to limit the results to only those log groups in the specified
+        /// log group class. If you omit this parameter, log groups of all classes can be returned.</para><para>Specifies the log group class for this log group. There are three classes:</para><ul><li><para>The <c>Standard</c> log class supports all CloudWatch Logs features.</para></li><li><para>The <c>Infrequent Access</c> log class supports a subset of CloudWatch Logs features
         /// and incurs lower costs.</para></li><li><para>Use the <c>Delivery</c> log class only for delivering Lambda logs to store in Amazon
         /// S3 or Amazon Data Firehose. Log events in log groups in the Delivery class are kept
         /// in CloudWatch Logs for only one day. This log class doesn't offer rich CloudWatch
@@ -99,6 +100,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CloudWatchLogs.LogGroupClass")]
         public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
+        #endregion
+        
+        #region Parameter LogGroupIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Use this array to filter the list of log groups returned. If you specify this parameter,
+        /// the only other filter that you can choose to specify is <c>includeLinkedAccounts</c>.</para><para>If you are using this operation in a monitoring account, you can specify the ARNs
+        /// of log groups in source accounts and in the monitoring account itself. If you are
+        /// using this operation in an account that is not a cross-account monitoring account,
+        /// you can specify only log group names in the same account as the operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogGroupIdentifiers")]
+        public System.String[] LogGroupIdentifier { get; set; }
         #endregion
         
         #region Parameter LogGroupNamePattern
@@ -232,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.LogGroupClass = this.LogGroupClass;
+            if (this.LogGroupIdentifier != null)
+            {
+                context.LogGroupIdentifier = new List<System.String>(this.LogGroupIdentifier);
+            }
             context.LogGroupNamePattern = this.LogGroupNamePattern;
             context.LogGroupNamePrefix = this.LogGroupNamePrefix;
             context.NextToken = this.NextToken;
@@ -271,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupClass != null)
             {
                 request.LogGroupClass = cmdletContext.LogGroupClass;
+            }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifiers = cmdletContext.LogGroupIdentifier;
             }
             if (cmdletContext.LogGroupNamePattern != null)
             {
@@ -346,6 +370,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.LogGroupClass != null)
             {
                 request.LogGroupClass = cmdletContext.LogGroupClass;
+            }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifiers = cmdletContext.LogGroupIdentifier;
             }
             if (cmdletContext.LogGroupNamePattern != null)
             {
@@ -478,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.Boolean? IncludeLinkedAccount { get; set; }
             public int? Limit { get; set; }
             public Amazon.CloudWatchLogs.LogGroupClass LogGroupClass { get; set; }
+            public List<System.String> LogGroupIdentifier { get; set; }
             public System.String LogGroupNamePattern { get; set; }
             public System.String LogGroupNamePrefix { get; set; }
             public System.String NextToken { get; set; }

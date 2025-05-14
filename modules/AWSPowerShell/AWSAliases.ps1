@@ -18790,6 +18790,9 @@ Set-Alias -Name CWL-ListIntegrations -Value Get-CWLIntegrationList
 Set-Alias -Name List-CWLLogAnomalyDetectors -Value Get-CWLLogAnomalyDetectorList
 Set-Alias -Name List-CWLLogAnomalyDetectorList -Value Get-CWLLogAnomalyDetectorList
 Set-Alias -Name CWL-ListLogAnomalyDetectors -Value Get-CWLLogAnomalyDetectorList
+Set-Alias -Name List-CWLLogGroups -Value Get-CWLLogGroupList
+Set-Alias -Name List-CWLLogGroupList -Value Get-CWLLogGroupList
+Set-Alias -Name CWL-ListLogGroups -Value Get-CWLLogGroupList
 Set-Alias -Name List-CWLLogGroupsForQuery -Value Get-CWLLogGroupsForQueryList
 Set-Alias -Name List-CWLLogGroupsForQueryList -Value Get-CWLLogGroupsForQueryList
 Set-Alias -Name CWL-ListLogGroupsForQuery -Value Get-CWLLogGroupsForQueryList

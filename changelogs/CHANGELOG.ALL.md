@@ -1,4 +1,10 @@
-﻿### 4.1.819 (2025-05-13 20:03Z)
+﻿### 4.1.820 (2025-05-14 20:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1044.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLLogGroupList leveraging the ListLogGroups service API.
+    * Modified cmdlet Get-CWLLogGroup: added parameter LogGroupIdentifier.
+
+### 4.1.819 (2025-05-13 20:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1043.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Aurora DSQL
     * Modified cmdlet New-DSQLCluster: added parameters MultiRegionProperties_Cluster and MultiRegionProperties_WitnessRegion.
