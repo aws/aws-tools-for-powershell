@@ -269,6 +269,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.SqlServerAuthenticationMethod MicrosoftSQLServerSettings_AuthenticationMethod { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_AuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>This attribute allows you to specify the authentication method as "iam auth".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.MySQLAuthenticationMethod")]
+        public Amazon.DatabaseMigrationService.MySQLAuthenticationMethod MySQLSettings_AuthenticationMethod { get; set; }
+        #endregion
+        
         #region Parameter OracleSettings_AuthenticationMethod
         /// <summary>
         /// <para>
@@ -278,6 +289,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.OracleAuthenticationMethod")]
         public Amazon.DatabaseMigrationService.OracleAuthenticationMethod OracleSettings_AuthenticationMethod { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_AuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>This attribute allows you to specify the authentication method as "iam auth".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.PostgreSQLAuthenticationMethod")]
+        public Amazon.DatabaseMigrationService.PostgreSQLAuthenticationMethod PostgreSQLSettings_AuthenticationMethod { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_AuthMechanism
@@ -3298,6 +3320,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role you can use to authenticate when connecting to your endpoint. Ensure
+        /// to include <c>iam:PassRole</c> and <c>rds-db:connect</c> actions in permission policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter NeptuneSettings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
@@ -3310,6 +3343,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NeptuneSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role arn you can use to authenticate the connection to your endpoint. Ensure
+        /// to include <c>iam:PassRole</c> and <c>rds-db:connect</c> actions in permission policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_ServiceAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_ServiceAccessRoleArn
@@ -4148,6 +4192,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_Username = this.MongoDbSettings_Username;
             context.MongoDbSettings_UseUpdateLookUp = this.MongoDbSettings_UseUpdateLookUp;
             context.MySQLSettings_AfterConnectScript = this.MySQLSettings_AfterConnectScript;
+            context.MySQLSettings_AuthenticationMethod = this.MySQLSettings_AuthenticationMethod;
             context.MySQLSettings_CleanSourceMetadataOnMismatch = this.MySQLSettings_CleanSourceMetadataOnMismatch;
             context.MySQLSettings_DatabaseName = this.MySQLSettings_DatabaseName;
             context.MySQLSettings_EventsPollInterval = this.MySQLSettings_EventsPollInterval;
@@ -4160,6 +4205,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MySQLSettings_SecretsManagerSecretId = this.MySQLSettings_SecretsManagerSecretId;
             context.MySQLSettings_ServerName = this.MySQLSettings_ServerName;
             context.MySQLSettings_ServerTimezone = this.MySQLSettings_ServerTimezone;
+            context.MySQLSettings_ServiceAccessRoleArn = this.MySQLSettings_ServiceAccessRoleArn;
             context.MySQLSettings_TargetDbType = this.MySQLSettings_TargetDbType;
             context.MySQLSettings_Username = this.MySQLSettings_Username;
             context.NeptuneSettings_ErrorRetryDuration = this.NeptuneSettings_ErrorRetryDuration;
@@ -4219,6 +4265,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.Password = this.Password;
             context.Port = this.Port;
             context.PostgreSQLSettings_AfterConnectScript = this.PostgreSQLSettings_AfterConnectScript;
+            context.PostgreSQLSettings_AuthenticationMethod = this.PostgreSQLSettings_AuthenticationMethod;
             context.PostgreSQLSettings_BabelfishDatabaseName = this.PostgreSQLSettings_BabelfishDatabaseName;
             context.PostgreSQLSettings_CaptureDdl = this.PostgreSQLSettings_CaptureDdl;
             context.PostgreSQLSettings_DatabaseMode = this.PostgreSQLSettings_DatabaseMode;
@@ -4240,6 +4287,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.PostgreSQLSettings_SecretsManagerAccessRoleArn = this.PostgreSQLSettings_SecretsManagerAccessRoleArn;
             context.PostgreSQLSettings_SecretsManagerSecretId = this.PostgreSQLSettings_SecretsManagerSecretId;
             context.PostgreSQLSettings_ServerName = this.PostgreSQLSettings_ServerName;
+            context.PostgreSQLSettings_ServiceAccessRoleArn = this.PostgreSQLSettings_ServiceAccessRoleArn;
             context.PostgreSQLSettings_SlotName = this.PostgreSQLSettings_SlotName;
             context.PostgreSQLSettings_TrimSpaceInChar = this.PostgreSQLSettings_TrimSpaceInChar;
             context.PostgreSQLSettings_Username = this.PostgreSQLSettings_Username;
@@ -5644,6 +5692,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MySQLSettings.AfterConnectScript = requestMySQLSettings_mySQLSettings_AfterConnectScript;
                 requestMySQLSettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.MySQLAuthenticationMethod requestMySQLSettings_mySQLSettings_AuthenticationMethod = null;
+            if (cmdletContext.MySQLSettings_AuthenticationMethod != null)
+            {
+                requestMySQLSettings_mySQLSettings_AuthenticationMethod = cmdletContext.MySQLSettings_AuthenticationMethod;
+            }
+            if (requestMySQLSettings_mySQLSettings_AuthenticationMethod != null)
+            {
+                request.MySQLSettings.AuthenticationMethod = requestMySQLSettings_mySQLSettings_AuthenticationMethod;
+                requestMySQLSettingsIsNull = false;
+            }
             System.Boolean? requestMySQLSettings_mySQLSettings_CleanSourceMetadataOnMismatch = null;
             if (cmdletContext.MySQLSettings_CleanSourceMetadataOnMismatch != null)
             {
@@ -5762,6 +5820,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMySQLSettings_mySQLSettings_ServerTimezone != null)
             {
                 request.MySQLSettings.ServerTimezone = requestMySQLSettings_mySQLSettings_ServerTimezone;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.MySQLSettings_ServiceAccessRoleArn != null)
+            {
+                requestMySQLSettings_mySQLSettings_ServiceAccessRoleArn = cmdletContext.MySQLSettings_ServiceAccessRoleArn;
+            }
+            if (requestMySQLSettings_mySQLSettings_ServiceAccessRoleArn != null)
+            {
+                request.MySQLSettings.ServiceAccessRoleArn = requestMySQLSettings_mySQLSettings_ServiceAccessRoleArn;
                 requestMySQLSettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.TargetDbType requestMySQLSettings_mySQLSettings_TargetDbType = null;
@@ -6339,6 +6407,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.PostgreSQLSettings.AfterConnectScript = requestPostgreSQLSettings_postgreSQLSettings_AfterConnectScript;
                 requestPostgreSQLSettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.PostgreSQLAuthenticationMethod requestPostgreSQLSettings_postgreSQLSettings_AuthenticationMethod = null;
+            if (cmdletContext.PostgreSQLSettings_AuthenticationMethod != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_AuthenticationMethod = cmdletContext.PostgreSQLSettings_AuthenticationMethod;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_AuthenticationMethod != null)
+            {
+                request.PostgreSQLSettings.AuthenticationMethod = requestPostgreSQLSettings_postgreSQLSettings_AuthenticationMethod;
+                requestPostgreSQLSettingsIsNull = false;
+            }
             System.String requestPostgreSQLSettings_postgreSQLSettings_BabelfishDatabaseName = null;
             if (cmdletContext.PostgreSQLSettings_BabelfishDatabaseName != null)
             {
@@ -6547,6 +6625,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_ServerName != null)
             {
                 request.PostgreSQLSettings.ServerName = requestPostgreSQLSettings_postgreSQLSettings_ServerName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.PostgreSQLSettings_ServiceAccessRoleArn != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_ServiceAccessRoleArn = cmdletContext.PostgreSQLSettings_ServiceAccessRoleArn;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_ServiceAccessRoleArn != null)
+            {
+                request.PostgreSQLSettings.ServiceAccessRoleArn = requestPostgreSQLSettings_postgreSQLSettings_ServiceAccessRoleArn;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.String requestPostgreSQLSettings_postgreSQLSettings_SlotName = null;
@@ -7741,6 +7829,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MongoDbSettings_Username { get; set; }
             public System.Boolean? MongoDbSettings_UseUpdateLookUp { get; set; }
             public System.String MySQLSettings_AfterConnectScript { get; set; }
+            public Amazon.DatabaseMigrationService.MySQLAuthenticationMethod MySQLSettings_AuthenticationMethod { get; set; }
             public System.Boolean? MySQLSettings_CleanSourceMetadataOnMismatch { get; set; }
             public System.String MySQLSettings_DatabaseName { get; set; }
             public System.Int32? MySQLSettings_EventsPollInterval { get; set; }
@@ -7753,6 +7842,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MySQLSettings_SecretsManagerSecretId { get; set; }
             public System.String MySQLSettings_ServerName { get; set; }
             public System.String MySQLSettings_ServerTimezone { get; set; }
+            public System.String MySQLSettings_ServiceAccessRoleArn { get; set; }
             public Amazon.DatabaseMigrationService.TargetDbType MySQLSettings_TargetDbType { get; set; }
             public System.String MySQLSettings_Username { get; set; }
             public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
@@ -7809,6 +7899,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PostgreSQLSettings_AfterConnectScript { get; set; }
+            public Amazon.DatabaseMigrationService.PostgreSQLAuthenticationMethod PostgreSQLSettings_AuthenticationMethod { get; set; }
             public System.String PostgreSQLSettings_BabelfishDatabaseName { get; set; }
             public System.Boolean? PostgreSQLSettings_CaptureDdl { get; set; }
             public Amazon.DatabaseMigrationService.DatabaseMode PostgreSQLSettings_DatabaseMode { get; set; }
@@ -7830,6 +7921,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String PostgreSQLSettings_SecretsManagerAccessRoleArn { get; set; }
             public System.String PostgreSQLSettings_SecretsManagerSecretId { get; set; }
             public System.String PostgreSQLSettings_ServerName { get; set; }
+            public System.String PostgreSQLSettings_ServiceAccessRoleArn { get; set; }
             public System.String PostgreSQLSettings_SlotName { get; set; }
             public System.Boolean? PostgreSQLSettings_TrimSpaceInChar { get; set; }
             public System.String PostgreSQLSettings_Username { get; set; }

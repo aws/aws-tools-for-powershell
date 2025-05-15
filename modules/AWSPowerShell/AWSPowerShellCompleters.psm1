@@ -7074,6 +7074,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.ConcurrencyType
+        {
+            ($_ -eq "New-AABFlowAlias/ConcurrencyConfiguration_Type") -Or
+            ($_ -eq "Update-AABFlowAlias/ConcurrencyConfiguration_Type")
+        }
+        {
+            $v = "Automatic","Manual"
+            break
+        }
+
         # Amazon.BedrockAgent.ConfluenceAuthType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType") -Or
@@ -7351,6 +7361,7 @@ $AAB_map = @{
     "BedrockEmbeddingModelConfiguration_EmbeddingDataType"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "BedrockFoundationModelConfiguration_ParsingModality"=@("New-AABDataSource","Update-AABDataSource")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "ConcurrencyConfiguration_Type"=@("New-AABFlowAlias","Update-AABFlowAlias")
     "ContextEnrichmentConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
@@ -13698,6 +13709,8 @@ $CB_Completers = {
             ($_ -eq "Update-CBFleet/ComputeType") -Or
             ($_ -eq "Start-CBBatch/ComputeTypeOverride") -Or
             ($_ -eq "Start-CBBuild/ComputeTypeOverride") -Or
+            ($_ -eq "New-CBProject/DockerServer_ComputeType") -Or
+            ($_ -eq "Update-CBProject/DockerServer_ComputeType") -Or
             ($_ -eq "New-CBProject/Environment_ComputeType") -Or
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
@@ -14007,6 +14020,7 @@ $CB_map = @{
     "ComputeConfiguration_MachineType"=@("New-CBFleet","New-CBProject","Update-CBFleet","Update-CBProject")
     "ComputeType"=@("New-CBFleet","Update-CBFleet")
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
+    "DockerServer_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ImagePullCredentialsType"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
@@ -23335,6 +23349,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.MySQLAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/MySQLSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/MySQLSettings_AuthenticationMethod")
+        }
+        {
+            $v = "iam","password"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.NestingLevelValue
         {
             ($_ -eq "Edit-DMSEndpoint/DocDbSettings_NestingLevel") -Or
@@ -23384,6 +23408,16 @@ $DMS_Completers = {
         }
         {
             $v = "no-preference","pglogical","test-decoding"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.PostgreSQLAuthenticationMethod
+        {
+            ($_ -eq "Edit-DMSEndpoint/PostgreSQLSettings_AuthenticationMethod") -Or
+            ($_ -eq "New-DMSEndpoint/PostgreSQLSettings_AuthenticationMethod")
+        }
+        {
+            $v = "iam","password"
             break
         }
 
@@ -23521,12 +23555,14 @@ $DMS_map = @{
     "MongoDbSettings_AuthType"=@("Edit-DMSDataProvider","Edit-DMSEndpoint","New-DMSDataProvider","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "MySQLSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_CharLengthSemantic"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
+    "PostgreSQLSettings_AuthenticationMethod"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -56889,6 +56925,13 @@ $PCS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PCS.AccountingMode
+        "New-PCSCluster/Accounting_Mode"
+        {
+            $v = "NONE","STANDARD"
+            break
+        }
+
         # Amazon.PCS.PurchaseOption
         {
             ($_ -eq "New-PCSComputeNodeGroup/PurchaseOption") -Or
@@ -56932,6 +56975,7 @@ $PCS_Completers = {
 }
 
 $PCS_map = @{
+    "Accounting_Mode"=@("New-PCSCluster")
     "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
     "Scheduler_Type"=@("New-PCSCluster")
     "Size"=@("New-PCSCluster")
@@ -78564,6 +78608,16 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.PoolsRunningMode
+        {
+            ($_ -eq "New-WKSWorkspacesPool/RunningMode") -Or
+            ($_ -eq "Update-WKSWorkspacesPool/RunningMode")
+        }
+        {
+            $v = "ALWAYS_ON","AUTO_STOP"
+            break
+        }
+
         # Amazon.WorkSpaces.ReconnectEnum
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
@@ -78663,6 +78717,7 @@ $WKS_map = @{
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
+    "RunningMode"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")

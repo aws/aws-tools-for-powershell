@@ -140,6 +140,18 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String PoolId { get; set; }
         #endregion
         
+        #region Parameter RunningMode
+        /// <summary>
+        /// <para>
+        /// <para>The desired running mode for the pool. The running mode can only be updated when the
+        /// pool is in a stopped state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.PoolsRunningMode")]
+        public Amazon.WorkSpaces.PoolsRunningMode RunningMode { get; set; }
+        #endregion
+        
         #region Parameter ApplicationSettings_SettingsGroup
         /// <summary>
         /// <para>
@@ -238,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 WriteWarning("You are passing $null as a value for parameter PoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RunningMode = this.RunningMode;
             context.TimeoutSettings_DisconnectTimeoutInSecond = this.TimeoutSettings_DisconnectTimeoutInSecond;
             context.TimeoutSettings_IdleDisconnectTimeoutInSecond = this.TimeoutSettings_IdleDisconnectTimeoutInSecond;
             context.TimeoutSettings_MaxUserDurationInSecond = this.TimeoutSettings_MaxUserDurationInSecond;
@@ -320,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.PoolId != null)
             {
                 request.PoolId = cmdletContext.PoolId;
+            }
+            if (cmdletContext.RunningMode != null)
+            {
+                request.RunningMode = cmdletContext.RunningMode;
             }
             
              // populate TimeoutSettings
@@ -428,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String Description { get; set; }
             public System.String DirectoryId { get; set; }
             public System.String PoolId { get; set; }
+            public Amazon.WorkSpaces.PoolsRunningMode RunningMode { get; set; }
             public System.Int32? TimeoutSettings_DisconnectTimeoutInSecond { get; set; }
             public System.Int32? TimeoutSettings_IdleDisconnectTimeoutInSecond { get; set; }
             public System.Int32? TimeoutSettings_MaxUserDurationInSecond { get; set; }

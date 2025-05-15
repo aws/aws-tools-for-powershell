@@ -69,6 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String FlowIdentifier { get; set; }
         #endregion
         
+        #region Parameter ConcurrencyConfiguration_MaxConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of nodes that can be executed concurrently in the flow.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ConcurrencyConfiguration_MaxConcurrency { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -114,6 +124,19 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ConcurrencyConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of concurrency to use for parallel node execution. Specify one of the following
+        /// options:</para><ul><li><para><c>Automatic</c> - Amazon Bedrock determines which nodes can be executed in parallel
+        /// based on the flow definition and its dependencies.</para></li><li><para><c>Manual</c> - You specify which nodes can be executed in parallel.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.ConcurrencyType")]
+        public Amazon.BedrockAgent.ConcurrencyType ConcurrencyConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -192,6 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.ConcurrencyConfiguration_MaxConcurrency = this.ConcurrencyConfiguration_MaxConcurrency;
+            context.ConcurrencyConfiguration_Type = this.ConcurrencyConfiguration_Type;
             context.Description = this.Description;
             context.FlowIdentifier = this.FlowIdentifier;
             #if MODULAR
@@ -244,6 +269,35 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate ConcurrencyConfiguration
+            var requestConcurrencyConfigurationIsNull = true;
+            request.ConcurrencyConfiguration = new Amazon.BedrockAgent.Model.FlowAliasConcurrencyConfiguration();
+            System.Int32? requestConcurrencyConfiguration_concurrencyConfiguration_MaxConcurrency = null;
+            if (cmdletContext.ConcurrencyConfiguration_MaxConcurrency != null)
+            {
+                requestConcurrencyConfiguration_concurrencyConfiguration_MaxConcurrency = cmdletContext.ConcurrencyConfiguration_MaxConcurrency.Value;
+            }
+            if (requestConcurrencyConfiguration_concurrencyConfiguration_MaxConcurrency != null)
+            {
+                request.ConcurrencyConfiguration.MaxConcurrency = requestConcurrencyConfiguration_concurrencyConfiguration_MaxConcurrency.Value;
+                requestConcurrencyConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.ConcurrencyType requestConcurrencyConfiguration_concurrencyConfiguration_Type = null;
+            if (cmdletContext.ConcurrencyConfiguration_Type != null)
+            {
+                requestConcurrencyConfiguration_concurrencyConfiguration_Type = cmdletContext.ConcurrencyConfiguration_Type;
+            }
+            if (requestConcurrencyConfiguration_concurrencyConfiguration_Type != null)
+            {
+                request.ConcurrencyConfiguration.Type = requestConcurrencyConfiguration_concurrencyConfiguration_Type;
+                requestConcurrencyConfigurationIsNull = false;
+            }
+             // determine if request.ConcurrencyConfiguration should be set to null
+            if (requestConcurrencyConfigurationIsNull)
+            {
+                request.ConcurrencyConfiguration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -327,6 +381,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Int32? ConcurrencyConfiguration_MaxConcurrency { get; set; }
+            public Amazon.BedrockAgent.ConcurrencyType ConcurrencyConfiguration_Type { get; set; }
             public System.String Description { get; set; }
             public System.String FlowIdentifier { get; set; }
             public System.String Name { get; set; }

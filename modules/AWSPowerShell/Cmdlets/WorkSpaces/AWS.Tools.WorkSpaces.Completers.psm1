@@ -194,6 +194,16 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.PoolsRunningMode
+        {
+            ($_ -eq "New-WKSWorkspacesPool/RunningMode") -Or
+            ($_ -eq "Update-WKSWorkspacesPool/RunningMode")
+        }
+        {
+            $v = "ALWAYS_ON","AUTO_STOP"
+            break
+        }
+
         # Amazon.WorkSpaces.ReconnectEnum
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
@@ -293,6 +303,7 @@ $WKS_map = @{
     "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "LicenseType"=@("Get-WKSApplication")
+    "RunningMode"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "SamlProperties_Status"=@("Edit-WKSSamlProperty")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")

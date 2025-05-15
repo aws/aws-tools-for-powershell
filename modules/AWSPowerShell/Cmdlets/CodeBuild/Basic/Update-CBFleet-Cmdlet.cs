@@ -77,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// and the type of machine.</para><note><para> If you use <c>ATTRIBUTE_BASED_COMPUTE</c>, you must define your attributes by using
         /// <c>computeConfiguration</c>. CodeBuild will select the cheapest instance that satisfies
         /// your specified attributes. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.types">Reserved
-        /// capacity environment types</a> in the <i>CodeBuild User Guide</i>.</para></note></li><li><para><c>BUILD_GENERAL1_SMALL</c>: Use up to 4 GiB memory and 2 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_MEDIUM</c>: Use up to 8 GiB memory and 4 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_LARGE</c>: Use up to 16 GiB memory and 8 vCPUs for builds, depending
+        /// capacity environment types</a> in the <i>CodeBuild User Guide</i>.</para></note></li><li><para><c>CUSTOM_INSTANCE_TYPE</c>: Specify the instance type for your compute fleet. For
+        /// a list of supported instance types, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment-reserved-capacity.instance-types">Supported
+        /// instance families </a> in the <i>CodeBuild User Guide</i>.</para></li><li><para><c>BUILD_GENERAL1_SMALL</c>: Use up to 4 GiB memory and 2 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_MEDIUM</c>: Use up to 8 GiB memory and 4 vCPUs for builds.</para></li><li><para><c>BUILD_GENERAL1_LARGE</c>: Use up to 16 GiB memory and 8 vCPUs for builds, depending
         /// on your environment type.</para></li><li><para><c>BUILD_GENERAL1_XLARGE</c>: Use up to 72 GiB memory and 36 vCPUs for builds, depending
         /// on your environment type.</para></li><li><para><c>BUILD_GENERAL1_2XLARGE</c>: Use up to 144 GiB memory, 72 vCPUs, and 824 GB of
         /// SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li><li><para><c>BUILD_LAMBDA_1GB</c>: Use up to 1 GiB memory for builds. Only available for environment
