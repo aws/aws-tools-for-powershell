@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SQServiceQuotaIncreaseRequestFromTemplate', 
         'Get-SQServiceQuotaIncreaseRequestsInTemplateList', 
         'Get-SQServiceQuotaList', 
+        'New-SQSupportCase', 
         'Register-SQServiceQuotaTemplate', 
         'Remove-SQResourceTag', 
         'Remove-SQServiceQuotaIncreaseRequestFromTemplate', 

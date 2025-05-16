@@ -187,7 +187,7 @@ $BDA_Completers = {
         # Amazon.BedrockDataAutomation.Type
         "New-BDABlueprint/Type"
         {
-            $v = "AUDIO","DOCUMENT","IMAGE"
+            $v = "AUDIO","DOCUMENT","IMAGE","VIDEO"
             break
         }
 

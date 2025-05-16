@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use for the new DB cluster.</para><para>Example: <c>1.0.2.1</c></para>
+        /// <para>The version number of the database engine to use for the new DB cluster.</para><para>Example: <c>1.2.1.0</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,9 +375,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB cluster.</para><para>Valid Values:</para><ul><li><para><c>standard | iopt1</c></para></li></ul><para>Default:</para><ul><li><para><c>standard</c></para></li></ul><note><para>When you create a Neptune cluster with the storage type set to <c>iopt1</c>, the storage
-        /// type is returned in the response. The storage type isn't returned when you set it
-        /// to <c>standard</c>.</para></note>
+        /// <para>The storage type for the new DB cluster.</para><para>Valid Values:</para><ul><li><para><b><c>standard</c></b>   –   ( <i>the default</i> ) Configures cost-effective database
+        /// storage for applications with moderate to small I/O usage. When set to <c>standard</c>,
+        /// the storage type is not returned in the response.</para></li><li><para><b><c>iopt1</c></b>   –   Enables <a href="https://docs.aws.amazon.com/neptune/latest/userguide/storage-types.html#provisioned-iops-storage">I/O-Optimized
+        /// storage</a> that's designed to meet the needs of I/O-intensive graph workloads that
+        /// require predictable pricing with low I/O latency and consistent I/O throughput.</para><para>Neptune I/O-Optimized storage is only available starting with engine release 1.3.0.0.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

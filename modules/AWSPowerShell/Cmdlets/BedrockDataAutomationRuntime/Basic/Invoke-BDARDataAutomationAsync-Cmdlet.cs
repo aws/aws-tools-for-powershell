@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         public System.String DataAutomationConfiguration_DataAutomationProjectArn { get; set; }
         #endregion
         
+        #region Parameter TimestampSegment_EndTimeMilli
+        /// <summary>
+        /// <para>
+        /// <para>End timestamp in milliseconds</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_EndTimeMillis")]
+        public System.Int64? TimestampSegment_EndTimeMilli { get; set; }
+        #endregion
+        
         #region Parameter EventBridgeConfiguration_EventBridgeEnabled
         /// <summary>
         /// <para>
@@ -154,6 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.BedrockDataAutomationRuntime.DataAutomationStage")]
         public Amazon.BedrockDataAutomationRuntime.DataAutomationStage DataAutomationConfiguration_Stage { get; set; }
+        #endregion
+        
+        #region Parameter TimestampSegment_StartTimeMilli
+        /// <summary>
+        /// <para>
+        /// <para>Start timestamp in milliseconds</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_StartTimeMillis")]
+        public System.Int64? TimestampSegment_StartTimeMilli { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -242,6 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
                 }
             }
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
+            context.TimestampSegment_EndTimeMilli = this.TimestampSegment_EndTimeMilli;
+            context.TimestampSegment_StartTimeMilli = this.TimestampSegment_StartTimeMilli;
             context.InputConfiguration_S3Uri = this.InputConfiguration_S3Uri;
             #if MODULAR
             if (this.InputConfiguration_S3Uri == null && ParameterWasBound(nameof(this.InputConfiguration_S3Uri)))
@@ -359,6 +383,86 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             if (requestInputConfiguration_inputConfiguration_S3Uri != null)
             {
                 request.InputConfiguration.S3Uri = requestInputConfiguration_inputConfiguration_S3Uri;
+                requestInputConfigurationIsNull = false;
+            }
+            Amazon.BedrockDataAutomationRuntime.Model.AssetProcessingConfiguration requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration = null;
+            
+             // populate AssetProcessingConfiguration
+            var requestInputConfiguration_inputConfiguration_AssetProcessingConfigurationIsNull = true;
+            requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration = new Amazon.BedrockDataAutomationRuntime.Model.AssetProcessingConfiguration();
+            Amazon.BedrockDataAutomationRuntime.Model.VideoAssetProcessingConfiguration requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video = null;
+            
+             // populate Video
+            var requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_VideoIsNull = true;
+            requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video = new Amazon.BedrockDataAutomationRuntime.Model.VideoAssetProcessingConfiguration();
+            Amazon.BedrockDataAutomationRuntime.Model.VideoSegmentConfiguration requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration = null;
+            
+             // populate SegmentConfiguration
+            var requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfigurationIsNull = true;
+            requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration = new Amazon.BedrockDataAutomationRuntime.Model.VideoSegmentConfiguration();
+            Amazon.BedrockDataAutomationRuntime.Model.TimestampSegment requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment = null;
+            
+             // populate TimestampSegment
+            var requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegmentIsNull = true;
+            requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment = new Amazon.BedrockDataAutomationRuntime.Model.TimestampSegment();
+            System.Int64? requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_EndTimeMilli = null;
+            if (cmdletContext.TimestampSegment_EndTimeMilli != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_EndTimeMilli = cmdletContext.TimestampSegment_EndTimeMilli.Value;
+            }
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_EndTimeMilli != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment.EndTimeMillis = requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_EndTimeMilli.Value;
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegmentIsNull = false;
+            }
+            System.Int64? requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_StartTimeMilli = null;
+            if (cmdletContext.TimestampSegment_StartTimeMilli != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_StartTimeMilli = cmdletContext.TimestampSegment_StartTimeMilli.Value;
+            }
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_StartTimeMilli != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment.StartTimeMillis = requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment_timestampSegment_StartTimeMilli.Value;
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegmentIsNull = false;
+            }
+             // determine if requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment should be set to null
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegmentIsNull)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment = null;
+            }
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration.TimestampSegment = requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration_TimestampSegment;
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfigurationIsNull = false;
+            }
+             // determine if requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration should be set to null
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfigurationIsNull)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration = null;
+            }
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video.SegmentConfiguration = requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video_inputConfiguration_AssetProcessingConfiguration_Video_SegmentConfiguration;
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_VideoIsNull = false;
+            }
+             // determine if requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video should be set to null
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_VideoIsNull)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video = null;
+            }
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video != null)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration.Video = requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration_inputConfiguration_AssetProcessingConfiguration_Video;
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfigurationIsNull = false;
+            }
+             // determine if requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration should be set to null
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfigurationIsNull)
+            {
+                requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration = null;
+            }
+            if (requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration != null)
+            {
+                request.InputConfiguration.AssetProcessingConfiguration = requestInputConfiguration_inputConfiguration_AssetProcessingConfiguration;
                 requestInputConfigurationIsNull = false;
             }
              // determine if request.InputConfiguration should be set to null
@@ -491,6 +595,8 @@ namespace Amazon.PowerShell.Cmdlets.BDAR
             public System.String DataAutomationProfileArn { get; set; }
             public Dictionary<System.String, System.String> EncryptionConfiguration_KmsEncryptionContext { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+            public System.Int64? TimestampSegment_EndTimeMilli { get; set; }
+            public System.Int64? TimestampSegment_StartTimeMilli { get; set; }
             public System.String InputConfiguration_S3Uri { get; set; }
             public System.Boolean? EventBridgeConfiguration_EventBridgeEnabled { get; set; }
             public System.String OutputConfiguration_S3Uri { get; set; }

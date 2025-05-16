@@ -5518,6 +5518,9 @@ Set-Alias -Name CP-ListActionExecutions -Value Get-CPActionExecutionList
 Set-Alias -Name List-CPActionTypes -Value Get-CPActionType
 Set-Alias -Name List-CPActionType -Value Get-CPActionType
 Set-Alias -Name CP-ListActionTypes -Value Get-CPActionType
+Set-Alias -Name List-CPDeployActionExecutionTargets -Value Get-CPDeployActionExecutionTargetList
+Set-Alias -Name List-CPDeployActionExecutionTargetList -Value Get-CPDeployActionExecutionTargetList
+Set-Alias -Name CP-ListDeployActionExecutionTargets -Value Get-CPDeployActionExecutionTargetList
 Set-Alias -Name List-CPPipelineExecutions -Value Get-CPPipelineExecutionSummary
 Set-Alias -Name List-CPPipelineExecutionSummary -Value Get-CPPipelineExecutionSummary
 Set-Alias -Name CP-ListPipelineExecutions -Value Get-CPPipelineExecutionSummary
@@ -11880,6 +11883,8 @@ Set-Alias -Name EMR-AddTags -Value Add-EMRResourceTag
 Set-Alias -Name Cancel-EMRSteps -Value Stop-EMRStep
 Set-Alias -Name Cancel-EMRStep -Value Stop-EMRStep
 Set-Alias -Name EMR-CancelSteps -Value Stop-EMRStep
+Set-Alias -Name Create-EMRPersistentAppUI -Value New-EMRPersistentAppUI
+Set-Alias -Name EMR-CreatePersistentAppUI -Value New-EMRPersistentAppUI
 Set-Alias -Name Create-EMRSecurityConfiguration -Value New-EMRSecurityConfiguration
 Set-Alias -Name EMR-CreateSecurityConfiguration -Value New-EMRSecurityConfiguration
 Set-Alias -Name Create-EMRStudio -Value New-EMRStudio
@@ -11899,6 +11904,8 @@ Set-Alias -Name Describe-EMRJobFlow -Value Get-EMRJobFlow
 Set-Alias -Name EMR-DescribeJobFlows -Value Get-EMRJobFlow
 Set-Alias -Name Describe-EMRNotebookExecution -Value Get-EMRNotebookExecution
 Set-Alias -Name EMR-DescribeNotebookExecution -Value Get-EMRNotebookExecution
+Set-Alias -Name Describe-EMRPersistentAppUI -Value Get-EMRPersistentAppUI
+Set-Alias -Name EMR-DescribePersistentAppUI -Value Get-EMRPersistentAppUI
 Set-Alias -Name Describe-EMRReleaseLabel -Value Get-EMRReleaseLabel
 Set-Alias -Name EMR-DescribeReleaseLabel -Value Get-EMRReleaseLabel
 Set-Alias -Name Describe-EMRSecurityConfiguration -Value Get-EMRSecurityConfiguration
@@ -11912,6 +11919,8 @@ Set-Alias -Name EMR-GetBlockPublicAccessConfiguration -Value Get-EMRBlockPublicA
 Set-Alias -Name Get-EMRClusterSessionCredentials -Value Get-EMRClusterSessionCredential
 Set-Alias -Name EMR-GetClusterSessionCredentials -Value Get-EMRClusterSessionCredential
 Set-Alias -Name EMR-GetManagedScalingPolicy -Value Get-EMRManagedScalingPolicy
+Set-Alias -Name EMR-GetOnClusterAppUIPresignedURL -Value Get-EMROnClusterAppUIPresignedURL
+Set-Alias -Name EMR-GetPersistentAppUIPresignedURL -Value Get-EMRPersistentAppUIPresignedURL
 Set-Alias -Name EMR-GetStudioSessionMapping -Value Get-EMRStudioSessionMapping
 Set-Alias -Name List-EMRBootstrapActions -Value Get-EMRBootstrapActionList
 Set-Alias -Name List-EMRBootstrapActionList -Value Get-EMRBootstrapActionList
@@ -21173,6 +21182,9 @@ Set-Alias -Name NPT-RestoreDBClusterFromSnapshot -Value Restore-NPTDBClusterFrom
 Set-Alias -Name NPT-RestoreDBClusterToPointInTime -Value Restore-NPTDBClusterToPointInTime
 Set-Alias -Name NPT-StartDBCluster -Value Start-NPTDBCluster
 Set-Alias -Name NPT-StopDBCluster -Value Stop-NPTDBCluster
+Set-Alias -Name Switchover-NPTGlobalCluster -Value Request-NPTSwitchoverGlobalCluster
+Set-Alias -Name Switchover-NPTSwitchoverGlobalCluster -Value Request-NPTSwitchoverGlobalCluster
+Set-Alias -Name NPT-SwitchoverGlobalCluster -Value Request-NPTSwitchoverGlobalCluster
 Set-Alias -Name Cancel-NEPTGremlinQuery -Value Stop-NEPTGremlinQuery
 Set-Alias -Name NEPT-CancelGremlinQuery -Value Stop-NEPTGremlinQuery
 Set-Alias -Name Cancel-NEPTLoaderJob -Value Stop-NEPTLoaderJob
@@ -28402,6 +28414,8 @@ Set-Alias -Name Update-SDServiceAttributes -Value Update-SDServiceAttribute
 Set-Alias -Name SD-UpdateServiceAttributes -Value Update-SDServiceAttribute
 Set-Alias -Name Associate-SQServiceQuotaTemplate -Value Register-SQServiceQuotaTemplate
 Set-Alias -Name SQ-AssociateServiceQuotaTemplate -Value Register-SQServiceQuotaTemplate
+Set-Alias -Name Create-SQSupportCase -Value New-SQSupportCase
+Set-Alias -Name SQ-CreateSupportCase -Value New-SQSupportCase
 Set-Alias -Name Delete-SQServiceQuotaIncreaseRequestFromTemplate -Value Remove-SQServiceQuotaIncreaseRequestFromTemplate
 Set-Alias -Name SQ-DeleteServiceQuotaIncreaseRequestFromTemplate -Value Remove-SQServiceQuotaIncreaseRequestFromTemplate
 Set-Alias -Name Disassociate-SQServiceQuotaTemplate -Value Unregister-SQServiceQuotaTemplate

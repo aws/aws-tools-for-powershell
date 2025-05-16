@@ -148,6 +148,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-NPTResourceTag', 
         'Remove-NPTRoleFromDBCluster', 
         'Remove-NPTSourceIdentifierFromSubscription', 
+        'Request-NPTSwitchoverGlobalCluster', 
         'Reset-NPTDBClusterParameterGroup', 
         'Reset-NPTDBParameterGroup', 
         'Restart-NPTDBInstance', 

@@ -28,52 +28,40 @@ using Amazon.Neptune.Model;
 namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
-    /// Initiates the failover process for a Neptune global database.
+    /// Switches over the specified secondary DB cluster to be the new primary DB cluster
+    /// in the global database cluster. Switchover operations were previously called "managed
+    /// planned failovers."
     /// 
     ///  
     /// <para>
-    /// A failover for a Neptune global database promotes one of secondary read-only DB clusters
-    /// to be the primary DB cluster and demotes the primary DB cluster to being a secondary
-    /// (read-only) DB cluster. In other words, the role of the current primary DB cluster
-    /// and the selected target secondary DB cluster are switched. The selected secondary
-    /// DB cluster assumes full read/write capabilities for the Neptune global database.
+    /// Promotes the specified secondary cluster to assume full read/write capabilities and
+    /// demotes the current primary cluster to a secondary (read-only) cluster, maintaining
+    /// the original replication topology. All secondary clusters are synchronized with the
+    /// primary at the beginning of the process so the new primary continues operations for
+    /// the global database without losing any data. Your database is unavailable for a short
+    /// time while the primary and selected secondary clusters are assuming their new roles.
     /// </para><note><para>
-    /// This action applies <b>only</b> to Neptune global databases. This action is only intended
-    /// for use on healthy Neptune global databases with healthy Neptune DB clusters and no
-    /// region-wide outages, to test disaster recovery scenarios or to reconfigure the global
-    /// database topology.
+    /// This operation is intended for controlled environments, for operations such as "regional
+    /// rotation" or to fall back to the original primary after a global database failover.
     /// </para></note>
     /// </summary>
-    [Cmdlet("Edit", "NPTGlobalClusterPrimary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Request", "NPTSwitchoverGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Neptune.Model.GlobalCluster")]
-    [AWSCmdlet("Calls the Amazon Neptune FailoverGlobalCluster API operation.", Operation = new[] {"FailoverGlobalCluster"}, SelectReturnType = typeof(Amazon.Neptune.Model.FailoverGlobalClusterResponse))]
-    [AWSCmdletOutput("Amazon.Neptune.Model.GlobalCluster or Amazon.Neptune.Model.FailoverGlobalClusterResponse",
+    [AWSCmdlet("Calls the Amazon Neptune SwitchoverGlobalCluster API operation.", Operation = new[] {"SwitchoverGlobalCluster"}, SelectReturnType = typeof(Amazon.Neptune.Model.SwitchoverGlobalClusterResponse))]
+    [AWSCmdletOutput("Amazon.Neptune.Model.GlobalCluster or Amazon.Neptune.Model.SwitchoverGlobalClusterResponse",
         "This cmdlet returns an Amazon.Neptune.Model.GlobalCluster object.",
-        "The service call response (type Amazon.Neptune.Model.FailoverGlobalClusterResponse) can be returned by specifying '-Select *'."
+        "The service call response (type Amazon.Neptune.Model.SwitchoverGlobalClusterResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class EditNPTGlobalClusterPrimaryCmdlet : AmazonNeptuneClientCmdlet, IExecutor
+    public partial class RequestNPTSwitchoverGlobalClusterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AllowDataLoss
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to allow data loss for this global database cluster operation. Allowing
-        /// data loss triggers a global failover operation.</para><para>If you don't specify <c>AllowDataLoss</c>, the global database cluster operation defaults
-        /// to a switchover.</para><para>Constraints:Can't be specified together with the <c>Switchover</c> parameter.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? AllowDataLoss { get; set; }
-        #endregion
-        
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>Identifier of the Neptune global database that should be failed over. The identifier
-        /// is the unique key assigned by the user when the Neptune global database was created.
-        /// In other words, it's the name of the global database that you want to fail over.</para><para>Constraints: Must match the identifier of an existing Neptune global database.</para>
+        /// <para>The identifier of the global database cluster to switch over. This parameter isn't
+        /// case-sensitive.</para><para>Constraints: Must match the identifier of an existing global database cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,16 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String GlobalClusterIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Switchover
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to switch over this global database cluster.</para><para>Constraints:Can't be specified together with the <c>AllowDataLoss</c> parameter.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? Switchover { get; set; }
         #endregion
         
         #region Parameter TargetDbClusterIdentifier
@@ -118,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GlobalCluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Neptune.Model.FailoverGlobalClusterResponse).
-        /// Specifying the name of a property of type Amazon.Neptune.Model.FailoverGlobalClusterResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Neptune.Model.SwitchoverGlobalClusterResponse).
+        /// Specifying the name of a property of type Amazon.Neptune.Model.SwitchoverGlobalClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GlobalClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-NPTGlobalClusterPrimary (FailoverGlobalCluster)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-NPTSwitchoverGlobalCluster (SwitchoverGlobalCluster)"))
             {
                 return;
             }
@@ -165,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Neptune.Model.FailoverGlobalClusterResponse, EditNPTGlobalClusterPrimaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Neptune.Model.SwitchoverGlobalClusterResponse, RequestNPTSwitchoverGlobalClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -177,7 +155,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 context.Select = (response, cmdlet) => this.GlobalClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AllowDataLoss = this.AllowDataLoss;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             #if MODULAR
             if (this.GlobalClusterIdentifier == null && ParameterWasBound(nameof(this.GlobalClusterIdentifier)))
@@ -185,7 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 WriteWarning("You are passing $null as a value for parameter GlobalClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Switchover = this.Switchover;
             context.TargetDbClusterIdentifier = this.TargetDbClusterIdentifier;
             #if MODULAR
             if (this.TargetDbClusterIdentifier == null && ParameterWasBound(nameof(this.TargetDbClusterIdentifier)))
@@ -207,19 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Neptune.Model.FailoverGlobalClusterRequest();
+            var request = new Amazon.Neptune.Model.SwitchoverGlobalClusterRequest();
             
-            if (cmdletContext.AllowDataLoss != null)
-            {
-                request.AllowDataLoss = cmdletContext.AllowDataLoss.Value;
-            }
             if (cmdletContext.GlobalClusterIdentifier != null)
             {
                 request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
-            }
-            if (cmdletContext.Switchover != null)
-            {
-                request.Switchover = cmdletContext.Switchover.Value;
             }
             if (cmdletContext.TargetDbClusterIdentifier != null)
             {
@@ -258,15 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         #region AWS Service Operation Call
         
-        private Amazon.Neptune.Model.FailoverGlobalClusterResponse CallAWSServiceOperation(IAmazonNeptune client, Amazon.Neptune.Model.FailoverGlobalClusterRequest request)
+        private Amazon.Neptune.Model.SwitchoverGlobalClusterResponse CallAWSServiceOperation(IAmazonNeptune client, Amazon.Neptune.Model.SwitchoverGlobalClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune", "FailoverGlobalCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune", "SwitchoverGlobalCluster");
             try
             {
                 #if DESKTOP
-                return client.FailoverGlobalCluster(request);
+                return client.SwitchoverGlobalCluster(request);
                 #elif CORECLR
-                return client.FailoverGlobalClusterAsync(request).GetAwaiter().GetResult();
+                return client.SwitchoverGlobalClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -286,11 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AllowDataLoss { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }
-            public System.Boolean? Switchover { get; set; }
             public System.String TargetDbClusterIdentifier { get; set; }
-            public System.Func<Amazon.Neptune.Model.FailoverGlobalClusterResponse, EditNPTGlobalClusterPrimaryCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Neptune.Model.SwitchoverGlobalClusterResponse, RequestNPTSwitchoverGlobalClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GlobalCluster;
         }
         

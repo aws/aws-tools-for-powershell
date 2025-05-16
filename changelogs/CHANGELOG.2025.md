@@ -1,4 +1,21 @@
-﻿### 4.1.821 (2025-05-15 20:13Z)
+﻿### 4.1.822 (2025-05-16 20:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1046.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodePipeline
+    * Added cmdlet Get-CPDeployActionExecutionTargetList leveraging the ListDeployActionExecutionTargets service API.
+  * Amazon Elastic MapReduce
+    * Added cmdlet Get-EMROnClusterAppUIPresignedURL leveraging the GetOnClusterAppUIPresignedURL service API.
+    * Added cmdlet Get-EMRPersistentAppUI leveraging the DescribePersistentAppUI service API.
+    * Added cmdlet Get-EMRPersistentAppUIPresignedURL leveraging the GetPersistentAppUIPresignedURL service API.
+    * Added cmdlet New-EMRPersistentAppUI leveraging the CreatePersistentAppUI service API.
+  * Amazon Neptune
+    * Added cmdlet Request-NPTSwitchoverGlobalCluster leveraging the SwitchoverGlobalCluster service API.
+    * Modified cmdlet Edit-NPTGlobalClusterPrimary: added parameters AllowDataLoss and Switchover.
+  * Amazon Runtime for Amazon Bedrock Data Automation
+    * Modified cmdlet Invoke-BDARDataAutomationAsync: added parameters TimestampSegment_EndTimeMilli and TimestampSegment_StartTimeMilli.
+  * Amazon Service Quotas
+    * Added cmdlet New-SQSupportCase leveraging the CreateSupportCase service API.
+
+### 4.1.821 (2025-05-15 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1045.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABFlowAlias: added parameters ConcurrencyConfiguration_MaxConcurrency and ConcurrencyConfiguration_Type.

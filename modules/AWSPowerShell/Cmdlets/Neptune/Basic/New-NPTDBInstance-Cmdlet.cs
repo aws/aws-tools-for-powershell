@@ -470,7 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Not applicable. Storage is managed by the DB Cluster.</para>
+        /// <para>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
