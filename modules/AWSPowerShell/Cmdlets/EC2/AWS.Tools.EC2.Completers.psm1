@@ -817,6 +817,22 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.MacSystemIntegrityProtectionSettingStatus
+        {
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_AppleInternal") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_BaseSystem") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_DebuggingRestriction") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_DTraceRestriction") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_FilesystemProtection") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_KextSigning") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionConfiguration_NvramProtection") -Or
+            ($_ -eq "New-EC2MacSystemIntegrityProtectionModificationTask/MacSystemIntegrityProtectionStatus")
+        }
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
         # Amazon.EC2.MetadataDefaultHttpTokensState
         "Edit-EC2InstanceMetadataDefault/HttpToken"
         {
@@ -1356,6 +1372,14 @@ $EC2_map = @{
     "LocationType"=@("Get-EC2InstanceTypeOffering")
     "LockMode"=@("Lock-EC2Snapshot")
     "LogDestinationType"=@("New-EC2FlowLog")
+    "MacSystemIntegrityProtectionConfiguration_AppleInternal"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionConfiguration_BaseSystem"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionConfiguration_DebuggingRestriction"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionConfiguration_DTraceRestriction"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionConfiguration_FilesystemProtection"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionConfiguration_KextSigning"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionConfiguration_NvramProtection"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
+    "MacSystemIntegrityProtectionStatus"=@("New-EC2MacSystemIntegrityProtectionModificationTask")
     "MaintenanceOptions_AutoRecovery"=@("New-EC2Instance")
     "MetadataOptions_HttpEndpoint"=@("New-EC2Instance")
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
@@ -1555,6 +1579,7 @@ $EC2_SelectMap = @{
                "New-EC2CustomerGateway",
                "New-EC2DefaultSubnet",
                "New-EC2DefaultVpc",
+               "New-EC2DelegateMacVolumeOwnershipTask",
                "New-EC2DhcpOption",
                "New-EC2EgressOnlyInternetGateway",
                "New-EC2Fleet",
@@ -1579,6 +1604,7 @@ $EC2_SelectMap = @{
                "New-EC2LocalGatewayRouteTableVpcAssociation",
                "New-EC2LocalGatewayVirtualInterface",
                "New-EC2LocalGatewayVirtualInterfaceGroup",
+               "New-EC2MacSystemIntegrityProtectionModificationTask",
                "New-EC2ManagedPrefixList",
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
@@ -1802,6 +1828,7 @@ $EC2_SelectMap = @{
                "Get-EC2LocalGatewayVirtualInterface",
                "Get-EC2LockedSnapshot",
                "Get-EC2MacHost",
+               "Get-EC2MacModificationTask",
                "Get-EC2ManagedPrefixList",
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",

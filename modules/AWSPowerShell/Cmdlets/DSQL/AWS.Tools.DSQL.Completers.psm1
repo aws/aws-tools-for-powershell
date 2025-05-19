@@ -124,9 +124,7 @@ $DSQL_SelectCompleters = {
 
 $DSQL_SelectMap = @{
     "Select"=@("New-DSQLCluster",
-               "New-DSQLMultiRegionCluster",
                "Remove-DSQLCluster",
-               "Remove-DSQLMultiRegionCluster",
                "Get-DSQLCluster",
                "Get-DSQLVpcEndpointServiceName",
                "Get-DSQLClusterList",

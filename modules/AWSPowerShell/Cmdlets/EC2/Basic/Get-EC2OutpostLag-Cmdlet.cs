@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the Outposts link aggregation groups (LAGs).
+    /// 
+    ///  <note><para>
+    /// LAGs are only available for second-generation Outposts racks at this time.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2OutpostLag")]
     [OutputType("Amazon.EC2.Model.OutpostLag")]

@@ -1,4 +1,13 @@
-﻿### 4.1.822 (2025-05-16 20:41Z)
+﻿### 4.1.823 (2025-05-19 20:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1047.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * DSQL
+    * [Breaking Change] Removed cmdlets New-DSQLMultiRegionCluster and Remove-DSQLMultiRegionCluster.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2MacModificationTask leveraging the DescribeMacModificationTasks service API.
+    * Added cmdlet New-EC2DelegateMacVolumeOwnershipTask leveraging the CreateDelegateMacVolumeOwnershipTask service API.
+    * Added cmdlet New-EC2MacSystemIntegrityProtectionModificationTask leveraging the CreateMacSystemIntegrityProtectionModificationTask service API.
+
+### 4.1.822 (2025-05-16 20:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1046.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodePipeline
     * Added cmdlet Get-CPDeployActionExecutionTargetList leveraging the ListDeployActionExecutionTargets service API.

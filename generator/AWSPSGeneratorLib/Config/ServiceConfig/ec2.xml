@@ -353,6 +353,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDelegateMacVolumeOwnershipTask" OutputProperty="MacModificationTask" Verb="New" Noun="DelegateMacVolumeOwnershipTask" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDhcpOptions" OutputProperty="DhcpOptions" Verb="New" Noun="DhcpOption" ShouldProcessTarget="DhcpConfigurations" PipelineParameter="DhcpConfigurations" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -451,6 +455,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocalGatewayVirtualInterfaceGroup" OutputProperty="LocalGatewayVirtualInterfaceGroup" Verb="New" Noun="LocalGatewayVirtualInterfaceGroup" ShouldProcessTarget="LocalGatewayId" PipelineParameter="LocalGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMacSystemIntegrityProtectionModificationTask" OutputProperty="MacModificationTask" Verb="New" Noun="MacSystemIntegrityProtectionModificationTask" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1386,6 +1394,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMacHosts" OutputProperty="MacHosts" Verb="Get" Noun="MacHost" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMacModificationTasks" OutputProperty="MacModificationTasks" Verb="Get" Noun="MacModificationTask" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

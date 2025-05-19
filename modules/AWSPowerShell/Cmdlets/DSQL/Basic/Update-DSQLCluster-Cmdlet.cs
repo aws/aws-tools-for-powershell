@@ -28,15 +28,40 @@ using Amazon.DSQL.Model;
 namespace Amazon.PowerShell.Cmdlets.DSQL
 {
     /// <summary>
-    /// Updates a cluster.
+    /// The <i>UpdateCluster</i> API allows you to modify both single-Region and multi-Region
+    /// cluster configurations. With the <i>multiRegionProperties</i> parameter, you can add
+    /// or modify witness Region support and manage peer relationships with clusters in other
+    /// Regions.
     /// 
-    ///  
-    /// <para><b>Example IAM Policy for Multi-Region Operations</b></para><para>
-    /// The following IAM policy grants permissions for multi-Region operations.
+    ///  <note><para>
+    /// Note that updating multi-region clusters requires additional IAM permissions beyond
+    /// those needed for standard cluster updates, as detailed in the Permissions section.
+    /// </para></note><para><b>Required permissions</b></para><dl><dt>dsql:UpdateCluster</dt><dd><para>
+    /// Permission to update a DSQL cluster.
     /// </para><para>
-    /// The <c>dsql:RemovePeerCluster</c> permission uses a wildcard ARN pattern to simplify
-    /// permission management during updates.
-    /// </para><important><para><b>Important Notes for Multi-Region Operations</b></para><ul><li><para>
+    /// Resources: <c>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i></c></para></dd></dl><dl><dt>dsql:PutMultiRegionProperties</dt><dd><para>
+    /// Permission to configure multi-Region properties for a cluster.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i></c></para></dd></dl><dl><dt>dsql:GetCluster</dt><dd><para>
+    /// Permission to retrieve cluster information.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i></c></para></dd><dt>dsql:AddPeerCluster</dt><dd><para>
+    /// Permission to add peer clusters.
+    /// </para><para>
+    /// Resources:
+    /// </para><ul><li><para>
+    /// Local cluster: <c>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i></c></para></li><li><para>
+    /// Each peer cluster: exact ARN of each specified peer cluster
+    /// </para></li></ul></dd><dt>dsql:RemovePeerCluster</dt><dd><para>
+    /// Permission to remove peer clusters. The <i>dsql:RemovePeerCluster</i> permission uses
+    /// a wildcard ARN pattern to simplify permission management during updates.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:*:<i>account-id</i>:cluster/*</c></para></dd></dl><dl><dt>dsql:PutWitnessRegion</dt><dd><para>
+    /// Permission to set a witness Region.
+    /// </para><para>
+    /// Resources: <c>arn:aws:dsql:<i>region</i>:<i>account-id</i>:cluster/<i>cluster-id</i></c></para><para>
+    /// Condition Keys: dsql:WitnessRegion (matching the specified witness Region)
+    /// </para><para><b>This permission is checked both in the cluster Region and in the witness Region.</b></para></dd></dl><important><ul><li><para>
     /// The witness region specified in <c>multiRegionProperties.witnessRegion</c> cannot
     /// be the same as the cluster's Region.
     /// </para></li><li><para>

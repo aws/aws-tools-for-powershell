@@ -9365,14 +9365,8 @@ Set-Alias -Name Verify-DSTrust -Value Approve-DSTrust
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name Create-DSQLCluster -Value New-DSQLCluster
 Set-Alias -Name DSQL-CreateCluster -Value New-DSQLCluster
-Set-Alias -Name Create-DSQLMultiRegionClusters -Value New-DSQLMultiRegionCluster
-Set-Alias -Name Create-DSQLMultiRegionCluster -Value New-DSQLMultiRegionCluster
-Set-Alias -Name DSQL-CreateMultiRegionClusters -Value New-DSQLMultiRegionCluster
 Set-Alias -Name Delete-DSQLCluster -Value Remove-DSQLCluster
 Set-Alias -Name DSQL-DeleteCluster -Value Remove-DSQLCluster
-Set-Alias -Name Delete-DSQLMultiRegionClusters -Value Remove-DSQLMultiRegionCluster
-Set-Alias -Name Delete-DSQLMultiRegionCluster -Value Remove-DSQLMultiRegionCluster
-Set-Alias -Name DSQL-DeleteMultiRegionClusters -Value Remove-DSQLMultiRegionCluster
 Set-Alias -Name DSQL-GetCluster -Value Get-DSQLCluster
 Set-Alias -Name DSQL-GetVpcEndpointServiceName -Value Get-DSQLVpcEndpointServiceName
 Set-Alias -Name List-DSQLClusters -Value Get-DSQLClusterList
@@ -9663,6 +9657,8 @@ Set-Alias -Name Create-EC2DefaultSubnet -Value New-EC2DefaultSubnet
 Set-Alias -Name EC2-CreateDefaultSubnet -Value New-EC2DefaultSubnet
 Set-Alias -Name Create-EC2DefaultVpc -Value New-EC2DefaultVpc
 Set-Alias -Name EC2-CreateDefaultVpc -Value New-EC2DefaultVpc
+Set-Alias -Name Create-EC2DelegateMacVolumeOwnershipTask -Value New-EC2DelegateMacVolumeOwnershipTask
+Set-Alias -Name EC2-CreateDelegateMacVolumeOwnershipTask -Value New-EC2DelegateMacVolumeOwnershipTask
 Set-Alias -Name Create-EC2DhcpOptions -Value New-EC2DhcpOption
 Set-Alias -Name Create-EC2DhcpOption -Value New-EC2DhcpOption
 Set-Alias -Name EC2-CreateDhcpOptions -Value New-EC2DhcpOption
@@ -9713,6 +9709,8 @@ Set-Alias -Name Create-EC2LocalGatewayVirtualInterface -Value New-EC2LocalGatewa
 Set-Alias -Name EC2-CreateLocalGatewayVirtualInterface -Value New-EC2LocalGatewayVirtualInterface
 Set-Alias -Name Create-EC2LocalGatewayVirtualInterfaceGroup -Value New-EC2LocalGatewayVirtualInterfaceGroup
 Set-Alias -Name EC2-CreateLocalGatewayVirtualInterfaceGroup -Value New-EC2LocalGatewayVirtualInterfaceGroup
+Set-Alias -Name Create-EC2MacSystemIntegrityProtectionModificationTask -Value New-EC2MacSystemIntegrityProtectionModificationTask
+Set-Alias -Name EC2-CreateMacSystemIntegrityProtectionModificationTask -Value New-EC2MacSystemIntegrityProtectionModificationTask
 Set-Alias -Name Create-EC2ManagedPrefixList -Value New-EC2ManagedPrefixList
 Set-Alias -Name EC2-CreateManagedPrefixList -Value New-EC2ManagedPrefixList
 Set-Alias -Name Create-EC2NatGateway -Value New-EC2NatGateway
@@ -10239,6 +10237,9 @@ Set-Alias -Name EC2-DescribeLockedSnapshots -Value Get-EC2LockedSnapshot
 Set-Alias -Name Describe-EC2MacHosts -Value Get-EC2MacHost
 Set-Alias -Name Describe-EC2MacHost -Value Get-EC2MacHost
 Set-Alias -Name EC2-DescribeMacHosts -Value Get-EC2MacHost
+Set-Alias -Name Describe-EC2MacModificationTasks -Value Get-EC2MacModificationTask
+Set-Alias -Name Describe-EC2MacModificationTask -Value Get-EC2MacModificationTask
+Set-Alias -Name EC2-DescribeMacModificationTasks -Value Get-EC2MacModificationTask
 Set-Alias -Name Describe-EC2ManagedPrefixLists -Value Get-EC2ManagedPrefixList
 Set-Alias -Name Describe-EC2ManagedPrefixList -Value Get-EC2ManagedPrefixList
 Set-Alias -Name EC2-DescribeManagedPrefixLists -Value Get-EC2ManagedPrefixList
