@@ -354,7 +354,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Pipes.dll',
         'AWSSDK.Polly.dll',
         'AWSSDK.Pricing.dll',
-        'AWSSDK.Private5G.dll',
         'AWSSDK.PrometheusService.dll',
         'AWSSDK.Proton.dll',
         'AWSSDK.QApps.dll',
