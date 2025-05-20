@@ -952,9 +952,6 @@
     <Reference Include="AWSSDK.Pricing">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Pricing.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Private5G">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Private5G.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.PrometheusService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PrometheusService.dll</HintPath>
     </Reference>
@@ -2153,9 +2150,6 @@
     </Reference>
     <Reference Include="AWSSDK.Pricing">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Pricing.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Private5G">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Private5G.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.PrometheusService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PrometheusService.dll</HintPath>
