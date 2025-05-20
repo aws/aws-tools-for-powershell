@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.EcrPullDateRescanDuration EcrConfiguration_PullDateRescanDuration { get; set; }
         #endregion
         
+        #region Parameter EcrConfiguration_PullDateRescanMode
+        /// <summary>
+        /// <para>
+        /// <para>The pull date for the re-scan mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.EcrPullDateRescanMode")]
+        public Amazon.Inspector2.EcrPullDateRescanMode EcrConfiguration_PullDateRescanMode { get; set; }
+        #endregion
+        
         #region Parameter EcrConfiguration_RescanDuration
         /// <summary>
         /// <para>
@@ -140,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Ec2Configuration_ScanMode = this.Ec2Configuration_ScanMode;
             context.EcrConfiguration_PullDateRescanDuration = this.EcrConfiguration_PullDateRescanDuration;
+            context.EcrConfiguration_PullDateRescanMode = this.EcrConfiguration_PullDateRescanMode;
             context.EcrConfiguration_RescanDuration = this.EcrConfiguration_RescanDuration;
             
             // allow further manipulation of loaded context prior to processing
@@ -188,6 +200,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestEcrConfiguration_ecrConfiguration_PullDateRescanDuration != null)
             {
                 request.EcrConfiguration.PullDateRescanDuration = requestEcrConfiguration_ecrConfiguration_PullDateRescanDuration;
+                requestEcrConfigurationIsNull = false;
+            }
+            Amazon.Inspector2.EcrPullDateRescanMode requestEcrConfiguration_ecrConfiguration_PullDateRescanMode = null;
+            if (cmdletContext.EcrConfiguration_PullDateRescanMode != null)
+            {
+                requestEcrConfiguration_ecrConfiguration_PullDateRescanMode = cmdletContext.EcrConfiguration_PullDateRescanMode;
+            }
+            if (requestEcrConfiguration_ecrConfiguration_PullDateRescanMode != null)
+            {
+                request.EcrConfiguration.PullDateRescanMode = requestEcrConfiguration_ecrConfiguration_PullDateRescanMode;
                 requestEcrConfigurationIsNull = false;
             }
             Amazon.Inspector2.EcrRescanDuration requestEcrConfiguration_ecrConfiguration_RescanDuration = null;
@@ -268,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         {
             public Amazon.Inspector2.Ec2ScanMode Ec2Configuration_ScanMode { get; set; }
             public Amazon.Inspector2.EcrPullDateRescanDuration EcrConfiguration_PullDateRescanDuration { get; set; }
+            public Amazon.Inspector2.EcrPullDateRescanMode EcrConfiguration_PullDateRescanMode { get; set; }
             public Amazon.Inspector2.EcrRescanDuration EcrConfiguration_RescanDuration { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateConfigurationResponse, UpdateINS2ConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

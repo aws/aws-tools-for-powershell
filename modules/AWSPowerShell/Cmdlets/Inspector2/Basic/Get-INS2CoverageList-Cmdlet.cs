@@ -63,6 +63,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.CoverageMapFilter[] FilterCriteria_Ec2InstanceTag { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_EcrImageInUseCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of Amazon ECR images in use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageNumberFilter[] FilterCriteria_EcrImageInUseCount { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_EcrImageLastInUseAt
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon ECR image that was last in use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageDateFilter[] FilterCriteria_EcrImageLastInUseAt { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_EcrImageTag
         /// <summary>
         /// <para>
@@ -262,6 +282,14 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_Ec2InstanceTag = new List<Amazon.Inspector2.Model.CoverageMapFilter>(this.FilterCriteria_Ec2InstanceTag);
             }
+            if (this.FilterCriteria_EcrImageInUseCount != null)
+            {
+                context.FilterCriteria_EcrImageInUseCount = new List<Amazon.Inspector2.Model.CoverageNumberFilter>(this.FilterCriteria_EcrImageInUseCount);
+            }
+            if (this.FilterCriteria_EcrImageLastInUseAt != null)
+            {
+                context.FilterCriteria_EcrImageLastInUseAt = new List<Amazon.Inspector2.Model.CoverageDateFilter>(this.FilterCriteria_EcrImageLastInUseAt);
+            }
             if (this.FilterCriteria_EcrImageTag != null)
             {
                 context.FilterCriteria_EcrImageTag = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_EcrImageTag);
@@ -354,6 +382,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_Ec2InstanceTag != null)
             {
                 request.FilterCriteria.Ec2InstanceTags = requestFilterCriteria_filterCriteria_Ec2InstanceTag;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageNumberFilter> requestFilterCriteria_filterCriteria_EcrImageInUseCount = null;
+            if (cmdletContext.FilterCriteria_EcrImageInUseCount != null)
+            {
+                requestFilterCriteria_filterCriteria_EcrImageInUseCount = cmdletContext.FilterCriteria_EcrImageInUseCount;
+            }
+            if (requestFilterCriteria_filterCriteria_EcrImageInUseCount != null)
+            {
+                request.FilterCriteria.EcrImageInUseCount = requestFilterCriteria_filterCriteria_EcrImageInUseCount;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageDateFilter> requestFilterCriteria_filterCriteria_EcrImageLastInUseAt = null;
+            if (cmdletContext.FilterCriteria_EcrImageLastInUseAt != null)
+            {
+                requestFilterCriteria_filterCriteria_EcrImageLastInUseAt = cmdletContext.FilterCriteria_EcrImageLastInUseAt;
+            }
+            if (requestFilterCriteria_filterCriteria_EcrImageLastInUseAt != null)
+            {
+                request.FilterCriteria.EcrImageLastInUseAt = requestFilterCriteria_filterCriteria_EcrImageLastInUseAt;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_EcrImageTag = null;
@@ -562,6 +610,8 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         {
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_AccountId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_Ec2InstanceTag { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageNumberFilter> FilterCriteria_EcrImageInUseCount { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_EcrImageLastInUseAt { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_EcrImageTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_EcrRepositoryName { get; set; }
             public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_ImagePulledAt { get; set; }

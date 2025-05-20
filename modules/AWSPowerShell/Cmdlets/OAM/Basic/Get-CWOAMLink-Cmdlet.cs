@@ -64,6 +64,21 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter IncludeTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include the tags associated with the link in the response. When
+        /// <c>IncludeTags</c> is set to <c>true</c> and the caller has the required permission,
+        /// <c>oam:ListTagsForResource</c>, the API will return the tags for the specified resource.
+        /// If the caller doesn't have the required permission, <c>oam:ListTagsForResource</c>,
+        /// the API will raise an exception.</para><para>The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeTags")]
+        public System.Boolean? IncludeTag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -117,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeTag = this.IncludeTag;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.IncludeTag != null)
+            {
+                request.IncludeTags = cmdletContext.IncludeTag.Value;
             }
             
             CmdletOutput output;
@@ -199,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
+            public System.Boolean? IncludeTag { get; set; }
             public System.Func<Amazon.OAM.Model.GetLinkResponse, GetCWOAMLinkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

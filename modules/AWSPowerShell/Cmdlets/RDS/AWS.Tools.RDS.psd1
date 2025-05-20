@@ -142,6 +142,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RDSDBInstanceAutomatedBackup', 
         'Get-RDSDBLogFile', 
         'Get-RDSDBLogFilePortion', 
+        'Get-RDSDBMajorEngineVersion', 
         'Get-RDSDBParameter', 
         'Get-RDSDBParameterGroup', 
         'Get-RDSDBProxy', 

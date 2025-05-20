@@ -33,6 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// simplified automatic recovery for an unsupported instance type. For more information,
     /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified
     /// automatic recovery</a>.
+    /// 
+    ///  
+    /// <para>
+    /// Modifies the reboot migration behavior during a user-initiated reboot of an instance
+    /// that has a pending <c>system-reboot</c> event. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable
+    /// or disable reboot migration</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceMaintenanceOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse")]
@@ -71,6 +78,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter RebootMigration
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to attempt reboot migration during a user-initiated reboot of an
+        /// instance that has a scheduled <c>system-reboot</c> event:</para><ul><li><para><c>default</c> - Amazon EC2 attempts to migrate the instance to new hardware (reboot
+        /// migration). If successful, the <c>system-reboot</c> event is cleared. If unsuccessful,
+        /// an in-place reboot occurs and the event remains scheduled.</para></li><li><para><c>disabled</c> - Amazon EC2 keeps the instance on the same hardware (in-place reboot).
+        /// The <c>system-reboot</c> event remains scheduled.</para></li></ul><para>This setting only applies to supported instances that have a scheduled reboot event.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable
+        /// or disable reboot migration</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceRebootMigrationState")]
+        public Amazon.EC2.InstanceRebootMigrationState RebootMigration { get; set; }
         #endregion
         
         #region Parameter Select
@@ -143,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RebootMigration = this.RebootMigration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.RebootMigration != null)
+            {
+                request.RebootMigration = cmdletContext.RebootMigration;
             }
             
             CmdletOutput output;
@@ -230,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public Amazon.EC2.InstanceAutoRecoveryState AutoRecovery { get; set; }
             public System.String InstanceId { get; set; }
+            public Amazon.EC2.InstanceRebootMigrationState RebootMigration { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceMaintenanceOptionsResponse, EditEC2InstanceMaintenanceOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

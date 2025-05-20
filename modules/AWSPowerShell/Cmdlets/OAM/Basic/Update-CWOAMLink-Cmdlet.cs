@@ -111,6 +111,21 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter IncludeTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include the tags associated with the link in the response after
+        /// the update operation. When <c>IncludeTags</c> is set to <c>true</c> and the caller
+        /// has the required permission, <c>oam:ListTagsForResource</c>, the API will return the
+        /// tags for the specified resource. If the caller doesn't have the required permission,
+        /// <c>oam:ListTagsForResource</c>, the API will raise an exception. </para><para>The default value is <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeTags")]
+        public System.Boolean? IncludeTag { get; set; }
+        #endregion
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
@@ -199,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeTag = this.IncludeTag;
             context.LogGroupConfiguration_Filter = this.LogGroupConfiguration_Filter;
             context.MetricConfiguration_Filter = this.MetricConfiguration_Filter;
             if (this.ResourceType != null)
@@ -230,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.IncludeTag != null)
+            {
+                request.IncludeTags = cmdletContext.IncludeTag.Value;
             }
             
              // populate LinkConfiguration
@@ -356,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
+            public System.Boolean? IncludeTag { get; set; }
             public System.String LogGroupConfiguration_Filter { get; set; }
             public System.String MetricConfiguration_Filter { get; set; }
             public List<System.String> ResourceType { get; set; }

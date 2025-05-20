@@ -1,4 +1,28 @@
-﻿### 4.1.823 (2025-05-19 20:12Z)
+﻿### 4.1.824 (2025-05-20 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1048.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Private 5G
+  * Amazon CloudWatch Observability Access Manager
+    * Modified cmdlet Get-CWOAMLink: added parameter IncludeTag.
+    * Modified cmdlet Get-CWOAMSink: added parameter IncludeTag.
+    * Modified cmdlet Update-CWOAMLink: added parameter IncludeTag.
+  * DSYN
+    * [Breaking Change] Removed cmdlets Add-DSYNStorageSystem, Get-DSYNDiscoveryJob, Get-DSYNDiscoveryJobList, Get-DSYNStorageSystem, Get-DSYNStorageSystemList, Get-DSYNStorageSystemResource, Get-DSYNStorageSystemResourceMetric, New-DSYNRecommendation, Remove-DSYNStorageSystem, Start-DSYNDiscoveryJob, Stop-DSYNDiscoveryJob, Update-DSYNDiscoveryJob and Update-DSYNStorageSystem.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2InstanceMaintenanceOption: added parameter RebootMigration.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2ClustersForImage leveraging the GetClustersForImage service API.
+    * Modified cmdlet Get-INS2CoverageList: added parameters FilterCriteria_EcrImageInUseCount and FilterCriteria_EcrImageLastInUseAt.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameters FilterCriteria_EcrImageInUseCount and FilterCriteria_EcrImageLastInUseAt.
+    * Modified cmdlet Get-INS2FindingAggregationList: added parameters AwsEcrContainerAggregation_InUseCount and AwsEcrContainerAggregation_LastInUseAt.
+    * Modified cmdlet Get-INS2FindingList: added parameters FilterCriteria_EcrImageInUseCount and FilterCriteria_EcrImageLastInUseAt.
+    * Modified cmdlet New-INS2Filter: added parameters FilterCriteria_EcrImageInUseCount and FilterCriteria_EcrImageLastInUseAt.
+    * Modified cmdlet New-INS2FindingsReport: added parameters FilterCriteria_EcrImageInUseCount and FilterCriteria_EcrImageLastInUseAt.
+    * Modified cmdlet Update-INS2Configuration: added parameter EcrConfiguration_PullDateRescanMode.
+    * Modified cmdlet Update-INS2Filter: added parameters FilterCriteria_EcrImageInUseCount and FilterCriteria_EcrImageLastInUseAt.
+  * Amazon Relational Database Service
+    * Added cmdlet Get-RDSDBMajorEngineVersion leveraging the DescribeDBMajorEngineVersions service API.
+
+### 4.1.823 (2025-05-19 20:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1047.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * DSQL
     * [Breaking Change] Removed cmdlets New-DSQLMultiRegionCluster and Remove-DSQLMultiRegionCluster.

@@ -19,10 +19,6 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddStorageSystem" OutputProperty="StorageSystemArn" Verb="Add" Noun="StorageSystem" ShouldProcessTarget="" PipelineParameter="SystemType" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="CancelTaskExecution" Verb="Stop" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -109,10 +105,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDiscoveryJob" OutputProperty="*" Verb="Get" Noun="DiscoveryJob" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocationAzureBlob" OutputProperty="*" Verb="Get" Noun="LocationAzureBlob" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -157,18 +149,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageSystem" OutputProperty="*" Verb="Get" Noun="StorageSystem" PipelineParameter="StorageSystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageSystemResourceMetrics" OutputProperty="Metrics" Verb="Get" Noun="StorageSystemResourceMetric" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorageSystemResources" OutputProperty="ResourceDetails" Verb="Get" Noun="StorageSystemResource" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -177,43 +157,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateRecommendations" Verb="New" Noun="Recommendation" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListAgents" OutputProperty="Agents" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAgents" OutputProperty="Agents" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDiscoveryJobs" OutputProperty="DiscoveryJobs" Verb="Get" Noun="DiscoveryJobList" PipelineParameter="StorageSystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTaskExecutions" OutputProperty="TaskExecutions" Verb="Get" Noun="TaskExecutionList" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStorageSystems" OutputProperty="StorageSystems" Verb="Get" Noun="StorageSystemList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTaskExecutions" OutputProperty="TaskExecutions" Verb="Get" Noun="TaskExecutionList" PipelineParameter="TaskArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="RemoveStorageSystem" Verb="Remove" Noun="StorageSystem" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="StartDiscoveryJob" OutputProperty="DiscoveryJobArn" Verb="Start" Noun="DiscoveryJob" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTasks" OutputProperty="Tasks" Verb="Get" Noun="TaskList" PipelineParameter="" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -226,10 +186,6 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDiscoveryJob" Verb="Stop" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -239,10 +195,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDiscoveryJob" Verb="Update" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -296,10 +248,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLocationSmb" Verb="Update" Noun="LocationSmb" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false" LegacyV4Pagination="true">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStorageSystem" Verb="Update" Noun="StorageSystem" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

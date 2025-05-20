@@ -662,6 +662,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.InstanceRebootMigrationState
+        "Edit-EC2InstanceMaintenanceOption/RebootMigration"
+        {
+            $v = "default","disabled"
+            break
+        }
+
         # Amazon.EC2.InstanceType
         {
             ($_ -eq "Get-EC2ReservedInstancesOffering/InstanceType") -Or
@@ -1421,6 +1428,7 @@ $EC2_map = @{
     "Protocol"=@("New-EC2NetworkInsightsPath")
     "PublicIpSource"=@("New-EC2IpamPool")
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
+    "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")

@@ -20301,24 +20301,6 @@ $DSYN_Completers = {
             break
         }
 
-        # Amazon.DataSync.DiscoveryResourceType
-        {
-            ($_ -eq "Get-DSYNStorageSystemResource/ResourceType") -Or
-            ($_ -eq "Get-DSYNStorageSystemResourceMetric/ResourceType") -Or
-            ($_ -eq "New-DSYNRecommendation/ResourceType")
-        }
-        {
-            $v = "CLUSTER","SVM","VOLUME"
-            break
-        }
-
-        # Amazon.DataSync.DiscoverySystemType
-        "Add-DSYNStorageSystem/SystemType"
-        {
-            $v = "NetAppONTAP"
-            break
-        }
-
         # Amazon.DataSync.EfsInTransitEncryption
         {
             ($_ -eq "New-DSYNLocationEfs/InTransitEncryption") -Or
@@ -20522,12 +20504,10 @@ $DSYN_map = @{
     "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf","Update-DSYNLocationFsxOntap","Update-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
-    "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3","Update-DSYNLocationS3")
     "Schedule_Status"=@("New-DSYNTask","Update-DSYNTask")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "SystemType"=@("Add-DSYNStorageSystem")
     "TaskMode"=@("New-DSYNTask")
     "TaskReportConfig_ObjectVersionId"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
@@ -20586,8 +20566,7 @@ $DSYN_SelectCompleters = {
 }
 
 $DSYN_SelectMap = @{
-    "Select"=@("Add-DSYNStorageSystem",
-               "Stop-DSYNTaskExecution",
+    "Select"=@("Stop-DSYNTaskExecution",
                "New-DSYNAgent",
                "New-DSYNLocationAzureBlob",
                "New-DSYNLocationEfs",
@@ -20605,7 +20584,6 @@ $DSYN_SelectMap = @{
                "Remove-DSYNLocation",
                "Remove-DSYNTask",
                "Get-DSYNAgent",
-               "Get-DSYNDiscoveryJob",
                "Get-DSYNLocationAzureBlob",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
@@ -20617,27 +20595,17 @@ $DSYN_SelectMap = @{
                "Get-DSYNLocationObjectStorage",
                "Get-DSYNLocationS3",
                "Get-DSYNLocationSmb",
-               "Get-DSYNStorageSystem",
-               "Get-DSYNStorageSystemResourceMetric",
-               "Get-DSYNStorageSystemResource",
                "Get-DSYNTask",
                "Get-DSYNTaskExecution",
-               "New-DSYNRecommendation",
                "Get-DSYNAgentList",
-               "Get-DSYNDiscoveryJobList",
                "Get-DSYNLocationList",
-               "Get-DSYNStorageSystemList",
                "Get-DSYNResourceTagList",
                "Get-DSYNTaskExecutionList",
                "Get-DSYNTaskList",
-               "Remove-DSYNStorageSystem",
-               "Start-DSYNDiscoveryJob",
                "Start-DSYNTaskExecution",
-               "Stop-DSYNDiscoveryJob",
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
-               "Update-DSYNDiscoveryJob",
                "Update-DSYNLocationAzureBlob",
                "Update-DSYNLocationEfs",
                "Update-DSYNLocationFsxLustre",
@@ -20649,7 +20617,6 @@ $DSYN_SelectMap = @{
                "Update-DSYNLocationObjectStorage",
                "Update-DSYNLocationS3",
                "Update-DSYNLocationSmb",
-               "Update-DSYNStorageSystem",
                "Update-DSYNTask",
                "Update-DSYNTaskExecution")
 }
@@ -25722,6 +25689,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.InstanceRebootMigrationState
+        "Edit-EC2InstanceMaintenanceOption/RebootMigration"
+        {
+            $v = "default","disabled"
+            break
+        }
+
         # Amazon.EC2.InstanceType
         {
             ($_ -eq "Get-EC2ReservedInstancesOffering/InstanceType") -Or
@@ -26481,6 +26455,7 @@ $EC2_map = @{
     "Protocol"=@("New-EC2NetworkInsightsPath")
     "PublicIpSource"=@("New-EC2IpamPool")
     "RdsOptions_Protocol"=@("New-EC2VerifiedAccessEndpoint")
+    "RebootMigration"=@("Edit-EC2InstanceMaintenanceOption")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "Role"=@("Get-EC2CapacityReservationBillingRequest")
@@ -37327,6 +37302,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.EcrPullDateRescanMode
+        "Update-INS2Configuration/EcrConfiguration_PullDateRescanMode"
+        {
+            $v = "LAST_IN_USE_AT","LAST_PULL_DATE"
+            break
+        }
+
         # Amazon.Inspector2.EcrRescanDuration
         "Update-INS2Configuration/EcrConfiguration_RescanDuration"
         {
@@ -37516,6 +37498,7 @@ $INS2_map = @{
     "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "Ec2InstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "EcrConfiguration_PullDateRescanDuration"=@("Update-INS2Configuration")
+    "EcrConfiguration_PullDateRescanMode"=@("Update-INS2Configuration")
     "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
     "FindingTypeAggregation_FindingType"=@("Get-INS2FindingAggregationList")
     "FindingTypeAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
@@ -37622,6 +37605,7 @@ $INS2_SelectMap = @{
                "Enable-INS2DelegatedAdminAccount",
                "Get-INS2CisScanReport",
                "Get-INS2CisScanResultDetail",
+               "Get-INS2ClustersForImage",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
                "Get-INS2Ec2DeepInspectionConfiguration",
@@ -61640,6 +61624,7 @@ $RDS_SelectMap = @{
                "Get-RDSDBInstanceAutomatedBackup",
                "Get-RDSDBInstance",
                "Get-RDSDBLogFile",
+               "Get-RDSDBMajorEngineVersion",
                "Get-RDSDBParameterGroup",
                "Get-RDSDBParameter",
                "Get-RDSDBProxy",

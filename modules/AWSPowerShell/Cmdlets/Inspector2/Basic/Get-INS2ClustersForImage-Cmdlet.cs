@@ -22,43 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataSync;
-using Amazon.DataSync.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DSYN
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Provides a list of the existing discovery jobs in the Amazon Web Services Region and
-    /// Amazon Web Services account where you're using DataSync Discovery.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of clusters and metadata associated with an image.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DSYNDiscoveryJobList")]
-    [OutputType("Amazon.DataSync.Model.DiscoveryJobListEntry")]
-    [AWSCmdlet("Calls the AWS DataSync ListDiscoveryJobs API operation.", Operation = new[] {"ListDiscoveryJobs"}, SelectReturnType = typeof(Amazon.DataSync.Model.ListDiscoveryJobsResponse))]
-    [AWSCmdletOutput("Amazon.DataSync.Model.DiscoveryJobListEntry or Amazon.DataSync.Model.ListDiscoveryJobsResponse",
-        "This cmdlet returns a collection of Amazon.DataSync.Model.DiscoveryJobListEntry objects.",
-        "The service call response (type Amazon.DataSync.Model.ListDiscoveryJobsResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "INS2ClustersForImage")]
+    [OutputType("Amazon.Inspector2.Model.ClusterInformation")]
+    [AWSCmdlet("Calls the Inspector2 GetClustersForImage API operation.", Operation = new[] {"GetClustersForImage"}, SelectReturnType = typeof(Amazon.Inspector2.Model.GetClustersForImageResponse))]
+    [AWSCmdletOutput("Amazon.Inspector2.Model.ClusterInformation or Amazon.Inspector2.Model.GetClustersForImageResponse",
+        "This cmdlet returns a collection of Amazon.Inspector2.Model.ClusterInformation objects.",
+        "The service call response (type Amazon.Inspector2.Model.GetClustersForImageResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetDSYNDiscoveryJobListCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class GetINS2ClustersForImageCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter StorageSystemArn
+        #region Parameter Filter_ResourceId
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of an on-premises storage system. Use this
-        /// parameter if you only want to list the discovery jobs that are associated with a specific
-        /// storage system.</para>
+        /// <para>The resource Id to be used in the filter criteria.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StorageSystemArn { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Filter_ResourceId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies how many results you want in the response.</para>
+        /// <para>The maximum number of results to be returned in a single page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Specifies an opaque string that indicates the position to begin the next list of results
-        /// in the response.</para>
+        /// <para>The pagination token from a previous request used to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,21 +86,21 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DiscoveryJobs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.ListDiscoveryJobsResponse).
-        /// Specifying the name of a property of type Amazon.DataSync.Model.ListDiscoveryJobsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.GetClustersForImageResponse).
+        /// Specifying the name of a property of type Amazon.Inspector2.Model.GetClustersForImageResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DiscoveryJobs";
+        public string Select { get; set; } = "Cluster";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StorageSystemArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StorageSystemArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Filter_ResourceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Filter_ResourceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StorageSystemArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Filter_ResourceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -125,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.ListDiscoveryJobsResponse, GetDSYNDiscoveryJobListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.GetClustersForImageResponse, GetINS2ClustersForImageCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,12 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StorageSystemArn;
+                context.Select = (response, cmdlet) => this.Filter_ResourceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Filter_ResourceId = this.Filter_ResourceId;
+            #if MODULAR
+            if (this.Filter_ResourceId == null && ParameterWasBound(nameof(this.Filter_ResourceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Filter_ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.StorageSystemArn = this.StorageSystemArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,15 +167,30 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.DataSync.Model.ListDiscoveryJobsRequest();
+            var request = new Amazon.Inspector2.Model.GetClustersForImageRequest();
             
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.Inspector2.Model.ClusterForImageFilterCriteria();
+            System.String requestFilter_filter_ResourceId = null;
+            if (cmdletContext.Filter_ResourceId != null)
+            {
+                requestFilter_filter_ResourceId = cmdletContext.Filter_ResourceId;
+            }
+            if (requestFilter_filter_ResourceId != null)
+            {
+                request.Filter.ResourceId = requestFilter_filter_ResourceId;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.StorageSystemArn != null)
-            {
-                request.StorageSystemArn = cmdletContext.StorageSystemArn;
             }
             
             // Initialize loop variant and commence piping
@@ -225,15 +249,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.ListDiscoveryJobsResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.ListDiscoveryJobsRequest request)
+        private Amazon.Inspector2.Model.GetClustersForImageResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.GetClustersForImageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "ListDiscoveryJobs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "GetClustersForImage");
             try
             {
                 #if DESKTOP
-                return client.ListDiscoveryJobs(request);
+                return client.GetClustersForImage(request);
                 #elif CORECLR
-                return client.ListDiscoveryJobsAsync(request).GetAwaiter().GetResult();
+                return client.GetClustersForImageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -253,11 +277,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filter_ResourceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String StorageSystemArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.ListDiscoveryJobsResponse, GetDSYNDiscoveryJobListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DiscoveryJobs;
+            public System.Func<Amazon.Inspector2.Model.GetClustersForImageResponse, GetINS2ClustersForImageCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Cluster;
         }
         
     }
