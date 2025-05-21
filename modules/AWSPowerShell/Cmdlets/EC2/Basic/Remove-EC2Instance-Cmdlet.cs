@@ -76,10 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// attached to the instance persist. When you terminate an instance, any attached EBS
     /// volumes with the <c>DeleteOnTermination</c> block device mapping parameter set to
     /// <c>true</c> are automatically deleted. For more information about the differences
-    /// between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Amazon
-    /// EC2 instance state changes</a> in the <i>Amazon EC2 User Guide</i>.
+    /// between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
+    /// lifecycle</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
-    /// For information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting
+    /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting
     /// terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>

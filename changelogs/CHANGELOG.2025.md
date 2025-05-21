@@ -1,4 +1,18 @@
-﻿### 4.1.824 (2025-05-20 20:44Z)
+﻿### 4.1.825 (2025-05-21 20:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1049.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Get-BARExecutionFlowSnapshot leveraging the GetExecutionFlowSnapshot service API.
+    * Added cmdlet Get-BARFlowExecution leveraging the GetFlowExecution service API.
+    * Added cmdlet Get-BARFlowExecutionEventList leveraging the ListFlowExecutionEvents service API.
+    * Added cmdlet Get-BARFlowExecutionList leveraging the ListFlowExecutions service API.
+    * Added cmdlet Start-BARFlowExecution leveraging the StartFlowExecution service API.
+    * Added cmdlet Stop-BARFlowExecution leveraging the StopFlowExecution service API.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWInsightRule: added parameter ApplyOnTransformedLog.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2PublicIpDnsNameOption leveraging the ModifyPublicIpDnsNameOptions service API.
+
+### 4.1.824 (2025-05-20 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1048.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Private 5G
   * Amazon CloudWatch Observability Access Manager

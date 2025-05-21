@@ -35,7 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// This is an idempotent operation. If you perform the operation more than once, Amazon
     /// EC2 doesn't return an error.
-    /// </para>
+    /// </para><para>
+    /// An address cannot be disassociated if the all of the following conditions are met:
+    /// </para><ul><li><para>
+    /// Network interface has a <c>publicDualStackDnsName</c> publicDnsName
+    /// </para></li><li><para>
+    /// Public IPv4 address is the primary public IPv4 address
+    /// </para></li><li><para>
+    /// Network interface only has one remaining public IPv4 address
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Unregister", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -7529,6 +7529,13 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.FlowExecutionEventType
+        "Get-BARFlowExecutionEventList/EventType"
+        {
+            $v = "Flow","Node"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.InputQueryType
         "Invoke-BARGenerateQuery/QueryGenerationInput_Type"
         {
@@ -7558,6 +7565,7 @@ $BAR_Completers = {
             ($_ -eq "Invoke-BARAgent/PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARFlow/PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARInlineAgent/PerformanceConfig_Latency") -Or
+            ($_ -eq "Start-BARFlowExecution/PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_ExternalSourcesConfig_PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency") -Or
             ($_ -eq "Invoke-BARRetrieveAndGenerateStream/Stream_KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency")
@@ -7651,13 +7659,14 @@ $BAR_Completers = {
 
 $BAR_map = @{
     "AgentCollaboration"=@("Invoke-BARInlineAgent")
+    "EventType"=@("Get-BARFlowExecutionEventList")
     "ExternalSourcesConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_GenerationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "KnowledgeBaseConfig_OrchestrationConfig_PerformanceConfig_Latency"=@("Invoke-BARRetrieveAndGenerate")
     "MemoryType"=@("Get-BARAgentMemory")
     "MetadataConfiguration_SelectionMode"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "OrchestrationType"=@("Invoke-BARInlineAgent")
-    "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent")
+    "PerformanceConfig_Latency"=@("Invoke-BARAgent","Invoke-BARFlow","Invoke-BARInlineAgent","Start-BARFlowExecution")
     "QueryGenerationInput_Type"=@("Invoke-BARGenerateQuery")
     "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
     "RerankingConfiguration_Type"=@("Invoke-BARRerank","Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate","Invoke-BARRetrieveAndGenerateStream")
@@ -7727,11 +7736,15 @@ $BAR_SelectMap = @{
                "Close-BARSession",
                "Invoke-BARGenerateQuery",
                "Get-BARAgentMemory",
+               "Get-BARExecutionFlowSnapshot",
+               "Get-BARFlowExecution",
                "Get-BARInvocationStep",
                "Get-BARSession",
                "Invoke-BARAgent",
                "Invoke-BARFlow",
                "Invoke-BARInlineAgent",
+               "Get-BARFlowExecutionEventList",
+               "Get-BARFlowExecutionList",
                "Get-BARInvocationList",
                "Get-BARInvocationStepList",
                "Get-BARSessionList",
@@ -7742,6 +7755,8 @@ $BAR_SelectMap = @{
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate",
                "Invoke-BARRetrieveAndGenerateStream",
+               "Start-BARFlowExecution",
+               "Stop-BARFlowExecution",
                "Add-BARResourceTag",
                "Remove-BARResourceTag",
                "Update-BARSession")
@@ -25978,6 +25993,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.PublicIpDnsOption
+        "Edit-EC2PublicIpDnsNameOption/HostnameType"
+        {
+            $v = "public-dual-stack-dns-name","public-ipv4-dns-name","public-ipv6-dns-name"
+            break
+        }
+
         # Amazon.EC2.ReplacementStrategy
         "Request-EC2SpotFleet/CapacityRebalance_ReplacementStrategy"
         {
@@ -26376,6 +26398,7 @@ $EC2_map = @{
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
+    "HostnameType"=@("Edit-EC2PublicIpDnsNameOption")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
@@ -27112,6 +27135,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
+               "Edit-EC2PublicIpDnsNameOption",
                "Edit-EC2ReservedInstance",
                "Edit-EC2RouteServer",
                "Edit-EC2SecurityGroupRule",

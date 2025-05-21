@@ -175,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// stamp. </para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, or 30, the start time of your request is rounded
-        /// down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, 20, or 30, the start time of your request is rounded
+        /// down to the nearest time that corresponds to even 5-, 10-, 20-, or 30-second divisions
         /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
         /// 10-second period, the start time of your request is rounded down and you receive data
         /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes
@@ -261,8 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// stamp. </para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, or 30, the start time of your request is rounded
-        /// down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <c>Period</c> to 5, 10, 20, or 30, the start time of your request is rounded
+        /// down to the nearest time that corresponds to even 5-, 10-, 20-, or 30-second divisions
         /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
         /// 10-second period, the start time of your request is rounded down and you receive data
         /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes

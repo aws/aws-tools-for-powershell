@@ -951,6 +951,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.PublicIpDnsOption
+        "Edit-EC2PublicIpDnsNameOption/HostnameType"
+        {
+            $v = "public-dual-stack-dns-name","public-ipv4-dns-name","public-ipv6-dns-name"
+            break
+        }
+
         # Amazon.EC2.ReplacementStrategy
         "Request-EC2SpotFleet/CapacityRebalance_ReplacementStrategy"
         {
@@ -1349,6 +1356,7 @@ $EC2_map = @{
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
+    "HostnameType"=@("Edit-EC2PublicIpDnsNameOption")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
@@ -2085,6 +2093,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",
+               "Edit-EC2PublicIpDnsNameOption",
                "Edit-EC2ReservedInstance",
                "Edit-EC2RouteServer",
                "Edit-EC2SecurityGroupRule",

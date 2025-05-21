@@ -173,6 +173,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2ManagedPrefixList', 
         'Edit-EC2NetworkInterfaceAttribute', 
         'Edit-EC2PrivateDnsNameOption', 
+        'Edit-EC2PublicIpDnsNameOption', 
         'Edit-EC2ReservedInstance', 
         'Edit-EC2RouteServer', 
         'Edit-EC2SecurityGroupRule', 

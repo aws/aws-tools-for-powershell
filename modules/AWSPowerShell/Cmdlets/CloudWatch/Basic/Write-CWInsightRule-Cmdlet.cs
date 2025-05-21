@@ -51,6 +51,25 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ApplyOnTransformedLog
+        /// <summary>
+        /// <para>
+        /// <para>Specify <c>true</c> to have this rule evalute log events after they have been transformed
+        /// by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html">Log
+        /// transformation</a>. If you specify <c>true</c>, then the log events in log groups
+        /// that have transformers will be evaluated by Contributor Insights after being transformed.
+        /// Log groups that don't have transformers will still have their original log events
+        /// evaluated by Contributor Insights.</para><para>The default is <c>false</c></para><note><para>If a log group has a transformer, and transformation fails for some log events, those
+        /// log events won't be evaluated by Contributor Insights. For information about investigating
+        /// log transformation failures, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Transformation-Errors-Metrics.html">Transformation
+        /// metrics and errors</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ApplyOnTransformedLogs")]
+        public System.Boolean? ApplyOnTransformedLog { get; set; }
+        #endregion
+        
         #region Parameter RuleDefinition
         /// <summary>
         /// <para>
@@ -175,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Select = (response, cmdlet) => this.RuleName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplyOnTransformedLog = this.ApplyOnTransformedLog;
             context.RuleDefinition = this.RuleDefinition;
             #if MODULAR
             if (this.RuleDefinition == null && ParameterWasBound(nameof(this.RuleDefinition)))
@@ -210,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             // create request
             var request = new Amazon.CloudWatch.Model.PutInsightRuleRequest();
             
+            if (cmdletContext.ApplyOnTransformedLog != null)
+            {
+                request.ApplyOnTransformedLogs = cmdletContext.ApplyOnTransformedLog.Value;
+            }
             if (cmdletContext.RuleDefinition != null)
             {
                 request.RuleDefinition = cmdletContext.RuleDefinition;
@@ -287,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ApplyOnTransformedLog { get; set; }
             public System.String RuleDefinition { get; set; }
             public System.String RuleName { get; set; }
             public System.String RuleState { get; set; }

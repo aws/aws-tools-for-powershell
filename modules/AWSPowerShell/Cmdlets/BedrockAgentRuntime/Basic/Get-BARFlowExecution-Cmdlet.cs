@@ -22,30 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.PartnerCentralSelling;
-using Amazon.PartnerCentralSelling.Model;
+using Amazon.BedrockAgentRuntime;
+using Amazon.BedrockAgentRuntime.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PC
+namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Assigns one or more tags (key-value pairs) to the specified resource.
+    /// Retrieves details about a specific asynchronous execution of a flow, including its
+    /// status, start and end times, and any errors that occurred during execution.
     /// </summary>
-    [Cmdlet("Add", "PCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Partner Central Selling API TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.PartnerCentralSelling.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.PartnerCentralSelling.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PartnerCentralSelling.Model.TagResourceResponse) be returned by specifying '-Select *'."
+    [Cmdlet("Get", "BARFlowExecution")]
+    [OutputType("Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock Agent Runtime GetFlowExecution API operation.", Operation = new[] {"GetFlowExecution"}, SelectReturnType = typeof(Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse",
+        "This cmdlet returns an Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse object containing multiple properties."
     )]
-    public partial class AddPCResourceTagCmdlet : AmazonPartnerCentralSellingClientCmdlet, IExecutor
+    public partial class GetBARFlowExecutionCmdlet : AmazonBedrockAgentRuntimeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter ExecutionIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag.</para>
+        /// <para>The unique identifier of the async execution to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,31 +56,48 @@ namespace Amazon.PowerShell.Cmdlets.PC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ExecutionIdentifier { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter FlowAliasIdentifier
         /// <summary>
         /// <para>
-        /// <para>A map of the key-value pairs of the tag or tags to assign.</para>
+        /// <para>The unique identifier of the flow alias used for the execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.PartnerCentralSelling.Model.Tag[] Tag { get; set; }
+        public System.String FlowAliasIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter FlowIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the flow.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FlowIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PartnerCentralSelling.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,34 +106,18 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ExecutionIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ExecutionIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExecutionIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-PCResourceTag (TagResource)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -126,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.PC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PartnerCentralSelling.Model.TagResourceResponse, AddPCResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse, GetBARFlowExecutionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,24 +136,28 @@ namespace Amazon.PowerShell.Cmdlets.PC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ExecutionIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.ExecutionIdentifier = this.ExecutionIdentifier;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ExecutionIdentifier == null && ParameterWasBound(nameof(this.ExecutionIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ExecutionIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.PartnerCentralSelling.Model.Tag>(this.Tag);
-            }
+            context.FlowAliasIdentifier = this.FlowAliasIdentifier;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.FlowAliasIdentifier == null && ParameterWasBound(nameof(this.FlowAliasIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FlowAliasIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.FlowIdentifier = this.FlowIdentifier;
+            #if MODULAR
+            if (this.FlowIdentifier == null && ParameterWasBound(nameof(this.FlowIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FlowIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -169,15 +174,19 @@ namespace Amazon.PowerShell.Cmdlets.PC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PartnerCentralSelling.Model.TagResourceRequest();
+            var request = new Amazon.BedrockAgentRuntime.Model.GetFlowExecutionRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.ExecutionIdentifier != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.ExecutionIdentifier = cmdletContext.ExecutionIdentifier;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.FlowAliasIdentifier != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.FlowAliasIdentifier = cmdletContext.FlowAliasIdentifier;
+            }
+            if (cmdletContext.FlowIdentifier != null)
+            {
+                request.FlowIdentifier = cmdletContext.FlowIdentifier;
             }
             
             CmdletOutput output;
@@ -212,15 +221,15 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         #region AWS Service Operation Call
         
-        private Amazon.PartnerCentralSelling.Model.TagResourceResponse CallAWSServiceOperation(IAmazonPartnerCentralSelling client, Amazon.PartnerCentralSelling.Model.TagResourceRequest request)
+        private Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse CallAWSServiceOperation(IAmazonBedrockAgentRuntime client, Amazon.BedrockAgentRuntime.Model.GetFlowExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Partner Central Selling API", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock Agent Runtime", "GetFlowExecution");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.GetFlowExecution(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.GetFlowExecutionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,10 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.PC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<Amazon.PartnerCentralSelling.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.PartnerCentralSelling.Model.TagResourceResponse, AddPCResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ExecutionIdentifier { get; set; }
+            public System.String FlowAliasIdentifier { get; set; }
+            public System.String FlowIdentifier { get; set; }
+            public System.Func<Amazon.BedrockAgentRuntime.Model.GetFlowExecutionResponse, GetBARFlowExecutionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
