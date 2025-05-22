@@ -725,6 +725,7 @@ namespace Amazon.PowerShell.Common
         public const string AWSRegionVariableName = "StoredAWSRegion";
         public const string AWSShowSensitiveData = "AWSPowerShell_Show_Sensitive_Data";
         public const string AWSProxyVariableName = "AWSProxy";
+        public const string AWSAutoIterationMode = "AWSPowerShell_AutoIteration_Mode";
     }
 
     internal static class CredentialProfileOptionsExtractor

@@ -64,7 +64,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var methodDocumentation = DocumentationUtils.GetMethodDocumentation(methodInfo.DeclaringType, Operation.MethodName, MethodAnalysis.AssemblyDocumentation);
 
             if (autoIteration != null)
-                methodDocumentation += $"<br/><br/>{(Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination ? $"In the AWS.Tools.{ServiceConfig.AssemblyName} module, t" : "T")}his cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.";
+            {
+                methodDocumentation +=
+                    $"<br/><br/>{(Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination ? $"In the AWS.Tools.{ServiceConfig.AssemblyName} module, t" : "T")}his cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.";
+
+                if (autoIteration.SupportLegacyAutoIterationMode)
+                {
+                    methodDocumentation += " This cmdlet didn't autopaginate in V4, auto-pagination support was added in V5.";
+                }
+            }
 
             if (GetOperationObsoleteMessage(methodInfo) != null)
                 methodDocumentation += "<br/><br/>This operation is deprecated.";
@@ -523,6 +531,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("/// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple");
             writer.WriteLine($"/// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of {startProperty.CmdletParameterName}");
             writer.WriteLine("/// as the start point.");
+            if (autoIteration.SupportLegacyAutoIterationMode)
+            {
+                writer.WriteLine("/// This cmdlet didn't autopaginate in V4. To preserve the V4 autopagination behavior for all cmdlets, run Set-AWSAutoIterationMode -IterationMode v4.");
+            }
+
             writer.WriteLine("/// </summary>");
             writer.WriteLine("[System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]");
             writer.WriteLine("public SwitchParameter NoAutoIteration { get; set; }");
@@ -1366,7 +1379,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 // disable auto-iteration for cmdlets that didn't have auto-iteration in v4 in legacy mode.
                 if (autoIteration.SupportLegacyAutoIterationMode)
                 {
-                    writer.WriteLine(@$"var _shouldAutoIterate = !(SessionState.PSVariable.GetValue(""AWS_POWERSHELL_AUTOITERATION_MODE"")?.ToString() == ""legacy"");");
+                    writer.WriteLine(@$"var _shouldAutoIterate = !(SessionState.PSVariable.GetValue(""AWSPowerShell_AutoIteration_Mode"")?.ToString() == ""v4"");");
                 }
 
                 writer.WriteLine();

@@ -601,4 +601,78 @@ namespace Amazon.PowerShell.Common
             WriteObject(result);
         }
     }
+
+/// <summary>
+/// Controls the auto-iteration behavior for AWS PowerShell cmdlets.
+/// Sets a shell variable that determines whether cmdlets use standard or v4 auto-iteration mode.
+/// In standard mode, all operations with pagination support will auto-iterate by default.
+/// In v4 mode, only operations that had auto-iteration in v4 will auto-iterate, maintaining backward compatibility.
+/// </summary>
+    [Cmdlet("Set", "AWSAutoIterationMode")]
+    [AWSCmdlet("Controls the auto-iteration behavior for AWS PowerShell cmdlets. Sets whether to use standard mode (all operations with pagination support auto-iterate) or v4 mode (only operations that had auto-iteration in v4 will auto-iterate).")]
+    [OutputType("None")]
+    public class SetAWSAutoIterationModeCmdlet : PSCmdlet
+    {
+        #region Parameter IterationMode
+
+        /// <summary>
+        /// Controls the auto-iteration behavior for AWS PowerShell cmdlets.
+        /// When set to 'standard' (default), all operations with pagination support will auto-iterate.
+        /// When set to 'v4', only operations that had auto-iteration in v4 will auto-iterate, maintaining backward compatibility.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [ValidateSet("standard", "v4")]
+        public string IterationMode { get; set; }
+
+        #endregion
+
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// Sets the scope of the shell variable AWSPowerShell_AutoIteration_Mode.
+        /// For details about variables scopes, see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes.
+        /// </para>
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public VariableScope Scope { get; set; }
+        #endregion
+
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            WriteVerbose($"Setting IterationMode to {IterationMode}");
+            string scope = MyInvocation.BoundParameters.ContainsKey("Scope") ? Scope.ToString() + ":" : "";
+
+            this.SessionState.PSVariable.Set(scope + SessionKeys.AWSAutoIterationMode, IterationMode);
+        }
+    }
+
+    /// <summary>
+    /// Returns the current auto-iteration mode setting that controls how cmdlets handle pagination.
+    /// This cmdlet returns the current value ('standard' or 'v4') indicating which auto-iteration mode is active.
+    /// </summary>
+    [Cmdlet("Get", "AWSAutoIterationMode")]
+    [AWSCmdlet("Gets the current auto-iteration mode setting that controls how cmdlets handle pagination.")]
+    [OutputType("PSObject")]
+    public class GetAWSAutoIterationModeCmdlet : PSCmdlet
+    {
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            var autoIterationMode= this.SessionState.PSVariable.Get(SessionKeys.AWSAutoIterationMode);
+            var result = new PSObject();
+
+            const string defaultAutoIterationMode = "standard";
+
+            var noteProperty = new PSNoteProperty("AutoIterationMode", defaultAutoIterationMode);
+
+            if (autoIterationMode != null)
+            {
+                noteProperty.Value = autoIterationMode.Value.ToString();
+            }
+            
+            result.Properties.Add(noteProperty);
+            WriteObject(result);
+        }
+    }
 }
