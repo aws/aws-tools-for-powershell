@@ -1480,6 +1480,8 @@ Set-Alias -Name Create-PROMAlertManagerDefinition -Value New-PROMAlertManagerDef
 Set-Alias -Name PROM-CreateAlertManagerDefinition -Value New-PROMAlertManagerDefinition
 Set-Alias -Name Create-PROMLoggingConfiguration -Value New-PROMLoggingConfiguration
 Set-Alias -Name PROM-CreateLoggingConfiguration -Value New-PROMLoggingConfiguration
+Set-Alias -Name Create-PROMQueryLoggingConfiguration -Value New-PROMQueryLoggingConfiguration
+Set-Alias -Name PROM-CreateQueryLoggingConfiguration -Value New-PROMQueryLoggingConfiguration
 Set-Alias -Name Create-PROMRuleGroupsNamespace -Value New-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-CreateRuleGroupsNamespace -Value New-PROMRuleGroupsNamespace
 Set-Alias -Name Create-PROMScraper -Value New-PROMScraper
@@ -1490,6 +1492,8 @@ Set-Alias -Name Delete-PROMAlertManagerDefinition -Value Remove-PROMAlertManager
 Set-Alias -Name PROM-DeleteAlertManagerDefinition -Value Remove-PROMAlertManagerDefinition
 Set-Alias -Name Delete-PROMLoggingConfiguration -Value Remove-PROMLoggingConfiguration
 Set-Alias -Name PROM-DeleteLoggingConfiguration -Value Remove-PROMLoggingConfiguration
+Set-Alias -Name Delete-PROMQueryLoggingConfiguration -Value Remove-PROMQueryLoggingConfiguration
+Set-Alias -Name PROM-DeleteQueryLoggingConfiguration -Value Remove-PROMQueryLoggingConfiguration
 Set-Alias -Name Delete-PROMRuleGroupsNamespace -Value Remove-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-DeleteRuleGroupsNamespace -Value Remove-PROMRuleGroupsNamespace
 Set-Alias -Name Delete-PROMScraper -Value Remove-PROMScraper
@@ -1500,6 +1504,8 @@ Set-Alias -Name Describe-PROMAlertManagerDefinition -Value Get-PROMAlertManagerD
 Set-Alias -Name PROM-DescribeAlertManagerDefinition -Value Get-PROMAlertManagerDefinition
 Set-Alias -Name Describe-PROMLoggingConfiguration -Value Get-PROMLoggingConfiguration
 Set-Alias -Name PROM-DescribeLoggingConfiguration -Value Get-PROMLoggingConfiguration
+Set-Alias -Name Describe-PROMQueryLoggingConfiguration -Value Get-PROMQueryLoggingConfiguration
+Set-Alias -Name PROM-DescribeQueryLoggingConfiguration -Value Get-PROMQueryLoggingConfiguration
 Set-Alias -Name Describe-PROMRuleGroupsNamespace -Value Get-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-DescribeRuleGroupsNamespace -Value Get-PROMRuleGroupsNamespace
 Set-Alias -Name Describe-PROMScraper -Value Get-PROMScraper
@@ -1526,6 +1532,7 @@ Set-Alias -Name PROM-PutRuleGroupsNamespace -Value Write-PROMRuleGroupsNamespace
 Set-Alias -Name PROM-TagResource -Value Add-PROMResourceTag
 Set-Alias -Name PROM-UntagResource -Value Remove-PROMResourceTag
 Set-Alias -Name PROM-UpdateLoggingConfiguration -Value Update-PROMLoggingConfiguration
+Set-Alias -Name PROM-UpdateQueryLoggingConfiguration -Value Update-PROMQueryLoggingConfiguration
 Set-Alias -Name PROM-UpdateScraper -Value Update-PROMScraper
 Set-Alias -Name PROM-UpdateWorkspaceAlias -Value Update-PROMWorkspaceAlias
 Set-Alias -Name PROM-UpdateWorkspaceConfiguration -Value Update-PROMWorkspaceConfiguration

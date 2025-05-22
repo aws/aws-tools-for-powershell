@@ -28,28 +28,44 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Deletes the rules and alerting logging configuration for a workspace.
-    /// 
-    ///  <note><para>
-    /// These logging configurations are only for rules and alerting logs.
-    /// </para></note>
+    /// Creates a query logging configuration for the specified workspace. This operation
+    /// enables logging of queries that exceed the specified QSP threshold.
     /// </summary>
-    [Cmdlet("Remove", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Prometheus Service DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse))]
-    [AWSCmdletOutput("None or Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse) be returned by specifying '-Select *'."
+    [Cmdlet("New", "PROMQueryLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PrometheusService.Model.QueryLoggingConfigurationStatus")]
+    [AWSCmdlet("Calls the Amazon Prometheus Service CreateQueryLoggingConfiguration API operation.", Operation = new[] {"CreateQueryLoggingConfiguration"}, SelectReturnType = typeof(Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.PrometheusService.Model.QueryLoggingConfigurationStatus or Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse",
+        "This cmdlet returns an Amazon.PrometheusService.Model.QueryLoggingConfigurationStatus object.",
+        "The service call response (type Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class RemovePROMLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
+    public partial class NewPROMQueryLoggingConfigurationCmdlet : AmazonPrometheusServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Destination
+        /// <summary>
+        /// <para>
+        /// <para>The destinations where query logs will be sent. Only CloudWatch Logs destination is
+        /// supported. The list must contain exactly one element.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Destinations")]
+        public Amazon.PrometheusService.Model.LoggingDestination[] Destination { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace containing the logging configuration to delete.</para>
+        /// <para>The ID of the workspace for which to create the query logging configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
-        /// Case-sensitive.</para>
+        /// <para>(Optional) A unique, case-sensitive identifier that you can provide to ensure the
+        /// idempotency of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,12 +92,13 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter PassThru
@@ -110,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkspaceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PROMLoggingConfiguration (DeleteLoggingConfiguration)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROMQueryLoggingConfiguration (CreateQueryLoggingConfiguration)"))
             {
                 return;
             }
@@ -123,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse, RemovePROMLoggingConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse, NewPROMQueryLoggingConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,6 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            if (this.Destination != null)
+            {
+                context.Destination = new List<Amazon.PrometheusService.Model.LoggingDestination>(this.Destination);
+            }
+            #if MODULAR
+            if (this.Destination == null && ParameterWasBound(nameof(this.Destination)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Destination which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -157,11 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PrometheusService.Model.DeleteLoggingConfigurationRequest();
+            var request = new Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Destination != null)
+            {
+                request.Destinations = cmdletContext.Destination;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -200,15 +231,15 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         
         #region AWS Service Operation Call
         
-        private Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.DeleteLoggingConfigurationRequest request)
+        private Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse CallAWSServiceOperation(IAmazonPrometheusService client, Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "DeleteLoggingConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Prometheus Service", "CreateQueryLoggingConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DeleteLoggingConfiguration(request);
+                return client.CreateQueryLoggingConfiguration(request);
                 #elif CORECLR
-                return client.DeleteLoggingConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.CreateQueryLoggingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -229,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public List<Amazon.PrometheusService.Model.LoggingDestination> Destination { get; set; }
             public System.String WorkspaceId { get; set; }
-            public System.Func<Amazon.PrometheusService.Model.DeleteLoggingConfigurationResponse, RemovePROMLoggingConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.PrometheusService.Model.CreateQueryLoggingConfigurationResponse, NewPROMQueryLoggingConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }

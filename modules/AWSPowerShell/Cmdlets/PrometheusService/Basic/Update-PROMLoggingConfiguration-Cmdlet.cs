@@ -28,7 +28,12 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Updates the log group ARN or the workspace ID of the current logging configuration.
+    /// Updates the log group ARN or the workspace ID of the current rules and alerting logging
+    /// configuration.
+    /// 
+    ///  <note><para>
+    /// These logging configurations are only for rules and alerting logs.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationStatus")]

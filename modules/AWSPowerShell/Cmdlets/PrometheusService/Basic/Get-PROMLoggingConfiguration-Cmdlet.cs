@@ -28,7 +28,12 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Returns complete information about the current logging configuration of the workspace.
+    /// Returns complete information about the current rules and alerting logging configuration
+    /// of the workspace.
+    /// 
+    ///  <note><para>
+    /// These logging configurations are only for rules and alerting logs.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "PROMLoggingConfiguration")]
     [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationMetadata")]

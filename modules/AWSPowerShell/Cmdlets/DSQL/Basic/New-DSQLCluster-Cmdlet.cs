@@ -98,6 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         public System.Boolean? DeletionProtectionEnabled { get; set; }
         #endregion
         
+        #region Parameter KmsEncryptionKey
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key that encrypts and protects the data on your cluster. You can specify the
+        /// ARN, ID, or alias of an existing key or have Amazon Web Services create a default
+        /// key for you.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsEncryptionKey { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -199,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
+            context.KmsEncryptionKey = this.KmsEncryptionKey;
             if (this.MultiRegionProperties_Cluster != null)
             {
                 context.MultiRegionProperties_Cluster = new List<System.String>(this.MultiRegionProperties_Cluster);
@@ -235,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             if (cmdletContext.DeletionProtectionEnabled != null)
             {
                 request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
+            }
+            if (cmdletContext.KmsEncryptionKey != null)
+            {
+                request.KmsEncryptionKey = cmdletContext.KmsEncryptionKey;
             }
             
              // populate MultiRegionProperties
@@ -332,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         {
             public System.String ClientToken { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
+            public System.String KmsEncryptionKey { get; set; }
             public List<System.String> MultiRegionProperties_Cluster { get; set; }
             public System.String MultiRegionProperties_WitnessRegion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

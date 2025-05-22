@@ -122,6 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter KmsEncryptionKey
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key that encrypts and protects the data on your cluster. You can specify the
+        /// ARN, ID, or alias of an existing key or have Amazon Web Services create a default
+        /// key for you.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsEncryptionKey { get; set; }
+        #endregion
+        
         #region Parameter MultiRegionProperties_WitnessRegion
         /// <summary>
         /// <para>
@@ -219,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsEncryptionKey = this.KmsEncryptionKey;
             if (this.MultiRegionProperties_Cluster != null)
             {
                 context.MultiRegionProperties_Cluster = new List<System.String>(this.MultiRegionProperties_Cluster);
@@ -251,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.KmsEncryptionKey != null)
+            {
+                request.KmsEncryptionKey = cmdletContext.KmsEncryptionKey;
             }
             
              // populate MultiRegionProperties
@@ -345,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.DSQL
             public System.String ClientToken { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public System.String Identifier { get; set; }
+            public System.String KmsEncryptionKey { get; set; }
             public List<System.String> MultiRegionProperties_Cluster { get; set; }
             public System.String MultiRegionProperties_WitnessRegion { get; set; }
             public System.Func<Amazon.DSQL.Model.UpdateClusterResponse, UpdateDSQLClusterCmdlet, object> Select { get; set; } =
