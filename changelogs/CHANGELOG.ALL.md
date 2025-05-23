@@ -1,4 +1,7 @@
-﻿### 4.1.826 (2025-05-22 20:08Z)
+﻿### 4.1.827 (2025-05-23 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1051.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.826 (2025-05-22 20:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1050.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Aurora DSQL
     * Modified cmdlet New-DSQLCluster: added parameter KmsEncryptionKey.
