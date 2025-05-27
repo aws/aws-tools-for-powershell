@@ -1,4 +1,18 @@
-﻿### 4.1.827 (2025-05-23 20:33Z)
+﻿### 4.1.828 (2025-05-27 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1052.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Modified cmdlet New-ADCFleet: added parameter ServiceManagedEc2_StorageProfileId.
+    * Modified cmdlet Update-ADCFleet: added parameter ServiceManagedEc2_StorageProfileId.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CECostAndUsageComparison leveraging the GetCostAndUsageComparisons service API.
+    * Added cmdlet Get-CECostComparisonDriver leveraging the GetCostComparisonDrivers service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2ActiveVpnTunnelStatus leveraging the GetActiveVpnTunnelStatus service API.
+    * Modified cmdlet Edit-EC2VpnTunnelOption: added parameter PreSharedKeyStorage.
+    * Modified cmdlet Get-EC2VpnConnectionDeviceSampleConfiguration: added parameter SampleType.
+    * Modified cmdlet New-EC2VpnConnection: added parameter PreSharedKeyStorage.
+
+### 4.1.827 (2025-05-23 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1051.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.826 (2025-05-22 20:08Z)

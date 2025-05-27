@@ -28,67 +28,25 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Download an Amazon Web Services-provided sample configuration file to be used with
-    /// the customer gateway device specified for your Site-to-Site VPN connection.
+    /// Returns the currently negotiated security parameters for an active VPN tunnel, including
+    /// IKE version, DH groups, encryption algorithms, and integrity algorithms.
     /// </summary>
-    [Cmdlet("Get", "EC2VpnConnectionDeviceSampleConfiguration")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetVpnConnectionDeviceSampleConfiguration API operation.", Operation = new[] {"GetVpnConnectionDeviceSampleConfiguration"}, SelectReturnType = typeof(Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "EC2ActiveVpnTunnelStatus")]
+    [OutputType("Amazon.EC2.Model.ActiveVpnTunnelStatus")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetActiveVpnTunnelStatus API operation.", Operation = new[] {"GetActiveVpnTunnelStatus"}, SelectReturnType = typeof(Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.ActiveVpnTunnelStatus or Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse",
+        "This cmdlet returns an Amazon.EC2.Model.ActiveVpnTunnelStatus object.",
+        "The service call response (type Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2VpnConnectionDeviceSampleConfigurationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2ActiveVpnTunnelStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter InternetKeyExchangeVersion
-        /// <summary>
-        /// <para>
-        /// <para>The IKE version to be used in the sample configuration file for your customer gateway
-        /// device. You can specify one of the following versions: <c>ikev1</c> or <c>ikev2</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String InternetKeyExchangeVersion { get; set; }
-        #endregion
-        
-        #region Parameter SampleType
-        /// <summary>
-        /// <para>
-        /// <para>The type of sample configuration to generate. Valid values are "compatibility" (includes
-        /// IKEv1) or "recommended" (throws UnsupportedOperationException for IKEv1).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SampleType { get; set; }
-        #endregion
-        
-        #region Parameter VpnConnectionDeviceTypeId
-        /// <summary>
-        /// <para>
-        /// <para>Device identifier provided by the <c>GetVpnConnectionDeviceTypes</c> API.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VpnConnectionDeviceTypeId { get; set; }
-        #endregion
         
         #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
-        /// <para>The <c>VpnConnectionId</c> specifies the Site-to-Site VPN connection used for the
-        /// sample configuration.</para>
+        /// <para>The ID of the VPN connection for which to retrieve the active tunnel status.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,15 +60,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String VpnConnectionId { get; set; }
         #endregion
         
+        #region Parameter VpnTunnelOutsideIpAddress
+        /// <summary>
+        /// <para>
+        /// <para>The external IP address of the VPN tunnel for which to retrieve the active status.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String VpnTunnelOutsideIpAddress { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpnConnectionDeviceSampleConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ActiveVpnTunnelStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "VpnConnectionDeviceSampleConfiguration";
+        public string Select { get; set; } = "ActiveVpnTunnelStatus";
         #endregion
         
         #region Parameter PassThru
@@ -136,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse, GetEC2VpnConnectionDeviceSampleConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse, GetEC2ActiveVpnTunnelStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,20 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.VpnConnectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.InternetKeyExchangeVersion = this.InternetKeyExchangeVersion;
-            context.SampleType = this.SampleType;
-            context.VpnConnectionDeviceTypeId = this.VpnConnectionDeviceTypeId;
-            #if MODULAR
-            if (this.VpnConnectionDeviceTypeId == null && ParameterWasBound(nameof(this.VpnConnectionDeviceTypeId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter VpnConnectionDeviceTypeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.VpnConnectionId = this.VpnConnectionId;
             #if MODULAR
             if (this.VpnConnectionId == null && ParameterWasBound(nameof(this.VpnConnectionId)))
             {
                 WriteWarning("You are passing $null as a value for parameter VpnConnectionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VpnTunnelOutsideIpAddress = this.VpnTunnelOutsideIpAddress;
+            #if MODULAR
+            if (this.VpnTunnelOutsideIpAddress == null && ParameterWasBound(nameof(this.VpnTunnelOutsideIpAddress)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VpnTunnelOutsideIpAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,23 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationRequest();
+            var request = new Amazon.EC2.Model.GetActiveVpnTunnelStatusRequest();
             
-            if (cmdletContext.InternetKeyExchangeVersion != null)
-            {
-                request.InternetKeyExchangeVersion = cmdletContext.InternetKeyExchangeVersion;
-            }
-            if (cmdletContext.SampleType != null)
-            {
-                request.SampleType = cmdletContext.SampleType;
-            }
-            if (cmdletContext.VpnConnectionDeviceTypeId != null)
-            {
-                request.VpnConnectionDeviceTypeId = cmdletContext.VpnConnectionDeviceTypeId;
-            }
             if (cmdletContext.VpnConnectionId != null)
             {
                 request.VpnConnectionId = cmdletContext.VpnConnectionId;
+            }
+            if (cmdletContext.VpnTunnelOutsideIpAddress != null)
+            {
+                request.VpnTunnelOutsideIpAddress = cmdletContext.VpnTunnelOutsideIpAddress;
             }
             
             CmdletOutput output;
@@ -229,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationRequest request)
+        private Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetActiveVpnTunnelStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetVpnConnectionDeviceSampleConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetActiveVpnTunnelStatus");
             try
             {
                 #if DESKTOP
-                return client.GetVpnConnectionDeviceSampleConfiguration(request);
+                return client.GetActiveVpnTunnelStatus(request);
                 #elif CORECLR
-                return client.GetVpnConnectionDeviceSampleConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.GetActiveVpnTunnelStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -257,12 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String InternetKeyExchangeVersion { get; set; }
-            public System.String SampleType { get; set; }
-            public System.String VpnConnectionDeviceTypeId { get; set; }
             public System.String VpnConnectionId { get; set; }
-            public System.Func<Amazon.EC2.Model.GetVpnConnectionDeviceSampleConfigurationResponse, GetEC2VpnConnectionDeviceSampleConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.VpnConnectionDeviceSampleConfiguration;
+            public System.String VpnTunnelOutsideIpAddress { get; set; }
+            public System.Func<Amazon.EC2.Model.GetActiveVpnTunnelStatusResponse, GetEC2ActiveVpnTunnelStatusCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ActiveVpnTunnelStatus;
         }
         
     }

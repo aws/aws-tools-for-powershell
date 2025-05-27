@@ -502,6 +502,17 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         public System.String CustomerManaged_StorageProfileId { get; set; }
         #endregion
         
+        #region Parameter ServiceManagedEc2_StorageProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The storage profile ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ServiceManagedEc2_StorageProfileId")]
+        public System.String ServiceManagedEc2_StorageProfileId { get; set; }
+        #endregion
+        
         #region Parameter CustomerManaged_TagPropagationMode
         /// <summary>
         /// <para>
@@ -649,6 +660,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max;
             context.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min = this.Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min;
             context.InstanceMarketOptions_Type = this.InstanceMarketOptions_Type;
+            context.ServiceManagedEc2_StorageProfileId = this.ServiceManagedEc2_StorageProfileId;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.FarmId = this.FarmId;
@@ -699,6 +711,16 @@ namespace Amazon.PowerShell.Cmdlets.ADC
              // populate ServiceManagedEc2
             var requestConfiguration_configuration_ServiceManagedEc2IsNull = true;
             requestConfiguration_configuration_ServiceManagedEc2 = new Amazon.Deadline.Model.ServiceManagedEc2FleetConfiguration();
+            System.String requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId = null;
+            if (cmdletContext.ServiceManagedEc2_StorageProfileId != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId = cmdletContext.ServiceManagedEc2_StorageProfileId;
+            }
+            if (requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId != null)
+            {
+                requestConfiguration_configuration_ServiceManagedEc2.StorageProfileId = requestConfiguration_configuration_ServiceManagedEc2_serviceManagedEc2_StorageProfileId;
+                requestConfiguration_configuration_ServiceManagedEc2IsNull = false;
+            }
             Amazon.Deadline.Model.ServiceManagedEc2InstanceMarketOptions requestConfiguration_configuration_ServiceManagedEc2_configuration_ServiceManagedEc2_InstanceMarketOptions = null;
             
              // populate InstanceMarketOptions
@@ -1391,6 +1413,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Max { get; set; }
             public System.Int32? Configuration_ServiceManagedEc2_InstanceCapabilities_VCpuCount_Min { get; set; }
             public Amazon.Deadline.Ec2MarketType InstanceMarketOptions_Type { get; set; }
+            public System.String ServiceManagedEc2_StorageProfileId { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String FarmId { get; set; }

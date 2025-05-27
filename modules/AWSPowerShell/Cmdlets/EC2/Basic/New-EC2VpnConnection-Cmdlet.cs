@@ -126,6 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Options_OutsideIpAddressType { get; set; }
         #endregion
         
+        #region Parameter PreSharedKeyStorage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage mode for the pre-shared key (PSK). Valid values are <c>Standard</c>"
+        /// (stored in the Site-to-Site VPN service) or <c>SecretsManager</c> (stored in Amazon
+        /// Web Services Secrets Manager).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreSharedKeyStorage { get; set; }
+        #endregion
+        
         #region Parameter Options_RemoteIpv4NetworkCidr
         /// <summary>
         /// <para>
@@ -323,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Options_TunnelOption = new List<Amazon.EC2.Model.VpnTunnelOptionsSpecification>(this.Options_TunnelOption);
             }
+            context.PreSharedKeyStorage = this.PreSharedKeyStorage;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -465,6 +478,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Options = null;
             }
+            if (cmdletContext.PreSharedKeyStorage != null)
+            {
+                request.PreSharedKeyStorage = cmdletContext.PreSharedKeyStorage;
+            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
@@ -553,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Options_TransportTransitGatewayAttachmentId { get; set; }
             public Amazon.EC2.TunnelInsideIpVersion Options_TunnelInsideIpVersion { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOption { get; set; }
+            public System.String PreSharedKeyStorage { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.String Type { get; set; }

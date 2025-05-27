@@ -1998,6 +1998,7 @@ $EC2_SelectMap = @{
                "Export-EC2Image",
                "Export-EC2TransitGatewayRoute",
                "Export-EC2VerifiedAccessInstanceClientConfiguration",
+               "Get-EC2ActiveVpnTunnelStatus",
                "Get-EC2AllowedImagesSetting",
                "Get-EC2AssociatedEnclaveCertificateIamRole",
                "Get-EC2AssociatedIpv6PoolCidr",

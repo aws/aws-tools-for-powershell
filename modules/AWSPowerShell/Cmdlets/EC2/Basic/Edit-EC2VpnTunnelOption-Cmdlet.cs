@@ -237,6 +237,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String TunnelOptions_PreSharedKey { get; set; }
         #endregion
         
+        #region Parameter PreSharedKeyStorage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage mode for the pre-shared key (PSK). Valid values are <c>Standard</c>
+        /// (stored in Site-to-Site VPN service) or <c>SecretsManager</c> (stored in Amazon Web
+        /// Services Secrets Manager).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreSharedKeyStorage { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_RekeyFuzzPercentage
         /// <summary>
         /// <para>
@@ -413,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.VpnConnectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.PreSharedKeyStorage = this.PreSharedKeyStorage;
             context.SkipTunnelReplacement = this.SkipTunnelReplacement;
             context.TunnelOptions_DPDTimeoutAction = this.TunnelOptions_DPDTimeoutAction;
             context.TunnelOptions_DPDTimeoutSecond = this.TunnelOptions_DPDTimeoutSecond;
@@ -487,6 +500,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyVpnTunnelOptionsRequest();
             
+            if (cmdletContext.PreSharedKeyStorage != null)
+            {
+                request.PreSharedKeyStorage = cmdletContext.PreSharedKeyStorage;
+            }
             if (cmdletContext.SkipTunnelReplacement != null)
             {
                 request.SkipTunnelReplacement = cmdletContext.SkipTunnelReplacement.Value;
@@ -819,6 +836,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String PreSharedKeyStorage { get; set; }
             public System.Boolean? SkipTunnelReplacement { get; set; }
             public System.String TunnelOptions_DPDTimeoutAction { get; set; }
             public System.Int32? TunnelOptions_DPDTimeoutSecond { get; set; }

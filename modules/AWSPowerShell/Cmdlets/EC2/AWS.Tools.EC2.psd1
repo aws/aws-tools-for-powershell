@@ -235,6 +235,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Export-EC2TransitGatewayRoute', 
         'Export-EC2VerifiedAccessInstanceClientConfiguration', 
         'Get-EC2AccountAttribute', 
+        'Get-EC2ActiveVpnTunnelStatus', 
         'Get-EC2Address', 
         'Get-EC2AddressesAttribute', 
         'Get-EC2AddressTransfer', 

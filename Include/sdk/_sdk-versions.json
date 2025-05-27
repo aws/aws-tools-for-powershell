@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1051.0",
+    "ProductVersion"    : "3.7.1052.0",
     "CoreVersion"       : "3.7.402.62",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.448.0",
+            "Version" : "3.7.449.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.62"
@@ -844,7 +844,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.406.26",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.62"
@@ -2964,7 +2964,7 @@
             "InPreview"               : false
         },
         "Deadline"                            : {
-            "Version" : "3.7.407.5",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.62"

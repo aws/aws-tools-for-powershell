@@ -3008,10 +3008,14 @@ Set-Alias -Name Get-CEApproximateUsageRecords -Value Get-CEApproximateUsageRecor
 Set-Alias -Name CE-GetApproximateUsageRecords -Value Get-CEApproximateUsageRecord
 Set-Alias -Name CE-GetCommitmentPurchaseAnalysis -Value Get-CECommitmentPurchaseAnalysis
 Set-Alias -Name CE-GetCostAndUsage -Value Get-CECostAndUsage
+Set-Alias -Name Get-CECostAndUsageComparisons -Value Get-CECostAndUsageComparison
+Set-Alias -Name CE-GetCostAndUsageComparisons -Value Get-CECostAndUsageComparison
 Set-Alias -Name Get-CECostAndUsageWithResources -Value Get-CECostAndUsageWithResource
 Set-Alias -Name CE-GetCostAndUsageWithResources -Value Get-CECostAndUsageWithResource
 Set-Alias -Name Get-CECostCategories -Value Get-CECostCategory
 Set-Alias -Name CE-GetCostCategories -Value Get-CECostCategory
+Set-Alias -Name Get-CECostComparisonDrivers -Value Get-CECostComparisonDriver
+Set-Alias -Name CE-GetCostComparisonDrivers -Value Get-CECostComparisonDriver
 Set-Alias -Name CE-GetCostForecast -Value Get-CECostForecast
 Set-Alias -Name Get-CEDimensionValues -Value Get-CEDimensionValue
 Set-Alias -Name CE-GetDimensionValues -Value Get-CEDimensionValue
@@ -10573,6 +10577,7 @@ Set-Alias -Name EC2-ExportImage -Value Export-EC2Image
 Set-Alias -Name Export-EC2TransitGatewayRoutes -Value Export-EC2TransitGatewayRoute
 Set-Alias -Name EC2-ExportTransitGatewayRoutes -Value Export-EC2TransitGatewayRoute
 Set-Alias -Name EC2-ExportVerifiedAccessInstanceClientConfiguration -Value Export-EC2VerifiedAccessInstanceClientConfiguration
+Set-Alias -Name EC2-GetActiveVpnTunnelStatus -Value Get-EC2ActiveVpnTunnelStatus
 Set-Alias -Name Get-EC2AllowedImagesSettings -Value Get-EC2AllowedImagesSetting
 Set-Alias -Name EC2-GetAllowedImagesSettings -Value Get-EC2AllowedImagesSetting
 Set-Alias -Name Get-EC2AssociatedEnclaveCertificateIamRoles -Value Get-EC2AssociatedEnclaveCertificateIamRole
