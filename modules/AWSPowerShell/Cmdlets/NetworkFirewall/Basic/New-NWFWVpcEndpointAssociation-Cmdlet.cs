@@ -28,36 +28,31 @@ using Amazon.NetworkFirewall.Model;
 namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Begins the flushing of traffic from the firewall, according to the filters you define.
-    /// When the operation starts, impacted flows are temporarily marked as timed out before
-    /// the Suricata engine prunes, or flushes, the flows from the firewall table.
-    /// 
-    ///  <important><para>
-    /// While the flush completes, impacted flows are processed as midstream traffic. This
-    /// may result in a temporary increase in midstream traffic metrics. We recommend that
-    /// you double check your stream exception policy before you perform a flush operation.
-    /// </para></important>
+    /// Creates a firewall endpoint for an Network Firewall firewall. This type of firewall
+    /// endpoint is independent of the firewall endpoints that you specify in the <c>Firewall</c>
+    /// itself, and you define it in addition to those endpoints after the firewall has been
+    /// created. You can define a VPC endpoint association using a different VPC than the
+    /// one you used in the firewall specifications.
     /// </summary>
-    [Cmdlet("Start", "NWFWFlowFlush", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.NetworkFirewall.Model.StartFlowFlushResponse")]
-    [AWSCmdlet("Calls the AWS Network Firewall StartFlowFlush API operation.", Operation = new[] {"StartFlowFlush"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.StartFlowFlushResponse))]
-    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.StartFlowFlushResponse",
-        "This cmdlet returns an Amazon.NetworkFirewall.Model.StartFlowFlushResponse object containing multiple properties."
+    [Cmdlet("New", "NWFWVpcEndpointAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse")]
+    [AWSCmdlet("Calls the AWS Network Firewall CreateVpcEndpointAssociation API operation.", Operation = new[] {"CreateVpcEndpointAssociation"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse))]
+    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse",
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse object containing multiple properties."
     )]
-    public partial class StartNWFWFlowFlushCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
+    public partial class NewNWFWVpcEndpointAssociationCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AvailabilityZone
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The ID of the Availability Zone where the firewall is located. For example, <c>us-east-2a</c>.</para><para>Defines the scope a flow operation. You can use up to 20 filters to configure a single
-        /// flow operation.</para>
+        /// <para>A description of the VPC endpoint association. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AvailabilityZone { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
         #region Parameter FirewallArn
@@ -77,62 +72,68 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.String FirewallArn { get; set; }
         #endregion
         
-        #region Parameter FlowFilter
+        #region Parameter SubnetMapping_IPAddressType
         /// <summary>
         /// <para>
-        /// <para>Defines the scope a flow operation. You can use up to 20 filters to configure a single
-        /// flow operation.</para>
+        /// <para>The subnet's IP address type. You can't change the IP address type after you create
+        /// the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.IPAddressType")]
+        public Amazon.NetworkFirewall.IPAddressType SubnetMapping_IPAddressType { get; set; }
+        #endregion
+        
+        #region Parameter SubnetMapping_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the subnet. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("FlowFilters")]
-        public Amazon.NetworkFirewall.Model.FlowFilter[] FlowFilter { get; set; }
+        public System.String SubnetMapping_SubnetId { get; set; }
         #endregion
         
-        #region Parameter MinimumFlowAgeInSecond
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The reqested <c>FlowOperation</c> ignores flows with an age (in seconds) lower than
-        /// <c>MinimumFlowAgeInSeconds</c>. You provide this for start commands.</para>
+        /// <para>The key:value pairs to associate with the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MinimumFlowAgeInSeconds")]
-        public System.Int32? MinimumFlowAgeInSecond { get; set; }
+        [Alias("Tags")]
+        public Amazon.NetworkFirewall.Model.Tag[] Tag { get; set; }
         #endregion
         
-        #region Parameter VpcEndpointAssociationArn
+        #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a VPC endpoint association.</para>
+        /// <para>The unique identifier of the VPC where you want to create a firewall endpoint. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VpcEndpointAssociationArn { get; set; }
-        #endregion
-        
-        #region Parameter VpcEndpointId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the primary endpoint associated with a firewall.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VpcEndpointId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String VpcId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.StartFlowFlushResponse).
-        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.StartFlowFlushResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse).
+        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FirewallArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-NWFWFlowFlush (StartFlowFlush)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-NWFWVpcEndpointAssociation (CreateVpcEndpointAssociation)"))
             {
                 return;
             }
@@ -178,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.StartFlowFlushResponse, StartNWFWFlowFlushCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse, NewNWFWVpcEndpointAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -190,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.Select = (response, cmdlet) => this.FirewallArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AvailabilityZone = this.AvailabilityZone;
+            context.Description = this.Description;
             context.FirewallArn = this.FirewallArn;
             #if MODULAR
             if (this.FirewallArn == null && ParameterWasBound(nameof(this.FirewallArn)))
@@ -198,19 +199,25 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 WriteWarning("You are passing $null as a value for parameter FirewallArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.FlowFilter != null)
-            {
-                context.FlowFilter = new List<Amazon.NetworkFirewall.Model.FlowFilter>(this.FlowFilter);
-            }
+            context.SubnetMapping_IPAddressType = this.SubnetMapping_IPAddressType;
+            context.SubnetMapping_SubnetId = this.SubnetMapping_SubnetId;
             #if MODULAR
-            if (this.FlowFilter == null && ParameterWasBound(nameof(this.FlowFilter)))
+            if (this.SubnetMapping_SubnetId == null && ParameterWasBound(nameof(this.SubnetMapping_SubnetId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FlowFilter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SubnetMapping_SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MinimumFlowAgeInSecond = this.MinimumFlowAgeInSecond;
-            context.VpcEndpointAssociationArn = this.VpcEndpointAssociationArn;
-            context.VpcEndpointId = this.VpcEndpointId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.NetworkFirewall.Model.Tag>(this.Tag);
+            }
+            context.VpcId = this.VpcId;
+            #if MODULAR
+            if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VpcId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -225,31 +232,52 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NetworkFirewall.Model.StartFlowFlushRequest();
+            var request = new Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationRequest();
             
-            if (cmdletContext.AvailabilityZone != null)
+            if (cmdletContext.Description != null)
             {
-                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.FirewallArn != null)
             {
                 request.FirewallArn = cmdletContext.FirewallArn;
             }
-            if (cmdletContext.FlowFilter != null)
+            
+             // populate SubnetMapping
+            var requestSubnetMappingIsNull = true;
+            request.SubnetMapping = new Amazon.NetworkFirewall.Model.SubnetMapping();
+            Amazon.NetworkFirewall.IPAddressType requestSubnetMapping_subnetMapping_IPAddressType = null;
+            if (cmdletContext.SubnetMapping_IPAddressType != null)
             {
-                request.FlowFilters = cmdletContext.FlowFilter;
+                requestSubnetMapping_subnetMapping_IPAddressType = cmdletContext.SubnetMapping_IPAddressType;
             }
-            if (cmdletContext.MinimumFlowAgeInSecond != null)
+            if (requestSubnetMapping_subnetMapping_IPAddressType != null)
             {
-                request.MinimumFlowAgeInSeconds = cmdletContext.MinimumFlowAgeInSecond.Value;
+                request.SubnetMapping.IPAddressType = requestSubnetMapping_subnetMapping_IPAddressType;
+                requestSubnetMappingIsNull = false;
             }
-            if (cmdletContext.VpcEndpointAssociationArn != null)
+            System.String requestSubnetMapping_subnetMapping_SubnetId = null;
+            if (cmdletContext.SubnetMapping_SubnetId != null)
             {
-                request.VpcEndpointAssociationArn = cmdletContext.VpcEndpointAssociationArn;
+                requestSubnetMapping_subnetMapping_SubnetId = cmdletContext.SubnetMapping_SubnetId;
             }
-            if (cmdletContext.VpcEndpointId != null)
+            if (requestSubnetMapping_subnetMapping_SubnetId != null)
             {
-                request.VpcEndpointId = cmdletContext.VpcEndpointId;
+                request.SubnetMapping.SubnetId = requestSubnetMapping_subnetMapping_SubnetId;
+                requestSubnetMappingIsNull = false;
+            }
+             // determine if request.SubnetMapping should be set to null
+            if (requestSubnetMappingIsNull)
+            {
+                request.SubnetMapping = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.VpcId != null)
+            {
+                request.VpcId = cmdletContext.VpcId;
             }
             
             CmdletOutput output;
@@ -284,15 +312,15 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkFirewall.Model.StartFlowFlushResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.StartFlowFlushRequest request)
+        private Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "StartFlowFlush");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "CreateVpcEndpointAssociation");
             try
             {
                 #if DESKTOP
-                return client.StartFlowFlush(request);
+                return client.CreateVpcEndpointAssociation(request);
                 #elif CORECLR
-                return client.StartFlowFlushAsync(request).GetAwaiter().GetResult();
+                return client.CreateVpcEndpointAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -312,13 +340,13 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AvailabilityZone { get; set; }
+            public System.String Description { get; set; }
             public System.String FirewallArn { get; set; }
-            public List<Amazon.NetworkFirewall.Model.FlowFilter> FlowFilter { get; set; }
-            public System.Int32? MinimumFlowAgeInSecond { get; set; }
-            public System.String VpcEndpointAssociationArn { get; set; }
-            public System.String VpcEndpointId { get; set; }
-            public System.Func<Amazon.NetworkFirewall.Model.StartFlowFlushResponse, StartNWFWFlowFlushCmdlet, object> Select { get; set; } =
+            public Amazon.NetworkFirewall.IPAddressType SubnetMapping_IPAddressType { get; set; }
+            public System.String SubnetMapping_SubnetId { get; set; }
+            public List<Amazon.NetworkFirewall.Model.Tag> Tag { get; set; }
+            public System.String VpcId { get; set; }
+            public System.Func<Amazon.NetworkFirewall.Model.CreateVpcEndpointAssociationResponse, NewNWFWVpcEndpointAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

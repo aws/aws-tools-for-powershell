@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>
         /// <para>The location in Amazon S3 where Synthetics stores artifacts from the test runs of
         /// this canary. Artifacts include the log file, screenshots, and HAR files. The name
-        /// of the S3 bucket can't include a period (.).</para>
+        /// of the Amazon S3 bucket can't include a period (.).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,6 +139,20 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RunConfig_EnvironmentVariables")]
         public System.Collections.Hashtable RunConfig_EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter RunConfig_EphemeralStorage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of ephemeral storage (in MB) to allocate for the canary run during
+        /// execution. This temporary storage is used for storing canary run artifacts (which
+        /// are uploaded to an Amazon S3 bucket at the end of the run), and any canary browser
+        /// operations. This temporary storage is cleared after the run is completed. Default
+        /// storage value is 1024 MB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RunConfig_EphemeralStorage { get; set; }
         #endregion
         
         #region Parameter ExecutionRoleArn
@@ -335,8 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>If your canary script is located in S3, specify the bucket name here. Do not include
-        /// <c>s3://</c> as the start of the bucket name.</para>
+        /// <para>If your canary script is located in Amazon S3, specify the bucket name here. Do not
+        /// include <c>s3://</c> as the start of the bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working
+        /// <para>The Amazon S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working
         /// with Amazon S3 Objects</a>.</para>
         /// </para>
         /// </summary>
@@ -357,7 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Version
         /// <summary>
         /// <para>
-        /// <para>The S3 version ID of your script.</para>
+        /// <para>The Amazon S3 version ID of your script.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,9 +445,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>If you input your canary script directly into the canary instead of referring to an
-        /// S3 location, the value of this parameter is the base64-encoded contents of the .zip
-        /// file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an S3 location instead of inputting
-        /// it directly with this parameter.</para>
+        /// Amazon S3 location, the value of this parameter is the base64-encoded contents of
+        /// the .zip file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an Amazon S3 location instead
+        /// of inputting it directly with this parameter.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -553,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     context.RunConfig_EnvironmentVariable.Add((String)hashKey, (System.String)(this.RunConfig_EnvironmentVariable[hashKey]));
                 }
             }
+            context.RunConfig_EphemeralStorage = this.RunConfig_EphemeralStorage;
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;
             context.RunConfig_TimeoutInSecond = this.RunConfig_TimeoutInSecond;
             context.RuntimeVersion = this.RuntimeVersion;
@@ -759,6 +774,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (requestRunConfig_runConfig_EnvironmentVariable != null)
                 {
                     request.RunConfig.EnvironmentVariables = requestRunConfig_runConfig_EnvironmentVariable;
+                    requestRunConfigIsNull = false;
+                }
+                System.Int32? requestRunConfig_runConfig_EphemeralStorage = null;
+                if (cmdletContext.RunConfig_EphemeralStorage != null)
+                {
+                    requestRunConfig_runConfig_EphemeralStorage = cmdletContext.RunConfig_EphemeralStorage.Value;
+                }
+                if (requestRunConfig_runConfig_EphemeralStorage != null)
+                {
+                    request.RunConfig.EphemeralStorage = requestRunConfig_runConfig_EphemeralStorage.Value;
                     requestRunConfigIsNull = false;
                 }
                 System.Int32? requestRunConfig_runConfig_MemoryInMB = null;
@@ -975,6 +1000,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public List<System.String> ResourcesToReplicateTag { get; set; }
             public System.Boolean? RunConfig_ActiveTracing { get; set; }
             public Dictionary<System.String, System.String> RunConfig_EnvironmentVariable { get; set; }
+            public System.Int32? RunConfig_EphemeralStorage { get; set; }
             public System.Int32? RunConfig_MemoryInMB { get; set; }
             public System.Int32? RunConfig_TimeoutInSecond { get; set; }
             public System.String RuntimeVersion { get; set; }

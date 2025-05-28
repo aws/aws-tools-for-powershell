@@ -21336,6 +21336,8 @@ Set-Alias -Name Create-NWFWRuleGroup -Value New-NWFWRuleGroup
 Set-Alias -Name NWFW-CreateRuleGroup -Value New-NWFWRuleGroup
 Set-Alias -Name Create-NWFWTLSInspectionConfiguration -Value New-NWFWTLSInspectionConfiguration
 Set-Alias -Name NWFW-CreateTLSInspectionConfiguration -Value New-NWFWTLSInspectionConfiguration
+Set-Alias -Name Create-NWFWVpcEndpointAssociation -Value New-NWFWVpcEndpointAssociation
+Set-Alias -Name NWFW-CreateVpcEndpointAssociation -Value New-NWFWVpcEndpointAssociation
 Set-Alias -Name Delete-NWFWFirewall -Value Remove-NWFWFirewall
 Set-Alias -Name NWFW-DeleteFirewall -Value Remove-NWFWFirewall
 Set-Alias -Name Delete-NWFWFirewallPolicy -Value Remove-NWFWFirewallPolicy
@@ -21346,8 +21348,12 @@ Set-Alias -Name Delete-NWFWRuleGroup -Value Remove-NWFWRuleGroup
 Set-Alias -Name NWFW-DeleteRuleGroup -Value Remove-NWFWRuleGroup
 Set-Alias -Name Delete-NWFWTLSInspectionConfiguration -Value Remove-NWFWTLSInspectionConfiguration
 Set-Alias -Name NWFW-DeleteTLSInspectionConfiguration -Value Remove-NWFWTLSInspectionConfiguration
+Set-Alias -Name Delete-NWFWVpcEndpointAssociation -Value Remove-NWFWVpcEndpointAssociation
+Set-Alias -Name NWFW-DeleteVpcEndpointAssociation -Value Remove-NWFWVpcEndpointAssociation
 Set-Alias -Name Describe-NWFWFirewall -Value Get-NWFWFirewall
 Set-Alias -Name NWFW-DescribeFirewall -Value Get-NWFWFirewall
+Set-Alias -Name Describe-NWFWFirewallMetadata -Value Get-NWFWFirewallMetadata
+Set-Alias -Name NWFW-DescribeFirewallMetadata -Value Get-NWFWFirewallMetadata
 Set-Alias -Name Describe-NWFWFirewallPolicy -Value Get-NWFWFirewallPolicy
 Set-Alias -Name NWFW-DescribeFirewallPolicy -Value Get-NWFWFirewallPolicy
 Set-Alias -Name Describe-NWFWFlowOperation -Value Get-NWFWFlowOperation
@@ -21362,6 +21368,8 @@ Set-Alias -Name Describe-NWFWRuleGroupMetadata -Value Get-NWFWRuleGroupMetadata
 Set-Alias -Name NWFW-DescribeRuleGroupMetadata -Value Get-NWFWRuleGroupMetadata
 Set-Alias -Name Describe-NWFWTLSInspectionConfiguration -Value Get-NWFWTLSInspectionConfiguration
 Set-Alias -Name NWFW-DescribeTLSInspectionConfiguration -Value Get-NWFWTLSInspectionConfiguration
+Set-Alias -Name Describe-NWFWVpcEndpointAssociation -Value Get-NWFWVpcEndpointAssociation
+Set-Alias -Name NWFW-DescribeVpcEndpointAssociation -Value Get-NWFWVpcEndpointAssociation
 Set-Alias -Name Disassociate-NWFWSubnets -Value Unregister-NWFWSubnet
 Set-Alias -Name Disassociate-NWFWSubnet -Value Unregister-NWFWSubnet
 Set-Alias -Name NWFW-DisassociateSubnets -Value Unregister-NWFWSubnet
@@ -21389,6 +21397,9 @@ Set-Alias -Name NWFW-ListTagsForResource -Value Get-NWFWResourceTag
 Set-Alias -Name List-NWFWTLSInspectionConfigurations -Value Get-NWFWTLSInspectionConfigurationList
 Set-Alias -Name List-NWFWTLSInspectionConfigurationList -Value Get-NWFWTLSInspectionConfigurationList
 Set-Alias -Name NWFW-ListTLSInspectionConfigurations -Value Get-NWFWTLSInspectionConfigurationList
+Set-Alias -Name List-NWFWVpcEndpointAssociations -Value Get-NWFWVpcEndpointAssociationList
+Set-Alias -Name List-NWFWVpcEndpointAssociationList -Value Get-NWFWVpcEndpointAssociationList
+Set-Alias -Name NWFW-ListVpcEndpointAssociations -Value Get-NWFWVpcEndpointAssociationList
 Set-Alias -Name Put-NWFWResourcePolicy -Value Write-NWFWResourcePolicy
 Set-Alias -Name NWFW-PutResourcePolicy -Value Write-NWFWResourcePolicy
 Set-Alias -Name NWFW-StartAnalysisReport -Value Start-NWFWAnalysisReport

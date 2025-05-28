@@ -131,6 +131,20 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.Collections.Hashtable RunConfig_EnvironmentVariable { get; set; }
         #endregion
         
+        #region Parameter RunConfig_EphemeralStorage
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of ephemeral storage (in MB) to allocate for the canary run during
+        /// execution. This temporary storage is used for storing canary run artifacts (which
+        /// are uploaded to an Amazon S3 bucket at the end of the run), and any canary browser
+        /// operations. This temporary storage is cleared after the run is completed. Default
+        /// storage value is 1024 MB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RunConfig_EphemeralStorage { get; set; }
+        #endregion
+        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -146,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter FailureRetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain data on the failed runs for this canary. The valid range
-        /// is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// <para>The number of days to retain data about failed runs of this canary. If you omit this
+        /// field, the default of 31 days is used. The valid range is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
         /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
@@ -224,8 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specifies whether to also delete the Lambda functions and layers used by this canary
-        /// when the canary is deleted. If the value of this parameter is <c>AUTOMATIC</c>, it
-        /// means that the Lambda functions and layers will be deleted when the canary is deleted.</para><para>If the value of this parameter is <c>OFF</c>, then the value of the <c>DeleteLambda</c>
+        /// when the canary is deleted. If you omit this parameter, the default of <c>AUTOMATIC</c>
+        /// is used, which means that the Lambda functions and layers will be deleted when the
+        /// canary is deleted.</para><para>If the value of this parameter is <c>OFF</c>, then the value of the <c>DeleteLambda</c>
         /// parameter of the <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html">DeleteCanary</a>
         /// operation determines whether the Lambda functions and layers will be deleted.</para>
         /// </para>
@@ -250,8 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>If your canary script is located in S3, specify the bucket name here. Do not include
-        /// <c>s3://</c> as the start of the bucket name.</para>
+        /// <para>If your canary script is located in Amazon S3, specify the bucket name here. Do not
+        /// include <c>s3://</c> as the start of the bucket name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Key
         /// <summary>
         /// <para>
-        /// <para>The S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working
+        /// <para>The Amazon S3 key of your script. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingObjects.html">Working
         /// with Amazon S3 Objects</a>.</para>
         /// </para>
         /// </summary>
@@ -272,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter Code_S3Version
         /// <summary>
         /// <para>
-        /// <para>The S3 version ID of your script.</para>
+        /// <para>The Amazon S3 version ID of your script.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,8 +319,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter SuccessRetentionPeriodInDay
         /// <summary>
         /// <para>
-        /// <para>The number of days to retain data on the failed runs for this canary. The valid range
-        /// is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
+        /// <para>The number of days to retain data about successful runs of this canary. If you omit
+        /// this field, the default of 31 days is used. The valid range is 1 to 455 days.</para><para>This setting affects the range of information returned by <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.html">GetCanaryRuns</a>,
         /// as well as the range of information displayed in the Synthetics console. </para>
         /// </para>
         /// </summary>
@@ -331,9 +346,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>If you input your canary script directly into the canary instead of referring to an
-        /// S3 location, the value of this parameter is the base64-encoded contents of the .zip
-        /// file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an S3 location instead of inputting
-        /// it directly with this parameter.</para>
+        /// Amazon S3 location, the value of this parameter is the base64-encoded contents of
+        /// the .zip file that contains the script. It must be smaller than 225 Kb.</para><para>For large canary scripts, we recommend that you use an Amazon S3 location instead
+        /// of inputting it directly with this parameter.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -431,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     context.RunConfig_EnvironmentVariable.Add((String)hashKey, (System.String)(this.RunConfig_EnvironmentVariable[hashKey]));
                 }
             }
+            context.RunConfig_EphemeralStorage = this.RunConfig_EphemeralStorage;
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;
             context.RunConfig_TimeoutInSecond = this.RunConfig_TimeoutInSecond;
             context.RuntimeVersion = this.RuntimeVersion;
@@ -617,6 +633,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                     request.RunConfig.EnvironmentVariables = requestRunConfig_runConfig_EnvironmentVariable;
                     requestRunConfigIsNull = false;
                 }
+                System.Int32? requestRunConfig_runConfig_EphemeralStorage = null;
+                if (cmdletContext.RunConfig_EphemeralStorage != null)
+                {
+                    requestRunConfig_runConfig_EphemeralStorage = cmdletContext.RunConfig_EphemeralStorage.Value;
+                }
+                if (requestRunConfig_runConfig_EphemeralStorage != null)
+                {
+                    request.RunConfig.EphemeralStorage = requestRunConfig_runConfig_EphemeralStorage.Value;
+                    requestRunConfigIsNull = false;
+                }
                 System.Int32? requestRunConfig_runConfig_MemoryInMB = null;
                 if (cmdletContext.RunConfig_MemoryInMB != null)
                 {
@@ -801,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public Amazon.Synthetics.ProvisionedResourceCleanupSetting ProvisionedResourceCleanup { get; set; }
             public System.Boolean? RunConfig_ActiveTracing { get; set; }
             public Dictionary<System.String, System.String> RunConfig_EnvironmentVariable { get; set; }
+            public System.Int32? RunConfig_EphemeralStorage { get; set; }
             public System.Int32? RunConfig_MemoryInMB { get; set; }
             public System.Int32? RunConfig_TimeoutInSecond { get; set; }
             public System.String RuntimeVersion { get; set; }

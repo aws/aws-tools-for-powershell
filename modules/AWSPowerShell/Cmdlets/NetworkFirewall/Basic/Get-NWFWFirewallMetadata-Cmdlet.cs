@@ -22,90 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.NetworkFirewall;
+using Amazon.NetworkFirewall.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Cancels the deprecation of the specified AMI.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
-    /// an Amazon EC2 AMI</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para>
+    /// Returns the high-level information about a firewall, including the Availability Zones
+    /// where the Firewall is currently in use.
     /// </summary>
-    [Cmdlet("Disable", "EC2ImageDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableImageDeprecation API operation.", Operation = new[] {"DisableImageDeprecation"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableImageDeprecationResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.DisableImageDeprecationResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.DisableImageDeprecationResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "NWFWFirewallMetadata")]
+    [OutputType("Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse")]
+    [AWSCmdlet("Calls the AWS Network Firewall DescribeFirewallMetadata API operation.", Operation = new[] {"DescribeFirewallMetadata"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse))]
+    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse",
+        "This cmdlet returns an Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse object containing multiple properties."
     )]
-    public partial class DisableEC2ImageDeprecationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetNWFWFirewallMetadataCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ImageId
+        #region Parameter FirewallArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the AMI.</para>
+        /// <para>The Amazon Resource Name (ARN) of the firewall.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ImageId { get; set; }
+        public System.String FirewallArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Return'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableImageDeprecationResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DisableImageDeprecationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse).
+        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Return";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ImageId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FirewallArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FirewallArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FirewallArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImageId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2ImageDeprecation (DisableImageDeprecation)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -115,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableImageDeprecationResponse, DisableEC2ImageDeprecationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse, GetNWFWFirewallMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,16 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ImageId;
+                context.Select = (response, cmdlet) => this.FirewallArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ImageId = this.ImageId;
-            #if MODULAR
-            if (this.ImageId == null && ParameterWasBound(nameof(this.ImageId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ImageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.FirewallArn = this.FirewallArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DisableImageDeprecationRequest();
+            var request = new Amazon.NetworkFirewall.Model.DescribeFirewallMetadataRequest();
             
-            if (cmdletContext.ImageId != null)
+            if (cmdletContext.FirewallArn != null)
             {
-                request.ImageId = cmdletContext.ImageId;
+                request.FirewallArn = cmdletContext.FirewallArn;
             }
             
             CmdletOutput output;
@@ -187,15 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DisableImageDeprecationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableImageDeprecationRequest request)
+        private Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.DescribeFirewallMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableImageDeprecation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "DescribeFirewallMetadata");
             try
             {
                 #if DESKTOP
-                return client.DisableImageDeprecation(request);
+                return client.DescribeFirewallMetadata(request);
                 #elif CORECLR
-                return client.DisableImageDeprecationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeFirewallMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -215,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ImageId { get; set; }
-            public System.Func<Amazon.EC2.Model.DisableImageDeprecationResponse, DisableEC2ImageDeprecationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Return;
+            public System.String FirewallArn { get; set; }
+            public System.Func<Amazon.NetworkFirewall.Model.DescribeFirewallMetadataResponse, GetNWFWFirewallMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

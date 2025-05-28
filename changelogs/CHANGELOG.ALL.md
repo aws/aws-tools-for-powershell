@@ -1,4 +1,26 @@
-﻿### 4.1.828 (2025-05-27 20:20Z)
+﻿### 4.1.829 (2025-05-28 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1053.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter RunConfig_EphemeralStorage.
+    * Modified cmdlet Start-CWSYNCanaryDryRun: added parameter RunConfig_EphemeralStorage.
+    * Modified cmdlet Update-CWSYNCanary: added parameter RunConfig_EphemeralStorage.
+  * Amazon Cost Optimization Hub
+    * Modified cmdlet Update-COHPreference: added parameters PreferredCommitment_PaymentOption and PreferredCommitment_Term.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Unregister-EC2Image: added parameter DeleteAssociatedSnapshot.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWFirewallMetadata leveraging the DescribeFirewallMetadata service API.
+    * Added cmdlet Get-NWFWVpcEndpointAssociation leveraging the DescribeVpcEndpointAssociation service API.
+    * Added cmdlet Get-NWFWVpcEndpointAssociationList leveraging the ListVpcEndpointAssociations service API.
+    * Added cmdlet New-NWFWVpcEndpointAssociation leveraging the CreateVpcEndpointAssociation service API.
+    * Added cmdlet Remove-NWFWVpcEndpointAssociation leveraging the DeleteVpcEndpointAssociation service API.
+    * Modified cmdlet Get-NWFWFlowOperation: added parameters VpcEndpointAssociationArn and VpcEndpointId.
+    * Modified cmdlet Get-NWFWFlowOperationList: added parameters VpcEndpointAssociationArn and VpcEndpointId.
+    * Modified cmdlet Get-NWFWFlowOperationResultList: added parameters VpcEndpointAssociationArn and VpcEndpointId.
+    * Modified cmdlet Start-NWFWFlowCapture: added parameters VpcEndpointAssociationArn and VpcEndpointId.
+    * Modified cmdlet Start-NWFWFlowFlush: added parameters VpcEndpointAssociationArn and VpcEndpointId.
+
+### 4.1.828 (2025-05-27 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1052.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Modified cmdlet New-ADCFleet: added parameter ServiceManagedEc2_StorageProfileId.

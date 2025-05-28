@@ -22,76 +22,51 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.NetworkFirewall;
+using Amazon.NetworkFirewall.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.NWFW
 {
     /// <summary>
-    /// Describes the progress of the AMI store tasks. You can describe the store tasks for
-    /// specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks
-    /// from the last 31 days.
+    /// Retrieves the metadata for the VPC endpoint associations that you have defined. If
+    /// you specify a fireawll, this returns only the endpoint associations for that firewall.
+    /// 
     /// 
     ///  
     /// <para>
-    /// For each AMI task, the response indicates if the task is <c>InProgress</c>, <c>Completed</c>,
-    /// or <c>Failed</c>. For tasks <c>InProgress</c>, the response shows the estimated progress
-    /// as a percentage.
-    /// </para><para>
-    /// Tasks are listed in reverse chronological order. Currently, only tasks from the past
-    /// 31 days can be viewed.
-    /// </para><para>
-    /// To use this API, you must have the required permissions. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-ami-store-restore.html#ami-s3-permissions">Permissions
-    /// for storing and restoring AMIs using S3</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-    /// and restore an AMI using S3</a> in the <i>Amazon EC2 User Guide</i>.
+    /// Depending on your setting for max results and the number of associations, a single
+    /// call might not return the full list. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2StoreImageTask")]
-    [OutputType("Amazon.EC2.Model.StoreImageTaskResult")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeStoreImageTasks API operation.", Operation = new[] {"DescribeStoreImageTasks"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeStoreImageTasksResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.StoreImageTaskResult or Amazon.EC2.Model.DescribeStoreImageTasksResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.StoreImageTaskResult objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeStoreImageTasksResponse) can be returned by specifying '-Select *'."
+    [Cmdlet("Get", "NWFWVpcEndpointAssociationList")]
+    [OutputType("Amazon.NetworkFirewall.Model.VpcEndpointAssociationMetadata")]
+    [AWSCmdlet("Calls the AWS Network Firewall ListVpcEndpointAssociations API operation.", Operation = new[] {"ListVpcEndpointAssociations"}, SelectReturnType = typeof(Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.NetworkFirewall.Model.VpcEndpointAssociationMetadata or Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.NetworkFirewall.Model.VpcEndpointAssociationMetadata objects.",
+        "The service call response (type Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse) can be returned by specifying '-Select *'."
     )]
-    public partial class GetEC2StoreImageTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetNWFWVpcEndpointAssociationListCmdlet : AmazonNetworkFirewallClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Filter
+        #region Parameter FirewallArn
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>task-state</c> - Returns tasks in a certain state (<c>InProgress</c> | <c>Completed</c>
-        /// | <c>Failed</c>)</para></li><li><para><c>bucket</c> - Returns task information for tasks that targeted a specific bucket.
-        /// For the filter value, specify the bucket name.</para></li></ul><note><para>When you specify the <c>ImageIds</c> parameter, any filters that you specify are ignored.
-        /// To use the filters, you must remove the <c>ImageIds</c> parameter.</para></note>
+        /// <para>The Amazon Resource Name (ARN) of the firewall.</para><para>If you don't specify this, Network Firewall retrieves all VPC endpoint associations
+        /// that you have defined.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter ImageId
-        /// <summary>
-        /// <para>
-        /// <para>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ImageIds")]
-        public System.String[] ImageId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String FirewallArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this request. To get the next page of items,
-        /// make another request with the token returned in the output. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para><para>You cannot specify this parameter and the <c>ImageIds</c> parameter in the same call.</para>
+        /// <para>The maximum number of objects that you want Network Firewall to return for this request.
+        /// If more objects are available, in the response, Network Firewall provides a <c>NextToken</c>
+        /// value that you can use in a subsequent call to get the next batch of objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned from a previous paginated request. Pagination continues from the
-        /// end of the items returned by the previous request.</para>
+        /// <para>When you request a list of objects with a <c>MaxResults</c> setting, if the number
+        /// of objects that are still available for retrieval exceeds the maximum you requested,
+        /// Network Firewall returns a <c>NextToken</c> value in the response. To retrieve the
+        /// next batch of objects, use the token returned from the prior request in your next
+        /// request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -116,13 +94,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'StoreImageTaskResults'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeStoreImageTasksResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeStoreImageTasksResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcEndpointAssociations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "StoreImageTaskResults";
+        public string Select { get; set; } = "VpcEndpointAssociations";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the FirewallArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FirewallArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FirewallArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -145,19 +133,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeStoreImageTasksResponse, GetEC2StoreImageTaskCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse, GetNWFWVpcEndpointAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.Filter != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                context.Select = (response, cmdlet) => this.FirewallArn;
             }
-            if (this.ImageId != null)
-            {
-                context.ImageId = new List<System.String>(this.ImageId);
-            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.FirewallArn = this.FirewallArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -173,18 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeStoreImageTasksRequest();
+            var request = new Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsRequest();
             
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.FirewallArn != null)
             {
-                request.Filters = cmdletContext.Filter;
-            }
-            if (cmdletContext.ImageId != null)
-            {
-                request.ImageIds = cmdletContext.ImageId;
+                request.FirewallArn = cmdletContext.FirewallArn;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -247,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeStoreImageTasksResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeStoreImageTasksRequest request)
+        private Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse CallAWSServiceOperation(IAmazonNetworkFirewall client, Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeStoreImageTasks");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Firewall", "ListVpcEndpointAssociations");
             try
             {
                 #if DESKTOP
-                return client.DescribeStoreImageTasks(request);
+                return client.ListVpcEndpointAssociations(request);
                 #elif CORECLR
-                return client.DescribeStoreImageTasksAsync(request).GetAwaiter().GetResult();
+                return client.ListVpcEndpointAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,12 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public List<System.String> ImageId { get; set; }
+            public System.String FirewallArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeStoreImageTasksResponse, GetEC2StoreImageTaskCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.StoreImageTaskResults;
+            public System.Func<Amazon.NetworkFirewall.Model.ListVpcEndpointAssociationsResponse, GetNWFWVpcEndpointAssociationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcEndpointAssociations;
         }
         
     }

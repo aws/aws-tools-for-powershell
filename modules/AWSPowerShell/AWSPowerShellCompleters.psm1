@@ -19257,10 +19257,24 @@ $COH_Completers = {
             break
         }
 
+        # Amazon.CostOptimizationHub.PaymentOption
+        "Update-COHPreference/PreferredCommitment_PaymentOption"
+        {
+            $v = "AllUpfront","NoUpfront","PartialUpfront"
+            break
+        }
+
         # Amazon.CostOptimizationHub.SavingsEstimationMode
         "Update-COHPreference/SavingsEstimationMode"
         {
             $v = "AfterDiscounts","BeforeDiscounts"
+            break
+        }
+
+        # Amazon.CostOptimizationHub.Term
+        "Update-COHPreference/PreferredCommitment_Term"
+        {
+            $v = "OneYear","ThreeYears"
             break
         }
 
@@ -19275,6 +19289,8 @@ $COH_Completers = {
 $COH_map = @{
     "MemberAccountDiscountVisibility"=@("Update-COHPreference")
     "OrderBy_Order"=@("Get-COHRecommendationList")
+    "PreferredCommitment_PaymentOption"=@("Update-COHPreference")
+    "PreferredCommitment_Term"=@("Update-COHPreference")
     "SavingsEstimationMode"=@("Update-COHPreference")
     "Status"=@("Update-COHEnrollmentStatus")
 }
@@ -52673,6 +52689,13 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.IPAddressType
+        "New-NWFWVpcEndpointAssociation/SubnetMapping_IPAddressType"
+        {
+            $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
         # Amazon.NetworkFirewall.ResourceManagedStatus
         "Get-NWFWRuleGroupList/Scope"
         {
@@ -52741,6 +52764,7 @@ $NWFW_map = @{
     "StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "SubnetMapping_IPAddressType"=@("New-NWFWVpcEndpointAssociation")
     "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 
@@ -52800,12 +52824,15 @@ $NWFW_SelectMap = @{
                "New-NWFWFirewallPolicy",
                "New-NWFWRuleGroup",
                "New-NWFWTLSInspectionConfiguration",
+               "New-NWFWVpcEndpointAssociation",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
                "Remove-NWFWResourcePolicy",
                "Remove-NWFWRuleGroup",
                "Remove-NWFWTLSInspectionConfiguration",
+               "Remove-NWFWVpcEndpointAssociation",
                "Get-NWFWFirewall",
+               "Get-NWFWFirewallMetadata",
                "Get-NWFWFirewallPolicy",
                "Get-NWFWFlowOperation",
                "Get-NWFWLoggingConfiguration",
@@ -52813,6 +52840,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
                "Get-NWFWTLSInspectionConfiguration",
+               "Get-NWFWVpcEndpointAssociation",
                "Unregister-NWFWSubnet",
                "Get-NWFWAnalysisReportResult",
                "Get-NWFWAnalysisReportList",
@@ -52823,6 +52851,7 @@ $NWFW_SelectMap = @{
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
                "Get-NWFWTLSInspectionConfigurationList",
+               "Get-NWFWVpcEndpointAssociationList",
                "Write-NWFWResourcePolicy",
                "Start-NWFWAnalysisReport",
                "Start-NWFWFlowCapture",

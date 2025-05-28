@@ -1054,7 +1054,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterImage" Verb="Unregister" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="DeregisterImage" OutputProperty="*" Verb="Unregister" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

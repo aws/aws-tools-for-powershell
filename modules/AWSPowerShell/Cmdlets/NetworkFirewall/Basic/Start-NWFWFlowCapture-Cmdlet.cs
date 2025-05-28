@@ -115,6 +115,26 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public System.Int32? MinimumFlowAgeInSecond { get; set; }
         #endregion
         
+        #region Parameter VpcEndpointAssociationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a VPC endpoint association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpointAssociationArn { get; set; }
+        #endregion
+        
+        #region Parameter VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the primary endpoint associated with a firewall.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcEndpointId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -196,6 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             }
             #endif
             context.MinimumFlowAgeInSecond = this.MinimumFlowAgeInSecond;
+            context.VpcEndpointAssociationArn = this.VpcEndpointAssociationArn;
+            context.VpcEndpointId = this.VpcEndpointId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (cmdletContext.MinimumFlowAgeInSecond != null)
             {
                 request.MinimumFlowAgeInSeconds = cmdletContext.MinimumFlowAgeInSecond.Value;
+            }
+            if (cmdletContext.VpcEndpointAssociationArn != null)
+            {
+                request.VpcEndpointAssociationArn = cmdletContext.VpcEndpointAssociationArn;
+            }
+            if (cmdletContext.VpcEndpointId != null)
+            {
+                request.VpcEndpointId = cmdletContext.VpcEndpointId;
             }
             
             CmdletOutput output;
@@ -293,6 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.String FirewallArn { get; set; }
             public List<Amazon.NetworkFirewall.Model.FlowFilter> FlowFilter { get; set; }
             public System.Int32? MinimumFlowAgeInSecond { get; set; }
+            public System.String VpcEndpointAssociationArn { get; set; }
+            public System.String VpcEndpointId { get; set; }
             public System.Func<Amazon.NetworkFirewall.Model.StartFlowCaptureResponse, StartNWFWFlowCaptureCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
