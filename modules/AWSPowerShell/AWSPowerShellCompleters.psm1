@@ -667,6 +667,16 @@ $AMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Amplify.BuildComputeType
+        {
+            ($_ -eq "New-AMPApp/JobConfig_BuildComputeType") -Or
+            ($_ -eq "Update-AMPApp/JobConfig_BuildComputeType")
+        }
+        {
+            $v = "LARGE_16GB","STANDARD_8GB","XLARGE_72GB"
+            break
+        }
+
         # Amazon.Amplify.CacheConfigType
         {
             ($_ -eq "New-AMPApp/CacheConfig_Type") -Or
@@ -735,6 +745,7 @@ $AMP_map = @{
     "AutoBranchCreationConfig_Stage"=@("New-AMPApp","Update-AMPApp")
     "CacheConfig_Type"=@("New-AMPApp","Update-AMPApp")
     "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
+    "JobConfig_BuildComputeType"=@("New-AMPApp","Update-AMPApp")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
     "SourceUrlType"=@("Start-AMPDeployment")
@@ -6627,7 +6638,7 @@ $BCMPC_Completers = {
         # Amazon.BCMPricingCalculator.WorkloadEstimateRateType
         "New-BCMPCWorkloadEstimate/RateType"
         {
-            $v = "AFTER_DISCOUNTS","BEFORE_DISCOUNTS"
+            $v = "AFTER_DISCOUNTS","AFTER_DISCOUNTS_AND_COMMITMENTS","BEFORE_DISCOUNTS"
             break
         }
 
@@ -13197,6 +13208,13 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.MaxEventSize
+        "Write-CTEventConfiguration/MaxEventSize"
+        {
+            $v = "Large","Standard"
+            break
+        }
+
         # Amazon.CloudTrail.QueryStatus
         "Get-CTQuerySummary/QueryStatus"
         {
@@ -13239,6 +13257,7 @@ $CT_map = @{
     "Frequency_Unit"=@("New-CTDashboard","Update-CTDashboard")
     "ImportStatus"=@("Get-CTImportList")
     "InsightType"=@("Get-CTInsightsMetricData")
+    "MaxEventSize"=@("Write-CTEventConfiguration")
     "QueryStatus"=@("Get-CTQuerySummary")
     "RefreshSchedule_Status"=@("New-CTDashboard","Update-CTDashboard")
     "Type"=@("Get-CTDashboardSummary")
@@ -13313,6 +13332,7 @@ $CT_SelectMap = @{
                "Invoke-CTGenerateQuery",
                "Get-CTChannel",
                "Get-CTDashboard",
+               "Get-CTEventConfiguration",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",
                "Get-CTImport",
@@ -13332,6 +13352,7 @@ $CT_SelectMap = @{
                "Get-CTResourceTag",
                "Get-CTTrailSummary",
                "Find-CTEvent",
+               "Write-CTEventConfiguration",
                "Write-CTEventSelector",
                "Write-CTInsightSelector",
                "Write-CTResourcePolicy",
@@ -20324,7 +20345,7 @@ $DSYN_Completers = {
             ($_ -eq "Update-DSYNLocationAzureBlob/AuthenticationType")
         }
         {
-            $v = "SAS"
+            $v = "NONE","SAS"
             break
         }
 
@@ -41528,6 +41549,7 @@ $IVSRT_SelectMap = @{
                "Get-IVSRTEncoderConfigurationList",
                "Get-IVSRTIngestConfigurationList",
                "Get-IVSRTParticipantEventList",
+               "Get-IVSRTParticipantReplicaList",
                "Get-IVSRTParticipantList",
                "Get-IVSRTPublicKeyList",
                "Get-IVSRTStageList",
@@ -41535,7 +41557,9 @@ $IVSRT_SelectMap = @{
                "Get-IVSRTStorageConfigurationList",
                "Get-IVSRTResourceTag",
                "Start-IVSRTComposition",
+               "Start-IVSRTParticipantReplication",
                "Stop-IVSRTComposition",
+               "Stop-IVSRTParticipantReplication",
                "Add-IVSRTResourceTag",
                "Remove-IVSRTResourceTag",
                "Update-IVSRTIngestConfiguration",
@@ -52017,6 +52041,13 @@ $MWAA_Completers = {
             break
         }
 
+        # Amazon.MWAA.WorkerReplacementStrategy
+        "Update-MWAAEnvironment/WorkerReplacementStrategy"
+        {
+            $v = "FORCED","GRACEFUL"
+            break
+        }
+
 
     }
 
@@ -52034,6 +52065,7 @@ $MWAA_map = @{
     "WebserverAccessMode"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "WebserverLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "WorkerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
+    "WorkerReplacementStrategy"=@("Update-MWAAEnvironment")
 }
 
 _awsArgumentCompleterRegistration $MWAA_Completers $MWAA_map
@@ -65044,6 +65076,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3BucketAccelerateConfiguration/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketLogging/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketNotification/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-S3BucketOwnershipControl/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketPolicy/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketReplication/ChecksumAlgorithm") -Or
             ($_ -eq "Write-S3BucketRequestPayment/ChecksumAlgorithm") -Or
@@ -65311,7 +65344,7 @@ $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
-    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","New-S3BucketMetadataTableConfiguration","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketOwnershipControl","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
     "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")

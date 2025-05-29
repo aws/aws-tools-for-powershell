@@ -122,6 +122,13 @@ $MWAA_Completers = {
             break
         }
 
+        # Amazon.MWAA.WorkerReplacementStrategy
+        "Update-MWAAEnvironment/WorkerReplacementStrategy"
+        {
+            $v = "FORCED","GRACEFUL"
+            break
+        }
+
 
     }
 
@@ -139,6 +146,7 @@ $MWAA_map = @{
     "WebserverAccessMode"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "WebserverLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "WorkerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
+    "WorkerReplacementStrategy"=@("Update-MWAAEnvironment")
 }
 
 _awsArgumentCompleterRegistration $MWAA_Completers $MWAA_map

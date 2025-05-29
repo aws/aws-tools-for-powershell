@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.1053.0",
+    "ProductVersion"    : "3.7.1054.0",
     "CoreVersion"       : "3.7.402.63",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -16,7 +16,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.407.100",
+            "Version" : "3.7.408.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -64,7 +64,7 @@
             "InPreview"               : false
         },
         "CloudTrail"        : {
-            "Version" : "3.7.403.73",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.416.33",
+            "Version" : "3.7.417.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.440.6",
+            "Version" : "3.7.441.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.421.13",
+            "Version" : "3.7.422.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -1188,7 +1188,7 @@
             "InPreview"               : false
         },
         "Amplify"                         : {
-            "Version" : "3.7.406.40",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -1204,7 +1204,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.405.3",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -1252,7 +1252,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.403.63",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -1532,7 +1532,7 @@
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "3.7.401.121",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -1828,7 +1828,7 @@
             "InPreview"               : false
         },
         "MWAA"                            : {
-            "Version" : "3.7.402.103",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -2628,7 +2628,7 @@
             "InPreview"               : false
         },
         "IVSRealTime"                         : {
-            "Version" : "3.7.405.45",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"
@@ -3140,7 +3140,7 @@
             "InPreview"               : false
         },
         "BCMPricingCalculator"                : {
-            "Version" : "3.7.404.35",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.402.63"

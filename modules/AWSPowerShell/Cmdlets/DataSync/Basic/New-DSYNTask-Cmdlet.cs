@@ -403,7 +403,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>Specifies one of the following task modes for your data transfer:</para><ul><li><para><c>ENHANCED</c> - Transfer virtually unlimited numbers of objects with higher performance
         /// than Basic mode. Enhanced mode tasks optimize the data transfer process by listing,
         /// preparing, transferring, and verifying data in parallel. Enhanced mode is currently
-        /// available for transfers between Amazon S3 locations.</para><note><para>To create an Enhanced mode task, the IAM role that you use to call the <c>CreateTask</c>
+        /// available for transfers between Amazon S3 locations, transfers between Azure Blob
+        /// and Amazon S3 without an agent, and transfers between other clouds and Amazon S3 without
+        /// an agent.</para><note><para>To create an Enhanced mode task, the IAM role that you use to call the <c>CreateTask</c>
         /// operation must have the <c>iam:CreateServiceLinkedRole</c> permission.</para></note></li><li><para><c>BASIC</c> (default) - Transfer files or objects between Amazon Web Services storage
         /// and all other supported DataSync locations. Basic mode tasks are subject to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html">quotas</a>
         /// on the number of files, objects, and directories in a dataset. Basic mode sequentially

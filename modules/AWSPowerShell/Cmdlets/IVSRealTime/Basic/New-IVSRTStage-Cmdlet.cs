@@ -99,6 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
         #endregion
         
+        #region Parameter AutoParticipantRecordingConfiguration_RecordParticipantReplica
+        /// <summary>
+        /// <para>
+        /// <para>Optional field to disable replica participant recording. If this is set to <c>false</c>
+        /// when a participant is a replica, replica participants are not recorded. Default: <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_RecordParticipantReplicas")]
+        public System.Boolean? AutoParticipantRecordingConfiguration_RecordParticipantReplica { get; set; }
+        #endregion
+        
         #region Parameter ThumbnailConfiguration_Storage
         /// <summary>
         /// <para>
@@ -237,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
             }
             context.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond = this.AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond;
+            context.AutoParticipantRecordingConfiguration_RecordParticipantReplica = this.AutoParticipantRecordingConfiguration_RecordParticipantReplica;
             context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
             context.ThumbnailConfiguration_RecordingMode = this.ThumbnailConfiguration_RecordingMode;
             if (this.ThumbnailConfiguration_Storage != null)
@@ -295,6 +308,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond != null)
             {
                 request.AutoParticipantRecordingConfiguration.RecordingReconnectWindowSeconds = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordingReconnectWindowSecond.Value;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+            System.Boolean? requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica = null;
+            if (cmdletContext.AutoParticipantRecordingConfiguration_RecordParticipantReplica != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica = cmdletContext.AutoParticipantRecordingConfiguration_RecordParticipantReplica.Value;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica != null)
+            {
+                request.AutoParticipantRecordingConfiguration.RecordParticipantReplicas = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_RecordParticipantReplica.Value;
                 requestAutoParticipantRecordingConfigurationIsNull = false;
             }
             System.String requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = null;
@@ -458,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             public System.Int32? HlsConfiguration_TargetSegmentDurationSecond { get; set; }
             public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
             public System.Int32? AutoParticipantRecordingConfiguration_RecordingReconnectWindowSecond { get; set; }
+            public System.Boolean? AutoParticipantRecordingConfiguration_RecordParticipantReplica { get; set; }
             public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
             public Amazon.IVSRealTime.ThumbnailRecordingMode ThumbnailConfiguration_RecordingMode { get; set; }
             public List<System.String> ThumbnailConfiguration_Storage { get; set; }

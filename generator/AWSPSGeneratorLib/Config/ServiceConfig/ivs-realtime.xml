@@ -117,6 +117,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListParticipantReplicas" OutputProperty="Replicas" Verb="Get" Noun="ParticipantReplicaList" PipelineParameter="SourceStageArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListParticipants" OutputProperty="Participants" Verb="Get" Noun="ParticipantList" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -145,7 +149,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartParticipantReplication" OutputProperty="*" Verb="Start" Noun="ParticipantReplication" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SourceStageArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopComposition" Verb="Stop" Noun="Composition" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false" LegacyV4Pagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopParticipantReplication" OutputProperty="*" Verb="Stop" Noun="ParticipantReplication" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SourceStageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

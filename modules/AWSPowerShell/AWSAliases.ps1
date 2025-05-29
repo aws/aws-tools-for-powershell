@@ -4762,6 +4762,7 @@ Set-Alias -Name Generate-CTGenerateQuery -Value Invoke-CTGenerateQuery
 Set-Alias -Name CT-GenerateQuery -Value Invoke-CTGenerateQuery
 Set-Alias -Name CT-GetChannel -Value Get-CTChannel
 Set-Alias -Name CT-GetDashboard -Value Get-CTDashboard
+Set-Alias -Name CT-GetEventConfiguration -Value Get-CTEventConfiguration
 Set-Alias -Name CT-GetEventDataStore -Value Get-CTEventDataStore
 Set-Alias -Name Get-CTEventSelectors -Value Get-CTEventSelector
 Set-Alias -Name CT-GetEventSelectors -Value Get-CTEventSelector
@@ -4805,6 +4806,8 @@ Set-Alias -Name CT-ListTrails -Value Get-CTTrailSummary
 Set-Alias -Name Lookup-CTEvents -Value Find-CTEvent
 Set-Alias -Name Lookup-CTEvent -Value Find-CTEvent
 Set-Alias -Name CT-LookupEvents -Value Find-CTEvent
+Set-Alias -Name Put-CTEventConfiguration -Value Write-CTEventConfiguration
+Set-Alias -Name CT-PutEventConfiguration -Value Write-CTEventConfiguration
 Set-Alias -Name Put-CTEventSelectors -Value Write-CTEventSelector
 Set-Alias -Name Put-CTEventSelector -Value Write-CTEventSelector
 Set-Alias -Name CT-PutEventSelectors -Value Write-CTEventSelector
@@ -17137,6 +17140,9 @@ Set-Alias -Name IVSRT-ListIngestConfigurations -Value Get-IVSRTIngestConfigurati
 Set-Alias -Name List-IVSRTParticipantEvents -Value Get-IVSRTParticipantEventList
 Set-Alias -Name List-IVSRTParticipantEventList -Value Get-IVSRTParticipantEventList
 Set-Alias -Name IVSRT-ListParticipantEvents -Value Get-IVSRTParticipantEventList
+Set-Alias -Name List-IVSRTParticipantReplicas -Value Get-IVSRTParticipantReplicaList
+Set-Alias -Name List-IVSRTParticipantReplicaList -Value Get-IVSRTParticipantReplicaList
+Set-Alias -Name IVSRT-ListParticipantReplicas -Value Get-IVSRTParticipantReplicaList
 Set-Alias -Name List-IVSRTParticipants -Value Get-IVSRTParticipantList
 Set-Alias -Name List-IVSRTParticipantList -Value Get-IVSRTParticipantList
 Set-Alias -Name IVSRT-ListParticipants -Value Get-IVSRTParticipantList
@@ -17154,7 +17160,9 @@ Set-Alias -Name List-IVSRTStorageConfigurationList -Value Get-IVSRTStorageConfig
 Set-Alias -Name IVSRT-ListStorageConfigurations -Value Get-IVSRTStorageConfigurationList
 Set-Alias -Name IVSRT-ListTagsForResource -Value Get-IVSRTResourceTag
 Set-Alias -Name IVSRT-StartComposition -Value Start-IVSRTComposition
+Set-Alias -Name IVSRT-StartParticipantReplication -Value Start-IVSRTParticipantReplication
 Set-Alias -Name IVSRT-StopComposition -Value Stop-IVSRTComposition
+Set-Alias -Name IVSRT-StopParticipantReplication -Value Stop-IVSRTParticipantReplication
 Set-Alias -Name IVSRT-TagResource -Value Add-IVSRTResourceTag
 Set-Alias -Name IVSRT-UntagResource -Value Remove-IVSRTResourceTag
 Set-Alias -Name IVSRT-UpdateIngestConfiguration -Value Update-IVSRTIngestConfiguration

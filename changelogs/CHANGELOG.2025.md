@@ -1,4 +1,30 @@
-﻿### 4.1.829 (2025-05-28 20:44Z)
+﻿### 4.1.830 (2025-05-29 20:24Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1054.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonMWAA
+    * Modified cmdlet Update-MWAAEnvironment: added parameter WorkerReplacementStrategy.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPApp: added parameter JobConfig_BuildComputeType.
+    * Modified cmdlet Update-AMPApp: added parameter JobConfig_BuildComputeType.
+  * Amazon CloudTrail
+    * Added cmdlet Get-CTEventConfiguration leveraging the GetEventConfiguration service API.
+    * Added cmdlet Write-CTEventConfiguration leveraging the PutEventConfiguration service API.
+  * Amazon Data Exchange
+    * Modified cmdlet New-DTEXEventAction: added parameter Tag.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationAzureBlob: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet New-DSYNLocationObjectStorage: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationAzureBlob: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+    * Modified cmdlet Update-DSYNLocationObjectStorage: added parameters CmkSecretConfig_KmsKeyArn, CmkSecretConfig_SecretArn, CustomSecretConfig_SecretAccessRoleArn and CustomSecretConfig_SecretArn.
+  * Amazon Interactive Video Service RealTime
+    * Added cmdlet Get-IVSRTParticipantReplicaList leveraging the ListParticipantReplicas service API.
+    * Added cmdlet Start-IVSRTParticipantReplication leveraging the StartParticipantReplication service API.
+    * Added cmdlet Stop-IVSRTParticipantReplication leveraging the StopParticipantReplication service API.
+    * Modified cmdlet New-IVSRTStage: added parameter AutoParticipantRecordingConfiguration_RecordParticipantReplica.
+    * Modified cmdlet Update-IVSRTStage: added parameter AutoParticipantRecordingConfiguration_RecordParticipantReplica.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3BucketOwnershipControl: added parameter ChecksumAlgorithm.
+
+### 4.1.829 (2025-05-28 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.1053.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/aws-sdk-net-v3.7/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Synthetics
     * Modified cmdlet New-CWSYNCanary: added parameter RunConfig_EphemeralStorage.

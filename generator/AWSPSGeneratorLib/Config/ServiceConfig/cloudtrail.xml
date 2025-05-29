@@ -27,7 +27,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-CTTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Add-CTTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -105,11 +105,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEventConfiguration" OutputProperty="*" Verb="Get" Noun="EventConfiguration" PipelineParameter="EventDataStore" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEventDataStore" OutputProperty="*" Verb="Get" Noun="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false" LegacyV4Pagination="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventSelectors" OutputProperty="*" Verb="Get" Noun="EventSelector" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Get-CTEventSelectors" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="GetEventSelectors" OutputProperty="*" Verb="Get" Noun="EventSelector" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Get-CTEventSelectors">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -169,7 +173,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="ResourceTagList" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CTTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="ListTags" OutputProperty="ResourceTagList" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Get-CTTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,11 +181,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="LookupEvents" OutputProperty="Events" Verb="Find" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Find-CTEvents" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="LookupEvents" OutputProperty="Events" Verb="Find" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyV4Pagination="true" LegacyAlias="Find-CTEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEventSelectors" OutputProperty="*" Verb="Write" Noun="EventSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Write-CTEventSelectors" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="PutEventConfiguration" OutputProperty="*" Verb="Write" Noun="EventConfiguration" ShouldProcessTarget="MaxEventSize" PipelineParameter="MaxEventSize" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEventSelectors" OutputProperty="*" Verb="Write" Noun="EventSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Write-CTEventSelectors">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -197,7 +205,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-CTTag" LegacyV4Pagination="true">
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyV4Pagination="true" LegacyAlias="Remove-CTTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

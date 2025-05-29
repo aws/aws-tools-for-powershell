@@ -451,6 +451,19 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public System.String WeeklyMaintenanceWindowStart { get; set; }
         #endregion
         
+        #region Parameter WorkerReplacementStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The worker replacement strategy to use when updating the environment.</para><para>You can select one of the following strategies:</para><ul><li><para><b>Forced -</b> Stops and replaces Apache Airflow workers without waiting for tasks
+        /// to complete before an update.</para></li><li><para><b>Graceful -</b> Allows Apache Airflow workers to complete running tasks for up
+        /// to 12 hours during an update before they're stopped and replaced.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MWAA.WorkerReplacementStrategy")]
+        public Amazon.MWAA.WorkerReplacementStrategy WorkerReplacementStrategy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Arn'.
@@ -560,6 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             context.StartupScriptS3Path = this.StartupScriptS3Path;
             context.WebserverAccessMode = this.WebserverAccessMode;
             context.WeeklyMaintenanceWindowStart = this.WeeklyMaintenanceWindowStart;
+            context.WorkerReplacementStrategy = this.WorkerReplacementStrategy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -859,6 +873,10 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.WeeklyMaintenanceWindowStart = cmdletContext.WeeklyMaintenanceWindowStart;
             }
+            if (cmdletContext.WorkerReplacementStrategy != null)
+            {
+                request.WorkerReplacementStrategy = cmdletContext.WorkerReplacementStrategy;
+            }
             
             CmdletOutput output;
             
@@ -951,6 +969,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.String StartupScriptS3Path { get; set; }
             public Amazon.MWAA.WebserverAccessMode WebserverAccessMode { get; set; }
             public System.String WeeklyMaintenanceWindowStart { get; set; }
+            public Amazon.MWAA.WorkerReplacementStrategy WorkerReplacementStrategy { get; set; }
             public System.Func<Amazon.MWAA.Model.UpdateEnvironmentResponse, UpdateMWAAEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }

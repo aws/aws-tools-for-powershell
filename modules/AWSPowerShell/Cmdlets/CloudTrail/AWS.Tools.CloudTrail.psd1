@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CTChannelSummary', 
         'Get-CTDashboard', 
         'Get-CTDashboardSummary', 
+        'Get-CTEventConfiguration', 
         'Get-CTEventDataStore', 
         'Get-CTEventDataStoreSummary', 
         'Get-CTEventSelector', 
@@ -142,6 +143,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CTDashboard', 
         'Update-CTEventDataStore', 
         'Update-CTTrail', 
+        'Write-CTEventConfiguration', 
         'Write-CTEventSelector', 
         'Write-CTInsightSelector', 
         'Write-CTResourcePolicy')
